@@ -97,6 +97,13 @@ class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
             if (Globals.debug) {
                 System.println("HomeAssistantToggleMenuItem Note - getState(): No Internet connection, skipping API call.");
             }
+            new Alert({
+                :timeout => Globals.alertTimeout,
+                :font    => Graphics.FONT_SYSTEM_MEDIUM,
+                :text    => "No Internet connection",
+                :fgcolor => Graphics.COLOR_RED,
+                :bgcolor => Graphics.COLOR_BLACK
+            }).pushView(WatchUi.SLIDE_IMMEDIATE);
         }
     }
 
@@ -154,6 +161,13 @@ class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
             if (Globals.debug) {
                 System.println("HomeAssistantToggleMenuItem Note - setState(): No Internet connection, skipping API call.");
             }
+            new Alert({
+                :timeout => Globals.alertTimeout,
+                :font    => Graphics.FONT_SYSTEM_MEDIUM,
+                :text    => "No Internet connection",
+                :fgcolor => Graphics.COLOR_RED,
+                :bgcolor => Graphics.COLOR_BLACK
+            }).pushView(WatchUi.SLIDE_IMMEDIATE);
         }
     }
 

@@ -13,14 +13,14 @@
 -->
 
 <properties>
-  <property id="api_key"    type="string">eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiI1OTEzODI3NzhiNDI0MzU5OGVmYzY4ZmM2YzZiZTU3ZCIsImlhdCI6MTY5ODU3MDg0MywiZXhwIjoyMDEzOTMwODQzfQ.vskr0ERbnEXjB51vVHwlXosy3JK3v1znHzv8Hiej8zA</property>
+  <property id="api_key"    type="string"></property>
 
   <!--
     Internal URL "https://homeassistant.local/api"
     External URL "https://<dynamic DNS>/api"
   -->
-  <property id="api_url"    type="string">https://home.abbey1.org.uk/api</property>
+  <property id="api_url"    type="string"></property>
 
   <!-- Best be a public URL in order to work away from your home LAN and have a trusted HTTPS certificate -->
-  <property id="config_url" type="string">https://home.abbey1.org.uk/local/garmin/philip.json</property>
+  <property id="config_url" type="string"></property>
 </properties>

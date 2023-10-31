@@ -72,7 +72,7 @@ class HomeAssistantApp extends Application.AppBase {
             new Alert({
                 :timeout => Globals.alertTimeout,
                 :font    => Graphics.FONT_SYSTEM_MEDIUM,
-                :text    => "Error " + responseCode,
+                :text    => "onReturnFetchMenuConfig Error " + responseCode,
                 :fgcolor => Graphics.COLOR_RED,
                 :bgcolor => Graphics.COLOR_BLACK
             }).pushView(WatchUi.SLIDE_IMMEDIATE);

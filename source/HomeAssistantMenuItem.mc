@@ -86,6 +86,13 @@ class HomeAssistantMenuItem extends WatchUi.MenuItem {
             if (Globals.debug) {
                 System.println("HomeAssistantMenuItem Note - executeScript(): No Internet connection, skipping API call.");
             }
+            new Alert({
+                :timeout => Globals.alertTimeout,
+                :font    => Graphics.FONT_SYSTEM_MEDIUM,
+                :text    => "No Internet connection",
+                :fgcolor => Graphics.COLOR_RED,
+                :bgcolor => Graphics.COLOR_BLACK
+            }).pushView(WatchUi.SLIDE_IMMEDIATE);
         }
     }
 
