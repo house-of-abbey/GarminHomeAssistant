@@ -1,8 +1,42 @@
+<!--
+
+   Distributed under MIT Licence
+     See https://github.com/house-of-abbey/GarminHomeAssistant/blob/main/LICENSE.
+
+
+   GarminHomeAssistant is a Garmin IQ application written in Monkey C and routinely
+   tested on a Venu 2 device. The source code is provided at:
+              https://github.com/house-of-abbey/GarminHomeAssistant.
+
+   P A Abbey & J D Abbey, 31 October 2023
+
+-->
+
 <settings>
   <setting
     propertyKey="@Properties.api_key"
     title="API Key for Home Assistant"
     prompt="Long-Lived Access Token"
+  >
+    <settingConfig
+      type="alphaNumeric"
+    />
+  </setting>
+
+  <setting
+    propertyKey="@Properties.api_url"
+    title="URL for Home Assistant API"
+    prompt="https://homeassistant.local/api"
+  >
+    <settingConfig
+      type="alphaNumeric"
+    />
+  </setting>
+
+  <setting
+    propertyKey="@Properties.config_url"
+    title="URL for menu configuration (JSON)"
+    prompt="https://homeassistant.local/local/garmin/menu.json"
   >
     <settingConfig
       type="alphaNumeric"

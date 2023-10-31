@@ -1,14 +1,32 @@
-import Toybox.Lang;
-import Toybox.WatchUi;
-import Toybox.Graphics;
+//-----------------------------------------------------------------------------------
+//
+// Distributed under MIT Licence
+//   See https://github.com/house-of-abbey/GarminHomeAssistant/blob/main/LICENSE.
+//
+//-----------------------------------------------------------------------------------
+//
+// GarminHomeAssistant is a Garmin IQ application written in Monkey C and routinely
+// tested on a Venu 2 device. The source code is provided at:
+//            https://github.com/house-of-abbey/GarminHomeAssistant.
+//
+// P A Abbey & J D Abbey, 31 October 2023
+//
+//
+// Description:
+//
+// Light or switch toggle button that calls the API to maintain the up to date state.
+//
+//-----------------------------------------------------------------------------------
+
+using Toybox.Lang;
+using Toybox.WatchUi;
+using Toybox.Graphics;
 using Toybox.Application.Properties;
 
 class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
     hidden var api_key = Properties.getValue("api_key");
-    hidden var menu;
 
     function initialize(
-        menu as HomeAssistantView,
         label as Lang.String or Lang.Symbol,
         subLabel as Lang.String or Lang.Symbol or {
             :enabled  as Lang.String or Lang.Symbol or Null,
@@ -17,23 +35,23 @@ class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
         identifier,
         enabled as Lang.Boolean,
         options as {
-            :alignment as MenuItem.Alignment,
+            :alignment as WatchUi.MenuItem.Alignment,
             :icon as Graphics.BitmapType or WatchUi.Drawable or Lang.Symbol
         } or Null
     ) {
         WatchUi.ToggleMenuItem.initialize(label, subLabel, identifier, enabled, options);
         api_key = Properties.getValue("api_key");
-        self.menu = menu;
     }
 
     private function setUiToggle(state as Null or Lang.String) as Void {
         if (state != null) {
             if (state.equals("on") && !isEnabled()) {
                 setEnabled(true);
+                WatchUi.requestUpdate();
             } else if (state.equals("off") && isEnabled()) {
                 setEnabled(false);
+                WatchUi.requestUpdate();
             }
-            WatchUi.requestUpdate();
         }
     }
 
@@ -65,7 +83,7 @@ class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
             :responseType => Communications.HTTP_RESPONSE_CONTENT_TYPE_JSON
         };
         if (System.getDeviceSettings().phoneConnected && System.getDeviceSettings().connectionAvailable) {
-            var url = Globals.getApiUrl() + "/states/" + mIdentifier;
+            var url = Properties.getValue("api_url") + "/states/" + mIdentifier;
             if (Globals.debug) {
                 System.println("URL=" + url);
             }
@@ -116,9 +134,9 @@ class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
         if (System.getDeviceSettings().phoneConnected && System.getDeviceSettings().connectionAvailable) {
             var url;
             if (s) {
-                url = Globals.getApiUrl() + "/services/" + mIdentifier.substring(0, mIdentifier.find(".")) + "/turn_on";
+                url = Properties.getValue("api_url") + "/services/" + mIdentifier.substring(0, mIdentifier.find(".")) + "/turn_on";
             } else {
-                url = Globals.getApiUrl() + "/services/" + mIdentifier.substring(0, mIdentifier.find(".")) + "/turn_off";
+                url = Properties.getValue("api_url") + "/services/" + mIdentifier.substring(0, mIdentifier.find(".")) + "/turn_off";
             }
             if (Globals.debug) {
                 System.println("URL=" + url);

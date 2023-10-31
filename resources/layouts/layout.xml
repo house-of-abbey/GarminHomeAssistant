@@ -1,6 +1,0 @@
-<layout id="MainLayout">
-    <label x="center" y="5" text="@Strings.prompt" color="Graphics.COLOR_BLACK" justification="Graphics.TEXT_JUSTIFY_CENTER" />
-    <!--
-    <bitmap id="id_monkey" x="center" y="30" filename="../drawables/monkey.png" />
-    -->
-</layout>

@@ -1,6 +1,26 @@
-import Toybox.Lang;
-import Toybox.WatchUi;
-import Toybox.Graphics;
+//-----------------------------------------------------------------------------------
+//
+// Distributed under MIT Licence
+//   See https://github.com/house-of-abbey/GarminHomeAssistant/blob/main/LICENSE.
+//
+//-----------------------------------------------------------------------------------
+//
+// GarminHomeAssistant is a Garmin IQ application written in Monkey C and routinely
+// tested on a Venu 2 device. The source code is provided at:
+//            https://github.com/house-of-abbey/GarminHomeAssistant.
+//
+// P A Abbey & J D Abbey, 31 October 2023
+//
+//
+// Description:
+//
+// Menu button that triggers a script.
+//
+//-----------------------------------------------------------------------------------
+
+using Toybox.Lang;
+using Toybox.WatchUi;
+using Toybox.Graphics;
 using Toybox.Application.Properties;
 
 class HomeAssistantMenuItem extends WatchUi.MenuItem {
@@ -11,7 +31,7 @@ class HomeAssistantMenuItem extends WatchUi.MenuItem {
         subLabel as Lang.String or Lang.Symbol or Null,
         identifier as Lang.Object or Null,
         options as {
-            :alignment as MenuItem.Alignment,
+            :alignment as WatchUi.MenuItem.Alignment,
             :icon      as Graphics.BitmapType or WatchUi.Drawable or Lang.Symbol
         } or Null
     ) {
@@ -51,7 +71,7 @@ class HomeAssistantMenuItem extends WatchUi.MenuItem {
             :responseType => Communications.HTTP_RESPONSE_CONTENT_TYPE_JSON
         };
         if (System.getDeviceSettings().phoneConnected && System.getDeviceSettings().connectionAvailable) {
-            var url = Globals.getApiUrl() + "/services/" + mIdentifier.substring(0, mIdentifier.find(".")) + "/" + mIdentifier.substring(mIdentifier.find(".")+1, null);
+            var url = Properties.getValue("api_url") + "/services/" + mIdentifier.substring(0, mIdentifier.find(".")) + "/" + mIdentifier.substring(mIdentifier.find(".")+1, null);
             if (Globals.debug) {
                 System.println("URL=" + url);
                 System.println("mIdentifier=" + mIdentifier);

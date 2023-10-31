@@ -1,93 +1,89 @@
-import Toybox.Lang;
-import Toybox.Graphics;
-import Toybox.WatchUi;
+//-----------------------------------------------------------------------------------
+//
+// Distributed under MIT Licence
+//   See https://github.com/house-of-abbey/GarminHomeAssistant/blob/main/LICENSE.
+//
+//-----------------------------------------------------------------------------------
+//
+// GarminHomeAssistant is a Garmin IQ application written in Monkey C and routinely
+// tested on a Venu 2 device. The source code is provided at:
+//            https://github.com/house-of-abbey/GarminHomeAssistant.
+//
+// P A Abbey & J D Abbey, 31 October 2023
+//
+//
+// Description:
+//
+// Home Assistant menu construction.
+//
+//-----------------------------------------------------------------------------------
+
+using Toybox.Lang;
+using Toybox.Graphics;
+using Toybox.WatchUi;
 
 class HomeAssistantView extends WatchUi.Menu2 {
-    hidden var timer;
 
-    function initialize() {
-        timer = new Timer.Timer();
-
+    function initialize(
+        definition as Lang.Dictionary,
+        options as {
+            :focus as Lang.Number,
+            :icon  as Graphics.BitmapType or WatchUi.Drawable or Lang.Symbol,
+            :theme as WatchUi.MenuTheme or Null
+        } or Null
+    ) {
         var toggle_obj = {
             :enabled  => "On",
             :disabled => "Off"
         };
 
-        WatchUi.Menu2.initialize({
-            :title => "Entities"
-        });
-        addItem(
-            new HomeAssistantToggleMenuItem(
-                self,
-                "Bedroom Light",
-                toggle_obj,
-                "light.philip_s_bedside_light_switch",
-                false,
-                null
-            )
-        );
-        addItem(
-            new HomeAssistantToggleMenuItem(
-                self,
-                "Lounge Lights",
-                toggle_obj,
-                "light.living_room_ambient_lights_all",
-                false,
-                null
-            )
-        );
-        addItem(
-            new HomeAssistantMenuItem(
-                "Food is Ready!",
-                null,
-                "script.food_is_ready",
-                null
-            )
-        );
-        // addItem(
-        //     new HomeAssistantMenuItem(
-        //         "Test Script",
-        //         null,
-        //         "script.test",
-        //         null
-        //     )
-        // );
-        addItem(
-            new HomeAssistantToggleMenuItem(
-                self,
-                "Bookcase USBs",
-                toggle_obj,
-                "switch.bookcase_usbs",
-                false,
-                null
-            )
-        );
-        addItem(
-            new HomeAssistantToggleMenuItem(
-                self,
-                "Corner Table USBs",
-                toggle_obj,
-                "switch.corner_table_usbs",
-                false,
-                null
-            )
-        );
-    }
+        if (options == null) {
+            options = {
+                :title => definition.get("title") as Lang.String
+            };
+        } else {
+            options.put(:title, definition.get("title") as Lang.String);
+        }
+        WatchUi.Menu2.initialize(options);
 
-    // Load your resources here
-    function onLayout(dc as Dc) as Void {
-        setLayout(Rez.Layouts.MainLayout(dc));
+        var items = definition.get("items") as Lang.Dictionary;
+        for(var i = 0; i < items.size(); i++) {
+            var type   = items[i].get("type")   as Lang.String or Null;
+            var name   = items[i].get("name")   as Lang.String or Null;
+            var entity = items[i].get("entity") as Lang.String or Null;
+            if (type != null && name != null && entity != null) {
+                if (type.equals("toggle")) {
+                    addItem(
+                        new HomeAssistantToggleMenuItem(
+                            name,
+                            toggle_obj,
+                            entity,
+                            false,
+                            null
+                        )
+                    );
+                } else if (type.equals("tap")) {
+                    addItem(
+                        new HomeAssistantMenuItem(
+                            name,
+                            "Tap",
+                            entity,
+                            null
+                        )
+                    );
+                } else if (type.equals("group")) {
+                    addItem(
+                        new HomeAssistantViewMenuItem(items[i])
+                    );
+                }
+            }
+        }
     }
 
     // Called when this View is brought to the foreground. Restore
     // the state of this View and prepare it to be shown. This includes
     // loading resources into memory.
     function onShow() as Void {
-        timer.start(
-            method(:timerUpdate),
-            Globals.updateInterval * 1000,
-            true
-        );
         for(var i = 0; i < mItems.size(); i++) {
             if (mItems[i] instanceof HomeAssistantToggleMenuItem) {
                 var toggleItem = mItems[i] as HomeAssistantToggleMenuItem;
@@ -99,26 +95,20 @@ class HomeAssistantView extends WatchUi.Menu2 {
         }
     }
 
-    // Update the view
-    function onUpdate(dc as Dc) as Void {
-        View.onUpdate(dc);
-    }
-
-    // Called when this View is removed from the screen. Save the
-    // state of this View here. This includes freeing resources from
-    // memory.
-    function onHide() as Void {
-        timer.stop();
-    }
-
-    function timerUpdate() as Void {
+    function stateUpdate() as Void {
         for(var i = 0; i < mItems.size(); i++) {
             if (mItems[i] instanceof HomeAssistantToggleMenuItem) {
                 var toggleItem = mItems[i] as HomeAssistantToggleMenuItem;
                 toggleItem.getState();
                 if (Globals.debug) {
-                    System.println("HomeAssistantView Note: " + toggleItem.getLabel() + " ID=" + toggleItem.getId() + " Enabled=" + toggleItem.isEnabled());
+                    System.println("HomeAssistantView Toggle stateUpdate: " + toggleItem.getLabel() + " ID=" + toggleItem.getId() + " Enabled=" + toggleItem.isEnabled());
                 }
+            } else if (mItems[i] instanceof HomeAssistantViewMenuItem) {
+                var menu = mItems[i] as HomeAssistantViewMenuItem;
+                if (Globals.debug) {
+                    System.println("HomeAssistantView Menu stateUpdate: " + menu.getLabel() + " ID=" + menu.getId());
+                }
+                menu.getMenuView().stateUpdate();
             }
         }
     }
@@ -144,6 +134,13 @@ class HomeAssistantViewDelegate extends WatchUi.Menu2InputDelegate {
                 System.println(haItem.getLabel() + " " + haItem.getId());
             }
             haItem.execScript();
+        } else if (item instanceof HomeAssistantViewMenuItem) {
+            var haMenuItem = item as HomeAssistantViewMenuItem;
+            if (Globals.debug) {
+                System.println("Menu: " + haMenuItem.getLabel() + " " + haMenuItem.getId());
+            }
+            // No delegate state to be amended, so re-use 'self'.
+            WatchUi.pushView(haMenuItem.getMenuView(), self, WatchUi.SLIDE_LEFT);
         } else {
             if (Globals.debug) {
                 System.println(item.getLabel() + " " + item.getId());
@@ -151,4 +148,16 @@ class HomeAssistantViewDelegate extends WatchUi.Menu2InputDelegate {
         }
     }
 
+    function onSwipe(swipeEvent) as Lang.Boolean {
+        switch (swipeEvent.getDirection()) {
+            case WatchUi.SWIPE_RIGHT:
+                WatchUi.popView(WatchUi.SLIDE_RIGHT);
+                break;
+
+            default:
+                // Do nothing
+                break;
+        }
+        return true;
+    }
 }
