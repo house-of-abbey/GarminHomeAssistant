@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "title": { "type": "string" },
+    "items": { "$ref": "#/$defs/items" },
+    "additionalProperties": false
+  },
+  "$defs": {
+    "item": {
+      "type": "object",
+      "properties": {
+        "entity": { "$ref": "#/$defs/entity" },
+        "name": { "type": "string" },
+        "type": { "enum": ["toggle", "tap"] }
+      },
+      "additionalProperties": false
+    },
+    "menu": {
+      "type": "object",
+      "properties": {
+        "entity": { "$ref": "#/$defs/entity" },
+        "name": { "type": "string" },
+        "title": { "type": "string" },
+        "type": { "const": "group" },
+        "items": { "$ref": "#/$defs/items" }
+      },
+      "additionalProperties": false
+    },
+    "items": {
+      "type": "array",
+      "items": {
+        "oneOf": [{ "$ref": "#/$defs/item" }, { "$ref": "#/$defs/menu" }]
+      }
+    },
+    "entity": {
+      "type": "string",
+      "pattern": "^[^.]+\\.[^.]+$"
+    }
+  }
+}
