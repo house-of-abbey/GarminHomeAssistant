@@ -1,0 +1,11 @@
+<settings>
+  <setting
+    propertyKey="@Properties.api_key"
+    title="API Key for Home Assistant"
+    prompt="Long-Lived Access Token"
+  >
+    <settingConfig
+      type="alphaNumeric"
+    />
+  </setting>
+</settings>

@@ -1,0 +1,8 @@
+<strings>
+    <string id="AppName">HomeAssistant</string>
+
+    <string id="prompt">Click the menu button</string>
+
+    <string id="menu_label_1">Item 1</string>
+    <string id="menu_label_2">Item 2</string>
+</strings>

@@ -1,0 +1,3 @@
+<properties>
+  <property id="api_key" type="string"></property>
+</properties>
