@@ -4,6 +4,7 @@
   "properties": {
     "title": { "type": "string" },
     "items": { "$ref": "#/$defs/items" },
+    "required": ["title", "items"],
     "additionalProperties": false
   },
   "$defs": {
@@ -14,6 +15,7 @@
         "name": { "type": "string" },
         "type": { "enum": ["toggle", "tap"] }
       },
+      "required": ["entity", "name", "type"],
       "additionalProperties": false
     },
     "menu": {
@@ -25,6 +27,7 @@
         "type": { "const": "group" },
         "items": { "$ref": "#/$defs/items" }
       },
+      "required": ["entity", "name", "title", "type", "items"],
       "additionalProperties": false
     },
     "items": {
