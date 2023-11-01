@@ -148,16 +148,8 @@ class HomeAssistantViewDelegate extends WatchUi.Menu2InputDelegate {
         }
     }
 
-    function onSwipe(swipeEvent) as Lang.Boolean {
-        switch (swipeEvent.getDirection()) {
-            case WatchUi.SWIPE_RIGHT:
-                WatchUi.popView(WatchUi.SLIDE_RIGHT);
-                break;
-
-            default:
-                // Do nothing
-                break;
-        }
-        return true;
+    function onBack() {
+        WatchUi.popView(WatchUi.SLIDE_RIGHT);
     }
+
 }

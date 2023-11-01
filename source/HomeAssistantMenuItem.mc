@@ -57,6 +57,13 @@ class HomeAssistantMenuItem extends WatchUi.MenuItem {
                     if (Globals.debug) {
                         System.println("HomeAssistantMenuItem Note - onReturnExecScript(): Correct script executed.");
                     }
+                    new Alert({
+                        :timeout => Globals.alertTimeout,
+                        :font    => Graphics.FONT_SYSTEM_MEDIUM,
+                        :text    => (d[i].get("attributes") as Lang.Dictionary).get("friendly_name"),
+                        :fgcolor => Graphics.COLOR_WHITE,
+                        :bgcolor => Graphics.COLOR_BLACK
+                    }).pushView(WatchUi.SLIDE_IMMEDIATE);
                 }
             }
         }
