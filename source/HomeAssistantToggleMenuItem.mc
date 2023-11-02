@@ -25,6 +25,7 @@ using Toybox.Application.Properties;
 
 class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
     hidden var api_key = Properties.getValue("api_key");
+    hidden var strNoInternet as Lang.String;
 
     function initialize(
         label as Lang.String or Lang.Symbol,
@@ -39,6 +40,7 @@ class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
             :icon as Graphics.BitmapType or WatchUi.Drawable or Lang.Symbol
         } or Null
     ) {
+        strNoInternet = WatchUi.loadResource($.Rez.Strings.NoInternet);
         WatchUi.ToggleMenuItem.initialize(label, subLabel, identifier, enabled, options);
         api_key = Properties.getValue("api_key");
     }
@@ -100,7 +102,7 @@ class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
             new Alert({
                 :timeout => Globals.alertTimeout,
                 :font    => Graphics.FONT_SYSTEM_MEDIUM,
-                :text    => "No Internet connection",
+                :text    => strNoInternet,
                 :fgcolor => Graphics.COLOR_RED,
                 :bgcolor => Graphics.COLOR_BLACK
             }).pushView(WatchUi.SLIDE_IMMEDIATE);
@@ -164,7 +166,7 @@ class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
             new Alert({
                 :timeout => Globals.alertTimeout,
                 :font    => Graphics.FONT_SYSTEM_MEDIUM,
-                :text    => "No Internet connection",
+                :text    => strNoInternet,
                 :fgcolor => Graphics.COLOR_RED,
                 :bgcolor => Graphics.COLOR_BLACK
             }).pushView(WatchUi.SLIDE_IMMEDIATE);

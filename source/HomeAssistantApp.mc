@@ -26,11 +26,15 @@ using Toybox.Timer;
 
 class HomeAssistantApp extends Application.AppBase {
     hidden var haMenu;
+    hidden var strNoInternet as Lang.String;
+    hidden var strNoMenu as Lang.String;
     hidden var timer as Timer.Timer;
 
     function initialize() {
         AppBase.initialize();
-        timer = new Timer.Timer();
+        strNoInternet = WatchUi.loadResource($.Rez.Strings.NoInternet);
+        strNoMenu     = WatchUi.loadResource($.Rez.Strings.NoMenu);
+        timer         = new Timer.Timer();
     }
 
     // onStart() is called on application start up
@@ -69,13 +73,7 @@ class HomeAssistantApp extends Application.AppBase {
             if (Globals.debug) {
                 System.println("HomeAssistantApp Note - onReturnFetchMenuConfig(): Configuration not found or potential validation issue.");
             }
-            new Alert({
-                :timeout => Globals.alertTimeout,
-                :font    => Graphics.FONT_SYSTEM_MEDIUM,
-                :text    => "onReturnFetchMenuConfig Error " + responseCode,
-                :fgcolor => Graphics.COLOR_RED,
-                :bgcolor => Graphics.COLOR_BLACK
-            }).pushView(WatchUi.SLIDE_IMMEDIATE);
+            WatchUi.pushView(new ErrorView(strNoMenu + " code=" + responseCode ), new ErrorDelegate(), WatchUi.SLIDE_UP);
         }
     }
 
@@ -98,7 +96,7 @@ class HomeAssistantApp extends Application.AppBase {
             new Alert({
                 :timeout => Globals.alertTimeout,
                 :font    => Graphics.FONT_SYSTEM_MEDIUM,
-                :text    => "No Internet connection",
+                :text    => strNoInternet,
                 :fgcolor => Graphics.COLOR_RED,
                 :bgcolor => Graphics.COLOR_BLACK
             }).pushView(WatchUi.SLIDE_IMMEDIATE);

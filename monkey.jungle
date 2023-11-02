@@ -1,1 +1,72 @@
+#-----------------------------------------------------------------------------------
+#
+# Distributed under MIT Licence
+#   See https://github.com/house-of-abbey/GarminHomeAssistant/blob/main/LICENSE.
+#
+#-----------------------------------------------------------------------------------
+#
+# GarminHomeAssistant is a Garmin IQ application written in Monkey C and routinely
+# tested on a Venu 2 device. The source code is provided at:
+#            https://github.com/house-of-abbey/GarminHomeAssistant.
+#
+# J D Abbey & P A Abbey, 28 December 2022
+#
+# Reference:
+#  * https://developer.garmin.com/connect-iq/reference-guides/jungle-reference/
+#
+#-----------------------------------------------------------------------------------
+
 project.manifest = manifest.xml
+
+# Widget launcher icon, multiple resolutions
+# https://forums.garmin.com/developer/connect-iq/f/discussion/255433/widget-launcher-icon-multiple-resolutions/1563305
+#
+# Use the online SVG converter to write out PNGs from "resources\drawables\launcher.svg" by changing
+# the 'width' and 'height' attributes of the SVG.
+# https://svgtopng.com/
+
+# The icons need to scale as a ratio of screen size 48:416 pixels
+#
+# Icon     48   45   42   37   32   30   28   25
+# Screen  416  390  360  320  280  260  240  218
+
+# Screen Size 416x416 launcher icon size 70x70
+d2airx10.resourcePath = $(d2airx10.resourcePath);resources-launcher-70-70;resources-icons-48
+# Screen Size 416x416 launcher icon size 60x60
+d2mach1.resourcePath = $(d2mach1.resourcePath);resources-launcher-60-60;resources-icons-48
+epix2.resourcePath = $(epix2.resourcePath);resources-launcher-60-60;resources-icons-48
+# Screen Size 260x260 launcher icon size 40x40
+fenix7.resourcePath = $(fenix7.resourcePath);resources-launcher-40-40;resources-icons-30
+# Screen Size 240x240 launcher icon size 40x40
+fenix7s.resourcePath = $(fenix7s.resourcePath);resources-launcher-40-40;resources-icons-28
+# Screen Size 280x280 launcher icon size 40x40
+fenix7x.resourcePath = $(fenix7x.resourcePath);resources-launcher-40-40;resources-icons-32
+# Screen Size 260x260 launcher icon size 40x40
+fr955.resourcePath = $(fr955.resourcePath);resources-launcher-40-40;resources-icons-30
+# Screen Size 218x218 launcher icon size 30x30
+legacyherocaptainmarvel.resourcePath = $(legacyherocaptainmarvel.resourcePath);resources-launcher-30-30;resources-icons-26
+# Screen Size 260x260 launcher icon size 35x35
+legacyherofirstavenger.resourcePath = $(legacyherofirstavenger.resourcePath);resources-launcher-35-35;resources-icons-30
+legacysagadarthvader.resourcePath = $(legacysagadarthvader.resourcePath);resources-launcher-35-35;resources-icons-30
+# Screen Size 218x218 launcher icon size 30x30
+legacysagarey.resourcePath = $(legacysagarey.resourcePath);resources-launcher-30-30;resources-icons-26
+# Screen Size 390x390 launcher icon size 60x60
+marq2.resourcePath = $(marq2.resourcePath);resources-launcher-60-60;resources-icons-46
+marq2aviator.resourcePath = $(marq2aviator.resourcePath);resources-launcher-60-60;resources-icons-46
+# Screen Size 390x390 launcher icon size 60x60
+venu.resourcePath = $(venu.resourcePath);resources-launcher-60-60;resources-icons-46
+# Screen Size 416x416 launcher icon size 70x70
+venu2.resourcePath = $(venu2.resourcePath);resources-launcher-70-70;resources-icons-48
+venu2plus.resourcePath = $(venu2plus.resourcePath);resources-launcher-70-70;resources-icons-48
+# Screen Size 360x360 launcher icon size 61x61
+venu2s.resourcePath = $(venu2s.resourcePath);resources-launcher-61-61;resources-icons-42
+# Screen Size 240x240 launcher icon size 36x36
+venusq.resourcePath = $(venusq.resourcePath);resources-launcher-36-36;resources-icons-28
+venusqm.resourcePath = $(venusqm.resourcePath);resources-launcher-36-36;resources-icons-28
+# Screen Size 320x360 launcher icon size 40x40
+venusq2.resourcePath = $(venusq2.resourcePath);resources-launcher-40-40;resources-icons-38
+venusq2m.resourcePath = $(venusq2m.resourcePath);resources-launcher-40-40;resources-icons-38
+# Screen Size 260x260 launcher icon size 35x35
+vivoactive4.resourcePath = $(vivoactive4.resourcePath);resources-launcher-35-35;resources-icons-30
+# Screen Size 218x218 launcher icon size 30x30
+vivoactive4s.resourcePath = $(vivoactive4s.resourcePath);resources-launcher-30-30;resources-icons-26

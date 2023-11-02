@@ -27,7 +27,46 @@
             "Monkey C: Edit Products" - Lets you add or remove any product
         -->
     <iq:products>
+      <!-- Screen Size 416x416 launcher icon size 70x70 -->
+      <iq:product id="d2airx10"/>
+      <!-- Screen Size 416x416 launcher icon size 60x60 -->
+      <iq:product id="d2mach1"/>
+      <iq:product id="epix2"/>
+      <!-- Screen Size 260x260 launcher icon size 40x40 -->
+      <iq:product id="fenix7"/>
+      <!-- Screen Size 240x240 launcher icon size 40x40 -->
+      <iq:product id="fenix7s"/>
+      <!-- Screen Size 280x280 launcher icon size 40x40 -->
+      <iq:product id="fenix7x"/>
+      <!-- Screen Size 260x260 launcher icon size 40x40 -->
+      <iq:product id="fr955"/>
+      <!-- Screen Size 218x218 launcher icon size 30x30 -->
+      <iq:product id="legacyherocaptainmarvel"/>
+      <!-- Screen Size 260x260 launcher icon size 35x35 -->
+      <iq:product id="legacyherofirstavenger"/>
+      <iq:product id="legacysagadarthvader"/>
+      <!-- Screen Size 218x218 launcher icon size 30x30 -->
+      <iq:product id="legacysagarey"/>
+      <!-- Screen Size 390x390 launcher icon size 60x60 -->
+      <iq:product id="marq2"/>
+      <iq:product id="marq2aviator"/>
+      <!-- Screen Size 390x390 launcher icon size 60x60 -->
+      <iq:product id="venu"/>
+      <!-- Screen Size 416x416 launcher icon size 70x70 -->
       <iq:product id="venu2"/>
+      <iq:product id="venu2plus"/>
+      <!-- Screen Size 360x360 launcher icon size 61x61 -->
+      <iq:product id="venu2s"/>
+      <!-- Screen Size 240x240 launcher icon size 36x36 -->
+      <iq:product id="venusq"/>
+      <iq:product id="venusqm"/>
+      <!-- Screen Size 320x360 launcher icon size 40x40 -->
+      <iq:product id="venusq2"/>
+      <iq:product id="venusq2m"/>
+      <!-- Screen Size 260x260 launcher icon size 35x35 -->
+      <iq:product id="vivoactive4"/>
+      <!-- Screen Size 218x218 launcher icon size 30x30 -->
+      <iq:product id="vivoactive4s"/>
     </iq:products>
     <!--
             Use "Monkey C: Edit Permissions" from the Visual Studio Code command
@@ -42,7 +81,42 @@
             palette to edit your compatible language list.
         -->
     <iq:languages>
+      <iq:language>ara</iq:language>
+      <iq:language>bul</iq:language>
+      <iq:language>zhs</iq:language>
+      <iq:language>zht</iq:language>
+      <iq:language>hrv</iq:language>
+      <iq:language>ces</iq:language>
+      <iq:language>dan</iq:language>
+      <iq:language>dut</iq:language>
+      <iq:language>deu</iq:language>
+      <iq:language>gre</iq:language>
       <iq:language>eng</iq:language>
+      <iq:language>est</iq:language>
+      <iq:language>fin</iq:language>
+      <iq:language>fre</iq:language>
+      <iq:language>heb</iq:language>
+      <iq:language>hun</iq:language>
+      <iq:language>ind</iq:language>
+      <iq:language>ita</iq:language>
+      <iq:language>jpn</iq:language>
+      <iq:language>kor</iq:language>
+      <iq:language>lav</iq:language>
+      <iq:language>lit</iq:language>
+      <iq:language>zsm</iq:language>
+      <iq:language>nob</iq:language>
+      <iq:language>pol</iq:language>
+      <iq:language>por</iq:language>
+      <iq:language>slo</iq:language>
+      <iq:language>ron</iq:language>
+      <!-- <iq:language>rus</iq:language> -->
+      <iq:language>slv</iq:language>
+      <iq:language>spa</iq:language>
+      <iq:language>swe</iq:language>
+      <iq:language>tha</iq:language>
+      <iq:language>tur</iq:language>
+      <iq:language>ukr</iq:language>
+      <iq:language>vie</iq:language>
     </iq:languages>
      <!--
             Use "Monkey C: Configure Monkey Barrel" from the Visual Studio Code

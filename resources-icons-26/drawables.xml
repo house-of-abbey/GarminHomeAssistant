@@ -8,10 +8,13 @@
    tested on a Venu 2 device. The source code is provided at:
               https://github.com/house-of-abbey/GarminHomeAssistant.
 
-   P A Abbey & J D Abbey, 31 October 2023
+   J D Abbey & P A Abbey, 28 December 2022
+
+  References:
+   * https://fonts.google.com/icons
 
 -->
 
 <drawables>
-    <bitmap id="LauncherIcon" filename="launcher_icon.png" />
+    <bitmap id="ErrorIcon" filename="error.svg"/>
 </drawables>

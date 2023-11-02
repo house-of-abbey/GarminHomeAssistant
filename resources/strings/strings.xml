@@ -14,4 +14,10 @@
 
 <strings>
     <string id="AppName">HomeAssistant</string>
+    <string id="MenuItemOn">On</string>
+    <string id="MenuItemOff">Off</string>
+    <string id="MenuItemTap">Tap</string>
+    <string id="MenuItemMenu">Menu</string>
+    <string id="NoInternet">No Internet connection</string>
+    <string id="NoMenu">Menu Fetch Error</string>
 </strings>

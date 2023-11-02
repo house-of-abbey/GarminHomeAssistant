@@ -23,6 +23,7 @@ using Toybox.Graphics;
 using Toybox.WatchUi;
 
 class HomeAssistantView extends WatchUi.Menu2 {
+    hidden var strMenuItemTap as Lang.String;
 
     function initialize(
         definition as Lang.Dictionary,
@@ -32,9 +33,10 @@ class HomeAssistantView extends WatchUi.Menu2 {
             :theme as WatchUi.MenuTheme or Null
         } or Null
     ) {
+        strMenuItemTap = WatchUi.loadResource($.Rez.Strings.MenuItemTap);
         var toggle_obj = {
-            :enabled  => "On",
-            :disabled => "Off"
+            :enabled  => WatchUi.loadResource($.Rez.Strings.MenuItemOn) as Lang.String,
+            :disabled => WatchUi.loadResource($.Rez.Strings.MenuItemOff) as Lang.String
         };
 
         if (options == null) {
@@ -66,7 +68,7 @@ class HomeAssistantView extends WatchUi.Menu2 {
                     addItem(
                         new HomeAssistantMenuItem(
                             name,
-                            "Tap",
+                            strMenuItemTap,
                             entity,
                             null
                         )
@@ -115,6 +117,9 @@ class HomeAssistantView extends WatchUi.Menu2 {
 
 }
 
+//
+// Reference: https://developer.garmin.com/connect-iq/core-topics/input-handling/
+//
 class HomeAssistantViewDelegate extends WatchUi.Menu2InputDelegate {
 
     function initialize() {
