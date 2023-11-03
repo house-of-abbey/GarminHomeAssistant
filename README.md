@@ -104,6 +104,14 @@ Having created that token, before you dismiss the dialogue box with the value yo
 
 You should now have a working application on your watch and be able to operate your Home Assistant devices for as long as your watch is within Bluetooth range of your phone.
 
+## Tap Item Response
+
+Its obvious that a toggle menu item has been triggered as the visible switch changes position and colour. Less obvious is that you have successfully triggered a tap operation.
+
+<img src="images/SimTapResponse.png" width="400" title="Tap Triggered"/>
+
+The application will display a 'toast' showing Home Assistant's friendly name of the triggered item. The toast will disappear after a short while if not dismissed by the user.
+
 ## External Device Changes
 
 Home Assistant will inevitably change the state of devices you are also controlling via your Garmin. The Garmin application does not maintain a web socket to listen for changes. Instead it must poll the Home Assistant API with your key. Therefore the application is not responsive to changes, instead there will be a delay of about 5 seconds to pick up state changes. The thinking here is that the watch application will only ever be open briefly not persistently, so the delay in picking up state changes won't be observed often for any race condition between two controllers.
