@@ -1,0 +1,1 @@
+360 x 480 pixels gets the size below 150 kB and still sufficient quality.
