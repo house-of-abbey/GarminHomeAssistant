@@ -7,7 +7,7 @@ A Garmin application to provide a "dashboard" to control your devices via [Home 
 The application is designed around a simple scrollable menu where menu items have been extended to interface with the [Home Assistant API](https://developers.home-assistant.io/docs/api/rest/), e.g. to get the status of switches or lights for display on the toggle menu item. It is possible to nest menus, so there is a menu item to open a sub-menu. This can be 
 arbitrarily deep and nested in the format of a tree of items, although you need to consider if reaching for your phone becomes quicker to select the device what you want to control.
 
-It is important to note that your homeassistant instance will need to be accessible via HTTPS with public SSL or all requests from the Garmin will not work. This cannot be a self-signed certificate, it must be a public certificate (You can get the for free from Let's Encrypt or you can pay for homeassistant cloud).
+It is important to note that your homeassistant instance will need to be accessible via HTTPS with public SSL or all requests from the Garmin will not work. This cannot be a self-signed certificate, it must be a public certificate (You can get one for free from Let's Encrypt or you can pay for homeassistant cloud).
 
 ## Application Installation
 
