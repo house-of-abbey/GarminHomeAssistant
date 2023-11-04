@@ -11,7 +11,7 @@ It is important to note that your homeassistant instance will need to be accessi
 
 ## Application Installation
 
-Head over to the [Connect IQ application store](https://apps.garmin.com/en-US/) to download the application. When the application is made publicly available, a link will be provided here.
+Head over to the [GarminHomeAssistant](https://apps.garmin.com/en-US/apps/61c91d28-ec5e-438d-9f83-39e9f45b199d) application page on the [Connect IQ application store](https://apps.garmin.com/en-US/) to download the application.
 
 ## Dashboard Definition
 
