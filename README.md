@@ -7,6 +7,8 @@ A Garmin application to provide a "dashboard" to control your devices via [Home 
 The application is designed around a simple scrollable menu where menu items have been extended to interface with the [Home Assistant API](https://developers.home-assistant.io/docs/api/rest/), e.g. to get the status of switches or lights for display on the toggle menu item. It is possible to nest menus, so there is a menu item to open a sub-menu. This can be 
 arbitrarily deep and nested in the format of a tree of items, although you need to consider if reaching for your phone becomes quicker to select the device what you want to control.
 
+It is important to note that your homeassistant instance will need to be accessible via HTTPS with public SSL or all requests from the Garmin will not work. This cannot be a self-signed certificate, it must be a public certificate (You can get one for free from Let's Encrypt or you can pay for homeassistant cloud).
+
 ## Application Installation
 
 Head over to the [Connect IQ application store](https://apps.garmin.com/en-US/) to download the application. When the application is made publicly available, a link will be provided here.
@@ -99,8 +101,8 @@ Having created that token, before you dismiss the dialogue box with the value yo
 <img src="images/GarminHomeAssistantSettings.png" width="400" title="Application Settings"/>
 
 1. Paste your API key you've just created into the top field.
-2. Add the URL for your Home Assistant API. The URL used on your home LAN will likely be `https://homeassistant.local/api/`. If you want to use your watch's menu away from the home LAN you will need to use the public facing domain name, e.g. one you might have setup for dynamic DNS.
-3. Add the URL of your JSON file, e.g. `https://homeassistant.local/local/garmin/<something>.json`.
+2. Add the URL for your Home Assistant API.
+3. Add the URL of your JSON file, e.g. `https://<homeassistant>/local/garmin/<something>.json`.
 
 You should now have a working application on your watch and be able to operate your Home Assistant devices for as long as your watch is within Bluetooth range of your phone.
 
