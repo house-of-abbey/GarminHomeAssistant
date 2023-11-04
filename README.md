@@ -101,7 +101,7 @@ Having created that token, before you dismiss the dialogue box with the value yo
 <img src="images/GarminHomeAssistantSettings.png" width="400" title="Application Settings"/>
 
 1. Paste your API key you've just created into the top field.
-2. Add the URL for your Home Assistant API.
+2. Add the URL for your Home Assistant API, e.g. `https://<homeassistant>/api/`.
 3. Add the URL of your JSON file, e.g. `https://<homeassistant>/local/garmin/<something>.json`.
 
 You should now have a working application on your watch and be able to operate your Home Assistant devices for as long as your watch is within Bluetooth range of your phone.
