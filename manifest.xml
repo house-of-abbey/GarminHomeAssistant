@@ -11,21 +11,24 @@
 
    P A Abbey & J D Abbey, 31 October 2023
 
+  Test Application id="98c36259-498a-4458-9cef-74a273ad2bc3"
+  Live Application id="40131e87-31ff-454b-a8e2-92276ee399d6"
+
 -->
 
 <iq:manifest version="3" xmlns:iq="http://www.garmin.com/xml/connectiq">
   <!--
-        Use "Monkey C: Edit Application" from the Visual Studio Code command palette
-        to update the application attributes.
-    -->
+    Use "Monkey C: Edit Application" from the Visual Studio Code command palette
+    to update the application attributes.
+  -->
   <iq:application id="98c36259-498a-4458-9cef-74a273ad2bc3" type="watch-app" name="@Strings.AppName" entry="HomeAssistantApp" launcherIcon="@Drawables.LauncherIcon" minApiLevel="3.3.0">
     <!--
-            Use the following from the Visual Studio Code comand palette to edit
-            the build targets:
-            "Monkey C: Set Products by Product Category" - Lets you add all products
-                                       that belong to the same product category
-            "Monkey C: Edit Products" - Lets you add or remove any product
-        -->
+      Use the following from the Visual Studio Code comand palette to edit
+      the build targets:
+      "Monkey C: Set Products by Product Category" - Lets you add all products
+                                  that belong to the same product category
+      "Monkey C: Edit Products" - Lets you add or remove any product
+    -->
     <iq:products>
       <!-- Screen Size 416x416 launcher icon size 70x70 -->
       <iq:product id="d2airx10"/>
@@ -69,17 +72,17 @@
       <iq:product id="vivoactive4s"/>
     </iq:products>
     <!--
-            Use "Monkey C: Edit Permissions" from the Visual Studio Code command
-            palette to update permissions.
-        -->
+      Use "Monkey C: Edit Permissions" from the Visual Studio Code command
+      palette to update permissions.
+    -->
     <iq:permissions>
       <iq:uses-permission id="Communications"/>
       <iq:uses-permission id="BluetoothLowEnergy"/>
     </iq:permissions>
     <!--
-            Use "Monkey C: Edit Languages" from the Visual Studio Code command
-            palette to edit your compatible language list.
-        -->
+      Use "Monkey C: Edit Languages" from the Visual Studio Code command
+      palette to edit your compatible language list.
+    -->
     <iq:languages>
       <iq:language>ara</iq:language>
       <iq:language>bul</iq:language>
@@ -118,10 +121,10 @@
       <iq:language>ukr</iq:language>
       <iq:language>vie</iq:language>
     </iq:languages>
-     <!--
-            Use "Monkey C: Configure Monkey Barrel" from the Visual Studio Code
-            command palette to edit the included barrels.
-        -->
+    <!--
+      Use "Monkey C: Configure Monkey Barrel" from the Visual Studio Code
+      command palette to edit the included barrels.
+    -->
     <iq:barrels/>
   </iq:application>
 </iq:manifest>

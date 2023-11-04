@@ -101,7 +101,7 @@ class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
             }
             new Alert({
                 :timeout => Globals.alertTimeout,
-                :font    => Graphics.FONT_SYSTEM_MEDIUM,
+                :font    => Graphics.FONT_SYSTEM_TINY,
                 :text    => strNoInternet,
                 :fgcolor => Graphics.COLOR_RED,
                 :bgcolor => Graphics.COLOR_BLACK
@@ -165,7 +165,7 @@ class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
             }
             new Alert({
                 :timeout => Globals.alertTimeout,
-                :font    => Graphics.FONT_SYSTEM_MEDIUM,
+                :font    => Graphics.FONT_SYSTEM_TINY,
                 :text    => strNoInternet,
                 :fgcolor => Graphics.COLOR_RED,
                 :bgcolor => Graphics.COLOR_BLACK

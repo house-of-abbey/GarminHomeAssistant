@@ -69,6 +69,11 @@ class HomeAssistantApp extends Application.AppBase {
                 true
             );
             WatchUi.switchToView(haMenu, new HomeAssistantViewDelegate(), WatchUi.SLIDE_IMMEDIATE);
+        } else if (responseCode == -300) {
+            if (Globals.debug) {
+                System.println("HomeAssistantApp Note - onReturnFetchMenuConfig(): Network request timeout.");
+            }
+            WatchUi.pushView(new ErrorView(strNoMenu + ". " + strNoInternet + "?"), new ErrorDelegate(), WatchUi.SLIDE_UP);
         } else {
             if (Globals.debug) {
                 System.println("HomeAssistantApp Note - onReturnFetchMenuConfig(): Configuration not found or potential validation issue.");
@@ -95,7 +100,7 @@ class HomeAssistantApp extends Application.AppBase {
             }
             new Alert({
                 :timeout => Globals.alertTimeout,
-                :font    => Graphics.FONT_SYSTEM_MEDIUM,
+                :font    => Graphics.FONT_SYSTEM_TINY,
                 :text    => strNoInternet,
                 :fgcolor => Graphics.COLOR_RED,
                 :bgcolor => Graphics.COLOR_BLACK
