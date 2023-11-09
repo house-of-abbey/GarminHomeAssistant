@@ -8,12 +8,23 @@
     "additionalProperties": false
   },
   "$defs": {
-    "item": {
+    "toggle": {
       "type": "object",
       "properties": {
         "entity": { "$ref": "#/$defs/entity" },
         "name": { "type": "string" },
-        "type": { "enum": ["toggle", "tap"] }
+        "type": { "const": "toggle" }
+      },
+      "required": ["entity", "name", "type"],
+      "additionalProperties": false
+    },
+    "tap": {
+      "type": "object",
+      "properties": {
+        "entity": { "$ref": "#/$defs/entity" },
+        "name": { "type": "string" },
+        "type": { "const": "tap" },
+        "service": { "$ref": "#/$defs/entity" }
       },
       "required": ["entity", "name", "type"],
       "additionalProperties": false
@@ -33,7 +44,11 @@
     "items": {
       "type": "array",
       "items": {
-        "oneOf": [{ "$ref": "#/$defs/item" }, { "$ref": "#/$defs/menu" }]
+        "oneOf": [
+          { "$ref": "#/$defs/toggle" },
+          { "$ref": "#/$defs/tap" },
+          { "$ref": "#/$defs/menu" }
+        ]
       }
     },
     "entity": {
