@@ -26,4 +26,7 @@
   <string id="MenuItemMenu">قائمة طعام</string>
   <string id="NoInternet">لا يوجد اتصال بالإنترنت</string>
   <string id="NoMenu">خطأ في إحضار القائمة</string>
+  <string id="NoAPIKey">لا يوجد مفتاح API في إعدادات التطبيق</string>
+  <string id="NoApiUrl">لا يوجد عنوان URL لواجهة برمجة التطبيقات في إعدادات التطبيق</string>
+  <string id="NoConfigUrl">لا يوجد عنوان URL للتكوين في إعدادات التطبيق</string>
 </strings>

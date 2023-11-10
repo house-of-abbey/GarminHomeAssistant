@@ -26,4 +26,7 @@
   <string id="MenuItemMenu">Menü</string>
   <string id="NoInternet">Nincs internetkapcsolat</string>
   <string id="NoMenu">Menü Lekérési hiba</string>
+  <string id="NoAPIKey">Nincs API kulcs az alkalmazás beállításaiban</string>
+  <string id="NoApiUrl">Nincs API URL az alkalmazás beállításai között</string>
+  <string id="NoConfigUrl">Nincs konfigurációs URL az alkalmazás beállításai között</string>
 </strings>

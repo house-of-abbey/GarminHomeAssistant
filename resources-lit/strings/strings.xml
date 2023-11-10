@@ -26,4 +26,7 @@
   <string id="MenuItemMenu">Meniu</string>
   <string id="NoInternet">Nėra interneto ryšio</string>
   <string id="NoMenu">Meniu gavimo klaida</string>
+  <string id="NoAPIKey">Programos nustatymuose nėra API rakto</string>
+  <string id="NoApiUrl">Programos nustatymuose nėra API URL</string>
+  <string id="NoConfigUrl">Programos nustatymuose nėra konfigūracijos URL</string>
 </strings>

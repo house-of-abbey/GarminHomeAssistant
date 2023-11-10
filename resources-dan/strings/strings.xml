@@ -26,4 +26,7 @@
   <string id="MenuItemMenu">Menu</string>
   <string id="NoInternet">Ingen internetforbindelse</string>
   <string id="NoMenu">Fejl ved menuhentning</string>
+  <string id="NoAPIKey">Ingen API-nøgle i applikationsindstillingerne</string>
+  <string id="NoApiUrl">Ingen API-URL i applikationsindstillingerne</string>
+  <string id="NoConfigUrl">Ingen konfigurations-URL i applikationsindstillingerne</string>
 </strings>

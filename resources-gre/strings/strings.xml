@@ -26,4 +26,7 @@
   <string id="MenuItemMenu">Μενού</string>
   <string id="NoInternet">Δεν υπάρχει σύνδεση στο διαδίκτυο</string>
   <string id="NoMenu">Σφάλμα ανάκτησης μενού</string>
+  <string id="NoAPIKey">Δεν υπάρχει κλειδί API στις ρυθμίσεις της εφαρμογής</string>
+  <string id="NoApiUrl">Δεν υπάρχει URL API στις ρυθμίσεις της εφαρμογής</string>
+  <string id="NoConfigUrl">Δεν υπάρχει διεύθυνση URL διαμόρφωσης στις ρυθμίσεις της εφαρμογής</string>
 </strings>

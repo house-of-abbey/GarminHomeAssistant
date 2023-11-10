@@ -26,4 +26,7 @@
   <string id="MenuItemMenu">Valikko</string>
   <string id="NoInternet">Ei Internet-yhteyttä</string>
   <string id="NoMenu">Valikkohakuvirhe</string>
+  <string id="NoAPIKey">Sovellusasetuksissa ei ole API-avainta</string>
+  <string id="NoApiUrl">Sovellusasetuksissa ei ole API URL-osoitetta</string>
+  <string id="NoConfigUrl">Sovelluksen asetuksissa ei ole konfigurointi-URL-osoitetta</string>
 </strings>

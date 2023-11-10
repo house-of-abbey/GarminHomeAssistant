@@ -26,4 +26,7 @@
   <string id="MenuItemMenu">Thực đơn</string>
   <string id="NoInternet">Không có kết nối Internet</string>
   <string id="NoMenu">Lỗi tìm nạp menu</string>
+  <string id="NoAPIKey">Không có khóa API trong cài đặt ứng dụng</string>
+  <string id="NoApiUrl">Không có URL API trong cài đặt ứng dụng</string>
+  <string id="NoConfigUrl">Không có URL cấu hình trong cài đặt ứng dụng</string>
 </strings>

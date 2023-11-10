@@ -26,4 +26,7 @@
   <string id="MenuItemMenu">เมนู</string>
   <string id="NoInternet">ไม่มีการเชื่อมต่ออินเทอร์เน็ต</string>
   <string id="NoMenu">เมนูดึงข้อมูลผิดพลาด</string>
+  <string id="NoAPIKey">ไม่มีคีย์ API ในการตั้งค่าแอปพลิเคชัน</string>
+  <string id="NoApiUrl">ไม่มี URL API ในการตั้งค่าแอปพลิเคชัน</string>
+  <string id="NoConfigUrl">ไม่มี URL การกำหนดค่าในการตั้งค่าแอปพลิเคชัน</string>
 </strings>

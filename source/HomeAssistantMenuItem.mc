@@ -37,6 +37,7 @@ class HomeAssistantMenuItem extends WatchUi.MenuItem {
         } or Null
     ) {
         strNoInternet = WatchUi.loadResource($.Rez.Strings.NoInternet);
+        
         WatchUi.MenuItem.initialize(
             label,
             subLabel,
@@ -59,10 +60,28 @@ class HomeAssistantMenuItem extends WatchUi.MenuItem {
                     if (Globals.debug) {
                         System.println("HomeAssistantMenuItem Note - onReturnExecScript(): Correct script executed.");
                     }
-                    WatchUi.showToast(
-                        (d[i].get("attributes") as Lang.Dictionary).get("friendly_name") as Lang.String,
-                        null
-                    );
+                    if (WatchUi has :showToast) {
+                        WatchUi.showToast(
+                            (d[i].get("attributes") as Lang.Dictionary).get("friendly_name") as Lang.String,
+                            null
+                        );
+                    }
+                    if (Attention has :vibrate) {
+                        Attention.vibrate([
+                            new Attention.VibeProfile(50, 100), // On  for 100ms
+                            new Attention.VibeProfile( 0, 100), // Off for 100ms
+                            new Attention.VibeProfile(50, 100)  // On  for 100ms
+                        ]);
+                    }
+                    if (!(WatchUi has :showToast) && !(Attention has :vibrate)) {
+                        new Alert({
+                            :timeout => Globals.alertTimeout,
+                            :font    => Graphics.FONT_MEDIUM,
+                            :text    => (d[i].get("attributes") as Lang.Dictionary).get("friendly_name") as Lang.String,
+                            :fgcolor => Graphics.COLOR_WHITE,
+                            :bgcolor => Graphics.COLOR_BLACK
+                        }).pushView(WatchUi.SLIDE_IMMEDIATE);
+                    }
                 }
             }
         }
@@ -77,10 +96,13 @@ class HomeAssistantMenuItem extends WatchUi.MenuItem {
             :responseType => Communications.HTTP_RESPONSE_CONTENT_TYPE_JSON
         };
         if (System.getDeviceSettings().phoneConnected && System.getDeviceSettings().connectionAvailable) {
-            var url = Properties.getValue("api_url") + "/services/" + mIdentifier.substring(0, mIdentifier.find(".")) + "/" + mIdentifier.substring(mIdentifier.find(".")+1, null);
+            // Updated SDK and got a new error
+            // ERROR: venu: Cannot find symbol ':substring' on type 'PolyType<Null or $.Toybox.Lang.Object>'.
+            var id = mIdentifier as Lang.String;
+            var url = (Properties.getValue("api_url") as Lang.String) + "/services/" + id.substring(0, id.find(".")) + "/" + id.substring(id.find(".")+1, id.length());
             if (Globals.debug) {
-                System.println("URL=" + url);
-                System.println("mIdentifier=" + mIdentifier);
+                System.println("HomeAssistantMenuItem execScript() URL=" + url);
+                System.println("HomeAssistantMenuItem execScript() mIdentifier=" + mIdentifier);
             }
             Communications.makeWebRequest(
                 url,
@@ -90,15 +112,9 @@ class HomeAssistantMenuItem extends WatchUi.MenuItem {
             );
         } else {
             if (Globals.debug) {
-                System.println("HomeAssistantMenuItem Note - executeScript(): No Internet connection, skipping API call.");
+                System.println("HomeAssistantMenuItem Note - execScript(): No Internet connection, skipping API call.");
             }
-            new Alert({
-                :timeout => Globals.alertTimeout,
-                :font    => Graphics.FONT_SYSTEM_TINY,
-                :text    => strNoInternet,
-                :fgcolor => Graphics.COLOR_RED,
-                :bgcolor => Graphics.COLOR_BLACK
-            }).pushView(WatchUi.SLIDE_IMMEDIATE);
+            WatchUi.pushView(new ErrorView(strNoInternet + "."), new ErrorDelegate(), WatchUi.SLIDE_UP);
         }
     }
 

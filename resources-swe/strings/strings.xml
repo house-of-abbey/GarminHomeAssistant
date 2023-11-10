@@ -26,4 +26,7 @@
   <string id="MenuItemMenu">Meny</string>
   <string id="NoInternet">Ingen internetanslutning</string>
   <string id="NoMenu">Menyhämtningsfel</string>
+  <string id="NoAPIKey">Ingen API-nyckel i applikationsinställningarna</string>
+  <string id="NoApiUrl">Ingen API-URL i applikationsinställningarna</string>
+  <string id="NoConfigUrl">Ingen konfigurations-URL i programinställningarna</string>
 </strings>

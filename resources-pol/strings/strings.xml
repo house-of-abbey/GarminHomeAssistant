@@ -26,4 +26,7 @@
   <string id="MenuItemMenu">Menu</string>
   <string id="NoInternet">Brak połączenia z internetem</string>
   <string id="NoMenu">Błąd pobierania menu</string>
+  <string id="NoAPIKey">Brak klucza API w ustawieniach aplikacji</string>
+  <string id="NoApiUrl">Brak adresu API w ustawieniach aplikacji</string>
+  <string id="NoConfigUrl">Brak adresu URL konfiguracji w ustawieniach aplikacji</string>
 </strings>

@@ -26,4 +26,7 @@
   <string id="MenuItemMenu">Menüü</string>
   <string id="NoInternet">Interneti-ühendus puudub</string>
   <string id="NoMenu">Menüü toomise viga</string>
+  <string id="NoAPIKey">Rakenduse seadetes pole API-võtit</string>
+  <string id="NoApiUrl">Rakenduse seadetes pole API URL-i</string>
+  <string id="NoConfigUrl">Rakenduse seadetes pole konfiguratsiooni URL-i</string>
 </strings>

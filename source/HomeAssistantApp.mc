@@ -26,20 +26,25 @@ using Toybox.Timer;
 
 class HomeAssistantApp extends Application.AppBase {
     hidden var haMenu;
-    hidden var strNoInternet as Lang.String;
-    hidden var strNoMenu as Lang.String;
-    hidden var timer as Timer.Timer;
+    hidden var strNoApiKey    as Lang.String;
+    hidden var strNoApiUrl    as Lang.String;
+    hidden var strNoConfigUrl as Lang.String;
+    hidden var strNoInternet  as Lang.String;
+    hidden var strNoMenu      as Lang.String;
+    hidden var timer          as Timer.Timer;
 
     function initialize() {
         AppBase.initialize();
-        strNoInternet = WatchUi.loadResource($.Rez.Strings.NoInternet);
-        strNoMenu     = WatchUi.loadResource($.Rez.Strings.NoMenu);
-        timer         = new Timer.Timer();
+        strNoApiKey    = WatchUi.loadResource($.Rez.Strings.NoAPIKey);
+        strNoApiUrl    = WatchUi.loadResource($.Rez.Strings.NoApiUrl);
+        strNoConfigUrl = WatchUi.loadResource($.Rez.Strings.NoConfigUrl);
+        strNoInternet  = WatchUi.loadResource($.Rez.Strings.NoInternet);
+        strNoMenu      = WatchUi.loadResource($.Rez.Strings.NoMenu);
+        timer          = new Timer.Timer();
     }
 
     // onStart() is called on application start up
     function onStart(state as Lang.Dictionary?) as Void {
-        fetchMenuConfig();
     }
 
     // onStop() is called when your application is exiting
@@ -51,7 +56,30 @@ class HomeAssistantApp extends Application.AppBase {
 
     // Return the initial view of your application here
     function getInitialView() as Lang.Array<WatchUi.Views or WatchUi.InputDelegates>? {
-        return [new WatchUi.View(), new WatchUi.BehaviorDelegate()] as Lang.Array<WatchUi.Views or WatchUi.InputDelegates>;
+        if ((Properties.getValue("api_key") as Lang.String).length() == 0) {
+            if (Globals.debug) {
+                System.println("HomeAssistantMenuItem Note - execScript(): No API key in the application settings.");
+            }
+            return [new ErrorView(strNoApiKey + "."), new ErrorDelegate()] as Lang.Array<WatchUi.Views or WatchUi.InputDelegates>;
+        } else if ((Properties.getValue("api_url") as Lang.String).length() == 0) {
+            if (Globals.debug) {
+                System.println("HomeAssistantMenuItem Note - execScript(): No API URL in the application settings.");
+            }
+            return [new ErrorView(strNoApiUrl + "."), new ErrorDelegate()] as Lang.Array<WatchUi.Views or WatchUi.InputDelegates>;
+        } else if ((Properties.getValue("config_url") as Lang.String).length() == 0) {
+            if (Globals.debug) {
+                System.println("HomeAssistantMenuItem Note - execScript(): No configuration URL in the application settings.");
+            }
+            return [new ErrorView(strNoConfigUrl + "."), new ErrorDelegate()] as Lang.Array<WatchUi.Views or WatchUi.InputDelegates>;
+        } else if (System.getDeviceSettings().phoneConnected && System.getDeviceSettings().connectionAvailable) {
+            fetchMenuConfig();
+            return [new WatchUi.View(), new WatchUi.BehaviorDelegate()] as Lang.Array<WatchUi.Views or WatchUi.InputDelegates>;
+        } else {
+            if (Globals.debug) {
+                System.println("HomeAssistantApp Note - fetchMenuConfig(): No Internet connection, skipping API call.");
+            }
+            return [new ErrorView(strNoInternet + "."), new ErrorDelegate()] as Lang.Array<WatchUi.Views or WatchUi.InputDelegates>;
+        }
     }
 
     // Callback function after completing the GET request to fetch the configuration menu.
@@ -87,25 +115,12 @@ class HomeAssistantApp extends Application.AppBase {
             :method  => Communications.HTTP_REQUEST_METHOD_GET,
             :responseType => Communications.HTTP_RESPONSE_CONTENT_TYPE_JSON
         };
-        if (System.getDeviceSettings().phoneConnected && System.getDeviceSettings().connectionAvailable) {
-            Communications.makeWebRequest(
-                Properties.getValue("config_url"),
-                null,
-                options,
-                method(:onReturnFetchMenuConfig)
-            );
-        } else {
-            if (Globals.debug) {
-                System.println("HomeAssistantApp Note - fetchMenuConfig(): No Internet connection, skipping API call.");
-            }
-            new Alert({
-                :timeout => Globals.alertTimeout,
-                :font    => Graphics.FONT_SYSTEM_TINY,
-                :text    => strNoInternet,
-                :fgcolor => Graphics.COLOR_RED,
-                :bgcolor => Graphics.COLOR_BLACK
-            }).pushView(WatchUi.SLIDE_IMMEDIATE);
-        }
+        Communications.makeWebRequest(
+            Properties.getValue("config_url"),
+            null,
+            options,
+            method(:onReturnFetchMenuConfig)
+        );
     }
 
 }

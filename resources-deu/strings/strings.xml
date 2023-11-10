@@ -26,4 +26,7 @@
   <string id="MenuItemMenu">Speisekarte</string>
   <string id="NoInternet">Keine Internetverbindung</string>
   <string id="NoMenu">Fehler beim Abrufen des Menüs</string>
+  <string id="NoAPIKey">Kein API-Schlüssel in den Anwendungseinstellungen</string>
+  <string id="NoApiUrl">Keine API-URL in den Anwendungseinstellungen</string>
+  <string id="NoConfigUrl">Keine Konfigurations-URL in den Anwendungseinstellungen</string>
 </strings>

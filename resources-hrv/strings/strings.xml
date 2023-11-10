@@ -26,4 +26,7 @@
   <string id="MenuItemMenu">Jelovnik</string>
   <string id="NoInternet">Nema internetske veze</string>
   <string id="NoMenu">Pogreška dohvaćanja izbornika</string>
+  <string id="NoAPIKey">Nema API ključa u postavkama aplikacije</string>
+  <string id="NoApiUrl">Nema API URL-a u postavkama aplikacije</string>
+  <string id="NoConfigUrl">Nema konfiguracijskog URL-a u postavkama aplikacije</string>
 </strings>

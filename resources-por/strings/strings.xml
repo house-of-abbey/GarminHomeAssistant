@@ -26,4 +26,7 @@
   <string id="MenuItemMenu">Cardápio</string>
   <string id="NoInternet">Sem conexão com a Internet</string>
   <string id="NoMenu">Erro ao buscar menu</string>
+  <string id="NoAPIKey">Nenhuma chave de API nas configurações do aplicativo</string>
+  <string id="NoApiUrl">Nenhum URL de API nas configurações do aplicativo</string>
+  <string id="NoConfigUrl">Nenhum URL de configuração nas configurações do aplicativo</string>
 </strings>

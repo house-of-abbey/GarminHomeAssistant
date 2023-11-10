@@ -48,14 +48,18 @@ original = (96, 48, 24)
 lookup = {
   #   Doub Sing Half
   #      0   1   2
-# 416: (96, 48, 24),
-  390: (90, 46, 23),
-  360: (84, 42, 21),
-  320: (74, 38, 19),
-  280: (64, 32, 16),
-  260: (60, 30, 15),
-  240: (56, 28, 14),
-  218: (50, 26, 13),
+  454: (106, 53, 27),
+#  416: ( 96, 48, 24),
+  390: ( 90, 46, 23),
+  360: ( 84, 42, 21),
+  320: ( 74, 38, 19),
+  280: ( 64, 32, 16),
+  260: ( 60, 30, 15),
+  240: ( 56, 28, 14),
+  218: ( 50, 26, 13),
+  208: ( 48, 24, 12),
+  176: ( 42, 21, 11),
+  156: ( 36, 18,  9)
 }
 
 # Delete all but the original 48x48 icon directories
@@ -67,6 +71,8 @@ for entry in os.listdir("."):
 for screen_size, icon_sizes in lookup.items():
   output_dir = output_dir_prefix + str(icon_sizes[Sing])
   print("\nCreate directory:", output_dir)
+  if os.path.exists(output_dir) and os.path.isdir(output_dir):
+    shutil.rmtree(output_dir)
   os.makedirs(output_dir)
   for entry in os.listdir(input_dir):
     if entry.endswith(".svg"):

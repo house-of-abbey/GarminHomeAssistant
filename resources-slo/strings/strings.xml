@@ -26,4 +26,7 @@
   <string id="MenuItemMenu">Ponuka</string>
   <string id="NoInternet">Žiadne internetové pripojenie</string>
   <string id="NoMenu">Chyba načítania ponuky</string>
+  <string id="NoAPIKey">V nastaveniach aplikácie nie je žiadny kľúč API</string>
+  <string id="NoApiUrl">V nastaveniach aplikácie nie je žiadna adresa URL rozhrania API</string>
+  <string id="NoConfigUrl">V nastaveniach aplikácie nie je žiadna konfiguračná URL</string>
 </strings>

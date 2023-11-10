@@ -26,4 +26,7 @@
   <string id="MenuItemMenu">菜单</string>
   <string id="NoInternet">没有网络连接</string>
   <string id="NoMenu">菜单获取错误</string>
+  <string id="NoAPIKey">应用程序设置中没有 API 密钥</string>
+  <string id="NoApiUrl">应用程序设置中没有 API URL</string>
+  <string id="NoConfigUrl">应用程序设置中没有配置 URL</string>
 </strings>

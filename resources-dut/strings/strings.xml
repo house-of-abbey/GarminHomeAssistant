@@ -26,4 +26,7 @@
   <string id="MenuItemMenu">Menu</string>
   <string id="NoInternet">Geen internet verbinding</string>
   <string id="NoMenu">Fout bij ophalen van menu</string>
+  <string id="NoAPIKey">Geen API-sleutel in de applicatie-instellingen</string>
+  <string id="NoApiUrl">Geen API-URL in de applicatie-instellingen</string>
+  <string id="NoConfigUrl">Geen configuratie-URL in de applicatie-instellingen</string>
 </strings>

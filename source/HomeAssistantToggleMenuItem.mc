@@ -87,7 +87,7 @@ class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
         if (System.getDeviceSettings().phoneConnected && System.getDeviceSettings().connectionAvailable) {
             var url = Properties.getValue("api_url") + "/states/" + mIdentifier;
             if (Globals.debug) {
-                System.println("URL=" + url);
+                System.println("HomeAssistantToggleMenuItem getState() URL=" + url);
             }
             Communications.makeWebRequest(
                 url,
@@ -99,13 +99,7 @@ class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
             if (Globals.debug) {
                 System.println("HomeAssistantToggleMenuItem Note - getState(): No Internet connection, skipping API call.");
             }
-            new Alert({
-                :timeout => Globals.alertTimeout,
-                :font    => Graphics.FONT_SYSTEM_TINY,
-                :text    => strNoInternet,
-                :fgcolor => Graphics.COLOR_RED,
-                :bgcolor => Graphics.COLOR_BLACK
-            }).pushView(WatchUi.SLIDE_IMMEDIATE);
+            WatchUi.pushView(new ErrorView(strNoInternet + "."), new ErrorDelegate(), WatchUi.SLIDE_UP);
         }
     }
 
@@ -141,15 +135,18 @@ class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
             :responseType => Communications.HTTP_RESPONSE_CONTENT_TYPE_JSON
         };
         if (System.getDeviceSettings().phoneConnected && System.getDeviceSettings().connectionAvailable) {
+            // Updated SDK and got a new error
+            // ERROR: venu: Cannot find symbol ':substring' on type 'PolyType<Null or $.Toybox.Lang.Object>'.
+            var id = mIdentifier as Lang.String;
             var url;
             if (s) {
-                url = Properties.getValue("api_url") + "/services/" + mIdentifier.substring(0, mIdentifier.find(".")) + "/turn_on";
+                url = Properties.getValue("api_url") + "/services/" + id.substring(0, id.find(".")) + "/turn_on";
             } else {
-                url = Properties.getValue("api_url") + "/services/" + mIdentifier.substring(0, mIdentifier.find(".")) + "/turn_off";
+                url = Properties.getValue("api_url") + "/services/" + id.substring(0, id.find(".")) + "/turn_off";
             }
             if (Globals.debug) {
-                System.println("URL=" + url);
-                System.println("mIdentifier=" + mIdentifier);
+                System.println("HomeAssistantToggleMenuItem setState() URL=" + url);
+                System.println("HomeAssistantToggleMenuItem setState() mIdentifier=" + mIdentifier);
             }
             Communications.makeWebRequest(
                 url,
@@ -163,13 +160,7 @@ class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
             if (Globals.debug) {
                 System.println("HomeAssistantToggleMenuItem Note - setState(): No Internet connection, skipping API call.");
             }
-            new Alert({
-                :timeout => Globals.alertTimeout,
-                :font    => Graphics.FONT_SYSTEM_TINY,
-                :text    => strNoInternet,
-                :fgcolor => Graphics.COLOR_RED,
-                :bgcolor => Graphics.COLOR_BLACK
-            }).pushView(WatchUi.SLIDE_IMMEDIATE);
+            WatchUi.pushView(new ErrorView(strNoInternet + "."), new ErrorDelegate(), WatchUi.SLIDE_UP);
         }
     }
 

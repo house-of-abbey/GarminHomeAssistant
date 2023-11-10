@@ -23,7 +23,7 @@ using Toybox.Lang;
 class Globals {
     // Enable printing of messages to the debug console (don't make this a Property
     // as the messages can't be read from a watch!)
-    static const debug          = false;
+    static const debug          = true;
     static const updateInterval = 5;    // seconds
     static const alertTimeout   = 2000; // ms
     static const tapTimeout     = 1000; // ms

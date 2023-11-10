@@ -20,4 +20,7 @@
     <string id="MenuItemMenu">Menu</string>
     <string id="NoInternet">No Internet connection</string>
     <string id="NoMenu">Menu Fetch Error</string>
+    <string id="NoAPIKey">No API key in the application settings</string>
+    <string id="NoApiUrl">No API URL in the application settings</string>
+    <string id="NoConfigUrl">No configuration URL in the application settings</string>
 </strings>

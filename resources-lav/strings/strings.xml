@@ -26,4 +26,7 @@
   <string id="MenuItemMenu">Izvēlne</string>
   <string id="NoInternet">Nav interneta savienojuma</string>
   <string id="NoMenu">Izvēlnes ielādes kļūda</string>
+  <string id="NoAPIKey">Lietojumprogrammas iestatījumos nav API atslēgas</string>
+  <string id="NoApiUrl">Lietojumprogrammas iestatījumos nav API URL</string>
+  <string id="NoConfigUrl">Lietojumprogrammas iestatījumos nav konfigurācijas URL</string>
 </strings>

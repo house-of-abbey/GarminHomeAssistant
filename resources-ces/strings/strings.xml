@@ -26,4 +26,7 @@
   <string id="MenuItemMenu">Jídelní lístek</string>
   <string id="NoInternet">Žádné internetové připojení</string>
   <string id="NoMenu">Chyba načítání nabídky</string>
+  <string id="NoAPIKey">V nastavení aplikace není žádný klíč API</string>
+  <string id="NoApiUrl">V nastavení aplikace není žádná adresa URL API</string>
+  <string id="NoConfigUrl">V nastavení aplikace není žádná konfigurační URL</string>
 </strings>

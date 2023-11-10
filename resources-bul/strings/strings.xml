@@ -26,4 +26,7 @@
   <string id="MenuItemMenu">Меню</string>
   <string id="NoInternet">Няма интернет връзка</string>
   <string id="NoMenu">Грешка при извличане на менюто</string>
+  <string id="NoAPIKey">Няма API ключ в настройките на приложението</string>
+  <string id="NoApiUrl">Няма URL адрес на API в настройките на приложението</string>
+  <string id="NoConfigUrl">Няма конфигурационен URL адрес в настройките на приложението</string>
 </strings>

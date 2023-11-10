@@ -26,4 +26,7 @@
   <string id="MenuItemMenu">Menú</string>
   <string id="NoInternet">Sin conexión a Internet</string>
   <string id="NoMenu">Error de recuperación del menú</string>
+  <string id="NoAPIKey">Sin clave API en la configuración de la aplicación</string>
+  <string id="NoApiUrl">No hay URL de API en la configuración de la aplicación</string>
+  <string id="NoConfigUrl">No hay URL de configuración en la configuración de la aplicación.</string>
 </strings>
