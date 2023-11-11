@@ -29,5 +29,5 @@
   <string id="NoAPIKey">لا يوجد مفتاح API في إعدادات التطبيق</string>
   <string id="NoApiUrl">لا يوجد عنوان URL لواجهة برمجة التطبيقات في إعدادات التطبيق</string>
   <string id="NoConfigUrl">لا يوجد عنوان URL للتكوين في إعدادات التطبيق</string>
-  <string id="ApiFlood">مكالمات API سريعة جدًا. يرجى الإبلاغ عن هذا الخطأ مع تفاصيل الجهاز.</string>
+  <string id="ApiFlood">مكالمات API سريعة جدًا. يرجى إبطاء طلباتك.</string>
 </strings>

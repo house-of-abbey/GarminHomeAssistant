@@ -32,7 +32,6 @@ class HomeAssistantApp extends Application.AppBase {
     hidden var strNoInternet  as Lang.String;
     hidden var strNoMenu      as Lang.String;
     hidden var strApiFlood    as Lang.String;
-    hidden var mTimer         as Timer.Timer;
     hidden var mItemsToUpdate;        // Array initialised by onReturnFetchMenuConfig()
     hidden var mNextItemToUpdate = 0; // Index into the above array
 
@@ -44,7 +43,6 @@ class HomeAssistantApp extends Application.AppBase {
         strNoInternet  = WatchUi.loadResource($.Rez.Strings.NoInternet);
         strNoMenu      = WatchUi.loadResource($.Rez.Strings.NoMenu);
         strApiFlood    = WatchUi.loadResource($.Rez.Strings.ApiFlood);
-        mTimer          = new Timer.Timer();
     }
 
     // onStart() is called on application start up
@@ -52,11 +50,7 @@ class HomeAssistantApp extends Application.AppBase {
     }
 
     // onStop() is called when your application is exiting
-    function onStop(state as Lang.Dictionary?) as Void {
-        if (mTimer != null) {
-            mTimer.stop();
-        }
-    }
+    function onStop(state as Lang.Dictionary?) as Void {}
 
     // Return the initial view of your application here
     function getInitialView() as Lang.Array<WatchUi.Views or WatchUi.InputDelegates>? {
@@ -106,11 +100,9 @@ class HomeAssistantApp extends Application.AppBase {
             mHaMenu = new HomeAssistantView(data, null);
             WatchUi.switchToView(mHaMenu, new HomeAssistantViewDelegate(), WatchUi.SLIDE_IMMEDIATE);
             mItemsToUpdate = mHaMenu.getItemsToUpdate();
-            mTimer.start(
-                method(:updateNextMenuItem),
-                Globals.scMenuItemUpdateInterval,
-                true
-            );
+            // Start the continuous update process that continues for as long as the application is running.
+            // The chain of functions from 'updateNextMenuItem()' calls 'updateNextMenuItem()' on completion.
+            updateNextMenuItem();
         } else if (responseCode == -300) {
             if (Globals.scDebug) {
                 System.println("HomeAssistantApp Note - onReturnFetchMenuConfig(): Network request timeout.");

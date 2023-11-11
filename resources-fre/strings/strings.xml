@@ -29,5 +29,5 @@
   <string id="NoAPIKey">Pas de clé API dans les paramètres de l'application</string>
   <string id="NoApiUrl">Aucune URL API dans les paramètres de l'application</string>
   <string id="NoConfigUrl">Aucune URL de configuration dans les paramètres de l'application</string>
-  <string id="ApiFlood">Appels API trop rapides. Veuillez signaler cette erreur avec les détails de l'appareil.</string>
+  <string id="ApiFlood">Appels API trop rapides. Veuillez ralentir vos demandes.</string>
 </strings>

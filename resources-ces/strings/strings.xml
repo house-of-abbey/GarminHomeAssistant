@@ -29,5 +29,5 @@
   <string id="NoAPIKey">V nastavení aplikace není žádný klíč API</string>
   <string id="NoApiUrl">V nastavení aplikace není žádná adresa URL API</string>
   <string id="NoConfigUrl">V nastavení aplikace není žádná konfigurační URL</string>
-  <string id="ApiFlood">Příliš rychlá volání API. Nahlaste tuto chybu s podrobnostmi o zařízení.</string>
+  <string id="ApiFlood">Příliš rychlá volání API. Zpomalte prosím své požadavky.</string>
 </strings>

@@ -29,5 +29,5 @@
   <string id="NoAPIKey">Lietojumprogrammas iestatījumos nav API atslēgas</string>
   <string id="NoApiUrl">Lietojumprogrammas iestatījumos nav API URL</string>
   <string id="NoConfigUrl">Lietojumprogrammas iestatījumos nav konfigurācijas URL</string>
-  <string id="ApiFlood">API izsaukumi ir pārāk ātri. Lūdzu, ziņojiet par šo kļūdu, norādot informāciju par ierīci.</string>
+  <string id="ApiFlood">API izsaukumi ir pārāk ātri. Lūdzu, palēniniet pieprasījumu izpildi.</string>
 </strings>

@@ -29,5 +29,5 @@
   <string id="NoAPIKey">Nincs API kulcs az alkalmazás beállításaiban</string>
   <string id="NoApiUrl">Nincs API URL az alkalmazás beállításai között</string>
   <string id="NoConfigUrl">Nincs konfigurációs URL az alkalmazás beállításai között</string>
-  <string id="ApiFlood">Az API-hívások túl gyorsak. Kérjük, jelentse ezt a hibát az eszköz részleteivel.</string>
+  <string id="ApiFlood">Az API-hívások túl gyorsak. Kérjük, lassítsa a kérések teljesítését.</string>
 </strings>

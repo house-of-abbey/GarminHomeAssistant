@@ -85,6 +85,8 @@ class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
             }
             setUiToggle(state);
         }
+        // Now this feels very "closely coupled" to the application, but it is the most reliable method instead of using a timer.
+        getApp().updateNextMenuItem();
     }
 
     function getState() as Void {

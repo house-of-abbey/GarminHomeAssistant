@@ -29,5 +29,5 @@
   <string id="NoAPIKey">Sin clave API en la configuración de la aplicación</string>
   <string id="NoApiUrl">No hay URL de API en la configuración de la aplicación</string>
   <string id="NoConfigUrl">No hay URL de configuración en la configuración de la aplicación.</string>
-  <string id="ApiFlood">Llamadas API demasiado rápidas. Informe este error con los detalles del dispositivo.</string>
+  <string id="ApiFlood">Llamadas API demasiado rápidas. Por favor, ralentice sus solicitudes.</string>
 </strings>

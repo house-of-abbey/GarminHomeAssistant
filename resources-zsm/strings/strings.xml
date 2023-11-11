@@ -29,5 +29,5 @@
   <string id="NoAPIKey">Tiada kunci API dalam tetapan aplikasi</string>
   <string id="NoApiUrl">Tiada URL API dalam tetapan aplikasi</string>
   <string id="NoConfigUrl">Tiada URL konfigurasi dalam tetapan aplikasi</string>
-  <string id="ApiFlood">Panggilan API terlalu pantas. Sila laporkan ralat ini dengan butiran peranti.</string>
+  <string id="ApiFlood">Panggilan API terlalu pantas. Sila perlahankan permintaan anda.</string>
 </strings>

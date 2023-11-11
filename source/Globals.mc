@@ -23,9 +23,7 @@ using Toybox.Lang;
 class Globals {
     // Enable printing of messages to the debug console (don't make this a Property
     // as the messages can't be read from a watch!)
-    static const scDebug                  = false;
-    // There's a danger this time is device sensitive.
-    static const scMenuItemUpdateInterval =  100; // ms, 100 ms seems okay for Venu2
-    static const scAlertTimeout           = 2000; // ms
-    static const scTapTimeout             = 1000; // ms
+    static const scDebug        = false;
+    static const scAlertTimeout = 2000; // ms
+    static const scTapTimeout   = 1000; // ms
 }

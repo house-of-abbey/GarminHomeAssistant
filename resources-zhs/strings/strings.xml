@@ -29,5 +29,5 @@
   <string id="NoAPIKey">应用程序设置中没有 API 密钥</string>
   <string id="NoApiUrl">应用程序设置中没有 API URL</string>
   <string id="NoConfigUrl">应用程序设置中没有配置 URL</string>
-  <string id="ApiFlood">API 调用速度太快。请报告此错误并提供设备详细信息。</string>
+  <string id="ApiFlood">API 调用速度太快。请放慢您的请求。</string>
 </strings>

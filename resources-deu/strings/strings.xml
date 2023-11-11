@@ -29,5 +29,5 @@
   <string id="NoAPIKey">Kein API-Schlüssel in den Anwendungseinstellungen</string>
   <string id="NoApiUrl">Keine API-URL in den Anwendungseinstellungen</string>
   <string id="NoConfigUrl">Keine Konfigurations-URL in den Anwendungseinstellungen</string>
-  <string id="ApiFlood">API-Aufrufe zu schnell. Bitte melden Sie diesen Fehler mit Gerätedetails.</string>
+  <string id="ApiFlood">API-Aufrufe zu schnell. Bitte verlangsamen Sie Ihre Anfragen.</string>
 </strings>

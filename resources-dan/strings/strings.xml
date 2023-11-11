@@ -29,5 +29,5 @@
   <string id="NoAPIKey">Ingen API-nøgle i applikationsindstillingerne</string>
   <string id="NoApiUrl">Ingen API-URL i applikationsindstillingerne</string>
   <string id="NoConfigUrl">Ingen konfigurations-URL i applikationsindstillingerne</string>
-  <string id="ApiFlood">API-kald for hurtigt. Rapportér venligst denne fejl med enhedsoplysninger.</string>
+  <string id="ApiFlood">API-kald for hurtigt. Sænk venligst dine anmodninger.</string>
 </strings>

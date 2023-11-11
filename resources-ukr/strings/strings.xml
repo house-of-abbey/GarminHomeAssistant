@@ -29,5 +29,5 @@
   <string id="NoAPIKey">У налаштуваннях програми немає ключа API</string>
   <string id="NoApiUrl">У налаштуваннях програми немає URL-адреси API</string>
   <string id="NoConfigUrl">У налаштуваннях програми немає URL-адреси конфігурації</string>
-  <string id="ApiFlood">Надто швидкі виклики API. Повідомте про цю помилку з деталями пристрою.</string>
+  <string id="ApiFlood">Надто швидкі виклики API. Будь ласка, сповільніть свої запити.</string>
 </strings>

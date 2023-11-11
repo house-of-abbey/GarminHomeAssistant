@@ -29,5 +29,5 @@
   <string id="NoAPIKey">Δεν υπάρχει κλειδί API στις ρυθμίσεις της εφαρμογής</string>
   <string id="NoApiUrl">Δεν υπάρχει URL API στις ρυθμίσεις της εφαρμογής</string>
   <string id="NoConfigUrl">Δεν υπάρχει διεύθυνση URL διαμόρφωσης στις ρυθμίσεις της εφαρμογής</string>
-  <string id="ApiFlood">Κλήσεις API πολύ γρήγορες. Αναφέρετε αυτό το σφάλμα με τα στοιχεία της συσκευής.</string>
+  <string id="ApiFlood">Κλήσεις API πολύ γρήγορες. Παρακαλώ επιβραδύνετε τα αιτήματά σας.</string>
 </strings>
