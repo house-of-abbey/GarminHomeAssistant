@@ -63,6 +63,7 @@
       <iq:product id="edgeexplore2"/>
       <!-- Screen Size 280x280 launcher icon size 40x40 -->
       <iq:product id="enduro"/>
+      <!-- Screen Size 416x416 launcher icon size 60x60 -->
       <iq:product id="epix2"/>
       <!-- Screen Size 390x390 launcher icon size 60x60 -->
       <iq:product id="epix2pro42mm"/>

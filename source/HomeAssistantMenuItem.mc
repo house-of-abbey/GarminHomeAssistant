@@ -93,6 +93,7 @@ class HomeAssistantMenuItem extends WatchUi.MenuItem {
         var options = {
             :method  => Communications.HTTP_REQUEST_METHOD_POST,
             :headers => {
+                "Content-Type"  => Communications.REQUEST_CONTENT_TYPE_JSON,
                 "Authorization" => "Bearer " + api_key
             },
             :responseType => Communications.HTTP_RESPONSE_CONTENT_TYPE_JSON
@@ -114,10 +115,10 @@ class HomeAssistantMenuItem extends WatchUi.MenuItem {
                     method(:onReturnExecScript)
                 );
             } else {
-                var url = Properties.getValue("api_url") + "/services/" + mService.substring(0, mService.find(".")) + "/" + mService.substring(mService.find(".")+1, null);
+                var url = (Properties.getValue("api_url") as Lang.String) + "/services/" + mService.substring(0, mService.find(".")) + "/" + mService.substring(mService.find(".")+1, null);
                 if (Globals.debug) {
-                    System.println("URL=" + url);
-                    System.println("mIdentifier=" + mIdentifier);
+                    System.println("HomeAssistantMenuItem execScript() URL=" + url);
+                    System.println("HomeAssistantMenuItem execScript() mIdentifier=" + mIdentifier);
                 }
                 Communications.makeWebRequest(
                     url,
@@ -125,7 +126,7 @@ class HomeAssistantMenuItem extends WatchUi.MenuItem {
                         "entity_id" => id
                     },
                     options,
-                    method(:onReturnSetState)
+                    method(:onReturnExecScript)
                 );
             }
         } else {
