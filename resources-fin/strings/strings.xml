@@ -29,4 +29,5 @@
   <string id="NoAPIKey">Sovellusasetuksissa ei ole API-avainta</string>
   <string id="NoApiUrl">Sovellusasetuksissa ei ole API URL-osoitetta</string>
   <string id="NoConfigUrl">Sovelluksen asetuksissa ei ole konfigurointi-URL-osoitetta</string>
+  <string id="ApiFlood">API-kutsut liian nopeita. Ilmoita tästä virheestä laitteen tiedoilla.</string>
 </strings>

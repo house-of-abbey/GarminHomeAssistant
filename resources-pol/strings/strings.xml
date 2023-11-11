@@ -29,4 +29,5 @@
   <string id="NoAPIKey">Brak klucza API w ustawieniach aplikacji</string>
   <string id="NoApiUrl">Brak adresu API w ustawieniach aplikacji</string>
   <string id="NoConfigUrl">Brak adresu URL konfiguracji w ustawieniach aplikacji</string>
+  <string id="ApiFlood">Wywołania API są zbyt szybkie. Zgłoś ten błąd, podając szczegóły urządzenia.</string>
 </strings>

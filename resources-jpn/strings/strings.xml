@@ -29,4 +29,5 @@
   <string id="NoAPIKey">アプリケーション設定に API キーがありません</string>
   <string id="NoApiUrl">アプリケーション設定に API URL がありません</string>
   <string id="NoConfigUrl">アプリケーション設定に構成 URL がありません</string>
+  <string id="ApiFlood">API 呼び出しが速すぎます。このエラーをデバイスの詳細とともに報告してください。</string>
 </strings>

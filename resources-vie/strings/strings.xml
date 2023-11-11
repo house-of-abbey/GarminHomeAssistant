@@ -29,4 +29,5 @@
   <string id="NoAPIKey">Không có khóa API trong cài đặt ứng dụng</string>
   <string id="NoApiUrl">Không có URL API trong cài đặt ứng dụng</string>
   <string id="NoConfigUrl">Không có URL cấu hình trong cài đặt ứng dụng</string>
+  <string id="ApiFlood">Cuộc gọi API quá nhanh. Vui lòng báo cáo lỗi này với các chi tiết thiết bị.</string>
 </strings>

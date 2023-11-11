@@ -23,4 +23,5 @@
     <string id="NoAPIKey">No API key in the application settings</string>
     <string id="NoApiUrl">No API URL in the application settings</string>
     <string id="NoConfigUrl">No configuration URL in the application settings</string>
+    <string id="ApiFlood">API calls too rapid. Please report this error with device details.</string>
 </strings>

@@ -29,4 +29,5 @@
   <string id="NoAPIKey">Geen API-sleutel in de applicatie-instellingen</string>
   <string id="NoApiUrl">Geen API-URL in de applicatie-instellingen</string>
   <string id="NoConfigUrl">Geen configuratie-URL in de applicatie-instellingen</string>
+  <string id="ApiFlood">API-aanroepen te snel. Rapporteer deze fout met apparaatgegevens.</string>
 </strings>

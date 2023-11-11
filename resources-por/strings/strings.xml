@@ -29,4 +29,5 @@
   <string id="NoAPIKey">Nenhuma chave de API nas configurações do aplicativo</string>
   <string id="NoApiUrl">Nenhum URL de API nas configurações do aplicativo</string>
   <string id="NoConfigUrl">Nenhum URL de configuração nas configurações do aplicativo</string>
+  <string id="ApiFlood">Chamadas de API muito rápidas. Por favor, relate este erro com detalhes do dispositivo.</string>
 </strings>

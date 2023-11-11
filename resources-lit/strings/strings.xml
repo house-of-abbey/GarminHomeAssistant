@@ -29,4 +29,5 @@
   <string id="NoAPIKey">Programos nustatymuose nėra API rakto</string>
   <string id="NoApiUrl">Programos nustatymuose nėra API URL</string>
   <string id="NoConfigUrl">Programos nustatymuose nėra konfigūracijos URL</string>
+  <string id="ApiFlood">API skambučiai per greiti. Praneškite apie šią klaidą pateikdami išsamią įrenginio informaciją.</string>
 </strings>

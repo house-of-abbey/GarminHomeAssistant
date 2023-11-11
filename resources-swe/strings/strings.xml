@@ -29,4 +29,5 @@
   <string id="NoAPIKey">Ingen API-nyckel i applikationsinställningarna</string>
   <string id="NoApiUrl">Ingen API-URL i applikationsinställningarna</string>
   <string id="NoConfigUrl">Ingen konfigurations-URL i programinställningarna</string>
+  <string id="ApiFlood">API-anrop för snabba. Rapportera detta fel med enhetsinformation.</string>
 </strings>

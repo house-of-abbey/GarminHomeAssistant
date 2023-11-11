@@ -29,4 +29,5 @@
   <string id="NoAPIKey">אין מפתח API בהגדרות האפליקציה</string>
   <string id="NoApiUrl">אין כתובת API בהגדרות האפליקציה</string>
   <string id="NoConfigUrl">אין כתובת אתר תצורה בהגדרות האפליקציה</string>
+  <string id="ApiFlood">קריאות API מהירות מדי. אנא דווח על שגיאה זו עם פרטי המכשיר.</string>
 </strings>

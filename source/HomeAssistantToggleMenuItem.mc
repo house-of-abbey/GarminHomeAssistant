@@ -26,6 +26,7 @@ using Toybox.Application.Properties;
 class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
     hidden var api_key = Properties.getValue("api_key");
     hidden var strNoInternet as Lang.String;
+    hidden var strApiFlood   as Lang.String;
 
     function initialize(
         label as Lang.String or Lang.Symbol,
@@ -41,6 +42,7 @@ class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
         } or Null
     ) {
         strNoInternet = WatchUi.loadResource($.Rez.Strings.NoInternet);
+        strApiFlood   = WatchUi.loadResource($.Rez.Strings.ApiFlood);
         WatchUi.ToggleMenuItem.initialize(label, subLabel, identifier, enabled, options);
         api_key = Properties.getValue("api_key");
     }
@@ -64,7 +66,16 @@ class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
             System.println("HomeAssistantToggleMenuItem onReturnGetState() Response Code: " + responseCode);
             System.println("HomeAssistantToggleMenuItem onReturnGetState() Response Data: " + data);
         }
-        if (responseCode == 200) {
+        if (responseCode == Communications.BLE_QUEUE_FULL) {
+            if (Globals.debug) {
+                System.println("HomeAssistantToggleMenuItem onReturnGetState() Response Code: BLE_QUEUE_FULL, API calls too rapid.");
+            }
+            var cw = WatchUi.getCurrentView();
+            if (!(cw[0] instanceof ErrorView)) {
+                // Avoid pushing multiple ErrorViews
+                WatchUi.pushView(new ErrorView(strApiFlood), new ErrorDelegate(), WatchUi.SLIDE_UP);
+            }
+        } else if (responseCode == 200) {
             var state = data.get("state") as Lang.String;
             if (Globals.debug) {
                 System.println((data.get("attributes") as Lang.Dictionary).get("friendly_name") + " State=" + state);
@@ -107,10 +118,19 @@ class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
     //
     function onReturnSetState(responseCode as Lang.Number, data as Null or Lang.Dictionary or Lang.String) as Void {
         if (Globals.debug) {
-            System.println("HomeAssistantToggleMenuItem onReturnGetState() Response Code: " + responseCode);
-            System.println("HomeAssistantToggleMenuItem onReturnGetState() Response Data: " + data);
+            System.println("HomeAssistantToggleMenuItem onReturnSetState() Response Code: " + responseCode);
+            System.println("HomeAssistantToggleMenuItem onReturnSetState() Response Data: " + data);
         }
-        if (responseCode == 200) {
+        if (responseCode == Communications.BLE_QUEUE_FULL) {
+            if (Globals.debug) {
+                System.println("HomeAssistantToggleMenuItem onReturnSetState() Response Code: BLE_QUEUE_FULL, API calls too rapid.");
+            }
+            var cw = WatchUi.getCurrentView();
+            if (!(cw[0] instanceof ErrorView)) {
+                // Avoid pushing multiple ErrorViews
+                WatchUi.pushView(new ErrorView(strApiFlood), new ErrorDelegate(), WatchUi.SLIDE_UP);
+            }
+        } else if (responseCode == 200) {
             var state;
             var d = data as Lang.Array;
             for(var i = 0; i < d.size(); i++) {

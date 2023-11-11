@@ -29,4 +29,5 @@
   <string id="NoAPIKey">Nicio cheie API în setările aplicației</string>
   <string id="NoApiUrl">Nicio adresă URL API în setările aplicației</string>
   <string id="NoConfigUrl">Nicio adresă URL de configurare în setările aplicației</string>
+  <string id="ApiFlood">Apeluri API prea rapide. Vă rugăm să raportați această eroare cu detaliile dispozitivului.</string>
 </strings>

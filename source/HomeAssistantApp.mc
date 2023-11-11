@@ -31,7 +31,10 @@ class HomeAssistantApp extends Application.AppBase {
     hidden var strNoConfigUrl as Lang.String;
     hidden var strNoInternet  as Lang.String;
     hidden var strNoMenu      as Lang.String;
+    hidden var strApiFlood    as Lang.String;
     hidden var timer          as Timer.Timer;
+    hidden var itemsToUpdate;        // Array initialised by onReturnFetchMenuConfig()
+    hidden var nextItemToUpdate = 0; // Index into the above array
 
     function initialize() {
         AppBase.initialize();
@@ -40,6 +43,7 @@ class HomeAssistantApp extends Application.AppBase {
         strNoConfigUrl = WatchUi.loadResource($.Rez.Strings.NoConfigUrl);
         strNoInternet  = WatchUi.loadResource($.Rez.Strings.NoInternet);
         strNoMenu      = WatchUi.loadResource($.Rez.Strings.NoMenu);
+        strApiFlood    = WatchUi.loadResource($.Rez.Strings.ApiFlood);
         timer          = new Timer.Timer();
     }
 
@@ -89,14 +93,24 @@ class HomeAssistantApp extends Application.AppBase {
             System.println("HomeAssistantApp onReturnFetchMenuConfig() Response Code: " + responseCode);
             System.println("HomeAssistantApp onReturnFetchMenuConfig() Response Data: " + data);
         }
-        if (responseCode == 200) {
+        if (responseCode == Communications.BLE_QUEUE_FULL) {
+            if (Globals.debug) {
+                System.println("HomeAssistantApp onReturnFetchMenuConfig() Response Code: BLE_QUEUE_FULL, API calls too rapid.");
+            }
+            var cw = WatchUi.getCurrentView();
+            if (!(cw[0] instanceof ErrorView)) {
+                // Avoid pushing multiple ErrorViews
+                WatchUi.pushView(new ErrorView(strApiFlood), new ErrorDelegate(), WatchUi.SLIDE_UP);
+            }
+        } else if (responseCode == 200) {
             haMenu = new HomeAssistantView(data, null);
+            WatchUi.switchToView(haMenu, new HomeAssistantViewDelegate(), WatchUi.SLIDE_IMMEDIATE);
+            itemsToUpdate = haMenu.getItemsToUpdate();
             timer.start(
-                haMenu.method(:stateUpdate),
-                Globals.updateInterval * 1000,
+                method(:updateNextMenuItem),
+                Globals.menuItemUpdateInterval,
                 true
             );
-            WatchUi.switchToView(haMenu, new HomeAssistantViewDelegate(), WatchUi.SLIDE_IMMEDIATE);
         } else if (responseCode == -300) {
             if (Globals.debug) {
                 System.println("HomeAssistantApp Note - onReturnFetchMenuConfig(): Network request timeout.");
@@ -121,6 +135,14 @@ class HomeAssistantApp extends Application.AppBase {
             options,
             method(:onReturnFetchMenuConfig)
         );
+    }
+
+    // We need to spread out the API calls so as not to overload the results queue and cause Communications.BLE_QUEUE_FULL (-101) error.
+    // This function is called by a timer every Globals.menuItemUpdateInterval ms.
+    function updateNextMenuItem() as Void {
+        var itu = itemsToUpdate as Lang.Array<HomeAssistantToggleMenuItem>;
+        itu[nextItemToUpdate].getState();
+        nextItemToUpdate = (nextItemToUpdate + 1) % itu.size();
     }
 
 }

@@ -29,4 +29,5 @@
   <string id="NoAPIKey">Uygulama ayarlarında API anahtarı yok</string>
   <string id="NoApiUrl">Uygulama ayarlarında API URL'si yok</string>
   <string id="NoConfigUrl">Uygulama ayarlarında yapılandırma URL'si yok</string>
+  <string id="ApiFlood">API çağrıları çok hızlı. Lütfen bu hatayı cihaz ayrıntılarıyla birlikte bildirin.</string>
 </strings>

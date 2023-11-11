@@ -24,6 +24,9 @@ using Toybox.WatchUi;
 
 class HomeAssistantView extends WatchUi.Menu2 {
     hidden var strMenuItemTap as Lang.String;
+    // List of items that need to have their status updated periodically
+    hidden var mListToggleItems = [];
+    hidden var mListMenuItems   = [];
 
     function initialize(
         definition as Lang.Dictionary,
@@ -56,15 +59,15 @@ class HomeAssistantView extends WatchUi.Menu2 {
             var service = items[i].get("service") as Lang.String or Null;
             if (type != null && name != null && entity != null) {
                 if (type.equals("toggle")) {
-                    addItem(
-                        new HomeAssistantToggleMenuItem(
-                            name,
-                            toggle_obj,
-                            entity,
-                            false,
-                            null
-                        )
+                    var item = new HomeAssistantToggleMenuItem(
+                        name,
+                        toggle_obj,
+                        entity,
+                        false,
+                        null
                     );
+                    addItem(item);
+                    mListToggleItems.add(item);
                 } else if (type.equals("tap")) {
                     addItem(
                         new HomeAssistantMenuItem(
@@ -76,46 +79,27 @@ class HomeAssistantView extends WatchUi.Menu2 {
                         )
                     );
                 } else if (type.equals("group")) {
-                    addItem(
-                        new HomeAssistantViewMenuItem(items[i])
-                    );
+                    var item = new HomeAssistantViewMenuItem(items[i]);
+                    addItem(item);
+                    mListMenuItems.add(item);
                 }
             }
         }
+    }
+
+    function getItemsToUpdate() as Lang.Array<HomeAssistantToggleMenuItem> {
+        var fullList = [];
+        var lmi = mListMenuItems as Lang.Array<HomeAssistantViewMenuItem>;
+        for(var i = 0; i < lmi.size(); i++) {
+            fullList.addAll(lmi[i].getMenuView().getItemsToUpdate());
+        }
+        return fullList.addAll(mListToggleItems);
     }
 
     // Called when this View is brought to the foreground. Restore
     // the state of this View and prepare it to be shown. This includes
     // loading resources into memory.
-    function onShow() as Void {
-        for(var i = 0; i < mItems.size(); i++) {
-            if (mItems[i] instanceof HomeAssistantToggleMenuItem) {
-                var toggleItem = mItems[i] as HomeAssistantToggleMenuItem;
-                toggleItem.getState();
-                if (Globals.debug) {
-                    System.println("HomeAssistantView Note: " + toggleItem.getLabel() + " ID=" + toggleItem.getId() + " Enabled=" + toggleItem.isEnabled());
-                }
-            }
-        }
-    }
-
-    function stateUpdate() as Void {
-        for(var i = 0; i < mItems.size(); i++) {
-            if (mItems[i] instanceof HomeAssistantToggleMenuItem) {
-                var toggleItem = mItems[i] as HomeAssistantToggleMenuItem;
-                toggleItem.getState();
-                if (Globals.debug) {
-                    System.println("HomeAssistantView Toggle stateUpdate: " + toggleItem.getLabel() + " ID=" + toggleItem.getId() + " Enabled=" + toggleItem.isEnabled());
-                }
-            } else if (mItems[i] instanceof HomeAssistantViewMenuItem) {
-                var menu = mItems[i] as HomeAssistantViewMenuItem;
-                if (Globals.debug) {
-                    System.println("HomeAssistantView Menu stateUpdate: " + menu.getLabel() + " ID=" + menu.getId());
-                }
-                menu.getMenuView().stateUpdate();
-            }
-        }
-    }
+    function onShow() as Void {}
 
 }
 

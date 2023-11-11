@@ -29,4 +29,5 @@
   <string id="NoAPIKey">Nema API ključa u postavkama aplikacije</string>
   <string id="NoApiUrl">Nema API URL-a u postavkama aplikacije</string>
   <string id="NoConfigUrl">Nema konfiguracijskog URL-a u postavkama aplikacije</string>
+  <string id="ApiFlood">API pozivi su prebrzi. Prijavite ovu pogrešku s pojedinostima o uređaju.</string>
 </strings>

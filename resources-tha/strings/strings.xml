@@ -29,4 +29,5 @@
   <string id="NoAPIKey">ไม่มีคีย์ API ในการตั้งค่าแอปพลิเคชัน</string>
   <string id="NoApiUrl">ไม่มี URL API ในการตั้งค่าแอปพลิเคชัน</string>
   <string id="NoConfigUrl">ไม่มี URL การกำหนดค่าในการตั้งค่าแอปพลิเคชัน</string>
+  <string id="ApiFlood">การเรียก API เร็วเกินไป โปรดรายงานข้อผิดพลาดนี้พร้อมรายละเอียดอุปกรณ์</string>
 </strings>

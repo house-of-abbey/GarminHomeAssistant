@@ -26,6 +26,7 @@ using Toybox.Application.Properties;
 class HomeAssistantMenuItem extends WatchUi.MenuItem {
     hidden var api_key = Properties.getValue("api_key");
     hidden var strNoInternet as Lang.String;
+    hidden var strApiFlood   as Lang.String;
     hidden var mService as Lang.String or Null;
 
     function initialize(
@@ -39,6 +40,7 @@ class HomeAssistantMenuItem extends WatchUi.MenuItem {
         } or Null
     ) {
         strNoInternet = WatchUi.loadResource($.Rez.Strings.NoInternet);
+        strApiFlood   = WatchUi.loadResource($.Rez.Strings.ApiFlood);
         mService = service;
         WatchUi.MenuItem.initialize(
             label,
@@ -52,10 +54,19 @@ class HomeAssistantMenuItem extends WatchUi.MenuItem {
     //
     function onReturnExecScript(responseCode as Lang.Number, data as Null or Lang.Dictionary or Lang.String) as Void {
         if (Globals.debug) {
-            System.println("HomeAssistantToggleMenuItem onReturnGetState() Response Code: " + responseCode);
-            System.println("HomeAssistantToggleMenuItem onReturnGetState() Response Data: " + data);
+            System.println("HomeAssistantMenuItem onReturnExecScript() Response Code: " + responseCode);
+            System.println("HomeAssistantMenuItem onReturnExecScript() Response Data: " + data);
         }
-        if (responseCode == 200) {
+        if (responseCode == Communications.BLE_QUEUE_FULL) {
+            if (Globals.debug) {
+                System.println("HomeAssistantMenuItem onReturnExecScript() Response Code: BLE_QUEUE_FULL, API calls too rapid.");
+            }
+            var cw = WatchUi.getCurrentView();
+            if (!(cw[0] instanceof ErrorView)) {
+                // Avoid pushing multiple ErrorViews
+                WatchUi.pushView(new ErrorView(strApiFlood), new ErrorDelegate(), WatchUi.SLIDE_UP);
+            }
+        } else if (responseCode == 200) {
             var d = data as Lang.Array;
             for(var i = 0; i < d.size(); i++) {
                 if ((d[i].get("entity_id") as Lang.String).equals(mIdentifier)) {
