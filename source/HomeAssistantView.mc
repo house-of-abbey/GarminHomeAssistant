@@ -50,9 +50,10 @@ class HomeAssistantView extends WatchUi.Menu2 {
 
         var items = definition.get("items") as Lang.Dictionary;
         for(var i = 0; i < items.size(); i++) {
-            var type   = items[i].get("type")   as Lang.String or Null;
-            var name   = items[i].get("name")   as Lang.String or Null;
-            var entity = items[i].get("entity") as Lang.String or Null;
+            var type    = items[i].get("type")    as Lang.String or Null;
+            var name    = items[i].get("name")    as Lang.String or Null;
+            var entity  = items[i].get("entity")  as Lang.String or Null;
+            var service = items[i].get("service") as Lang.String or Null;
             if (type != null && name != null && entity != null) {
                 if (type.equals("toggle")) {
                     addItem(
@@ -70,6 +71,7 @@ class HomeAssistantView extends WatchUi.Menu2 {
                             name,
                             strMenuItemTap,
                             entity,
+                            service,
                             null
                         )
                     );

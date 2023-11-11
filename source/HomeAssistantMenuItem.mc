@@ -14,7 +14,7 @@
 //
 // Description:
 //
-// Menu button that triggers a script.
+// Menu button that triggers a service.
 //
 //-----------------------------------------------------------------------------------
 
@@ -26,18 +26,20 @@ using Toybox.Application.Properties;
 class HomeAssistantMenuItem extends WatchUi.MenuItem {
     hidden var api_key = Properties.getValue("api_key");
     hidden var strNoInternet as Lang.String;
+    hidden var mService as Lang.String or Null;
 
     function initialize(
         label as Lang.String or Lang.Symbol,
         subLabel as Lang.String or Lang.Symbol or Null,
         identifier as Lang.Object or Null,
+        service as Lang.String or Null,
         options as {
             :alignment as WatchUi.MenuItem.Alignment,
             :icon      as Graphics.BitmapType or WatchUi.Drawable or Lang.Symbol
         } or Null
     ) {
         strNoInternet = WatchUi.loadResource($.Rez.Strings.NoInternet);
-        
+        mService = service;
         WatchUi.MenuItem.initialize(
             label,
             subLabel,
@@ -99,17 +101,33 @@ class HomeAssistantMenuItem extends WatchUi.MenuItem {
             // Updated SDK and got a new error
             // ERROR: venu: Cannot find symbol ':substring' on type 'PolyType<Null or $.Toybox.Lang.Object>'.
             var id = mIdentifier as Lang.String;
-            var url = (Properties.getValue("api_url") as Lang.String) + "/services/" + id.substring(0, id.find(".")) + "/" + id.substring(id.find(".")+1, id.length());
-            if (Globals.debug) {
-                System.println("HomeAssistantMenuItem execScript() URL=" + url);
-                System.println("HomeAssistantMenuItem execScript() mIdentifier=" + mIdentifier);
+            if (mService == null) {
+                var url = (Properties.getValue("api_url") as Lang.String) + "/services/" + id.substring(0, id.find(".")) + "/" + id.substring(id.find(".")+1, id.length());
+                if (Globals.debug) {
+                    System.println("HomeAssistantMenuItem execScript() URL=" + url);
+                    System.println("HomeAssistantMenuItem execScript() mIdentifier=" + mIdentifier);
+                }
+                Communications.makeWebRequest(
+                    url,
+                    null,
+                    options,
+                    method(:onReturnExecScript)
+                );
+            } else {
+                var url = Properties.getValue("api_url") + "/services/" + mService.substring(0, mService.find(".")) + "/" + mService.substring(mService.find(".")+1, null);
+                if (Globals.debug) {
+                    System.println("URL=" + url);
+                    System.println("mIdentifier=" + mIdentifier);
+                }
+                Communications.makeWebRequest(
+                    url,
+                    {
+                        "entity_id" => id
+                    },
+                    options,
+                    method(:onReturnSetState)
+                );
             }
-            Communications.makeWebRequest(
-                url,
-                null,
-                options,
-                method(:onReturnExecScript)
-            );
         } else {
             if (Globals.debug) {
                 System.println("HomeAssistantMenuItem Note - execScript(): No Internet connection, skipping API call.");
