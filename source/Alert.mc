@@ -30,55 +30,55 @@ using Toybox.Timer;
 const bRadius = 10;
 
 class Alert extends WatchUi.View {
-    hidden var timer;
-    hidden var timeout;
-    hidden var text;
-    hidden var font;
-    hidden var fgcolor;
-    hidden var bgcolor;
+    hidden var mTimer;
+    hidden var mTimeout;
+    hidden var mText;
+    hidden var mFont;
+    hidden var mFgcolor;
+    hidden var mBgcolor;
 
     function initialize(params as Lang.Dictionary) {
         View.initialize();
 
-        text = params.get(:text);
-        if (text == null) {
-            text = "Alert";
+        mText = params.get(:text);
+        if (mText == null) {
+            mText = "Alert";
         }
 
-        font = params.get(:font);
-        if (font == null) {
-            font = Graphics.FONT_MEDIUM;
+        mFont = params.get(:font);
+        if (mFont == null) {
+            mFont = Graphics.FONT_MEDIUM;
         }
 
-        fgcolor = params.get(:fgcolor);
-        if (fgcolor == null) {
-            fgcolor = Graphics.COLOR_BLACK;
+        mFgcolor = params.get(:fgcolor);
+        if (mFgcolor == null) {
+            mFgcolor = Graphics.COLOR_BLACK;
         }
 
-        bgcolor = params.get(:bgcolor);
-        if (bgcolor == null) {
-            bgcolor = Graphics.COLOR_WHITE;
+        mBgcolor = params.get(:bgcolor);
+        if (mBgcolor == null) {
+            mBgcolor = Graphics.COLOR_WHITE;
         }
 
-        timeout = params.get(:timeout);
-        if (timeout == null) {
-            timeout = 2000;
+        mTimeout = params.get(:timeout);
+        if (mTimeout == null) {
+            mTimeout = 2000;
         }
 
-        timer = new Timer.Timer();
+        mTimer = new Timer.Timer();
     }
 
     function onShow() {
-        timer.start(method(:dismiss), timeout, false);
+        mTimer.start(method(:dismiss), mTimeout, false);
     }
 
     function onHide() {
-        timer.stop();
+        mTimer.stop();
     }
 
     function onUpdate(dc) {
-        var tWidth  = dc.getTextWidthInPixels(text, font);
-        var tHeight = dc.getFontHeight(font);
+        var tWidth  = dc.getTextWidthInPixels(mText, mFont);
+        var tHeight = dc.getFontHeight(mFont);
         var bWidth  = tWidth  + 20;
         var bHeight = tHeight + 15;
         var bX      = (dc.getWidth()  - bWidth)  / 2;
@@ -93,10 +93,10 @@ class Alert extends WatchUi.View {
             Graphics.COLOR_TRANSPARENT
         );
         dc.clear();
-        dc.setColor(bgcolor, bgcolor);
+        dc.setColor(mBgcolor, mBgcolor);
         dc.fillRoundedRectangle(bX, bY, bWidth, bHeight, bRadius);
 
-        dc.setColor(fgcolor, bgcolor);
+        dc.setColor(mFgcolor, mBgcolor);
         for (var i = 0; i < 3; ++i) {
             bX      += i;
             bY      += i;
@@ -107,8 +107,8 @@ class Alert extends WatchUi.View {
 
         var tX = dc.getWidth() / 2;
         var tY = bY + bHeight  / 2;
-        dc.setColor(fgcolor, bgcolor);
-        dc.drawText(tX, tY, font, text, Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
+        dc.setColor(mFgcolor, mBgcolor);
+        dc.drawText(tX, tY, mFont, mText, Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
     }
 
     // Remove the alert from view, usually on user input, but that is defined by the calling function.

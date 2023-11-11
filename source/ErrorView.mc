@@ -26,31 +26,31 @@ using Toybox.WatchUi;
 using Toybox.Communications;
 
 class ErrorView extends ScalableView {
-    hidden const settings as Lang.Dictionary = {
+    hidden const cSettings as Lang.Dictionary = {
         :errorIconMargin => 7f
     };
     // Vertical spacing between the top of the face and the error icon
-    hidden var errorIconMargin;
-    hidden var text as Lang.String;
-    hidden var errorIcon;
-    hidden var textArea;
+    hidden var mErrorIconMargin;
+    hidden var mText as Lang.String;
+    hidden var mErrorIcon;
+    hidden var mTextArea;
 
     function initialize(text as Lang.String) {
         ScalableView.initialize();
-        self.text = text;
+        mText = text;
         // Convert the settings from % of screen size to pixels
-        errorIconMargin = pixelsForScreen(settings.get(:errorIconMargin) as Lang.Float);
+        mErrorIconMargin = pixelsForScreen(cSettings.get(:errorIconMargin) as Lang.Float);
     }
 
     // Load your resources here
     function onLayout(dc as Graphics.Dc) as Void {
-        errorIcon = Application.loadResource(Rez.Drawables.ErrorIcon) as Graphics.BitmapResource;
+        mErrorIcon = Application.loadResource(Rez.Drawables.ErrorIcon) as Graphics.BitmapResource;
 
         var w = dc.getWidth();
         var h = dc.getHeight();
 
-        textArea = new WatchUi.TextArea({
-            :text          => text,
+        mTextArea = new WatchUi.TextArea({
+            :text          => mText,
             :color         => Graphics.COLOR_WHITE,
             :font          => Graphics.FONT_XTINY,
             :justification => Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER,
@@ -71,8 +71,8 @@ class ErrorView extends ScalableView {
         }
         dc.setColor(Graphics.COLOR_WHITE, bg);
         dc.clear();
-        dc.drawBitmap(hw - errorIcon.getWidth()/2, errorIconMargin, errorIcon);
-        textArea.draw(dc);
+        dc.drawBitmap(hw - mErrorIcon.getWidth()/2, mErrorIconMargin, mErrorIcon);
+        mTextArea.draw(dc);
     }
 
 }

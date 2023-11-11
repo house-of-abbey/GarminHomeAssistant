@@ -24,7 +24,7 @@ using Toybox.Graphics;
 using Toybox.Application.Properties;
 
 class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
-    hidden var api_key = Properties.getValue("api_key");
+    hidden var mApiKey = Properties.getValue("api_key");
     hidden var strNoInternet as Lang.String;
     hidden var strApiFlood   as Lang.String;
 
@@ -44,7 +44,7 @@ class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
         strNoInternet = WatchUi.loadResource($.Rez.Strings.NoInternet);
         strApiFlood   = WatchUi.loadResource($.Rez.Strings.ApiFlood);
         WatchUi.ToggleMenuItem.initialize(label, subLabel, identifier, enabled, options);
-        api_key = Properties.getValue("api_key");
+        mApiKey = Properties.getValue("api_key");
     }
 
     private function setUiToggle(state as Null or Lang.String) as Void {
@@ -62,12 +62,12 @@ class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
     // Callback function after completing the GET request to fetch the status.
     //
     function onReturnGetState(responseCode as Lang.Number, data as Null or Lang.Dictionary or Lang.String) as Void {
-        if (Globals.debug) {
+        if (Globals.scDebug) {
             System.println("HomeAssistantToggleMenuItem onReturnGetState() Response Code: " + responseCode);
             System.println("HomeAssistantToggleMenuItem onReturnGetState() Response Data: " + data);
         }
         if (responseCode == Communications.BLE_QUEUE_FULL) {
-            if (Globals.debug) {
+            if (Globals.scDebug) {
                 System.println("HomeAssistantToggleMenuItem onReturnGetState() Response Code: BLE_QUEUE_FULL, API calls too rapid.");
             }
             var cw = WatchUi.getCurrentView();
@@ -77,7 +77,7 @@ class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
             }
         } else if (responseCode == 200) {
             var state = data.get("state") as Lang.String;
-            if (Globals.debug) {
+            if (Globals.scDebug) {
                 System.println((data.get("attributes") as Lang.Dictionary).get("friendly_name") + " State=" + state);
             }
             if (getLabel().equals("...")) {
@@ -91,13 +91,13 @@ class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
         var options = {
             :method  => Communications.HTTP_REQUEST_METHOD_GET,
             :headers => {
-                "Authorization" => "Bearer " + api_key
+                "Authorization" => "Bearer " + mApiKey
             },
             :responseType => Communications.HTTP_RESPONSE_CONTENT_TYPE_JSON
         };
         if (System.getDeviceSettings().phoneConnected && System.getDeviceSettings().connectionAvailable) {
             var url = Properties.getValue("api_url") + "/states/" + mIdentifier;
-            if (Globals.debug) {
+            if (Globals.scDebug) {
                 System.println("HomeAssistantToggleMenuItem getState() URL=" + url);
             }
             Communications.makeWebRequest(
@@ -107,7 +107,7 @@ class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
                 method(:onReturnGetState)
             );
         } else {
-            if (Globals.debug) {
+            if (Globals.scDebug) {
                 System.println("HomeAssistantToggleMenuItem Note - getState(): No Internet connection, skipping API call.");
             }
             WatchUi.pushView(new ErrorView(strNoInternet + "."), new ErrorDelegate(), WatchUi.SLIDE_UP);
@@ -117,12 +117,12 @@ class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
     // Callback function after completing the POST request to set the status.
     //
     function onReturnSetState(responseCode as Lang.Number, data as Null or Lang.Dictionary or Lang.String) as Void {
-        if (Globals.debug) {
+        if (Globals.scDebug) {
             System.println("HomeAssistantToggleMenuItem onReturnSetState() Response Code: " + responseCode);
             System.println("HomeAssistantToggleMenuItem onReturnSetState() Response Data: " + data);
         }
         if (responseCode == Communications.BLE_QUEUE_FULL) {
-            if (Globals.debug) {
+            if (Globals.scDebug) {
                 System.println("HomeAssistantToggleMenuItem onReturnSetState() Response Code: BLE_QUEUE_FULL, API calls too rapid.");
             }
             var cw = WatchUi.getCurrentView();
@@ -136,7 +136,7 @@ class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
             for(var i = 0; i < d.size(); i++) {
                 if ((d[i].get("entity_id") as Lang.String).equals(mIdentifier)) {
                     state = d[i].get("state") as Lang.String;
-                    if (Globals.debug) {
+                    if (Globals.scDebug) {
                         System.println((d[i].get("attributes") as Lang.Dictionary).get("friendly_name") + " State=" + state);
                     }
                     setUiToggle(state);
@@ -150,7 +150,7 @@ class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
             :method  => Communications.HTTP_REQUEST_METHOD_POST,
             :headers => {
                 "Content-Type"  => Communications.REQUEST_CONTENT_TYPE_JSON,
-                "Authorization" => "Bearer " + api_key
+                "Authorization" => "Bearer " + mApiKey
             },
             :responseType => Communications.HTTP_RESPONSE_CONTENT_TYPE_JSON
         };
@@ -164,7 +164,7 @@ class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
             } else {
                 url = Properties.getValue("api_url") + "/services/" + id.substring(0, id.find(".")) + "/turn_off";
             }
-            if (Globals.debug) {
+            if (Globals.scDebug) {
                 System.println("HomeAssistantToggleMenuItem setState() URL=" + url);
                 System.println("HomeAssistantToggleMenuItem setState() mIdentifier=" + mIdentifier);
             }
@@ -177,7 +177,7 @@ class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
                 method(:onReturnSetState)
             );
         } else {
-            if (Globals.debug) {
+            if (Globals.scDebug) {
                 System.println("HomeAssistantToggleMenuItem Note - setState(): No Internet connection, skipping API call.");
             }
             WatchUi.pushView(new ErrorView(strNoInternet + "."), new ErrorDelegate(), WatchUi.SLIDE_UP);

@@ -23,7 +23,7 @@ using Toybox.WatchUi;
 using Toybox.Math;
 
 class ScalableView extends WatchUi.View {
-    hidden var screenWidth;
+    hidden var mScreenWidth;
 
     function initialize() {
         View.initialize();
@@ -40,9 +40,9 @@ class ScalableView extends WatchUi.View {
     // height > width.
     //
     function pixelsForScreen(pc as Lang.Float) as Lang.Number {
-        if (screenWidth == null) {
-            screenWidth = System.getDeviceSettings().screenWidth;
+        if (mScreenWidth == null) {
+            mScreenWidth = System.getDeviceSettings().screenWidth;
         }
-        return Math.round(pc * screenWidth) / 100;
+        return Math.round(pc * mScreenWidth) / 100;
     }
 }

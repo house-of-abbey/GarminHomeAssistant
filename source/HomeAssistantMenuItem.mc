@@ -24,10 +24,10 @@ using Toybox.Graphics;
 using Toybox.Application.Properties;
 
 class HomeAssistantMenuItem extends WatchUi.MenuItem {
-    hidden var api_key = Properties.getValue("api_key");
+    hidden var mApiKey = Properties.getValue("api_key");
     hidden var strNoInternet as Lang.String;
     hidden var strApiFlood   as Lang.String;
-    hidden var mService as Lang.String or Null;
+    hidden var mService      as Lang.String;
 
     function initialize(
         label as Lang.String or Lang.Symbol,
@@ -53,12 +53,12 @@ class HomeAssistantMenuItem extends WatchUi.MenuItem {
     // Callback function after completing the POST request to call a script.
     //
     function onReturnExecScript(responseCode as Lang.Number, data as Null or Lang.Dictionary or Lang.String) as Void {
-        if (Globals.debug) {
+        if (Globals.scDebug) {
             System.println("HomeAssistantMenuItem onReturnExecScript() Response Code: " + responseCode);
             System.println("HomeAssistantMenuItem onReturnExecScript() Response Data: " + data);
         }
         if (responseCode == Communications.BLE_QUEUE_FULL) {
-            if (Globals.debug) {
+            if (Globals.scDebug) {
                 System.println("HomeAssistantMenuItem onReturnExecScript() Response Code: BLE_QUEUE_FULL, API calls too rapid.");
             }
             var cw = WatchUi.getCurrentView();
@@ -70,7 +70,7 @@ class HomeAssistantMenuItem extends WatchUi.MenuItem {
             var d = data as Lang.Array;
             for(var i = 0; i < d.size(); i++) {
                 if ((d[i].get("entity_id") as Lang.String).equals(mIdentifier)) {
-                    if (Globals.debug) {
+                    if (Globals.scDebug) {
                         System.println("HomeAssistantMenuItem Note - onReturnExecScript(): Correct script executed.");
                     }
                     if (WatchUi has :showToast) {
@@ -88,7 +88,7 @@ class HomeAssistantMenuItem extends WatchUi.MenuItem {
                     }
                     if (!(WatchUi has :showToast) && !(Attention has :vibrate)) {
                         new Alert({
-                            :timeout => Globals.alertTimeout,
+                            :timeout => Globals.scAlertTimeout,
                             :font    => Graphics.FONT_MEDIUM,
                             :text    => (d[i].get("attributes") as Lang.Dictionary).get("friendly_name") as Lang.String,
                             :fgcolor => Graphics.COLOR_WHITE,
@@ -105,7 +105,7 @@ class HomeAssistantMenuItem extends WatchUi.MenuItem {
             :method  => Communications.HTTP_REQUEST_METHOD_POST,
             :headers => {
                 "Content-Type"  => Communications.REQUEST_CONTENT_TYPE_JSON,
-                "Authorization" => "Bearer " + api_key
+                "Authorization" => "Bearer " + mApiKey
             },
             :responseType => Communications.HTTP_RESPONSE_CONTENT_TYPE_JSON
         };
@@ -115,7 +115,7 @@ class HomeAssistantMenuItem extends WatchUi.MenuItem {
             var id = mIdentifier as Lang.String;
             if (mService == null) {
                 var url = (Properties.getValue("api_url") as Lang.String) + "/services/" + id.substring(0, id.find(".")) + "/" + id.substring(id.find(".")+1, id.length());
-                if (Globals.debug) {
+                if (Globals.scDebug) {
                     System.println("HomeAssistantMenuItem execScript() URL=" + url);
                     System.println("HomeAssistantMenuItem execScript() mIdentifier=" + mIdentifier);
                 }
@@ -127,7 +127,7 @@ class HomeAssistantMenuItem extends WatchUi.MenuItem {
                 );
             } else {
                 var url = (Properties.getValue("api_url") as Lang.String) + "/services/" + mService.substring(0, mService.find(".")) + "/" + mService.substring(mService.find(".")+1, null);
-                if (Globals.debug) {
+                if (Globals.scDebug) {
                     System.println("HomeAssistantMenuItem execScript() URL=" + url);
                     System.println("HomeAssistantMenuItem execScript() mIdentifier=" + mIdentifier);
                 }
@@ -141,7 +141,7 @@ class HomeAssistantMenuItem extends WatchUi.MenuItem {
                 );
             }
         } else {
-            if (Globals.debug) {
+            if (Globals.scDebug) {
                 System.println("HomeAssistantMenuItem Note - execScript(): No Internet connection, skipping API call.");
             }
             WatchUi.pushView(new ErrorView(strNoInternet + "."), new ErrorDelegate(), WatchUi.SLIDE_UP);

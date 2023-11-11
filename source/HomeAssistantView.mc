@@ -115,25 +115,25 @@ class HomeAssistantViewDelegate extends WatchUi.Menu2InputDelegate {
     function onSelect(item as WatchUi.MenuItem) as Void {
         if (item instanceof HomeAssistantToggleMenuItem) {
             var haToggleItem = item as HomeAssistantToggleMenuItem;
-            if (Globals.debug) {
+            if (Globals.scDebug) {
                 System.println(haToggleItem.getLabel() + " " + haToggleItem.getId() + " " + haToggleItem.isEnabled());
             }
             haToggleItem.setState(haToggleItem.isEnabled());
         } else if (item instanceof HomeAssistantMenuItem) {
             var haItem = item as HomeAssistantMenuItem;
-            if (Globals.debug) {
+            if (Globals.scDebug) {
                 System.println(haItem.getLabel() + " " + haItem.getId());
             }
             haItem.execScript();
         } else if (item instanceof HomeAssistantViewMenuItem) {
             var haMenuItem = item as HomeAssistantViewMenuItem;
-            if (Globals.debug) {
+            if (Globals.scDebug) {
                 System.println("Menu: " + haMenuItem.getLabel() + " " + haMenuItem.getId());
             }
             // No delegate state to be amended, so re-use 'self'.
             WatchUi.pushView(haMenuItem.getMenuView(), self, WatchUi.SLIDE_LEFT);
         } else {
-            if (Globals.debug) {
+            if (Globals.scDebug) {
                 System.println(item.getLabel() + " " + item.getId());
             }
         }
