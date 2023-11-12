@@ -30,4 +30,8 @@
   <string id="NoApiUrl">Nicio adresă URL API în setările aplicației</string>
   <string id="NoConfigUrl">Nicio adresă URL de configurare în setările aplicației</string>
   <string id="ApiFlood">Apeluri API prea rapide. Vă rugăm să vă încetiniți solicitările.</string>
+  <string id="ApiUrlNotFound">Adresa URL nu a fost găsită. Potențială eroare URL API în setări.</string>
+  <string id="ConfigUrlNotFound">Adresa URL nu a fost găsită. Potențială eroare URL de configurare în setări.</string>
+  <string id="UnhandledHttpErr">Solicitarea HTTP a returnat codul de eroare =</string>
+  <string id="TrailingSlashErr">Adresa URL API nu trebuie să aibă o bară oblică „/”</string>
 </strings>

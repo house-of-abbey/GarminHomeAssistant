@@ -30,4 +30,8 @@
   <string id="NoApiUrl">V nastaveniach aplikácie nie je žiadna adresa URL rozhrania API</string>
   <string id="NoConfigUrl">V nastaveniach aplikácie nie je žiadna konfiguračná URL</string>
   <string id="ApiFlood">Volania API sú príliš rýchle. Spomaľte svoje požiadavky.</string>
+  <string id="ApiUrlNotFound">Adresa URL sa nenašla. Potenciálna chyba webovej adresy rozhrania API v nastaveniach.</string>
+  <string id="ConfigUrlNotFound">Adresa URL sa nenašla. Potenciálna chyba konfiguračnej adresy URL v nastaveniach.</string>
+  <string id="UnhandledHttpErr">Požiadavka HTTP vrátila kód chyby =</string>
+  <string id="TrailingSlashErr">Adresa URL rozhrania API nesmie obsahovať koncovú lomku „/“</string>
 </strings>

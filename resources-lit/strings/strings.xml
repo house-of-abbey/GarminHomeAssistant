@@ -30,4 +30,8 @@
   <string id="NoApiUrl">Programos nustatymuose nėra API URL</string>
   <string id="NoConfigUrl">Programos nustatymuose nėra konfigūracijos URL</string>
   <string id="ApiFlood">API skambučiai per greiti. Sulėtinkite prašymų vykdymą.</string>
+  <string id="ApiUrlNotFound">URL nerastas. Galima API URL klaida nustatymuose.</string>
+  <string id="ConfigUrlNotFound">URL nerastas. Galima konfigūracijos URL klaida nustatymuose.</string>
+  <string id="UnhandledHttpErr">HTTP užklausa grąžino klaidos kodą =</string>
+  <string id="TrailingSlashErr">API URL pabaigoje negali būti pasvirojo brūkšnio „/“</string>
 </strings>

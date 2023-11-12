@@ -30,4 +30,8 @@
   <string id="NoApiUrl">Nessun URL API nelle impostazioni dell'applicazione</string>
   <string id="NoConfigUrl">Nessun URL di configurazione nelle impostazioni dell'applicazione</string>
   <string id="ApiFlood">Chiamate API troppo rapide. Per favore rallenta le tue richieste.</string>
+  <string id="ApiUrlNotFound">URL non trovato. Potenziale errore URL API nelle impostazioni.</string>
+  <string id="ConfigUrlNotFound">URL non trovato. Potenziale errore dell'URL di configurazione nelle impostazioni.</string>
+  <string id="UnhandledHttpErr">La richiesta HTTP ha restituito il codice di errore =</string>
+  <string id="TrailingSlashErr">L'URL dell'API non deve avere una barra finale "/"</string>
 </strings>

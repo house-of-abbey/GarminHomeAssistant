@@ -24,4 +24,8 @@
     <string id="NoApiUrl">No API URL in the application settings</string>
     <string id="NoConfigUrl">No configuration URL in the application settings</string>
     <string id="ApiFlood">API calls too rapid. Please slow down your requests.</string>
+    <string id="ApiUrlNotFound">URL not found. Potential API URL error in settings.</string>
+    <string id="ConfigUrlNotFound">URL not found. Potential Configuration URL error in settings.</string>
+    <string id="UnhandledHttpErr">HTTP request returned error code = </string>
+    <string id="TrailingSlashErr">API URL must not have a trailing slash '/'</string>
 </strings>

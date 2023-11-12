@@ -30,4 +30,8 @@
   <string id="NoApiUrl">لا يوجد عنوان URL لواجهة برمجة التطبيقات في إعدادات التطبيق</string>
   <string id="NoConfigUrl">لا يوجد عنوان URL للتكوين في إعدادات التطبيق</string>
   <string id="ApiFlood">مكالمات API سريعة جدًا. يرجى إبطاء طلباتك.</string>
+  <string id="ApiUrlNotFound">لم يتم العثور على عنوان URL. خطأ محتمل في عنوان URL لواجهة برمجة التطبيقات في الإعدادات.</string>
+  <string id="ConfigUrlNotFound">لم يتم العثور على عنوان URL. خطأ محتمل في عنوان URL للتكوين في الإعدادات.</string>
+  <string id="UnhandledHttpErr">قام طلب HTTP بإرجاع رمز الخطأ =</string>
+  <string id="TrailingSlashErr">يجب ألا يحتوي عنوان URL لواجهة برمجة التطبيقات على شرطة مائلة لاحقة '/'</string>
 </strings>

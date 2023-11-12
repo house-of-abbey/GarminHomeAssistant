@@ -30,4 +30,8 @@
   <string id="NoApiUrl">ไม่มี URL API ในการตั้งค่าแอปพลิเคชัน</string>
   <string id="NoConfigUrl">ไม่มี URL การกำหนดค่าในการตั้งค่าแอปพลิเคชัน</string>
   <string id="ApiFlood">การเรียก API เร็วเกินไป กรุณาชะลอคำขอของคุณ</string>
+  <string id="ApiUrlNotFound">ไม่พบ URL ข้อผิดพลาด URL API ที่อาจเกิดขึ้นในการตั้งค่า</string>
+  <string id="ConfigUrlNotFound">ไม่พบ URL ข้อผิดพลาด URL การกำหนดค่าที่อาจเกิดขึ้นในการตั้งค่า</string>
+  <string id="UnhandledHttpErr">คำขอ HTTP ส่งคืนรหัสข้อผิดพลาด =</string>
+  <string id="TrailingSlashErr">URL ของ API ต้องไม่มีเครื่องหมายทับต่อท้าย '/'</string>
 </strings>

@@ -30,4 +30,8 @@
   <string id="NoApiUrl">Geen API-URL in de applicatie-instellingen</string>
   <string id="NoConfigUrl">Geen configuratie-URL in de applicatie-instellingen</string>
   <string id="ApiFlood">API-aanroepen te snel. Vertraag uw verzoeken.</string>
+  <string id="ApiUrlNotFound">URL niet gevonden. Mogelijke API-URL-fout in instellingen.</string>
+  <string id="ConfigUrlNotFound">URL niet gevonden. Mogelijke configuratie-URL-fout in de instellingen.</string>
+  <string id="UnhandledHttpErr">HTTP-verzoek retourneerde foutcode =</string>
+  <string id="TrailingSlashErr">API-URL mag geen afsluitende slash '/' bevatten</string>
 </strings>

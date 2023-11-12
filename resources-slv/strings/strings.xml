@@ -30,4 +30,8 @@
   <string id="NoApiUrl">V nastavitvah aplikacije ni URL-ja API-ja</string>
   <string id="NoConfigUrl">V nastavitvah aplikacije ni konfiguracijskega URL-ja</string>
   <string id="ApiFlood">API klici so prehitri. Prosim, upočasnite svoje zahteve.</string>
+  <string id="ApiUrlNotFound">URL-ja ni bilo mogoče najti. Morebitna napaka URL-ja API-ja v nastavitvah.</string>
+  <string id="ConfigUrlNotFound">URL-ja ni bilo mogoče najti. Morebitna napaka URL-ja konfiguracije v nastavitvah.</string>
+  <string id="UnhandledHttpErr">Zahteva HTTP je vrnila kodo napake =</string>
+  <string id="TrailingSlashErr">URL API-ja ne sme imeti končne poševnice '/'</string>
 </strings>

@@ -24,10 +24,12 @@ using Toybox.Graphics;
 using Toybox.Application.Properties;
 
 class HomeAssistantMenuItem extends WatchUi.MenuItem {
-    hidden var mApiKey = Properties.getValue("api_key");
-    hidden var strNoInternet as Lang.String;
-    hidden var strApiFlood   as Lang.String;
-    hidden var mService      as Lang.String;
+    hidden var mApiKey             as Lang.String;
+    hidden var strNoInternet       as Lang.String;
+    hidden var strApiFlood         as Lang.String;
+    hidden var strApiUrlNotFound   as Lang.String;
+    hidden var strUnhandledHttpErr as Lang.String;
+    hidden var mService            as Lang.String;
 
     function initialize(
         label as Lang.String or Lang.Symbol,
@@ -39,8 +41,11 @@ class HomeAssistantMenuItem extends WatchUi.MenuItem {
             :icon      as Graphics.BitmapType or WatchUi.Drawable or Lang.Symbol
         } or Null
     ) {
-        strNoInternet = WatchUi.loadResource($.Rez.Strings.NoInternet);
-        strApiFlood   = WatchUi.loadResource($.Rez.Strings.ApiFlood);
+        strNoInternet       = WatchUi.loadResource($.Rez.Strings.NoInternet);
+        strApiFlood         = WatchUi.loadResource($.Rez.Strings.ApiFlood);
+        strApiUrlNotFound   = WatchUi.loadResource($.Rez.Strings.ApiUrlNotFound);
+        strUnhandledHttpErr = WatchUi.loadResource($.Rez.Strings.UnhandledHttpErr);
+        mApiKey             = Properties.getValue("api_key");
         mService = service;
         WatchUi.MenuItem.initialize(
             label,
@@ -66,12 +71,17 @@ class HomeAssistantMenuItem extends WatchUi.MenuItem {
                 // Avoid pushing multiple ErrorViews
                 WatchUi.pushView(new ErrorView(strApiFlood), new ErrorDelegate(), WatchUi.SLIDE_UP);
             }
+        } else if (responseCode == 404) {
+            if (Globals.scDebug) {
+                System.println("HomeAssistantMenuItem onReturnExecScript() Response Code: 404, page not found. Check API URL setting.");
+            }
+            WatchUi.pushView(new ErrorView(strApiUrlNotFound), new ErrorDelegate(), WatchUi.SLIDE_UP);
         } else if (responseCode == 200) {
             var d = data as Lang.Array;
             for(var i = 0; i < d.size(); i++) {
                 if ((d[i].get("entity_id") as Lang.String).equals(mIdentifier)) {
                     if (Globals.scDebug) {
-                        System.println("HomeAssistantMenuItem Note - onReturnExecScript(): Correct script executed.");
+                        System.println("HomeAssistantMenuItem onReturnExecScript(): Correct script executed.");
                     }
                     if (WatchUi has :showToast) {
                         WatchUi.showToast(
@@ -97,6 +107,11 @@ class HomeAssistantMenuItem extends WatchUi.MenuItem {
                     }
                 }
             }
+        } else {
+            if (Globals.scDebug) {
+                System.println("HomeAssistantMenuItem onReturnExecScript(): Unhandled HTTP response code = " + responseCode);
+            }
+            WatchUi.pushView(new ErrorView(strUnhandledHttpErr + responseCode ), new ErrorDelegate(), WatchUi.SLIDE_UP);
         }
     }
 
@@ -142,7 +157,7 @@ class HomeAssistantMenuItem extends WatchUi.MenuItem {
             }
         } else {
             if (Globals.scDebug) {
-                System.println("HomeAssistantMenuItem Note - execScript(): No Internet connection, skipping API call.");
+                System.println("HomeAssistantMenuItem execScript(): No Internet connection, skipping API call.");
             }
             WatchUi.pushView(new ErrorView(strNoInternet + "."), new ErrorDelegate(), WatchUi.SLIDE_UP);
         }

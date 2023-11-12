@@ -30,4 +30,8 @@
   <string id="NoApiUrl">Uygulama ayarlarında API URL'si yok</string>
   <string id="NoConfigUrl">Uygulama ayarlarında yapılandırma URL'si yok</string>
   <string id="ApiFlood">API çağrıları çok hızlı. Lütfen isteklerinizi yavaşlatın.</string>
+  <string id="ApiUrlNotFound">URL bulunamadı. Ayarlarda olası API URL hatası.</string>
+  <string id="ConfigUrlNotFound">URL bulunamadı. Ayarlarda Olası Yapılandırma URL'si hatası.</string>
+  <string id="UnhandledHttpErr">HTTP isteği hata kodunu döndürdü =</string>
+  <string id="TrailingSlashErr">API URL'sinin sonunda '/' eğik çizgi olmamalıdır</string>
 </strings>

@@ -30,4 +30,8 @@
   <string id="NoApiUrl">Aucune URL API dans les paramètres de l'application</string>
   <string id="NoConfigUrl">Aucune URL de configuration dans les paramètres de l'application</string>
   <string id="ApiFlood">Appels API trop rapides. Veuillez ralentir vos demandes.</string>
+  <string id="ApiUrlNotFound">URL introuvable. Erreur potentielle d'URL d'API dans les paramètres.</string>
+  <string id="ConfigUrlNotFound">URL introuvable. Erreur potentielle d'URL de configuration dans les paramètres.</string>
+  <string id="UnhandledHttpErr">La requête HTTP a renvoyé un code d'erreur =</string>
+  <string id="TrailingSlashErr">L'URL de l'API ne doit pas comporter de barre oblique finale '/'</string>
 </strings>

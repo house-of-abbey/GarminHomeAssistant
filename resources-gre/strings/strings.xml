@@ -30,4 +30,8 @@
   <string id="NoApiUrl">Δεν υπάρχει URL API στις ρυθμίσεις της εφαρμογής</string>
   <string id="NoConfigUrl">Δεν υπάρχει διεύθυνση URL διαμόρφωσης στις ρυθμίσεις της εφαρμογής</string>
   <string id="ApiFlood">Κλήσεις API πολύ γρήγορες. Παρακαλώ επιβραδύνετε τα αιτήματά σας.</string>
+  <string id="ApiUrlNotFound">Η διεύθυνση URL δεν βρέθηκε. Πιθανό σφάλμα διεύθυνσης URL API στις ρυθμίσεις.</string>
+  <string id="ConfigUrlNotFound">Η διεύθυνση URL δεν βρέθηκε. Πιθανό σφάλμα διεύθυνσης URL διαμόρφωσης στις ρυθμίσεις.</string>
+  <string id="UnhandledHttpErr">Το αίτημα HTTP επέστρεψε κωδικό σφάλματος =</string>
+  <string id="TrailingSlashErr">Η διεύθυνση URL του API δεν πρέπει να έχει τελική κάθετο "/"</string>
 </strings>

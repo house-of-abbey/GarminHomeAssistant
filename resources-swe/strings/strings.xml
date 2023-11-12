@@ -27,7 +27,11 @@
   <string id="NoInternet">Ingen internetanslutning</string>
   <string id="NoMenu">Menyhämtningsfel</string>
   <string id="NoAPIKey">Ingen API-nyckel i applikationsinställningarna</string>
-  <string id="NoApiUrl">Ingen API-URL i applikationsinställningarna</string>
+  <string id="NoApiUrl">Ingen API-URL i programinställningarna</string>
   <string id="NoConfigUrl">Ingen konfigurations-URL i programinställningarna</string>
   <string id="ApiFlood">API-anrop för snabba. Vänligen sakta ner dina förfrågningar.</string>
+  <string id="ApiUrlNotFound">Webbadressen hittades inte. Potentiellt API-URL-fel i inställningarna.</string>
+  <string id="ConfigUrlNotFound">Webbadressen hittades inte. Potentiellt konfigurations-URL-fel i inställningarna.</string>
+  <string id="UnhandledHttpErr">HTTP-begäran returnerade felkod =</string>
+  <string id="TrailingSlashErr">API-URL får inte ha ett snedstreck '/'</string>
 </strings>

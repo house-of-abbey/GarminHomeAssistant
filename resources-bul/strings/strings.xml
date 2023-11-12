@@ -30,4 +30,8 @@
   <string id="NoApiUrl">Няма URL адрес на API в настройките на приложението</string>
   <string id="NoConfigUrl">Няма конфигурационен URL адрес в настройките на приложението</string>
   <string id="ApiFlood">Извикванията на API са твърде бързи. Моля, забавете вашите заявки.</string>
+  <string id="ApiUrlNotFound">URL не е намерен. Потенциална грешка в URL адреса на API в настройките.</string>
+  <string id="ConfigUrlNotFound">URL не е намерен. Потенциална грешка в URL адреса на конфигурацията в настройките.</string>
+  <string id="UnhandledHttpErr">HTTP заявката върна код на грешка =</string>
+  <string id="TrailingSlashErr">URL адресът на API не трябва да има наклонена черта '/' в края</string>
 </strings>
