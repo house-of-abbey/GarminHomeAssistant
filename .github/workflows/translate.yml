@@ -1,0 +1,30 @@
+name: Translate
+on:
+  push:
+    paths:
+      - "resources/strings/strings.xml"
+
+jobs:
+  translate:
+    runs-on: ubuntu-latest
+
+    permissions:
+      # Give the default GITHUB_TOKEN write permission to commit and push the
+      # added or changed files to the repository.
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v4.7.1
+
+      - run: |
+          pip install beautifulsoup4
+          pip install deep-translate
+          pip install xml
+
+      - run: python translate.py
+
+      # Commit all changed files back to the repository
+      - uses: stefanzweifel/git-auto-commit-action@v5
