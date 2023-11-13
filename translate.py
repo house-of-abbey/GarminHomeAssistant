@@ -18,7 +18,7 @@
 # language using Google Translate.
 #
 # Python installation:
-#   pip install BeautifulSoup
+#   pip install beautifulsoup4
 #   pip install deep-translator
 # NB. For XML formatting:
 #   pip install lxml
@@ -84,9 +84,15 @@ exceptionIds: list[str] = ["AppName", "AppVersionTitle"]
 titleIds: list[str] = ["setMode", "tapIcon"]
 
 i = 1
-with open("./resources/strings/strings.xml") as f:
+with open("./resources/strings/strings.xml", "r") as f:
   c = f.read().replace('\r', '')
   for l in languages:
+    os.makedirs(f"./resources-{l[0]}/strings/", exist_ok=True)
+    try:
+      with open(f"./resources-{l[0]}/strings/strings.xml", "r") as r:
+        curr = BeautifulSoup(r.read().replace('\r', ''), features="xml")
+    except FileNotFoundError:
+      curr = BeautifulSoup("", features=["xml"])
     print(f"{i} of {langLength}: Translating English to {l[2]}")
     soup = BeautifulSoup(c, features="xml")
     soup.find(name="strings").insert_before("\n\n")
@@ -99,7 +105,13 @@ with open("./resources/strings/strings.xml") as f:
 
     for s in soup.find(name="strings").findAll(name="string"):
       s.insert_before("  ")
-      if s["id"] not in exceptionIds:
+      if s["id"] in exceptionIds: continue
+      
+      s_curr = curr.find(name="string", attrs={ "id": s["id"] })
+      if s_curr and s_curr.has_attr("corrected") and s_curr.attrs["corrected"] == "true":
+        s.string = s_curr.string
+        s.attrs["corrected"] = "true"
+      else:
         a = GoogleTranslator(source='en', target=l[1]).translate(s.string)
         if s["id"] in titleIds:
           s.string = a.title()
@@ -108,8 +120,8 @@ with open("./resources/strings/strings.xml") as f:
     for s in soup.find(name="strings").findAll(text=lambda text:isinstance(text, Comment)):
       s.insert_before("  ")
       s.replace_with(Comment(" " + GoogleTranslator(source='en', target=l[1]).translate(s) + " "))
+
     #print(str(soup))
-    os.makedirs(f"./resources-{l[0]}/strings/", exist_ok=True)
     with open(f"./resources-{l[0]}/strings/strings.xml", "wb") as w:
       w.write(soup.encode("utf-8"))
     i += 1
