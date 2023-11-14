@@ -89,7 +89,7 @@ with open("./resources/strings/strings.xml", "r") as f:
   for l in languages:
     os.makedirs(f"./resources-{l[0]}/strings/", exist_ok=True)
     try:
-      with open(f"./resources-{l[0]}/strings/strings.xml", "r") as r:
+      with open(f"./resources-{l[0]}/strings/corrections.xml", "r") as r:
         curr = BeautifulSoup(r.read().replace('\r', ''), features="xml")
     except FileNotFoundError:
       curr = BeautifulSoup("", features=["xml"])
@@ -108,9 +108,8 @@ with open("./resources/strings/strings.xml", "r") as f:
       if s["id"] in exceptionIds: continue
       
       s_curr = curr.find(name="string", attrs={ "id": s["id"] })
-      if s_curr and s_curr.has_attr("corrected") and s_curr.attrs["corrected"] == "true":
+      if s_curr:
         s.string = s_curr.string
-        s.attrs["corrected"] = "true"
       else:
         a = GoogleTranslator(source='en', target=l[1]).translate(s.string)
         if s["id"] in titleIds:
