@@ -29,5 +29,9 @@
   <string id="NoAPIKey">Lietojumprogrammas iestatījumos nav API atslēgas</string>
   <string id="NoApiUrl">Lietojumprogrammas iestatījumos nav API URL</string>
   <string id="NoConfigUrl">Lietojumprogrammas iestatījumos nav konfigurācijas URL</string>
-  <string id="ApiFlood">API izsaukumi ir pārāk ātri. Lūdzu, ziņojiet par šo kļūdu, norādot informāciju par ierīci.</string>
+  <string id="ApiFlood">API izsaukumi ir pārāk ātri. Lūdzu, palēniniet pieprasījumu izpildi.</string>
+  <string id="ApiUrlNotFound">URL nav atrasts. Iespējama API URL kļūda iestatījumos.</string>
+  <string id="ConfigUrlNotFound">URL nav atrasts. Iespējama konfigurācijas URL kļūda iestatījumos.</string>
+  <string id="UnhandledHttpErr">HTTP pieprasījums atgrieza kļūdas kodu =</string>
+  <string id="TrailingSlashErr">API URL beigās nedrīkst būt slīpsvītra “/”</string>
 </strings>

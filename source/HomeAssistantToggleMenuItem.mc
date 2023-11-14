@@ -24,9 +24,11 @@ using Toybox.Graphics;
 using Toybox.Application.Properties;
 
 class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
-    hidden var mApiKey = Properties.getValue("api_key");
-    hidden var strNoInternet as Lang.String;
-    hidden var strApiFlood   as Lang.String;
+    hidden var mApiKey             as Lang.String;
+    hidden var strNoInternet       as Lang.String;
+    hidden var strApiFlood         as Lang.String;
+    hidden var strApiUrlNotFound   as Lang.String;
+    hidden var strUnhandledHttpErr as Lang.String;
 
     function initialize(
         label as Lang.String or Lang.Symbol,
@@ -41,10 +43,12 @@ class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
             :icon as Graphics.BitmapType or WatchUi.Drawable or Lang.Symbol
         } or Null
     ) {
-        strNoInternet = WatchUi.loadResource($.Rez.Strings.NoInternet);
-        strApiFlood   = WatchUi.loadResource($.Rez.Strings.ApiFlood);
+        strNoInternet       = WatchUi.loadResource($.Rez.Strings.NoInternet);
+        strApiFlood         = WatchUi.loadResource($.Rez.Strings.ApiFlood);
+        strApiUrlNotFound   = WatchUi.loadResource($.Rez.Strings.ApiUrlNotFound);
+        strUnhandledHttpErr = WatchUi.loadResource($.Rez.Strings.UnhandledHttpErr);
+        mApiKey             = Properties.getValue("api_key");
         WatchUi.ToggleMenuItem.initialize(label, subLabel, identifier, enabled, options);
-        mApiKey = Properties.getValue("api_key");
     }
 
     private function setUiToggle(state as Null or Lang.String) as Void {
@@ -75,6 +79,17 @@ class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
                 // Avoid pushing multiple ErrorViews
                 WatchUi.pushView(new ErrorView(strApiFlood), new ErrorDelegate(), WatchUi.SLIDE_UP);
             }
+            // Now this feels very "closely coupled" to the application, but it is the most reliable method instead of using a timer.
+            getApp().updateNextMenuItem();
+        } else if (responseCode == 404) {
+            if (Globals.scDebug) {
+                System.println("HomeAssistantToggleMenuItem onReturnGetState() Response Code: 404, page not found. Check API URL setting.");
+            }
+            var cw = WatchUi.getCurrentView();
+            if (!(cw[0] instanceof ErrorView)) {
+                // Avoid pushing multiple ErrorViews
+                WatchUi.pushView(new ErrorView(strApiUrlNotFound), new ErrorDelegate(), WatchUi.SLIDE_UP);
+            }
         } else if (responseCode == 200) {
             var state = data.get("state") as Lang.String;
             if (Globals.scDebug) {
@@ -84,6 +99,13 @@ class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
                 setLabel((data.get("attributes") as Lang.Dictionary).get("friendly_name") as Lang.String);
             }
             setUiToggle(state);
+            // Now this feels very "closely coupled" to the application, but it is the most reliable method instead of using a timer.
+            getApp().updateNextMenuItem();
+        } else {
+            if (Globals.scDebug) {
+                System.println("HomeAssistantToggleMenuItem onReturnGetState(): Unhandled HTTP response code = " + responseCode);
+            }
+            WatchUi.pushView(new ErrorView(strUnhandledHttpErr + responseCode ), new ErrorDelegate(), WatchUi.SLIDE_UP);
         }
     }
 
@@ -108,7 +130,7 @@ class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
             );
         } else {
             if (Globals.scDebug) {
-                System.println("HomeAssistantToggleMenuItem Note - getState(): No Internet connection, skipping API call.");
+                System.println("HomeAssistantToggleMenuItem getState(): No Internet connection, skipping API call.");
             }
             WatchUi.pushView(new ErrorView(strNoInternet + "."), new ErrorDelegate(), WatchUi.SLIDE_UP);
         }
@@ -125,10 +147,15 @@ class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
             if (Globals.scDebug) {
                 System.println("HomeAssistantToggleMenuItem onReturnSetState() Response Code: BLE_QUEUE_FULL, API calls too rapid.");
             }
+            WatchUi.pushView(new ErrorView(strApiFlood), new ErrorDelegate(), WatchUi.SLIDE_UP);
+        } else if (responseCode == 404) {
+            if (Globals.scDebug) {
+                System.println("HomeAssistantToggleMenuItem onReturnSetState() Response Code: 404, page not found. Check API URL setting.");
+            }
             var cw = WatchUi.getCurrentView();
             if (!(cw[0] instanceof ErrorView)) {
                 // Avoid pushing multiple ErrorViews
-                WatchUi.pushView(new ErrorView(strApiFlood), new ErrorDelegate(), WatchUi.SLIDE_UP);
+                WatchUi.pushView(new ErrorView(strApiUrlNotFound), new ErrorDelegate(), WatchUi.SLIDE_UP);
             }
         } else if (responseCode == 200) {
             var state;
@@ -142,6 +169,11 @@ class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
                     setUiToggle(state);
                 }
             }
+        } else {
+            if (Globals.scDebug) {
+                System.println("HomeAssistantToggleMenuItem onReturnSetState(): Unhandled HTTP response code = " + responseCode);
+            }
+            WatchUi.pushView(new ErrorView(strUnhandledHttpErr + responseCode ), new ErrorDelegate(), WatchUi.SLIDE_UP);
         }
     }
 
@@ -178,7 +210,7 @@ class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
             );
         } else {
             if (Globals.scDebug) {
-                System.println("HomeAssistantToggleMenuItem Note - setState(): No Internet connection, skipping API call.");
+                System.println("HomeAssistantToggleMenuItem setState(): No Internet connection, skipping API call.");
             }
             WatchUi.pushView(new ErrorView(strNoInternet + "."), new ErrorDelegate(), WatchUi.SLIDE_UP);
         }

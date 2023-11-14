@@ -29,5 +29,9 @@
   <string id="NoAPIKey">應用程式設定中沒有 API 金鑰</string>
   <string id="NoApiUrl">應用程式設定中沒有 API URL</string>
   <string id="NoConfigUrl">應用程式設定中沒有配置 URL</string>
-  <string id="ApiFlood">API 呼叫速度太快。請報告此錯誤並提供設備詳細資訊。</string>
+  <string id="ApiFlood">API 呼叫速度太快。請放慢您的請求。</string>
+  <string id="ApiUrlNotFound">找不到網址。設定中可能存在 API URL 錯誤。</string>
+  <string id="ConfigUrlNotFound">找不到網址。設定中可能存在配置 URL 錯誤。</string>
+  <string id="UnhandledHttpErr">HTTP請求回傳錯誤碼=</string>
+  <string id="TrailingSlashErr">API URL 不得有尾部斜線“/”</string>
 </strings>

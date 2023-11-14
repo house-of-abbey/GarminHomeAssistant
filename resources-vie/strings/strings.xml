@@ -29,5 +29,9 @@
   <string id="NoAPIKey">Không có khóa API trong cài đặt ứng dụng</string>
   <string id="NoApiUrl">Không có URL API trong cài đặt ứng dụng</string>
   <string id="NoConfigUrl">Không có URL cấu hình trong cài đặt ứng dụng</string>
-  <string id="ApiFlood">Cuộc gọi API quá nhanh. Vui lòng báo cáo lỗi này với các chi tiết thiết bị.</string>
+  <string id="ApiFlood">Cuộc gọi API quá nhanh. Hãy làm chậm yêu cầu của bạn.</string>
+  <string id="ApiUrlNotFound">Không tìm thấy URL. Lỗi URL API tiềm ẩn trong cài đặt.</string>
+  <string id="ConfigUrlNotFound">Không tìm thấy URL. Lỗi URL cấu hình tiềm ẩn trong cài đặt.</string>
+  <string id="UnhandledHttpErr">Yêu cầu HTTP trả về mã lỗi =</string>
+  <string id="TrailingSlashErr">URL API không được có dấu gạch chéo ở cuối '/'</string>
 </strings>

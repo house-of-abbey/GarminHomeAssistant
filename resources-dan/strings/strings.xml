@@ -25,9 +25,13 @@
   <string id="MenuItemTap">Tryk på</string>
   <string id="MenuItemMenu">Menu</string>
   <string id="NoInternet">Ingen internetforbindelse</string>
-  <string id="NoMenu">Fejl ved menuhentning</string>
+  <string id="NoMenu">Menuhentningsfejl</string>
   <string id="NoAPIKey">Ingen API-nøgle i applikationsindstillingerne</string>
   <string id="NoApiUrl">Ingen API-URL i applikationsindstillingerne</string>
   <string id="NoConfigUrl">Ingen konfigurations-URL i applikationsindstillingerne</string>
-  <string id="ApiFlood">API-kald for hurtigt. Rapportér venligst denne fejl med enhedsoplysninger.</string>
+  <string id="ApiFlood">API-kald for hurtigt. Sænk venligst dine anmodninger.</string>
+  <string id="ApiUrlNotFound">URL ikke fundet. Potentiel API URL-fejl i indstillinger.</string>
+  <string id="ConfigUrlNotFound">URL ikke fundet. Potentiel konfigurations-URL-fejl i indstillinger.</string>
+  <string id="UnhandledHttpErr">HTTP-anmodning returnerede fejlkode =</string>
+  <string id="TrailingSlashErr">API URL må ikke have en efterfølgende skråstreg '/'</string>
 </strings>

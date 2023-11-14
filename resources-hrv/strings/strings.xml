@@ -29,5 +29,9 @@
   <string id="NoAPIKey">Nema API ključa u postavkama aplikacije</string>
   <string id="NoApiUrl">Nema API URL-a u postavkama aplikacije</string>
   <string id="NoConfigUrl">Nema konfiguracijskog URL-a u postavkama aplikacije</string>
-  <string id="ApiFlood">API pozivi su prebrzi. Prijavite ovu pogrešku s pojedinostima o uređaju.</string>
+  <string id="ApiFlood">API pozivi su prebrzi. Molimo usporite svoje zahtjeve.</string>
+  <string id="ApiUrlNotFound">URL nije pronađen. Potencijalna pogreška API URL-a u postavkama.</string>
+  <string id="ConfigUrlNotFound">URL nije pronađen. Potencijalna pogreška URL-a konfiguracije u postavkama.</string>
+  <string id="UnhandledHttpErr">HTTP zahtjev vratio je kod greške =</string>
+  <string id="TrailingSlashErr">API URL ne smije imati kosu crtu na kraju '/'</string>
 </strings>

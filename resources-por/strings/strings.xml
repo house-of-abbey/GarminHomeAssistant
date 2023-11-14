@@ -29,5 +29,9 @@
   <string id="NoAPIKey">Nenhuma chave de API nas configurações do aplicativo</string>
   <string id="NoApiUrl">Nenhum URL de API nas configurações do aplicativo</string>
   <string id="NoConfigUrl">Nenhum URL de configuração nas configurações do aplicativo</string>
-  <string id="ApiFlood">Chamadas de API muito rápidas. Por favor, relate este erro com detalhes do dispositivo.</string>
+  <string id="ApiFlood">Chamadas de API muito rápidas. Por favor, diminua a velocidade de seus pedidos.</string>
+  <string id="ApiUrlNotFound">URL não encontrado. Possível erro de URL da API nas configurações.</string>
+  <string id="ConfigUrlNotFound">URL não encontrado. Possível erro de URL de configuração nas configurações.</string>
+  <string id="UnhandledHttpErr">Solicitação HTTP retornou código de erro =</string>
+  <string id="TrailingSlashErr">O URL da API não deve ter uma barra final '/'</string>
 </strings>

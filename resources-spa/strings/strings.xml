@@ -29,5 +29,9 @@
   <string id="NoAPIKey">Sin clave API en la configuración de la aplicación</string>
   <string id="NoApiUrl">No hay URL de API en la configuración de la aplicación</string>
   <string id="NoConfigUrl">No hay URL de configuración en la configuración de la aplicación.</string>
-  <string id="ApiFlood">Llamadas API demasiado rápidas. Informe este error con los detalles del dispositivo.</string>
+  <string id="ApiFlood">Llamadas API demasiado rápidas. Por favor, ralentice sus solicitudes.</string>
+  <string id="ApiUrlNotFound">URL no encontrada. Posible error de URL de API en la configuración.</string>
+  <string id="ConfigUrlNotFound">URL no encontrada. Posible error de URL de configuración en la configuración.</string>
+  <string id="UnhandledHttpErr">La solicitud HTTP devolvió el código de error =</string>
+  <string id="TrailingSlashErr">La URL de API no debe tener una barra diagonal '/'</string>
 </strings>

@@ -29,5 +29,9 @@
   <string id="NoAPIKey">Tidak ada kunci API di pengaturan aplikasi</string>
   <string id="NoApiUrl">Tidak ada URL API di pengaturan aplikasi</string>
   <string id="NoConfigUrl">Tidak ada URL konfigurasi di pengaturan aplikasi</string>
-  <string id="ApiFlood">Panggilan API terlalu cepat. Silakan laporkan kesalahan ini dengan detail perangkat.</string>
+  <string id="ApiFlood">Panggilan API terlalu cepat. Harap memperlambat permintaan Anda.</string>
+  <string id="ApiUrlNotFound">URL tidak ditemukan. Potensi kesalahan URL API dalam pengaturan.</string>
+  <string id="ConfigUrlNotFound">URL tidak ditemukan. Potensi kesalahan URL Konfigurasi dalam pengaturan.</string>
+  <string id="UnhandledHttpErr">Permintaan HTTP mengembalikan kode kesalahan =</string>
+  <string id="TrailingSlashErr">URL API tidak boleh memiliki garis miring '/'</string>
 </strings>

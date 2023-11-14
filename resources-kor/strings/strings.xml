@@ -29,5 +29,9 @@
   <string id="NoAPIKey">애플리케이션 설정에 API 키가 없습니다.</string>
   <string id="NoApiUrl">애플리케이션 설정에 API URL이 없습니다.</string>
   <string id="NoConfigUrl">애플리케이션 설정에 구성 URL이 없습니다.</string>
-  <string id="ApiFlood">API 호출이 너무 빠릅니다. 기기 세부정보와 함께 이 오류를 신고해 주세요.</string>
+  <string id="ApiFlood">API 호출이 너무 빠릅니다. 요청 속도를 늦추시기 바랍니다.</string>
+  <string id="ApiUrlNotFound">URL을 찾을 수 없습니다. 설정에 잠재적인 API URL 오류가 있습니다.</string>
+  <string id="ConfigUrlNotFound">URL을 찾을 수 없습니다. 설정에 잠재적인 구성 URL 오류가 있습니다.</string>
+  <string id="UnhandledHttpErr">HTTP 요청이 오류 코드를 반환했습니다 =</string>
+  <string id="TrailingSlashErr">API URL에는 후행 슬래시 '/'가 있어서는 안 됩니다.</string>
 </strings>

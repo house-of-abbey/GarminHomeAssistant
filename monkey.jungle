@@ -18,8 +18,9 @@
 
 project.manifest = manifest.xml
 
-# Device Reference
-# https://developer.garmin.com/connect-iq/reference-guides/devices-reference/
+# Device References
+# * https://developer.garmin.com/connect-iq/compatible-devices/
+# * https://developer.garmin.com/connect-iq/reference-guides/devices-reference/
 #
 # Widget launcher icon, multiple resolutions
 # https://forums.garmin.com/developer/connect-iq/f/discussion/255433/widget-launcher-icon-multiple-resolutions/1563305
@@ -121,7 +122,8 @@ instinct2.resourcePath = $(instinct2.resourcePath);resources-launcher-62-62;reso
 instinct2s.resourcePath = $(instinct2s.resourcePath);resources-launcher-54-54;resources-icons-18
 # Screen Size 176x176 launcher icon size 62x62
 instinct2x.resourcePath = $(instinct2x.resourcePath);resources-launcher-62-62;resources-icons-21
-instinctcrossover.resourcePath = $(instinctcrossover.resourcePath);resources-launcher-62-62;resources-icons-21
+# Screen Size 176x176 launcher icon size 26x26
+instinctcrossover.resourcePath = $(instinctcrossover.resourcePath);resources-launcher-26-26;resources-icons-21
 # Screen Size 218x218 launcher icon size 30x30
 legacyherocaptainmarvel.resourcePath = $(legacyherocaptainmarvel.resourcePath);resources-launcher-30-30;resources-icons-26
 # Screen Size 260x260 launcher icon size 35x35

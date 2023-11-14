@@ -26,25 +26,29 @@ using Toybox.Timer;
 
 class HomeAssistantApp extends Application.AppBase {
     hidden var mHaMenu;
-    hidden var strNoApiKey    as Lang.String;
-    hidden var strNoApiUrl    as Lang.String;
-    hidden var strNoConfigUrl as Lang.String;
-    hidden var strNoInternet  as Lang.String;
-    hidden var strNoMenu      as Lang.String;
-    hidden var strApiFlood    as Lang.String;
-    hidden var mTimer         as Timer.Timer;
+    hidden var strNoApiKey          as Lang.String;
+    hidden var strNoApiUrl          as Lang.String;
+    hidden var strNoConfigUrl       as Lang.String;
+    hidden var strNoInternet        as Lang.String;
+    hidden var strNoMenu            as Lang.String;
+    hidden var strApiFlood          as Lang.String;
+    hidden var strConfigUrlNotFound as Lang.String;
+    hidden var strUnhandledHttpErr  as Lang.String;
+    hidden var strTrailingSlashErr  as Lang.String;
     hidden var mItemsToUpdate;        // Array initialised by onReturnFetchMenuConfig()
     hidden var mNextItemToUpdate = 0; // Index into the above array
 
     function initialize() {
         AppBase.initialize();
-        strNoApiKey    = WatchUi.loadResource($.Rez.Strings.NoAPIKey);
-        strNoApiUrl    = WatchUi.loadResource($.Rez.Strings.NoApiUrl);
-        strNoConfigUrl = WatchUi.loadResource($.Rez.Strings.NoConfigUrl);
-        strNoInternet  = WatchUi.loadResource($.Rez.Strings.NoInternet);
-        strNoMenu      = WatchUi.loadResource($.Rez.Strings.NoMenu);
-        strApiFlood    = WatchUi.loadResource($.Rez.Strings.ApiFlood);
-        mTimer          = new Timer.Timer();
+        strNoApiKey          = WatchUi.loadResource($.Rez.Strings.NoAPIKey);
+        strNoApiUrl          = WatchUi.loadResource($.Rez.Strings.NoApiUrl);
+        strNoConfigUrl       = WatchUi.loadResource($.Rez.Strings.NoConfigUrl);
+        strNoInternet        = WatchUi.loadResource($.Rez.Strings.NoInternet);
+        strNoMenu            = WatchUi.loadResource($.Rez.Strings.NoMenu);
+        strApiFlood          = WatchUi.loadResource($.Rez.Strings.ApiFlood);
+        strConfigUrlNotFound = WatchUi.loadResource($.Rez.Strings.ConfigUrlNotFound);
+        strUnhandledHttpErr  = WatchUi.loadResource($.Rez.Strings.UnhandledHttpErr);
+        strTrailingSlashErr  = WatchUi.loadResource($.Rez.Strings.TrailingSlashErr);
     }
 
     // onStart() is called on application start up
@@ -52,27 +56,30 @@ class HomeAssistantApp extends Application.AppBase {
     }
 
     // onStop() is called when your application is exiting
-    function onStop(state as Lang.Dictionary?) as Void {
-        if (mTimer != null) {
-            mTimer.stop();
-        }
-    }
+    function onStop(state as Lang.Dictionary?) as Void {}
 
     // Return the initial view of your application here
     function getInitialView() as Lang.Array<WatchUi.Views or WatchUi.InputDelegates>? {
+        var api_url = Properties.getValue("api_url") as Lang.String;
+
         if ((Properties.getValue("api_key") as Lang.String).length() == 0) {
             if (Globals.scDebug) {
-                System.println("HomeAssistantMenuItem Note - execScript(): No API key in the application settings.");
+                System.println("HomeAssistantMenuItem execScript(): No API key in the application settings.");
             }
             return [new ErrorView(strNoApiKey + "."), new ErrorDelegate()] as Lang.Array<WatchUi.Views or WatchUi.InputDelegates>;
-        } else if ((Properties.getValue("api_url") as Lang.String).length() == 0) {
+        } else if (api_url.length() == 0) {
             if (Globals.scDebug) {
-                System.println("HomeAssistantMenuItem Note - execScript(): No API URL in the application settings.");
+                System.println("HomeAssistantMenuItem execScript(): No API URL in the application settings.");
             }
             return [new ErrorView(strNoApiUrl + "."), new ErrorDelegate()] as Lang.Array<WatchUi.Views or WatchUi.InputDelegates>;
+        } else if (api_url.substring(-1, api_url.length()).equals("/")) {
+            if (Globals.scDebug) {
+                System.println("HomeAssistantMenuItem execScript(): API URL must not have a trailing slash '/'.");
+            }
+            return [new ErrorView(strTrailingSlashErr + "."), new ErrorDelegate()] as Lang.Array<WatchUi.Views or WatchUi.InputDelegates>;
         } else if ((Properties.getValue("config_url") as Lang.String).length() == 0) {
             if (Globals.scDebug) {
-                System.println("HomeAssistantMenuItem Note - execScript(): No configuration URL in the application settings.");
+                System.println("HomeAssistantMenuItem execScript(): No configuration URL in the application settings.");
             }
             return [new ErrorView(strNoConfigUrl + "."), new ErrorDelegate()] as Lang.Array<WatchUi.Views or WatchUi.InputDelegates>;
         } else if (System.getDeviceSettings().phoneConnected && System.getDeviceSettings().connectionAvailable) {
@@ -80,7 +87,7 @@ class HomeAssistantApp extends Application.AppBase {
             return [new WatchUi.View(), new WatchUi.BehaviorDelegate()] as Lang.Array<WatchUi.Views or WatchUi.InputDelegates>;
         } else {
             if (Globals.scDebug) {
-                System.println("HomeAssistantApp Note - fetchMenuConfig(): No Internet connection, skipping API call.");
+                System.println("HomeAssistantApp fetchMenuConfig(): No Internet connection, skipping API call.");
             }
             return [new ErrorView(strNoInternet + "."), new ErrorDelegate()] as Lang.Array<WatchUi.Views or WatchUi.InputDelegates>;
         }
@@ -102,25 +109,30 @@ class HomeAssistantApp extends Application.AppBase {
                 // Avoid pushing multiple ErrorViews
                 WatchUi.pushView(new ErrorView(strApiFlood), new ErrorDelegate(), WatchUi.SLIDE_UP);
             }
+        } else if (responseCode == 404) {
+            if (Globals.scDebug) {
+                System.println("HomeAssistantApp onReturnFetchMenuConfig() Response Code: 404, page not found. Check Configuration URL setting.");
+            }
+            WatchUi.pushView(new ErrorView(strConfigUrlNotFound), new ErrorDelegate(), WatchUi.SLIDE_UP);
         } else if (responseCode == 200) {
             mHaMenu = new HomeAssistantView(data, null);
             WatchUi.switchToView(mHaMenu, new HomeAssistantViewDelegate(), WatchUi.SLIDE_IMMEDIATE);
             mItemsToUpdate = mHaMenu.getItemsToUpdate();
-            mTimer.start(
-                method(:updateNextMenuItem),
-                Globals.scMenuItemUpdateInterval,
-                true
-            );
-        } else if (responseCode == -300) {
+            // Start the continuous update process that continues for as long as the application is running.
+            // The chain of functions from 'updateNextMenuItem()' calls 'updateNextMenuItem()' on completion.
+            if (mItemsToUpdate.size() > 0) {
+                updateNextMenuItem();
+            }
+        } else if (responseCode == Communications.NETWORK_REQUEST_TIMED_OUT) {
             if (Globals.scDebug) {
-                System.println("HomeAssistantApp Note - onReturnFetchMenuConfig(): Network request timeout.");
+                System.println("HomeAssistantApp onReturnFetchMenuConfig(): Network request timeout.");
             }
             WatchUi.pushView(new ErrorView(strNoMenu + ". " + strNoInternet + "?"), new ErrorDelegate(), WatchUi.SLIDE_UP);
         } else {
             if (Globals.scDebug) {
-                System.println("HomeAssistantApp Note - onReturnFetchMenuConfig(): Configuration not found or potential validation issue.");
+                System.println("HomeAssistantApp onReturnFetchMenuConfig(): Unhandled HTTP response code = " + responseCode);
             }
-            WatchUi.pushView(new ErrorView(strNoMenu + " code=" + responseCode ), new ErrorDelegate(), WatchUi.SLIDE_UP);
+            WatchUi.pushView(new ErrorView(strUnhandledHttpErr + responseCode ), new ErrorDelegate(), WatchUi.SLIDE_UP);
         }
     }
 

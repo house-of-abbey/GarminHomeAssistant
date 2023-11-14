@@ -29,5 +29,9 @@
   <string id="NoAPIKey">Ingen API-nøkkel i applikasjonsinnstillingene</string>
   <string id="NoApiUrl">Ingen API-URL i applikasjonsinnstillingene</string>
   <string id="NoConfigUrl">Ingen konfigurasjons-URL i applikasjonsinnstillingene</string>
-  <string id="ApiFlood">API-kall for raske. Rapporter denne feilen med enhetsdetaljer.</string>
+  <string id="ApiFlood">API-kall for raske. Vennligst senke forespørslene dine.</string>
+  <string id="ApiUrlNotFound">Finner ikke URL. Potensiell API URL-feil i innstillingene.</string>
+  <string id="ConfigUrlNotFound">Finner ikke URL. Potensiell konfigurasjons-URL-feil i innstillingene.</string>
+  <string id="UnhandledHttpErr">HTTP-forespørsel returnerte feilkode =</string>
+  <string id="TrailingSlashErr">API URL må ikke ha en etterfølgende skråstrek '/'</string>
 </strings>
