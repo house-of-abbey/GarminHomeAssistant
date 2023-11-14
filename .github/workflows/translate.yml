@@ -1,5 +1,6 @@
 name: Translate
 on:
+  workflow_dispatch:
   push:
     paths:
       - "resources/strings/strings.xml"
