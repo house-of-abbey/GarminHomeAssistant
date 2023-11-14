@@ -33,5 +33,5 @@
   <string id="ApiUrlNotFound">URL bulunamadı. Ayarlarda olası API URL hatası.</string>
   <string id="ConfigUrlNotFound">URL bulunamadı. Ayarlarda Olası Yapılandırma URL'si hatası.</string>
   <string id="UnhandledHttpErr">HTTP isteği hata kodunu döndürdü =</string>
-  <string id="TrailingSlashErr">API URL'sinin sonunda '/' eğik çizgi olmamalıdır</string>
+  <string id="TrailingSlashErr">API URL'sinin sonunda eğik çizgi '/' olmamalıdır</string>
 </strings>

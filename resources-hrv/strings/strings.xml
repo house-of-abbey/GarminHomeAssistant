@@ -21,7 +21,7 @@
 <strings>
   <string id="AppName">HomeAssistant</string>
   <string id="MenuItemOn">Na</string>
-  <string id="MenuItemOff">Isključeno</string>
+  <string id="MenuItemOff">isključeno</string>
   <string id="MenuItemTap">Dodirnite</string>
   <string id="MenuItemMenu">Jelovnik</string>
   <string id="NoInternet">Nema internetske veze</string>
