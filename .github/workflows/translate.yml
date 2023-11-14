@@ -25,6 +25,7 @@ jobs:
       - run: |
           pip install beautifulsoup4
           pip install deep-translator
+          pip install lxml
 
       - run: python translate.py
 
