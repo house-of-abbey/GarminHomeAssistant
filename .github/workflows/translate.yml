@@ -3,6 +3,7 @@ on:
   push:
     paths:
       - "resources/strings/strings.xml"
+      - "translate.py"
       - "resources-*/strings/corrections.xml"
 
 jobs:
@@ -22,7 +23,7 @@ jobs:
 
       - run: |
           pip install beautifulsoup4
-          pip install deep-translate
+          pip install deep-translator
           pip install xml
 
       - run: python translate.py
