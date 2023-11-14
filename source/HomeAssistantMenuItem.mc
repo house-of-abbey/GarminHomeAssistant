@@ -77,35 +77,26 @@ class HomeAssistantMenuItem extends WatchUi.MenuItem {
             }
             WatchUi.pushView(new ErrorView(strApiUrlNotFound), new ErrorDelegate(), WatchUi.SLIDE_UP);
         } else if (responseCode == 200) {
-            var d = data as Lang.Array;
+            if (Globals.scDebug) {
+                System.println("HomeAssistantMenuItem onReturnExecScript(): Service executed.");
+            }
+            var d     = data as Lang.Array;
+            var toast = "Executed";
             for(var i = 0; i < d.size(); i++) {
                 if ((d[i].get("entity_id") as Lang.String).equals(mIdentifier)) {
-                    if (Globals.scDebug) {
-                        System.println("HomeAssistantMenuItem onReturnExecScript(): Correct script executed.");
-                    }
-                    if (WatchUi has :showToast) {
-                        WatchUi.showToast(
-                            (d[i].get("attributes") as Lang.Dictionary).get("friendly_name") as Lang.String,
-                            null
-                        );
-                    }
-                    if (Attention has :vibrate) {
-                        Attention.vibrate([
-                            new Attention.VibeProfile(50, 100), // On  for 100ms
-                            new Attention.VibeProfile( 0, 100), // Off for 100ms
-                            new Attention.VibeProfile(50, 100)  // On  for 100ms
-                        ]);
-                    }
-                    if (!(WatchUi has :showToast) && !(Attention has :vibrate)) {
-                        new Alert({
-                            :timeout => Globals.scAlertTimeout,
-                            :font    => Graphics.FONT_MEDIUM,
-                            :text    => (d[i].get("attributes") as Lang.Dictionary).get("friendly_name") as Lang.String,
-                            :fgcolor => Graphics.COLOR_WHITE,
-                            :bgcolor => Graphics.COLOR_BLACK
-                        }).pushView(WatchUi.SLIDE_IMMEDIATE);
-                    }
+                    toast = (d[i].get("attributes") as Lang.Dictionary).get("friendly_name") as Lang.String;
                 }
+            }
+            if (WatchUi has :showToast) {
+                WatchUi.showToast(toast, null);
+            } else {
+                new Alert({
+                    :timeout => Globals.scAlertTimeout,
+                    :font    => Graphics.FONT_MEDIUM,
+                    :text    => toast,
+                    :fgcolor => Graphics.COLOR_WHITE,
+                    :bgcolor => Graphics.COLOR_BLACK
+                }).pushView(WatchUi.SLIDE_IMMEDIATE);
             }
         } else {
             if (Globals.scDebug) {
@@ -129,7 +120,7 @@ class HomeAssistantMenuItem extends WatchUi.MenuItem {
             // ERROR: venu: Cannot find symbol ':substring' on type 'PolyType<Null or $.Toybox.Lang.Object>'.
             var id = mIdentifier as Lang.String;
             if (mService == null) {
-                var url = (Properties.getValue("api_url") as Lang.String) + "/services/" + id.substring(0, id.find(".")) + "/" + id.substring(id.find(".")+1, id.length());
+                var url = (Properties.getValue("api_url") as Lang.String) + "/services/" + id.substring(0, id.find(".")) + "/" + id.substring(id.find(".")+1, null);
                 if (Globals.scDebug) {
                     System.println("HomeAssistantMenuItem execScript() URL=" + url);
                     System.println("HomeAssistantMenuItem execScript() mIdentifier=" + mIdentifier);
@@ -144,7 +135,7 @@ class HomeAssistantMenuItem extends WatchUi.MenuItem {
                 var url = (Properties.getValue("api_url") as Lang.String) + "/services/" + mService.substring(0, mService.find(".")) + "/" + mService.substring(mService.find(".")+1, null);
                 if (Globals.scDebug) {
                     System.println("HomeAssistantMenuItem execScript() URL=" + url);
-                    System.println("HomeAssistantMenuItem execScript() mIdentifier=" + mIdentifier);
+                    System.println("HomeAssistantMenuItem execScript() mService=" + mService);
                 }
                 Communications.makeWebRequest(
                     url,
@@ -154,6 +145,13 @@ class HomeAssistantMenuItem extends WatchUi.MenuItem {
                     options,
                     method(:onReturnExecScript)
                 );
+            }
+            if (Attention has :vibrate) {
+                Attention.vibrate([
+                    new Attention.VibeProfile(50, 100), // On  for 100ms
+                    new Attention.VibeProfile( 0, 100), // Off for 100ms
+                    new Attention.VibeProfile(50, 100)  // On  for 100ms
+                ]);
             }
         } else {
             if (Globals.scDebug) {

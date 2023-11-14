@@ -34,7 +34,8 @@ Example schema as shown in the images:
     {
       "entity": "script.food_on_table",
       "name": "Food is Ready!",
-      "type": "tap"
+      "type": "tap",
+      "service" : "script.turn_on"
     },
     {
       "entity": "light.bedside_light_switch",
@@ -80,6 +81,12 @@ Example schema as shown in the images:
       "type": "toggle"
     },
     {
+      "entity": "automation.turn_off_usb_chargers",
+      "name": "Turn off USBs",
+      "type": "tap",
+      "service" : "automation.trigger"
+    },
+    {
       "entity": "scene.tv_light",
       "name": "TV Lights Scene",
       "type": "tap",
@@ -98,6 +105,18 @@ The example above illustrates how to configure:
 * Script invocation (tap)
 * Service invocation, e.g. Scene setting, (tap)
 * A sub-menu to open (tap)
+
+The example JSON shows an example usage of each of these Home Assistance entity types. Presently, an automation is the only one that can be either a 'tap' or a 'toggle'.
+
+| HA Type    | Tap | Toggle |
+|------------|:---:|:------:|
+| Switch     |  N  |    Y   |
+| Light      |  N  |    Y   |
+| Automation |  Y  |    Y   |
+| Script     |  Y  |    N   |
+| Scene      |  Y  |    N   |
+
+NB. All 'tap' items must specify a 'service' tag.
 
 Possible future extensions might include specifying the alternative texts to use instead of "On" and "Off", e.g. "Locked" and "Unlocked" (but wouldn't having locks operated from your watch be a security concern ;-))
 
