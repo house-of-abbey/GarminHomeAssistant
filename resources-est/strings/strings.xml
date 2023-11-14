@@ -29,7 +29,7 @@
   <string id="NoAPIKey">Rakenduse seadetes pole API-võtit</string>
   <string id="NoApiUrl">Rakenduse seadetes pole API URL-i</string>
   <string id="NoConfigUrl">Rakenduse seadetes pole konfiguratsiooni URL-i</string>
-  <string id="ApiFlood">API-kutsed liiga kiired. Palun aeglustage taotluste esitamist.</string>
+  <string id="ApiFlood">API-kutsed liiga kiired. Palun aeglustage oma taotlusi.</string>
   <string id="ApiUrlNotFound">URL-i ei leitud. Võimalik API URL-i viga seadetes.</string>
   <string id="ConfigUrlNotFound">URL-i ei leitud. Võimalik konfiguratsiooni URL-i viga seadetes.</string>
   <string id="UnhandledHttpErr">HTTP päring tagastas veakoodi =</string>
