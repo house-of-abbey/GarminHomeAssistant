@@ -3,6 +3,7 @@ on:
   push:
     paths:
       - "resources/strings/strings.xml"
+      - "resources-*/strings/corrections.xml"
 
 jobs:
   translate:
