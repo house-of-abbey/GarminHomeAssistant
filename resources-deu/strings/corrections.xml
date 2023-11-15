@@ -18,8 +18,8 @@
   Korrekturen für die deutsche Sprache
 -->
 
-<corrections>
+<strings>
   <string id="MenuItemTap">Antippen</string>
   <string id="MenuItemMenu">Menü</string>
   <string id="UnhandledHttpErr">Die HTTP-Anfrage gab folgenden Fehlercode zurück = </string>
-</corrections>
+</strings>
