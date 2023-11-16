@@ -80,7 +80,7 @@ class HomeAssistantView extends WatchUi.Menu2 {
                     if ((Application.Properties.getValue("lean_ui") as Lang.Boolean) == true){
 
                         var icon = new WatchUi.Bitmap({
-                            :rezId=>Rez.Drawables.ErrorIcon
+                            :rezId=>Rez.Drawables.TapIcon
                         });
                         
                         var alignement = {:alignment => WatchUi.MenuItem.MENU_ITEM_LABEL_ALIGN_RIGHT};

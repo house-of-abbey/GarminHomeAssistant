@@ -17,4 +17,6 @@
 
 <drawables>
     <bitmap id="ErrorIcon" filename="error.svg"/>
+    <bitmap id="MenuIcon" filename="menu.svg"/>
+    <bitmap id="TapIcon" filename="tap.svg"/>
 </drawables>

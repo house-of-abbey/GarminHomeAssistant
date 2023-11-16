@@ -29,7 +29,7 @@ class HomeAssistantViewIconMenuItem extends WatchUi.IconMenuItem {
         var identifier = definition.get("entity") as Lang.String;
 
         var icon = new WatchUi.Bitmap({
-            :rezId=>Rez.Drawables.LauncherIcon,
+            :rezId=>Rez.Drawables.MenuIcon,
             :locX=>WatchUi.LAYOUT_HALIGN_CENTER,
             :locY=>WatchUi.LAYOUT_VALIGN_CENTER
         });
