@@ -18,15 +18,17 @@
 //
 //-----------------------------------------------------------------------------------
 
+using Toybox.Application;
 using Toybox.Lang;
 using Toybox.Graphics;
 using Toybox.WatchUi;
 
 class HomeAssistantView extends WatchUi.Menu2 {
-    hidden var strMenuItemTap as Lang.String;
+    
     // List of items that need to have their status updated periodically
-    hidden var mListToggleItems = [];
-    hidden var mListMenuItems   = [];
+    hidden var mListToggleItems   = [];
+    hidden var mListMenuItems     = [];
+    hidden var mListIconMenuItems = [];
 
     function initialize(
         definition as Lang.Dictionary,
@@ -36,11 +38,17 @@ class HomeAssistantView extends WatchUi.Menu2 {
             :theme as WatchUi.MenuTheme or Null
         } or Null
     ) {
-        strMenuItemTap = WatchUi.loadResource($.Rez.Strings.MenuItemTap);
-        var toggle_obj = {
-            :enabled  => WatchUi.loadResource($.Rez.Strings.MenuItemOn) as Lang.String,
-            :disabled => WatchUi.loadResource($.Rez.Strings.MenuItemOff) as Lang.String
-        };
+        
+        var toggle_obj = null;
+        var strMenuItemTap = null;
+
+        if ((Application.Properties.getValue("lean_ui") as Lang.Boolean) == false){
+            toggle_obj = {
+                :enabled  => WatchUi.loadResource($.Rez.Strings.MenuItemOn) as Lang.String,
+                :disabled => WatchUi.loadResource($.Rez.Strings.MenuItemOff) as Lang.String
+           };
+           strMenuItemTap = WatchUi.loadResource($.Rez.Strings.MenuItemTap);
+        }
 
         if (options == null) {
             options = {
@@ -69,19 +77,45 @@ class HomeAssistantView extends WatchUi.Menu2 {
                     addItem(item);
                     mListToggleItems.add(item);
                 } else if (type.equals("tap") && service != null) {
-                    addItem(
-                        new HomeAssistantMenuItem(
-                            name,
-                            strMenuItemTap,
-                            entity,
-                            service,
-                            null
-                        )
-                    );
+                    if ((Application.Properties.getValue("lean_ui") as Lang.Boolean) == true){
+
+                        var icon = new WatchUi.Bitmap({
+                            :rezId=>Rez.Drawables.ErrorIcon
+                        });
+                        
+                        var alignement = {:alignment => WatchUi.MenuItem.MENU_ITEM_LABEL_ALIGN_RIGHT};
+
+                        addItem(
+                            new HomeAssistantIconMenuItem(
+                                name,
+                                strMenuItemTap,
+                                entity,
+                                service,
+                                icon,
+                                alignement
+                            )
+                        );
+                    } else {
+                        addItem(
+                            new HomeAssistantMenuItem(
+                                name,
+                                strMenuItemTap,
+                                entity,
+                                service,
+                                null
+                            )
+                        );
+                    }
                 } else if (type.equals("group")) {
-                    var item = new HomeAssistantViewMenuItem(items[i]);
-                    addItem(item);
-                    mListMenuItems.add(item);
+                    if ((Application.Properties.getValue("lean_ui") as Lang.Boolean) == true){
+                        var item = new HomeAssistantViewIconMenuItem(items[i]);
+                        addItem(item);
+                        mListIconMenuItems.add(item);
+                    } else {
+                        var item = new HomeAssistantViewMenuItem(items[i]);
+                        addItem(item);
+                        mListMenuItems.add(item);
+                    }
                 }
             }
         }
@@ -89,10 +123,17 @@ class HomeAssistantView extends WatchUi.Menu2 {
 
     function getItemsToUpdate() as Lang.Array<HomeAssistantToggleMenuItem> {
         var fullList = [];
+        
         var lmi = mListMenuItems as Lang.Array<HomeAssistantViewMenuItem>;
         for(var i = 0; i < lmi.size(); i++) {
             fullList.addAll(lmi[i].getMenuView().getItemsToUpdate());
         }
+
+        var limi = mListMenuItems as Lang.Array<HomeAssistantViewIconMenuItem>;
+        for(var i = 0; i < limi.size(); i++) {
+            fullList.addAll(limi[i].getMenuView().getItemsToUpdate());
+        }
+
         return fullList.addAll(mListToggleItems);
     }
 
@@ -125,10 +166,23 @@ class HomeAssistantViewDelegate extends WatchUi.Menu2InputDelegate {
                 System.println(haItem.getLabel() + " " + haItem.getId());
             }
             haItem.execScript();
+        } else if (item instanceof HomeAssistantIconMenuItem) {
+            var haItem = item as HomeAssistantIconMenuItem;
+            if (Globals.scDebug) {
+                System.println(haItem.getLabel() + " " + haItem.getId());
+            }
+            haItem.execScript();
         } else if (item instanceof HomeAssistantViewMenuItem) {
             var haMenuItem = item as HomeAssistantViewMenuItem;
             if (Globals.scDebug) {
                 System.println("Menu: " + haMenuItem.getLabel() + " " + haMenuItem.getId());
+            }
+            // No delegate state to be amended, so re-use 'self'.
+            WatchUi.pushView(haMenuItem.getMenuView(), self, WatchUi.SLIDE_LEFT);
+        } else if (item instanceof HomeAssistantViewIconMenuItem) {
+            var haMenuItem = item as HomeAssistantViewIconMenuItem;
+            if (Globals.scDebug) {
+                System.println("IconMenu: " + haMenuItem.getLabel() + " " + haMenuItem.getId());
             }
             // No delegate state to be amended, so re-use 'self'.
             WatchUi.pushView(haMenuItem.getMenuView(), self, WatchUi.SLIDE_LEFT);

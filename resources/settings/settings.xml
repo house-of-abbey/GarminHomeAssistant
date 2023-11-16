@@ -42,4 +42,13 @@
       type="alphaNumeric"
     />
   </setting>
+
+  <setting
+    propertyKey="@Properties.lean_ui"
+    title="More leaner UI"
+  >
+    <settingConfig
+      type="boolean"
+    />
+  </setting>
 </settings>
