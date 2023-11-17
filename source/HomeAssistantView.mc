@@ -68,7 +68,7 @@ class HomeAssistantView extends WatchUi.Menu2 {
                     );
                     addItem(item);
                     mListToggleItems.add(item);
-                } else if (type.equals("tap")) {
+                } else if (type.equals("tap") && service != null) {
                     addItem(
                         new HomeAssistantMenuItem(
                             name,

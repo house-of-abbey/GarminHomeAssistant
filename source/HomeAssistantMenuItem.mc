@@ -32,11 +32,11 @@ class HomeAssistantMenuItem extends WatchUi.MenuItem {
     hidden var mService            as Lang.String;
 
     function initialize(
-        label as Lang.String or Lang.Symbol,
-        subLabel as Lang.String or Lang.Symbol or Null,
+        label      as Lang.String or Lang.Symbol,
+        subLabel   as Lang.String or Lang.Symbol or Null,
         identifier as Lang.Object or Null,
-        service as Lang.String or Null,
-        options as {
+        service    as Lang.String or Null,
+        options    as {
             :alignment as WatchUi.MenuItem.Alignment,
             :icon      as Graphics.BitmapType or WatchUi.Drawable or Lang.Symbol
         } or Null
