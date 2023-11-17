@@ -138,7 +138,7 @@ class HomeAssistantApp extends Application.AppBase {
 
     function fetchMenuConfig() as Void {
         var options = {
-            :method  => Communications.HTTP_REQUEST_METHOD_GET,
+            :method       => Communications.HTTP_REQUEST_METHOD_GET,
             :responseType => Communications.HTTP_RESPONSE_CONTENT_TYPE_JSON
         };
         Communications.makeWebRequest(

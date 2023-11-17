@@ -31,16 +31,16 @@ class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
     hidden var strUnhandledHttpErr as Lang.String;
 
     function initialize(
-        label as Lang.String or Lang.Symbol,
+        label    as Lang.String or Lang.Symbol,
         subLabel as Lang.String or Lang.Symbol or {
             :enabled  as Lang.String or Lang.Symbol or Null,
             :disabled as Lang.String or Lang.Symbol or Null
         } or Null,
         identifier,
-        enabled as Lang.Boolean,
-        options as {
+        enabled  as Lang.Boolean,
+        options  as {
             :alignment as WatchUi.MenuItem.Alignment,
-            :icon as Graphics.BitmapType or WatchUi.Drawable or Lang.Symbol
+            :icon      as Graphics.BitmapType or WatchUi.Drawable or Lang.Symbol
         } or Null
     ) {
         strNoInternet       = WatchUi.loadResource($.Rez.Strings.NoInternet);
