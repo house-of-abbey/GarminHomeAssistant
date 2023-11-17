@@ -25,4 +25,6 @@
   <property id="config_url" type="string"></property>
 
   <property id="lean_ui" type="boolean"></property>
+
+  <property id="menu_alignment" type="boolean"></property>
 </properties>

@@ -24,7 +24,7 @@ using Toybox.WatchUi;
 
 class HomeAssistantMenuItemFactory {
 
-    private var mRightLabelAlignement;
+    private var mMenuItemAlignment;
     private var mLabelToggle;
     private var strMenuItemTap;
     private var bLeanDesign;
@@ -43,11 +43,20 @@ class HomeAssistantMenuItemFactory {
         
         bLeanDesign = Application.Properties.getValue("lean_ui") as Lang.Boolean;
 
-        mRightLabelAlignement = {:alignment => WatchUi.MenuItem.MENU_ITEM_LABEL_ALIGN_RIGHT};
+        var menuItemAlignment = Application.Properties.getValue("menu_alignment") as Lang.Boolean;
+
+        if(menuItemAlignment == true){
+            mMenuItemAlignment = {:alignment => WatchUi.MenuItem.MENU_ITEM_LABEL_ALIGN_RIGHT};
+        } else {
+            mMenuItemAlignment = {:alignment => WatchUi.MenuItem.MENU_ITEM_LABEL_ALIGN_LEFT};
+        }
+        
 
         strMenuItemTap = WatchUi.loadResource($.Rez.Strings.MenuItemTap);
         mTapIcon = new WatchUi.Bitmap({
-                            :rezId=>$.Rez.Drawables.TapIcon
+                            :rezId=>$.Rez.Drawables.TapIcon,
+                            :locX=>WatchUi.LAYOUT_HALIGN_CENTER,
+                            :locY=>WatchUi.LAYOUT_VALIGN_CENTER
                        });
 
         mMenuIcon = new WatchUi.Bitmap({
@@ -55,9 +64,6 @@ class HomeAssistantMenuItemFactory {
                             :locX=>WatchUi.LAYOUT_HALIGN_CENTER,
                             :locY=>WatchUi.LAYOUT_VALIGN_CENTER
         });
-
-
-        
     }
 
     static function create() {
@@ -79,7 +85,7 @@ class HomeAssistantMenuItemFactory {
             subLabel,
             identifier,
             false,
-            null
+            mMenuItemAlignment
         );
     }
 
@@ -91,7 +97,7 @@ class HomeAssistantMenuItemFactory {
                                 identifier,
                                 service,
                                 mTapIcon,
-                                mRightLabelAlignement
+                                mMenuItemAlignment
                     );
             
         } else {
@@ -100,14 +106,14 @@ class HomeAssistantMenuItemFactory {
                                 strMenuItemTap,
                                 identifier,
                                 service,
-                                null
+                                mMenuItemAlignment
                             );
         }
     }
 
     function group(definition as Lang.Dictionary) as WatchUi.MenuItem{
         if (bLeanDesign) {
-            return new HomeAssistantViewIconMenuItem(definition, mMenuIcon, mRightLabelAlignement);
+            return new HomeAssistantViewIconMenuItem(definition, mMenuIcon, mMenuItemAlignment);
         } else {
             return new HomeAssistantViewMenuItem(definition);
         }
