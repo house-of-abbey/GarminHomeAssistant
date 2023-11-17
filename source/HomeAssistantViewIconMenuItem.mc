@@ -24,24 +24,18 @@ using Toybox.WatchUi;
 class HomeAssistantViewIconMenuItem extends WatchUi.IconMenuItem {
     hidden var mMenu as HomeAssistantView;
 
-    function initialize(definition as Lang.Dictionary) {
+    function initialize(definition as Lang.Dictionary, icon as WatchUi.Drawable, options as {
+            :alignment as WatchUi.MenuItem.Alignment
+        } or Null) {
         var label = definition.get("name") as Lang.String;
         var identifier = definition.get("entity") as Lang.String;
-
-        var icon = new WatchUi.Bitmap({
-            :rezId=>Rez.Drawables.MenuIcon,
-            :locX=>WatchUi.LAYOUT_HALIGN_CENTER,
-            :locY=>WatchUi.LAYOUT_VALIGN_CENTER
-        });
-
-        var alignement = {:alignment => WatchUi.MenuItem.MENU_ITEM_LABEL_ALIGN_RIGHT};
-
+        
         WatchUi.IconMenuItem.initialize(
             label,
             null,
             identifier,
             icon,
-            alignement
+            options
         );
 
         mMenu = new HomeAssistantView(definition, null);

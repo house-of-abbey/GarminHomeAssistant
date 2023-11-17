@@ -31,6 +31,8 @@ class HomeAssistantMenuItemFactory {
 
     private var mTapIcon;
 
+    private var mMenuIcon;
+
     private static var instance;
 
     private function initialize() {
@@ -47,6 +49,14 @@ class HomeAssistantMenuItemFactory {
         mTapIcon = new WatchUi.Bitmap({
                             :rezId=>$.Rez.Drawables.TapIcon
                        });
+
+        mMenuIcon = new WatchUi.Bitmap({
+                            :rezId=>Rez.Drawables.MenuIcon,
+                            :locX=>WatchUi.LAYOUT_HALIGN_CENTER,
+                            :locY=>WatchUi.LAYOUT_VALIGN_CENTER
+        });
+
+
         
     }
 
@@ -97,7 +107,7 @@ class HomeAssistantMenuItemFactory {
 
     function group(definition as Lang.Dictionary) as WatchUi.MenuItem{
         if (bLeanDesign) {
-            return new HomeAssistantViewIconMenuItem(definition);
+            return new HomeAssistantViewIconMenuItem(definition, mMenuIcon, mRightLabelAlignement);
         } else {
             return new HomeAssistantViewMenuItem(definition);
         }
