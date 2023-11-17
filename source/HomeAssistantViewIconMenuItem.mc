@@ -9,12 +9,12 @@
 // tested on a Venu 2 device. The source code is provided at:
 //            https://github.com/house-of-abbey/GarminHomeAssistant.
 //
-// P A Abbey & J D Abbey, 31 October 2023
+// P A Abbey & J D Abbey & SomeoneOnEarth, 16 November 2023
 //
 //
 // Description:
 //
-// Menu button that opens a sub-menu.
+// Menu button with an icon that opens a sub-menu.
 //
 //-----------------------------------------------------------------------------------
 

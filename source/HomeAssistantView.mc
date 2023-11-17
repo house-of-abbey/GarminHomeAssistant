@@ -28,7 +28,6 @@ class HomeAssistantView extends WatchUi.Menu2 {
     // List of items that need to have their status updated periodically
     hidden var mListToggleItems   = [];
     hidden var mListMenuItems     = [];
-    hidden var mListIconMenuItems = [];
 
     function initialize(
         definition as Lang.Dictionary,
@@ -38,17 +37,6 @@ class HomeAssistantView extends WatchUi.Menu2 {
             :theme as WatchUi.MenuTheme or Null
         } or Null
     ) {
-        
-        var toggle_obj = null;
-        var strMenuItemTap = null;
-
-        if ((Application.Properties.getValue("lean_ui") as Lang.Boolean) == false){
-            toggle_obj = {
-                :enabled  => WatchUi.loadResource($.Rez.Strings.MenuItemOn) as Lang.String,
-                :disabled => WatchUi.loadResource($.Rez.Strings.MenuItemOff) as Lang.String
-           };
-           strMenuItemTap = WatchUi.loadResource($.Rez.Strings.MenuItemTap);
-        }
 
         if (options == null) {
             options = {
@@ -67,55 +55,15 @@ class HomeAssistantView extends WatchUi.Menu2 {
             var service = items[i].get("service") as Lang.String or Null;
             if (type != null && name != null && entity != null) {
                 if (type.equals("toggle")) {
-                    var item = new HomeAssistantToggleMenuItem(
-                        name,
-                        toggle_obj,
-                        entity,
-                        false,
-                        null
-                    );
+                    var item = HomeAssistantMenuItemFactory.create().toggle(name, entity);
                     addItem(item);
                     mListToggleItems.add(item);
                 } else if (type.equals("tap") && service != null) {
-                    if ((Application.Properties.getValue("lean_ui") as Lang.Boolean) == true){
-
-                        var icon = new WatchUi.Bitmap({
-                            :rezId=>Rez.Drawables.TapIcon
-                        });
-                        
-                        var alignement = {:alignment => WatchUi.MenuItem.MENU_ITEM_LABEL_ALIGN_RIGHT};
-
-                        addItem(
-                            new HomeAssistantIconMenuItem(
-                                name,
-                                strMenuItemTap,
-                                entity,
-                                service,
-                                icon,
-                                alignement
-                            )
-                        );
-                    } else {
-                        addItem(
-                            new HomeAssistantMenuItem(
-                                name,
-                                strMenuItemTap,
-                                entity,
-                                service,
-                                null
-                            )
-                        );
-                    }
+                    addItem( HomeAssistantMenuItemFactory.create().tap(name, entity, service));
                 } else if (type.equals("group")) {
-                    if ((Application.Properties.getValue("lean_ui") as Lang.Boolean) == true){
-                        var item = new HomeAssistantViewIconMenuItem(items[i]);
-                        addItem(item);
-                        mListIconMenuItems.add(item);
-                    } else {
-                        var item = new HomeAssistantViewMenuItem(items[i]);
-                        addItem(item);
-                        mListMenuItems.add(item);
-                    }
+                    var item = HomeAssistantMenuItemFactory.create().group(items[i]);
+                    addItem(item);
+                    mListMenuItems.add(item);
                 }
             }
         }
@@ -124,14 +72,14 @@ class HomeAssistantView extends WatchUi.Menu2 {
     function getItemsToUpdate() as Lang.Array<HomeAssistantToggleMenuItem> {
         var fullList = [];
         
-        var lmi = mListMenuItems as Lang.Array<HomeAssistantViewMenuItem>;
-        for(var i = 0; i < lmi.size(); i++) {
-            fullList.addAll(lmi[i].getMenuView().getItemsToUpdate());
-        }
-
-        var limi = mListIconMenuItems as Lang.Array<HomeAssistantViewIconMenuItem>;
-        for(var i = 0; i < limi.size(); i++) {
-            fullList.addAll(limi[i].getMenuView().getItemsToUpdate());
+        var lmi = mListMenuItems as Lang.Array<WatchUi.MenuItem>;
+        for(var i = 0; i < mListMenuItems.size(); i++) {
+            var item = lmi[i];
+            if (item instanceof HomeAssistantViewMenuItem) {
+                fullList.addAll(item.getMenuView().getItemsToUpdate()); 
+            } else if (item instanceof HomeAssistantViewIconMenuItem) {
+                fullList.addAll(item.getMenuView().getItemsToUpdate());
+            }
         }
 
         return fullList.addAll(mListToggleItems);
