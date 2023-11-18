@@ -20,16 +20,18 @@
 
 <strings>
   <string id="AppName">HomeAssistant</string>
-  <string id="MenuItemOn">Activé</string>
+  <string id="MenuItemOn">ActivÃ©</string>
   <string id="MenuItemOff">Désactivé</string>
   <string id="MenuItemTap">Clic</string>
   <string id="MenuItemMenu">Menu</string>
+  <string id="NoPhone">Pas de connexion téléphonique</string>
   <string id="NoInternet">Pas de connexion Internet</string>
+  <string id="NoResponse">Pas de réponse, vérifiez la connexion Internet</string>
   <string id="NoMenu">Erreur de récupération du menu</string>
   <string id="NoAPIKey">Pas de clé API dans les paramètres de l'application</string>
   <string id="NoApiUrl">Aucune URL API dans les paramètres de l'application</string>
   <string id="NoConfigUrl">Aucune URL de configuration dans les paramètres de l'application</string>
-  <string id="ApiFlood">Appels API trop rapide. Veuillez signaler cette erreur avec les détails de l'appareil.</string>
+  <string id="ApiFlood">Appels API trop rapide. Veuillez signaler cette erreur avec les dÃ©tails de l'appareil.</string>
   <string id="ApiUrlNotFound">URL introuvable. Erreur potentielle d'URL d'API dans les paramètres.</string>
   <string id="ConfigUrlNotFound">URL introuvable. Erreur potentielle d'URL de configuration dans les paramètres.</string>
   <string id="UnhandledHttpErr">La requête HTTP a renvoyé un code d'erreur =</string>

@@ -24,7 +24,9 @@
   <string id="MenuItemOff">כבוי</string>
   <string id="MenuItemTap">בֶּרֶז</string>
   <string id="MenuItemMenu">תַפרִיט</string>
+  <string id="NoPhone">אין חיבור לטלפון</string>
   <string id="NoInternet">אין חיבור אינטרנט</string>
+  <string id="NoResponse">אין תגובה, בדוק חיבור לאינטרנט</string>
   <string id="NoMenu">שגיאת אחזור תפריט</string>
   <string id="NoAPIKey">אין מפתח API בהגדרות האפליקציה</string>
   <string id="NoApiUrl">אין כתובת API בהגדרות האפליקציה</string>

@@ -24,7 +24,9 @@
   <string id="MenuItemOff">Desligado</string>
   <string id="MenuItemTap">Tocar</string>
   <string id="MenuItemMenu">Cardápio</string>
+  <string id="NoPhone">Sem conexão telefônica</string>
   <string id="NoInternet">Sem conexão com a Internet</string>
+  <string id="NoResponse">Sem resposta, verifique a conexão com a Internet</string>
   <string id="NoMenu">Erro ao buscar menu</string>
   <string id="NoAPIKey">Nenhuma chave de API nas configurações do aplicativo</string>
   <string id="NoApiUrl">Nenhum URL de API nas configurações do aplicativo</string>

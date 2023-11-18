@@ -24,9 +24,11 @@
   <string id="MenuItemOff">Vinossa</string>
   <string id="MenuItemTap">Napauta</string>
   <string id="MenuItemMenu">Valikko</string>
+  <string id="NoPhone">Ei puhelinyhteyttä</string>
   <string id="NoInternet">Ei Internet-yhteyttä</string>
+  <string id="NoResponse">Ei vastausta, tarkista Internet-yhteys</string>
   <string id="NoMenu">Valikkohakuvirhe</string>
-  <string id="NoAPIKey">Sovellusasetuksissa ei ole API-avainta</string>
+  <string id="NoAPIKey">Sovelluksen asetuksissa ei ole API-avainta</string>
   <string id="NoApiUrl">Sovellusasetuksissa ei ole API URL-osoitetta</string>
   <string id="NoConfigUrl">Sovelluksen asetuksissa ei ole konfigurointi-URL-osoitetta</string>
   <string id="ApiFlood">API-kutsut liian nopeita. Hidasta pyyntöjäsi.</string>

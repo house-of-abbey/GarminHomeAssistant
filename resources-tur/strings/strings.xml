@@ -24,7 +24,9 @@
   <string id="MenuItemOff">Kapalı</string>
   <string id="MenuItemTap">Musluk</string>
   <string id="MenuItemMenu">Menü</string>
+  <string id="NoPhone">Telefon bağlantısı yok</string>
   <string id="NoInternet">İnternet bağlantısı yok</string>
+  <string id="NoResponse">Yanıt Yok, İnternet bağlantısını kontrol edin</string>
   <string id="NoMenu">Menü Alma Hatası</string>
   <string id="NoAPIKey">Uygulama ayarlarında API anahtarı yok</string>
   <string id="NoApiUrl">Uygulama ayarlarında API URL'si yok</string>

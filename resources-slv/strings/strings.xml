@@ -24,7 +24,9 @@
   <string id="MenuItemOff">Izključeno</string>
   <string id="MenuItemTap">Tapnite</string>
   <string id="MenuItemMenu">meni</string>
+  <string id="NoPhone">Ni telefonske povezave</string>
   <string id="NoInternet">Ni internetne povezave</string>
+  <string id="NoResponse">Ni odgovora, preverite internetno povezavo</string>
   <string id="NoMenu">Napaka pri pridobivanju menija</string>
   <string id="NoAPIKey">V nastavitvah aplikacije ni ključa API</string>
   <string id="NoApiUrl">V nastavitvah aplikacije ni URL-ja API-ja</string>

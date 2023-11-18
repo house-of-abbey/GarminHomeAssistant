@@ -24,7 +24,9 @@
   <string id="MenuItemOff">Mati</string>
   <string id="MenuItemTap">Mengetuk</string>
   <string id="MenuItemMenu">Menu</string>
+  <string id="NoPhone">Tidak ada koneksi Telepon</string>
   <string id="NoInternet">Tidak ada koneksi internet</string>
+  <string id="NoResponse">Tidak Ada Respon, periksa koneksi Internet</string>
   <string id="NoMenu">Kesalahan Pengambilan Menu</string>
   <string id="NoAPIKey">Tidak ada kunci API di pengaturan aplikasi</string>
   <string id="NoApiUrl">Tidak ada URL API di pengaturan aplikasi</string>

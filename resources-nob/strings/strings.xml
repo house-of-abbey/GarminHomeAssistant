@@ -24,7 +24,9 @@
   <string id="MenuItemOff">Av</string>
   <string id="MenuItemTap">Trykk på</string>
   <string id="MenuItemMenu">Meny</string>
+  <string id="NoPhone">Ingen telefonforbindelse</string>
   <string id="NoInternet">Ingen Internett-tilkobling</string>
+  <string id="NoResponse">Ingen svar, sjekk Internett-tilkoblingen</string>
   <string id="NoMenu">Menyhentingsfeil</string>
   <string id="NoAPIKey">Ingen API-nøkkel i applikasjonsinnstillingene</string>
   <string id="NoApiUrl">Ingen API-URL i applikasjonsinnstillingene</string>

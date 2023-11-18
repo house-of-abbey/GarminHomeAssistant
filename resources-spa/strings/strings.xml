@@ -24,7 +24,9 @@
   <string id="MenuItemOff">Apagado</string>
   <string id="MenuItemTap">Grifo</string>
   <string id="MenuItemMenu">Menú</string>
+  <string id="NoPhone">Sin conexión telefónica</string>
   <string id="NoInternet">Sin conexión a Internet</string>
+  <string id="NoResponse">No hay respuesta, verifique la conexión a Internet</string>
   <string id="NoMenu">Error de recuperación del menú</string>
   <string id="NoAPIKey">Sin clave API en la configuración de la aplicación</string>
   <string id="NoApiUrl">No hay URL de API en la configuración de la aplicación</string>

@@ -24,7 +24,9 @@
   <string id="MenuItemOff">Isključeno</string>
   <string id="MenuItemTap">Dodirnite</string>
   <string id="MenuItemMenu">Jelovnik</string>
+  <string id="NoPhone">Nema telefonske veze</string>
   <string id="NoInternet">Nema internetske veze</string>
+  <string id="NoResponse">Nema odgovora, provjerite internetsku vezu</string>
   <string id="NoMenu">Pogreška dohvaćanja izbornika</string>
   <string id="NoAPIKey">Nema API ključa u postavkama aplikacije</string>
   <string id="NoApiUrl">Nema API URL-a u postavkama aplikacije</string>

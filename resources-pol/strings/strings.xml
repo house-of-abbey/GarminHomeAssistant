@@ -24,7 +24,9 @@
   <string id="MenuItemOff">Wyłączony</string>
   <string id="MenuItemTap">Uzyskiwać</string>
   <string id="MenuItemMenu">Menu</string>
+  <string id="NoPhone">Brak połączenia telefonicznego</string>
   <string id="NoInternet">Brak połączenia z internetem</string>
+  <string id="NoResponse">Brak odpowiedzi, sprawdź połączenie internetowe</string>
   <string id="NoMenu">Błąd pobierania menu</string>
   <string id="NoAPIKey">Brak klucza API w ustawieniach aplikacji</string>
   <string id="NoApiUrl">Brak adresu API w ustawieniach aplikacji</string>

@@ -24,7 +24,9 @@
   <string id="MenuItemOff">Tắt</string>
   <string id="MenuItemTap">Vỗ nhẹ</string>
   <string id="MenuItemMenu">Thực đơn</string>
+  <string id="NoPhone">Không có kết nối điện thoại</string>
   <string id="NoInternet">Không có kết nối Internet</string>
+  <string id="NoResponse">Không có phản hồi, kiểm tra kết nối Internet</string>
   <string id="NoMenu">Lỗi tìm nạp menu</string>
   <string id="NoAPIKey">Không có khóa API trong cài đặt ứng dụng</string>
   <string id="NoApiUrl">Không có URL API trong cài đặt ứng dụng</string>

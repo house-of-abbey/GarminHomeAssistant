@@ -25,7 +25,9 @@ using Toybox.Application.Properties;
 
 class HomeAssistantMenuItem extends WatchUi.MenuItem {
     hidden var mApiKey             as Lang.String;
+    hidden var strNoPhone          as Lang.String;
     hidden var strNoInternet       as Lang.String;
+    hidden var strNoResponse       as Lang.String;
     hidden var strApiFlood         as Lang.String;
     hidden var strApiUrlNotFound   as Lang.String;
     hidden var strUnhandledHttpErr as Lang.String;
@@ -41,7 +43,9 @@ class HomeAssistantMenuItem extends WatchUi.MenuItem {
             :icon      as Graphics.BitmapType or WatchUi.Drawable or Lang.Symbol
         } or Null
     ) {
+        strNoPhone          = WatchUi.loadResource($.Rez.Strings.NoPhone);
         strNoInternet       = WatchUi.loadResource($.Rez.Strings.NoInternet);
+        strNoResponse       = WatchUi.loadResource($.Rez.Strings.NoResponse);
         strApiFlood         = WatchUi.loadResource($.Rez.Strings.ApiFlood);
         strApiUrlNotFound   = WatchUi.loadResource($.Rez.Strings.ApiUrlNotFound);
         strUnhandledHttpErr = WatchUi.loadResource($.Rez.Strings.UnhandledHttpErr);
@@ -62,15 +66,24 @@ class HomeAssistantMenuItem extends WatchUi.MenuItem {
             System.println("HomeAssistantMenuItem onReturnExecScript() Response Code: " + responseCode);
             System.println("HomeAssistantMenuItem onReturnExecScript() Response Data: " + data);
         }
-        if (responseCode == Communications.BLE_QUEUE_FULL) {
+        if (responseCode == Communications.BLE_HOST_TIMEOUT || responseCode == Communications.BLE_CONNECTION_UNAVAILABLE) {
+            if (Globals.scDebug) {
+                System.println("HomeAssistantMenuItem onReturnExecScript() Response Code: BLE_HOST_TIMEOUT or BLE_CONNECTION_UNAVAILABLE, Bluetooth connection severed.");
+            }
+            WatchUi.pushView(new ErrorView(strNoPhone + "."), new ErrorDelegate(), WatchUi.SLIDE_UP);
+        } else if (responseCode == Communications.BLE_QUEUE_FULL) {
             if (Globals.scDebug) {
                 System.println("HomeAssistantMenuItem onReturnExecScript() Response Code: BLE_QUEUE_FULL, API calls too rapid.");
             }
-            var cw = WatchUi.getCurrentView();
-            if (!(cw[0] instanceof ErrorView)) {
+            if (!(WatchUi.getCurrentView()[0] instanceof ErrorView)) {
                 // Avoid pushing multiple ErrorViews
                 WatchUi.pushView(new ErrorView(strApiFlood), new ErrorDelegate(), WatchUi.SLIDE_UP);
             }
+        } else if (responseCode == Communications.NETWORK_REQUEST_TIMED_OUT) {
+            if (Globals.scDebug) {
+                System.println("HomeAssistantMenuItem onReturnExecScript() Response Code: NETWORK_REQUEST_TIMED_OUT, check Internet connection.");
+            }
+            WatchUi.pushView(new ErrorView(strNoResponse), new ErrorDelegate(), WatchUi.SLIDE_UP);
         } else if (responseCode == 404) {
             if (Globals.scDebug) {
                 System.println("HomeAssistantMenuItem onReturnExecScript() Response Code: 404, page not found. Check API URL setting.");
@@ -115,7 +128,17 @@ class HomeAssistantMenuItem extends WatchUi.MenuItem {
             },
             :responseType => Communications.HTTP_RESPONSE_CONTENT_TYPE_JSON
         };
-        if (System.getDeviceSettings().phoneConnected && System.getDeviceSettings().connectionAvailable) {
+        if (! System.getDeviceSettings().phoneConnected) {
+            if (Globals.scDebug) {
+                System.println("HomeAssistantMenuItem execScript(): No Phone connection, skipping API call.");
+            }
+            WatchUi.pushView(new ErrorView(strNoPhone + "."), new ErrorDelegate(), WatchUi.SLIDE_UP);
+        } else if (! System.getDeviceSettings().connectionAvailable) {
+            if (Globals.scDebug) {
+                System.println("HomeAssistantMenuItem execScript(): No Internet connection, skipping API call.");
+            }
+            WatchUi.pushView(new ErrorView(strNoInternet + "."), new ErrorDelegate(), WatchUi.SLIDE_UP);
+        } else {
             // Updated SDK and got a new error
             // ERROR: venu: Cannot find symbol ':substring' on type 'PolyType<Null or $.Toybox.Lang.Object>'.
             var id = mIdentifier as Lang.String;
@@ -153,11 +176,6 @@ class HomeAssistantMenuItem extends WatchUi.MenuItem {
                     new Attention.VibeProfile(50, 100)  // On  for 100ms
                 ]);
             }
-        } else {
-            if (Globals.scDebug) {
-                System.println("HomeAssistantMenuItem execScript(): No Internet connection, skipping API call.");
-            }
-            WatchUi.pushView(new ErrorView(strNoInternet + "."), new ErrorDelegate(), WatchUi.SLIDE_UP);
         }
     }
 

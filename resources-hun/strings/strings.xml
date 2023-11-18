@@ -24,7 +24,9 @@
   <string id="MenuItemOff">Ki</string>
   <string id="MenuItemTap">Koppintson a</string>
   <string id="MenuItemMenu">Menü</string>
+  <string id="NoPhone">Nincs telefonkapcsolat</string>
   <string id="NoInternet">Nincs internetkapcsolat</string>
+  <string id="NoResponse">Nincs válasz, ellenőrizze az internetkapcsolatot</string>
   <string id="NoMenu">Menü Lekérési hiba</string>
   <string id="NoAPIKey">Nincs API kulcs az alkalmazás beállításaiban</string>
   <string id="NoApiUrl">Nincs API URL az alkalmazás beállításai között</string>

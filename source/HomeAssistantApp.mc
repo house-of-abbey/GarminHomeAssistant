@@ -22,14 +22,15 @@ using Toybox.Application;
 using Toybox.Lang;
 using Toybox.WatchUi;
 using Toybox.Application.Properties;
-using Toybox.Timer;
 
 class HomeAssistantApp extends Application.AppBase {
     hidden var mHaMenu;
     hidden var strNoApiKey          as Lang.String;
     hidden var strNoApiUrl          as Lang.String;
     hidden var strNoConfigUrl       as Lang.String;
+    hidden var strNoPhone           as Lang.String;
     hidden var strNoInternet        as Lang.String;
+    hidden var strNoResponse        as Lang.String;
     hidden var strNoMenu            as Lang.String;
     hidden var strApiFlood          as Lang.String;
     hidden var strConfigUrlNotFound as Lang.String;
@@ -43,7 +44,9 @@ class HomeAssistantApp extends Application.AppBase {
         strNoApiKey          = WatchUi.loadResource($.Rez.Strings.NoAPIKey);
         strNoApiUrl          = WatchUi.loadResource($.Rez.Strings.NoApiUrl);
         strNoConfigUrl       = WatchUi.loadResource($.Rez.Strings.NoConfigUrl);
+        strNoPhone           = WatchUi.loadResource($.Rez.Strings.NoPhone);
         strNoInternet        = WatchUi.loadResource($.Rez.Strings.NoInternet);
+        strNoResponse        = WatchUi.loadResource($.Rez.Strings.NoResponse);
         strNoMenu            = WatchUi.loadResource($.Rez.Strings.NoMenu);
         strApiFlood          = WatchUi.loadResource($.Rez.Strings.ApiFlood);
         strConfigUrlNotFound = WatchUi.loadResource($.Rez.Strings.ConfigUrlNotFound);
@@ -82,14 +85,19 @@ class HomeAssistantApp extends Application.AppBase {
                 System.println("HomeAssistantMenuItem execScript(): No configuration URL in the application settings.");
             }
             return [new ErrorView(strNoConfigUrl + "."), new ErrorDelegate()] as Lang.Array<WatchUi.Views or WatchUi.InputDelegates>;
-        } else if (System.getDeviceSettings().phoneConnected && System.getDeviceSettings().connectionAvailable) {
-            fetchMenuConfig();
-            return [new WatchUi.View(), new WatchUi.BehaviorDelegate()] as Lang.Array<WatchUi.Views or WatchUi.InputDelegates>;
-        } else {
+        } else if (! System.getDeviceSettings().phoneConnected) {
+            if (Globals.scDebug) {
+                System.println("HomeAssistantApp fetchMenuConfig(): No Phone connection, skipping API call.");
+            }
+            return [new ErrorView(strNoPhone + "."), new ErrorDelegate()] as Lang.Array<WatchUi.Views or WatchUi.InputDelegates>;
+        } else if (! System.getDeviceSettings().connectionAvailable) {
             if (Globals.scDebug) {
                 System.println("HomeAssistantApp fetchMenuConfig(): No Internet connection, skipping API call.");
             }
             return [new ErrorView(strNoInternet + "."), new ErrorDelegate()] as Lang.Array<WatchUi.Views or WatchUi.InputDelegates>;
+        } else {
+            fetchMenuConfig();
+            return [new WatchUi.View(), new WatchUi.BehaviorDelegate()] as Lang.Array<WatchUi.Views or WatchUi.InputDelegates>;
         }
     }
 
@@ -100,15 +108,24 @@ class HomeAssistantApp extends Application.AppBase {
             System.println("HomeAssistantApp onReturnFetchMenuConfig() Response Code: " + responseCode);
             System.println("HomeAssistantApp onReturnFetchMenuConfig() Response Data: " + data);
         }
-        if (responseCode == Communications.BLE_QUEUE_FULL) {
+        if (responseCode == Communications.BLE_HOST_TIMEOUT || responseCode == Communications.BLE_CONNECTION_UNAVAILABLE) {
+            if (Globals.scDebug) {
+                System.println("HomeAssistantApp onReturnFetchMenuConfig() Response Code: BLE_HOST_TIMEOUT or BLE_CONNECTION_UNAVAILABLE, Bluetooth connection severed.");
+            }
+            WatchUi.pushView(new ErrorView(strNoPhone + "."), new ErrorDelegate(), WatchUi.SLIDE_UP);
+        } else if (responseCode == Communications.BLE_QUEUE_FULL) {
             if (Globals.scDebug) {
                 System.println("HomeAssistantApp onReturnFetchMenuConfig() Response Code: BLE_QUEUE_FULL, API calls too rapid.");
             }
-            var cw = WatchUi.getCurrentView();
-            if (!(cw[0] instanceof ErrorView)) {
+            if (!(WatchUi.getCurrentView()[0] instanceof ErrorView)) {
                 // Avoid pushing multiple ErrorViews
                 WatchUi.pushView(new ErrorView(strApiFlood), new ErrorDelegate(), WatchUi.SLIDE_UP);
             }
+        } else if (responseCode == Communications.NETWORK_REQUEST_TIMED_OUT) {
+            if (Globals.scDebug) {
+                System.println("HomeAssistantApp onReturnFetchMenuConfig() Response Code: NETWORK_REQUEST_TIMED_OUT, check Internet connection.");
+            }
+            WatchUi.pushView(new ErrorView(strNoResponse), new ErrorDelegate(), WatchUi.SLIDE_UP);
         } else if (responseCode == 404) {
             if (Globals.scDebug) {
                 System.println("HomeAssistantApp onReturnFetchMenuConfig() Response Code: 404, page not found. Check Configuration URL setting.");
