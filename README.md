@@ -110,11 +110,11 @@ The example JSON shows an example usage of each of these Home Assistance entity 
 
 | HA Type    | Tap | Toggle |
 |------------|:---:|:------:|
-| Switch     |  N  |    Y   |
-| Light      |  N  |    Y   |
-| Automation |  Y  |    Y   |
-| Script     |  Y  |    N   |
-| Scene      |  Y  |    N   |
+| Switch     |  ❌ |   ✅  |
+| Light      |  ❌ |   ✅  |
+| Automation | ✅  |   ✅  |
+| Script     | ✅  |   ❌  |
+| Scene      | ✅  |   ❌  |
 
 NB. All 'tap' items must specify a 'service' tag.
 
