@@ -24,7 +24,9 @@
   <string id="MenuItemOff">끄다</string>
   <string id="MenuItemTap">수도꼭지</string>
   <string id="MenuItemMenu">메뉴</string>
+  <string id="NoPhone">전화 연결 없음</string>
   <string id="NoInternet">인터넷에 연결되지 않음</string>
+  <string id="NoResponse">응답이 없습니다. 인터넷 연결을 확인하세요.</string>
   <string id="NoMenu">메뉴 가져오기 오류</string>
   <string id="NoAPIKey">애플리케이션 설정에 API 키가 없습니다.</string>
   <string id="NoApiUrl">애플리케이션 설정에 API URL이 없습니다.</string>

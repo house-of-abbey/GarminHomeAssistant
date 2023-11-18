@@ -24,7 +24,9 @@
   <string id="MenuItemOff">Désactivé</string>
   <string id="MenuItemTap">Clic</string>
   <string id="MenuItemMenu">Menu</string>
+  <string id="NoPhone">Pas de connexion téléphonique</string>
   <string id="NoInternet">Pas de connexion Internet</string>
+  <string id="NoResponse">Pas de réponse, vérifiez la connexion Internet</string>
   <string id="NoMenu">Erreur de récupération du menu</string>
   <string id="NoAPIKey">Pas de clé API dans les paramètres de l'application</string>
   <string id="NoApiUrl">Aucune URL API dans les paramètres de l'application</string>

@@ -81,7 +81,7 @@ languages: list[tuple[str, str, str]] = [
 langLength = len(languages)
 
 exceptionIds: list[str] = ["AppName", "AppVersionTitle"]
-titleIds: list[str] = ["setMode", "tapIcon"]
+titleIds: list[str] = []
 
 i = 1
 with open("./resources/strings/strings.xml", "r") as f:

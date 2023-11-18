@@ -24,7 +24,9 @@
   <string id="MenuItemOff">Uit</string>
   <string id="MenuItemTap">Kraan</string>
   <string id="MenuItemMenu">Menu</string>
+  <string id="NoPhone">Geen telefoonverbinding</string>
   <string id="NoInternet">Geen internet verbinding</string>
+  <string id="NoResponse">Geen reactie, controleer de internetverbinding</string>
   <string id="NoMenu">Fout bij ophalen van menu</string>
   <string id="NoAPIKey">Geen API-sleutel in de applicatie-instellingen</string>
   <string id="NoApiUrl">Geen API-URL in de applicatie-instellingen</string>

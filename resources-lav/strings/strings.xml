@@ -24,7 +24,9 @@
   <string id="MenuItemOff">Izslēgts</string>
   <string id="MenuItemTap">Krāns</string>
   <string id="MenuItemMenu">Izvēlne</string>
+  <string id="NoPhone">Nav tālruņa savienojuma</string>
   <string id="NoInternet">Nav interneta savienojuma</string>
+  <string id="NoResponse">Nav atbildes, pārbaudiet interneta savienojumu</string>
   <string id="NoMenu">Izvēlnes ielādes kļūda</string>
   <string id="NoAPIKey">Lietojumprogrammas iestatījumos nav API atslēgas</string>
   <string id="NoApiUrl">Lietojumprogrammas iestatījumos nav API URL</string>

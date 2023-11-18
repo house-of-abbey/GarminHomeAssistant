@@ -24,7 +24,9 @@
   <string id="MenuItemOff">Aus</string>
   <string id="MenuItemTap">Antippen</string>
   <string id="MenuItemMenu">Menü</string>
+  <string id="NoPhone">Keine Telefonverbindung</string>
   <string id="NoInternet">Keine Internetverbindung</string>
+  <string id="NoResponse">Keine Antwort, überprüfen Sie die Internetverbindung</string>
   <string id="NoMenu">Fehler beim Abrufen des Menüs</string>
   <string id="NoAPIKey">Kein API-Schlüssel in den Anwendungseinstellungen</string>
   <string id="NoApiUrl">Keine API-URL in den Anwendungseinstellungen</string>

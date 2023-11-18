@@ -24,7 +24,9 @@
   <string id="MenuItemOff">Spento</string>
   <string id="MenuItemTap">Rubinetto</string>
   <string id="MenuItemMenu">Menù</string>
+  <string id="NoPhone">Nessuna connessione telefonica</string>
   <string id="NoInternet">Nessuna connessione internet</string>
+  <string id="NoResponse">Nessuna risposta, controlla la connessione Internet</string>
   <string id="NoMenu">Errore di recupero del menu</string>
   <string id="NoAPIKey">Nessuna chiave API nelle impostazioni dell'applicazione</string>
   <string id="NoApiUrl">Nessun URL API nelle impostazioni dell'applicazione</string>

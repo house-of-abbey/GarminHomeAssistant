@@ -24,7 +24,9 @@
   <string id="MenuItemOff">Oprit</string>
   <string id="MenuItemTap">Atingeți</string>
   <string id="MenuItemMenu">Meniul</string>
+  <string id="NoPhone">Fără conexiune telefonică</string>
   <string id="NoInternet">Fără conexiune internet</string>
+  <string id="NoResponse">Niciun răspuns, verificați conexiunea la internet</string>
   <string id="NoMenu">Eroare de preluare a meniului</string>
   <string id="NoAPIKey">Nicio cheie API în setările aplicației</string>
   <string id="NoApiUrl">Nicio adresă URL API în setările aplicației</string>
