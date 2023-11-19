@@ -35,5 +35,5 @@
   <string id="ApiUrlNotFound">URL을 찾을 수 없습니다. 설정에 잠재적인 API URL 오류가 있습니다.</string>
   <string id="ConfigUrlNotFound">URL을 찾을 수 없습니다. 설정에 잠재적인 구성 URL 오류가 있습니다.</string>
   <string id="UnhandledHttpErr">HTTP 요청이 오류 코드를 반환했습니다 =</string>
-  <string id="TrailingSlashErr">API URL에는 후행 슬래시 '/'가 있어서는 안 됩니다.</string>
+  <string id="TrailingSlashErr">API URL에는 후행 슬래시 '/'가 없어야 합니다.</string>
 </strings>
