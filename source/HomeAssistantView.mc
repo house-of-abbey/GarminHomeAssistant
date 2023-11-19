@@ -113,13 +113,13 @@ class HomeAssistantViewDelegate extends WatchUi.Menu2InputDelegate {
             if (Globals.scDebug) {
                 System.println(haItem.getLabel() + " " + haItem.getId());
             }
-            haItem.execScript();
+            haItem.callService();
         } else if (item instanceof HomeAssistantIconMenuItem) {
             var haItem = item as HomeAssistantIconMenuItem;
             if (Globals.scDebug) {
                 System.println(haItem.getLabel() + " " + haItem.getId());
             }
-            haItem.execScript();
+            haItem.callService();
         } else if (item instanceof HomeAssistantViewMenuItem) {
             var haMenuItem = item as HomeAssistantViewMenuItem;
             if (Globals.scDebug) {
