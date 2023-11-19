@@ -44,8 +44,8 @@
   </setting>
 
   <setting
-    propertyKey="@Properties.lean_ui"
-    title="More leaner UI"
+    propertyKey="@Properties.types_representation"
+    title="Representing types with labels (off) or with icons (on)"
   >
     <settingConfig
       type="boolean"

@@ -27,11 +27,11 @@ class HomeAssistantMenuItemFactory {
     private var mMenuItemAlignment;
     private var mLabelToggle;
     private var strMenuItemTap;
-    private var bLeanDesign;
+    private var bRepresentTypesWithIcons;
 
-    private var mTapIcon;
+    private var mTapTypeIcon;
 
-    private var mMenuIcon;
+    private var mGroupTypeIcon;
 
     private static var instance;
 
@@ -41,7 +41,7 @@ class HomeAssistantMenuItemFactory {
                             :disabled => WatchUi.loadResource($.Rez.Strings.MenuItemOff) as Lang.String
                        };
         
-        bLeanDesign = Application.Properties.getValue("lean_ui") as Lang.Boolean;
+        bRepresentTypesWithIcons = Application.Properties.getValue("types_representation") as Lang.Boolean;
 
         var menuItemAlignment = Application.Properties.getValue("menu_alignment") as Lang.Boolean;
 
@@ -53,14 +53,14 @@ class HomeAssistantMenuItemFactory {
         
 
         strMenuItemTap = WatchUi.loadResource($.Rez.Strings.MenuItemTap);
-        mTapIcon = new WatchUi.Bitmap({
-                            :rezId=>$.Rez.Drawables.TapIcon,
+        mTapTypeIcon = new WatchUi.Bitmap({
+                            :rezId=>$.Rez.Drawables.TapTypeIcon,
                             :locX=>WatchUi.LAYOUT_HALIGN_CENTER,
                             :locY=>WatchUi.LAYOUT_VALIGN_CENTER
                        });
 
-        mMenuIcon = new WatchUi.Bitmap({
-                            :rezId=>Rez.Drawables.MenuIcon,
+        mGroupTypeIcon = new WatchUi.Bitmap({
+                            :rezId=>$.Rez.Drawables.GroupTypeIcon,
                             :locX=>WatchUi.LAYOUT_HALIGN_CENTER,
                             :locY=>WatchUi.LAYOUT_VALIGN_CENTER
         });
@@ -76,7 +76,7 @@ class HomeAssistantMenuItemFactory {
     function toggle(label as Lang.String or Lang.Symbol, identifier as Lang.Object or Null) as WatchUi.MenuItem{
         var subLabel = null;
 
-        if (bLeanDesign == false){
+        if (bRepresentTypesWithIcons == false){
             subLabel=mLabelToggle;
         }
      
@@ -90,13 +90,13 @@ class HomeAssistantMenuItemFactory {
     }
 
     function tap(label as Lang.String or Lang.Symbol, identifier as Lang.Object or Null, service as Lang.String or Null) as WatchUi.MenuItem{
-        if (bLeanDesign) {
+        if (bRepresentTypesWithIcons) {
             return new HomeAssistantIconMenuItem(
                                 label,
                                 null,
                                 identifier,
                                 service,
-                                mTapIcon,
+                                mTapTypeIcon,
                                 mMenuItemAlignment
                     );
             
@@ -112,8 +112,8 @@ class HomeAssistantMenuItemFactory {
     }
 
     function group(definition as Lang.Dictionary) as WatchUi.MenuItem{
-        if (bLeanDesign) {
-            return new HomeAssistantViewIconMenuItem(definition, mMenuIcon, mMenuItemAlignment);
+        if (bRepresentTypesWithIcons) {
+            return new HomeAssistantViewIconMenuItem(definition, mGroupTypeIcon, mMenuItemAlignment);
         } else {
             return new HomeAssistantViewMenuItem(definition);
         }
