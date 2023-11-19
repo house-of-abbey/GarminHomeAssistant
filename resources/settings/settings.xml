@@ -45,7 +45,7 @@
 
   <setting
     propertyKey="@Properties.types_representation"
-    title="Representing types with labels (off) or with icons (on)"
+    title="Representing types with icons (off) or with labels (on)"
   >
     <settingConfig
       type="boolean"
