@@ -22,7 +22,7 @@ using Toybox.Lang;
 using Toybox.WatchUi;
 
 class HomeAssistantViewIconMenuItem extends WatchUi.IconMenuItem {
-    hidden var mMenu as HomeAssistantView;
+    private var mMenu as HomeAssistantView;
 
     function initialize(definition as Lang.Dictionary, icon as WatchUi.Drawable, options as {
             :alignment as WatchUi.MenuItem.Alignment

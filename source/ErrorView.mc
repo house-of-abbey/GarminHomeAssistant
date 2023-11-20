@@ -26,14 +26,14 @@ using Toybox.WatchUi;
 using Toybox.Communications;
 
 class ErrorView extends ScalableView {
-    hidden const cSettings as Lang.Dictionary = {
+    private const cSettings as Lang.Dictionary = {
         :errorIconMargin => 7f
     };
     // Vertical spacing between the top of the face and the error icon
-    hidden var mErrorIconMargin;
-    hidden var mText as Lang.String;
-    hidden var mErrorIcon;
-    hidden var mTextArea;
+    private var mErrorIconMargin;
+    private var mText as Lang.String;
+    private var mErrorIcon;
+    private var mTextArea;
 
     function initialize(text as Lang.String) {
         ScalableView.initialize();

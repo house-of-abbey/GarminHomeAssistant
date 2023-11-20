@@ -25,23 +25,23 @@ using Toybox.Application.Properties;
 using Toybox.Timer;
 
 class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
-    hidden var mApiKey             as Lang.String;
-    hidden var strNoPhone          as Lang.String;
-    hidden var strNoInternet       as Lang.String;
-    hidden var strNoResponse       as Lang.String;
-    hidden var strApiFlood         as Lang.String;
-    hidden var strApiUrlNotFound   as Lang.String;
-    hidden var strUnhandledHttpErr as Lang.String;
+    private var mApiKey             as Lang.String;
+    private var strNoPhone          as Lang.String;
+    private var strNoInternet       as Lang.String;
+    private var strNoResponse       as Lang.String;
+    private var strApiFlood         as Lang.String;
+    private var strApiUrlNotFound   as Lang.String;
+    private var strUnhandledHttpErr as Lang.String;
 
     function initialize(
-        label    as Lang.String or Lang.Symbol,
-        subLabel as Lang.String or Lang.Symbol or {
+        label     as Lang.String or Lang.Symbol,
+        subLabel  as Lang.String or Lang.Symbol or {
             :enabled  as Lang.String or Lang.Symbol or Null,
             :disabled as Lang.String or Lang.Symbol or Null
         } or Null,
         identifier,
-        enabled  as Lang.Boolean,
-        options  as {
+        enabled   as Lang.Boolean,
+        options   as {
             :alignment as WatchUi.MenuItem.Alignment,
             :icon      as Graphics.BitmapType or WatchUi.Drawable or Lang.Symbol
         } or Null

@@ -24,20 +24,20 @@ using Toybox.WatchUi;
 using Toybox.Application.Properties;
 
 class HomeAssistantApp extends Application.AppBase {
-    hidden var mHaMenu;
-    hidden var strNoApiKey          as Lang.String;
-    hidden var strNoApiUrl          as Lang.String;
-    hidden var strNoConfigUrl       as Lang.String;
-    hidden var strNoPhone           as Lang.String;
-    hidden var strNoInternet        as Lang.String;
-    hidden var strNoResponse        as Lang.String;
-    hidden var strNoMenu            as Lang.String;
-    hidden var strApiFlood          as Lang.String;
-    hidden var strConfigUrlNotFound as Lang.String;
-    hidden var strUnhandledHttpErr  as Lang.String;
-    hidden var strTrailingSlashErr  as Lang.String;
-    hidden var mItemsToUpdate;        // Array initialised by onReturnFetchMenuConfig()
-    hidden var mNextItemToUpdate = 0; // Index into the above array
+    private var mHaMenu;
+    private var strNoApiKey          as Lang.String;
+    private var strNoApiUrl          as Lang.String;
+    private var strNoConfigUrl       as Lang.String;
+    private var strNoPhone           as Lang.String;
+    private var strNoInternet        as Lang.String;
+    private var strNoResponse        as Lang.String;
+    private var strNoMenu            as Lang.String;
+    private var strApiFlood          as Lang.String;
+    private var strConfigUrlNotFound as Lang.String;
+    private var strUnhandledHttpErr  as Lang.String;
+    private var strTrailingSlashErr  as Lang.String;
+    private var mItemsToUpdate;        // Array initialised by onReturnFetchMenuConfig()
+    private var mNextItemToUpdate = 0; // Index into the above array
 
     function initialize() {
         AppBase.initialize();

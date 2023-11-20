@@ -24,7 +24,8 @@ using Toybox.Graphics;
 using Toybox.Application.Properties;
 
 class HomeAssistantMenuItem extends WatchUi.MenuItem {
-    hidden var mHomeAssistantService      as HomeAssistantService;
+    private var mHomeAssistantService as HomeAssistantService;
+    private var mService              as Lang.String;
 
     function initialize(
         label      as Lang.String or Lang.Symbol,
@@ -34,7 +35,8 @@ class HomeAssistantMenuItem extends WatchUi.MenuItem {
         options    as {
             :alignment as WatchUi.MenuItem.Alignment,
             :icon      as Graphics.BitmapType or WatchUi.Drawable or Lang.Symbol
-        } or Null
+        } or Null,
+        haService  as HomeAssistantService
     ) {
         WatchUi.MenuItem.initialize(
             label,
@@ -43,11 +45,12 @@ class HomeAssistantMenuItem extends WatchUi.MenuItem {
             options
         );
 
-        mHomeAssistantService = new HomeAssistantService(service, identifier);
+        mHomeAssistantService = haService;
+        mService              = service;
     }
 
     function callService() as Void {
-        mHomeAssistantService.call();
+        mHomeAssistantService.call(mIdentifier as Lang.String, mService);
     }
 
 }

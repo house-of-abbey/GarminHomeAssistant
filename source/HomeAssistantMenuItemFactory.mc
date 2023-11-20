@@ -23,57 +23,57 @@ using Toybox.Lang;
 using Toybox.WatchUi;
 
 class HomeAssistantMenuItemFactory {
-
-    private var mMenuItemAlignment;
-    private var mLabelToggle;
-    private var strMenuItemTap;
-    private var bRepresentTypesWithLabels;
-
-    private var mTapTypeIcon;
-
-    private var mGroupTypeIcon;
+    private var mMenuItemOptions          as Lang.Dictionary;
+    private var mLabelToggle              as Lang.Dictionary;
+    private var strMenuItemTap            as Lang.String;
+    private var bRepresentTypesWithLabels as Lang.Boolean;
+    private var mTapTypeIcon              as WatchUi.Bitmap;
+    private var mGroupTypeIcon            as WatchUi.Bitmap;
+    private var mHomeAssistantService     as HomeAssistantService;
 
     private static var instance;
 
     private function initialize() {
         mLabelToggle = {
-                            :enabled  => WatchUi.loadResource($.Rez.Strings.MenuItemOn) as Lang.String,
-                            :disabled => WatchUi.loadResource($.Rez.Strings.MenuItemOff) as Lang.String
-                       };
-        
+            :enabled  => WatchUi.loadResource($.Rez.Strings.MenuItemOn)  as Lang.String,
+            :disabled => WatchUi.loadResource($.Rez.Strings.MenuItemOff) as Lang.String
+        };
         bRepresentTypesWithLabels = Application.Properties.getValue("types_representation") as Lang.Boolean;
 
         var menuItemAlignment = Application.Properties.getValue("menu_alignment") as Lang.Boolean;
-
-        if(menuItemAlignment == true){
-            mMenuItemAlignment = {:alignment => WatchUi.MenuItem.MENU_ITEM_LABEL_ALIGN_RIGHT};
+        if(menuItemAlignment){
+            mMenuItemOptions = {
+                :alignment => WatchUi.MenuItem.MENU_ITEM_LABEL_ALIGN_RIGHT
+            };
         } else {
-            mMenuItemAlignment = {:alignment => WatchUi.MenuItem.MENU_ITEM_LABEL_ALIGN_LEFT};
+            mMenuItemOptions = {
+                :alignment => WatchUi.MenuItem.MENU_ITEM_LABEL_ALIGN_LEFT
+            };
         }
-        
 
         strMenuItemTap = WatchUi.loadResource($.Rez.Strings.MenuItemTap);
         mTapTypeIcon = new WatchUi.Bitmap({
-                            :rezId=>$.Rez.Drawables.TapTypeIcon,
-                            :locX=>WatchUi.LAYOUT_HALIGN_CENTER,
-                            :locY=>WatchUi.LAYOUT_VALIGN_CENTER
-                       });
+            :rezId => $.Rez.Drawables.TapTypeIcon,
+            :locX  => WatchUi.LAYOUT_HALIGN_CENTER,
+            :locY  => WatchUi.LAYOUT_VALIGN_CENTER
+        });
 
         mGroupTypeIcon = new WatchUi.Bitmap({
-                            :rezId=>$.Rez.Drawables.GroupTypeIcon,
-                            :locX=>WatchUi.LAYOUT_HALIGN_CENTER,
-                            :locY=>WatchUi.LAYOUT_VALIGN_CENTER
+            :rezId => $.Rez.Drawables.GroupTypeIcon,
+            :locX  => WatchUi.LAYOUT_HALIGN_CENTER,
+            :locY  => WatchUi.LAYOUT_VALIGN_CENTER
         });
+        mHomeAssistantService = new HomeAssistantService();
     }
 
-    static function create() {
+    static function create() as HomeAssistantMenuItemFactory {
         if (instance == null) {
             instance = new HomeAssistantMenuItemFactory();
         }
         return instance;
     }
 
-    function toggle(label as Lang.String or Lang.Symbol, identifier as Lang.Object or Null) as WatchUi.MenuItem{
+    function toggle(label as Lang.String or Lang.Symbol, identifier as Lang.Object or Null) as WatchUi.MenuItem {
         var subLabel = null;
 
         if (bRepresentTypesWithLabels == true){
@@ -85,36 +85,38 @@ class HomeAssistantMenuItemFactory {
             subLabel,
             identifier,
             false,
-            mMenuItemAlignment
+            mMenuItemOptions
         );
     }
 
-    function tap(label as Lang.String or Lang.Symbol, identifier as Lang.Object or Null, service as Lang.String or Null) as WatchUi.MenuItem{
+    function tap(label as Lang.String or Lang.Symbol, identifier as Lang.Object or Null, service as Lang.String or Null) as WatchUi.MenuItem {
         if (bRepresentTypesWithLabels) {
             return new HomeAssistantMenuItem(
-                                label,
-                                strMenuItemTap,
-                                identifier,
-                                service,
-                                mMenuItemAlignment
-                            );
+                label,
+                strMenuItemTap,
+                identifier,
+                service,
+                mMenuItemOptions,
+                mHomeAssistantService
+            );
         } else {
             return new HomeAssistantIconMenuItem(
-                                label,
-                                null,
-                                identifier,
-                                service,
-                                mTapTypeIcon,
-                                mMenuItemAlignment
-                            );
+                label,
+                null,
+                identifier,
+                service,
+                mTapTypeIcon,
+                mMenuItemOptions,
+                mHomeAssistantService
+            );
         }
     }
 
-    function group(definition as Lang.Dictionary) as WatchUi.MenuItem{
+    function group(definition as Lang.Dictionary) as WatchUi.MenuItem {
         if (bRepresentTypesWithLabels) {
             return new HomeAssistantViewMenuItem(definition);
         } else {
-            return new HomeAssistantViewIconMenuItem(definition, mGroupTypeIcon, mMenuItemAlignment);
+            return new HomeAssistantViewIconMenuItem(definition, mGroupTypeIcon, mMenuItemOptions);
         }
     }
 }

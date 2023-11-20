@@ -22,7 +22,7 @@ using Toybox.Lang;
 using Toybox.WatchUi;
 
 class HomeAssistantViewMenuItem extends WatchUi.MenuItem {
-    hidden var mMenu as HomeAssistantView;
+    private var mMenu as HomeAssistantView;
 
     function initialize(definition as Lang.Dictionary) {
         // definitions.get(...) are Strings here as they have been checked by HomeAssistantView first

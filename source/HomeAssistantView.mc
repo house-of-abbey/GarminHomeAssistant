@@ -24,10 +24,9 @@ using Toybox.Graphics;
 using Toybox.WatchUi;
 
 class HomeAssistantView extends WatchUi.Menu2 {
-    
     // List of items that need to have their status updated periodically
-    hidden var mListToggleItems   = [];
-    hidden var mListMenuItems     = [];
+    private var mListToggleItems   = [];
+    private var mListMenuItems     = [];
 
     function initialize(
         definition as Lang.Dictionary,
