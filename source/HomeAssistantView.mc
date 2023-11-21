@@ -74,10 +74,8 @@ class HomeAssistantView extends WatchUi.Menu2 {
         var lmi = mListMenuItems as Lang.Array<WatchUi.MenuItem>;
         for(var i = 0; i < mListMenuItems.size(); i++) {
             var item = lmi[i];
-            if (item instanceof HomeAssistantViewMenuItem) {
+            if (item instanceof HomeAssistantViewMenuItem || item instanceof HomeAssistantViewIconMenuItem) {
                 fullList.addAll(item.getMenuView().getItemsToUpdate()); 
-            } else if (item instanceof HomeAssistantViewIconMenuItem) {
-                fullList.addAll(item.getMenuView().getItemsToUpdate());
             }
         }
 

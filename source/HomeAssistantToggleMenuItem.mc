@@ -131,7 +131,6 @@ class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
         if (keepUpdating) {
             // Now this feels very "closely coupled" to the application, but it is the most reliable method instead of using a timer.
             getApp().updateNextMenuItem();
-            System.println("HomeAssistantToggleMenuItem onReturnGetState(): Updated " + mIdentifier);
         }
     }
 
