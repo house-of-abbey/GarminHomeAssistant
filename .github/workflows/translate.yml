@@ -1,11 +1,11 @@
 name: Translate
 on:
   workflow_dispatch:
-  push:
-    paths:
-      - "resources/strings/strings.xml"
-      - "translate.py"
-      - "resources-*/strings/corrections.xml"
+  # push:
+  #   paths:
+  #     - "resources/strings/strings.xml"
+  #     - "translate.py"
+  #     - "resources-*/strings/corrections.xml"
 
 jobs:
   translate:
