@@ -30,12 +30,12 @@ using Toybox.Timer;
 const bRadius = 10;
 
 class Alert extends WatchUi.View {
-    hidden var mTimer;
-    hidden var mTimeout;
-    hidden var mText;
-    hidden var mFont;
-    hidden var mFgcolor;
-    hidden var mBgcolor;
+    private var mTimer;
+    private var mTimeout;
+    private var mText;
+    private var mFont;
+    private var mFgcolor;
+    private var mBgcolor;
 
     function initialize(params as Lang.Dictionary) {
         View.initialize();

@@ -24,20 +24,20 @@ using Toybox.WatchUi;
 using Toybox.Application.Properties;
 
 class HomeAssistantApp extends Application.AppBase {
-    hidden var mHaMenu;
-    hidden var strNoApiKey          as Lang.String;
-    hidden var strNoApiUrl          as Lang.String;
-    hidden var strNoConfigUrl       as Lang.String;
-    hidden var strNoPhone           as Lang.String;
-    hidden var strNoInternet        as Lang.String;
-    hidden var strNoResponse        as Lang.String;
-    hidden var strNoMenu            as Lang.String;
-    hidden var strApiFlood          as Lang.String;
-    hidden var strConfigUrlNotFound as Lang.String;
-    hidden var strUnhandledHttpErr  as Lang.String;
-    hidden var strTrailingSlashErr  as Lang.String;
-    hidden var mItemsToUpdate;        // Array initialised by onReturnFetchMenuConfig()
-    hidden var mNextItemToUpdate = 0; // Index into the above array
+    private var mHaMenu;
+    private var strNoApiKey          as Lang.String;
+    private var strNoApiUrl          as Lang.String;
+    private var strNoConfigUrl       as Lang.String;
+    private var strNoPhone           as Lang.String;
+    private var strNoInternet        as Lang.String;
+    private var strNoResponse        as Lang.String;
+    private var strNoMenu            as Lang.String;
+    private var strApiFlood          as Lang.String;
+    private var strConfigUrlNotFound as Lang.String;
+    private var strUnhandledHttpErr  as Lang.String;
+    private var strTrailingSlashErr  as Lang.String;
+    private var mItemsToUpdate;        // Array initialised by onReturnFetchMenuConfig()
+    private var mNextItemToUpdate = 0; // Index into the above array
 
     function initialize() {
         AppBase.initialize();
@@ -67,22 +67,22 @@ class HomeAssistantApp extends Application.AppBase {
 
         if ((Properties.getValue("api_key") as Lang.String).length() == 0) {
             if (Globals.scDebug) {
-                System.println("HomeAssistantMenuItem execScript(): No API key in the application settings.");
+                System.println("HomeAssistantApp getInitialView(): No API key in the application settings.");
             }
             return [new ErrorView(strNoApiKey + "."), new ErrorDelegate()] as Lang.Array<WatchUi.Views or WatchUi.InputDelegates>;
         } else if (api_url.length() == 0) {
             if (Globals.scDebug) {
-                System.println("HomeAssistantMenuItem execScript(): No API URL in the application settings.");
+                System.println("HomeAssistantApp getInitialView(): No API URL in the application settings.");
             }
             return [new ErrorView(strNoApiUrl + "."), new ErrorDelegate()] as Lang.Array<WatchUi.Views or WatchUi.InputDelegates>;
         } else if (api_url.substring(-1, api_url.length()).equals("/")) {
             if (Globals.scDebug) {
-                System.println("HomeAssistantMenuItem execScript(): API URL must not have a trailing slash '/'.");
+                System.println("HomeAssistantApp getInitialView(): API URL must not have a trailing slash '/'.");
             }
             return [new ErrorView(strTrailingSlashErr + "."), new ErrorDelegate()] as Lang.Array<WatchUi.Views or WatchUi.InputDelegates>;
         } else if ((Properties.getValue("config_url") as Lang.String).length() == 0) {
             if (Globals.scDebug) {
-                System.println("HomeAssistantMenuItem execScript(): No configuration URL in the application settings.");
+                System.println("HomeAssistantApp getInitialView(): No configuration URL in the application settings.");
             }
             return [new ErrorView(strNoConfigUrl + "."), new ErrorDelegate()] as Lang.Array<WatchUi.Views or WatchUi.InputDelegates>;
         } else if (! System.getDeviceSettings().phoneConnected) {

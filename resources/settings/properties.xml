@@ -23,4 +23,8 @@
 
   <!-- Best be a public URL in order to work away from your home LAN and have a trusted HTTPS certificate -->
   <property id="config_url" type="string"></property>
+
+  <property id="types_representation" type="boolean"></property>
+
+  <property id="menu_alignment" type="boolean"></property>
 </properties>

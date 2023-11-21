@@ -42,4 +42,22 @@
       type="alphaNumeric"
     />
   </setting>
+
+  <setting
+    propertyKey="@Properties.types_representation"
+    title="Representing types with icons (off) or with labels (on)"
+  >
+    <settingConfig
+      type="boolean"
+    />
+  </setting>
+
+  <setting
+    propertyKey="@Properties.menu_alignment"
+    title="Left (off) or Right (on) Menu Alignment"
+  >
+    <settingConfig
+      type="boolean"
+    />
+  </setting>
 </settings>

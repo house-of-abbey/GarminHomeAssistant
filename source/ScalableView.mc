@@ -23,7 +23,7 @@ using Toybox.WatchUi;
 using Toybox.Math;
 
 class ScalableView extends WatchUi.View {
-    hidden var mScreenWidth;
+    private var mScreenWidth;
 
     function initialize() {
         View.initialize();

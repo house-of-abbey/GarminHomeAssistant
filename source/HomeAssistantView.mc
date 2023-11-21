@@ -18,15 +18,15 @@
 //
 //-----------------------------------------------------------------------------------
 
+using Toybox.Application;
 using Toybox.Lang;
 using Toybox.Graphics;
 using Toybox.WatchUi;
 
 class HomeAssistantView extends WatchUi.Menu2 {
-    hidden var strMenuItemTap as Lang.String;
     // List of items that need to have their status updated periodically
-    hidden var mListToggleItems = [];
-    hidden var mListMenuItems   = [];
+    private var mListToggleItems   = [];
+    private var mListMenuItems     = [];
 
     function initialize(
         definition as Lang.Dictionary,
@@ -36,11 +36,6 @@ class HomeAssistantView extends WatchUi.Menu2 {
             :theme as WatchUi.MenuTheme or Null
         } or Null
     ) {
-        strMenuItemTap = WatchUi.loadResource($.Rez.Strings.MenuItemTap);
-        var toggle_obj = {
-            :enabled  => WatchUi.loadResource($.Rez.Strings.MenuItemOn) as Lang.String,
-            :disabled => WatchUi.loadResource($.Rez.Strings.MenuItemOff) as Lang.String
-        };
 
         if (options == null) {
             options = {
@@ -59,27 +54,13 @@ class HomeAssistantView extends WatchUi.Menu2 {
             var service = items[i].get("service") as Lang.String or Null;
             if (type != null && name != null && entity != null) {
                 if (type.equals("toggle")) {
-                    var item = new HomeAssistantToggleMenuItem(
-                        name,
-                        toggle_obj,
-                        entity,
-                        false,
-                        null
-                    );
+                    var item = HomeAssistantMenuItemFactory.create().toggle(name, entity);
                     addItem(item);
                     mListToggleItems.add(item);
                 } else if (type.equals("tap") && service != null) {
-                    addItem(
-                        new HomeAssistantMenuItem(
-                            name,
-                            strMenuItemTap,
-                            entity,
-                            service,
-                            null
-                        )
-                    );
+                    addItem( HomeAssistantMenuItemFactory.create().tap(name, entity, service));
                 } else if (type.equals("group")) {
-                    var item = new HomeAssistantViewMenuItem(items[i]);
+                    var item = HomeAssistantMenuItemFactory.create().group(items[i]);
                     addItem(item);
                     mListMenuItems.add(item);
                 }
@@ -89,10 +70,15 @@ class HomeAssistantView extends WatchUi.Menu2 {
 
     function getItemsToUpdate() as Lang.Array<HomeAssistantToggleMenuItem> {
         var fullList = [];
-        var lmi = mListMenuItems as Lang.Array<HomeAssistantViewMenuItem>;
-        for(var i = 0; i < lmi.size(); i++) {
-            fullList.addAll(lmi[i].getMenuView().getItemsToUpdate());
+        
+        var lmi = mListMenuItems as Lang.Array<WatchUi.MenuItem>;
+        for(var i = 0; i < mListMenuItems.size(); i++) {
+            var item = lmi[i];
+            if (item instanceof HomeAssistantViewMenuItem || item instanceof HomeAssistantViewIconMenuItem) {
+                fullList.addAll(item.getMenuView().getItemsToUpdate()); 
+            }
         }
+
         return fullList.addAll(mListToggleItems);
     }
 
@@ -124,11 +110,24 @@ class HomeAssistantViewDelegate extends WatchUi.Menu2InputDelegate {
             if (Globals.scDebug) {
                 System.println(haItem.getLabel() + " " + haItem.getId());
             }
-            haItem.execScript();
+            haItem.callService();
+        } else if (item instanceof HomeAssistantIconMenuItem) {
+            var haItem = item as HomeAssistantIconMenuItem;
+            if (Globals.scDebug) {
+                System.println(haItem.getLabel() + " " + haItem.getId());
+            }
+            haItem.callService();
         } else if (item instanceof HomeAssistantViewMenuItem) {
             var haMenuItem = item as HomeAssistantViewMenuItem;
             if (Globals.scDebug) {
                 System.println("Menu: " + haMenuItem.getLabel() + " " + haMenuItem.getId());
+            }
+            // No delegate state to be amended, so re-use 'self'.
+            WatchUi.pushView(haMenuItem.getMenuView(), self, WatchUi.SLIDE_LEFT);
+        } else if (item instanceof HomeAssistantViewIconMenuItem) {
+            var haMenuItem = item as HomeAssistantViewIconMenuItem;
+            if (Globals.scDebug) {
+                System.println("IconMenu: " + haMenuItem.getLabel() + " " + haMenuItem.getId());
             }
             // No delegate state to be amended, so re-use 'self'.
             WatchUi.pushView(haMenuItem.getMenuView(), self, WatchUi.SLIDE_LEFT);
