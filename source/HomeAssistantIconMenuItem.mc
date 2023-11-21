@@ -26,7 +26,6 @@ using Toybox.Application.Properties;
 class HomeAssistantIconMenuItem extends WatchUi.IconMenuItem {
     private var mHomeAssistantService as HomeAssistantService;
     private var mService              as Lang.String;
-//    private var mIdentifier           as Lang.String;
 
     function initialize(
         label      as Lang.String or Lang.Symbol,
