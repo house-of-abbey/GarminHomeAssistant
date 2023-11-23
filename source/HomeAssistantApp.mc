@@ -63,9 +63,9 @@ class HomeAssistantApp extends Application.AppBase {
 
     // Return the initial view of your application here
     function getInitialView() as Lang.Array<WatchUi.Views or WatchUi.InputDelegates>? {
-        var api_url = Properties.getValue("api_url") as Lang.String;
+        var api_url = Settings.get().apiUrl();
 
-        if ((Properties.getValue("api_key") as Lang.String).length() == 0) {
+        if (Settings.get().apiKey().length() == 0) {
             if (Globals.scDebug) {
                 System.println("HomeAssistantApp getInitialView(): No API key in the application settings.");
             }
@@ -80,7 +80,7 @@ class HomeAssistantApp extends Application.AppBase {
                 System.println("HomeAssistantApp getInitialView(): API URL must not have a trailing slash '/'.");
             }
             return [new ErrorView(strTrailingSlashErr + "."), new ErrorDelegate()] as Lang.Array<WatchUi.Views or WatchUi.InputDelegates>;
-        } else if ((Properties.getValue("config_url") as Lang.String).length() == 0) {
+        } else if (Settings.get().configUrl().length() == 0) {
             if (Globals.scDebug) {
                 System.println("HomeAssistantApp getInitialView(): No configuration URL in the application settings.");
             }
@@ -159,7 +159,7 @@ class HomeAssistantApp extends Application.AppBase {
             :responseType => Communications.HTTP_RESPONSE_CONTENT_TYPE_JSON
         };
         Communications.makeWebRequest(
-            Properties.getValue("config_url"),
+            Settings.get().configUrl(),
             null,
             options,
             method(:onReturnFetchMenuConfig)

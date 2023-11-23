@@ -25,7 +25,6 @@ using Toybox.Application.Properties;
 using Toybox.Timer;
 
 class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
-    private var mApiKey             as Lang.String;
     private var strNoPhone          as Lang.String;
     private var strNoInternet       as Lang.String;
     private var strNoResponse       as Lang.String;
@@ -52,7 +51,6 @@ class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
         strApiFlood         = WatchUi.loadResource($.Rez.Strings.ApiFlood);
         strApiUrlNotFound   = WatchUi.loadResource($.Rez.Strings.ApiUrlNotFound);
         strUnhandledHttpErr = WatchUi.loadResource($.Rez.Strings.UnhandledHttpErr);
-        mApiKey             = Properties.getValue("api_key");
         WatchUi.ToggleMenuItem.initialize(label, subLabel, identifier, enabled, options);
     }
 
@@ -138,7 +136,7 @@ class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
         var options = {
             :method  => Communications.HTTP_REQUEST_METHOD_GET,
             :headers => {
-                "Authorization" => "Bearer " + mApiKey
+                "Authorization" => "Bearer " + Settings.get().apiKey()
             },
             :responseType => Communications.HTTP_RESPONSE_CONTENT_TYPE_JSON
         };
@@ -160,7 +158,7 @@ class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
                 WatchUi.pushView(new ErrorView(strNoInternet + "."), new ErrorDelegate(), WatchUi.SLIDE_UP);
             }
         } else {
-            var url = Properties.getValue("api_url") + "/states/" + mIdentifier;
+            var url = Settings.get().apiUrl() + "/states/" + mIdentifier;
             if (Globals.scDebug) {
                 System.println("HomeAssistantToggleMenuItem getState() URL=" + url);
             }
@@ -236,7 +234,7 @@ class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
             :method  => Communications.HTTP_REQUEST_METHOD_POST,
             :headers => {
                 "Content-Type"  => Communications.REQUEST_CONTENT_TYPE_JSON,
-                "Authorization" => "Bearer " + mApiKey
+                "Authorization" => "Bearer " + Settings.get().apiKey()
             },
             :responseType => Communications.HTTP_RESPONSE_CONTENT_TYPE_JSON
         };
@@ -260,9 +258,9 @@ class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
             var id = mIdentifier as Lang.String;
             var url;
             if (s) {
-                url = Properties.getValue("api_url") + "/services/" + id.substring(0, id.find(".")) + "/turn_on";
+                url = Settings.get().apiUrl() + "/services/" + id.substring(0, id.find(".")) + "/turn_on";
             } else {
-                url = Properties.getValue("api_url") + "/services/" + id.substring(0, id.find(".")) + "/turn_off";
+                url = Settings.get().apiUrl() + "/services/" + id.substring(0, id.find(".")) + "/turn_off";
             }
             if (Globals.scDebug) {
                 System.println("HomeAssistantToggleMenuItem setState() URL=" + url);

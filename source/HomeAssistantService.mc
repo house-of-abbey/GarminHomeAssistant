@@ -24,7 +24,6 @@ using Toybox.Graphics;
 using Toybox.Application.Properties;
 
 class HomeAssistantService {
-    private var mApiKey             as Lang.String;
     private var strNoPhone          as Lang.String;
     private var strNoInternet       as Lang.String;
     private var strNoResponse       as Lang.String;
@@ -39,7 +38,6 @@ class HomeAssistantService {
         strApiFlood         = WatchUi.loadResource($.Rez.Strings.ApiFlood);
         strApiUrlNotFound   = WatchUi.loadResource($.Rez.Strings.ApiUrlNotFound);
         strUnhandledHttpErr = WatchUi.loadResource($.Rez.Strings.UnhandledHttpErr);
-        mApiKey             = Properties.getValue("api_key");
     }
 
     // Callback function after completing the POST request to call a service.
@@ -108,7 +106,7 @@ class HomeAssistantService {
             :method  => Communications.HTTP_REQUEST_METHOD_POST,
             :headers => {
                 "Content-Type"  => Communications.REQUEST_CONTENT_TYPE_JSON,
-                "Authorization" => "Bearer " + mApiKey
+                "Authorization" => "Bearer " + Settings.get().apiKey()
             },
             :responseType => Communications.HTTP_RESPONSE_CONTENT_TYPE_JSON,
             :context      => identifier
@@ -124,7 +122,7 @@ class HomeAssistantService {
             }
             WatchUi.pushView(new ErrorView(strNoInternet + "."), new ErrorDelegate(), WatchUi.SLIDE_UP);
         } else {
-            var url = (Properties.getValue("api_url") as Lang.String) + "/services/" + service.substring(0, service.find(".")) + "/" + service.substring(service.find(".")+1, null);
+            var url = Settings.get().apiUrl() + "/services/" + service.substring(0, service.find(".")) + "/" + service.substring(service.find(".")+1, null);
             if (Globals.scDebug) {
                 System.println("HomeAssistantService call() URL=" + url);
                 System.println("HomeAssistantService call() service=" + service);

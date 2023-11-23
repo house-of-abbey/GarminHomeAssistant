@@ -26,7 +26,6 @@ class HomeAssistantMenuItemFactory {
     private var mMenuItemOptions          as Lang.Dictionary;
     private var mLabelToggle              as Lang.Dictionary;
     private var strMenuItemTap            as Lang.String;
-    private var bRepresentTypesWithLabels as Lang.Boolean;
     private var mTapTypeIcon              as WatchUi.Bitmap;
     private var mGroupTypeIcon            as WatchUi.Bitmap;
     private var mHomeAssistantService     as HomeAssistantService;
@@ -38,10 +37,8 @@ class HomeAssistantMenuItemFactory {
             :enabled  => WatchUi.loadResource($.Rez.Strings.MenuItemOn)  as Lang.String,
             :disabled => WatchUi.loadResource($.Rez.Strings.MenuItemOff) as Lang.String
         };
-        bRepresentTypesWithLabels = Application.Properties.getValue("types_representation") as Lang.Boolean;
 
-        var menuItemAlignment = Application.Properties.getValue("menu_alignment") as Lang.Boolean;
-        if(menuItemAlignment){
+        if(Settings.get().menuItemAlignmentRight()){
             mMenuItemOptions = {
                 :alignment => WatchUi.MenuItem.MENU_ITEM_LABEL_ALIGN_RIGHT
             };
@@ -76,7 +73,7 @@ class HomeAssistantMenuItemFactory {
     function toggle(label as Lang.String or Lang.Symbol, identifier as Lang.Object or Null) as WatchUi.MenuItem {
         var subLabel = null;
 
-        if (bRepresentTypesWithLabels == true){
+        if (Settings.get().showTypeLabels()){
             subLabel=mLabelToggle;
         }
      
@@ -90,7 +87,7 @@ class HomeAssistantMenuItemFactory {
     }
 
     function tap(label as Lang.String or Lang.Symbol, identifier as Lang.Object or Null, service as Lang.String or Null) as WatchUi.MenuItem {
-        if (bRepresentTypesWithLabels) {
+        if (Settings.get().showTypeLabels()) {
             return new HomeAssistantMenuItem(
                 label,
                 strMenuItemTap,
@@ -113,7 +110,7 @@ class HomeAssistantMenuItemFactory {
     }
 
     function group(definition as Lang.Dictionary) as WatchUi.MenuItem {
-        if (bRepresentTypesWithLabels) {
+        if (Settings.get().showTypeLabels()) {
             return new HomeAssistantViewMenuItem(definition);
         } else {
             return new HomeAssistantViewIconMenuItem(definition, mGroupTypeIcon, mMenuItemOptions);
