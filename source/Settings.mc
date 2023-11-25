@@ -46,23 +46,23 @@ class Settings {
         return instance;
     }
 
-    function apiKey() as Lang.String{
+    function apiKey() as Lang.String {
         return strApiKey;
     }
 
-    function apiUrl() as Lang.String{
+    function apiUrl() as Lang.String {
         return strApiUrl;
     }
 
-    function configUrl() as Lang.String{
+    function configUrl() as Lang.String {
         return strConfigUrl;
     }
 
-    function menuItemAlignmentRight() as Lang.Boolean{
+    function menuItemAlignmentRight() as Lang.Boolean {
         return bMenuItemAlignmentRight;
     }
 
-    function showTypeLabels() as Lang.Boolean{
+    function showTypeLabels() as Lang.Boolean {
         return bRepresentTypesWithLabels;
     }
 }
