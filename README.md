@@ -122,6 +122,19 @@ Possible future extensions might include specifying the alternative texts to use
 
 The [schema](https://raw.githubusercontent.com/house-of-abbey/GarminHomeAssistant/main/config.schema.json) is checked by using a URL directly back to this GitHub source repository, so you do not need to install that file. You can just copy & paste your entity names from the YAML configuration files used to configure Home Assistant. With a submenu, there's a difference between "title" and "name". The "name" goes on the menu item, and the "title" at the head of the submenu. If your dashboard definition fails to meet the schema, the application will simply drop items with the wrong field names without warning.
 
+## Editing the JSON file
+
+You have options. The first is what we use.
+1. **Best!** Use the [Studio Code Server](https://community.home-assistant.io/t/home-assistant-community-add-on-visual-studio-code/107863) addon for Home Assistant. You can then edit your JSON file in place.
+2. Locally installed VSCode, or if not installed
+3. try the on-line version at https://vscode.dev/
+
+Paste in your JSON (and change the file type to JSON if not saving), it will then verify your file format and schema for you, highlighting any errors for you to fix.
+
+A failure to get the file format right tends to mean that the response to the application errors with `INVALID_HTTP_BODY_IN_NETWORK_RESPONSE` (code of -400). This means the response did not contain JSON, it was probably an error message in plain text that could not be parsed by the Connect IQ API call. See [Toybox.Communications](https://developer.garmin.com/connect-iq/api-docs/Toybox/Communications.html) for the list of error code you might be present with on your device.
+
+Make sure you can browse to the URL of your JSON file in a standard web browser to make sure it is accessible.
+
 ## API Key Creation
 
 Having created your JSON definition for your dashboard, you need to create an API key for your personal account on Home Assistant.
@@ -129,6 +142,8 @@ Having created your JSON definition for your dashboard, you need to create an AP
 ![Long-Lived Access Token](images/Long_Lived_Access_Tokens.png)
 
 Having created that token, before you dismiss the dialogue box with the value you will never see again, copy it somewhere safe. You need to paste this into the Garmin Application's settings.
+
+**Please, please, please!** Copy and paste this API key, do not retype as it will be wrong.
 
 ## Settings
 
