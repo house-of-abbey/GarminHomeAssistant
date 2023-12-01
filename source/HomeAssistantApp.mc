@@ -24,24 +24,37 @@ using Toybox.WatchUi;
 using Toybox.Application.Properties;
 
 class HomeAssistantApp extends Application.AppBase {
-    private var mHaMenu;
-    private var quitTimer            as QuitTimer;
-    private var strNoApiKey          as Lang.String;
-    private var strNoApiUrl          as Lang.String;
-    private var strNoConfigUrl       as Lang.String;
-    private var strNoPhone           as Lang.String;
-    private var strNoInternet        as Lang.String;
-    private var strNoResponse        as Lang.String;
-    private var strNoMenu            as Lang.String;
-    private var strApiFlood          as Lang.String;
-    private var strConfigUrlNotFound as Lang.String;
-    private var strUnhandledHttpErr  as Lang.String;
-    private var strTrailingSlashErr  as Lang.String;
+    private var mHaMenu              as HomeAssistantView or Null;
+    private var quitTimer            as QuitTimer or Null;
+    private var strNoApiKey          as Lang.String or Null;
+    private var strNoApiUrl          as Lang.String or Null;
+    private var strNoConfigUrl       as Lang.String or Null;
+    private var strNoPhone           as Lang.String or Null;
+    private var strNoInternet        as Lang.String or Null;
+    private var strNoResponse        as Lang.String or Null;
+    private var strNoMenu            as Lang.String or Null;
+    private var strApiFlood          as Lang.String or Null;
+    private var strConfigUrlNotFound as Lang.String or Null;
+    private var strUnhandledHttpErr  as Lang.String or Null;
+    private var strTrailingSlashErr  as Lang.String or Null;
     private var mItemsToUpdate;        // Array initialised by onReturnFetchMenuConfig()
     private var mNextItemToUpdate = 0; // Index into the above array
 
     function initialize() {
         AppBase.initialize();
+    }
+
+    // onStart() is called on application start up
+    function onStart(state as Lang.Dictionary?) as Void {
+    }
+
+    // onStop() is called when your application is exiting
+    function onStop(state as Lang.Dictionary?) as Void {
+    }
+
+    // Return the initial view of your application here
+    function getInitialView() as Lang.Array<WatchUi.Views or WatchUi.InputDelegates>? {
+
         strNoApiKey          = WatchUi.loadResource($.Rez.Strings.NoAPIKey);
         strNoApiUrl          = WatchUi.loadResource($.Rez.Strings.NoApiUrl);
         strNoConfigUrl       = WatchUi.loadResource($.Rez.Strings.NoConfigUrl);
@@ -54,20 +67,7 @@ class HomeAssistantApp extends Application.AppBase {
         strUnhandledHttpErr  = WatchUi.loadResource($.Rez.Strings.UnhandledHttpErr);
         strTrailingSlashErr  = WatchUi.loadResource($.Rez.Strings.TrailingSlashErr);
         quitTimer            = new QuitTimer();
-    }
 
-    // onStart() is called on application start up
-    function onStart(state as Lang.Dictionary?) as Void {
-        quitTimer.begin();
-    }
-
-    // onStop() is called when your application is exiting
-    function onStop(state as Lang.Dictionary?) as Void {
-        quitTimer.stop();
-    }
-
-    // Return the initial view of your application here
-    function getInitialView() as Lang.Array<WatchUi.Views or WatchUi.InputDelegates>? {
         var api_url = Properties.getValue("api_url") as Lang.String;
 
         if ((Properties.getValue("api_key") as Lang.String).length() == 0) {
@@ -100,6 +100,11 @@ class HomeAssistantApp extends Application.AppBase {
                 System.println("HomeAssistantApp fetchMenuConfig(): No Internet connection, skipping API call.");
             }
             return [new ErrorView(strNoInternet + "."), new ErrorDelegate()] as Lang.Array<WatchUi.Views or WatchUi.InputDelegates>;
+        }else if (mHaMenu != null ){
+            // App.getApp().launchInitialView();
+            return [mHaMenu, new WatchUi.BehaviorDelegate()] as Lang.Array<WatchUi.Views or WatchUi.InputDelegates>;
+            // return mHaMenu.View;
+            //  WatchUi.pushView(mHaMenu, new HomeAssistantViewDelegate(), WatchUi.SLIDE_IMMEDIATE);
         } else {
             fetchMenuConfig();
             return [new WatchUi.View(), new WatchUi.BehaviorDelegate()] as Lang.Array<WatchUi.Views or WatchUi.InputDelegates>;
@@ -138,7 +143,8 @@ class HomeAssistantApp extends Application.AppBase {
             WatchUi.pushView(new ErrorView(strConfigUrlNotFound), new ErrorDelegate(), WatchUi.SLIDE_UP);
         } else if (responseCode == 200) {
             mHaMenu = new HomeAssistantView(data, null);
-            WatchUi.switchToView(mHaMenu, new HomeAssistantViewDelegate(), WatchUi.SLIDE_IMMEDIATE);
+            quitTimer.begin();
+            WatchUi.pushView(mHaMenu, new HomeAssistantViewDelegate(), WatchUi.SLIDE_IMMEDIATE);
             mItemsToUpdate = mHaMenu.getItemsToUpdate();
             // Start the continuous update process that continues for as long as the application is running.
             // The chain of functions from 'updateNextMenuItem()' calls 'updateNextMenuItem()' on completion.
@@ -183,6 +189,10 @@ class HomeAssistantApp extends Application.AppBase {
         return quitTimer;
     }
 
+    (:glance)
+    function getGlanceView() {
+        return [new HomeAssistantGlanceView()];
+    }
 }
 
 function getApp() as HomeAssistantApp {
