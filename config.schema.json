@@ -12,8 +12,12 @@
       "type": "object",
       "properties": {
         "entity": { "$ref": "#/$defs/entity" },
-        "name": { "type": "string" },
-        "type": { "const": "toggle" }
+        "name": { "title": "Your familiar name", "type": "string" },
+        "type": {
+          "title": "Menu item type",
+          "description": "One of 'tap, 'toggle' or 'group'",
+          "const": "toggle"
+        }
       },
       "required": ["entity", "name", "type"],
       "additionalProperties": false
@@ -23,7 +27,11 @@
       "properties": {
         "entity": { "$ref": "#/$defs/entity" },
         "name": { "title": "Your familiar name", "type": "string" },
-        "type": { "const": "tap" },
+        "type": {
+          "title": "Menu item type",
+          "description": "One of 'tap, 'toggle' or 'group'",
+          "const": "tap"
+        },
         "service": {
           "$ref": "#/$defs/entity",
           "deprecated": true,
@@ -42,9 +50,13 @@
       "type": "object",
       "properties": {
         "entity": { "$ref": "#/$defs/entity" },
-        "name": { "type": "string" },
+        "name": { "title": "Your familiar name", "type": "string" },
         "title": { "type": "string" },
-        "type": { "const": "group" },
+        "type": {
+          "title": "Menu item type",
+          "description": "One of 'tap, 'toggle' or 'group'",
+          "const": "group"
+        },
         "items": { "$ref": "#/$defs/items" }
       },
       "required": ["entity", "name", "title", "type", "items"],
@@ -67,7 +79,7 @@
     },
     "action": {
       "title": "Action",
-      "description": "Field 'confirm' is optional.",
+      "description": "'confirm' field is optional.",
       "type": "object",
       "properties": {
         "service": { "$ref": "#/$defs/entity" },
