@@ -27,7 +27,7 @@
   <string id="NoPhone">Ingen telefonforbindelse</string>
   <string id="NoInternet">Ingen internetforbindelse</string>
   <string id="NoResponse">Intet svar, tjek internetforbindelse</string>
-  <string id="NoMenu">Menuhentningsfejl</string>
+  <string id="NoMenu">Fejl ved menuhentning</string>
   <string id="NoAPIKey">Ingen API-nøgle i applikationsindstillingerne</string>
   <string id="NoApiUrl">Ingen API-URL i applikationsindstillingerne</string>
   <string id="NoConfigUrl">Ingen konfigurations-URL i applikationsindstillingerne</string>
