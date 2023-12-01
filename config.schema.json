@@ -22,11 +22,20 @@
       "type": "object",
       "properties": {
         "entity": { "$ref": "#/$defs/entity" },
-        "name": { "type": "string" },
+        "name": { "title": "Your familiar name", "type": "string" },
         "type": { "const": "tap" },
-        "service": { "$ref": "#/$defs/entity" }
+        "service": {
+          "$ref": "#/$defs/entity",
+          "deprecated": true,
+          "title": "Schema change:",
+          "description": "Use 'tap_action' instead to mirror Home Assistant."
+        },
+        "tap_action": { "$ref": "#/$defs/action" }
       },
-      "required": ["entity", "name", "type", "service"],
+      "oneOf": [
+        { "required": ["entity", "name", "type", "service"] },
+        { "required": ["entity", "name", "type", "tap_action"] }
+      ],
       "additionalProperties": false
     },
     "menu": {
@@ -52,8 +61,23 @@
       }
     },
     "entity": {
+      "title": "Home Assistant entity name",
       "type": "string",
       "pattern": "^[^.]+\\.[^.]+$"
+    },
+    "action": {
+      "title": "Action",
+      "description": "Field 'confirm' is optional.",
+      "type": "object",
+      "properties": {
+        "service": { "$ref": "#/$defs/entity" },
+        "confirm": {
+          "type": "boolean",
+          "default": false,
+          "description": "Confirm the action before execution as a precaution."
+        }
+      },
+      "required": ["service"]
     }
   }
 }
