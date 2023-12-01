@@ -33,7 +33,7 @@
   <string id="NoApiUrl">V nastavení aplikace není žádná adresa URL API</string>
   <string id="NoConfigUrl">V nastavení aplikace není žádná konfigurační URL</string>
   <string id="ApiFlood">Příliš rychlá volání API. Zpomalte prosím své požadavky.</string>
-  <string id="ApiUrlNotFound">Adresa URL nenalezena. Potenciální chyba adresy URL rozhraní API v nastavení.</string>
+  <string id="ApiUrlNotFound">Adresa URL nenalezena. Potenciální chyba URL API v nastavení.</string>
   <string id="ConfigUrlNotFound">Adresa URL nenalezena. Potenciální chyba konfigurační adresy URL v nastavení.</string>
   <string id="UnhandledHttpErr">Požadavek HTTP vrátil kód chyby =</string>
   <string id="TrailingSlashErr">Adresa URL rozhraní API nesmí mít koncové lomítko „/“</string>
