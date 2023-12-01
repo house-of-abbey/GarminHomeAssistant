@@ -89,13 +89,19 @@ class HomeAssistantMenuItemFactory {
         );
     }
 
-    function tap(label as Lang.String or Lang.Symbol, identifier as Lang.Object or Null, service as Lang.String or Null) as WatchUi.MenuItem {
+    function tap(
+        label      as Lang.String or Lang.Symbol,
+        identifier as Lang.Object or Null,
+        service    as Lang.String or Null,
+        confirm    as Lang.Boolean
+    ) as WatchUi.MenuItem {
         if (bRepresentTypesWithLabels) {
             return new HomeAssistantMenuItem(
                 label,
                 strMenuItemTap,
                 identifier,
                 service,
+                confirm,
                 mMenuItemOptions,
                 mHomeAssistantService
             );
@@ -105,6 +111,7 @@ class HomeAssistantMenuItemFactory {
                 null,
                 identifier,
                 service,
+                confirm,
                 mTapTypeIcon,
                 mMenuItemOptions,
                 mHomeAssistantService

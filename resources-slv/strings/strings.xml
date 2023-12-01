@@ -24,6 +24,7 @@
   <string id="MenuItemOff">Izključeno</string>
   <string id="MenuItemTap">Tapnite</string>
   <string id="MenuItemMenu">meni</string>
+  <string id="Confirm">Seveda?</string>
   <string id="NoPhone">Ni telefonske povezave</string>
   <string id="NoInternet">Ni internetne povezave</string>
   <string id="NoResponse">Ni odgovora, preverite internetno povezavo</string>

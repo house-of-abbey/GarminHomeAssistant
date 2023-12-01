@@ -21,17 +21,18 @@
 using Toybox.Lang;
 using Toybox.WatchUi;
 using Toybox.Graphics;
-using Toybox.Application.Properties;
 
 class HomeAssistantMenuItem extends WatchUi.MenuItem {
     private var mHomeAssistantService as HomeAssistantService;
     private var mService              as Lang.String;
+    private var mConfirm              as Lang.Boolean;
 
     function initialize(
         label      as Lang.String or Lang.Symbol,
         subLabel   as Lang.String or Lang.Symbol or Null,
         identifier as Lang.Object or Null,
         service    as Lang.String or Null,
+        confirm    as Lang.Boolean,
         options    as {
             :alignment as WatchUi.MenuItem.Alignment,
             :icon      as Graphics.BitmapType or WatchUi.Drawable or Lang.Symbol
@@ -47,9 +48,22 @@ class HomeAssistantMenuItem extends WatchUi.MenuItem {
 
         mHomeAssistantService = haService;
         mService              = service;
+        mConfirm              = confirm;
     }
 
     function callService() as Void {
+        if (mConfirm) {
+            WatchUi.pushView(
+                new HomeAssistantConfirmation(),
+                new HomeAssistantConfirmationDelegate(method(:onConfirm)),
+                WatchUi.SLIDE_IMMEDIATE
+            );
+        } else {
+            onConfirm();
+        }
+    }
+
+    function onConfirm() as Void {
         mHomeAssistantService.call(mIdentifier as Lang.String, mService);
     }
 

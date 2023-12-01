@@ -23,7 +23,8 @@
   <string id="MenuItemOn">An</string>
   <string id="MenuItemOff">Aus</string>
   <string id="MenuItemTap">Antippen</string>
-  <string id="MenuItemMenu">Menü</string>
+  <string id="MenuItemMenu">MenÃ¼</string>
+  <string id="Confirm">Sicher?</string>
   <string id="NoPhone">Keine Telefonverbindung</string>
   <string id="NoInternet">Keine Internetverbindung</string>
   <string id="NoResponse">Keine Antwort, überprüfen Sie die Internetverbindung</string>
@@ -34,6 +35,6 @@
   <string id="ApiFlood">API-Aufrufe zu schnell. Bitte verlangsamen Sie Ihre Anfragen.</string>
   <string id="ApiUrlNotFound">URL nicht gefunden. Möglicher API-URL-Fehler in den Einstellungen.</string>
   <string id="ConfigUrlNotFound">URL nicht gefunden. Möglicher Konfigurations-URL-Fehler in den Einstellungen.</string>
-  <string id="UnhandledHttpErr">Die HTTP-Anfrage gab folgenden Fehlercode zurück = </string>
+  <string id="UnhandledHttpErr">Die HTTP-Anfrage gab folgenden Fehlercode zurÃ¼ck = </string>
   <string id="TrailingSlashErr">Die API-URL darf keinen abschließenden Schrägstrich „/“ enthalten.</string>
 </strings>

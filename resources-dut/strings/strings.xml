@@ -24,6 +24,7 @@
   <string id="MenuItemOff">Uit</string>
   <string id="MenuItemTap">Kraan</string>
   <string id="MenuItemMenu">Menu</string>
+  <string id="Confirm">Zeker?</string>
   <string id="NoPhone">Geen telefoonverbinding</string>
   <string id="NoInternet">Geen internet verbinding</string>
   <string id="NoResponse">Geen reactie, controleer de internetverbinding</string>

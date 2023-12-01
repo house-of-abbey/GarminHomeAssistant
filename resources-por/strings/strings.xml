@@ -24,6 +24,7 @@
   <string id="MenuItemOff">Desligado</string>
   <string id="MenuItemTap">Tocar</string>
   <string id="MenuItemMenu">Cardápio</string>
+  <string id="Confirm">Claro?</string>
   <string id="NoPhone">Sem conexão telefônica</string>
   <string id="NoInternet">Sem conexão com a Internet</string>
   <string id="NoResponse">Sem resposta, verifique a conexão com a Internet</string>

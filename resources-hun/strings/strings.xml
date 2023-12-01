@@ -24,6 +24,7 @@
   <string id="MenuItemOff">Ki</string>
   <string id="MenuItemTap">Koppintson a</string>
   <string id="MenuItemMenu">Menü</string>
+  <string id="Confirm">Biztos?</string>
   <string id="NoPhone">Nincs telefonkapcsolat</string>
   <string id="NoInternet">Nincs internetkapcsolat</string>
   <string id="NoResponse">Nincs válasz, ellenőrizze az internetkapcsolatot</string>

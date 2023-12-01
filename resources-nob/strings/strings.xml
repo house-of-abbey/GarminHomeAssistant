@@ -24,6 +24,7 @@
   <string id="MenuItemOff">Av</string>
   <string id="MenuItemTap">Trykk på</string>
   <string id="MenuItemMenu">Meny</string>
+  <string id="Confirm">Sikker?</string>
   <string id="NoPhone">Ingen telefonforbindelse</string>
   <string id="NoInternet">Ingen Internett-tilkobling</string>
   <string id="NoResponse">Ingen svar, sjekk Internett-tilkoblingen</string>

@@ -24,6 +24,7 @@
   <string id="MenuItemOff">オフ</string>
   <string id="MenuItemTap">タップ</string>
   <string id="MenuItemMenu">メニュー</string>
+  <string id="Confirm">もちろん？</string>
   <string id="NoPhone">電話が接続されていません</string>
   <string id="NoInternet">インターネット接続なし</string>
   <string id="NoResponse">応答がありません。インターネット接続を確認してください</string>

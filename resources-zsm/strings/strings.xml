@@ -24,6 +24,7 @@
   <string id="MenuItemOff">Mati</string>
   <string id="MenuItemTap">Ketik</string>
   <string id="MenuItemMenu">Menu</string>
+  <string id="Confirm">pasti?</string>
   <string id="NoPhone">Tiada sambungan Telefon</string>
   <string id="NoInternet">Tiada sambungan internet</string>
   <string id="NoResponse">Tiada Respons, semak sambungan Internet</string>

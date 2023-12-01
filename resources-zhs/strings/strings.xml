@@ -24,6 +24,7 @@
   <string id="MenuItemOff">离开</string>
   <string id="MenuItemTap">轻敲</string>
   <string id="MenuItemMenu">菜单</string>
+  <string id="Confirm">当然？</string>
   <string id="NoPhone">没有电话连接</string>
   <string id="NoInternet">没有网络连接</string>
   <string id="NoResponse">无响应，请检查互联网连接</string>
