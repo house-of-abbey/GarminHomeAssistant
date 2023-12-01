@@ -15,7 +15,7 @@
         "name": { "title": "Your familiar name", "type": "string" },
         "type": {
           "title": "Menu item type",
-          "description": "One of 'tap, 'toggle' or 'group'",
+          "description": "One of 'tap, 'toggle' or 'group'.",
           "const": "toggle"
         }
       },
@@ -29,7 +29,7 @@
         "name": { "title": "Your familiar name", "type": "string" },
         "type": {
           "title": "Menu item type",
-          "description": "One of 'tap, 'toggle' or 'group'",
+          "description": "One of 'tap, 'toggle' or 'group'.",
           "const": "tap"
         },
         "service": {
@@ -54,7 +54,7 @@
         "title": { "type": "string" },
         "type": {
           "title": "Menu item type",
-          "description": "One of 'tap, 'toggle' or 'group'",
+          "description": "One of 'tap, 'toggle' or 'group'.",
           "const": "group"
         },
         "items": { "$ref": "#/$defs/items" }
