@@ -24,6 +24,7 @@
   <string id="MenuItemOff">כבוי</string>
   <string id="MenuItemTap">בֶּרֶז</string>
   <string id="MenuItemMenu">תַפרִיט</string>
+  <string id="Confirm">בטוח?</string>
   <string id="NoPhone">אין חיבור לטלפון</string>
   <string id="NoInternet">אין חיבור אינטרנט</string>
   <string id="NoResponse">אין תגובה, בדוק חיבור לאינטרנט</string>

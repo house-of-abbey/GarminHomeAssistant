@@ -24,6 +24,7 @@
   <string id="MenuItemOff">Kapalı</string>
   <string id="MenuItemTap">Musluk</string>
   <string id="MenuItemMenu">Menü</string>
+  <string id="Confirm">Elbette?</string>
   <string id="NoPhone">Telefon bağlantısı yok</string>
   <string id="NoInternet">İnternet bağlantısı yok</string>
   <string id="NoResponse">Yanıt Yok, İnternet bağlantısını kontrol edin</string>

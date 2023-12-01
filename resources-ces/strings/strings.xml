@@ -24,6 +24,7 @@
   <string id="MenuItemOff">Vypnuto</string>
   <string id="MenuItemTap">Klepněte</string>
   <string id="MenuItemMenu">Jídelní lístek</string>
+  <string id="Confirm">Tak určitě?</string>
   <string id="NoPhone">Žádné telefonní spojení</string>
   <string id="NoInternet">Žádné internetové připojení</string>
   <string id="NoResponse">Žádná odpověď, zkontrolujte připojení k internetu</string>

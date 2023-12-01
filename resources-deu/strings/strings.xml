@@ -24,6 +24,7 @@
   <string id="MenuItemOff">Aus</string>
   <string id="MenuItemTap">Antippen</string>
   <string id="MenuItemMenu">Menü</string>
+  <string id="Confirm">Sicher?</string>
   <string id="NoPhone">Keine Telefonverbindung</string>
   <string id="NoInternet">Keine Internetverbindung</string>
   <string id="NoResponse">Keine Antwort, überprüfen Sie die Internetverbindung</string>

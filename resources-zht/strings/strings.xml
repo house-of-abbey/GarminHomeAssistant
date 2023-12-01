@@ -24,6 +24,7 @@
   <string id="MenuItemOff">離開</string>
   <string id="MenuItemTap">輕敲</string>
   <string id="MenuItemMenu">選單</string>
+  <string id="Confirm">當然？</string>
   <string id="NoPhone">沒有電話連接</string>
   <string id="NoInternet">沒有網路連線</string>
   <string id="NoResponse">無響應，請檢查互聯網連接</string>

@@ -24,6 +24,7 @@
   <string id="MenuItemOff">Изкл</string>
   <string id="MenuItemTap">Докоснете</string>
   <string id="MenuItemMenu">Меню</string>
+  <string id="Confirm">Сигурен?</string>
   <string id="NoPhone">Няма телефонна връзка</string>
   <string id="NoInternet">Няма интернет връзка</string>
   <string id="NoResponse">Няма отговор, проверете интернет връзката</string>

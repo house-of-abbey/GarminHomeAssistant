@@ -24,6 +24,7 @@
   <string id="MenuItemOff">عن</string>
   <string id="MenuItemTap">مقبض</string>
   <string id="MenuItemMenu">قائمة طعام</string>
+  <string id="Confirm">بالتأكيد؟</string>
   <string id="NoPhone">لا يوجد اتصال الهاتف</string>
   <string id="NoInternet">لا يوجد اتصال بالإنترنت</string>
   <string id="NoResponse">لا توجد استجابة، تحقق من الاتصال بالإنترنت</string>

@@ -24,6 +24,7 @@
   <string id="MenuItemOff">Вимкнено</string>
   <string id="MenuItemTap">Торкніться</string>
   <string id="MenuItemMenu">Меню</string>
+  <string id="Confirm">Зрозуміло?</string>
   <string id="NoPhone">Немає телефонного зв'язку</string>
   <string id="NoInternet">Немає підключення до Інтернету</string>
   <string id="NoResponse">Немає відповіді, перевірте підключення до Інтернету</string>

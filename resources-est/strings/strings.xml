@@ -24,6 +24,7 @@
   <string id="MenuItemOff">Väljas</string>
   <string id="MenuItemTap">Puudutage</string>
   <string id="MenuItemMenu">Menüü</string>
+  <string id="Confirm">Muidugi?</string>
   <string id="NoPhone">Telefoniühendus puudub</string>
   <string id="NoInternet">Interneti-ühendus puudub</string>
   <string id="NoResponse">Ei reageeri, kontrollige Interneti-ühendust</string>

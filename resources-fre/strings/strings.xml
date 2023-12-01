@@ -24,6 +24,7 @@
   <string id="MenuItemOff">Désactivé</string>
   <string id="MenuItemTap">Clic</string>
   <string id="MenuItemMenu">Menu</string>
+  <string id="Confirm">Bien sûr?</string>
   <string id="NoPhone">Pas de connexion téléphonique</string>
   <string id="NoInternet">Pas de connexion Internet</string>
   <string id="NoResponse">Pas de réponse, vérifiez la connexion Internet</string>

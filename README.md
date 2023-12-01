@@ -35,7 +35,10 @@ Example schema as shown in the images:
       "entity": "script.food_on_table",
       "name": "Food is Ready!",
       "type": "tap",
-      "service" : "script.turn_on"
+      "tap_action": {
+        "service": "script.turn_on",
+        "confirm": true
+      }
     },
     {
       "entity": "light.bedside_light_switch",
@@ -84,13 +87,17 @@ Example schema as shown in the images:
       "entity": "automation.turn_off_usb_chargers",
       "name": "Turn off USBs",
       "type": "tap",
-      "service" : "automation.trigger"
+      "tap_action": {
+        "service": "automation.trigger"
+      }
     },
     {
       "entity": "scene.tv_light",
       "name": "TV Lights Scene",
       "type": "tap",
-      "service": "scene.turn_on"
+      "tap_action": {
+        "service": "scene.turn_on"
+      }
     }
   ]
 }
@@ -112,15 +119,56 @@ The example JSON shows an example usage of each of these Home Assistance entity 
 |------------|:---:|:------:|
 | Switch     |  ❌ |   ✅  |
 | Light      |  ❌ |   ✅  |
-| Automation | ✅  |   ✅  |
-| Script     | ✅  |   ❌  |
-| Scene      | ✅  |   ❌  |
+| Automation |  ✅ |   ✅  |
+| Script     |  ✅ |   ❌  |
+| Scene      |  ✅ |   ❌  |
 
 NB. All 'tap' items must specify a 'service' tag.
 
 Possible future extensions might include specifying the alternative texts to use instead of "On" and "Off", e.g. "Locked" and "Unlocked" (but wouldn't having locks operated from your watch be a security concern ;-))
 
 The [schema](https://raw.githubusercontent.com/house-of-abbey/GarminHomeAssistant/main/config.schema.json) is checked by using a URL directly back to this GitHub source repository, so you do not need to install that file. You can just copy & paste your entity names from the YAML configuration files used to configure Home Assistant. With a submenu, there's a difference between "title" and "name". The "name" goes on the menu item, and the "title" at the head of the submenu. If your dashboard definition fails to meet the schema, the application will simply drop items with the wrong field names without warning.
+
+### Old depricated format
+
+Version 1.5 brought in a change to the JSON schema so the follow old format remains useable but is no longer favoured. The schema now marks it as 'depracated' to nudge people over.
+
+```json
+    {
+      "entity": "scene.tv_light",
+      "name": "TV Lights Scene",
+      "type": "tap",
+      "service": "scene.turn_on"
+    }
+```
+
+The above should be replaced by the following:
+
+```json
+    {
+      "entity": "scene.tv_light",
+      "name": "TV Lights Scene",
+      "type": "tap",
+      "tap_action": {
+        "service": "scene.turn_on"
+      }
+    }
+```
+
+This allows the `confirm` field to be accommodated in the `tap_action` along side the `service` tag, and follows the Home Assistant YAML format more closely.
+
+## Editing the JSON file
+
+You have options. The first is what we use.
+1. **Best!** Use the [Studio Code Server](https://community.home-assistant.io/t/home-assistant-community-add-on-visual-studio-code/107863) addon for Home Assistant. You can then edit your JSON file in place.
+2. Locally installed VSCode, or if not installed
+3. try the on-line version at https://vscode.dev/
+
+Paste in your JSON (and change the file type to JSON if not saving), it will then verify your file format and schema for you, highlighting any errors for you to fix.
+
+A failure to get the file format right tends to mean that the response to the application errors with `INVALID_HTTP_BODY_IN_NETWORK_RESPONSE` (code of -400). This means the response did not contain JSON, it was probably an error message in plain text that could not be parsed by the Connect IQ API call. See [Toybox.Communications](https://developer.garmin.com/connect-iq/api-docs/Toybox/Communications.html) for the list of error code you might be present with on your device.
+
+Make sure you can browse to the URL of your JSON file in a standard web browser to make sure it is accessible.
 
 ## API Key Creation
 
@@ -129,6 +177,8 @@ Having created your JSON definition for your dashboard, you need to create an AP
 ![Long-Lived Access Token](images/Long_Lived_Access_Tokens.png)
 
 Having created that token, before you dismiss the dialogue box with the value you will never see again, copy it somewhere safe. You need to paste this into the Garmin Application's settings.
+
+**Please, please, please!** Copy and paste this API key, do not retype as it will be wrong.
 
 ## Settings
 
@@ -170,3 +220,5 @@ When you change the JSON file defining your dashboard, you must exit the applica
 |   1.1   | Updated for 54 more devices, 80 in total. Scene support. Added vibrate acknowledgement for tap-based menu items. Falls back to a custom visual confirmation in the absence of 'toast' and vibrate support. Bug fix for large menus needing status updates. |
 |   1.2   | Do not crash on zero items to update. Report unreachable URLs. Verify API URL does not have a trailing slash '/'. Increased HTTP response diagnosis. Reduced minimum API Level required from 3.3.0 to 3.1.0 to allow more device "part numbers" to be satisfied. |
 |   1.3   | Tap for scripts was working in emulation but not on some phones. Decision is to make the 'service' field in the JSON compulsory for 'tap' menu items. This is a breaking change, but for many might be a fix for something not working correctly. Improve language support, we can now accept language corrections and prevent the automated translation of strings from clobbering manually refined entries. Thank you to two new contributors. |
+|   1.4   | New lean user Interface with thanks to [SomeoneOnEarth](https://github.com/Someone0nEarth) for their contribution which is now the default. If you prefer the old style you can still select it in the settings. The provision of a 'service' tag is now not just heavily suggested by the JSON schema, it is enforced in code. With apologies to anyone suffering a breakage as a result. |
+|   1.5   | <img src="images/confirmation_view.jpg" width="200" title="Confirmation View" style="float:right"/> Added an optional confirmation dialogue view to prevent accidental execution of actions on mistaken tap. This also brings a change in the JSON schema to allow an optional field to specify that the confirmation should be used for a menu item. As we are now maturing and adding features we have decided to mitigate breaking changes to the JSON schema by being more careful to adopt the Home Assistant schema (noting there is a 1:1 mapping between YAML and JSON). This change does deprecate the top level `service` tag in favour of `tag_action` containing multiple fields including `service` & `confirm`. Users should migrate to the new format for the new functionality, but the timescale for actual deprecation are long and undecided. |

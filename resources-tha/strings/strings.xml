@@ -24,6 +24,7 @@
   <string id="MenuItemOff">ปิด</string>
   <string id="MenuItemTap">แตะ</string>
   <string id="MenuItemMenu">เมนู</string>
+  <string id="Confirm">แน่นอน?</string>
   <string id="NoPhone">ไม่มีการเชื่อมต่อโทรศัพท์</string>
   <string id="NoInternet">ไม่มีการเชื่อมต่ออินเทอร์เน็ต</string>
   <string id="NoResponse">ไม่มีการตอบสนอง ตรวจสอบการเชื่อมต่ออินเทอร์เน็ต</string>
