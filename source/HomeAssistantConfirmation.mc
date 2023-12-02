@@ -40,6 +40,7 @@ class HomeAssistantConfirmationDelegate extends WatchUi.ConfirmationDelegate {
     }
 
     function onResponse(response) as Lang.Boolean {
+        getApp().getQuitTimer().reset();
         if (response == WatchUi.CONFIRM_YES) {
             confirmMethod.invoke();
         }

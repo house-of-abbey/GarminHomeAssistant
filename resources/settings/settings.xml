@@ -44,6 +44,16 @@
   </setting>
 
   <setting
+    propertyKey="@Properties.app_timeout"
+    title="Timeout in seconds. Exit the application after this period of inactivity to save the device battery."
+  >
+    <settingConfig
+      type="numeric"
+      min="0"
+    />
+  </setting>
+
+  <setting
     propertyKey="@Properties.types_representation"
     title="Representing types with icons (off) or with labels (on)"
   >
@@ -60,4 +70,12 @@
       type="boolean"
     />
   </setting>
+
+<!--
+  <defaults>
+    <entry>
+      <default id="app_timeout">20</default>
+    </entry>
+  </defaults>
+-->
 </settings>

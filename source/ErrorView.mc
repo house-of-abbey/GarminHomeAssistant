@@ -82,6 +82,7 @@ class ErrorDelegate extends WatchUi.BehaviorDelegate {
         WatchUi.BehaviorDelegate.initialize();
     }
     function onBack() {
+        getApp().getQuitTimer().reset();
         WatchUi.popView(WatchUi.SLIDE_DOWN);
         return true;
     }

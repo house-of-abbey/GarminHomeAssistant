@@ -132,11 +132,13 @@ class AlertDelegate extends WatchUi.InputDelegate {
 
     function onKey(evt) {
         mView.dismiss();
+        getApp().getQuitTimer().reset();
         return true;
     }
 
     function onTap(evt) {
         mView.dismiss();
+        getApp().getQuitTimer().reset();
         return true;
     }
 }

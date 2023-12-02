@@ -107,7 +107,23 @@ class HomeAssistantViewDelegate extends WatchUi.Menu2InputDelegate {
         Menu2InputDelegate.initialize();
     }
 
+    function onBack() {
+        getApp().getQuitTimer().reset();
+        WatchUi.popView(WatchUi.SLIDE_RIGHT);
+    }
+
+    // Only for CheckboxMenu
+    function onDone() {
+        getApp().getQuitTimer().reset();
+    }
+
+    // Only for CustomMenu
+    function onFooter() {
+        getApp().getQuitTimer().reset();
+    }
+
     function onSelect(item as WatchUi.MenuItem) as Void {
+        getApp().getQuitTimer().reset();
         if (item instanceof HomeAssistantToggleMenuItem) {
             var haToggleItem = item as HomeAssistantToggleMenuItem;
             if (Globals.scDebug) {
@@ -147,8 +163,9 @@ class HomeAssistantViewDelegate extends WatchUi.Menu2InputDelegate {
         }
     }
 
-    function onBack() {
-        WatchUi.popView(WatchUi.SLIDE_RIGHT);
+    // Only for CustomMenu
+    function onTitle() {
+        getApp().getQuitTimer().reset();
     }
 
 }
