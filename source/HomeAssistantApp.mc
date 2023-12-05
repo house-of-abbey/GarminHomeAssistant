@@ -100,14 +100,9 @@ class HomeAssistantApp extends Application.AppBase {
                 System.println("HomeAssistantApp fetchMenuConfig(): No Internet connection, skipping API call.");
             }
             return [new ErrorView(strNoInternet + "."), new ErrorDelegate()] as Lang.Array<WatchUi.Views or WatchUi.InputDelegates>;
-        }else if (mHaMenu != null ){
-            // App.getApp().launchInitialView();
-            return [mHaMenu, new WatchUi.BehaviorDelegate()] as Lang.Array<WatchUi.Views or WatchUi.InputDelegates>;
-            // return mHaMenu.View;
-            //  WatchUi.pushView(mHaMenu, new HomeAssistantViewDelegate(), WatchUi.SLIDE_IMMEDIATE);
         } else {
             fetchMenuConfig();
-            return [new WatchUi.View(), new WatchUi.BehaviorDelegate()] as Lang.Array<WatchUi.Views or WatchUi.InputDelegates>;
+            return [new RootView(self), new RootViewDelegate(self)] as Lang.Array<WatchUi.Views or WatchUi.InputDelegates>;
         }
     }
 
@@ -144,7 +139,7 @@ class HomeAssistantApp extends Application.AppBase {
         } else if (responseCode == 200) {
             mHaMenu = new HomeAssistantView(data, null);
             quitTimer.begin();
-            WatchUi.pushView(mHaMenu, new HomeAssistantViewDelegate(), WatchUi.SLIDE_IMMEDIATE);
+            pushHomeAssistantMenuView();
             mItemsToUpdate = mHaMenu.getItemsToUpdate();
             // Start the continuous update process that continues for as long as the application is running.
             // The chain of functions from 'updateNextMenuItem()' calls 'updateNextMenuItem()' on completion.
@@ -175,6 +170,14 @@ class HomeAssistantApp extends Application.AppBase {
             options,
             method(:onReturnFetchMenuConfig)
         );
+    }
+
+    function homeAssistantMenuIsLoaded() as Lang.Boolean{
+        return mHaMenu!=null;
+    }
+
+    function pushHomeAssistantMenuView(){
+        WatchUi.pushView(mHaMenu, new HomeAssistantViewDelegate(), WatchUi.SLIDE_IMMEDIATE);
     }
 
     // We need to spread out the API calls so as not to overload the results queue and cause Communications.BLE_QUEUE_FULL (-101) error.
