@@ -1,6 +1,26 @@
-import Toybox.Graphics;
-import Toybox.Lang;
-import Toybox.WatchUi;
+//-----------------------------------------------------------------------------------
+//
+// Distributed under MIT Licence
+//   See https://github.com/house-of-abbey/GarminHomeAssistant/blob/main/LICENSE.
+//
+//-----------------------------------------------------------------------------------
+//
+// GarminHomeAssistant is a Garmin IQ application written in Monkey C and routinely
+// tested on a Venu 2 device. The source code is provided at:
+//            https://github.com/house-of-abbey/GarminHomeAssistant.
+//
+// P A Abbey & J D Abbey & SomeoneOnEarth, 5 December 2023
+//
+//
+// Description:
+//
+// Application root view for GarminHomeAssistant
+//
+//-----------------------------------------------------------------------------------
+
+using Toybox.Graphics;
+using Toybox.Lang;
+using Toybox.WatchUi;
 
 class RootView extends WatchUi.View {
 
@@ -12,12 +32,12 @@ class RootView extends WatchUi.View {
         mApp=app;
     }
 
-    function onLayout(dc as Dc) as Void {
+    function onLayout(dc as Graphics.Dc) as Void {
         width=dc.getWidth();
 		height=dc.getHeight();
     }
 
-    function onUpdate(dc as Dc) as Void {
+    function onUpdate(dc as Graphics.Dc) as Void {
         dc.setColor(Graphics.COLOR_BLACK,Graphics.COLOR_BLACK);
 		dc.clear();
 		dc.setColor(Graphics.COLOR_BLUE,Graphics.COLOR_TRANSPARENT);
@@ -38,15 +58,15 @@ class RootViewDelegate extends WatchUi.BehaviorDelegate {
         mApp=app;
     }
 
-    public function onTap(evt as ClickEvent) as Boolean {
+    function onTap(evt as WatchUi.ClickEvent) as Lang.Boolean {
         return backToMainMenu();
     }
 
-    public function onSelect() as Boolean {
+    function onSelect() as Lang.Boolean {
         return backToMainMenu();
     }
 
-    function onMenu(){
+    function onMenu() as Lang.Boolean{
         return backToMainMenu();
     }
 

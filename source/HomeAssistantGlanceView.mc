@@ -18,8 +18,8 @@
 //
 //-----------------------------------------------------------------------------------
 
-import Toybox.WatchUi;
-import Toybox.Graphics;
+using Toybox.WatchUi;
+using Toybox.Graphics;
 
 (:glance)
 class HomeAssistantGlanceView extends WatchUi.GlanceView {
@@ -28,13 +28,7 @@ class HomeAssistantGlanceView extends WatchUi.GlanceView {
         GlanceView.initialize();
     }
 
-    function onShow() {
-    }
-
-    function onHide() {
-    }
-
-    function onUpdate(dc) {
+    function onUpdate(dc) as Void {
         GlanceView.onUpdate(dc);
       
         var font = Graphics.FONT_TINY;

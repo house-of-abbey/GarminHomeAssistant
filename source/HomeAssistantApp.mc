@@ -176,7 +176,7 @@ class HomeAssistantApp extends Application.AppBase {
         return mHaMenu!=null;
     }
 
-    function pushHomeAssistantMenuView(){
+    function pushHomeAssistantMenuView() as Void{
         WatchUi.pushView(mHaMenu, new HomeAssistantViewDelegate(), WatchUi.SLIDE_IMMEDIATE);
     }
 
