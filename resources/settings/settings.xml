@@ -71,11 +71,4 @@
     />
   </setting>
 
-<!--
-  <defaults>
-    <entry>
-      <default id="app_timeout">20</default>
-    </entry>
-  </defaults>
--->
 </settings>
