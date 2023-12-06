@@ -25,6 +25,7 @@ using Toybox.Application.Properties;
 
 class HomeAssistantApp extends Application.AppBase {
     private var mHaMenu;
+    private var quitTimer            as QuitTimer;
     private var strNoApiKey          as Lang.String;
     private var strNoApiUrl          as Lang.String;
     private var strNoConfigUrl       as Lang.String;
@@ -52,14 +53,18 @@ class HomeAssistantApp extends Application.AppBase {
         strConfigUrlNotFound = WatchUi.loadResource($.Rez.Strings.ConfigUrlNotFound);
         strUnhandledHttpErr  = WatchUi.loadResource($.Rez.Strings.UnhandledHttpErr);
         strTrailingSlashErr  = WatchUi.loadResource($.Rez.Strings.TrailingSlashErr);
+        quitTimer            = new QuitTimer();
     }
 
     // onStart() is called on application start up
     function onStart(state as Lang.Dictionary?) as Void {
+        quitTimer.begin();
     }
 
     // onStop() is called when your application is exiting
-    function onStop(state as Lang.Dictionary?) as Void {}
+    function onStop(state as Lang.Dictionary?) as Void {
+        quitTimer.stop();
+    }
 
     // Return the initial view of your application here
     function getInitialView() as Lang.Array<WatchUi.Views or WatchUi.InputDelegates>? {
@@ -172,6 +177,10 @@ class HomeAssistantApp extends Application.AppBase {
         var itu = mItemsToUpdate as Lang.Array<HomeAssistantToggleMenuItem>;
         itu[mNextItemToUpdate].getState();
         mNextItemToUpdate = (mNextItemToUpdate + 1) % itu.size();
+    }
+
+    function getQuitTimer() as QuitTimer{
+        return quitTimer;
     }
 
 }
