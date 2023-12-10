@@ -22,9 +22,9 @@ using Toybox.Lang;
 // Required for callback method definition
 typedef Method as Toybox.Lang.Method;
 using Toybox.WatchUi;
+using Toybox.Timer;
 
 class HomeAssistantConfirmation extends WatchUi.Confirmation {
-
     function initialize() {
         WatchUi.Confirmation.initialize(WatchUi.loadResource($.Rez.Strings.Confirm));
     }
@@ -33,17 +33,26 @@ class HomeAssistantConfirmation extends WatchUi.Confirmation {
 
 class HomeAssistantConfirmationDelegate extends WatchUi.ConfirmationDelegate {
     private var confirmMethod;
+    private var timeout;
 
     function initialize(callback as Method() as Void) {
         WatchUi.ConfirmationDelegate.initialize();
         confirmMethod = callback;
+        timeout = new Timer.Timer();
+        timeout.start(method(:onTimeout), 3000, true);
     }
 
     function onResponse(response) as Lang.Boolean {
         getApp().getQuitTimer().reset();
+        timeout.stop();
         if (response == WatchUi.CONFIRM_YES) {
             confirmMethod.invoke();
         }
         return true;
+    }
+
+    function onTimeout() as Void {
+        timeout.stop();
+        WatchUi.popView(WatchUi.SLIDE_RIGHT);
     }
 }
