@@ -30,6 +30,12 @@
   -->
   <property id="app_timeout" type="number">0</property>
 
+  <!--
+    After this time (in seconds), a confirmation dialog for an action is automatically closed and the action is cancelled.
+    Set to 0 to disable the timeout. The default value is 3 seconds.
+  -->
+  <property id="confirm_timeout" type="number">3</property>
+
   <property id="types_representation" type="boolean"></property>
 
   <property id="menu_alignment" type="boolean"></property>

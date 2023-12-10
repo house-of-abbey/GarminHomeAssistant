@@ -54,6 +54,16 @@
   </setting>
 
   <setting
+    propertyKey="@Properties.confirm_timeout"
+    title="After this time (in seconds), a confirmation dialog for an action is automatically closed and the action is cancelled. Set to 0 to disable the timeout."
+  >
+    <settingConfig
+      type="numeric"
+      min="0"
+    />
+  </setting>
+
+  <setting
     propertyKey="@Properties.types_representation"
     title="Representing types with icons (off) or with labels (on)"
   >

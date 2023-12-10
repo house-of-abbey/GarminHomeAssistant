@@ -23,6 +23,7 @@ using Toybox.Lang;
 typedef Method as Toybox.Lang.Method;
 using Toybox.WatchUi;
 using Toybox.Timer;
+using Toybox.Application.Properties;
 
 class HomeAssistantConfirmation extends WatchUi.Confirmation {
     function initialize() {
@@ -38,13 +39,18 @@ class HomeAssistantConfirmationDelegate extends WatchUi.ConfirmationDelegate {
     function initialize(callback as Method() as Void) {
         WatchUi.ConfirmationDelegate.initialize();
         confirmMethod = callback;
-        timeout = new Timer.Timer();
-        timeout.start(method(:onTimeout), 3000, true);
+        var timeoutSeconds = Properties.getValue("confirm_timeout") as Lang.Number; 
+        if (timeoutSeconds > 0) {
+            timeout = new Timer.Timer();
+            timeout.start(method(:onTimeout), timeoutSeconds * 1000, true);
+        }
     }
 
     function onResponse(response) as Lang.Boolean {
         getApp().getQuitTimer().reset();
-        timeout.stop();
+        if (timeout) {
+            timeout.stop();
+        }
         if (response == WatchUi.CONFIRM_YES) {
             confirmMethod.invoke();
         }
