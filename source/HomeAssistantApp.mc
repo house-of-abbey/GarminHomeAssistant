@@ -177,7 +177,7 @@ class HomeAssistantApp extends Application.AppBase {
     }
 
     function pushHomeAssistantMenuView() as Void{
-        WatchUi.pushView(mHaMenu, new HomeAssistantViewDelegate(), WatchUi.SLIDE_IMMEDIATE);
+        WatchUi.pushView(mHaMenu, new HomeAssistantViewDelegate(true), WatchUi.SLIDE_IMMEDIATE);
     }
 
     // We need to spread out the API calls so as not to overload the results queue and cause Communications.BLE_QUEUE_FULL (-101) error.
