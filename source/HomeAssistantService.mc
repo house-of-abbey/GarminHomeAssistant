@@ -124,7 +124,7 @@ class HomeAssistantService {
             }
             WatchUi.pushView(new ErrorView(strNoInternet + "."), new ErrorDelegate(), WatchUi.SLIDE_UP);
         } else {
-            var url = (Properties.getValue("api_url") as Lang.String) + "/services/" + service.substring(0, service.find(".")) + "/" + service.substring(service.find(".")+1, null);
+            var url = (Properties.getValue("api_url") as Lang.String) + "/services/" + service.substring(0, service.find(".")) + "/" + service.substring(service.find(".")+1, service.length());
             if (Globals.scDebug) {
                 System.println("HomeAssistantService call() URL=" + url);
                 System.println("HomeAssistantService call() service=" + service);
