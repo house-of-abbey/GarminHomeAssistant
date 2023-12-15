@@ -31,4 +31,7 @@
     <string id="ConfigUrlNotFound">URL not found. Potential Configuration URL error in settings.</string>
     <string id="UnhandledHttpErr">HTTP request returned error code = </string>
     <string id="TrailingSlashErr">API URL must not have a trailing slash '/'</string>
+    <string id="FetchingMenuConfig">Fetching Menu Config..</string>
+    <string id="ExitViewTouch">Swipe to Right to Exit\nTap to Stay</string>
+    <string id="ExitViewButtons">Hit Back to Exit\nEnter to Stay</string>
 </strings>

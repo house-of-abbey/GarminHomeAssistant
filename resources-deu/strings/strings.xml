@@ -37,4 +37,7 @@
   <string id="ConfigUrlNotFound">URL nicht gefunden. Möglicher Konfigurations-URL-Fehler in den Einstellungen.</string>
   <string id="UnhandledHttpErr">Die HTTP-Anfrage gab folgenden Fehlercode zurück = </string>
   <string id="TrailingSlashErr">Die API-URL darf keinen abschließenden Schrägstrich „/“ enthalten.</string>
+  <string id="FetchingMenuConfig">Menükonfiguration abrufen.</string>
+  <string id="ExitViewTouch">Zum Verlassen nach rechts wischen\nZum Bleiben tippen</string>
+  <string id="ExitViewButtons">Klicken Sie auf „Zurück“, um den Ausgang zu verlassen.\nEintreten, um zu bleiben</string>
 </strings>

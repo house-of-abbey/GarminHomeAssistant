@@ -37,4 +37,7 @@
   <string id="ConfigUrlNotFound">Adresa URL sa nenašla. Potenciálna chyba konfiguračnej adresy URL v nastaveniach.</string>
   <string id="UnhandledHttpErr">Požiadavka HTTP vrátila kód chyby =</string>
   <string id="TrailingSlashErr">Adresa URL rozhrania API nesmie obsahovať koncovú lomku „/“</string>
+  <string id="FetchingMenuConfig">Načítava sa konfigurácia ponuky...</string>
+  <string id="ExitViewTouch">Ukončite prejdením prstom doprava\nKlepnutím zostanete</string>
+  <string id="ExitViewButtons">Stlačte Späť na ukončenie\nVstúpte a zostaňte</string>
 </strings>

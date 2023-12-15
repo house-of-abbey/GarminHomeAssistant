@@ -25,11 +25,21 @@ using Toybox.WatchUi;
 class RootView extends WatchUi.View {
 
     var width,height;
-    var mApp as HomeAssistantApp;
+    var mApp                  as HomeAssistantApp;
+    var strFetchingMenuConfig as Lang.String;
+    var strExitView           as Lang.String;
 
     function initialize(app as HomeAssistantApp) {
         View.initialize();
         mApp=app;
+
+        strFetchingMenuConfig = WatchUi.loadResource($.Rez.Strings.FetchingMenuConfig);
+
+        if (System.getDeviceSettings().isTouchScreen){
+            strExitView = WatchUi.loadResource($.Rez.Strings.ExitViewTouch);
+        } else {
+            strExitView = WatchUi.loadResource($.Rez.Strings.ExitViewButtons);
+        }
     }
 
     function onLayout(dc as Graphics.Dc) as Void {
@@ -42,9 +52,9 @@ class RootView extends WatchUi.View {
 		dc.clear();
 		dc.setColor(Graphics.COLOR_BLUE,Graphics.COLOR_TRANSPARENT);
 		if(mApp.homeAssistantMenuIsLoaded()) {
-		    dc.drawText(width/2,height/2,Graphics.FONT_SMALL,"Hit Back to Exit\nTap to stay",Graphics.TEXT_JUSTIFY_CENTER|Graphics.TEXT_JUSTIFY_VCENTER);	
+		    dc.drawText(width/2,height/2,Graphics.FONT_SMALL,strExitView,Graphics.TEXT_JUSTIFY_CENTER|Graphics.TEXT_JUSTIFY_VCENTER);	
 		} else {
-            dc.drawText(width/2,height/2,Graphics.FONT_SMALL,"Loading...",Graphics.TEXT_JUSTIFY_CENTER|Graphics.TEXT_JUSTIFY_VCENTER);
+            dc.drawText(width/2,height/2,Graphics.FONT_SMALL,strFetchingMenuConfig,Graphics.TEXT_JUSTIFY_CENTER|Graphics.TEXT_JUSTIFY_VCENTER);
 		}
     }
 }

@@ -37,4 +37,7 @@
   <string id="ConfigUrlNotFound">URL-ja ni bilo mogoče najti. Morebitna napaka URL-ja konfiguracije v nastavitvah.</string>
   <string id="UnhandledHttpErr">Zahteva HTTP je vrnila kodo napake =</string>
   <string id="TrailingSlashErr">URL API-ja ne sme imeti končne poševnice '/'</string>
+  <string id="FetchingMenuConfig">Pridobivanje konfiguracije menija..</string>
+  <string id="ExitViewTouch">Povlecite v desno za izhod\nDotaknite se, da ostanete</string>
+  <string id="ExitViewButtons">Pritisnite Nazaj za izhod\nVstopite, da ostanete</string>
 </strings>

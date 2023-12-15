@@ -37,4 +37,7 @@
   <string id="ConfigUrlNotFound">Nie znaleziono adresu URL. Potencjalny błąd adresu URL konfiguracji w ustawieniach.</string>
   <string id="UnhandledHttpErr">Żądanie HTTP zwróciło kod błędu =</string>
   <string id="TrailingSlashErr">Adres URL interfejsu API nie może zawierać końcowego ukośnika „/”</string>
+  <string id="FetchingMenuConfig">Pobieranie konfiguracji menu..</string>
+  <string id="ExitViewTouch">Przesuń w prawo, aby wyjść\nDotknij, aby pozostać</string>
+  <string id="ExitViewButtons">Naciśnij Wstecz, aby wyjść\nEnter, aby pozostać</string>
 </strings>

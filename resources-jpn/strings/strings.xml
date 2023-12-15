@@ -37,4 +37,7 @@
   <string id="ConfigUrlNotFound">URLが見つかりません。設定内の構成 URL エラーの可能性があります。</string>
   <string id="UnhandledHttpErr">HTTP リクエストがエラー コードを返しました =</string>
   <string id="TrailingSlashErr">API URL の末尾にスラッシュ「/」を含めることはできません</string>
+  <string id="FetchingMenuConfig">メニュー構成を取得しています。</string>
+  <string id="ExitViewTouch">右にスワイプして終了\nタップしてそのまま残ります</string>
+  <string id="ExitViewButtons">終了するには戻るキーを押してください\n続行するには Enter キーを押してください</string>
 </strings>

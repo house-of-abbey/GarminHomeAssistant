@@ -37,4 +37,7 @@
   <string id="ConfigUrlNotFound">URL no encontrada. Posible error de URL de configuración en la configuración.</string>
   <string id="UnhandledHttpErr">La solicitud HTTP devolvió el código de error =</string>
   <string id="TrailingSlashErr">La URL de API no debe tener una barra diagonal '/'</string>
+  <string id="FetchingMenuConfig">Obteniendo configuración del menú..</string>
+  <string id="ExitViewTouch">Desliza hacia la derecha para salir\nToca para permanecer</string>
+  <string id="ExitViewButtons">Presione Atrás para salir\nEntrar para permanecer</string>
 </strings>

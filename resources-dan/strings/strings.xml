@@ -28,7 +28,7 @@
   <string id="NoPhone">Ingen telefonforbindelse</string>
   <string id="NoInternet">Ingen internetforbindelse</string>
   <string id="NoResponse">Intet svar, tjek internetforbindelse</string>
-  <string id="NoMenu">Fejl ved menuhentning</string>
+  <string id="NoMenu">Menuhentningsfejl</string>
   <string id="NoAPIKey">Ingen API-nøgle i applikationsindstillingerne</string>
   <string id="NoApiUrl">Ingen API-URL i applikationsindstillingerne</string>
   <string id="NoConfigUrl">Ingen konfigurations-URL i applikationsindstillingerne</string>
@@ -37,4 +37,7 @@
   <string id="ConfigUrlNotFound">URL ikke fundet. Potentiel konfigurations-URL-fejl i indstillinger.</string>
   <string id="UnhandledHttpErr">HTTP-anmodning returnerede fejlkode =</string>
   <string id="TrailingSlashErr">API URL må ikke have en efterfølgende skråstreg '/'</string>
+  <string id="FetchingMenuConfig">Henter menukonfiguration..</string>
+  <string id="ExitViewTouch">Stryg til højre for at afslutte\nTryk for at blive</string>
+  <string id="ExitViewButtons">Tryk på Tilbage for at afslutte\nEnter for at blive</string>
 </strings>

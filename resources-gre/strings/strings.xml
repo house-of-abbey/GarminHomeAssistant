@@ -37,4 +37,7 @@
   <string id="ConfigUrlNotFound">Η διεύθυνση URL δεν βρέθηκε. Πιθανό σφάλμα διεύθυνσης URL διαμόρφωσης στις ρυθμίσεις.</string>
   <string id="UnhandledHttpErr">Το αίτημα HTTP επέστρεψε κωδικό σφάλματος =</string>
   <string id="TrailingSlashErr">Η διεύθυνση URL του API δεν πρέπει να έχει τελική κάθετο "/"</string>
+  <string id="FetchingMenuConfig">Ανάκτηση παραμέτρων μενού..</string>
+  <string id="ExitViewTouch">Σύρετε προς τα δεξιά για έξοδο\nΠατήστε για να μείνετε</string>
+  <string id="ExitViewButtons">Πατήστε Επιστροφή για Έξοδος\nEnter για να μείνετε</string>
 </strings>

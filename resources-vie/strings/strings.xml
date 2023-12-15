@@ -37,4 +37,7 @@
   <string id="ConfigUrlNotFound">Không tìm thấy URL. Lỗi URL cấu hình tiềm ẩn trong cài đặt.</string>
   <string id="UnhandledHttpErr">Yêu cầu HTTP trả về mã lỗi =</string>
   <string id="TrailingSlashErr">URL API không được có dấu gạch chéo ở cuối '/'</string>
+  <string id="FetchingMenuConfig">Đang tìm nạp cấu hình menu..</string>
+  <string id="ExitViewTouch">Vuốt sang phải để thoát\nNhấn để ở lại</string>
+  <string id="ExitViewButtons">Nhấn Quay lại để thoát\nNhập để ở lại</string>
 </strings>

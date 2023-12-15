@@ -37,4 +37,7 @@
   <string id="ConfigUrlNotFound">URL non trovato. Potenziale errore dell'URL di configurazione nelle impostazioni.</string>
   <string id="UnhandledHttpErr">La richiesta HTTP ha restituito il codice di errore =</string>
   <string id="TrailingSlashErr">L'URL dell'API non deve avere una barra finale "/"</string>
+  <string id="FetchingMenuConfig">Recupero configurazione menu..</string>
+  <string id="ExitViewTouch">Scorri verso destra per uscire\nTocca per restare</string>
+  <string id="ExitViewButtons">Premi Indietro per uscire\nInvio per restare</string>
 </strings>

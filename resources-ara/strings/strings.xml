@@ -37,4 +37,7 @@
   <string id="ConfigUrlNotFound">لم يتم العثور على عنوان URL. خطأ محتمل في عنوان URL للتكوين في الإعدادات.</string>
   <string id="UnhandledHttpErr">قام طلب HTTP بإرجاع رمز الخطأ =</string>
   <string id="TrailingSlashErr">يجب ألا يحتوي عنوان URL لواجهة برمجة التطبيقات على شرطة مائلة لاحقة '/'</string>
+  <string id="FetchingMenuConfig">جارٍ جلب تكوين القائمة..</string>
+  <string id="ExitViewTouch">مرّر سريعًا إلى اليمين للخروج\nانقر للبقاء</string>
+  <string id="ExitViewButtons">اضغط على "الرجوع للخروج"\nأدخل للبقاء</string>
 </strings>

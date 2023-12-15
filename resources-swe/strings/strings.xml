@@ -37,4 +37,7 @@
   <string id="ConfigUrlNotFound">Webbadressen hittades inte. Potentiellt konfigurations-URL-fel i inställningarna.</string>
   <string id="UnhandledHttpErr">HTTP-begäran returnerade felkod =</string>
   <string id="TrailingSlashErr">API-URL får inte ha ett snedstreck '/'</string>
+  <string id="FetchingMenuConfig">Hämtar menykonfiguration..</string>
+  <string id="ExitViewTouch">Svep åt höger för att avsluta\nKnacka för att stanna</string>
+  <string id="ExitViewButtons">Tryck på Tillbaka för att avsluta\nEnter för att stanna</string>
 </strings>

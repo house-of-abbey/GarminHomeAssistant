@@ -37,4 +37,7 @@
   <string id="ConfigUrlNotFound">Az URL nem található. Lehetséges konfigurációs URL hiba a beállításokban.</string>
   <string id="UnhandledHttpErr">A HTTP-kérés = hibakódot adott vissza</string>
   <string id="TrailingSlashErr">Az API URL-ben nem lehet perjel a „/”</string>
+  <string id="FetchingMenuConfig">Menükonfiguráció lekérése...</string>
+  <string id="ExitViewTouch">Csúsztassa jobbra a kilépéshez.\nKoppintson a Maradáshoz</string>
+  <string id="ExitViewButtons">Nyomja meg a Vissza gombot a kilépéshez\nEnter a Maradáshoz</string>
 </strings>

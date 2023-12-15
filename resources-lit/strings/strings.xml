@@ -37,4 +37,7 @@
   <string id="ConfigUrlNotFound">URL nerastas. Galima konfigūracijos URL klaida nustatymuose.</string>
   <string id="UnhandledHttpErr">HTTP užklausa grąžino klaidos kodą =</string>
   <string id="TrailingSlashErr">API URL pabaigoje negali būti pasvirojo brūkšnio „/“</string>
+  <string id="FetchingMenuConfig">Gaunama meniu konfigūracija...</string>
+  <string id="ExitViewTouch">Norėdami išeiti, braukite į dešinę\nPalieskite, kad pasiliktumėte</string>
+  <string id="ExitViewButtons">Norėdami išeiti, paspauskite „Atgal“.\nĮveskite, kad pasiliktumėte</string>
 </strings>
