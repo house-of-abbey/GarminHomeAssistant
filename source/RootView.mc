@@ -22,40 +22,67 @@ using Toybox.Graphics;
 using Toybox.Lang;
 using Toybox.WatchUi;
 
-class RootView extends WatchUi.View {
+class RootView extends ScalableView {
 
-    var width,height;
-    var mApp                  as HomeAssistantApp;
-    var strFetchingMenuConfig as Lang.String;
-    var strExitView           as Lang.String;
+    private var mApp                  as HomeAssistantApp;
+    private var strFetchingMenuConfig as Lang.String;
+    private var strExit               as Lang.String;
+    private var mTextAreaExit         as WatchUi.TextArea or Null;
+    private var mTextAreaFetching     as WatchUi.TextArea or Null; 
 
     function initialize(app as HomeAssistantApp) {
-        View.initialize();
+        ScalableView.initialize();
         mApp=app;
 
         strFetchingMenuConfig = WatchUi.loadResource($.Rez.Strings.FetchingMenuConfig);
 
         if (System.getDeviceSettings().isTouchScreen){
-            strExitView = WatchUi.loadResource($.Rez.Strings.ExitViewTouch);
+            strExit = WatchUi.loadResource($.Rez.Strings.ExitViewTouch);
         } else {
-            strExitView = WatchUi.loadResource($.Rez.Strings.ExitViewButtons);
+            strExit = WatchUi.loadResource($.Rez.Strings.ExitViewButtons);
         }
     }
 
     function onLayout(dc as Graphics.Dc) as Void {
-        width=dc.getWidth();
-		height=dc.getHeight();
+        var w = dc.getWidth();
+        var h = dc.getHeight();
+
+        mTextAreaExit = new WatchUi.TextArea({
+            :text          => strExit,
+            :color         => Graphics.COLOR_WHITE,
+            :font          => Graphics.FONT_XTINY,
+            :justification => Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER,
+            :locX          => 0,
+            :locY          => 83,
+            :width         => w,
+            :height        => h - 166
+        });
+
+         mTextAreaFetching = new WatchUi.TextArea({
+            :text              => strFetchingMenuConfig,
+            :color             => Graphics.COLOR_WHITE,
+            :font              => Graphics.FONT_XTINY,
+            :justification     => Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER,
+            :locX              => 0,
+            :locY              => 83,
+            :width             => w,
+            :height            => h - 166
+        });
     }
 
     function onUpdate(dc as Graphics.Dc) as Void {
-        dc.setColor(Graphics.COLOR_BLACK,Graphics.COLOR_BLACK);
-		dc.clear();
-		dc.setColor(Graphics.COLOR_BLUE,Graphics.COLOR_TRANSPARENT);
-		if(mApp.homeAssistantMenuIsLoaded()) {
-		    dc.drawText(width/2,height/2,Graphics.FONT_SMALL,strExitView,Graphics.TEXT_JUSTIFY_CENTER|Graphics.TEXT_JUSTIFY_VCENTER);	
-		} else {
-            dc.drawText(width/2,height/2,Graphics.FONT_SMALL,strFetchingMenuConfig,Graphics.TEXT_JUSTIFY_CENTER|Graphics.TEXT_JUSTIFY_VCENTER);
-		}
+        var bg = 0x3B444C;
+        if(dc has :setAntiAlias) {
+            dc.setAntiAlias(true);
+        }
+        dc.setColor(Graphics.COLOR_WHITE, bg);
+        dc.clear();
+
+        if(mApp.homeAssistantMenuIsLoaded()) {
+            mTextAreaExit.draw(dc);
+        } else {
+            mTextAreaFetching.draw(dc);
+        }
     }
 }
 
