@@ -25,7 +25,7 @@ using Toybox.Application.Properties;
 
 class HomeAssistantApp extends Application.AppBase {
     private var mHaMenu              as HomeAssistantView or Null;
-    private var quitTimer            as QuitTimer or Null;
+    private var mQuitTimer           as QuitTimer or Null;
     private var strNoApiKey          as Lang.String or Null;
     private var strNoApiUrl          as Lang.String or Null;
     private var strNoConfigUrl       as Lang.String or Null;
@@ -66,7 +66,7 @@ class HomeAssistantApp extends Application.AppBase {
         strConfigUrlNotFound = WatchUi.loadResource($.Rez.Strings.ConfigUrlNotFound);
         strUnhandledHttpErr  = WatchUi.loadResource($.Rez.Strings.UnhandledHttpErr);
         strTrailingSlashErr  = WatchUi.loadResource($.Rez.Strings.TrailingSlashErr);
-        quitTimer            = new QuitTimer();
+        mQuitTimer            = new QuitTimer();
 
         var api_url = Properties.getValue("api_url") as Lang.String;
 
@@ -138,7 +138,7 @@ class HomeAssistantApp extends Application.AppBase {
             WatchUi.pushView(new ErrorView(strConfigUrlNotFound), new ErrorDelegate(), WatchUi.SLIDE_UP);
         } else if (responseCode == 200) {
             mHaMenu = new HomeAssistantView(data, null);
-            quitTimer.begin();
+            mQuitTimer.begin();
             pushHomeAssistantMenuView();
             mItemsToUpdate = mHaMenu.getItemsToUpdate();
             // Start the continuous update process that continues for as long as the application is running.
@@ -189,7 +189,7 @@ class HomeAssistantApp extends Application.AppBase {
     }
 
     function getQuitTimer() as QuitTimer{
-        return quitTimer;
+        return mQuitTimer;
     }
 
     (:glance)
