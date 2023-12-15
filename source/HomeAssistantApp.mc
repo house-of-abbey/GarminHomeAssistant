@@ -42,14 +42,48 @@ class HomeAssistantApp extends Application.AppBase {
 
     function initialize() {
         AppBase.initialize();
+
+        // ATTENTION when adding stuff into this block:
+        // Because of the >>GlanceView<<, it should contain only
+        // code, which is used as well for the glance:
+        // - https://developer.garmin.com/connect-iq/core-topics/glances/
+        //
+        // Also dealing with resources "Rez" needs attention, too. See 
+        // "Resource Scopes":
+        // - https://developer.garmin.com/connect-iq/core-topics/resources/
+        //
+        // Classes which are used for the glance view, needed to be tagged
+        // with "(:glance)".
     }
 
     // onStart() is called on application start up
     function onStart(state as Lang.Dictionary?) as Void {
+        // ATTENTION when adding stuff into this block:
+        // Because of the >>GlanceView<<, it should contain only
+        // code, which is used as well for the glance:
+        // - https://developer.garmin.com/connect-iq/core-topics/glances/
+        //
+        // Also dealing with resources "Rez" needs attention, too. See 
+        // "Resource Scopes":
+        // - https://developer.garmin.com/connect-iq/core-topics/resources/
+        //
+        // Classes which are used for the glance view, needed to be tagged
+        // with "(:glance)".
     }
 
     // onStop() is called when your application is exiting
     function onStop(state as Lang.Dictionary?) as Void {
+        // ATTENTION when adding stuff into this block:
+        // Because of the >>GlanceView<<, it should contain only
+        // code, which is used as well for the glance:
+        // - https://developer.garmin.com/connect-iq/core-topics/glances/
+        //
+        // Also dealing with resources "Rez" needs attention, too. See 
+        // "Resource Scopes":
+        // - https://developer.garmin.com/connect-iq/core-topics/resources/
+        //
+        // Classes which are used for the glance view, needed to be tagged
+        // with "(:glance)".
     }
 
     // Return the initial view of your application here
