@@ -24,4 +24,5 @@
   <string id="UnhandledHttpErr">Die HTTP-Anfrage gab folgenden Fehlercode zurück = </string>
   <string id="ExitViewTouch">Zum Beenden nach rechts swipen\nZum Bleiben antippen</string>
   <string id="ExitViewButtons">Drücke „Zurück“, um zu Beenden.\n„Enter“, um zu bleiben</string>
+  <string id="FetchingMenuConfig">Lade Config vom Server ... </string>
 </strings>
