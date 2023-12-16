@@ -19,7 +19,7 @@
 -->
 
 <strings>
-  <string id="AppName">HomeAssistant</string>
+  <string id="AppName" scope="glance">HomeAssistant</string>
   <string id="MenuItemOn">在</string>
   <string id="MenuItemOff">离开</string>
   <string id="MenuItemTap">轻敲</string>
@@ -37,4 +37,7 @@
   <string id="ConfigUrlNotFound">找不到网址。设置中可能存在配置 URL 错误。</string>
   <string id="UnhandledHttpErr">HTTP请求返回错误码=</string>
   <string id="TrailingSlashErr">API URL 不得有尾部斜杠“/”</string>
+  <string id="FetchingMenuConfig">正在获取菜单配置..</string>
+  <string id="ExitViewTouch">向右滑动即可退出\n点击即可停留</string>
+  <string id="ExitViewButtons">按回车键退出\n按回车键继续</string>
 </strings>

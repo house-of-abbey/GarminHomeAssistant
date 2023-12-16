@@ -19,7 +19,7 @@
 -->
 
 <strings>
-  <string id="AppName">HomeAssistant</string>
+  <string id="AppName" scope="glance">HomeAssistant</string>
   <string id="MenuItemOn">Ieslēgts</string>
   <string id="MenuItemOff">Izslēgts</string>
   <string id="MenuItemTap">Krāns</string>
@@ -37,4 +37,7 @@
   <string id="ConfigUrlNotFound">URL nav atrasts. Iespējama konfigurācijas URL kļūda iestatījumos.</string>
   <string id="UnhandledHttpErr">HTTP pieprasījums atgrieza kļūdas kodu =</string>
   <string id="TrailingSlashErr">API URL beigās nedrīkst būt slīpsvītra “/”</string>
+  <string id="FetchingMenuConfig">Notiek izvēlnes konfigurācijas iegūšana...</string>
+  <string id="ExitViewTouch">Lai izietu, velciet pa labi\nPieskarieties, lai paliktu</string>
+  <string id="ExitViewButtons">Noklikšķiniet uz Atpakaļ, lai izietu.\nIevadiet, lai paliktu</string>
 </strings>

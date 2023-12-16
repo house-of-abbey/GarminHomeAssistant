@@ -19,7 +19,7 @@
 -->
 
 <strings>
-  <string id="AppName">HomeAssistant</string>
+  <string id="AppName" scope="glance">HomeAssistant</string>
   <string id="MenuItemOn">Na</string>
   <string id="MenuItemOff">Isključeno</string>
   <string id="MenuItemTap">Dodirnite</string>
@@ -37,4 +37,7 @@
   <string id="ConfigUrlNotFound">URL nije pronađen. Potencijalna pogreška URL-a konfiguracije u postavkama.</string>
   <string id="UnhandledHttpErr">HTTP zahtjev vratio je kod greške =</string>
   <string id="TrailingSlashErr">API URL ne smije imati kosu crtu na kraju '/'</string>
+  <string id="FetchingMenuConfig">Dohvaćanje konfiguracije izbornika..</string>
+  <string id="ExitViewTouch">Prijeđite prstom udesno za izlaz\nDodirnite za ostanak</string>
+  <string id="ExitViewButtons">Pritisnite Natrag za izlaz\nUnesite za ostanak</string>
 </strings>

@@ -19,7 +19,7 @@
 -->
 
 <strings>
-  <string id="AppName">HomeAssistant</string>
+  <string id="AppName" scope="glance">HomeAssistant</string>
   <string id="MenuItemOn">Activé</string>
   <string id="MenuItemOff">Désactivé</string>
   <string id="MenuItemTap">Clic</string>
@@ -37,4 +37,7 @@
   <string id="ConfigUrlNotFound">URL introuvable. Erreur potentielle d'URL de configuration dans les paramètres.</string>
   <string id="UnhandledHttpErr">La requête HTTP a renvoyé un code d'erreur =</string>
   <string id="TrailingSlashErr">L'URL de l'API ne doit pas comporter de barre oblique finale '/'</string>
+  <string id="FetchingMenuConfig">Récupération de la configuration du menu.</string>
+  <string id="ExitViewTouch">Balayez vers la droite pour quitter\nAppuyez pour rester</string>
+  <string id="ExitViewButtons">Appuyez sur Retour pour quitter\nEntrez pour rester</string>
 </strings>

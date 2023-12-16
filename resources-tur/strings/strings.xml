@@ -19,7 +19,7 @@
 -->
 
 <strings>
-  <string id="AppName">HomeAssistant</string>
+  <string id="AppName" scope="glance">HomeAssistant</string>
   <string id="MenuItemOn">Açık</string>
   <string id="MenuItemOff">Kapalı</string>
   <string id="MenuItemTap">Musluk</string>
@@ -36,5 +36,8 @@
   <string id="ApiUrlNotFound">URL bulunamadı. Ayarlarda olası API URL hatası.</string>
   <string id="ConfigUrlNotFound">URL bulunamadı. Ayarlarda Olası Yapılandırma URL'si hatası.</string>
   <string id="UnhandledHttpErr">HTTP isteği hata kodunu döndürdü =</string>
-  <string id="TrailingSlashErr">API URL'sinin sonunda eğik çizgi '/' olmamalıdır</string>
+  <string id="TrailingSlashErr">API URL'sinin sonunda '/' eğik çizgi olmamalıdır</string>
+  <string id="FetchingMenuConfig">Menü Yapılandırması alınıyor..</string>
+  <string id="ExitViewTouch">Çıkmak için Sağa Kaydırın\nKalmak için Dokunun</string>
+  <string id="ExitViewButtons">Çıkış için Geri tuşuna basın\nKalmak için Enter'a basın</string>
 </strings>

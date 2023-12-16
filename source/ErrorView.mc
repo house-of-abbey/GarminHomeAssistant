@@ -65,11 +65,10 @@ class ErrorView extends ScalableView {
     function onUpdate(dc as Graphics.Dc) as Void {
         var w = dc.getWidth();
         var hw = w/2;
-        var bg = 0x3B444C;
         if(dc has :setAntiAlias) {
             dc.setAntiAlias(true);
         }
-        dc.setColor(Graphics.COLOR_WHITE, bg);
+        dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_BLUE);
         dc.clear();
         dc.drawBitmap(hw - mErrorIcon.getWidth()/2, mErrorIconMargin, mErrorIcon);
         mTextArea.draw(dc);
