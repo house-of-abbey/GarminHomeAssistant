@@ -18,6 +18,15 @@
 // should not happen of course... but they do, so best make sure errors can be
 // reported.
 //
+// Designed so that a single ErrorView is used for all errors and hence can ensure
+// that only the first call to display is honoured until the view is dismissed.
+// This compensates for older devices not being able to call WatchUi.getCurrentView()
+// due to not supporting API level 3.4.0.
+//
+// Usage:
+//   1) ErrorView.show("Error message");
+//   2) return ErrorView.create("Error message"); // as Lang.Array<WatchUi.Views or WatchUi.InputDelegates>
+//
 //-----------------------------------------------------------------------------------
 
 using Toybox.Graphics;
@@ -26,18 +35,22 @@ using Toybox.WatchUi;
 using Toybox.Communications;
 
 class ErrorView extends ScalableView {
-    private const cSettings as Lang.Dictionary = {
+    private var mText            as Lang.String = "";
+    private var mDelegate        as ErrorDelegate;
+    private const cSettings      as Lang.Dictionary = {
         :errorIconMargin => 7f
     };
     // Vertical spacing between the top of the face and the error icon
-    private var mErrorIconMargin;
-    private var mText as Lang.String;
+    private var mErrorIconMargin as Lang.Number;
     private var mErrorIcon;
     private var mTextArea;
 
-    function initialize(text as Lang.String) {
+    private static var instance;
+    private static var mShown as Lang.Boolean = false;
+
+    function initialize() {
         ScalableView.initialize();
-        mText = text;
+        mDelegate = new ErrorDelegate(self);
         // Convert the settings from % of screen size to pixels
         mErrorIconMargin = pixelsForScreen(cSettings.get(:errorIconMargin) as Lang.Float);
     }
@@ -75,15 +88,59 @@ class ErrorView extends ScalableView {
         mTextArea.draw(dc);
     }
 
+    function getDelegate() as ErrorDelegate {
+        return mDelegate;
+    }
+
+    static function create(text as Lang.String) as Lang.Array<ErrorView or ErrorDelegate> {
+        if (instance == null) {
+            instance = new ErrorView();
+        }
+        if (!mShown) {
+            instance.setText(text);
+        }
+        return [instance, instance.getDelegate()];
+    }
+
+    // Create or reuse an existing ErrorView, and pass on the text.
+    static function show(text as Lang.String) as Void {
+        create(text); // Ignore returned values
+        if (!mShown) {
+            WatchUi.pushView(instance, instance.getDelegate(), WatchUi.SLIDE_UP);
+            mShown = true;
+        }
+    }
+
+    // Internal show now we're not a static method like 'show()'.
+    function setText(text as Lang.String) as Void {
+        mText = text;
+        if (mTextArea != null) {
+            mTextArea.setText(text);
+            requestUpdate();
+        }
+    }
+
+    static function unShow() as Void {
+        if (mShown) {
+            mShown = false;
+            WatchUi.popView(WatchUi.SLIDE_DOWN);
+        }
+    }
+
 }
 
 class ErrorDelegate extends WatchUi.BehaviorDelegate {
-    function initialize() {
+    //private var mView as ErrorView;
+
+    function initialize(view as ErrorView) {
         WatchUi.BehaviorDelegate.initialize();
+        //mView = view;
     }
+
     function onBack() {
         getApp().getQuitTimer().reset();
-        WatchUi.popView(WatchUi.SLIDE_DOWN);
+        ErrorView.unShow();
         return true;
     }
+
 }

@@ -77,56 +77,68 @@ class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
         }
         // Provide the ability to terminate updating chain of calls for a permanent network error.
         var keepUpdating = true;
-        if (responseCode == Communications.BLE_HOST_TIMEOUT || responseCode == Communications.BLE_CONNECTION_UNAVAILABLE) {
-            if (Globals.scDebug) {
-                System.println("HomeAssistantToggleMenuItem onReturnGetState() Response Code: BLE_HOST_TIMEOUT or BLE_CONNECTION_UNAVAILABLE, Bluetooth connection severed.");
-            }
-            if (!(WatchUi.getCurrentView()[0] instanceof ErrorView)) {
-                // Avoid pushing multiple ErrorViews
-                WatchUi.pushView(new ErrorView(strNoPhone + "."), new ErrorDelegate(), WatchUi.SLIDE_UP);
-            }
-        } else if (responseCode == Communications.BLE_QUEUE_FULL) {
-            if (Globals.scDebug) {
-                System.println("HomeAssistantToggleMenuItem onReturnGetState() Response Code: BLE_QUEUE_FULL, API calls too rapid.");
-            }
-            if (!(WatchUi.getCurrentView()[0] instanceof ErrorView)) {
-                // Avoid pushing multiple ErrorViews
-                WatchUi.pushView(new ErrorView(strApiFlood), new ErrorDelegate(), WatchUi.SLIDE_UP);
-            }
-        } else if (responseCode == Communications.NETWORK_REQUEST_TIMED_OUT) {
-            if (Globals.scDebug) {
-                System.println("HomeAssistantToggleMenuItem onReturnGetState() Response Code: NETWORK_REQUEST_TIMED_OUT, check Internet connection.");
-            }
-            if (!(WatchUi.getCurrentView()[0] instanceof ErrorView)) {
-                // Avoid pushing multiple ErrorViews
-                WatchUi.pushView(new ErrorView(strNoResponse), new ErrorDelegate(), WatchUi.SLIDE_UP);
-            }
-        } else if (responseCode == 404) {
-            if (Globals.scDebug) {
-                System.println("HomeAssistantToggleMenuItem onReturnGetState() Response Code: 404, page not found. Check API URL setting.");
-            }
-            if (!(WatchUi.getCurrentView()[0] instanceof ErrorView)) {
-                // Avoid pushing multiple ErrorViews
-                WatchUi.pushView(new ErrorView(strApiUrlNotFound), new ErrorDelegate(), WatchUi.SLIDE_UP);
-            }
-            keepUpdating = false;
-        } else if (responseCode == 200) {
-            var state = data.get("state") as Lang.String;
-            if (Globals.scDebug) {
-                System.println((data.get("attributes") as Lang.Dictionary).get("friendly_name") + " State=" + state);
-            }
-            if (getLabel().equals("...")) {
-                setLabel((data.get("attributes") as Lang.Dictionary).get("friendly_name") as Lang.String);
-            }
-            setUiToggle(state);
-        } else {
-            if (Globals.scDebug) {
-                System.println("HomeAssistantToggleMenuItem onReturnGetState(): Unhandled HTTP response code = " + responseCode);
-            }
-            if (!(WatchUi.getCurrentView()[0] instanceof ErrorView)) {
-                // Avoid pushing multiple ErrorViews
-                WatchUi.pushView(new ErrorView(strUnhandledHttpErr + responseCode ), new ErrorDelegate(), WatchUi.SLIDE_UP);
-            }
+        switch (responseCode) {
+            case Communications.BLE_HOST_TIMEOUT:
+            case Communications.BLE_CONNECTION_UNAVAILABLE:
+                if (Globals.scDebug) {
+                    System.println("HomeAssistantToggleMenuItem onReturnGetState() Response Code: BLE_HOST_TIMEOUT or BLE_CONNECTION_UNAVAILABLE, Bluetooth connection severed.");
+                }
+                ErrorView.show(strNoPhone + ".");
+                break;
+            case Communications.BLE_QUEUE_FULL:
+                if (Globals.scDebug) {
+                    System.println("HomeAssistantToggleMenuItem onReturnGetState() Response Code: BLE_QUEUE_FULL, API calls too rapid.");
+                }
+                ErrorView.show(strApiFlood);
+                break;
+            case Communications.NETWORK_REQUEST_TIMED_OUT:
+                if (Globals.scDebug) {
+                    System.println("HomeAssistantToggleMenuItem onReturnGetState() Response Code: NETWORK_REQUEST_TIMED_OUT, check Internet connection.");
+                }
+                ErrorView.show(strNoResponse);
+                break;
+            case 404:
+                var msg = null;
+                if (data != null) {
+                    msg = data.get("message");
+                }
+                if (msg != null) {
+                    // Should be an HTTP 405 according to curl queries
+                    if (Globals.scDebug) {
+                        System.println("HomeAssistantToggleMenuItem onReturnGetState() Response Code: 404. " + mIdentifier + " " + msg);
+                    }
+                    ErrorView.show("HTTP 405, " + mIdentifier + ". " + data.get("message"));
+                } else {
+                    if (Globals.scDebug) {
+                        System.println("HomeAssistantToggleMenuItem onReturnGetState() Response Code: 404, page not found. Check API URL setting.");
+                    }
+                    ErrorView.show(strApiUrlNotFound);
+                }
+                keepUpdating = false;
+                break;
+            case 405:
+                if (Globals.scDebug) {
+                    System.println("HomeAssistantToggleMenuItem onReturnGetState() Response Code: 405. " + mIdentifier + " " + data.get("message"));
+                }
+                ErrorView.show("HTTP 405, " + mIdentifier + ". " + data.get("message"));
+                keepUpdating = false;
+                break;
+            case 200:
+                var state = data.get("state") as Lang.String;
+                if (Globals.scDebug) {
+                    System.println((data.get("attributes") as Lang.Dictionary).get("friendly_name") + " State=" + state);
+                }
+                if (getLabel().equals("...")) {
+                    setLabel((data.get("attributes") as Lang.Dictionary).get("friendly_name") as Lang.String);
+                }
+                setUiToggle(state);
+                ErrorView.unShow();
+                break;
+            default:
+                if (Globals.scDebug) {
+                    System.println("HomeAssistantToggleMenuItem onReturnGetState(): Unhandled HTTP response code = " + responseCode);
+                }
+                ErrorView.show(strUnhandledHttpErr + responseCode);
         }
         if (keepUpdating) {
             // Now this feels very "closely coupled" to the application, but it is the most reliable method instead of using a timer.
@@ -147,18 +159,12 @@ class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
             if (Globals.scDebug) {
                 System.println("HomeAssistantToggleMenuItem getState(): No Phone connection, skipping API call.");
             }
-            if (!(WatchUi.getCurrentView()[0] instanceof ErrorView)) {
-                // Avoid pushing multiple ErrorViews
-                WatchUi.pushView(new ErrorView(strNoPhone + "."), new ErrorDelegate(), WatchUi.SLIDE_UP);
-            }
+            ErrorView.show(strNoPhone + ".");
         } else if (! System.getDeviceSettings().connectionAvailable) {
             if (Globals.scDebug) {
                 System.println("HomeAssistantToggleMenuItem getState(): No Internet connection, skipping API call.");
             }
-            if (!(WatchUi.getCurrentView()[0] instanceof ErrorView)) {
-                // Avoid pushing multiple ErrorViews
-                WatchUi.pushView(new ErrorView(strNoInternet + "."), new ErrorDelegate(), WatchUi.SLIDE_UP);
-            }
+            ErrorView.show(strNoInternet + ".");
         } else {
             var url = Properties.getValue("api_url") + "/states/" + mIdentifier;
             if (Globals.scDebug) {
@@ -180,7 +186,9 @@ class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
             var myTimer = new Timer.Timer();
             // Now this feels very "closely coupled" to the application, but it is the most reliable method instead of using a timer.
             myTimer.start(getApp().method(:updateNextMenuItem), 500, false);
-            System.println("HomeAssistantToggleMenuItem getState(): Updated failed " + mIdentifier);
+            if (Globals.scDebug) {
+                System.println("HomeAssistantToggleMenuItem getState(): Updated failed " + mIdentifier);
+            }
         }
     }
 
@@ -195,22 +203,22 @@ class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
             if (Globals.scDebug) {
                 System.println("HomeAssistantToggleMenuItem onReturnSetState() Response Code: BLE_HOST_TIMEOUT or BLE_CONNECTION_UNAVAILABLE, Bluetooth connection severed.");
             }
-            WatchUi.pushView(new ErrorView(strNoPhone + "."), new ErrorDelegate(), WatchUi.SLIDE_UP);
+            ErrorView.show(strNoPhone + ".");
         } else if (responseCode == Communications.BLE_QUEUE_FULL) {
             if (Globals.scDebug) {
                 System.println("HomeAssistantToggleMenuItem onReturnSetState() Response Code: BLE_QUEUE_FULL, API calls too rapid.");
             }
-            WatchUi.pushView(new ErrorView(strApiFlood), new ErrorDelegate(), WatchUi.SLIDE_UP);
+            ErrorView.show(strApiFlood);
         } else if (responseCode == Communications.NETWORK_REQUEST_TIMED_OUT) {
             if (Globals.scDebug) {
                 System.println("HomeAssistantToggleMenuItem onReturnSetState() Response Code: NETWORK_REQUEST_TIMED_OUT, check Internet connection.");
             }
-            WatchUi.pushView(new ErrorView(strNoResponse), new ErrorDelegate(), WatchUi.SLIDE_UP);
+            ErrorView.show(strNoResponse);
         } else if (responseCode == 404) {
             if (Globals.scDebug) {
                 System.println("HomeAssistantToggleMenuItem onReturnSetState() Response Code: 404, page not found. Check API URL setting.");
             }
-            WatchUi.pushView(new ErrorView(strApiUrlNotFound), new ErrorDelegate(), WatchUi.SLIDE_UP);
+            ErrorView.show(strApiUrlNotFound);
         } else if (responseCode == 200) {
             var state;
             var d = data as Lang.Array;
@@ -227,7 +235,7 @@ class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
             if (Globals.scDebug) {
                 System.println("HomeAssistantToggleMenuItem onReturnSetState(): Unhandled HTTP response code = " + responseCode);
             }
-            WatchUi.pushView(new ErrorView(strUnhandledHttpErr + responseCode ), new ErrorDelegate(), WatchUi.SLIDE_UP);
+            ErrorView.show(strUnhandledHttpErr + responseCode );
         }
     }
 
@@ -246,14 +254,14 @@ class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
             }
             // Toggle the UI back
             setEnabled(!isEnabled());
-            WatchUi.pushView(new ErrorView(strNoPhone + "."), new ErrorDelegate(), WatchUi.SLIDE_UP);
+            ErrorView.show(strNoPhone + ".");
         } else if (! System.getDeviceSettings().connectionAvailable) {
             if (Globals.scDebug) {
                 System.println("HomeAssistantToggleMenuItem getState(): No Internet connection, skipping API call.");
             }
             // Toggle the UI back
             setEnabled(!isEnabled());
-            WatchUi.pushView(new ErrorView(strNoInternet + "."), new ErrorDelegate(), WatchUi.SLIDE_UP);
+            ErrorView.show(strNoInternet + ".");
         } else {
             // Updated SDK and got a new error
             // ERROR: venu: Cannot find symbol ':substring' on type 'PolyType<Null or $.Toybox.Lang.Object>'.

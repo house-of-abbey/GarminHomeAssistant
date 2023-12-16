@@ -54,25 +54,23 @@ class HomeAssistantService {
             if (Globals.scDebug) {
                 System.println("HomeAssistantService onReturnCall() Response Code: BLE_HOST_TIMEOUT or BLE_CONNECTION_UNAVAILABLE, Bluetooth connection severed.");
             }
-            WatchUi.pushView(new ErrorView(strNoPhone + "."), new ErrorDelegate(), WatchUi.SLIDE_UP);
+            ErrorView.show(strNoPhone + ".");
         } else if (responseCode == Communications.BLE_QUEUE_FULL) {
             if (Globals.scDebug) {
                 System.println("HomeAssistantService onReturnCall() Response Code: BLE_QUEUE_FULL, API calls too rapid.");
             }
-            if (!(WatchUi.getCurrentView()[0] instanceof ErrorView)) {
-                // Avoid pushing multiple ErrorViews
-                WatchUi.pushView(new ErrorView(strApiFlood), new ErrorDelegate(), WatchUi.SLIDE_UP);
-            }
+            // Don't need to worry about multiple ErrorViews here as the call is not on a repeat timer.
+            ErrorView.show(strApiFlood);
         } else if (responseCode == Communications.NETWORK_REQUEST_TIMED_OUT) {
             if (Globals.scDebug) {
                 System.println("HomeAssistantService onReturnCall() Response Code: NETWORK_REQUEST_TIMED_OUT, check Internet connection.");
             }
-            WatchUi.pushView(new ErrorView(strNoResponse), new ErrorDelegate(), WatchUi.SLIDE_UP);
+            ErrorView.show(strNoResponse);
         } else if (responseCode == 404) {
             if (Globals.scDebug) {
                 System.println("HomeAssistantService onReturnCall() Response Code: 404, page not found. Check API URL setting.");
             }
-            WatchUi.pushView(new ErrorView(strApiUrlNotFound), new ErrorDelegate(), WatchUi.SLIDE_UP);
+            ErrorView.show(strApiUrlNotFound);
         } else if (responseCode == 200) {
             if (Globals.scDebug) {
                 System.println("HomeAssistantService onReturnCall(): Service executed.");
@@ -99,7 +97,7 @@ class HomeAssistantService {
             if (Globals.scDebug) {
                 System.println("HomeAssistantService onReturnCall(): Unhandled HTTP response code = " + responseCode);
             }
-            WatchUi.pushView(new ErrorView(strUnhandledHttpErr + responseCode ), new ErrorDelegate(), WatchUi.SLIDE_UP);
+            ErrorView.show(strUnhandledHttpErr + responseCode );
         }
     }
 
@@ -117,14 +115,15 @@ class HomeAssistantService {
             if (Globals.scDebug) {
                 System.println("HomeAssistantService call(): No Phone connection, skipping API call.");
             }
-            WatchUi.pushView(new ErrorView(strNoPhone + "."), new ErrorDelegate(), WatchUi.SLIDE_UP);
+            ErrorView.show(strNoPhone + ".");
         } else if (! System.getDeviceSettings().connectionAvailable) {
             if (Globals.scDebug) {
                 System.println("HomeAssistantService call(): No Internet connection, skipping API call.");
             }
-            WatchUi.pushView(new ErrorView(strNoInternet + "."), new ErrorDelegate(), WatchUi.SLIDE_UP);
+            ErrorView.show(strNoInternet + ".");
         } else {
-            var url = (Properties.getValue("api_url") as Lang.String) + "/services/" + service.substring(0, service.find(".")) + "/" + service.substring(service.find(".")+1, null);
+            // Can't user null for parameters due to API version level.
+            var url = (Properties.getValue("api_url") as Lang.String) + "/services/" + service.substring(0, service.find(".")) + "/" + service.substring(service.find(".")+1, service.length());
             if (Globals.scDebug) {
                 System.println("HomeAssistantService call() URL=" + url);
                 System.println("HomeAssistantService call() service=" + service);

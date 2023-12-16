@@ -26,6 +26,7 @@ using Toybox.Timer;
 using Toybox.Application.Properties;
 
 class HomeAssistantConfirmation extends WatchUi.Confirmation {
+
     function initialize() {
         WatchUi.Confirmation.initialize(WatchUi.loadResource($.Rez.Strings.Confirm));
     }
@@ -33,32 +34,32 @@ class HomeAssistantConfirmation extends WatchUi.Confirmation {
 }
 
 class HomeAssistantConfirmationDelegate extends WatchUi.ConfirmationDelegate {
-    private var confirmMethod;
-    private var timeout;
+    private var mConfirmMethod;
+    private var mTimer;
 
     function initialize(callback as Method() as Void) {
         WatchUi.ConfirmationDelegate.initialize();
-        confirmMethod = callback;
+        mConfirmMethod = callback;
         var timeoutSeconds = Properties.getValue("confirm_timeout") as Lang.Number; 
         if (timeoutSeconds > 0) {
-            timeout = new Timer.Timer();
-            timeout.start(method(:onTimeout), timeoutSeconds * 1000, true);
+            mTimer = new Timer.Timer();
+            mTimer.start(method(:onTimeout), timeoutSeconds * 1000, true);
         }
     }
 
     function onResponse(response) as Lang.Boolean {
         getApp().getQuitTimer().reset();
-        if (timeout) {
-            timeout.stop();
+        if (mTimer) {
+            mTimer.stop();
         }
         if (response == WatchUi.CONFIRM_YES) {
-            confirmMethod.invoke();
+            mConfirmMethod.invoke();
         }
         return true;
     }
 
     function onTimeout() as Void {
-        timeout.stop();
+        mTimer.stop();
         WatchUi.popView(WatchUi.SLIDE_RIGHT);
     }
 }
