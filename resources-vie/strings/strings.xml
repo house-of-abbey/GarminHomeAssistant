@@ -37,4 +37,13 @@
   <string id="ConfigUrlNotFound">Không tìm thấy URL. Lỗi URL cấu hình tiềm ẩn trong cài đặt.</string>
   <string id="UnhandledHttpErr">Yêu cầu HTTP trả về mã lỗi =</string>
   <string id="TrailingSlashErr">URL API không được có dấu gạch chéo ở cuối '/'</string>
+  <!-- Đối với GUI cài đặt -->
+  <string id="SettingsApiKey">Khóa API cho Trợ lý tại nhà.</string>
+  <string id="SettingsApiKeyPrompt">Mã thông báo truy cập tồn tại lâu dài.</string>
+  <string id="SettingsApiUrl">URL cho API Trợ lý gia đình.</string>
+  <string id="SettingsConfigUrl">URL cho cấu hình menu (JSON).</string>
+  <string id="SettingsAppTimeout">Thời gian chờ tính bằng giây. Thoát khỏi ứng dụng sau khoảng thời gian không hoạt động này để tiết kiệm pin cho thiết bị.</string>
+  <string id="SettingsConfirmTimeout">Sau thời gian này (tính bằng giây), hộp thoại xác nhận cho một hành động sẽ tự động đóng và hành động đó sẽ bị hủy. Đặt thành 0 để tắt thời gian chờ.</string>
+  <string id="SettingsUi">Thể hiện các loại bằng biểu tượng (tắt) hoặc bằng nhãn (bật).</string>
+  <string id="SettingsTextAlign">Căn chỉnh menu Trái (tắt) hoặc Phải (bật).</string>
 </strings>

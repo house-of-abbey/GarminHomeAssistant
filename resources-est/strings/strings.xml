@@ -37,4 +37,13 @@
   <string id="ConfigUrlNotFound">URL-i ei leitud. Võimalik konfiguratsiooni URL-i viga seadetes.</string>
   <string id="UnhandledHttpErr">HTTP päring tagastas veakoodi =</string>
   <string id="TrailingSlashErr">API URL-i lõpus ei tohi olla kaldkriipsu „/”</string>
+  <!-- Seadete GUI jaoks -->
+  <string id="SettingsApiKey">Koduabilise API võti.</string>
+  <string id="SettingsApiKeyPrompt">Pikaealine juurdepääsuluba.</string>
+  <string id="SettingsApiUrl">Koduabilise API URL.</string>
+  <string id="SettingsConfigUrl">URL menüü konfigureerimiseks (JSON).</string>
+  <string id="SettingsAppTimeout">Aegumine sekundites. Seadme aku säästmiseks sulgege rakendus pärast seda tegevusetusperioodi.</string>
+  <string id="SettingsConfirmTimeout">Pärast seda aega (sekundites) suletakse automaatselt toimingu kinnitusdialoog ja toiming tühistatakse. Ajalõpu keelamiseks määrake väärtusele 0.</string>
+  <string id="SettingsUi">Tüüpide tähistamine ikoonidega (väljas) või siltidega (sees).</string>
+  <string id="SettingsTextAlign">Vasak (väljas) või parem (sees) menüü joondamine.</string>
 </strings>

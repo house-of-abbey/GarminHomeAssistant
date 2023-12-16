@@ -37,4 +37,13 @@
   <string id="ConfigUrlNotFound">URL не знайдено. Потенційна помилка URL-адреси конфігурації в налаштуваннях.</string>
   <string id="UnhandledHttpErr">Запит HTTP повернув код помилки =</string>
   <string id="TrailingSlashErr">URL-адреса API не повинна містити косу риску '/'</string>
+  <!-- Для налаштування GUI -->
+  <string id="SettingsApiKey">Ключ API для домашнього помічника.</string>
+  <string id="SettingsApiKeyPrompt">Довговічний маркер доступу.</string>
+  <string id="SettingsApiUrl">URL для Home Assistant API.</string>
+  <string id="SettingsConfigUrl">URL-адреса для налаштування меню (JSON).</string>
+  <string id="SettingsAppTimeout">Час очікування в секундах. Вийдіть із програми після цього періоду бездіяльності, щоб заощадити батарею пристрою.</string>
+  <string id="SettingsConfirmTimeout">Після закінчення цього часу (у секундах) діалогове вікно підтвердження дії автоматично закривається, а дія скасовується. Встановіть 0, щоб вимкнути тайм-аут.</string>
+  <string id="SettingsUi">Представлення типів піктограмами (вимкнено) або мітками (увімкнено).</string>
+  <string id="SettingsTextAlign">Ліворуч (вимкнено) або праворуч (увімкнено) вирівнювання меню.</string>
 </strings>

@@ -31,4 +31,15 @@
     <string id="ConfigUrlNotFound">URL not found. Potential Configuration URL error in settings.</string>
     <string id="UnhandledHttpErr">HTTP request returned error code = </string>
     <string id="TrailingSlashErr">API URL must not have a trailing slash '/'</string>
+
+    <!-- For the settings GUI -->
+    <string id="SettingsApiKey">API Key for HomeAssistant.</string>
+    <string id="SettingsApiKeyPrompt">Long-Lived Access Token.</string>
+    <string id="SettingsApiUrl">URL for HomeAssistant API.</string>
+    <string id="SettingsConfigUrl">URL for menu configuration (JSON).</string>
+    <string id="SettingsAppTimeout">Timeout in seconds. Exit the application after this period of inactivity to save the device battery.</string>
+    <string id="SettingsConfirmTimeout">After this time (in seconds), a confirmation dialog for an action is automatically closed and the action is cancelled. Set to 0 to disable the timeout.</string>
+    <string id="SettingsUi">Representing types with icons (off) or with labels (on).</string>
+    <string id="SettingsTextAlign">Left (off) or Right (on) Menu Alignment.</string>
+
 </strings>

@@ -37,4 +37,13 @@
   <string id="ConfigUrlNotFound">Finner ikke URL. Potensiell konfigurasjons-URL-feil i innstillingene.</string>
   <string id="UnhandledHttpErr">HTTP-forespørsel returnerte feilkode =</string>
   <string id="TrailingSlashErr">API URL må ikke ha en etterfølgende skråstrek '/'</string>
+  <!-- For innstillingene GUI -->
+  <string id="SettingsApiKey">API-nøkkel for Home Assistant.</string>
+  <string id="SettingsApiKeyPrompt">Langlevd tilgangstoken.</string>
+  <string id="SettingsApiUrl">URL for Home Assistant API.</string>
+  <string id="SettingsConfigUrl">URL for menykonfigurasjon (JSON).</string>
+  <string id="SettingsAppTimeout">Tidsavbrudd i sekunder. Avslutt applikasjonen etter denne perioden med inaktivitet for å spare enhetens batteri.</string>
+  <string id="SettingsConfirmTimeout">Etter denne tiden (i sekunder), lukkes en bekreftelsesdialog for en handling automatisk og handlingen avbrytes. Sett til 0 for å deaktivere tidsavbruddet.</string>
+  <string id="SettingsUi">Representerer typer med ikoner (av) eller med etiketter (på).</string>
+  <string id="SettingsTextAlign">Venstre (av) eller Høyre (på) Menyjustering.</string>
 </strings>

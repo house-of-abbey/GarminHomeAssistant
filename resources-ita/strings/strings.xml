@@ -37,4 +37,13 @@
   <string id="ConfigUrlNotFound">URL non trovato. Potenziale errore dell'URL di configurazione nelle impostazioni.</string>
   <string id="UnhandledHttpErr">La richiesta HTTP ha restituito il codice di errore =</string>
   <string id="TrailingSlashErr">L'URL dell'API non deve avere una barra finale "/"</string>
+  <!-- Per la GUI delle impostazioni -->
+  <string id="SettingsApiKey">Chiave API per Home Assistant.</string>
+  <string id="SettingsApiKeyPrompt">Token di accesso di lunga durata.</string>
+  <string id="SettingsApiUrl">URL per l'API Home Assistant.</string>
+  <string id="SettingsConfigUrl">URL per la configurazione del menu (JSON).</string>
+  <string id="SettingsAppTimeout">Timeout in secondi. Uscire dall'applicazione dopo questo periodo di inattività per risparmiare la batteria del dispositivo.</string>
+  <string id="SettingsConfirmTimeout">Trascorso questo tempo (in secondi), una finestra di dialogo di conferma per un'azione viene chiusa automaticamente e l'azione viene annullata. Impostare su 0 per disabilitare il timeout.</string>
+  <string id="SettingsUi">Rappresentazione dei tipi con icone (disattivata) o con etichette (attivata).</string>
+  <string id="SettingsTextAlign">Allineamento del menu a sinistra (spento) o a destra (acceso).</string>
 </strings>

@@ -37,4 +37,13 @@
   <string id="ConfigUrlNotFound">Η διεύθυνση URL δεν βρέθηκε. Πιθανό σφάλμα διεύθυνσης URL διαμόρφωσης στις ρυθμίσεις.</string>
   <string id="UnhandledHttpErr">Το αίτημα HTTP επέστρεψε κωδικό σφάλματος =</string>
   <string id="TrailingSlashErr">Η διεύθυνση URL του API δεν πρέπει να έχει τελική κάθετο "/"</string>
+  <!-- Για τις ρυθμίσεις GUI -->
+  <string id="SettingsApiKey">Κλειδί API για Home Assistant.</string>
+  <string id="SettingsApiKeyPrompt">Διακριτικό πρόσβασης μακράς διαρκείας.</string>
+  <string id="SettingsApiUrl">URL για το Home Assistant API.</string>
+  <string id="SettingsConfigUrl">URL για τη διαμόρφωση μενού (JSON).</string>
+  <string id="SettingsAppTimeout">Timeout σε δευτερόλεπτα. Κλείστε την εφαρμογή μετά από αυτήν την περίοδο αδράνειας για να εξοικονομήσετε την μπαταρία της συσκευής.</string>
+  <string id="SettingsConfirmTimeout">Μετά από αυτό το χρονικό διάστημα (σε δευτερόλεπτα), ένα παράθυρο διαλόγου επιβεβαίωσης για μια ενέργεια κλείνει αυτόματα και η ενέργεια ακυρώνεται. Ορίστε στο 0 για να απενεργοποιήσετε το χρονικό όριο.</string>
+  <string id="SettingsUi">Αναπαράσταση τύπων με εικονίδια (απενεργοποίηση) ή με ετικέτες (ενεργό).</string>
+  <string id="SettingsTextAlign">Αριστερά (απενεργοποίηση) ή Δεξιά (ενεργό) Ευθυγράμμιση μενού.</string>
 </strings>

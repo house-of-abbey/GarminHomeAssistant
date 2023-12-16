@@ -37,4 +37,13 @@
   <string id="ConfigUrlNotFound">URL nerastas. Galima konfigūracijos URL klaida nustatymuose.</string>
   <string id="UnhandledHttpErr">HTTP užklausa grąžino klaidos kodą =</string>
   <string id="TrailingSlashErr">API URL pabaigoje negali būti pasvirojo brūkšnio „/“</string>
+  <!-- Dėl nustatymų GUI -->
+  <string id="SettingsApiKey">API raktas, skirtas namų asistentui.</string>
+  <string id="SettingsApiKeyPrompt">Ilgalaikis prieigos raktas.</string>
+  <string id="SettingsApiUrl">„Home Assistant“ API URL.</string>
+  <string id="SettingsConfigUrl">Meniu konfigūravimo URL (JSON).</string>
+  <string id="SettingsAppTimeout">Skirtasis laikas sekundėmis. Po šio neveiklumo laikotarpio išeikite iš programos, kad taupytumėte įrenginio akumuliatorių.</string>
+  <string id="SettingsConfirmTimeout">Praėjus šiam laikui (sekundėmis), veiksmo patvirtinimo dialogo langas automatiškai uždaromas ir veiksmas atšaukiamas. Nustatykite 0, kad išjungtumėte skirtąjį laiką.</string>
+  <string id="SettingsUi">Tipai su piktogramomis (išjungta) arba etiketėmis (įjungta).</string>
+  <string id="SettingsTextAlign">Kairysis (išjungtas) arba dešinysis (įjungtas) meniu lygiavimas.</string>
 </strings>

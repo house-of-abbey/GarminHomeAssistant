@@ -37,4 +37,13 @@
   <string id="ConfigUrlNotFound">URL tidak ditemukan. Potensi kesalahan URL Konfigurasi dalam pengaturan.</string>
   <string id="UnhandledHttpErr">Permintaan HTTP mengembalikan kode kesalahan =</string>
   <string id="TrailingSlashErr">URL API tidak boleh memiliki garis miring '/'</string>
+  <!-- Untuk pengaturan GUI -->
+  <string id="SettingsApiKey">Kunci API untuk Asisten Rumah.</string>
+  <string id="SettingsApiKeyPrompt">Token Akses Berumur Panjang.</string>
+  <string id="SettingsApiUrl">URL untuk API Asisten Rumah.</string>
+  <string id="SettingsConfigUrl">URL untuk konfigurasi menu (JSON).</string>
+  <string id="SettingsAppTimeout">Batas waktu dalam hitungan detik. Keluar dari aplikasi setelah periode tidak aktif ini untuk menghemat baterai perangkat.</string>
+  <string id="SettingsConfirmTimeout">Setelah waktu ini (dalam detik), dialog konfirmasi untuk suatu tindakan secara otomatis ditutup dan tindakan tersebut dibatalkan. Setel ke 0 untuk menonaktifkan batas waktu.</string>
+  <string id="SettingsUi">Mewakili tipe dengan ikon (mati) atau dengan label (aktif).</string>
+  <string id="SettingsTextAlign">Penyelarasan Menu Kiri (mati) atau Kanan (hidup).</string>
 </strings>

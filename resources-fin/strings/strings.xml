@@ -37,4 +37,13 @@
   <string id="ConfigUrlNotFound">URL-osoitetta ei löydy. Mahdollinen konfigurointi-URL-virhe asetuksissa.</string>
   <string id="UnhandledHttpErr">HTTP-pyyntö palautti virhekoodin =</string>
   <string id="TrailingSlashErr">API-URL-osoitteessa ei saa olla perässä olevaa kauttaviivaa '/'</string>
+  <!-- GUI-asetusten osalta -->
+  <string id="SettingsApiKey">API-avain Home Assistantille.</string>
+  <string id="SettingsApiKeyPrompt">Pitkäikäinen pääsytunnus.</string>
+  <string id="SettingsApiUrl">URL Home Assistant API:lle.</string>
+  <string id="SettingsConfigUrl">URL-osoite valikon määrityksiä varten (JSON).</string>
+  <string id="SettingsAppTimeout">Aikakatkaisu sekunneissa. Poistu sovelluksesta tämän käyttämättömyyden jälkeen säästääksesi laitteen akkua.</string>
+  <string id="SettingsConfirmTimeout">Tämän ajan kuluttua (sekunneissa) toiminnon vahvistusikkuna suljetaan automaattisesti ja toiminto peruutetaan. Aseta arvoksi 0 poistaaksesi aikakatkaisun käytöstä.</string>
+  <string id="SettingsUi">Esittää tyyppejä kuvakkeilla (pois päältä) tai tarroilla (päällä).</string>
+  <string id="SettingsTextAlign">Vasen (pois) tai oikea (päällä) valikon kohdistus.</string>
 </strings>

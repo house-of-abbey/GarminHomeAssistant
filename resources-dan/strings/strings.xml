@@ -28,7 +28,7 @@
   <string id="NoPhone">Ingen telefonforbindelse</string>
   <string id="NoInternet">Ingen internetforbindelse</string>
   <string id="NoResponse">Intet svar, tjek internetforbindelse</string>
-  <string id="NoMenu">Fejl ved menuhentning</string>
+  <string id="NoMenu">Menuhentningsfejl</string>
   <string id="NoAPIKey">Ingen API-nøgle i applikationsindstillingerne</string>
   <string id="NoApiUrl">Ingen API-URL i applikationsindstillingerne</string>
   <string id="NoConfigUrl">Ingen konfigurations-URL i applikationsindstillingerne</string>
@@ -37,4 +37,13 @@
   <string id="ConfigUrlNotFound">URL ikke fundet. Potentiel konfigurations-URL-fejl i indstillinger.</string>
   <string id="UnhandledHttpErr">HTTP-anmodning returnerede fejlkode =</string>
   <string id="TrailingSlashErr">API URL må ikke have en efterfølgende skråstreg '/'</string>
+  <!-- Til indstillingerne GUI -->
+  <string id="SettingsApiKey">API-nøgle til Home Assistant.</string>
+  <string id="SettingsApiKeyPrompt">Adgangstoken med lang levetid.</string>
+  <string id="SettingsApiUrl">URL til Home Assistant API.</string>
+  <string id="SettingsConfigUrl">URL til menukonfiguration (JSON).</string>
+  <string id="SettingsAppTimeout">Timeout i sekunder. Afslut applikationen efter denne periode med inaktivitet for at spare på enhedens batteri.</string>
+  <string id="SettingsConfirmTimeout">Efter dette tidspunkt (i sekunder) lukkes en bekræftelsesdialog for en handling automatisk, og handlingen annulleres. Indstil til 0 for at deaktivere timeout.</string>
+  <string id="SettingsUi">Repræsenterer typer med ikoner (fra) eller med etiketter (til).</string>
+  <string id="SettingsTextAlign">Venstre (fra) eller Højre (til) menujustering.</string>
 </strings>

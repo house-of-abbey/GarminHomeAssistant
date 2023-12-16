@@ -37,4 +37,13 @@
   <string id="ConfigUrlNotFound">URL-ja ni bilo mogoče najti. Morebitna napaka URL-ja konfiguracije v nastavitvah.</string>
   <string id="UnhandledHttpErr">Zahteva HTTP je vrnila kodo napake =</string>
   <string id="TrailingSlashErr">URL API-ja ne sme imeti končne poševnice '/'</string>
+  <!-- Za nastavitve GUI -->
+  <string id="SettingsApiKey">API ključ za domačega pomočnika.</string>
+  <string id="SettingsApiKeyPrompt">Dolgoživ dostopni žeton.</string>
+  <string id="SettingsApiUrl">URL za API za domačega pomočnika.</string>
+  <string id="SettingsConfigUrl">URL za konfiguracijo menija (JSON).</string>
+  <string id="SettingsAppTimeout">Časovna omejitev v sekundah. Po tem obdobju nedejavnosti zaprite aplikacijo, da prihranite baterijo naprave.</string>
+  <string id="SettingsConfirmTimeout">Po tem času (v sekundah) se potrditveno pogovorno okno za dejanje samodejno zapre in dejanje je preklicano. Nastavite na 0, da onemogočite časovno omejitev.</string>
+  <string id="SettingsUi">Predstavljanje tipov z ikonami (izklopljeno) ali z oznakami (vklopljeno).</string>
+  <string id="SettingsTextAlign">Leva (izklopljena) ali desna (vklopljena) poravnava menija.</string>
 </strings>

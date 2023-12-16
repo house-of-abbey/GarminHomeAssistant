@@ -37,4 +37,13 @@
   <string id="ConfigUrlNotFound">لم يتم العثور على عنوان URL. خطأ محتمل في عنوان URL للتكوين في الإعدادات.</string>
   <string id="UnhandledHttpErr">قام طلب HTTP بإرجاع رمز الخطأ =</string>
   <string id="TrailingSlashErr">يجب ألا يحتوي عنوان URL لواجهة برمجة التطبيقات على شرطة مائلة لاحقة '/'</string>
+  <!-- لإعدادات واجهة المستخدم الرسومية -->
+  <string id="SettingsApiKey">مفتاح API لمساعد المنزل.</string>
+  <string id="SettingsApiKeyPrompt">رمز الوصول طويل الأمد.</string>
+  <string id="SettingsApiUrl">عنوان URL لواجهة برمجة تطبيقات Home Assistant.</string>
+  <string id="SettingsConfigUrl">عنوان URL لتكوين القائمة (JSON).</string>
+  <string id="SettingsAppTimeout">المهلة بالثواني. قم بالخروج من التطبيق بعد هذه الفترة من عدم النشاط لحفظ بطارية الجهاز.</string>
+  <string id="SettingsConfirmTimeout">بعد هذا الوقت (بالثواني)، يتم إغلاق مربع حوار تأكيد الإجراء تلقائيًا ويتم إلغاء الإجراء. اضبط على 0 لتعطيل المهلة.</string>
+  <string id="SettingsUi">تمثيل الأنواع بأيقونات (إيقاف) أو بالتسميات (تشغيل).</string>
+  <string id="SettingsTextAlign">محاذاة القائمة لليسار (إيقاف) أو لليمين (تشغيل).</string>
 </strings>

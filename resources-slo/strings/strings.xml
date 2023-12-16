@@ -37,4 +37,13 @@
   <string id="ConfigUrlNotFound">Adresa URL sa nenašla. Potenciálna chyba konfiguračnej adresy URL v nastaveniach.</string>
   <string id="UnhandledHttpErr">Požiadavka HTTP vrátila kód chyby =</string>
   <string id="TrailingSlashErr">Adresa URL rozhrania API nesmie obsahovať koncovú lomku „/“</string>
+  <!-- Pre nastavenia GUI -->
+  <string id="SettingsApiKey">API kľúč pre domáceho asistenta.</string>
+  <string id="SettingsApiKeyPrompt">Prístupový token s dlhou životnosťou.</string>
+  <string id="SettingsApiUrl">Adresa URL rozhrania Home Assistant API.</string>
+  <string id="SettingsConfigUrl">Webová adresa pre konfiguráciu ponuky (JSON).</string>
+  <string id="SettingsAppTimeout">Časový limit v sekundách. Po tejto dobe nečinnosti ukončite aplikáciu, aby ste šetrili batériu zariadenia.</string>
+  <string id="SettingsConfirmTimeout">Po tomto čase (v sekundách) sa dialógové okno s potvrdením akcie automaticky zatvorí a akcia sa zruší. Ak chcete časový limit deaktivovať, nastavte na 0.</string>
+  <string id="SettingsUi">Typy predstavujú ikony (vypnuté) alebo štítky (zapnuté).</string>
+  <string id="SettingsTextAlign">Zarovnanie ponuky vľavo (vypnuté) alebo vpravo (zapnuté).</string>
 </strings>

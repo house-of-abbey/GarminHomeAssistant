@@ -37,4 +37,13 @@
   <string id="ConfigUrlNotFound">URL nav atrasts. Iespējama konfigurācijas URL kļūda iestatījumos.</string>
   <string id="UnhandledHttpErr">HTTP pieprasījums atgrieza kļūdas kodu =</string>
   <string id="TrailingSlashErr">API URL beigās nedrīkst būt slīpsvītra “/”</string>
+  <!-- Iestatījumu GUI -->
+  <string id="SettingsApiKey">Mājas palīga API atslēga.</string>
+  <string id="SettingsApiKeyPrompt">Ilgmūžīgs piekļuves marķieris.</string>
+  <string id="SettingsApiUrl">Mājas palīga API URL.</string>
+  <string id="SettingsConfigUrl">URL izvēlnes konfigurācijai (JSON).</string>
+  <string id="SettingsAppTimeout">Taimauts sekundēs. Pēc šī neaktivitātes perioda izejiet no lietojumprogrammas, lai taupītu ierīces akumulatoru.</string>
+  <string id="SettingsConfirmTimeout">Pēc šī laika (sekundēs) tiek automātiski aizvērts darbības apstiprinājuma dialoglodziņš un darbība tiek atcelta. Iestatiet uz 0, lai atspējotu taimautu.</string>
+  <string id="SettingsUi">Apzīmē veidus ar ikonām (izslēgts) vai ar etiķetēm (ieslēgts).</string>
+  <string id="SettingsTextAlign">Kreisā (izslēgta) vai labā (ieslēgta) izvēlnes līdzināšana.</string>
 </strings>

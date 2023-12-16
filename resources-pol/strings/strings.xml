@@ -37,4 +37,13 @@
   <string id="ConfigUrlNotFound">Nie znaleziono adresu URL. Potencjalny błąd adresu URL konfiguracji w ustawieniach.</string>
   <string id="UnhandledHttpErr">Żądanie HTTP zwróciło kod błędu =</string>
   <string id="TrailingSlashErr">Adres URL interfejsu API nie może zawierać końcowego ukośnika „/”</string>
+  <!-- Dla ustawień GUI -->
+  <string id="SettingsApiKey">Klucz API dla Asystenta Domowego.</string>
+  <string id="SettingsApiKeyPrompt">Długowieczny token dostępu.</string>
+  <string id="SettingsApiUrl">Adres URL interfejsu API Home Assistant.</string>
+  <string id="SettingsConfigUrl">Adres URL konfiguracji menu (JSON).</string>
+  <string id="SettingsAppTimeout">Limit czasu w sekundach. Wyjdź z aplikacji po tym okresie bezczynności, aby oszczędzać baterię urządzenia.</string>
+  <string id="SettingsConfirmTimeout">Po tym czasie (w sekundach) okno dialogowe z potwierdzeniem akcji zamyka się automatycznie, a akcja zostaje anulowana. Ustaw na 0, aby wyłączyć limit czasu.</string>
+  <string id="SettingsUi">Reprezentowanie typów za pomocą ikon (wyłączone) lub etykiet (włączone).</string>
+  <string id="SettingsTextAlign">Wyrównanie menu do lewej (wyłączone) lub do prawej (włączone).</string>
 </strings>

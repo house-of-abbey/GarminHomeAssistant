@@ -37,4 +37,13 @@
   <string id="ConfigUrlNotFound">找不到網址。設定中可能存在配置 URL 錯誤。</string>
   <string id="UnhandledHttpErr">HTTP請求回傳錯誤碼=</string>
   <string id="TrailingSlashErr">API URL 不得有尾部斜線“/”</string>
+  <!-- 對於設定 GUI -->
+  <string id="SettingsApiKey">家庭助理的 API 金鑰。</string>
+  <string id="SettingsApiKeyPrompt">長期訪問令牌。</string>
+  <string id="SettingsApiUrl">Home Assistant API 的 URL。</string>
+  <string id="SettingsConfigUrl">選單配置的 URL (JSON)。</string>
+  <string id="SettingsAppTimeout">超時（以秒為單位）。閒置一段時間後退出應用程式以節省設備電池。</string>
+  <string id="SettingsConfirmTimeout">在此時間（以秒為單位）之後，操作的確認對話方塊將自動關閉並取消該操作。設定為 0 以停用逾時。</string>
+  <string id="SettingsUi">用圖示（關閉）或標籤（開啟）表示類型。</string>
+  <string id="SettingsTextAlign">左（關）或右（開）選單對齊。</string>
 </strings>

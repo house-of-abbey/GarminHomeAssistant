@@ -212,6 +212,25 @@ As a consequence of this update mechanism, if you request changes too quickly yo
 
 When you change the JSON file defining your dashboard, you must exit the application and the reopen it. It only takes a matter of a few seconds to pick up the new definition, but it is not automatic.
 
+## Submitting Corrections for Translations
+
+Initially all text has been created in English, and a [Python script](https://github.com/house-of-abbey/GarminHomeAssistant/blob/main/translate.py) (Google Translate under the hood) has been used to create the first version of all translations. We have been pleased to accept better translations from native language speakers, **thank you**. If you would like to submit improved translations, our preference is you do so via a Git pull request. If you are not comfortable doing this, then just raise an issue and someone will eventually pick the request up.
+
+In order to submit a language correction please create an XML file called `corrections.xml` in the same directory as your language containing the corrected text. The format of the XML file follows that of `strings.xml`. As an example here are some corrected French translations found in directory [`resources-fre/strings/corrections.xml`](https://github.com/house-of-abbey/GarminHomeAssistant/tree/main/resources-fre/strings/corrections.xml):
+
+```xml
+<strings>
+  <string id="MenuItemOn">Activé</string>
+  <string id="MenuItemTap">Clic</string>
+  <string id="ApiFlood">Appels API trop rapide. Veuillez signaler cette erreur avec les détails de l'appareil.</string>
+</strings>
+```
+
+The `id` attribute values are taken from the same names used in [`strings.xml`](https://github.com/house-of-abbey/GarminHomeAssistant/blob/main/resources-fre/strings/strings.xml). Not all `id` values need to be specified as missing `id`s will then use automatic translations. If the existing convention is followed then:
+
+* The Python script will use the corrections in preference to translating, and
+* Your pull request will be honoured without comment as we will take your corrections on trust.
+
 ## Version History
 
 | Version | Comment |

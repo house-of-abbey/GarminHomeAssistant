@@ -37,4 +37,13 @@
   <string id="ConfigUrlNotFound">URL niet gevonden. Mogelijke configuratie-URL-fout in de instellingen.</string>
   <string id="UnhandledHttpErr">HTTP-verzoek retourneerde foutcode =</string>
   <string id="TrailingSlashErr">API-URL mag geen afsluitende slash '/' bevatten</string>
+  <!-- Voor de instellingen-GUI -->
+  <string id="SettingsApiKey">API-sleutel voor Home Assistant.</string>
+  <string id="SettingsApiKeyPrompt">Toegangstoken met lange levensduur.</string>
+  <string id="SettingsApiUrl">URL voor Home Assistant-API.</string>
+  <string id="SettingsConfigUrl">URL voor menuconfiguratie (JSON).</string>
+  <string id="SettingsAppTimeout">Time-out in seconden. Sluit de applicatie af na deze periode van inactiviteit om de batterij van het apparaat te sparen.</string>
+  <string id="SettingsConfirmTimeout">Na deze tijd (in seconden) wordt automatisch een bevestigingsvenster voor een actie gesloten en wordt de actie geannuleerd. Stel in op 0 om de time-out uit te schakelen.</string>
+  <string id="SettingsUi">Typen weergeven met pictogrammen (uit) of met labels (aan).</string>
+  <string id="SettingsTextAlign">Links (uit) of rechts (aan) Menu-uitlijning.</string>
 </strings>

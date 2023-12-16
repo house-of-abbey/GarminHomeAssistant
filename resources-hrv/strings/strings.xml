@@ -37,4 +37,13 @@
   <string id="ConfigUrlNotFound">URL nije pronađen. Potencijalna pogreška URL-a konfiguracije u postavkama.</string>
   <string id="UnhandledHttpErr">HTTP zahtjev vratio je kod greške =</string>
   <string id="TrailingSlashErr">API URL ne smije imati kosu crtu na kraju '/'</string>
+  <!-- Za GUI postavki -->
+  <string id="SettingsApiKey">API ključ za kućnog pomoćnika.</string>
+  <string id="SettingsApiKeyPrompt">Dugotrajni pristupni token.</string>
+  <string id="SettingsApiUrl">URL za Home Assistant API.</string>
+  <string id="SettingsConfigUrl">URL za konfiguraciju izbornika (JSON).</string>
+  <string id="SettingsAppTimeout">Istek u sekundama. Izađite iz aplikacije nakon ovog razdoblja neaktivnosti kako biste uštedjeli bateriju uređaja.</string>
+  <string id="SettingsConfirmTimeout">Nakon tog vremena (u sekundama), dijaloški okvir za potvrdu radnje automatski se zatvara i radnja se poništava. Postavite na 0 da onemogućite vremensko ograničenje.</string>
+  <string id="SettingsUi">Predstavljanje tipova ikonama (isključeno) ili oznakama (uključeno).</string>
+  <string id="SettingsTextAlign">Lijevo (isključeno) ili desno (uključeno) poravnanje izbornika.</string>
 </strings>
