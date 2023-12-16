@@ -24,6 +24,19 @@ using Toybox.WatchUi;
 
 class RootView extends ScalableView {
 
+    // ATTENTION when the app is running as a "widget" (that means, it runs on devices
+    // without glance view support), the input events in this view are limited, as 
+    // described under "Base View and the Widget Carousel" on:
+    // 
+    // https://developer.garmin.com/connect-iq/connect-iq-basics/app-types/
+    // 
+    // Also the view type of the base view is limited too (for example "WatchUi.Menu2"
+    // is not possible)).
+    // 
+    // Also System.exit() is not working/do nothing when running as a widget: A widget will be 
+    // terminated automatically by OS after some time or can be quit manually, when on the base
+    // view a swipe to left / "back button" press is done.
+
     private var mApp                  as HomeAssistantApp;
     private var strFetchingMenuConfig as Lang.String;
     private var strExit               as Lang.String;
