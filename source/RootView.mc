@@ -84,11 +84,10 @@ class RootView extends ScalableView {
     }
 
     function onUpdate(dc as Graphics.Dc) as Void {
-        var bg = 0x3B444C;
         if(dc has :setAntiAlias) {
             dc.setAntiAlias(true);
         }
-        dc.setColor(Graphics.COLOR_WHITE, bg);
+        dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_BLACK);
         dc.clear();
 
         if(mApp.homeAssistantMenuIsLoaded()) {
