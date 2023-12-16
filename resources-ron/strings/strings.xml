@@ -19,9 +19,9 @@
 -->
 
 <strings>
-  <string id="AppName">HomeAssistant</string>
+  <string id="AppName" scope="glance">HomeAssistant</string>
   <string id="MenuItemOn">Pe</string>
-  <string id="MenuItemOff">Off</string>
+  <string id="MenuItemOff">Oprit</string>
   <string id="MenuItemTap">Atingeți</string>
   <string id="MenuItemMenu">Meniul</string>
   <string id="Confirm">Sigur?</string>

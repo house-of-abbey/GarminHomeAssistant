@@ -19,7 +19,7 @@
 -->
 
 <strings>
-  <string id="AppName">HomeAssistant</string>
+  <string id="AppName" scope="glance">HomeAssistant</string>
   <string id="MenuItemOn">На</string>
   <string id="MenuItemOff">Изкл</string>
   <string id="MenuItemTap">Докоснете</string>

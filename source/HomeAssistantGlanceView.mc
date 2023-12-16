@@ -14,27 +14,29 @@
 //
 // Description:
 //
-// Application root for GarminHomeAssistant
+// Glance view for GarminHomeAssistant
 //
 //-----------------------------------------------------------------------------------
 
+using Toybox.Lang;
 using Toybox.WatchUi;
 using Toybox.Graphics;
 
 (:glance)
 class HomeAssistantGlanceView extends WatchUi.GlanceView {
 
+    private var mText as Lang.String;
+
     function initialize() {
         GlanceView.initialize();
+
+        mText = WatchUi.loadResource($.Rez.Strings.AppName);
     }
 
     function onUpdate(dc) as Void {
         GlanceView.onUpdate(dc);
       
-        var font = Graphics.FONT_TINY;
-        var text = "GarminHomeAssistant";
-      
         dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_BLACK);
-        dc.drawText(0, dc.getHeight() / 2, font, text, Graphics.TEXT_JUSTIFY_LEFT | Graphics.TEXT_JUSTIFY_VCENTER);
+        dc.drawText(0, dc.getHeight() / 2, Graphics.FONT_TINY, mText, Graphics.TEXT_JUSTIFY_LEFT | Graphics.TEXT_JUSTIFY_VCENTER);
     }
 }

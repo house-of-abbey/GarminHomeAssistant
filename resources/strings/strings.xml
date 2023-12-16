@@ -13,7 +13,7 @@
 -->
 
 <strings>
-    <string id="AppName">HomeAssistant</string>
+    <string id="AppName" scope="glance">HomeAssistant</string>
     <string id="MenuItemOn">On</string>
     <string id="MenuItemOff">Off</string>
     <string id="MenuItemTap">Tap</string>
