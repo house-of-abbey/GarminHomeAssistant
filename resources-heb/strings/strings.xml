@@ -9,7 +9,7 @@
    tested on a Venu 2 device. The source code is provided at:
               https://github.com/house-of-abbey/GarminHomeAssistant.
 
-   P A Abbey & J D Abbey, 31 October 2023
+   P A Abbey & J D Abbey & SomeoneOnEarth, 31 October 2023
 
 -->
 
@@ -19,7 +19,7 @@
 -->
 
 <strings>
-  <string id="AppName">HomeAssistant</string>
+  <string id="AppName" scope="glance">HomeAssistant</string>
   <string id="MenuItemOn">עַל</string>
   <string id="MenuItemOff">כבוי</string>
   <string id="MenuItemTap">בֶּרֶז</string>
@@ -37,10 +37,13 @@
   <string id="ConfigUrlNotFound">כתובת האתר לא נמצאה. שגיאת כתובת אתר פוטנציאלית של תצורה בהגדרות.</string>
   <string id="UnhandledHttpErr">בקשת HTTP החזירה קוד שגיאה =</string>
   <string id="TrailingSlashErr">כתובת ה-API לא חייבת לכלול לוכסן אחורי '/'</string>
+  <string id="FetchingMenuConfig">מביא את תצורת התפריט...</string>
+  <string id="ExitViewTouch">החלק ימינה כדי לצאת\nהקש כדי להישאר</string>
+  <string id="ExitViewButtons">לחץ על חזרה ליציאה\nEnter כדי להישאר</string>
   <!-- עבור ה-GUI של ההגדרות -->
-  <string id="SettingsApiKey">מפתח API עבור Home Assistant.</string>
+  <string id="SettingsApiKey">מפתח API עבור HomeAssistant.</string>
   <string id="SettingsApiKeyPrompt">אסימון גישה ארוך-חיים.</string>
-  <string id="SettingsApiUrl">כתובת URL עבור Home Assistant API.</string>
+  <string id="SettingsApiUrl">כתובת URL עבור HomeAssistant API.</string>
   <string id="SettingsConfigUrl">כתובת URL לתצורת תפריט (JSON).</string>
   <string id="SettingsAppTimeout">פסק זמן בשניות. צא מהאפליקציה לאחר תקופה זו של חוסר פעילות כדי לחסוך בסוללת המכשיר.</string>
   <string id="SettingsConfirmTimeout">לאחר זמן זה (בשניות), תיבת דו-שיח לאישור פעולה נסגרת אוטומטית והפעולה מבוטלת. הגדר ל-0 כדי לבטל את הזמן הקצוב.</string>

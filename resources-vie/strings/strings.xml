@@ -9,7 +9,7 @@
    tested on a Venu 2 device. The source code is provided at:
               https://github.com/house-of-abbey/GarminHomeAssistant.
 
-   P A Abbey & J D Abbey, 31 October 2023
+   P A Abbey & J D Abbey & SomeoneOnEarth, 31 October 2023
 
 -->
 
@@ -19,7 +19,7 @@
 -->
 
 <strings>
-  <string id="AppName">HomeAssistant</string>
+  <string id="AppName" scope="glance">HomeAssistant</string>
   <string id="MenuItemOn">TRÊN</string>
   <string id="MenuItemOff">Tắt</string>
   <string id="MenuItemTap">Vỗ nhẹ</string>
@@ -37,10 +37,13 @@
   <string id="ConfigUrlNotFound">Không tìm thấy URL. Lỗi URL cấu hình tiềm ẩn trong cài đặt.</string>
   <string id="UnhandledHttpErr">Yêu cầu HTTP trả về mã lỗi =</string>
   <string id="TrailingSlashErr">URL API không được có dấu gạch chéo ở cuối '/'</string>
+  <string id="FetchingMenuConfig">Đang tìm nạp cấu hình menu..</string>
+  <string id="ExitViewTouch">Vuốt sang phải để thoát\nNhấn để ở lại</string>
+  <string id="ExitViewButtons">Nhấn Quay lại để thoát\nNhập để ở lại</string>
   <!-- Đối với GUI cài đặt -->
-  <string id="SettingsApiKey">Khóa API cho Trợ lý tại nhà.</string>
+  <string id="SettingsApiKey">Khóa API cho HomeAssistant.</string>
   <string id="SettingsApiKeyPrompt">Mã thông báo truy cập tồn tại lâu dài.</string>
-  <string id="SettingsApiUrl">URL cho API Trợ lý gia đình.</string>
+  <string id="SettingsApiUrl">URL cho API HomeAssistant.</string>
   <string id="SettingsConfigUrl">URL cho cấu hình menu (JSON).</string>
   <string id="SettingsAppTimeout">Thời gian chờ tính bằng giây. Thoát khỏi ứng dụng sau khoảng thời gian không hoạt động này để tiết kiệm pin cho thiết bị.</string>
   <string id="SettingsConfirmTimeout">Sau thời gian này (tính bằng giây), hộp thoại xác nhận cho một hành động sẽ tự động đóng và hành động đó sẽ bị hủy. Đặt thành 0 để tắt thời gian chờ.</string>

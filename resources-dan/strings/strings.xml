@@ -9,7 +9,7 @@
    tested on a Venu 2 device. The source code is provided at:
               https://github.com/house-of-abbey/GarminHomeAssistant.
 
-   P A Abbey & J D Abbey, 31 October 2023
+   P A Abbey & J D Abbey & SomeoneOnEarth, 31 October 2023
 
 -->
 
@@ -19,7 +19,7 @@
 -->
 
 <strings>
-  <string id="AppName">HomeAssistant</string>
+  <string id="AppName" scope="glance">HomeAssistant</string>
   <string id="MenuItemOn">På</string>
   <string id="MenuItemOff">Af</string>
   <string id="MenuItemTap">Tryk på</string>
@@ -37,10 +37,13 @@
   <string id="ConfigUrlNotFound">URL ikke fundet. Potentiel konfigurations-URL-fejl i indstillinger.</string>
   <string id="UnhandledHttpErr">HTTP-anmodning returnerede fejlkode =</string>
   <string id="TrailingSlashErr">API URL må ikke have en efterfølgende skråstreg '/'</string>
+  <string id="FetchingMenuConfig">Henter menukonfiguration..</string>
+  <string id="ExitViewTouch">Stryg til højre for at afslutte\nTryk for at blive</string>
+  <string id="ExitViewButtons">Tryk på Tilbage for at afslutte\nEnter for at blive</string>
   <!-- Til indstillingerne GUI -->
-  <string id="SettingsApiKey">API-nøgle til Home Assistant.</string>
+  <string id="SettingsApiKey">API-nøgle til HomeAssistant.</string>
   <string id="SettingsApiKeyPrompt">Adgangstoken med lang levetid.</string>
-  <string id="SettingsApiUrl">URL til Home Assistant API.</string>
+  <string id="SettingsApiUrl">URL til HomeAssistant API.</string>
   <string id="SettingsConfigUrl">URL til menukonfiguration (JSON).</string>
   <string id="SettingsAppTimeout">Timeout i sekunder. Afslut applikationen efter denne periode med inaktivitet for at spare på enhedens batteri.</string>
   <string id="SettingsConfirmTimeout">Efter dette tidspunkt (i sekunder) lukkes en bekræftelsesdialog for en handling automatisk, og handlingen annulleres. Indstil til 0 for at deaktivere timeout.</string>

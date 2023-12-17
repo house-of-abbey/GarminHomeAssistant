@@ -9,7 +9,7 @@
    tested on a Venu 2 device. The source code is provided at:
               https://github.com/house-of-abbey/GarminHomeAssistant.
 
-   P A Abbey & J D Abbey, 31 October 2023
+   P A Abbey & J D Abbey & SomeoneOnEarth, 31 October 2023
 
 -->
 
@@ -19,7 +19,7 @@
 -->
 
 <strings>
-  <string id="AppName">HomeAssistant</string>
+  <string id="AppName" scope="glance">HomeAssistant</string>
   <string id="MenuItemOn">Päällä</string>
   <string id="MenuItemOff">Vinossa</string>
   <string id="MenuItemTap">Napauta</string>
@@ -37,10 +37,13 @@
   <string id="ConfigUrlNotFound">URL-osoitetta ei löydy. Mahdollinen konfigurointi-URL-virhe asetuksissa.</string>
   <string id="UnhandledHttpErr">HTTP-pyyntö palautti virhekoodin =</string>
   <string id="TrailingSlashErr">API-URL-osoitteessa ei saa olla perässä olevaa kauttaviivaa '/'</string>
+  <string id="FetchingMenuConfig">Haetaan valikon asetuksia...</string>
+  <string id="ExitViewTouch">Poistu pyyhkäisemällä oikealle\nPysy napauttamalla</string>
+  <string id="ExitViewButtons">Poistu painamalla Takaisin\nSyötä jäädäksesi</string>
   <!-- GUI-asetusten osalta -->
-  <string id="SettingsApiKey">API-avain Home Assistantille.</string>
+  <string id="SettingsApiKey">API-avain HomeAssistantille.</string>
   <string id="SettingsApiKeyPrompt">Pitkäikäinen pääsytunnus.</string>
-  <string id="SettingsApiUrl">URL Home Assistant API:lle.</string>
+  <string id="SettingsApiUrl">HomeAssistant API:n URL-osoite.</string>
   <string id="SettingsConfigUrl">URL-osoite valikon määrityksiä varten (JSON).</string>
   <string id="SettingsAppTimeout">Aikakatkaisu sekunneissa. Poistu sovelluksesta tämän käyttämättömyyden jälkeen säästääksesi laitteen akkua.</string>
   <string id="SettingsConfirmTimeout">Tämän ajan kuluttua (sekunneissa) toiminnon vahvistusikkuna suljetaan automaattisesti ja toiminto peruutetaan. Aseta arvoksi 0 poistaaksesi aikakatkaisun käytöstä.</string>

@@ -9,7 +9,7 @@
    tested on a Venu 2 device. The source code is provided at:
               https://github.com/house-of-abbey/GarminHomeAssistant.
 
-   P A Abbey & J D Abbey, 31 October 2023
+   P A Abbey & J D Abbey & SomeoneOnEarth, 31 October 2023
 
 -->
 
@@ -19,7 +19,7 @@
 -->
 
 <strings>
-  <string id="AppName">HomeAssistant</string>
+  <string id="AppName" scope="glance">HomeAssistant</string>
   <string id="MenuItemOn">Tovább</string>
   <string id="MenuItemOff">Ki</string>
   <string id="MenuItemTap">Koppintson a</string>
@@ -37,10 +37,13 @@
   <string id="ConfigUrlNotFound">Az URL nem található. Lehetséges konfigurációs URL hiba a beállításokban.</string>
   <string id="UnhandledHttpErr">A HTTP-kérés = hibakódot adott vissza</string>
   <string id="TrailingSlashErr">Az API URL-ben nem lehet perjel a „/”</string>
+  <string id="FetchingMenuConfig">Menükonfiguráció lekérése...</string>
+  <string id="ExitViewTouch">Csúsztassa jobbra a kilépéshez\nKoppintson a Maradáshoz</string>
+  <string id="ExitViewButtons">Nyomja meg a Vissza gombot a kilépéshez\nEnter a Maradáshoz</string>
   <!-- A beállítások GUI-hoz -->
-  <string id="SettingsApiKey">API kulcs az otthoni asszisztenshez.</string>
+  <string id="SettingsApiKey">API-kulcs a HomeAssistant számára.</string>
   <string id="SettingsApiKeyPrompt">Hosszú életű hozzáférési token.</string>
-  <string id="SettingsApiUrl">A Home Assistant API URL-je.</string>
+  <string id="SettingsApiUrl">A HomeAssistant API URL-je.</string>
   <string id="SettingsConfigUrl">URL a menükonfigurációhoz (JSON).</string>
   <string id="SettingsAppTimeout">Időtúllépés másodpercben. Az eszköz akkumulátorának kímélése érdekében lépjen ki az alkalmazásból ezen inaktivitási időszak után.</string>
   <string id="SettingsConfirmTimeout">Ezen idő letelte után (másodpercben) a művelet megerősítő párbeszédablakja automatikusan bezárul, és a művelet megszakad. Állítsa 0-ra az időtúllépés letiltásához.</string>

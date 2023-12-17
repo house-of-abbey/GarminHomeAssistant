@@ -9,7 +9,7 @@
    tested on a Venu 2 device. The source code is provided at:
               https://github.com/house-of-abbey/GarminHomeAssistant.
 
-   P A Abbey & J D Abbey, 31 October 2023
+   P A Abbey & J D Abbey & SomeoneOnEarth, 31 October 2023
 
 -->
 
@@ -19,7 +19,7 @@
 -->
 
 <strings>
-  <string id="AppName">HomeAssistant</string>
+  <string id="AppName" scope="glance">HomeAssistant</string>
   <string id="MenuItemOn">На</string>
   <string id="MenuItemOff">Изкл</string>
   <string id="MenuItemTap">Докоснете</string>
@@ -37,10 +37,13 @@
   <string id="ConfigUrlNotFound">URL не е намерен. Потенциална грешка в URL адреса на конфигурацията в настройките.</string>
   <string id="UnhandledHttpErr">HTTP заявката върна код на грешка =</string>
   <string id="TrailingSlashErr">URL адресът на API не трябва да има наклонена черта '/' в края</string>
+  <string id="FetchingMenuConfig">Извличане на конфигурацията на менюто..</string>
+  <string id="ExitViewTouch">Плъзнете надясно, за да излезете\nДокоснете, за да останете</string>
+  <string id="ExitViewButtons">Натиснете Назад, за да излезете\nВлезте, за да останете</string>
   <!-- За GUI за настройки -->
-  <string id="SettingsApiKey">API ключ за домашен асистент.</string>
+  <string id="SettingsApiKey">API ключ за HomeAssistant.</string>
   <string id="SettingsApiKeyPrompt">Токен за дълготраен достъп.</string>
-  <string id="SettingsApiUrl">URL адрес за API на Home Assistant.</string>
+  <string id="SettingsApiUrl">URL адрес за API на HomeAssistant.</string>
   <string id="SettingsConfigUrl">URL за конфигурация на менюто (JSON).</string>
   <string id="SettingsAppTimeout">Изчакване в секунди. Излезте от приложението след този период на неактивност, за да запазите батерията на устройството.</string>
   <string id="SettingsConfirmTimeout">След това време (в секунди) диалоговият прозорец за потвърждение за действие се затваря автоматично и действието се отменя. Задайте 0, за да деактивирате изчакването.</string>

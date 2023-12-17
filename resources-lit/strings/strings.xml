@@ -9,7 +9,7 @@
    tested on a Venu 2 device. The source code is provided at:
               https://github.com/house-of-abbey/GarminHomeAssistant.
 
-   P A Abbey & J D Abbey, 31 October 2023
+   P A Abbey & J D Abbey & SomeoneOnEarth, 31 October 2023
 
 -->
 
@@ -19,7 +19,7 @@
 -->
 
 <strings>
-  <string id="AppName">HomeAssistant</string>
+  <string id="AppName" scope="glance">HomeAssistant</string>
   <string id="MenuItemOn">Įjungta</string>
   <string id="MenuItemOff">Išjungta</string>
   <string id="MenuItemTap">Bakstelėkite</string>
@@ -37,10 +37,13 @@
   <string id="ConfigUrlNotFound">URL nerastas. Galima konfigūracijos URL klaida nustatymuose.</string>
   <string id="UnhandledHttpErr">HTTP užklausa grąžino klaidos kodą =</string>
   <string id="TrailingSlashErr">API URL pabaigoje negali būti pasvirojo brūkšnio „/“</string>
+  <string id="FetchingMenuConfig">Gaunama meniu konfigūracija...</string>
+  <string id="ExitViewTouch">Norėdami išeiti, braukite į dešinę\nPalieskite, kad pasiliktumėte</string>
+  <string id="ExitViewButtons">Norėdami išeiti, paspauskite „Atgal“.\nĮveskite, kad pasiliktumėte</string>
   <!-- Dėl nustatymų GUI -->
-  <string id="SettingsApiKey">API raktas, skirtas namų asistentui.</string>
+  <string id="SettingsApiKey">API raktas, skirtas HomeAssistant.</string>
   <string id="SettingsApiKeyPrompt">Ilgalaikis prieigos raktas.</string>
-  <string id="SettingsApiUrl">„Home Assistant“ API URL.</string>
+  <string id="SettingsApiUrl">„HomeAssistant“ API URL.</string>
   <string id="SettingsConfigUrl">Meniu konfigūravimo URL (JSON).</string>
   <string id="SettingsAppTimeout">Skirtasis laikas sekundėmis. Po šio neveiklumo laikotarpio išeikite iš programos, kad taupytumėte įrenginio akumuliatorių.</string>
   <string id="SettingsConfirmTimeout">Praėjus šiam laikui (sekundėmis), veiksmo patvirtinimo dialogo langas automatiškai uždaromas ir veiksmas atšaukiamas. Nustatykite 0, kad išjungtumėte skirtąjį laiką.</string>

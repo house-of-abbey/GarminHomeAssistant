@@ -9,7 +9,7 @@
    tested on a Venu 2 device. The source code is provided at:
               https://github.com/house-of-abbey/GarminHomeAssistant.
 
-   P A Abbey & J D Abbey, 31 October 2023
+   P A Abbey & J D Abbey & SomeoneOnEarth, 31 October 2023
 
 -->
 
@@ -19,7 +19,7 @@
 -->
 
 <strings>
-  <string id="AppName">HomeAssistant</string>
+  <string id="AppName" scope="glance">HomeAssistant</string>
   <string id="MenuItemOn">Vklopljeno</string>
   <string id="MenuItemOff">Izključeno</string>
   <string id="MenuItemTap">Tapnite</string>
@@ -37,10 +37,13 @@
   <string id="ConfigUrlNotFound">URL-ja ni bilo mogoče najti. Morebitna napaka URL-ja konfiguracije v nastavitvah.</string>
   <string id="UnhandledHttpErr">Zahteva HTTP je vrnila kodo napake =</string>
   <string id="TrailingSlashErr">URL API-ja ne sme imeti končne poševnice '/'</string>
+  <string id="FetchingMenuConfig">Pridobivanje konfiguracije menija..</string>
+  <string id="ExitViewTouch">Povlecite v desno za izhod\nDotaknite se, da ostanete</string>
+  <string id="ExitViewButtons">Pritisnite Nazaj za izhod\nVstopite, da ostanete</string>
   <!-- Za nastavitve GUI -->
-  <string id="SettingsApiKey">API ključ za domačega pomočnika.</string>
+  <string id="SettingsApiKey">API ključ za HomeAssistant.</string>
   <string id="SettingsApiKeyPrompt">Dolgoživ dostopni žeton.</string>
-  <string id="SettingsApiUrl">URL za API za domačega pomočnika.</string>
+  <string id="SettingsApiUrl">URL za HomeAssistant API.</string>
   <string id="SettingsConfigUrl">URL za konfiguracijo menija (JSON).</string>
   <string id="SettingsAppTimeout">Časovna omejitev v sekundah. Po tem obdobju nedejavnosti zaprite aplikacijo, da prihranite baterijo naprave.</string>
   <string id="SettingsConfirmTimeout">Po tem času (v sekundah) se potrditveno pogovorno okno za dejanje samodejno zapre in dejanje je preklicano. Nastavite na 0, da onemogočite časovno omejitev.</string>

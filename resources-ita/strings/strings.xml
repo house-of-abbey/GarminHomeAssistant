@@ -9,7 +9,7 @@
    tested on a Venu 2 device. The source code is provided at:
               https://github.com/house-of-abbey/GarminHomeAssistant.
 
-   P A Abbey & J D Abbey, 31 October 2023
+   P A Abbey & J D Abbey & SomeoneOnEarth, 31 October 2023
 
 -->
 
@@ -19,7 +19,7 @@
 -->
 
 <strings>
-  <string id="AppName">HomeAssistant</string>
+  <string id="AppName" scope="glance">HomeAssistant</string>
   <string id="MenuItemOn">SU</string>
   <string id="MenuItemOff">Spento</string>
   <string id="MenuItemTap">Rubinetto</string>
@@ -37,10 +37,13 @@
   <string id="ConfigUrlNotFound">URL non trovato. Potenziale errore dell'URL di configurazione nelle impostazioni.</string>
   <string id="UnhandledHttpErr">La richiesta HTTP ha restituito il codice di errore =</string>
   <string id="TrailingSlashErr">L'URL dell'API non deve avere una barra finale "/"</string>
+  <string id="FetchingMenuConfig">Recupero configurazione menu..</string>
+  <string id="ExitViewTouch">Scorri verso destra per uscire\nTocca per restare</string>
+  <string id="ExitViewButtons">Premi Indietro per uscire\nInvio per restare</string>
   <!-- Per la GUI delle impostazioni -->
-  <string id="SettingsApiKey">Chiave API per Home Assistant.</string>
+  <string id="SettingsApiKey">Chiave API per HomeAssistant.</string>
   <string id="SettingsApiKeyPrompt">Token di accesso di lunga durata.</string>
-  <string id="SettingsApiUrl">URL per l'API Home Assistant.</string>
+  <string id="SettingsApiUrl">URL per l'API HomeAssistant.</string>
   <string id="SettingsConfigUrl">URL per la configurazione del menu (JSON).</string>
   <string id="SettingsAppTimeout">Timeout in secondi. Uscire dall'applicazione dopo questo periodo di inattività per risparmiare la batteria del dispositivo.</string>
   <string id="SettingsConfirmTimeout">Trascorso questo tempo (in secondi), una finestra di dialogo di conferma per un'azione viene chiusa automaticamente e l'azione viene annullata. Impostare su 0 per disabilitare il timeout.</string>

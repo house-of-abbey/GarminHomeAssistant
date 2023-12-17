@@ -9,7 +9,7 @@
    tested on a Venu 2 device. The source code is provided at:
               https://github.com/house-of-abbey/GarminHomeAssistant.
 
-   P A Abbey & J D Abbey, 31 October 2023
+   P A Abbey & J D Abbey & SomeoneOnEarth, 31 October 2023
 
 -->
 
@@ -19,7 +19,7 @@
 -->
 
 <strings>
-  <string id="AppName">HomeAssistant</string>
+  <string id="AppName" scope="glance">HomeAssistant</string>
   <string id="MenuItemOn">Pada</string>
   <string id="MenuItemOff">Mati</string>
   <string id="MenuItemTap">Mengetuk</string>
@@ -37,10 +37,13 @@
   <string id="ConfigUrlNotFound">URL tidak ditemukan. Potensi kesalahan URL Konfigurasi dalam pengaturan.</string>
   <string id="UnhandledHttpErr">Permintaan HTTP mengembalikan kode kesalahan =</string>
   <string id="TrailingSlashErr">URL API tidak boleh memiliki garis miring '/'</string>
+  <string id="FetchingMenuConfig">Mengambil Konfigurasi Menu..</string>
+  <string id="ExitViewTouch">Geser ke Kanan untuk Keluar\nKetuk untuk Tetap</string>
+  <string id="ExitViewButtons">Tekan Kembali untuk Keluar\nMasuk untuk Tetap</string>
   <!-- Untuk pengaturan GUI -->
-  <string id="SettingsApiKey">Kunci API untuk Asisten Rumah.</string>
+  <string id="SettingsApiKey">Kunci API untuk HomeAssistant.</string>
   <string id="SettingsApiKeyPrompt">Token Akses Berumur Panjang.</string>
-  <string id="SettingsApiUrl">URL untuk API Asisten Rumah.</string>
+  <string id="SettingsApiUrl">URL untuk API HomeAssistant.</string>
   <string id="SettingsConfigUrl">URL untuk konfigurasi menu (JSON).</string>
   <string id="SettingsAppTimeout">Batas waktu dalam hitungan detik. Keluar dari aplikasi setelah periode tidak aktif ini untuk menghemat baterai perangkat.</string>
   <string id="SettingsConfirmTimeout">Setelah waktu ini (dalam detik), dialog konfirmasi untuk suatu tindakan secara otomatis ditutup dan tindakan tersebut dibatalkan. Setel ke 0 untuk menonaktifkan batas waktu.</string>

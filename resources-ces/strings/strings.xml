@@ -9,7 +9,7 @@
    tested on a Venu 2 device. The source code is provided at:
               https://github.com/house-of-abbey/GarminHomeAssistant.
 
-   P A Abbey & J D Abbey, 31 October 2023
+   P A Abbey & J D Abbey & SomeoneOnEarth, 31 October 2023
 
 -->
 
@@ -19,7 +19,7 @@
 -->
 
 <strings>
-  <string id="AppName">HomeAssistant</string>
+  <string id="AppName" scope="glance">HomeAssistant</string>
   <string id="MenuItemOn">Na</string>
   <string id="MenuItemOff">Vypnuto</string>
   <string id="MenuItemTap">Klepněte</string>
@@ -37,10 +37,13 @@
   <string id="ConfigUrlNotFound">Adresa URL nenalezena. Potenciální chyba konfigurační adresy URL v nastavení.</string>
   <string id="UnhandledHttpErr">Požadavek HTTP vrátil kód chyby =</string>
   <string id="TrailingSlashErr">Adresa URL rozhraní API nesmí mít koncové lomítko „/“</string>
+  <string id="FetchingMenuConfig">Načítání konfigurace nabídky...</string>
+  <string id="ExitViewTouch">Přejetím prstem doprava ukončíte\nKlepnutím zůstanete</string>
+  <string id="ExitViewButtons">Stisknutím Zpět ukončíte\nVstupte a zůstanete</string>
   <!-- Pro nastavení GUI -->
-  <string id="SettingsApiKey">Klíč API pro domácího asistenta.</string>
+  <string id="SettingsApiKey">Klíč API pro HomeAssistant.</string>
   <string id="SettingsApiKeyPrompt">Přístupový token s dlouhou životností.</string>
-  <string id="SettingsApiUrl">URL pro Home Assistant API.</string>
+  <string id="SettingsApiUrl">URL pro HomeAssistant API.</string>
   <string id="SettingsConfigUrl">Adresa URL pro konfiguraci nabídky (JSON).</string>
   <string id="SettingsAppTimeout">Časový limit v sekundách. Po této době nečinnosti aplikaci ukončete, abyste šetřili baterii zařízení.</string>
   <string id="SettingsConfirmTimeout">Po uplynutí této doby (v sekundách) se dialog pro potvrzení akce automaticky zavře a akce se zruší. Nastavením na 0 deaktivujete časový limit.</string>

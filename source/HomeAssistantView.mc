@@ -9,7 +9,7 @@
 // tested on a Venu 2 device. The source code is provided at:
 //            https://github.com/house-of-abbey/GarminHomeAssistant.
 //
-// P A Abbey & J D Abbey, 31 October 2023
+// P A Abbey & J D Abbey & SomeoneOnEarth, 31 October 2023
 //
 //
 // Description:
@@ -21,6 +21,7 @@
 using Toybox.Application;
 using Toybox.Lang;
 using Toybox.Graphics;
+using Toybox.System;
 using Toybox.WatchUi;
 
 class HomeAssistantView extends WatchUi.Menu2 {
@@ -103,12 +104,23 @@ class HomeAssistantView extends WatchUi.Menu2 {
 //
 class HomeAssistantViewDelegate extends WatchUi.Menu2InputDelegate {
 
-    function initialize() {
+    private var mIsRootMenuView = false;
+
+    function initialize(isRootMenuView as Lang.Boolean) {
         Menu2InputDelegate.initialize();
+        mIsRootMenuView = isRootMenuView;
     }
 
     function onBack() {
         getApp().getQuitTimer().reset();
+
+        if (mIsRootMenuView){
+            // If its started from glance or as an activity, directly exit the widget/app
+            // (on widgets without glance, this exit() won`t do anything,
+            // so the base view will be shown instead, through the popView below this "if body")
+            System.exit();
+        } 
+
         WatchUi.popView(WatchUi.SLIDE_RIGHT);
     }
 
@@ -147,15 +159,13 @@ class HomeAssistantViewDelegate extends WatchUi.Menu2InputDelegate {
             if (Globals.scDebug) {
                 System.println("Menu: " + haMenuItem.getLabel() + " " + haMenuItem.getId());
             }
-            // No delegate state to be amended, so re-use 'self'.
-            WatchUi.pushView(haMenuItem.getMenuView(), self, WatchUi.SLIDE_LEFT);
+            WatchUi.pushView(haMenuItem.getMenuView(), new HomeAssistantViewDelegate(false), WatchUi.SLIDE_LEFT);
         } else if (item instanceof HomeAssistantViewIconMenuItem) {
             var haMenuItem = item as HomeAssistantViewIconMenuItem;
             if (Globals.scDebug) {
                 System.println("IconMenu: " + haMenuItem.getLabel() + " " + haMenuItem.getId());
             }
-            // No delegate state to be amended, so re-use 'self'.
-            WatchUi.pushView(haMenuItem.getMenuView(), self, WatchUi.SLIDE_LEFT);
+            WatchUi.pushView(haMenuItem.getMenuView(), new HomeAssistantViewDelegate(false), WatchUi.SLIDE_LEFT);
         } else {
             if (Globals.scDebug) {
                 System.println(item.getLabel() + " " + item.getId());

@@ -9,7 +9,7 @@
    tested on a Venu 2 device. The source code is provided at:
               https://github.com/house-of-abbey/GarminHomeAssistant.
 
-   P A Abbey & J D Abbey, 31 October 2023
+   P A Abbey & J D Abbey & SomeoneOnEarth, 31 October 2023
 
 -->
 
@@ -19,7 +19,7 @@
 -->
 
 <strings>
-  <string id="AppName">HomeAssistant</string>
+  <string id="AppName" scope="glance">HomeAssistant</string>
   <string id="MenuItemOn">Увімкнено</string>
   <string id="MenuItemOff">Вимкнено</string>
   <string id="MenuItemTap">Торкніться</string>
@@ -37,10 +37,13 @@
   <string id="ConfigUrlNotFound">URL не знайдено. Потенційна помилка URL-адреси конфігурації в налаштуваннях.</string>
   <string id="UnhandledHttpErr">Запит HTTP повернув код помилки =</string>
   <string id="TrailingSlashErr">URL-адреса API не повинна містити косу риску '/'</string>
+  <string id="FetchingMenuConfig">Отримання конфігурації меню..</string>
+  <string id="ExitViewTouch">Проведіть праворуч, щоб вийти\nТоркніться, щоб залишитися</string>
+  <string id="ExitViewButtons">Натисніть «Назад», щоб вийти\nВведіть, щоб залишитися</string>
   <!-- Для налаштування GUI -->
-  <string id="SettingsApiKey">Ключ API для домашнього помічника.</string>
+  <string id="SettingsApiKey">Ключ API для HomeAssistant.</string>
   <string id="SettingsApiKeyPrompt">Довговічний маркер доступу.</string>
-  <string id="SettingsApiUrl">URL для Home Assistant API.</string>
+  <string id="SettingsApiUrl">URL для HomeAssistant API.</string>
   <string id="SettingsConfigUrl">URL-адреса для налаштування меню (JSON).</string>
   <string id="SettingsAppTimeout">Час очікування в секундах. Вийдіть із програми після цього періоду бездіяльності, щоб заощадити батарею пристрою.</string>
   <string id="SettingsConfirmTimeout">Після закінчення цього часу (у секундах) діалогове вікно підтвердження дії автоматично закривається, а дія скасовується. Встановіть 0, щоб вимкнути тайм-аут.</string>

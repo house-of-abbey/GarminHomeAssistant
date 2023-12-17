@@ -9,7 +9,7 @@
    tested on a Venu 2 device. The source code is provided at:
               https://github.com/house-of-abbey/GarminHomeAssistant.
 
-   P A Abbey & J D Abbey, 31 October 2023
+   P A Abbey & J D Abbey & SomeoneOnEarth, 31 October 2023
 
 -->
 
@@ -19,7 +19,7 @@
 -->
 
 <strings>
-  <string id="AppName">HomeAssistant</string>
+  <string id="AppName" scope="glance">HomeAssistant</string>
   <string id="MenuItemOn">ActivÃ©</string>
   <string id="MenuItemOff">Désactivé</string>
   <string id="MenuItemTap">Clic</string>
@@ -37,10 +37,13 @@
   <string id="ConfigUrlNotFound">URL introuvable. Erreur potentielle d'URL de configuration dans les paramètres.</string>
   <string id="UnhandledHttpErr">La requête HTTP a renvoyé un code d'erreur =</string>
   <string id="TrailingSlashErr">L'URL de l'API ne doit pas comporter de barre oblique finale '/'</string>
+  <string id="FetchingMenuConfig">Récupération de la configuration du menu.</string>
+  <string id="ExitViewTouch">Balayez vers la droite pour quitter\nAppuyez pour rester</string>
+  <string id="ExitViewButtons">Appuyez sur Retour pour quitter\nEntrez pour rester</string>
   <!-- Pour l'interface graphique des paramètres -->
-  <string id="SettingsApiKey">Clé API pour Home Assistant.</string>
+  <string id="SettingsApiKey">Clé API pour HomeAssistant.</string>
   <string id="SettingsApiKeyPrompt">Jeton d'accès de longue durée.</string>
-  <string id="SettingsApiUrl">URL de l’API Home Assistant.</string>
+  <string id="SettingsApiUrl">URL de l’API HomeAssistant.</string>
   <string id="SettingsConfigUrl">URL de configuration des menus (JSON).</string>
   <string id="SettingsAppTimeout">Délai d'expiration en secondes. Quittez l'application après cette période d'inactivité pour économiser la batterie de l'appareil.</string>
   <string id="SettingsConfirmTimeout">Passé ce délai (en secondes), une boîte de dialogue de confirmation d'une action se ferme automatiquement et l'action est annulée. Réglez sur 0 pour désactiver le délai d'attente.</string>

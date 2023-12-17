@@ -9,7 +9,7 @@
    tested on a Venu 2 device. The source code is provided at:
               https://github.com/house-of-abbey/GarminHomeAssistant.
 
-   P A Abbey & J D Abbey, 31 October 2023
+   P A Abbey & J D Abbey & SomeoneOnEarth, 31 October 2023
 
 -->
 
@@ -19,7 +19,7 @@
 -->
 
 <strings>
-  <string id="AppName">HomeAssistant</string>
+  <string id="AppName" scope="glance">HomeAssistant</string>
   <string id="MenuItemOn">على</string>
   <string id="MenuItemOff">عن</string>
   <string id="MenuItemTap">مقبض</string>
@@ -37,10 +37,13 @@
   <string id="ConfigUrlNotFound">لم يتم العثور على عنوان URL. خطأ محتمل في عنوان URL للتكوين في الإعدادات.</string>
   <string id="UnhandledHttpErr">قام طلب HTTP بإرجاع رمز الخطأ =</string>
   <string id="TrailingSlashErr">يجب ألا يحتوي عنوان URL لواجهة برمجة التطبيقات على شرطة مائلة لاحقة '/'</string>
+  <string id="FetchingMenuConfig">جارٍ جلب تكوين القائمة..</string>
+  <string id="ExitViewTouch">مرّر سريعًا إلى اليمين للخروج\nانقر للبقاء</string>
+  <string id="ExitViewButtons">اضغط على "الرجوع للخروج"\nأدخل للبقاء</string>
   <!-- لإعدادات واجهة المستخدم الرسومية -->
-  <string id="SettingsApiKey">مفتاح API لمساعد المنزل.</string>
+  <string id="SettingsApiKey">مفتاح API لـ HomeAssistant.</string>
   <string id="SettingsApiKeyPrompt">رمز الوصول طويل الأمد.</string>
-  <string id="SettingsApiUrl">عنوان URL لواجهة برمجة تطبيقات Home Assistant.</string>
+  <string id="SettingsApiUrl">عنوان URL لواجهة برمجة تطبيقات HomeAssistant.</string>
   <string id="SettingsConfigUrl">عنوان URL لتكوين القائمة (JSON).</string>
   <string id="SettingsAppTimeout">المهلة بالثواني. قم بالخروج من التطبيق بعد هذه الفترة من عدم النشاط لحفظ بطارية الجهاز.</string>
   <string id="SettingsConfirmTimeout">بعد هذا الوقت (بالثواني)، يتم إغلاق مربع حوار تأكيد الإجراء تلقائيًا ويتم إلغاء الإجراء. اضبط على 0 لتعطيل المهلة.</string>
