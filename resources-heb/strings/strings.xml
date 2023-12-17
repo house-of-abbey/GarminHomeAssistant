@@ -19,7 +19,7 @@
 -->
 
 <strings>
-  <string id="AppName">HomeAssistant</string>
+  <string id="AppName" scope="glance">HomeAssistant</string>
   <string id="MenuItemOn">עַל</string>
   <string id="MenuItemOff">כבוי</string>
   <string id="MenuItemTap">בֶּרֶז</string>
@@ -37,4 +37,7 @@
   <string id="ConfigUrlNotFound">כתובת האתר לא נמצאה. שגיאת כתובת אתר פוטנציאלית של תצורה בהגדרות.</string>
   <string id="UnhandledHttpErr">בקשת HTTP החזירה קוד שגיאה =</string>
   <string id="TrailingSlashErr">כתובת ה-API לא חייבת לכלול לוכסן אחורי '/'</string>
+  <string id="FetchingMenuConfig">מביא את תצורת התפריט...</string>
+  <string id="ExitViewTouch">החלק ימינה כדי לצאת\nהקש כדי להישאר</string>
+  <string id="ExitViewButtons">לחץ על חזרה ליציאה\nEnter כדי להישאר</string>
 </strings>

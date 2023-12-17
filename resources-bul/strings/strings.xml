@@ -19,7 +19,7 @@
 -->
 
 <strings>
-  <string id="AppName">HomeAssistant</string>
+  <string id="AppName" scope="glance">HomeAssistant</string>
   <string id="MenuItemOn">На</string>
   <string id="MenuItemOff">Изкл</string>
   <string id="MenuItemTap">Докоснете</string>
@@ -37,4 +37,7 @@
   <string id="ConfigUrlNotFound">URL не е намерен. Потенциална грешка в URL адреса на конфигурацията в настройките.</string>
   <string id="UnhandledHttpErr">HTTP заявката върна код на грешка =</string>
   <string id="TrailingSlashErr">URL адресът на API не трябва да има наклонена черта '/' в края</string>
+  <string id="FetchingMenuConfig">Извличане на конфигурацията на менюто..</string>
+  <string id="ExitViewTouch">Плъзнете надясно, за да излезете\nДокоснете, за да останете</string>
+  <string id="ExitViewButtons">Натиснете Назад, за да излезете\nВлезте, за да останете</string>
 </strings>

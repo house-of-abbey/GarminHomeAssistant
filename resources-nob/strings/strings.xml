@@ -19,7 +19,7 @@
 -->
 
 <strings>
-  <string id="AppName">HomeAssistant</string>
+  <string id="AppName" scope="glance">HomeAssistant</string>
   <string id="MenuItemOn">På</string>
   <string id="MenuItemOff">Av</string>
   <string id="MenuItemTap">Trykk på</string>
@@ -37,4 +37,7 @@
   <string id="ConfigUrlNotFound">Finner ikke URL. Potensiell konfigurasjons-URL-feil i innstillingene.</string>
   <string id="UnhandledHttpErr">HTTP-forespørsel returnerte feilkode =</string>
   <string id="TrailingSlashErr">API URL må ikke ha en etterfølgende skråstrek '/'</string>
+  <string id="FetchingMenuConfig">Henter menykonfigurasjon..</string>
+  <string id="ExitViewTouch">Sveip til høyre for å avslutte\nTrykk for å bli</string>
+  <string id="ExitViewButtons">Trykk Tilbake for å avslutte\nEnter for å bli</string>
 </strings>

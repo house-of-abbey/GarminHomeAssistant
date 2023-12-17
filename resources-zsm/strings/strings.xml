@@ -19,7 +19,7 @@
 -->
 
 <strings>
-  <string id="AppName">HomeAssistant</string>
+  <string id="AppName" scope="glance">HomeAssistant</string>
   <string id="MenuItemOn">hidup</string>
   <string id="MenuItemOff">Mati</string>
   <string id="MenuItemTap">Ketik</string>
@@ -37,4 +37,7 @@
   <string id="ConfigUrlNotFound">URL tidak ditemui. Ralat URL Konfigurasi Potensi dalam tetapan.</string>
   <string id="UnhandledHttpErr">Permintaan HTTP mengembalikan kod ralat =</string>
   <string id="TrailingSlashErr">URL API tidak boleh mempunyai garis miring '/'</string>
+  <string id="FetchingMenuConfig">Mengambil Konfigurasi Menu..</string>
+  <string id="ExitViewTouch">Leret ke Kanan untuk Keluar\nKetik untuk Kekal</string>
+  <string id="ExitViewButtons">Tekan Kembali untuk Keluar\nMasuk untuk Kekal</string>
 </strings>

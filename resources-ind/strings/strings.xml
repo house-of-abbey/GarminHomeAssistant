@@ -19,7 +19,7 @@
 -->
 
 <strings>
-  <string id="AppName">HomeAssistant</string>
+  <string id="AppName" scope="glance">HomeAssistant</string>
   <string id="MenuItemOn">Pada</string>
   <string id="MenuItemOff">Mati</string>
   <string id="MenuItemTap">Mengetuk</string>
@@ -31,10 +31,13 @@
   <string id="NoMenu">Kesalahan Pengambilan Menu</string>
   <string id="NoAPIKey">Tidak ada kunci API di pengaturan aplikasi</string>
   <string id="NoApiUrl">Tidak ada URL API di pengaturan aplikasi</string>
-  <string id="NoConfigUrl">Tidak ada URL konfigurasi dalam pengaturan aplikasi</string>
+  <string id="NoConfigUrl">Tidak ada URL konfigurasi di pengaturan aplikasi</string>
   <string id="ApiFlood">Panggilan API terlalu cepat. Harap memperlambat permintaan Anda.</string>
   <string id="ApiUrlNotFound">URL tidak ditemukan. Potensi kesalahan URL API dalam pengaturan.</string>
   <string id="ConfigUrlNotFound">URL tidak ditemukan. Potensi kesalahan URL Konfigurasi dalam pengaturan.</string>
   <string id="UnhandledHttpErr">Permintaan HTTP mengembalikan kode kesalahan =</string>
   <string id="TrailingSlashErr">URL API tidak boleh memiliki garis miring '/'</string>
+  <string id="FetchingMenuConfig">Mengambil Konfigurasi Menu..</string>
+  <string id="ExitViewTouch">Geser ke Kanan untuk Keluar\nKetuk untuk Tetap</string>
+  <string id="ExitViewButtons">Tekan Kembali untuk Keluar\nMasuk untuk Tetap</string>
 </strings>

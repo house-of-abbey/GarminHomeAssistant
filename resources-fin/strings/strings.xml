@@ -19,7 +19,7 @@
 -->
 
 <strings>
-  <string id="AppName">HomeAssistant</string>
+  <string id="AppName" scope="glance">HomeAssistant</string>
   <string id="MenuItemOn">Päällä</string>
   <string id="MenuItemOff">Vinossa</string>
   <string id="MenuItemTap">Napauta</string>
@@ -37,4 +37,7 @@
   <string id="ConfigUrlNotFound">URL-osoitetta ei löydy. Mahdollinen konfigurointi-URL-virhe asetuksissa.</string>
   <string id="UnhandledHttpErr">HTTP-pyyntö palautti virhekoodin =</string>
   <string id="TrailingSlashErr">API-URL-osoitteessa ei saa olla perässä olevaa kauttaviivaa '/'</string>
+  <string id="FetchingMenuConfig">Haetaan valikon asetuksia...</string>
+  <string id="ExitViewTouch">Poistu pyyhkäisemällä oikealle\nPysy napauttamalla</string>
+  <string id="ExitViewButtons">Poistu painamalla Takaisin\nSyötä jäädäksesi</string>
 </strings>
