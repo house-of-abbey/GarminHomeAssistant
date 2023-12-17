@@ -9,7 +9,7 @@
    tested on a Venu 2 device. The source code is provided at:
               https://github.com/house-of-abbey/GarminHomeAssistant.
 
-   P A Abbey & J D Abbey & SomeoneOnEarth, 31 October 2023
+   P A Abbey & J D Abbey & Someone0nEarth, 31 October 2023
 
 -->
 
@@ -40,4 +40,13 @@
   <string id="FetchingMenuConfig">正在获取菜单配置..</string>
   <string id="ExitViewTouch">向右滑动即可退出\n点击即可停留</string>
   <string id="ExitViewButtons">按回车键退出\n按回车键继续</string>
+  <!-- 对于设置 GUI -->
+  <string id="SettingsApiKey">HomeAssistant 的 API 密钥。</string>
+  <string id="SettingsApiKeyPrompt">长期访问令牌。</string>
+  <string id="SettingsApiUrl">HomeAssistant API 的 URL。</string>
+  <string id="SettingsConfigUrl">菜单配置的 URL (JSON)。</string>
+  <string id="SettingsAppTimeout">超时（以秒为单位）。闲置一段时间后退出应用程序以节省设备电池。</string>
+  <string id="SettingsConfirmTimeout">在此时间（以秒为单位）之后，操作的确认对话框将自动关闭并取消该操作。设置为 0 以禁用超时。</string>
+  <string id="SettingsUi">用图标（关闭）或标签（打开）表示类型。</string>
+  <string id="SettingsTextAlign">左（关）或右（开）菜单对齐。</string>
 </strings>

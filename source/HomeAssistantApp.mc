@@ -9,7 +9,7 @@
 // tested on a Venu 2 device. The source code is provided at:
 //            https://github.com/house-of-abbey/GarminHomeAssistant.
 //
-// P A Abbey & J D Abbey & SomeoneOnEarth, 31 October 2023
+// P A Abbey & J D Abbey & Someone0nEarth, 31 October 2023
 //
 //
 // Description:
@@ -100,7 +100,7 @@ class HomeAssistantApp extends Application.AppBase {
         strConfigUrlNotFound = WatchUi.loadResource($.Rez.Strings.ConfigUrlNotFound);
         strUnhandledHttpErr  = WatchUi.loadResource($.Rez.Strings.UnhandledHttpErr);
         strTrailingSlashErr  = WatchUi.loadResource($.Rez.Strings.TrailingSlashErr);
-        mQuitTimer            = new QuitTimer();
+        mQuitTimer           = new QuitTimer();
 
         var api_url = Properties.getValue("api_url") as Lang.String;
 

@@ -9,7 +9,7 @@
    tested on a Venu 2 device. The source code is provided at:
               https://github.com/house-of-abbey/GarminHomeAssistant.
 
-   P A Abbey & J D Abbey & SomeoneOnEarth, 31 October 2023
+   P A Abbey & J D Abbey & Someone0nEarth, 31 October 2023
 
 -->
 
@@ -40,4 +40,13 @@
   <string id="FetchingMenuConfig">Recupero configurazione menu..</string>
   <string id="ExitViewTouch">Scorri verso destra per uscire\nTocca per restare</string>
   <string id="ExitViewButtons">Premi Indietro per uscire\nInvio per restare</string>
+  <!-- Per la GUI delle impostazioni -->
+  <string id="SettingsApiKey">Chiave API per HomeAssistant.</string>
+  <string id="SettingsApiKeyPrompt">Token di accesso di lunga durata.</string>
+  <string id="SettingsApiUrl">URL per l'API HomeAssistant.</string>
+  <string id="SettingsConfigUrl">URL per la configurazione del menu (JSON).</string>
+  <string id="SettingsAppTimeout">Timeout in secondi. Uscire dall'applicazione dopo questo periodo di inattività per risparmiare la batteria del dispositivo.</string>
+  <string id="SettingsConfirmTimeout">Trascorso questo tempo (in secondi), una finestra di dialogo di conferma per un'azione viene chiusa automaticamente e l'azione viene annullata. Impostare su 0 per disabilitare il timeout.</string>
+  <string id="SettingsUi">Rappresentazione dei tipi con icone (disattivata) o con etichette (attivata).</string>
+  <string id="SettingsTextAlign">Allineamento del menu a sinistra (spento) o a destra (acceso).</string>
 </strings>

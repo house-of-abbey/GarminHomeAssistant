@@ -9,7 +9,7 @@
    tested on a Venu 2 device. The source code is provided at:
               https://github.com/house-of-abbey/GarminHomeAssistant.
 
-   P A Abbey & J D Abbey & SomeoneOnEarth, 31 October 2023
+   P A Abbey & J D Abbey & Someone0nEarth, 31 October 2023
 
 -->
 
@@ -32,7 +32,7 @@
   <string id="NoAPIKey">Nicio cheie API în setările aplicației</string>
   <string id="NoApiUrl">Nicio adresă URL API în setările aplicației</string>
   <string id="NoConfigUrl">Nicio adresă URL de configurare în setările aplicației</string>
-  <string id="ApiFlood">Apeluri API prea rapide. Vă rugăm să încetiniți cererile dvs.</string>
+  <string id="ApiFlood">Apeluri API prea rapide. Vă rugăm să vă încetiniți solicitările.</string>
   <string id="ApiUrlNotFound">Adresa URL nu a fost găsită. Potențială eroare URL API în setări.</string>
   <string id="ConfigUrlNotFound">Adresa URL nu a fost găsită. Potențială eroare URL de configurare în setări.</string>
   <string id="UnhandledHttpErr">Solicitarea HTTP a returnat codul de eroare =</string>
@@ -40,4 +40,13 @@
   <string id="FetchingMenuConfig">Se preiau configurarea meniului...</string>
   <string id="ExitViewTouch">Glisați spre dreapta pentru a ieși\nAtingeți pentru a rămâne</string>
   <string id="ExitViewButtons">Apăsați Înapoi pentru a ieși\nIntră pentru a rămâne</string>
+  <!-- Pentru GUI de setări -->
+  <string id="SettingsApiKey">Cheie API pentru HomeAssistant.</string>
+  <string id="SettingsApiKeyPrompt">Token de acces cu viață lungă.</string>
+  <string id="SettingsApiUrl">Adresa URL pentru API-ul HomeAssistant.</string>
+  <string id="SettingsConfigUrl">URL pentru configurarea meniului (JSON).</string>
+  <string id="SettingsAppTimeout">Timeout în secunde. Ieșiți din aplicație după această perioadă de inactivitate pentru a economisi bateria dispozitivului.</string>
+  <string id="SettingsConfirmTimeout">După acest timp (în secunde), un dialog de confirmare pentru o acțiune este închis automat și acțiunea este anulată. Setați la 0 pentru a dezactiva timeout-ul.</string>
+  <string id="SettingsUi">Reprezentarea tipurilor cu pictograme (dezactivate) sau cu etichete (activate).</string>
+  <string id="SettingsTextAlign">Alinierea meniului la stânga (dezactivată) sau la dreapta (activată).</string>
 </strings>

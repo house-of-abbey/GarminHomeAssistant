@@ -9,7 +9,7 @@
    tested on a Venu 2 device. The source code is provided at:
               https://github.com/house-of-abbey/GarminHomeAssistant.
 
-   P A Abbey & J D Abbey & SomeoneOnEarth, 31 October 2023
+   P A Abbey & J D Abbey & Someone0nEarth, 31 October 2023
 
 -->
 
@@ -40,4 +40,13 @@
   <string id="FetchingMenuConfig">Pridobivanje konfiguracije menija..</string>
   <string id="ExitViewTouch">Povlecite v desno za izhod\nDotaknite se, da ostanete</string>
   <string id="ExitViewButtons">Pritisnite Nazaj za izhod\nVstopite, da ostanete</string>
+  <!-- Za nastavitve GUI -->
+  <string id="SettingsApiKey">API ključ za HomeAssistant.</string>
+  <string id="SettingsApiKeyPrompt">Dolgoživ dostopni žeton.</string>
+  <string id="SettingsApiUrl">URL za HomeAssistant API.</string>
+  <string id="SettingsConfigUrl">URL za konfiguracijo menija (JSON).</string>
+  <string id="SettingsAppTimeout">Časovna omejitev v sekundah. Po tem obdobju nedejavnosti zaprite aplikacijo, da prihranite baterijo naprave.</string>
+  <string id="SettingsConfirmTimeout">Po tem času (v sekundah) se potrditveno pogovorno okno za dejanje samodejno zapre in dejanje je preklicano. Nastavite na 0, da onemogočite časovno omejitev.</string>
+  <string id="SettingsUi">Predstavljanje tipov z ikonami (izklopljeno) ali z oznakami (vklopljeno).</string>
+  <string id="SettingsTextAlign">Leva (izklopljena) ali desna (vklopljena) poravnava menija.</string>
 </strings>

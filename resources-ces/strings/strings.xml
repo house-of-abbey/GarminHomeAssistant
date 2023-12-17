@@ -9,7 +9,7 @@
    tested on a Venu 2 device. The source code is provided at:
               https://github.com/house-of-abbey/GarminHomeAssistant.
 
-   P A Abbey & J D Abbey & SomeoneOnEarth, 31 October 2023
+   P A Abbey & J D Abbey & Someone0nEarth, 31 October 2023
 
 -->
 
@@ -40,4 +40,13 @@
   <string id="FetchingMenuConfig">Načítání konfigurace nabídky...</string>
   <string id="ExitViewTouch">Přejetím prstem doprava ukončíte\nKlepnutím zůstanete</string>
   <string id="ExitViewButtons">Stisknutím Zpět ukončíte\nVstupte a zůstanete</string>
+  <!-- Pro nastavení GUI -->
+  <string id="SettingsApiKey">Klíč API pro HomeAssistant.</string>
+  <string id="SettingsApiKeyPrompt">Přístupový token s dlouhou životností.</string>
+  <string id="SettingsApiUrl">URL pro HomeAssistant API.</string>
+  <string id="SettingsConfigUrl">Adresa URL pro konfiguraci nabídky (JSON).</string>
+  <string id="SettingsAppTimeout">Časový limit v sekundách. Po této době nečinnosti aplikaci ukončete, abyste šetřili baterii zařízení.</string>
+  <string id="SettingsConfirmTimeout">Po uplynutí této doby (v sekundách) se dialog pro potvrzení akce automaticky zavře a akce se zruší. Nastavením na 0 deaktivujete časový limit.</string>
+  <string id="SettingsUi">Znázornění typů pomocí ikon (vypnuto) nebo pomocí štítků (zapnuto).</string>
+  <string id="SettingsTextAlign">Zarovnání nabídky vlevo (vypnuto) nebo vpravo (zapnuto).</string>
 </strings>

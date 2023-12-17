@@ -9,7 +9,7 @@
    tested on a Venu 2 device. The source code is provided at:
               https://github.com/house-of-abbey/GarminHomeAssistant.
 
-   P A Abbey & J D Abbey & SomeoneOnEarth, 31 October 2023
+   P A Abbey & J D Abbey & Someone0nEarth, 31 October 2023
 
 -->
 
@@ -40,4 +40,13 @@
   <string id="FetchingMenuConfig">Notiek izvēlnes konfigurācijas iegūšana...</string>
   <string id="ExitViewTouch">Lai izietu, velciet pa labi\nPieskarieties, lai paliktu</string>
   <string id="ExitViewButtons">Noklikšķiniet uz Atpakaļ, lai izietu.\nIevadiet, lai paliktu</string>
+  <!-- Iestatījumu GUI -->
+  <string id="SettingsApiKey">API atslēga Home Assistant.</string>
+  <string id="SettingsApiKeyPrompt">Ilgmūžīgs piekļuves marķieris.</string>
+  <string id="SettingsApiUrl">HomeAssistant API URL.</string>
+  <string id="SettingsConfigUrl">URL izvēlnes konfigurācijai (JSON).</string>
+  <string id="SettingsAppTimeout">Taimauts sekundēs. Pēc šī neaktivitātes perioda izejiet no lietojumprogrammas, lai taupītu ierīces akumulatoru.</string>
+  <string id="SettingsConfirmTimeout">Pēc šī laika (sekundēs) tiek automātiski aizvērts darbības apstiprinājuma dialoglodziņš un darbība tiek atcelta. Iestatiet uz 0, lai atspējotu taimautu.</string>
+  <string id="SettingsUi">Apzīmē veidus ar ikonām (izslēgts) vai ar etiķetēm (ieslēgts).</string>
+  <string id="SettingsTextAlign">Kreisā (izslēgta) vai labā (ieslēgta) izvēlnes līdzināšana.</string>
 </strings>

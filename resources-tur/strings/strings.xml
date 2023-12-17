@@ -9,7 +9,7 @@
    tested on a Venu 2 device. The source code is provided at:
               https://github.com/house-of-abbey/GarminHomeAssistant.
 
-   P A Abbey & J D Abbey & SomeoneOnEarth, 31 October 2023
+   P A Abbey & J D Abbey & Someone0nEarth, 31 October 2023
 
 -->
 
@@ -36,8 +36,17 @@
   <string id="ApiUrlNotFound">URL bulunamadı. Ayarlarda olası API URL hatası.</string>
   <string id="ConfigUrlNotFound">URL bulunamadı. Ayarlarda Olası Yapılandırma URL'si hatası.</string>
   <string id="UnhandledHttpErr">HTTP isteği hata kodunu döndürdü =</string>
-  <string id="TrailingSlashErr">API URL'sinin sonunda '/' eğik çizgi olmamalıdır</string>
+  <string id="TrailingSlashErr">API URL'sinin sonunda eğik çizgi '/' olmamalıdır</string>
   <string id="FetchingMenuConfig">Menü Yapılandırması alınıyor..</string>
   <string id="ExitViewTouch">Çıkmak için Sağa Kaydırın\nKalmak için Dokunun</string>
   <string id="ExitViewButtons">Çıkış için Geri tuşuna basın\nKalmak için Enter'a basın</string>
+  <!-- Ayarlar GUI'si için -->
+  <string id="SettingsApiKey">HomeAssistant için API Anahtarı.</string>
+  <string id="SettingsApiKeyPrompt">Uzun Ömürlü Erişim Jetonu.</string>
+  <string id="SettingsApiUrl">HomeAssistant API'sinin URL'si.</string>
+  <string id="SettingsConfigUrl">Menü yapılandırmasının URL'si (JSON).</string>
+  <string id="SettingsAppTimeout">Saniye cinsinden zaman aşımı. Cihazın pilinden tasarruf etmek için bu süre boyunca işlem yapılmadığında uygulamadan çıkın.</string>
+  <string id="SettingsConfirmTimeout">Bu sürenin sonunda (saniye olarak), bir eyleme ilişkin onay iletişim kutusu otomatik olarak kapatılır ve eylem iptal edilir. Zaman aşımını devre dışı bırakmak için 0'a ayarlayın.</string>
+  <string id="SettingsUi">Türleri simgelerle (kapalı) veya etiketlerle (açık) temsil etme.</string>
+  <string id="SettingsTextAlign">Sol (kapalı) veya Sağ (açık) Menü Hizalaması.</string>
 </strings>

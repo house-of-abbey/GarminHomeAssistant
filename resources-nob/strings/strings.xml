@@ -9,7 +9,7 @@
    tested on a Venu 2 device. The source code is provided at:
               https://github.com/house-of-abbey/GarminHomeAssistant.
 
-   P A Abbey & J D Abbey & SomeoneOnEarth, 31 October 2023
+   P A Abbey & J D Abbey & Someone0nEarth, 31 October 2023
 
 -->
 
@@ -40,4 +40,13 @@
   <string id="FetchingMenuConfig">Henter menykonfigurasjon..</string>
   <string id="ExitViewTouch">Sveip til høyre for å avslutte\nTrykk for å bli</string>
   <string id="ExitViewButtons">Trykk Tilbake for å avslutte\nEnter for å bli</string>
+  <!-- For innstillingene GUI -->
+  <string id="SettingsApiKey">API-nøkkel for HomeAssistant.</string>
+  <string id="SettingsApiKeyPrompt">Langlevd tilgangstoken.</string>
+  <string id="SettingsApiUrl">URL for HomeAssistant API.</string>
+  <string id="SettingsConfigUrl">URL for menykonfigurasjon (JSON).</string>
+  <string id="SettingsAppTimeout">Tidsavbrudd i sekunder. Avslutt applikasjonen etter denne perioden med inaktivitet for å spare enhetens batteri.</string>
+  <string id="SettingsConfirmTimeout">Etter denne tiden (i sekunder), lukkes en bekreftelsesdialog for en handling automatisk og handlingen avbrytes. Sett til 0 for å deaktivere tidsavbruddet.</string>
+  <string id="SettingsUi">Representerer typer med ikoner (av) eller med etiketter (på).</string>
+  <string id="SettingsTextAlign">Venstre (av) eller Høyre (på) Menyjustering.</string>
 </strings>

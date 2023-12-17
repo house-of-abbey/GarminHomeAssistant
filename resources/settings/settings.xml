@@ -8,15 +8,15 @@
    tested on a Venu 2 device. The source code is provided at:
               https://github.com/house-of-abbey/GarminHomeAssistant.
 
-   P A Abbey & J D Abbey & SomeoneOnEarth, 31 October 2023
+   P A Abbey & J D Abbey & Someone0nEarth, 31 October 2023
 
 -->
 
 <settings>
   <setting
     propertyKey="@Properties.api_key"
-    title="API Key for Home Assistant"
-    prompt="Long-Lived Access Token"
+    title="@Strings.SettingsApiKey"
+    prompt="@Strings.SettingsApiKeyPrompt"
   >
     <settingConfig
       type="alphaNumeric"
@@ -25,7 +25,7 @@
 
   <setting
     propertyKey="@Properties.api_url"
-    title="URL for Home Assistant API"
+    title="@Strings.SettingsApiUrl"
     prompt="https://homeassistant.local/api"
   >
     <settingConfig
@@ -35,7 +35,7 @@
 
   <setting
     propertyKey="@Properties.config_url"
-    title="URL for menu configuration (JSON)"
+    title="@Strings.SettingsConfigUrl"
     prompt="https://homeassistant.local/local/garmin/menu.json"
   >
     <settingConfig
@@ -45,7 +45,7 @@
 
   <setting
     propertyKey="@Properties.app_timeout"
-    title="Timeout in seconds. Exit the application after this period of inactivity to save the device battery."
+    title="@Strings.SettingsAppTimeout"
   >
     <settingConfig
       type="numeric"
@@ -55,7 +55,7 @@
 
   <setting
     propertyKey="@Properties.confirm_timeout"
-    title="After this time (in seconds), a confirmation dialog for an action is automatically closed and the action is cancelled. Set to 0 to disable the timeout."
+    title="@Strings.SettingsConfirmTimeout"
   >
     <settingConfig
       type="numeric"
@@ -65,7 +65,7 @@
 
   <setting
     propertyKey="@Properties.types_representation"
-    title="Representing types with icons (off) or with labels (on)"
+    title="@Strings.SettingsUi"
   >
     <settingConfig
       type="boolean"
@@ -74,7 +74,7 @@
 
   <setting
     propertyKey="@Properties.menu_alignment"
-    title="Left (off) or Right (on) Menu Alignment"
+    title="@Strings.SettingsTextAlign"
   >
     <settingConfig
       type="boolean"

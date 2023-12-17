@@ -212,6 +212,25 @@ As a consequence of this update mechanism, if you request changes too quickly yo
 
 When you change the JSON file defining your dashboard, you must exit the application and the reopen it. It only takes a matter of a few seconds to pick up the new definition, but it is not automatic.
 
+## Submitting Corrections for Translations
+
+Initially all text has been created in English, and a [Python script](https://github.com/house-of-abbey/GarminHomeAssistant/blob/main/translate.py) (Google Translate under the hood) has been used to create the first version of all translations. We have been pleased to accept better translations from native language speakers, **thank you**. If you would like to submit improved translations, our preference is you do so via a Git pull request. If you are not comfortable doing this, then just raise an issue and someone will eventually pick the request up.
+
+In order to submit a language correction please create an XML file called `corrections.xml` in the same directory as your language containing the corrected text. The format of the XML file follows that of `strings.xml`. As an example here are some corrected French translations found in directory [`resources-fre/strings/corrections.xml`](https://github.com/house-of-abbey/GarminHomeAssistant/tree/main/resources-fre/strings/corrections.xml):
+
+```xml
+<strings>
+  <string id="MenuItemOn">Activé</string>
+  <string id="MenuItemTap">Clic</string>
+  <string id="ApiFlood">Appels API trop rapide. Veuillez signaler cette erreur avec les détails de l'appareil.</string>
+</strings>
+```
+
+The `id` attribute values are taken from the same names used in [`strings.xml`](https://github.com/house-of-abbey/GarminHomeAssistant/blob/main/resources-fre/strings/strings.xml). Not all `id` values need to be specified as missing `id`s will then use automatic translations. If the existing convention is followed then:
+
+* The Python script will use the corrections in preference to translating, and
+* Your pull request will be honoured without comment as we will take your corrections on trust.
+
 ## Version History
 
 | Version | Comment |
@@ -220,7 +239,7 @@ When you change the JSON file defining your dashboard, you must exit the applica
 |   1.1   | Updated for 54 more devices, 80 in total. Scene support. Added vibrate acknowledgement for tap-based menu items. Falls back to a custom visual confirmation in the absence of 'toast' and vibrate support. Bug fix for large menus needing status updates. |
 |   1.2   | Do not crash on zero items to update. Report unreachable URLs. Verify API URL does not have a trailing slash '/'. Increased HTTP response diagnosis. Reduced minimum API Level required from 3.3.0 to 3.1.0 to allow more device "part numbers" to be satisfied. |
 |   1.3   | Tap for scripts was working in emulation but not on some phones. Decision is to make the 'service' field in the JSON compulsory for 'tap' menu items. This is a breaking change, but for many might be a fix for something not working correctly. Improve language support, we can now accept language corrections and prevent the automated translation of strings from clobbering manually refined entries. Thank you to two new contributors. |
-|   1.4   | New lean user Interface with thanks to [SomeoneOnEarth](https://github.com/Someone0nEarth) for their contribution which is now the default. If you prefer the old style you can still select it in the settings. The provision of a 'service' tag is now not just heavily suggested by the JSON schema, it is enforced in code. With apologies to anyone suffering a breakage as a result. |
+|   1.4   | New lean user Interface with thanks to [Someone0nEarth](https://github.com/Someone0nEarth) for their contribution which is now the default. If you prefer the old style you can still select it in the settings. The provision of a 'service' tag is now not just heavily suggested by the JSON schema, it is enforced in code. With apologies to anyone suffering a breakage as a result. |
 |   1.5   | <img src="images/confirmation_view.jpg" width="200" title="Confirmation View" style="float:right"/> Added an optional confirmation dialogue view to prevent accidental execution of actions on mistaken tap. This also brings a change in the JSON schema to allow an optional field to specify that the confirmation should be used for a menu item. As we are now maturing and adding features we have decided to mitigate breaking changes to the JSON schema by being more careful to adopt the Home Assistant schema (noting there is a 1:1 mapping between YAML and JSON). This change does deprecate the top level `service` tag in favour of `tag_action` containing multiple fields including `service` & `confirm`. Users should migrate to the new format for the new functionality, but the timescale for actual deprecation are long and undecided. |
 |   1.6   | Added a user configurable 'timeout' in seconds so that when no action is taken the application automatically closes, stopping the continuous polling for changes of status and hence saving the drain on the battery. This can be disabled with timeout=0. |
 |   1.7   | Added timeout to confirmation views so that when used for security devices it does not linger when left unconfirmed. Thanks to [Jan Schneider](https://github.com/j-a-n) for the contribution. Known bug for devices not supporting [`WatchUi.getCurrentView()`](https://developer.garmin.com/connect-iq/api-docs/Toybox/WatchUi.html#getCurrentView-instance_function) API call which is only available on API Level 3.4.0, e.g. Vivoactive 4S. |

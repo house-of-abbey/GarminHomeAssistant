@@ -9,7 +9,7 @@
 // tested on a Venu 2 device. The source code is provided at:
 //            https://github.com/house-of-abbey/GarminHomeAssistant.
 //
-// P A Abbey & J D Abbey & SomeoneOnEarth, 5 December 2023
+// P A Abbey & J D Abbey & Someone0nEarth, 5 December 2023
 //
 //
 // Description:
@@ -72,14 +72,14 @@ class RootView extends ScalableView {
         });
 
          mTextAreaFetching = new WatchUi.TextArea({
-            :text              => strFetchingMenuConfig,
-            :color             => Graphics.COLOR_WHITE,
-            :font              => Graphics.FONT_XTINY,
-            :justification     => Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER,
-            :locX              => 0,
-            :locY              => 83,
-            :width             => w,
-            :height            => h - 166
+            :text          => strFetchingMenuConfig,
+            :color         => Graphics.COLOR_WHITE,
+            :font          => Graphics.FONT_XTINY,
+            :justification => Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER,
+            :locX          => 0,
+            :locY          => 83,
+            :width         => w,
+            :height        => h - 166
         });
     }
 
@@ -100,7 +100,7 @@ class RootView extends ScalableView {
 
 class RootViewDelegate extends WatchUi.BehaviorDelegate {
 
-    var mApp  as HomeAssistantApp;
+    var mApp as HomeAssistantApp;
 
     function initialize(app as HomeAssistantApp ) {
         BehaviorDelegate.initialize();

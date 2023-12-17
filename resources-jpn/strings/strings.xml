@@ -9,7 +9,7 @@
    tested on a Venu 2 device. The source code is provided at:
               https://github.com/house-of-abbey/GarminHomeAssistant.
 
-   P A Abbey & J D Abbey & SomeoneOnEarth, 31 October 2023
+   P A Abbey & J D Abbey & Someone0nEarth, 31 October 2023
 
 -->
 
@@ -40,4 +40,13 @@
   <string id="FetchingMenuConfig">メニュー構成を取得しています。</string>
   <string id="ExitViewTouch">右にスワイプして終了\nタップしてそのまま残ります</string>
   <string id="ExitViewButtons">終了するには戻るキーを押してください\n続行するには Enter キーを押してください</string>
+  <!-- 設定GUIの場合 -->
+  <string id="SettingsApiKey">ホームアシスタントの API キー。</string>
+  <string id="SettingsApiKeyPrompt">有効期間の長いアクセス トークン。</string>
+  <string id="SettingsApiUrl">ホームアシスタント API の URL。</string>
+  <string id="SettingsConfigUrl">メニュー構成の URL (JSON)。</string>
+  <string id="SettingsAppTimeout">秒単位のタイムアウト。デバイスのバッテリーを節約するために、この期間非アクティブになった後はアプリケーションを終了してください。</string>
+  <string id="SettingsConfirmTimeout">この時間 (秒単位) が経過すると、アクションの確認ダイアログが自動的に閉じられ、アクションがキャンセルされます。タイムアウトを無効にするには、0 に設定します。</string>
+  <string id="SettingsUi">タイプをアイコン (オフ) またはラベル (オン) で表します。</string>
+  <string id="SettingsTextAlign">左 (オフ) または右 (オン) メニューの配置。</string>
 </strings>

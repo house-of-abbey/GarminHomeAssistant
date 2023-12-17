@@ -9,7 +9,7 @@
    tested on a Venu 2 device. The source code is provided at:
               https://github.com/house-of-abbey/GarminHomeAssistant.
 
-   P A Abbey & J D Abbey & SomeoneOnEarth, 31 October 2023
+   P A Abbey & J D Abbey & Someone0nEarth, 31 October 2023
 
 -->
 
@@ -32,7 +32,7 @@
   <string id="NoAPIKey">Rakenduse seadetes pole API-võtit</string>
   <string id="NoApiUrl">Rakenduse seadetes pole API URL-i</string>
   <string id="NoConfigUrl">Rakenduse seadetes pole konfiguratsiooni URL-i</string>
-  <string id="ApiFlood">API-kutsed liiga kiired. Palun aeglustage taotluste esitamist.</string>
+  <string id="ApiFlood">API-kõned liiga kiired. Palun aeglustage taotluste esitamist.</string>
   <string id="ApiUrlNotFound">URL-i ei leitud. Võimalik API URL-i viga seadetes.</string>
   <string id="ConfigUrlNotFound">URL-i ei leitud. Võimalik konfiguratsiooni URL-i viga seadetes.</string>
   <string id="UnhandledHttpErr">HTTP päring tagastas veakoodi =</string>
@@ -40,4 +40,13 @@
   <string id="FetchingMenuConfig">Menüü konfiguratsiooni toomine...</string>
   <string id="ExitViewTouch">Väljumiseks pühkige paremale\nPuudutage, et jääda</string>
   <string id="ExitViewButtons">Väljumiseks vajutage Tagasi\nSisestage, et jääda</string>
+  <!-- Seadete GUI jaoks -->
+  <string id="SettingsApiKey">API-võti HomeAssistantile.</string>
+  <string id="SettingsApiKeyPrompt">Pikaealine juurdepääsuluba.</string>
+  <string id="SettingsApiUrl">HomeAssistant API URL.</string>
+  <string id="SettingsConfigUrl">URL menüü konfigureerimiseks (JSON).</string>
+  <string id="SettingsAppTimeout">Aegumine sekundites. Seadme aku säästmiseks sulgege rakendus pärast seda tegevusetusperioodi.</string>
+  <string id="SettingsConfirmTimeout">Pärast seda aega (sekundites) suletakse automaatselt toimingu kinnitusdialoog ja toiming tühistatakse. Ajalõpu keelamiseks määrake väärtusele 0.</string>
+  <string id="SettingsUi">Tüüpide tähistamine ikoonidega (väljas) või siltidega (sees).</string>
+  <string id="SettingsTextAlign">Vasak (väljas) või parem (sees) menüü joondamine.</string>
 </strings>
