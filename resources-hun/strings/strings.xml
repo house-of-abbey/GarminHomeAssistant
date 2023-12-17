@@ -38,7 +38,7 @@
   <string id="UnhandledHttpErr">A HTTP-kérés = hibakódot adott vissza</string>
   <string id="TrailingSlashErr">Az API URL-ben nem lehet perjel a „/”</string>
   <string id="FetchingMenuConfig">Menükonfiguráció lekérése...</string>
-  <string id="ExitViewTouch">Csúsztassa jobbra a kilépéshez\nKoppintson a Maradáshoz</string>
+  <string id="ExitViewTouch">Csúsztassa jobbra a kilépéshez.\nKoppintson a Maradáshoz</string>
   <string id="ExitViewButtons">Nyomja meg a Vissza gombot a kilépéshez\nEnter a Maradáshoz</string>
   <!-- A beállítások GUI-hoz -->
   <string id="SettingsApiKey">API-kulcs a HomeAssistant számára.</string>
@@ -46,7 +46,7 @@
   <string id="SettingsApiUrl">A HomeAssistant API URL-je.</string>
   <string id="SettingsConfigUrl">URL a menükonfigurációhoz (JSON).</string>
   <string id="SettingsAppTimeout">Időtúllépés másodpercben. Az eszköz akkumulátorának kímélése érdekében lépjen ki az alkalmazásból ezen inaktivitási időszak után.</string>
-  <string id="SettingsConfirmTimeout">Ezen idő letelte után (másodpercben) a művelet megerősítő párbeszédablakja automatikusan bezárul, és a művelet megszakad. Állítsa 0-ra az időtúllépés letiltásához.</string>
+  <string id="SettingsConfirmTimeout">Ezen idő elteltével (másodpercben) egy művelet megerősítő párbeszédpanele automatikusan bezárul, és a művelet megszakad. Állítsa 0-ra az időtúllépés letiltásához.</string>
   <string id="SettingsUi">A típusokat ikonokkal (kikapcsolva) vagy címkékkel (bekapcsolva) ábrázolja.</string>
   <string id="SettingsTextAlign">Balra (ki) vagy Jobbra (be) Menüigazítás.</string>
 </strings>

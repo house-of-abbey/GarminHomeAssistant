@@ -28,7 +28,7 @@
   <string id="NoPhone">Ingen telefonforbindelse</string>
   <string id="NoInternet">Ingen internetforbindelse</string>
   <string id="NoResponse">Intet svar, tjek internetforbindelse</string>
-  <string id="NoMenu">Menuhentningsfejl</string>
+  <string id="NoMenu">Fejl ved menuhentning</string>
   <string id="NoAPIKey">Ingen API-nøgle i applikationsindstillingerne</string>
   <string id="NoApiUrl">Ingen API-URL i applikationsindstillingerne</string>
   <string id="NoConfigUrl">Ingen konfigurations-URL i applikationsindstillingerne</string>
@@ -39,7 +39,7 @@
   <string id="TrailingSlashErr">API URL må ikke have en efterfølgende skråstreg '/'</string>
   <string id="FetchingMenuConfig">Henter menukonfiguration..</string>
   <string id="ExitViewTouch">Stryg til højre for at afslutte\nTryk for at blive</string>
-  <string id="ExitViewButtons">Tryk på Tilbage for at afslutte\nEnter for at blive</string>
+  <string id="ExitViewButtons">Tryk tilbage for at afslutte\nEnter for at blive</string>
   <!-- Til indstillingerne GUI -->
   <string id="SettingsApiKey">API-nøgle til HomeAssistant.</string>
   <string id="SettingsApiKeyPrompt">Adgangstoken med lang levetid.</string>

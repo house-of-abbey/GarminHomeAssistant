@@ -23,7 +23,7 @@
   <string id="MenuItemOn">An</string>
   <string id="MenuItemOff">Aus</string>
   <string id="MenuItemTap">Antippen</string>
-  <string id="MenuItemMenu">MenÃ¼</string>
+  <string id="MenuItemMenu">Menü</string>
   <string id="Confirm">Sicher?</string>
   <string id="NoPhone">Keine Telefonverbindung</string>
   <string id="NoInternet">Keine Internetverbindung</string>
@@ -35,11 +35,11 @@
   <string id="ApiFlood">API-Aufrufe zu schnell. Bitte verlangsamen Sie Ihre Anfragen.</string>
   <string id="ApiUrlNotFound">URL nicht gefunden. Möglicher API-URL-Fehler in den Einstellungen.</string>
   <string id="ConfigUrlNotFound">URL nicht gefunden. Möglicher Konfigurations-URL-Fehler in den Einstellungen.</string>
-  <string id="UnhandledHttpErr">Die HTTP-Anfrage gab folgenden Fehlercode zurÃ¼ck = </string>
+  <string id="UnhandledHttpErr">Die HTTP-Anfrage gab folgenden Fehlercode zurück = </string>
   <string id="TrailingSlashErr">Die API-URL darf keinen abschließenden Schrägstrich „/“ enthalten.</string>
   <string id="FetchingMenuConfig">Lade Config vom Server ... </string>
   <string id="ExitViewTouch">Zum Beenden nach rechts swipen\nZum Bleiben antippen</string>
-  <string id="ExitViewButtons">DrÃ¼cke â€žZurÃ¼ckâ€œ, um zu Beenden.\nâ€žEnterâ€œ, um zu bleiben</string>
+  <string id="ExitViewButtons">Drücke „Zurück“, um zu Beenden.\n„Enter“, um zu bleiben</string>
   <!-- Für die Einstellungs-GUI -->
   <string id="SettingsApiKey">API-Schlüssel für HomeAssistant.</string>
   <string id="SettingsApiKeyPrompt">Langlebiges Zugriffstoken.</string>

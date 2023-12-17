@@ -42,7 +42,7 @@
   <string id="ExitViewButtons">Stlačte Späť na ukončenie\nVstúpte a zostaňte</string>
   <!-- Pre nastavenia GUI -->
   <string id="SettingsApiKey">Kľúč API pre HomeAssistant.</string>
-  <string id="SettingsApiKeyPrompt">Prístupový token s dlhou životnosťou.</string>
+  <string id="SettingsApiKeyPrompt">Dlhotrvajúci prístupový token.</string>
   <string id="SettingsApiUrl">URL pre HomeAssistant API.</string>
   <string id="SettingsConfigUrl">Webová adresa pre konfiguráciu ponuky (JSON).</string>
   <string id="SettingsAppTimeout">Časový limit v sekundách. Po tejto dobe nečinnosti ukončite aplikáciu, aby ste šetrili batériu zariadenia.</string>

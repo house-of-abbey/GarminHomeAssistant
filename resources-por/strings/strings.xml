@@ -39,7 +39,7 @@
   <string id="TrailingSlashErr">O URL da API não deve ter uma barra final '/'</string>
   <string id="FetchingMenuConfig">Buscando configuração do menu..</string>
   <string id="ExitViewTouch">Deslize para a direita para sair\nToque para permanecer</string>
-  <string id="ExitViewButtons">Volte para sair\nEntre para permanecer</string>
+  <string id="ExitViewButtons">Volte para sair\nEntre para ficar</string>
   <!-- Para a GUI de configurações -->
   <string id="SettingsApiKey">Chave de API para HomeAssistant.</string>
   <string id="SettingsApiKeyPrompt">Token de acesso de longa duração.</string>

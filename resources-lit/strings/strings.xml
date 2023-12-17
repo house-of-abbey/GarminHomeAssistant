@@ -41,7 +41,7 @@
   <string id="ExitViewTouch">Norėdami išeiti, braukite į dešinę\nPalieskite, kad pasiliktumėte</string>
   <string id="ExitViewButtons">Norėdami išeiti, paspauskite „Atgal“.\nĮveskite, kad pasiliktumėte</string>
   <!-- Dėl nustatymų GUI -->
-  <string id="SettingsApiKey">API raktas, skirtas HomeAssistant.</string>
+  <string id="SettingsApiKey">API raktas, skirtas „HomeAssistant“.</string>
   <string id="SettingsApiKeyPrompt">Ilgalaikis prieigos raktas.</string>
   <string id="SettingsApiUrl">„HomeAssistant“ API URL.</string>
   <string id="SettingsConfigUrl">Meniu konfigūravimo URL (JSON).</string>
