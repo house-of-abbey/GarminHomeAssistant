@@ -122,7 +122,7 @@ class HomeAssistantService {
             }
             ErrorView.show(strNoInternet + ".");
         } else {
-            // Can't user null for parameters due to API version level.
+            // Can't use null for substring() parameters due to API version level.
             var url = (Properties.getValue("api_url") as Lang.String) + "/services/" + service.substring(0, service.find(".")) + "/" + service.substring(service.find(".")+1, service.length());
             if (Globals.scDebug) {
                 System.println("HomeAssistantService call() URL=" + url);
