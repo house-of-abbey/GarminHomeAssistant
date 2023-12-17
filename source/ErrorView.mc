@@ -129,11 +129,9 @@ class ErrorView extends ScalableView {
 }
 
 class ErrorDelegate extends WatchUi.BehaviorDelegate {
-    //private var mView as ErrorView;
 
     function initialize(view as ErrorView) {
         WatchUi.BehaviorDelegate.initialize();
-        //mView = view;
     }
 
     function onBack() {
