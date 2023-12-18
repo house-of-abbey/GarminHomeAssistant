@@ -19,7 +19,7 @@ rem
 rem -----------------------------------------------------------------------------------
 
 rem Check this path is correct for your Java installation
-set JAVA_PATH="C:\Program Files (x86)\Common Files\Oracle\Java\javapath"
+set JAVA_PATH=C:\Program Files (x86)\Common Files\Oracle\Java\javapath
 rem SDK_PATH should work for all users
 set /p SDK_PATH=<"%USERPROFILE%\AppData\Roaming\Garmin\ConnectIQ\current-sdk.cfg"
 set SDK_PATH=%SDK_PATH:~0,-1%\bin
@@ -69,7 +69,9 @@ set SRC=%~dp0
 rem drop last character '\'
 set SRC=%SRC:~0,-1%
 
-del /f /q %SRC%\export\HomeAssistant*.iq
+if exist %SRC%\export\HomeAssistant*.iq (
+  del /f /q %SRC%\export\HomeAssistant*.iq
+)
 
 echo.
 echo Starting export of HomeAssistant Application
