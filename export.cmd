@@ -99,7 +99,7 @@ echo.
   -Dfile.encoding=UTF-8 ^
   -Dapple.awt.UIElement=true ^
   -jar %SDK_PATH%\monkeybrains.jar ^
-  --api-level 3.1.0 ^6
+  --api-level 3.1.0 ^
   --output %SRC%\export\HomeAssistant-widget.iq ^
   --jungles %SRC%\monkey-widget.jungle ^
   --private-key %SRC%\..\developer_key ^
