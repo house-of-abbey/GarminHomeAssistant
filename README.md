@@ -8,9 +8,16 @@ The application is designed around a simple scrollable menu where menu items hav
 
 It is important to note that your Home Assistant instance will need to be accessible via HTTPS with public SSL or all requests from the Garmin will not work. This cannot be a self-signed certificate, it must be a public certificate (You can get one for free from [Let's Encrypt](https://letsencrypt.org/) or you can pay for [Home Assistant cloud](https://www.nabucasa.com/)).
 
-## Application Installation
+## Widget or Application?
 
-Head over to the [GarminHomeAssistant](https://apps.garmin.com/en-US/apps/61c91d28-ec5e-438d-9f83-39e9f45b199d) application page on the [Connect IQ application store](https://apps.garmin.com/en-US/) to download the application.
+As of version 2.0, there are now two installable versions. For older devices before applications supported 'glances', there is a now widget version.
+
+| Version                | Explanation |
+|------------------------|-------------|
+| Widget                 | For older devices that use widgets as opposed to applications with "glances" (e.g. Venu1), the GarminHomeAssistant application can only be started from the widget carousel. The application will no longer appear in the list of applications and activities. Head over to the [GarminHomeAssistant](https://apps.garmin.com/en-US/apps/) widget page on the [Connect IQ application store](https://apps.garmin.com/en-US/) to download the widget.|
+| Application (original) | For newer devices that allow glance views in their applications (e.g. Venu2), the GarminHomeAssistant application can be started either from a glance (with only the application name presently, no status) or from the list of applications and activities. Head over to the [GarminHomeAssistant](https://apps.garmin.com/en-US/apps/61c91d28-ec5e-438d-9f83-39e9f45b199d) application page on the [Connect IQ application store](https://apps.garmin.com/en-US/) to download the application. |
+
+As the source code base for both is the same, the version numbers of each will be kept in step. that means that the widget version starts version numbering at 2.0 too.
 
 ## Dashboard Definition
 
