@@ -16,7 +16,7 @@
 #
 #-----------------------------------------------------------------------------------
 
-project.manifest = manifest.xml
+project.manifest = manifest-widget.xml
 
 # Device References
 # * https://developer.garmin.com/connect-iq/compatible-devices/

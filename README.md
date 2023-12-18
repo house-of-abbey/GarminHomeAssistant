@@ -190,6 +190,15 @@ Having created that token, before you dismiss the dialogue box with the value yo
 
 You should now have a working application on your watch and be able to operate your Home Assistant devices for as long as your watch is within Bluetooth range of your phone.
 
+The first toggle option selects between two menu presentations as follows:
+
+| Menu Type       | Image                                                                  | Description |
+|-----------------|------------------------------------------------------------------------|-------------|
+| Icons (default) | <img src="images/Actual_Venu2_LeanUI.jpg" width="200" title="Venu 2"/> | "Lean User Interface" version removing the second row of text in favour of icons. Tap icons are blue with a pointing finger, menu items has three dots as favours by many graphical user interfaces. |
+| Labels          | <img src="images/Actual_Venu2_Theme.jpg" width="200" title="Venu 2"/>  | Initial version that had a second row of text. This extra text has yet to add much value. Menu and Tap actions are distinguished by text, and the toggle status is duplicated by text. A future version could possibly offer the means to customise the toggle menu item text, hence this option has not been deprecated yet. |
+
+The second toggle setting is for "text alignment" and provides finer adjustment for right-to-left languages. Perhaps this could be made automatic based on device language.
+
 ## Tap Item Response
 
 Its obvious that a toggle menu item has been triggered as the visible switch changes position and colour. Less obvious is that you have successfully triggered a tap operation.
@@ -243,3 +252,4 @@ The `id` attribute values are taken from the same names used in [`strings.xml`](
 |   1.5   | <img src="images/confirmation_view.jpg" width="200" title="Confirmation View" style="float:right"/> Added an optional confirmation dialogue view to prevent accidental execution of actions on mistaken tap. This also brings a change in the JSON schema to allow an optional field to specify that the confirmation should be used for a menu item. As we are now maturing and adding features we have decided to mitigate breaking changes to the JSON schema by being more careful to adopt the Home Assistant schema (noting there is a 1:1 mapping between YAML and JSON). This change does deprecate the top level `service` tag in favour of `tag_action` containing multiple fields including `service` & `confirm`. Users should migrate to the new format for the new functionality, but the timescale for actual deprecation are long and undecided. |
 |   1.6   | Added a user configurable 'timeout' in seconds so that when no action is taken the application automatically closes, stopping the continuous polling for changes of status and hence saving the drain on the battery. This can be disabled with timeout=0. |
 |   1.7   | Added timeout to confirmation views so that when used for security devices it does not linger when left unconfirmed. Thanks to [Jan Schneider](https://github.com/j-a-n) for the contribution. Known bug for devices not supporting [`WatchUi.getCurrentView()`](https://developer.garmin.com/connect-iq/api-docs/Toybox/WatchUi.html#getCurrentView-instance_function) API call which is only available on API Level 3.4.0, e.g. Vivoactive 4S. |
+|   2.0   | A significant code base change to enable both a 'widget' version for older devices, e.g. Venu (1), and an application with a glance, e.g. Venu2. These two versions must now be distributed under separate application IDs, but they have the same code base. A further 20 more devices are now supported, and the settings have been internationalised. |
