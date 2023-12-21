@@ -95,9 +95,6 @@ class RootView extends ScalableView {
             :locX          => w/2 + scMidSep/2,
             :locY          => pixelsForScreen(70.0)
         });
-
-
-
     }
 
     function onUpdate(dc as Graphics.Dc) as Void {

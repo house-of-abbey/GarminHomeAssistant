@@ -32,6 +32,8 @@ class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
     private var strApiFlood         = WatchUi.loadResource($.Rez.Strings.ApiFlood);
     private var strApiUrlNotFound   = WatchUi.loadResource($.Rez.Strings.ApiUrlNotFound);
     private var strUnhandledHttpErr = WatchUi.loadResource($.Rez.Strings.UnhandledHttpErr);
+    private var strUnavailable      = WatchUi.loadResource($.Rez.Strings.Unavailable);
+    private var strAvailable        = WatchUi.loadResource($.Rez.Strings.Available);
 
     private var mApiKey as Lang.String;
 
@@ -74,6 +76,7 @@ class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
 
         // Provide the ability to terminate updating chain of calls for a permanent network error.
         var keepUpdating = true;
+        var status       = strUnavailable;
         switch (responseCode) {
             case Communications.BLE_HOST_TIMEOUT:
             case Communications.BLE_CONNECTION_UNAVAILABLE:
@@ -144,6 +147,7 @@ class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
                 break;
 
             case 200:
+                status = strAvailable;
                 var state = data.get("state") as Lang.String;
                 if (Globals.scDebug) {
                     System.println((data.get("attributes") as Lang.Dictionary).get("friendly_name") + " State=" + state);
@@ -165,6 +169,7 @@ class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
             // Now this feels very "closely coupled" to the application, but it is the most reliable method instead of using a timer.
             getApp().updateNextMenuItem();
         }
+        getApp().setApiStatus(status);
     }
 
     function getState() as Void {
@@ -221,6 +226,7 @@ class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
             System.println("HomeAssistantToggleMenuItem onReturnSetState() Response Data: " + data);
         }
 
+        var status = strUnavailable;
         switch (responseCode) {
             case Communications.BLE_HOST_TIMEOUT:
             case Communications.BLE_CONNECTION_UNAVAILABLE:
@@ -270,6 +276,7 @@ class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
                         setUiToggle(state);
                     }
                 }
+                status = strAvailable;
                 break;
 
             default:
@@ -278,6 +285,7 @@ class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
                 }
                 ErrorView.show(strUnhandledHttpErr + responseCode);
         }
+        getApp().setApiStatus(status);
     }
 
     function setState(s as Lang.Boolean) as Void {

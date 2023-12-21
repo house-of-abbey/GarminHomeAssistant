@@ -352,6 +352,10 @@ class HomeAssistantApp extends Application.AppBase {
         );
     }
 
+    function setApiStatus(s as Lang.String) {
+        mApiStatus = s;
+    }
+
     (:glance)
     function getApiStatus() as Lang.String {
         return mApiStatus;

@@ -138,7 +138,7 @@ class ErrorDelegate extends WatchUi.BehaviorDelegate {
         WatchUi.BehaviorDelegate.initialize();
     }
 
-    function onBack() {
+    function onBack() as Lang.Boolean {
         getApp().getQuitTimer().reset();
         ErrorView.unShow();
         return true;
