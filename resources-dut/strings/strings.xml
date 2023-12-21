@@ -41,7 +41,7 @@
   <string id="Checking" scope="glance">Controleren...</string>
   <string id="Unavailable" scope="glance">Niet beschikbaar</string>
   <string id="GlanceMenu" scope="glance">Menu</string>
-  <!-- Voor de instellingen-GUI -->
+  <!-- Voor de instellingen GUI -->
   <string id="SettingsApiKey">API-sleutel voor HomeAssistant.</string>
   <string id="SettingsApiKeyPrompt">Toegangstoken met lange levensduur.</string>
   <string id="SettingsApiUrl">URL voor HomeAssistant API.</string>

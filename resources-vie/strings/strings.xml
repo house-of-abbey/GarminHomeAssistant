@@ -47,7 +47,7 @@
   <string id="SettingsApiUrl">URL cho API HomeAssistant.</string>
   <string id="SettingsConfigUrl">URL cho cấu hình menu (JSON).</string>
   <string id="SettingsAppTimeout">Thời gian chờ tính bằng giây. Thoát khỏi ứng dụng sau khoảng thời gian không hoạt động này để tiết kiệm pin cho thiết bị.</string>
-  <string id="SettingsConfirmTimeout">Sau thời gian này (tính bằng giây), hộp thoại xác nhận cho một hành động sẽ tự động đóng và hành động đó sẽ bị hủy. Đặt thành 0 để tắt thời gian chờ.</string>
-  <string id="SettingsUi">Biểu diễn các loại bằng biểu tượng (tắt) hoặc bằng nhãn (bật).</string>
+  <string id="SettingsConfirmTimeout">Sau thời gian này (tính bằng giây), hộp thoại xác nhận cho một hành động sẽ tự động đóng lại và hành động đó sẽ bị hủy. Đặt thành 0 để tắt thời gian chờ.</string>
+  <string id="SettingsUi">Thể hiện các loại bằng biểu tượng (tắt) hoặc bằng nhãn (bật).</string>
   <string id="SettingsTextAlign">Căn chỉnh menu Trái (tắt) hoặc Phải (bật).</string>
 </strings>
