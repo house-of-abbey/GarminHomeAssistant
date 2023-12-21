@@ -27,9 +27,8 @@ using Toybox.Graphics;
 using Toybox.WatchUi;
 using Toybox.Timer;
 
-const bRadius = 10;
-
 class Alert extends WatchUi.View {
+    private static const bRadius = 10;
     private var mTimer;
     private var mTimeout;
     private var mText;
