@@ -53,14 +53,12 @@ class ErrorView extends ScalableView {
         mDelegate = new ErrorDelegate(self);
         // Convert the settings from % of screen size to pixels
         mErrorIconMargin = pixelsForScreen(cSettings.get(:errorIconMargin) as Lang.Float);
+        mErrorIcon       = Application.loadResource(Rez.Drawables.ErrorIcon) as Graphics.BitmapResource;
     }
 
     // Load your resources here
     function onLayout(dc as Graphics.Dc) as Void {
-        mErrorIcon = Application.loadResource(Rez.Drawables.ErrorIcon) as Graphics.BitmapResource;
-
         var w = dc.getWidth();
-        var h = dc.getHeight();
 
         mTextArea = new WatchUi.TextArea({
             :text          => mText,
@@ -68,22 +66,21 @@ class ErrorView extends ScalableView {
             :font          => Graphics.FONT_XTINY,
             :justification => Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER,
             :locX          => 0,
-            :locY          => 83,
+            :locY          => pixelsForScreen(20.0),
             :width         => w,
-            :height        => h - 166
+            :height        => pixelsForScreen(60.0)
         });
     }
 
     // Update the view
     function onUpdate(dc as Graphics.Dc) as Void {
         var w = dc.getWidth();
-        var hw = w/2;
         if(dc has :setAntiAlias) {
             dc.setAntiAlias(true);
         }
         dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_BLUE);
         dc.clear();
-        dc.drawBitmap(hw - mErrorIcon.getWidth()/2, mErrorIconMargin, mErrorIcon);
+        dc.drawBitmap(w/2 - mErrorIcon.getWidth()/2, mErrorIconMargin, mErrorIcon);
         mTextArea.draw(dc);
     }
 
