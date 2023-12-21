@@ -25,21 +25,22 @@
   <string id="MenuItemTap">Ketik</string>
   <string id="MenuItemMenu">Menu</string>
   <string id="Confirm">pasti?</string>
-  <string id="NoPhone">Tiada sambungan Telefon</string>
+  <string id="NoPhone" scope="glance">Tiada sambungan Telefon</string>
   <string id="NoInternet">Tiada sambungan internet</string>
   <string id="NoResponse">Tiada Respons, semak sambungan Internet</string>
-  <string id="NoMenu">Ralat Pengambilan Menu</string>
-  <string id="NoAPIKey">Tiada kunci API dalam tetapan aplikasi</string>
-  <string id="NoApiUrl">Tiada URL API dalam tetapan aplikasi</string>
-  <string id="NoConfigUrl">Tiada URL konfigurasi dalam tetapan aplikasi</string>
+  <string id="NoAPIKey" scope="glance">Tiada kunci API dalam tetapan aplikasi</string>
+  <string id="NoApiUrl" scope="glance">Tiada URL API dalam tetapan aplikasi</string>
+  <string id="NoConfigUrl" scope="glance">Tiada URL konfigurasi dalam tetapan aplikasi</string>
   <string id="ApiFlood">Panggilan API terlalu pantas. Sila perlahankan permintaan anda.</string>
   <string id="ApiUrlNotFound">URL tidak ditemui. Ralat URL API yang berpotensi dalam tetapan.</string>
   <string id="ConfigUrlNotFound">URL tidak ditemui. Ralat URL Konfigurasi Potensi dalam tetapan.</string>
+  <string id="NoJson">Tiada JSON dikembalikan daripada permintaan HTTP.</string>
   <string id="UnhandledHttpErr">Permintaan HTTP mengembalikan kod ralat =</string>
   <string id="TrailingSlashErr">URL API tidak boleh mempunyai garis miring '/'</string>
-  <string id="FetchingMenuConfig">Mengambil Konfigurasi Menu..</string>
-  <string id="ExitViewTouch">Leret ke Kanan untuk Keluar\nKetik untuk Kekal</string>
-  <string id="ExitViewButtons">Tekan Kembali untuk Keluar\nMasuk untuk Kekal</string>
+  <string id="Available" scope="glance">Tersedia</string>
+  <string id="Checking" scope="glance">Menyemak...</string>
+  <string id="Unavailable" scope="glance">Tidak ada</string>
+  <string id="GlanceMenu" scope="glance">Menu</string>
   <!-- Untuk GUI tetapan -->
   <string id="SettingsApiKey">Kunci API untuk HomeAssistant.</string>
   <string id="SettingsApiKeyPrompt">Token Akses Berumur Panjang.</string>

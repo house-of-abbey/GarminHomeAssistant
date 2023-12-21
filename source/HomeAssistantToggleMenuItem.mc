@@ -25,13 +25,15 @@ using Toybox.Application.Properties;
 using Toybox.Timer;
 
 class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
-    private var mApiKey             as Lang.String;
-    private var strNoPhone          as Lang.String;
-    private var strNoInternet       as Lang.String;
-    private var strNoResponse       as Lang.String;
-    private var strApiFlood         as Lang.String;
-    private var strApiUrlNotFound   as Lang.String;
-    private var strUnhandledHttpErr as Lang.String;
+    private var strNoPhone          = WatchUi.loadResource($.Rez.Strings.NoPhone);
+    private var strNoInternet       = WatchUi.loadResource($.Rez.Strings.NoInternet);
+    private var strNoResponse       = WatchUi.loadResource($.Rez.Strings.NoResponse);
+    private var strNoJson           = WatchUi.loadResource($.Rez.Strings.NoJson);
+    private var strApiFlood         = WatchUi.loadResource($.Rez.Strings.ApiFlood);
+    private var strApiUrlNotFound   = WatchUi.loadResource($.Rez.Strings.ApiUrlNotFound);
+    private var strUnhandledHttpErr = WatchUi.loadResource($.Rez.Strings.UnhandledHttpErr);
+
+    private var mApiKey as Lang.String;
 
     function initialize(
         label     as Lang.String or Lang.Symbol,
@@ -46,13 +48,7 @@ class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
             :icon      as Graphics.BitmapType or WatchUi.Drawable or Lang.Symbol
         } or Null
     ) {
-        strNoPhone          = WatchUi.loadResource($.Rez.Strings.NoPhone);
-        strNoInternet       = WatchUi.loadResource($.Rez.Strings.NoInternet);
-        strNoResponse       = WatchUi.loadResource($.Rez.Strings.NoResponse);
-        strApiFlood         = WatchUi.loadResource($.Rez.Strings.ApiFlood);
-        strApiUrlNotFound   = WatchUi.loadResource($.Rez.Strings.ApiUrlNotFound);
-        strUnhandledHttpErr = WatchUi.loadResource($.Rez.Strings.UnhandledHttpErr);
-        mApiKey             = Properties.getValue("api_key");
+        mApiKey = Properties.getValue("api_key");
         WatchUi.ToggleMenuItem.initialize(label, subLabel, identifier, enabled, options);
     }
 
@@ -75,6 +71,7 @@ class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
             System.println("HomeAssistantToggleMenuItem onReturnGetState() Response Code: " + responseCode);
             System.println("HomeAssistantToggleMenuItem onReturnGetState() Response Data: " + data);
         }
+
         // Provide the ability to terminate updating chain of calls for a permanent network error.
         var keepUpdating = true;
         switch (responseCode) {
@@ -85,29 +82,50 @@ class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
                 }
                 ErrorView.show(strNoPhone + ".");
                 break;
+
             case Communications.BLE_QUEUE_FULL:
                 if (Globals.scDebug) {
                     System.println("HomeAssistantToggleMenuItem onReturnGetState() Response Code: BLE_QUEUE_FULL, API calls too rapid.");
                 }
                 ErrorView.show(strApiFlood);
                 break;
+
             case Communications.NETWORK_REQUEST_TIMED_OUT:
                 if (Globals.scDebug) {
                     System.println("HomeAssistantToggleMenuItem onReturnGetState() Response Code: NETWORK_REQUEST_TIMED_OUT, check Internet connection.");
                 }
                 ErrorView.show(strNoResponse);
                 break;
+
+            case Communications.INVALID_HTTP_BODY_IN_NETWORK_RESPONSE:
+                if (Globals.scDebug) {
+                    System.println("HomeAssistantToggleMenuItem onReturnGetState() Response Code: INVALID_HTTP_BODY_IN_NETWORK_RESPONSE, check JSON is returned.");
+                }
+                ErrorView.show(strNoJson);
+                break;
+
+            case Communications.NETWORK_RESPONSE_OUT_OF_MEMORY:
+                if (Globals.scDebug) {
+                    System.println("HomeAssistantToggleMenuItem onReturnGetState() Response Code: NETWORK_RESPONSE_OUT_OF_MEMORY, are we going too fast?");
+                }
+                // Pause updates
+                keepUpdating = false;
+                var myTimer = new Timer.Timer();
+                // Now this feels very "closely coupled" to the application, but it is the most reliable method instead of using a timer.
+                myTimer.start(getApp().method(:updateNextMenuItem), Globals.scApiBackoff, false);
+                break;
+
             case 404:
                 var msg = null;
                 if (data != null) {
                     msg = data.get("message");
                 }
                 if (msg != null) {
-                    // Should be an HTTP 405 according to curl queries
+                    // Should be an HTTP 404 according to curl queries
                     if (Globals.scDebug) {
                         System.println("HomeAssistantToggleMenuItem onReturnGetState() Response Code: 404. " + mIdentifier + " " + msg);
                     }
-                    ErrorView.show("HTTP 405, " + mIdentifier + ". " + data.get("message"));
+                    ErrorView.show("HTTP 404, " + mIdentifier + ". " + data.get("message"));
                 } else {
                     if (Globals.scDebug) {
                         System.println("HomeAssistantToggleMenuItem onReturnGetState() Response Code: 404, page not found. Check API URL setting.");
@@ -116,6 +134,7 @@ class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
                 }
                 keepUpdating = false;
                 break;
+
             case 405:
                 if (Globals.scDebug) {
                     System.println("HomeAssistantToggleMenuItem onReturnGetState() Response Code: 405. " + mIdentifier + " " + data.get("message"));
@@ -123,6 +142,7 @@ class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
                 ErrorView.show("HTTP 405, " + mIdentifier + ". " + data.get("message"));
                 keepUpdating = false;
                 break;
+
             case 200:
                 var state = data.get("state") as Lang.String;
                 if (Globals.scDebug) {
@@ -134,6 +154,7 @@ class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
                 setUiToggle(state);
                 ErrorView.unShow();
                 break;
+
             default:
                 if (Globals.scDebug) {
                     System.println("HomeAssistantToggleMenuItem onReturnGetState(): Unhandled HTTP response code = " + responseCode);
@@ -199,43 +220,63 @@ class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
             System.println("HomeAssistantToggleMenuItem onReturnSetState() Response Code: " + responseCode);
             System.println("HomeAssistantToggleMenuItem onReturnSetState() Response Data: " + data);
         }
-        if (responseCode == Communications.BLE_HOST_TIMEOUT || responseCode == Communications.BLE_CONNECTION_UNAVAILABLE) {
-            if (Globals.scDebug) {
-                System.println("HomeAssistantToggleMenuItem onReturnSetState() Response Code: BLE_HOST_TIMEOUT or BLE_CONNECTION_UNAVAILABLE, Bluetooth connection severed.");
-            }
-            ErrorView.show(strNoPhone + ".");
-        } else if (responseCode == Communications.BLE_QUEUE_FULL) {
-            if (Globals.scDebug) {
-                System.println("HomeAssistantToggleMenuItem onReturnSetState() Response Code: BLE_QUEUE_FULL, API calls too rapid.");
-            }
-            ErrorView.show(strApiFlood);
-        } else if (responseCode == Communications.NETWORK_REQUEST_TIMED_OUT) {
-            if (Globals.scDebug) {
-                System.println("HomeAssistantToggleMenuItem onReturnSetState() Response Code: NETWORK_REQUEST_TIMED_OUT, check Internet connection.");
-            }
-            ErrorView.show(strNoResponse);
-        } else if (responseCode == 404) {
-            if (Globals.scDebug) {
-                System.println("HomeAssistantToggleMenuItem onReturnSetState() Response Code: 404, page not found. Check API URL setting.");
-            }
-            ErrorView.show(strApiUrlNotFound);
-        } else if (responseCode == 200) {
-            var state;
-            var d = data as Lang.Array;
-            for(var i = 0; i < d.size(); i++) {
-                if ((d[i].get("entity_id") as Lang.String).equals(mIdentifier)) {
-                    state = d[i].get("state") as Lang.String;
-                    if (Globals.scDebug) {
-                        System.println((d[i].get("attributes") as Lang.Dictionary).get("friendly_name") + " State=" + state);
-                    }
-                    setUiToggle(state);
+
+        switch (responseCode) {
+            case Communications.BLE_HOST_TIMEOUT:
+            case Communications.BLE_CONNECTION_UNAVAILABLE:
+                if (Globals.scDebug) {
+                    System.println("HomeAssistantToggleMenuItem onReturnSetState() Response Code: BLE_HOST_TIMEOUT or BLE_CONNECTION_UNAVAILABLE, Bluetooth connection severed.");
                 }
-            }
-        } else {
-            if (Globals.scDebug) {
-                System.println("HomeAssistantToggleMenuItem onReturnSetState(): Unhandled HTTP response code = " + responseCode);
-            }
-            ErrorView.show(strUnhandledHttpErr + responseCode );
+                ErrorView.show(strNoPhone + ".");
+                break;
+
+            case Communications.BLE_QUEUE_FULL:
+                if (Globals.scDebug) {
+                    System.println("HomeAssistantToggleMenuItem onReturnSetState() Response Code: BLE_QUEUE_FULL, API calls too rapid.");
+                }
+                ErrorView.show(strApiFlood);
+                break;
+
+            case Communications.NETWORK_REQUEST_TIMED_OUT:
+                if (Globals.scDebug) {
+                    System.println("HomeAssistantToggleMenuItem onReturnSetState() Response Code: NETWORK_REQUEST_TIMED_OUT, check Internet connection.");
+                }
+                ErrorView.show(strNoResponse);
+                break;
+
+            case Communications.INVALID_HTTP_BODY_IN_NETWORK_RESPONSE:
+                if (Globals.scDebug) {
+                    System.println("HomeAssistantToggleMenuItem onReturnSetState() Response Code: INVALID_HTTP_BODY_IN_NETWORK_RESPONSE, check JSON is returned.");
+                }
+                ErrorView.show(strNoJson);
+                break;
+
+            case 404:
+                if (Globals.scDebug) {
+                    System.println("HomeAssistantToggleMenuItem onReturnSetState() Response Code: 404, page not found. Check API URL setting.");
+                }
+                ErrorView.show(strApiUrlNotFound);
+                break;
+
+            case 200:
+                var state;
+                var d = data as Lang.Array;
+                for(var i = 0; i < d.size(); i++) {
+                    if ((d[i].get("entity_id") as Lang.String).equals(mIdentifier)) {
+                        state = d[i].get("state") as Lang.String;
+                        if (Globals.scDebug) {
+                            System.println((d[i].get("attributes") as Lang.Dictionary).get("friendly_name") + " State=" + state);
+                        }
+                        setUiToggle(state);
+                    }
+                }
+                break;
+
+            default:
+                if (Globals.scDebug) {
+                    System.println("HomeAssistantToggleMenuItem onReturnSetState(): Unhandled HTTP response code = " + responseCode);
+                }
+                ErrorView.show(strUnhandledHttpErr + responseCode);
         }
     }
 

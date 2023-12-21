@@ -25,21 +25,22 @@
   <string id="MenuItemTap">Bakstelėkite</string>
   <string id="MenuItemMenu">Meniu</string>
   <string id="Confirm">Žinoma?</string>
-  <string id="NoPhone">Nėra telefono ryšio</string>
+  <string id="NoPhone" scope="glance">Nėra telefono ryšio</string>
   <string id="NoInternet">Nėra interneto ryšio</string>
   <string id="NoResponse">Neatsako, patikrinkite interneto ryšį</string>
-  <string id="NoMenu">Meniu gavimo klaida</string>
-  <string id="NoAPIKey">Programos nustatymuose nėra API rakto</string>
-  <string id="NoApiUrl">Programos nustatymuose nėra API URL</string>
-  <string id="NoConfigUrl">Programos nustatymuose nėra konfigūracijos URL</string>
+  <string id="NoAPIKey" scope="glance">Programos nustatymuose nėra API rakto</string>
+  <string id="NoApiUrl" scope="glance">Programos nustatymuose nėra API URL</string>
+  <string id="NoConfigUrl" scope="glance">Programos nustatymuose nėra konfigūracijos URL</string>
   <string id="ApiFlood">API skambučiai per greiti. Sulėtinkite prašymų vykdymą.</string>
   <string id="ApiUrlNotFound">URL nerastas. Galima API URL klaida nustatymuose.</string>
   <string id="ConfigUrlNotFound">URL nerastas. Galima konfigūracijos URL klaida nustatymuose.</string>
+  <string id="NoJson">Joks JSON negrąžintas iš HTTP užklausos.</string>
   <string id="UnhandledHttpErr">HTTP užklausa grąžino klaidos kodą =</string>
   <string id="TrailingSlashErr">API URL pabaigoje negali būti pasvirojo brūkšnio „/“</string>
-  <string id="FetchingMenuConfig">Gaunama meniu konfigūracija...</string>
-  <string id="ExitViewTouch">Norėdami išeiti, braukite į dešinę\nPalieskite, kad pasiliktumėte</string>
-  <string id="ExitViewButtons">Norėdami išeiti, paspauskite „Atgal“.\nĮveskite, kad pasiliktumėte</string>
+  <string id="Available" scope="glance">Yra</string>
+  <string id="Checking" scope="glance">Tikrinama...</string>
+  <string id="Unavailable" scope="glance">Nepasiekiamas</string>
+  <string id="GlanceMenu" scope="glance">Meniu</string>
   <!-- Dėl nustatymų GUI -->
   <string id="SettingsApiKey">API raktas, skirtas „HomeAssistant“.</string>
   <string id="SettingsApiKeyPrompt">Ilgalaikis prieigos raktas.</string>

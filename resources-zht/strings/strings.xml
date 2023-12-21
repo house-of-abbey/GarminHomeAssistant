@@ -25,21 +25,22 @@
   <string id="MenuItemTap">輕敲</string>
   <string id="MenuItemMenu">選單</string>
   <string id="Confirm">當然？</string>
-  <string id="NoPhone">沒有電話連接</string>
+  <string id="NoPhone" scope="glance">沒有電話連接</string>
   <string id="NoInternet">沒有網路連線</string>
   <string id="NoResponse">無響應，請檢查互聯網連接</string>
-  <string id="NoMenu">選單取得錯誤</string>
-  <string id="NoAPIKey">應用程式設定中沒有 API 金鑰</string>
-  <string id="NoApiUrl">應用程式設定中沒有 API URL</string>
-  <string id="NoConfigUrl">應用程式設定中沒有配置 URL</string>
+  <string id="NoAPIKey" scope="glance">應用程式設定中沒有 API 金鑰</string>
+  <string id="NoApiUrl" scope="glance">應用程式設定中沒有 API URL</string>
+  <string id="NoConfigUrl" scope="glance">應用程式設定中沒有配置 URL</string>
   <string id="ApiFlood">API 呼叫速度太快。請放慢您的請求。</string>
   <string id="ApiUrlNotFound">找不到網址。設定中可能存在 API URL 錯誤。</string>
   <string id="ConfigUrlNotFound">找不到網址。設定中可能存在配置 URL 錯誤。</string>
+  <string id="NoJson">HTTP 請求未傳回 JSON。</string>
   <string id="UnhandledHttpErr">HTTP請求回傳錯誤碼=</string>
   <string id="TrailingSlashErr">API URL 不得有尾部斜線“/”</string>
-  <string id="FetchingMenuConfig">正在取得選單配置..</string>
-  <string id="ExitViewTouch">向右滑動即可退出\n點選即可停留</string>
-  <string id="ExitViewButtons">按回車鍵退出\n按回車鍵繼續</string>
+  <string id="Available" scope="glance">可用的</string>
+  <string id="Checking" scope="glance">檢查...</string>
+  <string id="Unavailable" scope="glance">不可用</string>
+  <string id="GlanceMenu" scope="glance">選單</string>
   <!-- 對於設定 GUI -->
   <string id="SettingsApiKey">HomeAssistant 的 API 金鑰。</string>
   <string id="SettingsApiKeyPrompt">長期訪問令牌。</string>

@@ -18,6 +18,8 @@
 
 project.manifest = manifest-widget.xml
 
+base.sourcePath = source;include/widget
+
 # Device References
 # * https://developer.garmin.com/connect-iq/compatible-devices/
 # * https://developer.garmin.com/connect-iq/reference-guides/devices-reference/

@@ -25,21 +25,22 @@
   <string id="MenuItemTap">Vỗ nhẹ</string>
   <string id="MenuItemMenu">Thực đơn</string>
   <string id="Confirm">Chắc chắn?</string>
-  <string id="NoPhone">Không có kết nối điện thoại</string>
+  <string id="NoPhone" scope="glance">Không có kết nối điện thoại</string>
   <string id="NoInternet">Không có kết nối Internet</string>
   <string id="NoResponse">Không có phản hồi, kiểm tra kết nối Internet</string>
-  <string id="NoMenu">Lỗi tìm nạp menu</string>
-  <string id="NoAPIKey">Không có khóa API trong cài đặt ứng dụng</string>
-  <string id="NoApiUrl">Không có URL API trong cài đặt ứng dụng</string>
-  <string id="NoConfigUrl">Không có URL cấu hình trong cài đặt ứng dụng</string>
+  <string id="NoAPIKey" scope="glance">Không có khóa API trong cài đặt ứng dụng</string>
+  <string id="NoApiUrl" scope="glance">Không có URL API trong cài đặt ứng dụng</string>
+  <string id="NoConfigUrl" scope="glance">Không có URL cấu hình trong cài đặt ứng dụng</string>
   <string id="ApiFlood">Cuộc gọi API quá nhanh. Hãy làm chậm yêu cầu của bạn.</string>
   <string id="ApiUrlNotFound">Không tìm thấy URL. Lỗi URL API tiềm ẩn trong cài đặt.</string>
   <string id="ConfigUrlNotFound">Không tìm thấy URL. Lỗi URL cấu hình tiềm ẩn trong cài đặt.</string>
+  <string id="NoJson">Không có JSON nào được trả về từ yêu cầu HTTP.</string>
   <string id="UnhandledHttpErr">Yêu cầu HTTP trả về mã lỗi =</string>
   <string id="TrailingSlashErr">URL API không được có dấu gạch chéo ở cuối '/'</string>
-  <string id="FetchingMenuConfig">Đang tìm nạp cấu hình menu..</string>
-  <string id="ExitViewTouch">Vuốt sang phải để thoát\nNhấn để ở lại</string>
-  <string id="ExitViewButtons">Nhấn Quay lại để thoát\nNhập để ở lại</string>
+  <string id="Available" scope="glance">Có sẵn</string>
+  <string id="Checking" scope="glance">Đang kiểm tra...</string>
+  <string id="Unavailable" scope="glance">Không có sẵn</string>
+  <string id="GlanceMenu" scope="glance">Thực đơn</string>
   <!-- Đối với GUI cài đặt -->
   <string id="SettingsApiKey">Khóa API cho HomeAssistant.</string>
   <string id="SettingsApiKeyPrompt">Mã thông báo truy cập tồn tại lâu dài.</string>

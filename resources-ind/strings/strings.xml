@@ -25,21 +25,22 @@
   <string id="MenuItemTap">Mengetuk</string>
   <string id="MenuItemMenu">Menu</string>
   <string id="Confirm">Tentu?</string>
-  <string id="NoPhone">Tidak ada koneksi Telepon</string>
+  <string id="NoPhone" scope="glance">Tidak ada koneksi Telepon</string>
   <string id="NoInternet">Tidak ada koneksi internet</string>
   <string id="NoResponse">Tidak Ada Respon, periksa koneksi Internet</string>
-  <string id="NoMenu">Kesalahan Pengambilan Menu</string>
-  <string id="NoAPIKey">Tidak ada kunci API di pengaturan aplikasi</string>
-  <string id="NoApiUrl">Tidak ada URL API di pengaturan aplikasi</string>
-  <string id="NoConfigUrl">Tidak ada URL konfigurasi di pengaturan aplikasi</string>
+  <string id="NoAPIKey" scope="glance">Tidak ada kunci API di pengaturan aplikasi</string>
+  <string id="NoApiUrl" scope="glance">Tidak ada URL API di pengaturan aplikasi</string>
+  <string id="NoConfigUrl" scope="glance">Tidak ada URL konfigurasi dalam pengaturan aplikasi</string>
   <string id="ApiFlood">Panggilan API terlalu cepat. Harap memperlambat permintaan Anda.</string>
   <string id="ApiUrlNotFound">URL tidak ditemukan. Potensi kesalahan URL API dalam pengaturan.</string>
   <string id="ConfigUrlNotFound">URL tidak ditemukan. Potensi kesalahan URL Konfigurasi dalam pengaturan.</string>
+  <string id="NoJson">Tidak ada JSON yang dikembalikan dari permintaan HTTP.</string>
   <string id="UnhandledHttpErr">Permintaan HTTP mengembalikan kode kesalahan =</string>
   <string id="TrailingSlashErr">URL API tidak boleh memiliki garis miring '/'</string>
-  <string id="FetchingMenuConfig">Mengambil Konfigurasi Menu..</string>
-  <string id="ExitViewTouch">Geser ke Kanan untuk Keluar\nKetuk untuk Tetap</string>
-  <string id="ExitViewButtons">Tekan Kembali untuk Keluar\nMasuk untuk Tetap</string>
+  <string id="Available" scope="glance">Tersedia</string>
+  <string id="Checking" scope="glance">Memeriksa...</string>
+  <string id="Unavailable" scope="glance">Tidak tersedia</string>
+  <string id="GlanceMenu" scope="glance">Menu</string>
   <!-- Untuk pengaturan GUI -->
   <string id="SettingsApiKey">Kunci API untuk HomeAssistant.</string>
   <string id="SettingsApiKeyPrompt">Token Akses Berumur Panjang.</string>

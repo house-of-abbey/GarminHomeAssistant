@@ -25,21 +25,22 @@
   <string id="MenuItemTap">Musluk</string>
   <string id="MenuItemMenu">Menü</string>
   <string id="Confirm">Elbette?</string>
-  <string id="NoPhone">Telefon bağlantısı yok</string>
+  <string id="NoPhone" scope="glance">Telefon bağlantısı yok</string>
   <string id="NoInternet">İnternet bağlantısı yok</string>
   <string id="NoResponse">Yanıt Yok, İnternet bağlantısını kontrol edin</string>
-  <string id="NoMenu">Menü Alma Hatası</string>
-  <string id="NoAPIKey">Uygulama ayarlarında API anahtarı yok</string>
-  <string id="NoApiUrl">Uygulama ayarlarında API URL'si yok</string>
-  <string id="NoConfigUrl">Uygulama ayarlarında yapılandırma URL'si yok</string>
+  <string id="NoAPIKey" scope="glance">Uygulama ayarlarında API anahtarı yok</string>
+  <string id="NoApiUrl" scope="glance">Uygulama ayarlarında API URL'si yok</string>
+  <string id="NoConfigUrl" scope="glance">Uygulama ayarlarında yapılandırma URL'si yok</string>
   <string id="ApiFlood">API çağrıları çok hızlı. Lütfen isteklerinizi yavaşlatın.</string>
   <string id="ApiUrlNotFound">URL bulunamadı. Ayarlarda olası API URL hatası.</string>
   <string id="ConfigUrlNotFound">URL bulunamadı. Ayarlarda Olası Yapılandırma URL'si hatası.</string>
+  <string id="NoJson">HTTP isteğinden JSON döndürülmedi.</string>
   <string id="UnhandledHttpErr">HTTP isteği hata kodunu döndürdü =</string>
-  <string id="TrailingSlashErr">API URL'sinin sonunda eğik çizgi '/' olmamalıdır</string>
-  <string id="FetchingMenuConfig">Menü Yapılandırması alınıyor..</string>
-  <string id="ExitViewTouch">Çıkmak için Sağa Kaydırın\nKalmak için Dokunun</string>
-  <string id="ExitViewButtons">Çıkış için Geri tuşuna basın\nKalmak için Enter'a basın</string>
+  <string id="TrailingSlashErr">API URL'sinin sonunda '/' eğik çizgi olmamalıdır</string>
+  <string id="Available" scope="glance">Mevcut</string>
+  <string id="Checking" scope="glance">Kontrol etme...</string>
+  <string id="Unavailable" scope="glance">Kullanım dışı</string>
+  <string id="GlanceMenu" scope="glance">Menü</string>
   <!-- Ayarlar GUI'si için -->
   <string id="SettingsApiKey">HomeAssistant için API Anahtarı.</string>
   <string id="SettingsApiKeyPrompt">Uzun Ömürlü Erişim Jetonu.</string>

@@ -25,21 +25,22 @@
   <string id="MenuItemTap">Knacka</string>
   <string id="MenuItemMenu">Meny</string>
   <string id="Confirm">Säker?</string>
-  <string id="NoPhone">Ingen telefonanslutning</string>
+  <string id="NoPhone" scope="glance">Ingen telefonanslutning</string>
   <string id="NoInternet">Ingen internetanslutning</string>
   <string id="NoResponse">Inget svar, kontrollera internetanslutningen</string>
-  <string id="NoMenu">Menyhämtningsfel</string>
-  <string id="NoAPIKey">Ingen API-nyckel i applikationsinställningarna</string>
-  <string id="NoApiUrl">Ingen API-URL i applikationsinställningarna</string>
-  <string id="NoConfigUrl">Ingen konfigurations-URL i programinställningarna</string>
+  <string id="NoAPIKey" scope="glance">Ingen API-nyckel i applikationsinställningarna</string>
+  <string id="NoApiUrl" scope="glance">Ingen API-URL i applikationsinställningarna</string>
+  <string id="NoConfigUrl" scope="glance">Ingen konfigurations-URL i programinställningarna</string>
   <string id="ApiFlood">API-anrop för snabba. Vänligen sakta ner dina förfrågningar.</string>
   <string id="ApiUrlNotFound">Webbadressen hittades inte. Potentiellt API-URL-fel i inställningarna.</string>
   <string id="ConfigUrlNotFound">Webbadressen hittades inte. Potentiellt konfigurations-URL-fel i inställningarna.</string>
+  <string id="NoJson">Ingen JSON returnerades från HTTP-begäran.</string>
   <string id="UnhandledHttpErr">HTTP-begäran returnerade felkod =</string>
   <string id="TrailingSlashErr">API-URL får inte ha ett snedstreck '/'</string>
-  <string id="FetchingMenuConfig">Hämtar menykonfiguration..</string>
-  <string id="ExitViewTouch">Svep åt höger för att avsluta\nKnacka för att stanna</string>
-  <string id="ExitViewButtons">Tryck på Tillbaka för att avsluta\nEnter för att stanna</string>
+  <string id="Available" scope="glance">Tillgängliga</string>
+  <string id="Checking" scope="glance">Kontroll...</string>
+  <string id="Unavailable" scope="glance">Inte tillgänglig</string>
+  <string id="GlanceMenu" scope="glance">Meny</string>
   <!-- För inställningar GUI -->
   <string id="SettingsApiKey">API-nyckel för HomeAssistant.</string>
   <string id="SettingsApiKeyPrompt">Långlivad åtkomsttoken.</string>

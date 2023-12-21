@@ -8,6 +8,8 @@ The application is designed around a simple scrollable menu where menu items hav
 
 It is important to note that your Home Assistant instance will need to be accessible via HTTPS with public SSL or all requests from the Garmin will not work. This cannot be a self-signed certificate, it must be a public certificate (You can get one for free from [Let's Encrypt](https://letsencrypt.org/) or you can pay for [Home Assistant cloud](https://www.nabucasa.com/)).
 
+**If you are struggling with getting the application to work, please consult the [trouble shooting](Troubleshooting.md) guide first.**
+
 ## Widget or Application?
 
 As of version 2.0, there are now two installable versions. For older devices before applications supported 'glances', there is a now widget version.
@@ -168,8 +170,8 @@ This allows the `confirm` field to be accommodated in the `tap_action` along sid
 
 You have options. The first is what we use.
 1. **Best!** Use the [Studio Code Server](https://community.home-assistant.io/t/home-assistant-community-add-on-visual-studio-code/107863) addon for Home Assistant. You can then edit your JSON file in place.
-2. Locally installed VSCode, or if not installed
-3. try the on-line version at https://vscode.dev/
+2. Locally installed VSCode, or if not installed,
+3. try the on-line version at https://vscode.dev/.
 
 Paste in your JSON (and change the file type to JSON if not saving), it will then verify your file format and schema for you, highlighting any errors for you to fix.
 

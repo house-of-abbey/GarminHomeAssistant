@@ -25,21 +25,22 @@
   <string id="MenuItemTap">Koppintson a</string>
   <string id="MenuItemMenu">Menü</string>
   <string id="Confirm">Biztos?</string>
-  <string id="NoPhone">Nincs telefonkapcsolat</string>
+  <string id="NoPhone" scope="glance">Nincs telefonkapcsolat</string>
   <string id="NoInternet">Nincs internetkapcsolat</string>
   <string id="NoResponse">Nincs válasz, ellenőrizze az internetkapcsolatot</string>
-  <string id="NoMenu">Menü Lekérési hiba</string>
-  <string id="NoAPIKey">Nincs API kulcs az alkalmazás beállításaiban</string>
-  <string id="NoApiUrl">Nincs API URL az alkalmazás beállításai között</string>
-  <string id="NoConfigUrl">Nincs konfigurációs URL az alkalmazás beállításai között</string>
+  <string id="NoAPIKey" scope="glance">Nincs API kulcs az alkalmazás beállításaiban</string>
+  <string id="NoApiUrl" scope="glance">Nincs API URL az alkalmazás beállításai között</string>
+  <string id="NoConfigUrl" scope="glance">Nincs konfigurációs URL az alkalmazás beállításai között</string>
   <string id="ApiFlood">Az API-hívások túl gyorsak. Kérjük, lassítsa a kérések teljesítését.</string>
   <string id="ApiUrlNotFound">Az URL nem található. Lehetséges API URL hiba a beállításokban.</string>
   <string id="ConfigUrlNotFound">Az URL nem található. Lehetséges konfigurációs URL hiba a beállításokban.</string>
+  <string id="NoJson">A HTTP-kérésből nem érkezett vissza JSON.</string>
   <string id="UnhandledHttpErr">A HTTP-kérés = hibakódot adott vissza</string>
   <string id="TrailingSlashErr">Az API URL-ben nem lehet perjel a „/”</string>
-  <string id="FetchingMenuConfig">Menükonfiguráció lekérése...</string>
-  <string id="ExitViewTouch">Csúsztassa jobbra a kilépéshez.\nKoppintson a Maradáshoz</string>
-  <string id="ExitViewButtons">Nyomja meg a Vissza gombot a kilépéshez\nEnter a Maradáshoz</string>
+  <string id="Available" scope="glance">Elérhető</string>
+  <string id="Checking" scope="glance">Ellenőrzés...</string>
+  <string id="Unavailable" scope="glance">Nem érhető el</string>
+  <string id="GlanceMenu" scope="glance">Menü</string>
   <!-- A beállítások GUI-hoz -->
   <string id="SettingsApiKey">API-kulcs a HomeAssistant számára.</string>
   <string id="SettingsApiKeyPrompt">Hosszú életű hozzáférési token.</string>

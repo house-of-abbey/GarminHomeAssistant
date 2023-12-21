@@ -25,21 +25,22 @@
   <string id="MenuItemTap">Докоснете</string>
   <string id="MenuItemMenu">Меню</string>
   <string id="Confirm">Сигурен?</string>
-  <string id="NoPhone">Няма телефонна връзка</string>
+  <string id="NoPhone" scope="glance">Няма телефонна връзка</string>
   <string id="NoInternet">Няма интернет връзка</string>
   <string id="NoResponse">Няма отговор, проверете интернет връзката</string>
-  <string id="NoMenu">Грешка при извличане на менюто</string>
-  <string id="NoAPIKey">Няма API ключ в настройките на приложението</string>
-  <string id="NoApiUrl">Няма URL адрес на API в настройките на приложението</string>
-  <string id="NoConfigUrl">Няма конфигурационен URL адрес в настройките на приложението</string>
+  <string id="NoAPIKey" scope="glance">Няма API ключ в настройките на приложението</string>
+  <string id="NoApiUrl" scope="glance">Няма URL адрес на API в настройките на приложението</string>
+  <string id="NoConfigUrl" scope="glance">Няма конфигурационен URL адрес в настройките на приложението</string>
   <string id="ApiFlood">Извикванията на API са твърде бързи. Моля, забавете вашите заявки.</string>
   <string id="ApiUrlNotFound">URL не е намерен. Потенциална грешка в URL адреса на API в настройките.</string>
   <string id="ConfigUrlNotFound">URL не е намерен. Потенциална грешка в URL адреса на конфигурацията в настройките.</string>
+  <string id="NoJson">Няма върнат JSON от HTTP заявка.</string>
   <string id="UnhandledHttpErr">HTTP заявката върна код на грешка =</string>
   <string id="TrailingSlashErr">URL адресът на API не трябва да има наклонена черта '/' в края</string>
-  <string id="FetchingMenuConfig">Извличане на конфигурацията на менюто..</string>
-  <string id="ExitViewTouch">Плъзнете надясно, за да излезете\nДокоснете, за да останете</string>
-  <string id="ExitViewButtons">Натиснете Назад, за да излезете\nВлезте, за да останете</string>
+  <string id="Available" scope="glance">На разположение</string>
+  <string id="Checking" scope="glance">Проверка...</string>
+  <string id="Unavailable" scope="glance">Недостъпен</string>
+  <string id="GlanceMenu" scope="glance">Меню</string>
   <!-- За GUI за настройки -->
   <string id="SettingsApiKey">API ключ за HomeAssistant.</string>
   <string id="SettingsApiKeyPrompt">Токен за дълготраен достъп.</string>

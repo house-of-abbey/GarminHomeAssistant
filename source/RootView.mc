@@ -25,76 +25,99 @@ using Toybox.WatchUi;
 class RootView extends ScalableView {
 
     // ATTENTION when the app is running as a "widget" (that means, it runs on devices
-    // without glance view support), the input events in this view are limited, as 
+    // without glance view support), the input events in this view are limited, as
     // described under "Base View and the Widget Carousel" on:
-    // 
+    //
     // https://developer.garmin.com/connect-iq/connect-iq-basics/app-types/
-    // 
+    //
     // Also the view type of the base view is limited too (for example "WatchUi.Menu2"
     // is not possible)).
-    // 
-    // Also System.exit() is not working/do nothing when running as a widget: A widget will be 
+    //
+    // Also System.exit() is not working/do nothing when running as a widget: A widget will be
     // terminated automatically by OS after some time or can be quit manually, when on the base
     // view a swipe to left / "back button" press is done.
 
-    private var mApp                  as HomeAssistantApp;
-    private var strFetchingMenuConfig as Lang.String;
-    private var strExit               as Lang.String;
-    private var mTextAreaExit         as WatchUi.TextArea or Null;
-    private var mTextAreaFetching     as WatchUi.TextArea or Null; 
+    private static const scMidSep = 10; // Middle Separator "text:_text" in pixels
+    private var mApp        as HomeAssistantApp;
+    private var mTitle      as WatchUi.Text or Null;
+    private var mApiText    as WatchUi.Text or Null;
+    private var mApiStatus  as WatchUi.Text or Null;
+    private var mMenuText   as WatchUi.Text or Null;
+    private var mMenuStatus as WatchUi.Text or Null;
 
     function initialize(app as HomeAssistantApp) {
         ScalableView.initialize();
-        mApp=app;
-
-        strFetchingMenuConfig = WatchUi.loadResource($.Rez.Strings.FetchingMenuConfig);
-
-        if (System.getDeviceSettings().isTouchScreen){
-            strExit = WatchUi.loadResource($.Rez.Strings.ExitViewTouch);
-        } else {
-            strExit = WatchUi.loadResource($.Rez.Strings.ExitViewButtons);
-        }
+        mApp = app;
     }
 
     function onLayout(dc as Graphics.Dc) as Void {
-        var w = dc.getWidth();
-        var h = dc.getHeight();
+        var strChecking = WatchUi.loadResource($.Rez.Strings.Checking);
+        var w           = dc.getWidth();
 
-        mTextAreaExit = new WatchUi.TextArea({
-            :text          => strExit,
+        mTitle = new WatchUi.Text({
+            :text          => WatchUi.loadResource($.Rez.Strings.AppName),
             :color         => Graphics.COLOR_WHITE,
-            :font          => Graphics.FONT_XTINY,
+            :font          => Graphics.FONT_TINY,
             :justification => Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER,
-            :locX          => 0,
-            :locY          => 83,
-            :width         => w,
-            :height        => h - 166
+            :locX          => w/2,
+            :locY          => pixelsForScreen(30.0)
         });
 
-         mTextAreaFetching = new WatchUi.TextArea({
-            :text          => strFetchingMenuConfig,
+        mApiText = new WatchUi.Text({
+            :text          => "API:",
             :color         => Graphics.COLOR_WHITE,
             :font          => Graphics.FONT_XTINY,
-            :justification => Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER,
-            :locX          => 0,
-            :locY          => 83,
-            :width         => w,
-            :height        => h - 166
+            :justification => Graphics.TEXT_JUSTIFY_RIGHT | Graphics.TEXT_JUSTIFY_VCENTER,
+            :locX          => w/2 - scMidSep/2,
+            :locY          => pixelsForScreen(50.0)
         });
+        mApiStatus = new WatchUi.Text({
+            :text          => strChecking,
+            :color         => Graphics.COLOR_WHITE,
+            :font          => Graphics.FONT_XTINY,
+            :justification => Graphics.TEXT_JUSTIFY_LEFT | Graphics.TEXT_JUSTIFY_VCENTER,
+            :locX          => w/2 + scMidSep/2,
+            :locY          => pixelsForScreen(50.0)
+        });
+        mMenuText = new WatchUi.Text({
+            :text          => WatchUi.loadResource($.Rez.Strings.GlanceMenu) + ":",
+            :color         => Graphics.COLOR_WHITE,
+            :font          => Graphics.FONT_XTINY,
+            :justification => Graphics.TEXT_JUSTIFY_RIGHT | Graphics.TEXT_JUSTIFY_VCENTER,
+            :locX          => w/2 - scMidSep/2,
+            :locY          => pixelsForScreen(70.0)
+        });
+        mMenuStatus = new WatchUi.Text({
+            :text          => strChecking,
+            :color         => Graphics.COLOR_WHITE,
+            :font          => Graphics.FONT_XTINY,
+            :justification => Graphics.TEXT_JUSTIFY_LEFT | Graphics.TEXT_JUSTIFY_VCENTER,
+            :locX          => w/2 + scMidSep/2,
+            :locY          => pixelsForScreen(70.0)
+        });
+
+
+
     }
 
     function onUpdate(dc as Graphics.Dc) as Void {
-        if(dc has :setAntiAlias) {
+        if (dc has :setAntiAlias) {
             dc.setAntiAlias(true);
         }
         dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_BLACK);
         dc.clear();
-
-        if(mApp.homeAssistantMenuIsLoaded()) {
-            mTextAreaExit.draw(dc);
-        } else {
-            mTextAreaFetching.draw(dc);
-        }
+        // Initialise this locally, otherwise the venu1 device runs out of memory when stored at class level.
+        var launcherIcon = Application.loadResource(Rez.Drawables.LauncherIcon);
+        var w = dc.getWidth();
+        var h = dc.getHeight();
+        dc.drawBitmap(w/2 - launcherIcon.getWidth()/2, h/8 - launcherIcon.getHeight()/2, launcherIcon);
+        mTitle.draw(dc);
+        mApiText.draw(dc);
+        mApiStatus.setText(mApp.getApiStatus());
+        mApiStatus.draw(dc);
+        mMenuText.draw(dc);
+        mMenuStatus.setText(mApp.getMenuStatus());
+        mMenuStatus.draw(dc);
     }
 }
 
@@ -102,9 +125,9 @@ class RootViewDelegate extends WatchUi.BehaviorDelegate {
 
     var mApp as HomeAssistantApp;
 
-    function initialize(app as HomeAssistantApp ) {
+    function initialize(app as HomeAssistantApp) {
         BehaviorDelegate.initialize();
-        mApp=app;
+        mApp = app;
     }
 
     function onTap(evt as WatchUi.ClickEvent) as Lang.Boolean {
@@ -115,12 +138,12 @@ class RootViewDelegate extends WatchUi.BehaviorDelegate {
         return backToMainMenu();
     }
 
-    function onMenu() as Lang.Boolean{
+    function onMenu() as Lang.Boolean {
         return backToMainMenu();
     }
 
-    private function backToMainMenu() as Lang.Boolean{
-        if(mApp.homeAssistantMenuIsLoaded()){
+    private function backToMainMenu() as Lang.Boolean {
+        if (mApp.isHomeAssistantMenuLoaded()) {
             mApp.pushHomeAssistantMenuView();
             return true;
         }

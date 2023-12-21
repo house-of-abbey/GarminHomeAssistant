@@ -25,21 +25,22 @@
   <string id="MenuItemTap">مقبض</string>
   <string id="MenuItemMenu">قائمة طعام</string>
   <string id="Confirm">بالتأكيد؟</string>
-  <string id="NoPhone">لا يوجد اتصال الهاتف</string>
+  <string id="NoPhone" scope="glance">لا يوجد اتصال الهاتف</string>
   <string id="NoInternet">لا يوجد اتصال بالإنترنت</string>
   <string id="NoResponse">لا توجد استجابة، تحقق من الاتصال بالإنترنت</string>
-  <string id="NoMenu">خطأ في إحضار القائمة</string>
-  <string id="NoAPIKey">لا يوجد مفتاح API في إعدادات التطبيق</string>
-  <string id="NoApiUrl">لا يوجد عنوان URL لواجهة برمجة التطبيقات في إعدادات التطبيق</string>
-  <string id="NoConfigUrl">لا يوجد عنوان URL للتكوين في إعدادات التطبيق</string>
+  <string id="NoAPIKey" scope="glance">لا يوجد مفتاح API في إعدادات التطبيق</string>
+  <string id="NoApiUrl" scope="glance">لا يوجد عنوان URL لواجهة برمجة التطبيقات في إعدادات التطبيق</string>
+  <string id="NoConfigUrl" scope="glance">لا يوجد عنوان URL للتكوين في إعدادات التطبيق</string>
   <string id="ApiFlood">مكالمات API سريعة جدًا. يرجى إبطاء طلباتك.</string>
   <string id="ApiUrlNotFound">لم يتم العثور على عنوان URL. خطأ محتمل في عنوان URL لواجهة برمجة التطبيقات في الإعدادات.</string>
   <string id="ConfigUrlNotFound">لم يتم العثور على عنوان URL. خطأ محتمل في عنوان URL للتكوين في الإعدادات.</string>
+  <string id="NoJson">لم يتم إرجاع JSON من طلب HTTP.</string>
   <string id="UnhandledHttpErr">قام طلب HTTP بإرجاع رمز الخطأ =</string>
   <string id="TrailingSlashErr">يجب ألا يحتوي عنوان URL لواجهة برمجة التطبيقات على شرطة مائلة لاحقة '/'</string>
-  <string id="FetchingMenuConfig">جارٍ جلب تكوين القائمة..</string>
-  <string id="ExitViewTouch">مرّر سريعًا إلى اليمين للخروج\nانقر للبقاء</string>
-  <string id="ExitViewButtons">اضغط على "الرجوع للخروج"\nأدخل للبقاء</string>
+  <string id="Available" scope="glance">متاح</string>
+  <string id="Checking" scope="glance">تدقيق...</string>
+  <string id="Unavailable" scope="glance">غير متوفره</string>
+  <string id="GlanceMenu" scope="glance">قائمة طعام</string>
   <!-- لإعدادات واجهة المستخدم الرسومية -->
   <string id="SettingsApiKey">مفتاح API لـ HomeAssistant.</string>
   <string id="SettingsApiKeyPrompt">رمز الوصول طويل الأمد.</string>

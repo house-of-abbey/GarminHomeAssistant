@@ -106,7 +106,18 @@ class ErrorView extends ScalableView {
         create(text); // Ignore returned values
         if (!mShown) {
             WatchUi.pushView(instance, instance.getDelegate(), WatchUi.SLIDE_UP);
+            // This must be last to avoid a race condition with unShow(), where the
+            // ErrorView can't be dismissed.
             mShown = true;
+        }
+    }
+
+    static function unShow() as Void {
+        if (mShown) {
+            WatchUi.popView(WatchUi.SLIDE_DOWN);
+            // This must be last to avoid a race condition with show(), where the
+            // ErrorView can't be dismissed.
+            mShown = false;
         }
     }
 
@@ -116,13 +127,6 @@ class ErrorView extends ScalableView {
         if (mTextArea != null) {
             mTextArea.setText(text);
             requestUpdate();
-        }
-    }
-
-    static function unShow() as Void {
-        if (mShown) {
-            mShown = false;
-            WatchUi.popView(WatchUi.SLIDE_DOWN);
         }
     }
 
