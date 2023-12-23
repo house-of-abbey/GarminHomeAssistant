@@ -20,7 +20,7 @@
 
 <strings>
   <string id="AppName" scope="glance">HomeAssistant</string>
-  <string id="MenuItemOn">ActivÃ©</string>
+  <string id="MenuItemOn">Activé</string>
   <string id="MenuItemOff">Désactivé</string>
   <string id="MenuItemTap">Clic</string>
   <string id="MenuItemMenu">Menu</string>
@@ -31,7 +31,7 @@
   <string id="NoAPIKey" scope="glance">Pas de clé API dans les paramètres de l'application</string>
   <string id="NoApiUrl" scope="glance">Aucune URL API dans les paramètres de l'application</string>
   <string id="NoConfigUrl" scope="glance">Aucune URL de configuration dans les paramètres de l'application</string>
-  <string id="ApiFlood">Appels API trop rapide. Veuillez signaler cette erreur avec les dÃ©tails de l'appareil.</string>
+  <string id="ApiFlood">Appels API trop rapide. Veuillez signaler cette erreur avec les détails de l'appareil.</string>
   <string id="ApiUrlNotFound">URL introuvable. Erreur potentielle d'URL d'API dans les paramètres.</string>
   <string id="ConfigUrlNotFound">URL introuvable. Erreur potentielle d'URL de configuration dans les paramètres.</string>
   <string id="NoJson">Aucun JSON renvoyé par la requête HTTP.</string>

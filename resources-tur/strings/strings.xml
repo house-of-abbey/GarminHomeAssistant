@@ -36,7 +36,7 @@
   <string id="ConfigUrlNotFound">URL bulunamadı. Ayarlarda Olası Yapılandırma URL'si hatası.</string>
   <string id="NoJson">HTTP isteğinden JSON döndürülmedi.</string>
   <string id="UnhandledHttpErr">HTTP isteği hata kodunu döndürdü =</string>
-  <string id="TrailingSlashErr">API URL'sinin sonunda '/' eğik çizgi olmamalıdır</string>
+  <string id="TrailingSlashErr">API URL'sinin sonunda eğik çizgi '/' olmamalıdır</string>
   <string id="Available" scope="glance">Mevcut</string>
   <string id="Checking" scope="glance">Kontrol etme...</string>
   <string id="Unavailable" scope="glance">Kullanım dışı</string>
@@ -48,7 +48,7 @@
   <string id="SettingsApiUrl">HomeAssistant API'sinin URL'si.</string>
   <string id="SettingsConfigUrl">Menü yapılandırmasının URL'si (JSON).</string>
   <string id="SettingsAppTimeout">Saniye cinsinden zaman aşımı. Cihazın pilinden tasarruf etmek için bu süre boyunca işlem yapılmadığında uygulamadan çıkın.</string>
-  <string id="SettingsConfirmTimeout">Bu sürenin sonunda (saniye olarak), bir eyleme ilişkin onay iletişim kutusu otomatik olarak kapatılır ve eylem iptal edilir. Zaman aşımını devre dışı bırakmak için 0'a ayarlayın.</string>
+  <string id="SettingsConfirmTimeout">Bu sürenin sonunda (saniye cinsinden), bir eyleme ilişkin onay iletişim kutusu otomatik olarak kapatılır ve eylem iptal edilir. Zaman aşımını devre dışı bırakmak için 0'a ayarlayın.</string>
   <string id="SettingsUi">Türleri simgelerle (kapalı) veya etiketlerle (açık) temsil etme.</string>
   <string id="SettingsTextAlign">Sol (kapalı) veya Sağ (açık) Menü Hizalaması.</string>
   <string id="SettingsWidgetStart">(Yalnızca Widget) Dokunmayı beklemeden uygulamayı widget'tan otomatik olarak başlatın.</string>

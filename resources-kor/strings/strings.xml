@@ -36,7 +36,7 @@
   <string id="ConfigUrlNotFound">URL을 찾을 수 없습니다. 설정에 잠재적인 구성 URL 오류가 있습니다.</string>
   <string id="NoJson">HTTP 요청에서 JSON이 반환되지 않았습니다.</string>
   <string id="UnhandledHttpErr">HTTP 요청이 오류 코드를 반환했습니다 =</string>
-  <string id="TrailingSlashErr">API URL에는 후행 슬래시 '/'가 있어서는 안 됩니다.</string>
+  <string id="TrailingSlashErr">API URL에는 후행 슬래시 '/'가 없어야 합니다.</string>
   <string id="Available" scope="glance">사용 가능</string>
   <string id="Checking" scope="glance">확인 중...</string>
   <string id="Unavailable" scope="glance">없는</string>

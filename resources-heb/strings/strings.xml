@@ -30,7 +30,7 @@
   <string id="NoResponse">אין תגובה, בדוק חיבור לאינטרנט</string>
   <string id="NoAPIKey" scope="glance">אין מפתח API בהגדרות האפליקציה</string>
   <string id="NoApiUrl" scope="glance">אין כתובת API בהגדרות האפליקציה</string>
-  <string id="NoConfigUrl" scope="glance">אין כתובת URL לתצורה בהגדרות האפליקציה</string>
+  <string id="NoConfigUrl" scope="glance">אין כתובת אתר תצורה בהגדרות האפליקציה</string>
   <string id="ApiFlood">קריאות API מהירות מדי. נא להאט את הבקשות שלך.</string>
   <string id="ApiUrlNotFound">כתובת האתר לא נמצאה. שגיאה פוטנציאלית של כתובת ה-API בהגדרות.</string>
   <string id="ConfigUrlNotFound">כתובת האתר לא נמצאה. שגיאת כתובת אתר פוטנציאלית של תצורה בהגדרות.</string>
