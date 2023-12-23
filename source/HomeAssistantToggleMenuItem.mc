@@ -67,6 +67,8 @@ class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
     }
 
     // Callback function after completing the GET request to fetch the status.
+    // Terminate updating the toggle menu items via the chain of calls for a permanent network
+    // error. The ErrorView cancellation will resume the call chain.
     //
     function onReturnGetState(responseCode as Lang.Number, data as Null or Lang.Dictionary or Lang.String) as Void {
         if (Globals.scDebug) {
@@ -74,8 +76,6 @@ class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
             System.println("HomeAssistantToggleMenuItem onReturnGetState() Response Data: " + data);
         }
 
-        // Provide the ability to terminate updating chain of calls for a permanent network error.
-        var keepUpdating = true;
         var status       = strUnavailable;
         switch (responseCode) {
             case Communications.BLE_HOST_TIMEOUT:
@@ -111,8 +111,6 @@ class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
                 if (Globals.scDebug) {
                     System.println("HomeAssistantToggleMenuItem onReturnGetState() Response Code: NETWORK_RESPONSE_OUT_OF_MEMORY, are we going too fast?");
                 }
-                // Pause updates
-                keepUpdating = false;
                 var myTimer = new Timer.Timer();
                 // Now this feels very "closely coupled" to the application, but it is the most reliable method instead of using a timer.
                 myTimer.start(getApp().method(:updateNextMenuItem), Globals.scApiBackoff, false);
@@ -135,7 +133,6 @@ class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
                     }
                     ErrorView.show(strApiUrlNotFound);
                 }
-                keepUpdating = false;
                 break;
 
             case 405:
@@ -143,7 +140,7 @@ class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
                     System.println("HomeAssistantToggleMenuItem onReturnGetState() Response Code: 405. " + mIdentifier + " " + data.get("message"));
                 }
                 ErrorView.show("HTTP 405, " + mIdentifier + ". " + data.get("message"));
-                keepUpdating = false;
+                
                 break;
 
             case 200:
@@ -157,6 +154,8 @@ class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
                 }
                 setUiToggle(state);
                 ErrorView.unShow();
+                // Now this feels very "closely coupled" to the application, but it is the most reliable method instead of using a timer.
+                getApp().updateNextMenuItem();
                 break;
 
             default:
@@ -164,10 +163,6 @@ class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
                     System.println("HomeAssistantToggleMenuItem onReturnGetState(): Unhandled HTTP response code = " + responseCode);
                 }
                 ErrorView.show(strUnhandledHttpErr + responseCode);
-        }
-        if (keepUpdating) {
-            // Now this feels very "closely coupled" to the application, but it is the most reliable method instead of using a timer.
-            getApp().updateNextMenuItem();
         }
         getApp().setApiStatus(status);
     }
@@ -180,17 +175,18 @@ class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
             },
             :responseType => Communications.HTTP_RESPONSE_CONTENT_TYPE_JSON
         };
-        var keepUpdating = true;
         if (! System.getDeviceSettings().phoneConnected) {
             if (Globals.scDebug) {
                 System.println("HomeAssistantToggleMenuItem getState(): No Phone connection, skipping API call.");
             }
             ErrorView.show(strNoPhone + ".");
+            getApp().setApiStatus(strUnavailable);
         } else if (! System.getDeviceSettings().connectionAvailable) {
             if (Globals.scDebug) {
                 System.println("HomeAssistantToggleMenuItem getState(): No Internet connection, skipping API call.");
             }
             ErrorView.show(strNoInternet + ".");
+            getApp().setApiStatus(strUnavailable);
         } else {
             var url = Properties.getValue("api_url") + "/states/" + mIdentifier;
             if (Globals.scDebug) {
@@ -202,19 +198,6 @@ class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
                 options,
                 method(:onReturnGetState)
             );
-            // The update is called by onReturnGetState() instead
-            keepUpdating = false;
-        }
-        // On temporary failure, keep the updating going.
-        if (keepUpdating) {
-            // Need to avoid an infinite loop where the pushed ErrorView does not appear before getState() is called again
-            // and the call stack overflows. So continue the call chain from somewhere asynchronous.
-            var myTimer = new Timer.Timer();
-            // Now this feels very "closely coupled" to the application, but it is the most reliable method instead of using a timer.
-            myTimer.start(getApp().method(:updateNextMenuItem), 500, false);
-            if (Globals.scDebug) {
-                System.println("HomeAssistantToggleMenuItem getState(): Updated failed " + mIdentifier);
-            }
         }
     }
 

@@ -40,6 +40,7 @@
   <string id="Available" scope="glance">متاح</string>
   <string id="Checking" scope="glance">تدقيق...</string>
   <string id="Unavailable" scope="glance">غير متوفره</string>
+  <string id="Unconfigured" scope="glance">غير مهيأ</string>
   <string id="GlanceMenu" scope="glance">قائمة طعام</string>
   <!-- لإعدادات واجهة المستخدم الرسومية -->
   <string id="SettingsApiKey">مفتاح API لـ HomeAssistant.</string>
@@ -50,4 +51,5 @@
   <string id="SettingsConfirmTimeout">بعد هذا الوقت (بالثواني)، يتم إغلاق مربع حوار تأكيد الإجراء تلقائيًا ويتم إلغاء الإجراء. اضبط على 0 لتعطيل المهلة.</string>
   <string id="SettingsUi">تمثيل الأنواع بأيقونات (إيقاف) أو بالتسميات (تشغيل).</string>
   <string id="SettingsTextAlign">محاذاة القائمة لليسار (إيقاف) أو لليمين (تشغيل).</string>
+  <string id="SettingsWidgetStart">(القطعة فقط) قم بتشغيل التطبيق تلقائيًا من الأداة دون انتظار نقرة واحدة.</string>
 </strings>

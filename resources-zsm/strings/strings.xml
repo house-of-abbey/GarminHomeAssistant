@@ -40,6 +40,7 @@
   <string id="Available" scope="glance">Tersedia</string>
   <string id="Checking" scope="glance">Menyemak...</string>
   <string id="Unavailable" scope="glance">Tidak ada</string>
+  <string id="Unconfigured" scope="glance">Tidak dikonfigurasikan</string>
   <string id="GlanceMenu" scope="glance">Menu</string>
   <!-- Untuk GUI tetapan -->
   <string id="SettingsApiKey">Kunci API untuk HomeAssistant.</string>
@@ -50,4 +51,5 @@
   <string id="SettingsConfirmTimeout">Selepas masa ini (dalam beberapa saat), dialog pengesahan untuk tindakan ditutup secara automatik dan tindakan itu dibatalkan. Tetapkan kepada 0 untuk melumpuhkan tamat masa.</string>
   <string id="SettingsUi">Mewakili jenis dengan ikon (dimatikan) atau dengan label (dihidupkan).</string>
   <string id="SettingsTextAlign">Penjajaran Menu Kiri (mati) atau Kanan (hidup).</string>
+  <string id="SettingsWidgetStart">(Widget sahaja) Mulakan aplikasi secara automatik daripada widget tanpa menunggu satu ketikan.</string>
 </strings>

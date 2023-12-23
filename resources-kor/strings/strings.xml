@@ -36,10 +36,11 @@
   <string id="ConfigUrlNotFound">URL을 찾을 수 없습니다. 설정에 잠재적인 구성 URL 오류가 있습니다.</string>
   <string id="NoJson">HTTP 요청에서 JSON이 반환되지 않았습니다.</string>
   <string id="UnhandledHttpErr">HTTP 요청이 오류 코드를 반환했습니다 =</string>
-  <string id="TrailingSlashErr">API URL에는 후행 슬래시 '/'가 없어야 합니다.</string>
+  <string id="TrailingSlashErr">API URL에는 후행 슬래시 '/'가 있어서는 안 됩니다.</string>
   <string id="Available" scope="glance">사용 가능</string>
   <string id="Checking" scope="glance">확인 중...</string>
   <string id="Unavailable" scope="glance">없는</string>
+  <string id="Unconfigured" scope="glance">구성되지 않음</string>
   <string id="GlanceMenu" scope="glance">메뉴</string>
   <!-- 설정 GUI의 경우 -->
   <string id="SettingsApiKey">HomeAssistant용 API 키.</string>
@@ -50,4 +51,5 @@
   <string id="SettingsConfirmTimeout">이 시간(초)이 지나면 작업에 대한 확인 대화 상자가 자동으로 닫히고 작업이 취소됩니다. 시간 초과를 비활성화하려면 0으로 설정합니다.</string>
   <string id="SettingsUi">아이콘(끄기) 또는 레이블(켜기)로 유형을 나타냅니다.</string>
   <string id="SettingsTextAlign">왼쪽(끄기) 또는 오른쪽(켜기) 메뉴 정렬.</string>
+  <string id="SettingsWidgetStart">(위젯만 해당) 탭을 기다리지 않고 위젯에서 애플리케이션을 자동으로 시작합니다.</string>
 </strings>

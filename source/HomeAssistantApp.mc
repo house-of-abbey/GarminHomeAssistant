@@ -22,6 +22,7 @@ using Toybox.Application;
 using Toybox.Lang;
 using Toybox.WatchUi;
 using Toybox.Application.Properties;
+using Toybox.Timer;
 
 class HomeAssistantApp extends Application.AppBase {
     private var strNoApiKey          as Lang.String or Null;
@@ -37,19 +38,23 @@ class HomeAssistantApp extends Application.AppBase {
     private var strTrailingSlashErr  as Lang.String or Null;
     private var strAvailable         = WatchUi.loadResource($.Rez.Strings.Available);
     private var strUnavailable       = WatchUi.loadResource($.Rez.Strings.Unavailable);
+    private var strUnconfigured       = WatchUi.loadResource($.Rez.Strings.Unconfigured);
 
-    private var mApiKey              as Lang.String;
+    private var mApiKey              as Lang.String or Null; // The compiler can't tell these are updated by
+    private var mApiUrl              as Lang.String or Null; // initialize(), hence the "or Null".
+    private var mConfigUrl           as Lang.String or Null; //
     private var mApiStatus           as Lang.String = WatchUi.loadResource($.Rez.Strings.Checking);
     private var mMenuStatus          as Lang.String = WatchUi.loadResource($.Rez.Strings.Checking);
     private var mHaMenu              as HomeAssistantView or Null;
-    private var mQuitTimer           as QuitTimer or Null;
+    private var mQuitTimer           as QuitTimer         or Null;
+    private var mTimer               as Timer.Timer       or Null;
     private var mItemsToUpdate;           // Array initialised by onReturnFetchMenuConfig()
     private var mNextItemToUpdate    = 0; // Index into the above array
     private var mIsGlance            as Lang.Boolean = false;
 
     function initialize() {
         AppBase.initialize();
-        mApiKey = Properties.getValue("api_key");
+        onSettingsChanged();
         // ATTENTION when adding stuff into this block:
         // Because of the >>GlanceView<<, it should contain only
         // code, which is used as well for the glance:
@@ -110,24 +115,22 @@ class HomeAssistantApp extends Application.AppBase {
         strTrailingSlashErr  = WatchUi.loadResource($.Rez.Strings.TrailingSlashErr);
         mQuitTimer           = new QuitTimer();
 
-        var api_url = Properties.getValue("api_url") as Lang.String;
-
-        if ((Properties.getValue("api_key") as Lang.String).length() == 0) {
+        if (mApiKey.length() == 0) {
             if (Globals.scDebug) {
                 System.println("HomeAssistantApp getInitialView(): No API key in the application settings.");
             }
             return ErrorView.create(strNoApiKey + ".");
-        } else if (api_url.length() == 0) {
+        } else if (mApiUrl.length() == 0) {
             if (Globals.scDebug) {
                 System.println("HomeAssistantApp getInitialView(): No API URL in the application settings.");
             }
             return ErrorView.create(strNoApiUrl + ".");
-        } else if (api_url.substring(-1, api_url.length()).equals("/")) {
+        } else if (mApiUrl.substring(-1, mApiUrl.length()).equals("/")) {
             if (Globals.scDebug) {
                 System.println("HomeAssistantApp getInitialView(): API URL must not have a trailing slash '/'.");
             }
             return ErrorView.create(strTrailingSlashErr + ".");
-        } else if ((Properties.getValue("config_url") as Lang.String).length() == 0) {
+        } else if (mConfigUrl.length() == 0) {
             if (Globals.scDebug) {
                 System.println("HomeAssistantApp getInitialView(): No configuration URL in the application settings.");
             }
@@ -215,6 +218,12 @@ class HomeAssistantApp extends Application.AppBase {
                 if (!mIsGlance) {
                     mHaMenu = new HomeAssistantView(data, null);
                     mQuitTimer.begin();
+                    if (Properties.getValue("widget_start_no_tap")) {
+                        // As soon as the menu has been fetched start show the menu of items.
+                        // This behaviour is inconsistent with the standard Garmin User Interface, but has been
+                        // requested by users so has been made the non-default option.
+                        pushHomeAssistantMenuView();
+                    }
                     mItemsToUpdate = mHaMenu.getItemsToUpdate();
                     // Start the continuous update process that continues for as long as the application is running.
                     // The chain of functions from 'updateNextMenuItem()' calls 'updateNextMenuItem()' on completion.
@@ -225,7 +234,6 @@ class HomeAssistantApp extends Application.AppBase {
                         WatchUi.switchToView(mHaMenu, new HomeAssistantViewDelegate(false), WatchUi.SLIDE_IMMEDIATE);
                     }
                 }
-                WatchUi.requestUpdate();
                 break;
 
             default:
@@ -237,20 +245,48 @@ class HomeAssistantApp extends Application.AppBase {
                 }
                 break;
         }
+        WatchUi.requestUpdate();
     }
 
     (:glance)
     function fetchMenuConfig() as Void {
-        var options = {
-            :method       => Communications.HTTP_REQUEST_METHOD_GET,
-            :responseType => Communications.HTTP_RESPONSE_CONTENT_TYPE_JSON
-        };
-        Communications.makeWebRequest(
-            Properties.getValue("config_url"),
-            null,
-            options,
-            method(:onReturnFetchMenuConfig)
-        );
+        if (mConfigUrl.equals("")) {
+            mMenuStatus = strUnconfigured;
+            WatchUi.requestUpdate();
+        } else {
+            var options = {
+                :method       => Communications.HTTP_REQUEST_METHOD_GET,
+                :responseType => Communications.HTTP_RESPONSE_CONTENT_TYPE_JSON
+            };
+            if (! System.getDeviceSettings().phoneConnected) {
+                if (Globals.scDebug) {
+                    System.println("HomeAssistantToggleMenuItem getState(): No Phone connection, skipping API call.");
+                }
+                if (mIsGlance) {
+                    WatchUi.requestUpdate();
+                } else {
+                    ErrorView.show(strNoPhone + ".");
+                }
+                mMenuStatus = strUnavailable;
+            } else if (! System.getDeviceSettings().connectionAvailable) {
+                if (Globals.scDebug) {
+                    System.println("HomeAssistantToggleMenuItem getState(): No Internet connection, skipping API call.");
+                }
+                if (mIsGlance) {
+                    WatchUi.requestUpdate();
+                } else {
+                    ErrorView.show(strNoInternet + ".");
+                }
+                mMenuStatus = strUnavailable;
+            } else {
+                Communications.makeWebRequest(
+                    mConfigUrl,
+                    null,
+                    options,
+                    method(:onReturnFetchMenuConfig)
+                );
+            }
+        }
     }
 
     // Callback function after completing the GET request to fetch the API status.
@@ -322,7 +358,6 @@ class HomeAssistantApp extends Application.AppBase {
                         ErrorView.show("API " + mApiStatus + ".");
                     }
                 }
-                WatchUi.requestUpdate();
                 break;
 
             default:
@@ -333,23 +368,51 @@ class HomeAssistantApp extends Application.AppBase {
                     ErrorView.show(strUnhandledHttpErr + responseCode);
                 }
         }
+        WatchUi.requestUpdate();
     }
 
     (:glance)
     function fetchApiStatus() as Void {
-        var options = {
-            :method       => Communications.HTTP_REQUEST_METHOD_GET,
-            :headers      => {
-                "Authorization" => "Bearer " + mApiKey
-            },
-            :responseType => Communications.HTTP_RESPONSE_CONTENT_TYPE_JSON
-        };
-        Communications.makeWebRequest(
-            Properties.getValue("api_url") + "/",
-            null,
-            options,
-            method(:onReturnFetchApiStatus)
-        );
+        if (mApiUrl.equals("")) {
+            mApiStatus = strUnconfigured;
+            WatchUi.requestUpdate();
+        } else {
+            var options = {
+                :method       => Communications.HTTP_REQUEST_METHOD_GET,
+                :headers      => {
+                    "Authorization" => "Bearer " + mApiKey
+                },
+                :responseType => Communications.HTTP_RESPONSE_CONTENT_TYPE_JSON
+            };
+            if (! System.getDeviceSettings().phoneConnected) {
+                if (Globals.scDebug) {
+                    System.println("HomeAssistantToggleMenuItem getState(): No Phone connection, skipping API call.");
+                }
+                mApiStatus = strUnavailable;
+                if (mIsGlance) {
+                    WatchUi.requestUpdate();
+                } else {
+                    ErrorView.show(strNoPhone + ".");
+                }
+            } else if (! System.getDeviceSettings().connectionAvailable) {
+                if (Globals.scDebug) {
+                    System.println("HomeAssistantToggleMenuItem getState(): No Internet connection, skipping API call.");
+                }
+                mApiStatus = strUnavailable;
+                if (mIsGlance) {
+                    WatchUi.requestUpdate();
+                } else {
+                    ErrorView.show(strNoInternet + ".");
+                }
+            } else {
+                Communications.makeWebRequest(
+                    mApiUrl + "/",
+                    null,
+                    options,
+                    method(:onReturnFetchApiStatus)
+                );
+            }
+        }
     }
 
     function setApiStatus(s as Lang.String) {
@@ -387,11 +450,26 @@ class HomeAssistantApp extends Application.AppBase {
     }
 
     (:glance)
-    function getGlanceView() {
+    function getGlanceView() as Lang.Array<WatchUi.GlanceView or WatchUi.GlanceViewDelegate> or Null {
         mIsGlance = true;
+        updateGlance();
+        mTimer = new Timer.Timer();
+        mTimer.start(method(:updateGlance), Globals.scApiBackoff, true);
+        return [new HomeAssistantGlanceView(self)];
+    }
+
+    // Required for the Glance update timer.
+    function updateGlance() as Void {
         fetchMenuConfig();
         fetchApiStatus();
-        return [new HomeAssistantGlanceView(self)];
+    }
+
+    // Replace this functionality with a more central settings class as proposed in
+    // https://github.com/house-of-abbey/GarminHomeAssistant/pull/17.
+    function onSettingsChanged() as Void {
+        mApiKey    = Properties.getValue("api_key");
+        mApiUrl    = Properties.getValue("api_url");
+        mConfigUrl = Properties.getValue("config_url");
     }
 }
 

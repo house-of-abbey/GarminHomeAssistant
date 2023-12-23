@@ -23,7 +23,7 @@
   <string id="MenuItemOn">An</string>
   <string id="MenuItemOff">Aus</string>
   <string id="MenuItemTap">Antippen</string>
-  <string id="MenuItemMenu">Menü</string>
+  <string id="MenuItemMenu">MenÃ¼</string>
   <string id="Confirm">Sicher?</string>
   <string id="NoPhone" scope="glance">Keine Telefonverbindung</string>
   <string id="NoInternet">Keine Internetverbindung</string>
@@ -35,11 +35,12 @@
   <string id="ApiUrlNotFound">URL nicht gefunden. Möglicher API-URL-Fehler in den Einstellungen.</string>
   <string id="ConfigUrlNotFound">URL nicht gefunden. Möglicher Konfigurations-URL-Fehler in den Einstellungen.</string>
   <string id="NoJson">Von der HTTP-Anfrage wurde kein JSON zurückgegeben.</string>
-  <string id="UnhandledHttpErr">Die HTTP-Anfrage gab folgenden Fehlercode zurück = </string>
+  <string id="UnhandledHttpErr">Die HTTP-Anfrage gab folgenden Fehlercode zurÃ¼ck = </string>
   <string id="TrailingSlashErr">Die API-URL darf keinen abschließenden Schrägstrich „/“ enthalten.</string>
   <string id="Available" scope="glance">Verfügbar</string>
   <string id="Checking" scope="glance">Überprüfung...</string>
   <string id="Unavailable" scope="glance">Nicht verfügbar</string>
+  <string id="Unconfigured" scope="glance">Unkonfiguriert</string>
   <string id="GlanceMenu" scope="glance">Speisekarte</string>
   <!-- Für die Einstellungs-GUI -->
   <string id="SettingsApiKey">API-Schlüssel für HomeAssistant.</string>
@@ -50,4 +51,5 @@
   <string id="SettingsConfirmTimeout">Nach dieser Zeit (in Sekunden) wird automatisch ein Bestätigungsdialog für eine Aktion geschlossen und die Aktion abgebrochen. Auf 0 setzen, um das Timeout zu deaktivieren.</string>
   <string id="SettingsUi">Darstellen von Typen mit Symbolen (aus) oder mit Beschriftungen (ein).</string>
   <string id="SettingsTextAlign">Menüausrichtung links (aus) oder rechts (ein).</string>
+  <string id="SettingsWidgetStart">(Nur Widget) Starten Sie die Anwendung automatisch über das Widget, ohne auf einen Tipp warten zu müssen.</string>
 </strings>

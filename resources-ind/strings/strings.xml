@@ -30,7 +30,7 @@
   <string id="NoResponse">Tidak Ada Respon, periksa koneksi Internet</string>
   <string id="NoAPIKey" scope="glance">Tidak ada kunci API di pengaturan aplikasi</string>
   <string id="NoApiUrl" scope="glance">Tidak ada URL API di pengaturan aplikasi</string>
-  <string id="NoConfigUrl" scope="glance">Tidak ada URL konfigurasi dalam pengaturan aplikasi</string>
+  <string id="NoConfigUrl" scope="glance">Tidak ada URL konfigurasi di pengaturan aplikasi</string>
   <string id="ApiFlood">Panggilan API terlalu cepat. Harap memperlambat permintaan Anda.</string>
   <string id="ApiUrlNotFound">URL tidak ditemukan. Potensi kesalahan URL API dalam pengaturan.</string>
   <string id="ConfigUrlNotFound">URL tidak ditemukan. Potensi kesalahan URL Konfigurasi dalam pengaturan.</string>
@@ -40,6 +40,7 @@
   <string id="Available" scope="glance">Tersedia</string>
   <string id="Checking" scope="glance">Memeriksa...</string>
   <string id="Unavailable" scope="glance">Tidak tersedia</string>
+  <string id="Unconfigured" scope="glance">Tidak dikonfigurasi</string>
   <string id="GlanceMenu" scope="glance">Menu</string>
   <!-- Untuk pengaturan GUI -->
   <string id="SettingsApiKey">Kunci API untuk HomeAssistant.</string>
@@ -50,4 +51,5 @@
   <string id="SettingsConfirmTimeout">Setelah waktu ini (dalam detik), dialog konfirmasi untuk suatu tindakan secara otomatis ditutup dan tindakan tersebut dibatalkan. Setel ke 0 untuk menonaktifkan batas waktu.</string>
   <string id="SettingsUi">Mewakili tipe dengan ikon (mati) atau dengan label (aktif).</string>
   <string id="SettingsTextAlign">Penyelarasan Menu Kiri (mati) atau Kanan (hidup).</string>
+  <string id="SettingsWidgetStart">(Khusus widget) Secara otomatis memulai aplikasi dari widget tanpa menunggu ketukan.</string>
 </strings>

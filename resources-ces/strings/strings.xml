@@ -40,6 +40,7 @@
   <string id="Available" scope="glance">Dostupný</string>
   <string id="Checking" scope="glance">Kontrola...</string>
   <string id="Unavailable" scope="glance">Není k dispozici</string>
+  <string id="Unconfigured" scope="glance">Nenakonfigurováno</string>
   <string id="GlanceMenu" scope="glance">Jídelní lístek</string>
   <!-- Pro nastavení GUI -->
   <string id="SettingsApiKey">Klíč API pro HomeAssistant.</string>
@@ -50,4 +51,5 @@
   <string id="SettingsConfirmTimeout">Po uplynutí této doby (v sekundách) se dialog pro potvrzení akce automaticky zavře a akce se zruší. Nastavením na 0 deaktivujete časový limit.</string>
   <string id="SettingsUi">Znázornění typů pomocí ikon (vypnuto) nebo pomocí štítků (zapnuto).</string>
   <string id="SettingsTextAlign">Zarovnání nabídky vlevo (vypnuto) nebo vpravo (zapnuto).</string>
+  <string id="SettingsWidgetStart">(Pouze widget) Automaticky spusťte aplikaci z widgetu bez čekání na klepnutí.</string>
 </strings>

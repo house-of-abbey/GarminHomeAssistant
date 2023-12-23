@@ -40,6 +40,7 @@
   <string id="Available" scope="glance">Galima</string>
   <string id="Checking" scope="glance">Tikrinama...</string>
   <string id="Unavailable" scope="glance">Nepasiekiamas</string>
+  <string id="Unconfigured" scope="glance">Nesukonfigūruotas</string>
   <string id="GlanceMenu" scope="glance">Meniu</string>
   <!-- Dėl nustatymų GUI -->
   <string id="SettingsApiKey">API raktas, skirtas „HomeAssistant“.</string>
@@ -50,4 +51,5 @@
   <string id="SettingsConfirmTimeout">Praėjus šiam laikui (sekundėmis), veiksmo patvirtinimo dialogo langas automatiškai uždaromas ir veiksmas atšaukiamas. Nustatykite 0, kad išjungtumėte skirtąjį laiką.</string>
   <string id="SettingsUi">Tipai su piktogramomis (išjungta) arba etiketėmis (įjungta).</string>
   <string id="SettingsTextAlign">Kairysis (išjungtas) arba dešinysis (įjungtas) meniu lygiavimas.</string>
+  <string id="SettingsWidgetStart">(Tik valdiklis) Automatiškai paleiskite programą iš valdiklio, nelaukdami palietimo.</string>
 </strings>

@@ -33,6 +33,7 @@ using Toybox.Graphics;
 using Toybox.Lang;
 using Toybox.WatchUi;
 using Toybox.Communications;
+using Toybox.Timer;
 
 class ErrorView extends ScalableView {
     private var mText            as Lang.String = "";
@@ -94,14 +95,15 @@ class ErrorView extends ScalableView {
         }
         if (!mShown) {
             instance.setText(text);
+            mShown = true;
         }
         return [instance, instance.getDelegate()];
     }
 
     // Create or reuse an existing ErrorView, and pass on the text.
     static function show(text as Lang.String) as Void {
-        create(text); // Ignore returned values
         if (!mShown) {
+            create(text); // Ignore returned values
             WatchUi.pushView(instance, instance.getDelegate(), WatchUi.SLIDE_UP);
             // This must be last to avoid a race condition with unShow(), where the
             // ErrorView can't be dismissed.
@@ -112,6 +114,10 @@ class ErrorView extends ScalableView {
     static function unShow() as Void {
         if (mShown) {
             WatchUi.popView(WatchUi.SLIDE_DOWN);
+            // The call to 'updateNextMenuItem()' must be on another thread so that the view is popped above.
+            var myTimer = new Timer.Timer();
+            // Now this feels very "closely coupled" to the application, but it is the most reliable method instead of using a timer.
+            myTimer.start(getApp().method(:updateNextMenuItem), Globals.scApiResume, false);
             // This must be last to avoid a race condition with show(), where the
             // ErrorView can't be dismissed.
             mShown = false;

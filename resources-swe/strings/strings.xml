@@ -40,14 +40,16 @@
   <string id="Available" scope="glance">Tillgängliga</string>
   <string id="Checking" scope="glance">Kontroll...</string>
   <string id="Unavailable" scope="glance">Inte tillgänglig</string>
+  <string id="Unconfigured" scope="glance">Okonfigurerad</string>
   <string id="GlanceMenu" scope="glance">Meny</string>
   <!-- För inställningar GUI -->
   <string id="SettingsApiKey">API-nyckel för HomeAssistant.</string>
   <string id="SettingsApiKeyPrompt">Långlivad åtkomsttoken.</string>
   <string id="SettingsApiUrl">URL för HomeAssistant API.</string>
   <string id="SettingsConfigUrl">URL för menykonfiguration (JSON).</string>
-  <string id="SettingsAppTimeout">Timeout i sekunder. Avsluta programmet efter denna period av inaktivitet för att spara enhetens batteri.</string>
+  <string id="SettingsAppTimeout">Timeout på sekunder. Avsluta programmet efter denna period av inaktivitet för att spara enhetens batteri.</string>
   <string id="SettingsConfirmTimeout">Efter denna tid (i sekunder) stängs en bekräftelsedialog för en åtgärd automatiskt och åtgärden avbryts. Ställ in på 0 för att inaktivera timeout.</string>
   <string id="SettingsUi">Representerar typer med ikoner (av) eller med etiketter (på).</string>
   <string id="SettingsTextAlign">Vänster (av) eller höger (på) menyjustering.</string>
+  <string id="SettingsWidgetStart">(Endast widget) Starta programmet automatiskt från widgeten utan att vänta på ett tryck.</string>
 </strings>

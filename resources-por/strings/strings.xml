@@ -40,6 +40,7 @@
   <string id="Available" scope="glance">Disponível</string>
   <string id="Checking" scope="glance">Verificando...</string>
   <string id="Unavailable" scope="glance">Indisponível</string>
+  <string id="Unconfigured" scope="glance">Não configurado</string>
   <string id="GlanceMenu" scope="glance">Cardápio</string>
   <!-- Para a GUI de configurações -->
   <string id="SettingsApiKey">Chave de API para HomeAssistant.</string>
@@ -50,4 +51,5 @@
   <string id="SettingsConfirmTimeout">Após esse tempo (em segundos), uma caixa de diálogo de confirmação de uma ação é automaticamente fechada e a ação é cancelada. Defina como 0 para desativar o tempo limite.</string>
   <string id="SettingsUi">Representando tipos com ícones (desligado) ou com rótulos (ligado).</string>
   <string id="SettingsTextAlign">Alinhamento do menu à esquerda (desligado) ou à direita (ligado).</string>
+  <string id="SettingsWidgetStart">(Somente widget) Inicie automaticamente o aplicativo a partir do widget sem esperar por um toque.</string>
 </strings>

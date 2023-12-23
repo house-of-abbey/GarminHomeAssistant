@@ -40,6 +40,7 @@
   <string id="Available" scope="glance">Pieejams</string>
   <string id="Checking" scope="glance">Notiek pārbaude...</string>
   <string id="Unavailable" scope="glance">Nav pieejams</string>
+  <string id="Unconfigured" scope="glance">Nav konfigurēts</string>
   <string id="GlanceMenu" scope="glance">Izvēlne</string>
   <!-- Iestatījumu GUI -->
   <string id="SettingsApiKey">API atslēga Home Assistant.</string>
@@ -50,4 +51,5 @@
   <string id="SettingsConfirmTimeout">Pēc šī laika (sekundēs) tiek automātiski aizvērts darbības apstiprinājuma dialoglodziņš un darbība tiek atcelta. Iestatiet uz 0, lai atspējotu taimautu.</string>
   <string id="SettingsUi">Apzīmē veidus ar ikonām (izslēgts) vai ar etiķetēm (ieslēgts).</string>
   <string id="SettingsTextAlign">Kreisā (izslēgta) vai labā (ieslēgta) izvēlnes izlīdzināšana.</string>
+  <string id="SettingsWidgetStart">(tikai logrīkam) Automātiski startējiet lietojumprogrammu no logrīka, negaidot pieskārienu.</string>
 </strings>

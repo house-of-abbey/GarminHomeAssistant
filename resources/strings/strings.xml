@@ -34,6 +34,7 @@
     <string id="Available" scope="glance">Available</string>
     <string id="Checking" scope="glance">Checking...</string>
     <string id="Unavailable" scope="glance">Unavailable</string>
+    <string id="Unconfigured" scope="glance">Unconfigured</string>
     <string id="GlanceMenu" scope="glance">Menu</string>
 
     <!-- For the settings GUI -->
@@ -45,4 +46,5 @@
     <string id="SettingsConfirmTimeout">After this time (in seconds), a confirmation dialog for an action is automatically closed and the action is cancelled. Set to 0 to disable the timeout.</string>
     <string id="SettingsUi">Representing types with icons (off) or with labels (on).</string>
     <string id="SettingsTextAlign">Left (off) or Right (on) Menu Alignment.</string>
+    <string id="SettingsWidgetStart">(Widget only) Automatically start the application from the widget without waiting for a tap.</string>
 </strings>

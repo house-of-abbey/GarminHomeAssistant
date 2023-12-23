@@ -40,6 +40,7 @@
   <string id="Available" scope="glance">Elérhető</string>
   <string id="Checking" scope="glance">Ellenőrzés...</string>
   <string id="Unavailable" scope="glance">Nem érhető el</string>
+  <string id="Unconfigured" scope="glance">Nincs konfigurálva</string>
   <string id="GlanceMenu" scope="glance">Menü</string>
   <!-- A beállítások GUI-hoz -->
   <string id="SettingsApiKey">API-kulcs a HomeAssistant számára.</string>
@@ -47,7 +48,8 @@
   <string id="SettingsApiUrl">A HomeAssistant API URL-je.</string>
   <string id="SettingsConfigUrl">URL a menükonfigurációhoz (JSON).</string>
   <string id="SettingsAppTimeout">Időtúllépés másodpercben. Az eszköz akkumulátorának kímélése érdekében lépjen ki az alkalmazásból ezen inaktivitási időszak után.</string>
-  <string id="SettingsConfirmTimeout">Ezen idő elteltével (másodpercben) egy művelet megerősítő párbeszédpanele automatikusan bezárul, és a művelet megszakad. Állítsa 0-ra az időtúllépés letiltásához.</string>
+  <string id="SettingsConfirmTimeout">Ezen idő letelte után (másodpercben) a művelet megerősítő párbeszédablakja automatikusan bezárul, és a művelet megszakad. Állítsa 0-ra az időtúllépés letiltásához.</string>
   <string id="SettingsUi">A típusokat ikonokkal (kikapcsolva) vagy címkékkel (bekapcsolva) ábrázolja.</string>
   <string id="SettingsTextAlign">Balra (ki) vagy Jobbra (be) Menüigazítás.</string>
+  <string id="SettingsWidgetStart">(Csak widget) Az alkalmazás automatikus indítása a widgetről anélkül, hogy egy érintésre várna.</string>
 </strings>

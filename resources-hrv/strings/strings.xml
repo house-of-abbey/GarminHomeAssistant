@@ -40,6 +40,7 @@
   <string id="Available" scope="glance">Dostupno</string>
   <string id="Checking" scope="glance">Provjera...</string>
   <string id="Unavailable" scope="glance">Nedostupan</string>
+  <string id="Unconfigured" scope="glance">Nekonfigurirano</string>
   <string id="GlanceMenu" scope="glance">Jelovnik</string>
   <!-- Za GUI postavki -->
   <string id="SettingsApiKey">API ključ za HomeAssistant.</string>
@@ -50,4 +51,5 @@
   <string id="SettingsConfirmTimeout">Nakon tog vremena (u sekundama), dijaloški okvir za potvrdu radnje automatski se zatvara i radnja se poništava. Postavite na 0 da onemogućite vremensko ograničenje.</string>
   <string id="SettingsUi">Predstavljanje tipova ikonama (isključeno) ili oznakama (uključeno).</string>
   <string id="SettingsTextAlign">Lijevo (isključeno) ili desno (uključeno) poravnanje izbornika.</string>
+  <string id="SettingsWidgetStart">(Samo widget) Automatski pokrenite aplikaciju iz widgeta bez čekanja na dodir.</string>
 </strings>

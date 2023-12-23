@@ -26,5 +26,10 @@ class Globals {
     static const scDebug        = false;
     static const scAlertTimeout = 2000; // ms
     static const scTapTimeout   = 1000; // ms
+    // Time to let the existing HTTP responses get serviced after a
+    // Communications.NETWORK_RESPONSE_OUT_OF_MEMORY response code.
     static const scApiBackoff   = 1000; // ms
+    // Needs to be long enough to enable a "double ESC" to quit the application from
+    // an ErrorView.
+    static const scApiResume    = 200;  // ms
 }

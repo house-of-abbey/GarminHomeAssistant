@@ -40,6 +40,7 @@
   <string id="Available" scope="glance">На разположение</string>
   <string id="Checking" scope="glance">Проверка...</string>
   <string id="Unavailable" scope="glance">Недостъпен</string>
+  <string id="Unconfigured" scope="glance">Неконфигуриран</string>
   <string id="GlanceMenu" scope="glance">Меню</string>
   <!-- За GUI за настройки -->
   <string id="SettingsApiKey">API ключ за HomeAssistant.</string>
@@ -50,4 +51,5 @@
   <string id="SettingsConfirmTimeout">След това време (в секунди) диалоговият прозорец за потвърждение за действие се затваря автоматично и действието се отменя. Задайте 0, за да деактивирате изчакването.</string>
   <string id="SettingsUi">Представяне на типове с икони (изключено) или с етикети (включено).</string>
   <string id="SettingsTextAlign">Ляво (изключено) или дясно (включено) подравняване на менюто.</string>
+  <string id="SettingsWidgetStart">(Само за джаджа) Автоматично стартирайте приложението от джаджата, без да чакате докосване.</string>
 </strings>
