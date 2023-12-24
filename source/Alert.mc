@@ -27,40 +27,39 @@ using Toybox.Graphics;
 using Toybox.WatchUi;
 using Toybox.Timer;
 
-const bRadius = 10;
-
 class Alert extends WatchUi.View {
-    private var mTimer;
-    private var mTimeout;
-    private var mText;
-    private var mFont;
-    private var mFgcolor;
-    private var mBgcolor;
+    private static const bRadius = 10;
+    private var mTimer   as Timer.Timer;
+    private var mTimeout as Lang.Number;
+    private var mText    as Lang.String;
+    private var mFont    as Graphics.FontType;
+    private var mFgcolor as Graphics.ColorType;
+    private var mBgcolor as Graphics.ColorType;
 
     function initialize(params as Lang.Dictionary) {
         View.initialize();
 
-        mText = params.get(:text);
+        mText = params.get(:text) as Lang.String;
         if (mText == null) {
             mText = "Alert";
         }
 
-        mFont = params.get(:font);
+        mFont = params.get(:font) as Graphics.FontType;
         if (mFont == null) {
             mFont = Graphics.FONT_MEDIUM;
         }
 
-        mFgcolor = params.get(:fgcolor);
+        mFgcolor = params.get(:fgcolor) as Graphics.ColorType;
         if (mFgcolor == null) {
             mFgcolor = Graphics.COLOR_BLACK;
         }
 
-        mBgcolor = params.get(:bgcolor);
+        mBgcolor = params.get(:bgcolor) as Graphics.ColorType;
         if (mBgcolor == null) {
             mBgcolor = Graphics.COLOR_WHITE;
         }
 
-        mTimeout = params.get(:timeout);
+        mTimeout = params.get(:timeout) as Lang.Number;
         if (mTimeout == null) {
             mTimeout = 2000;
         }
@@ -84,7 +83,7 @@ class Alert extends WatchUi.View {
         var bX      = (dc.getWidth()  - bWidth)  / 2;
         var bY      = (dc.getHeight() - bHeight) / 2;
 
-        if(dc has :setAntiAlias) {
+        if (dc has :setAntiAlias) {
             dc.setAntiAlias(true);
         }
 
@@ -113,30 +112,30 @@ class Alert extends WatchUi.View {
 
     // Remove the alert from view, usually on user input, but that is defined by the calling function.
     //
-    function dismiss() {
+    function dismiss() as Void {
         WatchUi.popView(SLIDE_IMMEDIATE);
     }
 
-    function pushView(transition) {
+    function pushView(transition) as Void {
         WatchUi.pushView(self, new AlertDelegate(self), transition);
     }
 }
 
 class AlertDelegate extends WatchUi.InputDelegate {
-    hidden var mView;
+    private var mView;
 
     function initialize(view) {
         InputDelegate.initialize();
         mView = view;
     }
 
-    function onKey(evt) {
+    function onKey(evt) as Lang.Boolean {
         mView.dismiss();
         getApp().getQuitTimer().reset();
         return true;
     }
 
-    function onTap(evt) {
+    function onTap(evt) as Lang.Boolean {
         mView.dismiss();
         getApp().getQuitTimer().reset();
         return true;

@@ -25,21 +25,23 @@
   <string id="MenuItemTap">Kraan</string>
   <string id="MenuItemMenu">Menu</string>
   <string id="Confirm">Zeker?</string>
-  <string id="NoPhone">Geen telefoonverbinding</string>
+  <string id="NoPhone" scope="glance">Geen telefoonverbinding</string>
   <string id="NoInternet">Geen internet verbinding</string>
   <string id="NoResponse">Geen reactie, controleer de internetverbinding</string>
-  <string id="NoMenu">Fout bij ophalen van menu</string>
-  <string id="NoAPIKey">Geen API-sleutel in de applicatie-instellingen</string>
-  <string id="NoApiUrl">Geen API-URL in de applicatie-instellingen</string>
-  <string id="NoConfigUrl">Geen configuratie-URL in de applicatie-instellingen</string>
+  <string id="NoAPIKey" scope="glance">Geen API-sleutel in de applicatie-instellingen</string>
+  <string id="NoApiUrl" scope="glance">Geen API-URL in de applicatie-instellingen</string>
+  <string id="NoConfigUrl" scope="glance">Geen configuratie-URL in de applicatie-instellingen</string>
   <string id="ApiFlood">API-aanroepen te snel. Vertraag uw verzoeken.</string>
   <string id="ApiUrlNotFound">URL niet gevonden. Mogelijke API-URL-fout in instellingen.</string>
   <string id="ConfigUrlNotFound">URL niet gevonden. Mogelijke configuratie-URL-fout in de instellingen.</string>
+  <string id="NoJson">Er is geen JSON geretourneerd door een HTTP-verzoek.</string>
   <string id="UnhandledHttpErr">HTTP-verzoek retourneerde foutcode =</string>
   <string id="TrailingSlashErr">API-URL mag geen afsluitende slash '/' bevatten</string>
-  <string id="FetchingMenuConfig">Menuconfiguratie ophalen..</string>
-  <string id="ExitViewTouch">Veeg naar rechts om af te sluiten\nTik om te blijven</string>
-  <string id="ExitViewButtons">Druk op Terug om af te sluiten\nEnter om te blijven</string>
+  <string id="Available" scope="glance">Beschikbaar</string>
+  <string id="Checking" scope="glance">Controleren...</string>
+  <string id="Unavailable" scope="glance">Niet beschikbaar</string>
+  <string id="Unconfigured" scope="glance">Niet geconfigureerd</string>
+  <string id="GlanceMenu" scope="glance">Menu</string>
   <!-- Voor de instellingen-GUI -->
   <string id="SettingsApiKey">API-sleutel voor HomeAssistant.</string>
   <string id="SettingsApiKeyPrompt">Toegangstoken met lange levensduur.</string>
@@ -49,4 +51,5 @@
   <string id="SettingsConfirmTimeout">Na deze tijd (in seconden) wordt automatisch een bevestigingsvenster voor een actie gesloten en wordt de actie geannuleerd. Stel in op 0 om de time-out uit te schakelen.</string>
   <string id="SettingsUi">Typen weergeven met pictogrammen (uit) of met labels (aan).</string>
   <string id="SettingsTextAlign">Links (uit) of rechts (aan) Menu-uitlijning.</string>
+  <string id="SettingsWidgetStart">(Alleen Widget) Start de applicatie automatisch vanuit de widget zonder te wachten op een tik.</string>
 </strings>

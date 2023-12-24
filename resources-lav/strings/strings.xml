@@ -25,21 +25,23 @@
   <string id="MenuItemTap">Krāns</string>
   <string id="MenuItemMenu">Izvēlne</string>
   <string id="Confirm">Protams?</string>
-  <string id="NoPhone">Nav tālruņa savienojuma</string>
+  <string id="NoPhone" scope="glance">Nav tālruņa savienojuma</string>
   <string id="NoInternet">Nav interneta savienojuma</string>
   <string id="NoResponse">Nav atbildes, pārbaudiet interneta savienojumu</string>
-  <string id="NoMenu">Izvēlnes ielādes kļūda</string>
-  <string id="NoAPIKey">Lietojumprogrammas iestatījumos nav API atslēgas</string>
-  <string id="NoApiUrl">Lietojumprogrammas iestatījumos nav API URL</string>
-  <string id="NoConfigUrl">Lietojumprogrammas iestatījumos nav konfigurācijas URL</string>
+  <string id="NoAPIKey" scope="glance">Lietojumprogrammas iestatījumos nav API atslēgas</string>
+  <string id="NoApiUrl" scope="glance">Lietojumprogrammas iestatījumos nav API URL</string>
+  <string id="NoConfigUrl" scope="glance">Lietojumprogrammas iestatījumos nav konfigurācijas URL</string>
   <string id="ApiFlood">API izsaukumi ir pārāk ātri. Lūdzu, palēniniet pieprasījumu izpildi.</string>
   <string id="ApiUrlNotFound">URL nav atrasts. Iespējama API URL kļūda iestatījumos.</string>
   <string id="ConfigUrlNotFound">URL nav atrasts. Iespējama konfigurācijas URL kļūda iestatījumos.</string>
+  <string id="NoJson">No HTTP pieprasījuma netika atgriezts neviens JSON fails.</string>
   <string id="UnhandledHttpErr">HTTP pieprasījums atgrieza kļūdas kodu =</string>
   <string id="TrailingSlashErr">API URL beigās nedrīkst būt slīpsvītra “/”</string>
-  <string id="FetchingMenuConfig">Notiek izvēlnes konfigurācijas iegūšana...</string>
-  <string id="ExitViewTouch">Lai izietu, velciet pa labi\nPieskarieties, lai paliktu</string>
-  <string id="ExitViewButtons">Noklikšķiniet uz Atpakaļ, lai izietu.\nIevadiet, lai paliktu</string>
+  <string id="Available" scope="glance">Pieejams</string>
+  <string id="Checking" scope="glance">Notiek pārbaude...</string>
+  <string id="Unavailable" scope="glance">Nav pieejams</string>
+  <string id="Unconfigured" scope="glance">Nav konfigurēts</string>
+  <string id="GlanceMenu" scope="glance">Izvēlne</string>
   <!-- Iestatījumu GUI -->
   <string id="SettingsApiKey">API atslēga Home Assistant.</string>
   <string id="SettingsApiKeyPrompt">Ilgmūžīgs piekļuves marķieris.</string>
@@ -49,4 +51,5 @@
   <string id="SettingsConfirmTimeout">Pēc šī laika (sekundēs) tiek automātiski aizvērts darbības apstiprinājuma dialoglodziņš un darbība tiek atcelta. Iestatiet uz 0, lai atspējotu taimautu.</string>
   <string id="SettingsUi">Apzīmē veidus ar ikonām (izslēgts) vai ar etiķetēm (ieslēgts).</string>
   <string id="SettingsTextAlign">Kreisā (izslēgta) vai labā (ieslēgta) izvēlnes līdzināšana.</string>
+  <string id="SettingsWidgetStart">(tikai logrīkam) Automātiski startējiet lietojumprogrammu no logrīka, negaidot pieskārienu.</string>
 </strings>

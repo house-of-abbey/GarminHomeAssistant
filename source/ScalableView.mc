@@ -27,6 +27,7 @@ class ScalableView extends WatchUi.View {
 
     function initialize() {
         View.initialize();
+        mScreenWidth = System.getDeviceSettings().screenWidth;
     }
 
     // Convert a fraction expressed as a percentage (%) to a number of pixels for the
@@ -40,9 +41,6 @@ class ScalableView extends WatchUi.View {
     // height > width.
     //
     function pixelsForScreen(pc as Lang.Float) as Lang.Number {
-        if (mScreenWidth == null) {
-            mScreenWidth = System.getDeviceSettings().screenWidth;
-        }
         return Math.round(pc * mScreenWidth) / 100;
     }
 }

@@ -25,21 +25,23 @@
   <string id="MenuItemTap">タップ</string>
   <string id="MenuItemMenu">メニュー</string>
   <string id="Confirm">もちろん？</string>
-  <string id="NoPhone">電話が接続されていません</string>
+  <string id="NoPhone" scope="glance">電話が接続されていません</string>
   <string id="NoInternet">インターネット接続なし</string>
   <string id="NoResponse">応答がありません。インターネット接続を確認してください</string>
-  <string id="NoMenu">メニューフェッチエラー</string>
-  <string id="NoAPIKey">アプリケーション設定に API キーがありません</string>
-  <string id="NoApiUrl">アプリケーション設定に API URL がありません</string>
-  <string id="NoConfigUrl">アプリケーション設定に構成 URL がありません</string>
+  <string id="NoAPIKey" scope="glance">アプリケーション設定に API キーがありません</string>
+  <string id="NoApiUrl" scope="glance">アプリケーション設定に API URL がありません</string>
+  <string id="NoConfigUrl" scope="glance">アプリケーション設定に構成 URL がありません</string>
   <string id="ApiFlood">API 呼び出しが速すぎます。リクエストは遅くしてください。</string>
   <string id="ApiUrlNotFound">URLが見つかりません。設定における API URL エラーの可能性があります。</string>
   <string id="ConfigUrlNotFound">URLが見つかりません。設定内の構成 URL エラーの可能性があります。</string>
+  <string id="NoJson">HTTP リクエストから JSON が返されませんでした。</string>
   <string id="UnhandledHttpErr">HTTP リクエストがエラー コードを返しました =</string>
   <string id="TrailingSlashErr">API URL の末尾にスラッシュ「/」を含めることはできません</string>
-  <string id="FetchingMenuConfig">メニュー構成を取得しています。</string>
-  <string id="ExitViewTouch">右にスワイプして終了\nタップしてそのまま残ります</string>
-  <string id="ExitViewButtons">終了するには戻るキーを押してください\n続行するには Enter キーを押してください</string>
+  <string id="Available" scope="glance">利用可能</string>
+  <string id="Checking" scope="glance">チェック中...</string>
+  <string id="Unavailable" scope="glance">利用不可</string>
+  <string id="Unconfigured" scope="glance">未構成</string>
+  <string id="GlanceMenu" scope="glance">メニュー</string>
   <!-- 設定GUIの場合 -->
   <string id="SettingsApiKey">ホームアシスタントの API キー。</string>
   <string id="SettingsApiKeyPrompt">有効期間の長いアクセス トークン。</string>
@@ -49,4 +51,5 @@
   <string id="SettingsConfirmTimeout">この時間 (秒単位) が経過すると、アクションの確認ダイアログが自動的に閉じられ、アクションがキャンセルされます。タイムアウトを無効にするには、0 に設定します。</string>
   <string id="SettingsUi">タイプをアイコン (オフ) またはラベル (オン) で表します。</string>
   <string id="SettingsTextAlign">左 (オフ) または右 (オン) メニューの配置。</string>
+  <string id="SettingsWidgetStart">（ウィジェットのみ）タップを待たずにウィジェットからアプリを自動起動します。</string>
 </strings>

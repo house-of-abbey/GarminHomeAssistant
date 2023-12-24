@@ -11,7 +11,10 @@
 
    P A Abbey & J D Abbey & Someone0nEarth, 31 October 2023
 
-  Someone0nEarth's Test App id="bf69be91-5833-4d96-92ea-c5f1a9db5dcc" type="widget"
+  Device Information & References:
+  * https://developer.garmin.com/connect-iq/compatible-devices/
+  * https://developer.garmin.com/connect-iq/reference-guides/devices-reference/
+
   philipabbey's Test App    id="98c36259-498a-4458-9cef-74a273ad2bc3" type="watch-app"
   Live Application          id="40131e87-31ff-454b-a8e2-92276ee399d6" type="watch-app"
 
@@ -21,7 +24,14 @@
     Use "Monkey C: Edit Application" from the Visual Studio Code command palette
     to update the application attributes.
   -->
-  <iq:application id="98c36259-498a-4458-9cef-74a273ad2bc3" type="widget" name="@Strings.AppName" entry="HomeAssistantApp" launcherIcon="@Drawables.LauncherIcon" minApiLevel="3.1.0">
+  <!--
+    Testing in VSCode requires monkey.jungle, so for convenience, swap between
+    watch-app and widget by changing which of the next two lines are commented out
+  -->
+  <iq:application id="98c36259-498a-4458-9cef-74a273ad2bc3" type="watch-app" name="@Strings.AppName" entry="HomeAssistantApp" launcherIcon="@Drawables.LauncherIcon" minApiLevel="3.1.0">
+  <!-- 
+  <iq:application id="4901cdfb-b4a2-4f33-96c7-f5be5992809e" type="widget" name="@Strings.AppName" entry="HomeAssistantApp" launcherIcon="@Drawables.LauncherIcon" minApiLevel="3.1.0">
+  -->
     <!--
       Use the following from the Visual Studio Code comand palette to edit
       the build targets:
@@ -30,110 +40,80 @@
       "Monkey C: Edit Products" - Lets you add or remove any product
     -->
     <iq:products>
-      <!--
-        Device Information & References:
-        * https://developer.garmin.com/connect-iq/compatible-devices/
-        * https://developer.garmin.com/connect-iq/reference-guides/devices-reference/
-      -->
-
-      <!-- Screen Size 390x390 launcher icon size 70x70 -->
       <iq:product id="approachs7042mm"/>
-      <!-- Screen Size 454x454 launcher icon size 80x80 -->
       <iq:product id="approachs7047mm"/>
-      <!-- Screen Size 176x176 launcher icon size 62x62 -->
-      <iq:product id="descentg1"/>
-      <!-- Screen Size 280x280 launcher icon size 40x40 -->
-      <iq:product id="descentmk2"/>
-      <!-- Screen Size 240x240 launcher icon size 40x40 -->
-      <iq:product id="descentmk2s"/>
-      <!-- Screen Size 416x416 launcher icon size 70x70 -->
+      <iq:product id="d2air"/>
       <iq:product id="d2airx10"/>
-      <!-- Screen Size 416x416 launcher icon size 60x60 -->
+      <iq:product id="d2delta"/>
+      <iq:product id="d2deltapx"/>
+      <iq:product id="d2deltas"/>
       <iq:product id="d2mach1"/>
-      <!-- Screen Size 282x470 launcher icon size 36x36 -->
+      <iq:product id="descentg1"/>
+      <iq:product id="descentmk2"/>
+      <iq:product id="descentmk2s"/>
       <iq:product id="edge1030"/>
       <iq:product id="edge1030bontrager"/>
       <iq:product id="edge1030plus"/>
-      <!-- Screen Size 282x470 launcher icon size 40x40 -->
       <iq:product id="edge1040"/>
-      <!-- Screen Size 246x322 launcher icon size 35x35 -->
+      <iq:product id="edge520plus"/>
       <iq:product id="edge530"/>
+      <iq:product id="edge820"/>
       <iq:product id="edge830"/>
-      <!-- Screen Size 240x400 launcher icon size 36x36 -->
+      <iq:product id="edgeexplore"/>
       <iq:product id="edgeexplore2"/>
-      <!-- Screen Size 280x280 launcher icon size 40x40 -->
       <iq:product id="enduro"/>
-      <!-- Screen Size 416x416 launcher icon size 60x60 -->
       <iq:product id="epix2"/>
-      <!-- Screen Size 390x390 launcher icon size 60x60 -->
       <iq:product id="epix2pro42mm"/>
       <iq:product id="epix2pro47mm"/>
-      <!-- Screen Size 454x454 launcher icon size 60x60 -->
       <iq:product id="epix2pro51mm"/>
-      <!-- Screen Size 240x240 launcher icon size 40x40 -->
+      <iq:product id="fenix5"/>
       <iq:product id="fenix5plus"/>
+      <iq:product id="fenix5s"/>
       <iq:product id="fenix5splus"/>
+      <iq:product id="fenix5x"/>
       <iq:product id="fenix5xplus"/>
-      <!-- Screen Size 260x260 launcher icon size 40x40 -->
       <iq:product id="fenix6"/>
       <iq:product id="fenix6pro"/>
-      <!-- Screen Size 240x240 launcher icon size 40x40 -->
       <iq:product id="fenix6s"/>
       <iq:product id="fenix6spro"/>
-      <!-- Screen Size 280x280 launcher icon size 40x40 -->
       <iq:product id="fenix6xpro"/>
-      <!-- Screen Size 260x260 launcher icon size 40x40 -->
       <iq:product id="fenix7"/>
-      <!-- Screen Size 260x260 launcher icon size 40x40 -->
       <iq:product id="fenix7pro"/>
       <iq:product id="fenix7pronowifi"/>
-      <!-- Screen Size 240x240 launcher icon size 40x40 -->
       <iq:product id="fenix7s"/>
-      <!-- Screen Size 240x240 launcher icon size 40x40 -->
       <iq:product id="fenix7spro"/>
-      <!-- Screen Size 280x280 launcher icon size 40x40 -->
       <iq:product id="fenix7x"/>
-      <!-- Screen Size 280x280 launcher icon size 40x40 -->
       <iq:product id="fenix7xpro"/>
       <iq:product id="fenix7xpronowifi"/>
-      <!-- Screen Size 240x240 launcher icon size 40x40 -->
+      <iq:product id="fenixchronos"/>
       <iq:product id="fr245"/>
       <iq:product id="fr245m"/>
-      <!-- Screen Size 260x260 launcher icon size 40x40 -->
       <iq:product id="fr255"/>
       <iq:product id="fr255m"/>
-      <!-- Screen Size 218x218 launcher icon size 40x40 -->
       <iq:product id="fr255s"/>
       <iq:product id="fr255sm"/>
-      <!-- Screen Size 416x416 launcher icon size 60x60 -->
       <iq:product id="fr265"/>
       <iq:product id="fr265s"/>
-      <!-- Screen Size 208x208 launcher icon size 35x35 -->
       <iq:product id="fr55"/>
-      <!-- Screen Size 240x240 launcher icon size 40x40 -->
+      <iq:product id="fr645"/>
+      <iq:product id="fr645m"/>
       <iq:product id="fr745"/>
+      <iq:product id="fr935"/>
       <iq:product id="fr945"/>
       <iq:product id="fr945lte"/>
-      <!-- Screen Size 260x260 launcher icon size 40x40 -->
       <iq:product id="fr955"/>
-      <!-- Screen Size 454x454 launcher icon size 65x65 -->
       <iq:product id="fr965"/>
-      <!-- Screen Size 176x176 launcher icon size 62x62 -->
+      <iq:product id="gpsmap67"/>
       <iq:product id="instinct2"/>
-      <!-- Screen Size 163x156 launcher icon size 54x54 -->
       <iq:product id="instinct2s"/>
-      <!-- Screen Size 176x176 launcher icon size 62x62 -->
       <iq:product id="instinct2x"/>
-      <!-- Screen Size 176x176 launcher icon size 26x26 -->
       <iq:product id="instinctcrossover"/>
-      <!-- Screen Size 218x218 launcher icon size 30x30 -->
       <iq:product id="legacyherocaptainmarvel"/>
-      <!-- Screen Size 260x260 launcher icon size 35x35 -->
       <iq:product id="legacyherofirstavenger"/>
       <iq:product id="legacysagadarthvader"/>
-      <!-- Screen Size 218x218 launcher icon size 30x30 -->
       <iq:product id="legacysagarey"/>
-      <!-- Screen Size 240x240 launcher icon size 40x40 -->
+      <iq:product id="marq2"/>
+      <iq:product id="marq2aviator"/>
       <iq:product id="marqadventurer"/>
       <iq:product id="marqathlete"/>
       <iq:product id="marqaviator"/>
@@ -142,31 +122,23 @@
       <iq:product id="marqdriver"/>
       <iq:product id="marqexpedition"/>
       <iq:product id="marqgolfer"/>
-      <!-- Screen Size 390x390 launcher icon size 60x60 -->
-      <iq:product id="marq2"/>
-      <iq:product id="marq2aviator"/>
-      <!-- Screen Size 390x390 launcher icon size 60x60 -->
+      <iq:product id="montana7xx"/>
       <iq:product id="venu"/>
-      <!-- Screen Size 416x416 launcher icon size 70x70 -->
       <iq:product id="venu2"/>
       <iq:product id="venu2plus"/>
-      <!-- Screen Size 360x360 launcher icon size 61x61 -->
       <iq:product id="venu2s"/>
-      <!-- Screen Size 240x240 launcher icon size 36x36 -->
+      <iq:product id="venu3"/>
+      <iq:product id="venu3s"/>
+      <iq:product id="venud"/>
       <iq:product id="venusq"/>
-      <iq:product id="venusqm"/>
-      <!-- Screen Size 320x360 launcher icon size 40x40 -->
       <iq:product id="venusq2"/>
       <iq:product id="venusq2m"/>
-      <!-- Screen Size 454x454 launcher icon size 70x70 -->
-      <iq:product id="venu3"/>
-      <!-- Screen Size 390x390 launcher icon size 70x70 -->
-      <iq:product id="venu3s"/>
-      <!-- Screen Size 260x260 launcher icon size 35x35 -->
+      <iq:product id="venusqm"/>
+      <iq:product id="vivoactive3"/>
+      <iq:product id="vivoactive3m"/>
+      <iq:product id="vivoactive3mlte"/>
       <iq:product id="vivoactive4"/>
-      <!-- Screen Size 218x218 launcher icon size 30x30 -->
       <iq:product id="vivoactive4s"/>
-      <!-- Screen Size 390x390 launcher icon size 70x70 -->
       <iq:product id="vivoactive5"/>
     </iq:products>
     <!--

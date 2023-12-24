@@ -25,21 +25,23 @@
   <string id="MenuItemTap">Atingeți</string>
   <string id="MenuItemMenu">Meniul</string>
   <string id="Confirm">Sigur?</string>
-  <string id="NoPhone">Fără conexiune telefonică</string>
+  <string id="NoPhone" scope="glance">Fără conexiune telefonică</string>
   <string id="NoInternet">Fără conexiune internet</string>
   <string id="NoResponse">Niciun răspuns, verificați conexiunea la internet</string>
-  <string id="NoMenu">Eroare de preluare a meniului</string>
-  <string id="NoAPIKey">Nicio cheie API în setările aplicației</string>
-  <string id="NoApiUrl">Nicio adresă URL API în setările aplicației</string>
-  <string id="NoConfigUrl">Nicio adresă URL de configurare în setările aplicației</string>
+  <string id="NoAPIKey" scope="glance">Nicio cheie API în setările aplicației</string>
+  <string id="NoApiUrl" scope="glance">Nicio adresă URL API în setările aplicației</string>
+  <string id="NoConfigUrl" scope="glance">Nicio adresă URL de configurare în setările aplicației</string>
   <string id="ApiFlood">Apeluri API prea rapide. Vă rugăm să vă încetiniți solicitările.</string>
   <string id="ApiUrlNotFound">Adresa URL nu a fost găsită. Potențială eroare URL API în setări.</string>
   <string id="ConfigUrlNotFound">Adresa URL nu a fost găsită. Potențială eroare URL de configurare în setări.</string>
+  <string id="NoJson">Niciun JSON nu a fost returnat de la solicitarea HTTP.</string>
   <string id="UnhandledHttpErr">Solicitarea HTTP a returnat codul de eroare =</string>
   <string id="TrailingSlashErr">Adresa URL API nu trebuie să aibă o bară oblică „/”</string>
-  <string id="FetchingMenuConfig">Se preiau configurarea meniului...</string>
-  <string id="ExitViewTouch">Glisați spre dreapta pentru a ieși\nAtingeți pentru a rămâne</string>
-  <string id="ExitViewButtons">Apăsați Înapoi pentru a ieși\nIntră pentru a rămâne</string>
+  <string id="Available" scope="glance">Disponibil</string>
+  <string id="Checking" scope="glance">Control...</string>
+  <string id="Unavailable" scope="glance">Indisponibil</string>
+  <string id="Unconfigured" scope="glance">Neconfigurat</string>
+  <string id="GlanceMenu" scope="glance">Meniul</string>
   <!-- Pentru GUI de setări -->
   <string id="SettingsApiKey">Cheie API pentru HomeAssistant.</string>
   <string id="SettingsApiKeyPrompt">Token de acces cu viață lungă.</string>
@@ -49,4 +51,5 @@
   <string id="SettingsConfirmTimeout">După acest timp (în secunde), un dialog de confirmare pentru o acțiune este închis automat și acțiunea este anulată. Setați la 0 pentru a dezactiva timeout-ul.</string>
   <string id="SettingsUi">Reprezentarea tipurilor cu pictograme (dezactivate) sau cu etichete (activate).</string>
   <string id="SettingsTextAlign">Alinierea meniului la stânga (dezactivată) sau la dreapta (activată).</string>
+  <string id="SettingsWidgetStart">(Numai widget) Porniți automat aplicația din widget fără a aștepta o atingere.</string>
 </strings>

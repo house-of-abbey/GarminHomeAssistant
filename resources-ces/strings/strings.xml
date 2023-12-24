@@ -25,21 +25,23 @@
   <string id="MenuItemTap">Klepněte</string>
   <string id="MenuItemMenu">Jídelní lístek</string>
   <string id="Confirm">Tak určitě?</string>
-  <string id="NoPhone">Žádné telefonní spojení</string>
+  <string id="NoPhone" scope="glance">Žádné telefonní spojení</string>
   <string id="NoInternet">Žádné internetové připojení</string>
   <string id="NoResponse">Žádná odpověď, zkontrolujte připojení k internetu</string>
-  <string id="NoMenu">Chyba načítání nabídky</string>
-  <string id="NoAPIKey">V nastavení aplikace není žádný klíč API</string>
-  <string id="NoApiUrl">V nastavení aplikace není žádná adresa URL API</string>
-  <string id="NoConfigUrl">V nastavení aplikace není žádná konfigurační URL</string>
+  <string id="NoAPIKey" scope="glance">V nastavení aplikace není žádný klíč API</string>
+  <string id="NoApiUrl" scope="glance">V nastavení aplikace není žádná adresa URL API</string>
+  <string id="NoConfigUrl" scope="glance">V nastavení aplikace není žádná konfigurační URL</string>
   <string id="ApiFlood">Příliš rychlá volání API. Zpomalte prosím své požadavky.</string>
-  <string id="ApiUrlNotFound">Adresa URL nenalezena. Potenciální chyba adresy URL rozhraní API v nastavení.</string>
+  <string id="ApiUrlNotFound">Adresa URL nenalezena. Potenciální chyba URL API v nastavení.</string>
   <string id="ConfigUrlNotFound">Adresa URL nenalezena. Potenciální chyba konfigurační adresy URL v nastavení.</string>
+  <string id="NoJson">Z požadavku HTTP se nevrátil žádný JSON.</string>
   <string id="UnhandledHttpErr">Požadavek HTTP vrátil kód chyby =</string>
   <string id="TrailingSlashErr">Adresa URL rozhraní API nesmí mít koncové lomítko „/“</string>
-  <string id="FetchingMenuConfig">Načítání konfigurace nabídky...</string>
-  <string id="ExitViewTouch">Přejetím prstem doprava ukončíte\nKlepnutím zůstanete</string>
-  <string id="ExitViewButtons">Stisknutím Zpět ukončíte\nVstupte a zůstanete</string>
+  <string id="Available" scope="glance">Dostupný</string>
+  <string id="Checking" scope="glance">Kontrola...</string>
+  <string id="Unavailable" scope="glance">Není k dispozici</string>
+  <string id="Unconfigured" scope="glance">Nenakonfigurováno</string>
+  <string id="GlanceMenu" scope="glance">Jídelní lístek</string>
   <!-- Pro nastavení GUI -->
   <string id="SettingsApiKey">Klíč API pro HomeAssistant.</string>
   <string id="SettingsApiKeyPrompt">Přístupový token s dlouhou životností.</string>
@@ -49,4 +51,5 @@
   <string id="SettingsConfirmTimeout">Po uplynutí této doby (v sekundách) se dialog pro potvrzení akce automaticky zavře a akce se zruší. Nastavením na 0 deaktivujete časový limit.</string>
   <string id="SettingsUi">Znázornění typů pomocí ikon (vypnuto) nebo pomocí štítků (zapnuto).</string>
   <string id="SettingsTextAlign">Zarovnání nabídky vlevo (vypnuto) nebo vpravo (zapnuto).</string>
+  <string id="SettingsWidgetStart">(Pouze widget) Automaticky spusťte aplikaci z widgetu bez čekání na klepnutí.</string>
 </strings>

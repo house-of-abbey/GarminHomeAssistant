@@ -103,20 +103,21 @@ class HomeAssistantView extends WatchUi.Menu2 {
 // Reference: https://developer.garmin.com/connect-iq/core-topics/input-handling/
 //
 class HomeAssistantViewDelegate extends WatchUi.Menu2InputDelegate {
-
-    private var mIsRootMenuView = false;
+    private var mIsRootMenuView as Lang.Boolean = false;
+    private var mTimer as QuitTimer;
 
     function initialize(isRootMenuView as Lang.Boolean) {
         Menu2InputDelegate.initialize();
         mIsRootMenuView = isRootMenuView;
+        mTimer = getApp().getQuitTimer();
     }
 
     function onBack() {
-        getApp().getQuitTimer().reset();
+        mTimer.reset();
 
-        if (mIsRootMenuView){
+        if (mIsRootMenuView) {
             // If its started from glance or as an activity, directly exit the widget/app
-            // (on widgets without glance, this exit() won`t do anything,
+            // (on widgets without glance, this exit() won't do anything,
             // so the base view will be shown instead, through the popView below this "if body")
             System.exit();
         } 
@@ -126,16 +127,16 @@ class HomeAssistantViewDelegate extends WatchUi.Menu2InputDelegate {
 
     // Only for CheckboxMenu
     function onDone() {
-        getApp().getQuitTimer().reset();
+        mTimer.reset();
     }
 
     // Only for CustomMenu
     function onFooter() {
-        getApp().getQuitTimer().reset();
+        mTimer.reset();
     }
 
     function onSelect(item as WatchUi.MenuItem) as Void {
-        getApp().getQuitTimer().reset();
+        mTimer.reset();
         if (item instanceof HomeAssistantToggleMenuItem) {
             var haToggleItem = item as HomeAssistantToggleMenuItem;
             if (Globals.scDebug) {
@@ -175,7 +176,7 @@ class HomeAssistantViewDelegate extends WatchUi.Menu2InputDelegate {
 
     // Only for CustomMenu
     function onTitle() {
-        getApp().getQuitTimer().reset();
+        mTimer.reset();
     }
 
 }

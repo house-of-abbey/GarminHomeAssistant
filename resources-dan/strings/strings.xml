@@ -25,21 +25,23 @@
   <string id="MenuItemTap">Tryk på</string>
   <string id="MenuItemMenu">Menu</string>
   <string id="Confirm">Jo da?</string>
-  <string id="NoPhone">Ingen telefonforbindelse</string>
+  <string id="NoPhone" scope="glance">Ingen telefonforbindelse</string>
   <string id="NoInternet">Ingen internetforbindelse</string>
   <string id="NoResponse">Intet svar, tjek internetforbindelse</string>
-  <string id="NoMenu">Menuhentningsfejl</string>
-  <string id="NoAPIKey">Ingen API-nøgle i applikationsindstillingerne</string>
-  <string id="NoApiUrl">Ingen API-URL i applikationsindstillingerne</string>
-  <string id="NoConfigUrl">Ingen konfigurations-URL i applikationsindstillingerne</string>
+  <string id="NoAPIKey" scope="glance">Ingen API-nøgle i applikationsindstillingerne</string>
+  <string id="NoApiUrl" scope="glance">Ingen API-URL i applikationsindstillingerne</string>
+  <string id="NoConfigUrl" scope="glance">Ingen konfigurations-URL i applikationsindstillingerne</string>
   <string id="ApiFlood">API-kald for hurtigt. Sænk venligst dine anmodninger.</string>
   <string id="ApiUrlNotFound">URL ikke fundet. Potentiel API URL-fejl i indstillinger.</string>
   <string id="ConfigUrlNotFound">URL ikke fundet. Potentiel konfigurations-URL-fejl i indstillinger.</string>
+  <string id="NoJson">Ingen JSON returneret fra HTTP-anmodning.</string>
   <string id="UnhandledHttpErr">HTTP-anmodning returnerede fejlkode =</string>
   <string id="TrailingSlashErr">API URL må ikke have en efterfølgende skråstreg '/'</string>
-  <string id="FetchingMenuConfig">Henter menukonfiguration..</string>
-  <string id="ExitViewTouch">Stryg til højre for at afslutte\nTryk for at blive</string>
-  <string id="ExitViewButtons">Tryk på Tilbage for at afslutte\nEnter for at blive</string>
+  <string id="Available" scope="glance">Ledig</string>
+  <string id="Checking" scope="glance">Tjekker...</string>
+  <string id="Unavailable" scope="glance">Ikke tilgængelig</string>
+  <string id="Unconfigured" scope="glance">Ukonfigureret</string>
+  <string id="GlanceMenu" scope="glance">Menu</string>
   <!-- Til indstillingerne GUI -->
   <string id="SettingsApiKey">API-nøgle til HomeAssistant.</string>
   <string id="SettingsApiKeyPrompt">Adgangstoken med lang levetid.</string>
@@ -49,4 +51,5 @@
   <string id="SettingsConfirmTimeout">Efter dette tidspunkt (i sekunder) lukkes en bekræftelsesdialog for en handling automatisk, og handlingen annulleres. Indstil til 0 for at deaktivere timeout.</string>
   <string id="SettingsUi">Repræsenterer typer med ikoner (fra) eller med etiketter (til).</string>
   <string id="SettingsTextAlign">Venstre (fra) eller Højre (til) menujustering.</string>
+  <string id="SettingsWidgetStart">(Kun widget) Start automatisk applikationen fra widgetten uden at vente på et tryk.</string>
 </strings>

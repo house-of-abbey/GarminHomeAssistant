@@ -25,21 +25,23 @@
   <string id="MenuItemTap">Торкніться</string>
   <string id="MenuItemMenu">Меню</string>
   <string id="Confirm">Зрозуміло?</string>
-  <string id="NoPhone">Немає телефонного зв'язку</string>
+  <string id="NoPhone" scope="glance">Немає телефонного зв'язку</string>
   <string id="NoInternet">Немає підключення до Інтернету</string>
   <string id="NoResponse">Немає відповіді, перевірте підключення до Інтернету</string>
-  <string id="NoMenu">Помилка вибірки меню</string>
-  <string id="NoAPIKey">У налаштуваннях програми немає ключа API</string>
-  <string id="NoApiUrl">У налаштуваннях програми немає URL-адреси API</string>
-  <string id="NoConfigUrl">У налаштуваннях програми немає URL-адреси конфігурації</string>
+  <string id="NoAPIKey" scope="glance">У налаштуваннях програми немає ключа API</string>
+  <string id="NoApiUrl" scope="glance">У налаштуваннях програми немає URL-адреси API</string>
+  <string id="NoConfigUrl" scope="glance">У налаштуваннях програми немає URL-адреси конфігурації</string>
   <string id="ApiFlood">Надто швидкі виклики API. Будь ласка, сповільніть свої запити.</string>
   <string id="ApiUrlNotFound">URL не знайдено. Потенційна помилка URL-адреси API в налаштуваннях.</string>
   <string id="ConfigUrlNotFound">URL не знайдено. Потенційна помилка URL-адреси конфігурації в налаштуваннях.</string>
+  <string id="NoJson">Запит HTTP не повертає JSON.</string>
   <string id="UnhandledHttpErr">Запит HTTP повернув код помилки =</string>
   <string id="TrailingSlashErr">URL-адреса API не повинна містити косу риску '/'</string>
-  <string id="FetchingMenuConfig">Отримання конфігурації меню..</string>
-  <string id="ExitViewTouch">Проведіть праворуч, щоб вийти\nТоркніться, щоб залишитися</string>
-  <string id="ExitViewButtons">Натисніть «Назад», щоб вийти\nВведіть, щоб залишитися</string>
+  <string id="Available" scope="glance">в наявності</string>
+  <string id="Checking" scope="glance">Перевірка...</string>
+  <string id="Unavailable" scope="glance">Недоступний</string>
+  <string id="Unconfigured" scope="glance">Неналаштований</string>
+  <string id="GlanceMenu" scope="glance">Меню</string>
   <!-- Для налаштування GUI -->
   <string id="SettingsApiKey">Ключ API для HomeAssistant.</string>
   <string id="SettingsApiKeyPrompt">Довговічний маркер доступу.</string>
@@ -49,4 +51,5 @@
   <string id="SettingsConfirmTimeout">Після закінчення цього часу (у секундах) діалогове вікно підтвердження дії автоматично закривається, а дія скасовується. Встановіть 0, щоб вимкнути тайм-аут.</string>
   <string id="SettingsUi">Представлення типів піктограмами (вимкнено) або мітками (увімкнено).</string>
   <string id="SettingsTextAlign">Ліворуч (вимкнено) або праворуч (увімкнено) вирівнювання меню.</string>
+  <string id="SettingsWidgetStart">(Лише віджет) Автоматично запускайте програму з віджета, не чекаючи дотику.</string>
 </strings>

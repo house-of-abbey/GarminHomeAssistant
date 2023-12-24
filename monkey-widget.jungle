@@ -1,0 +1,205 @@
+#-----------------------------------------------------------------------------------
+#
+# Distributed under MIT Licence
+#   See https://github.com/house-of-abbey/GarminHomeAssistant/blob/main/LICENSE.
+#
+#-----------------------------------------------------------------------------------
+#
+# GarminHomeAssistant is a Garmin IQ application written in Monkey C and routinely
+# tested on a Venu 2 device. The source code is provided at:
+#            https://github.com/house-of-abbey/GarminHomeAssistant.
+#
+# J D Abbey & P A Abbey, 28 December 2022
+#
+# Reference:
+#  * https://developer.garmin.com/connect-iq/reference-guides/jungle-reference/
+#
+#-----------------------------------------------------------------------------------
+
+project.manifest = manifest-widget.xml
+
+base.sourcePath = source;include/widget
+
+# Device References
+# * https://developer.garmin.com/connect-iq/compatible-devices/
+# * https://developer.garmin.com/connect-iq/reference-guides/devices-reference/
+#
+# Widget launcher icon, multiple resolutions
+# https://forums.garmin.com/developer/connect-iq/f/discussion/255433/widget-launcher-icon-multiple-resolutions/1563305
+#
+# Use the online SVG converter to write out PNGs from "resources\drawables\launcher.svg" by changing
+# the 'width' and 'height' attributes of the SVG.
+# https://svgtopng.com/
+#
+# The icons need to scale as a ratio of screen size 48:416 pixels
+#
+# Icon     53   48   46   42   37   32   30   28   26   24   21   18
+# Screen  454  416  390  360  320  280  260  240  218  208  176  156
+
+# Screen Size 390x390 launcher icon size 70x70
+approachs7042mm.resourcePath = $(approachs7042mm.resourcePath);resources-launcher-70-70;resources-icons-46
+# Screen Size 454x454 launcher icon size 80x80
+approachs7047mm.resourcePath = $(approachs7047mm.resourcePath);resources-launcher-80-80;resources-icons-53
+# Screen Size 390x390 launcher icon size 60x60
+d2air.resourcePath = $(d2air.resourcePath);resources-launcher-60-60;resources-icons-46
+# Screen Size 416x416 launcher icon size 70x70
+d2airx10.resourcePath = $(d2airx10.resourcePath);resources-launcher-70-70;resources-icons-48
+# Screen Size 240x240 launcher icon size 40x40
+d2delta.resourcePath = $(d2delta.resourcePath);resources-launcher-40-40;resources-icons-28
+d2deltapx.resourcePath = $(d2deltapx.resourcePath);resources-launcher-40-40;resources-icons-28
+d2deltas.resourcePath = $(d2deltas.resourcePath);resources-launcher-40-40;resources-icons-28
+# Screen Size 416x416 launcher icon size 60x60
+d2mach1.resourcePath = $(d2mach1.resourcePath);resources-launcher-60-60;resources-icons-48
+# Screen Size 176x176 launcher icon size 62x62
+descentg1.resourcePath = $(descentg1.resourcePath);resources-launcher-62-62;resources-icons-21
+# Screen Size 280x280 launcher icon size 40x40
+descentmk2.resourcePath = $(descentmk2.resourcePath);resources-launcher-40-40;resources-icons-32
+# Screen Size 240x240 launcher icon size 40x40
+descentmk2s.resourcePath = $(descentmk2s.resourcePath);resources-launcher-40-40;resources-icons-28
+# Screen Size 282x470 launcher icon size 36x36
+edge1030.resourcePath = $(descentmk2s.resourcePath);resources-launcher-36-36;resources-icons-32
+edge1030bontrager.resourcePath = $(edge1030bontrager.resourcePath);resources-launcher-36-36;resources-icons-32
+edge1030plus.resourcePath = $(edge1030plus.resourcePath);resources-launcher-36-36;resources-icons-32
+# Screen Size 282x470 launcher icon size 40x40
+edge1040.resourcePath = $(edge1040.resourcePath);resources-launcher-40-40;resources-icons-32
+# Screen Size 200x265 launcher icon size 35x35
+edge520plus.resourcePath = $(edge520plus.resourcePath);resources-launcher-35-35;resources-icons-24
+# Screen Size 246x322 launcher icon size 35x35
+edge530.resourcePath = $(edge530.resourcePath);resources-launcher-35-35;resources-icons-28
+# Screen Size 200x265 launcher icon size 35x35
+edge820.resourcePath = $(edge820.resourcePath);resources-launcher-35-35;resources-icons-24
+# Screen Size 246x322 launcher icon size 35x35
+edge830.resourcePath = $(edge830.resourcePath);resources-launcher-35-35;resources-icons-28
+# Screen Size 240x400 launcher icon size 36x36
+edgeexplore.resourcePath = $(edgeexplore.resourcePath);resources-launcher-36-36;resources-icons-28
+edgeexplore2.resourcePath = $(edgeexplore2.resourcePath);resources-launcher-36-36;resources-icons-28
+# Screen Size 280x280 launcher icon size 40x40
+enduro.resourcePath = $(enduro.resourcePath);resources-launcher-40-40;resources-icons-32
+# Screen Size 416x416 launcher icon size 60x60
+epix2.resourcePath = $(epix2.resourcePath);resources-launcher-60-60;resources-icons-48
+# Screen Size 390x390 launcher icon size 60x60
+epix2pro42mm.resourcePath = $(epix2pro42mm.resourcePath);resources-launcher-60-60;resources-icons-46
+epix2pro47mm.resourcePath = $(epix2pro47mm.resourcePath);resources-launcher-60-60;resources-icons-46
+# Screen Size 454x454 launcher icon size 60x60
+epix2pro51mm.resourcePath = $(epix2pro51mm.resourcePath);resources-launcher-60-60;resources-icons-53
+# Screen Size 240x240 launcher icon size 40x40
+fenix5.resourcePath = $(fenix5.resourcePath);resources-launcher-40-40;resources-icons-28
+fenix5plus.resourcePath = $(fenix5plus.resourcePath);resources-launcher-40-40;resources-icons-28
+# Screen Size 218x218 launcher icon size 36x36
+fenix5s.resourcePath = $(fenix5s.resourcePath);resources-launcher-36-36;resources-icons-26
+# Screen Size 240x240 launcher icon size 40x40
+fenix5splus.resourcePath = $(fenix5splus.resourcePath);resources-launcher-40-40;resources-icons-28
+fenix5x.resourcePath = $(fenix5x.resourcePath);resources-launcher-40-40;resources-icons-28
+fenix5xplus.resourcePath = $(fenix5xplus.resourcePath);resources-launcher-40-40;resources-icons-28
+# Screen Size 260x260 launcher icon size 40x40
+fenix6.resourcePath = $(fenix6.resourcePath);resources-launcher-40-40;resources-icons-30
+fenix6pro.resourcePath = $(fenix6pro.resourcePath);resources-launcher-40-40;resources-icons-30
+# Screen Size 240x240 launcher icon size 40x40
+fenix6s.resourcePath = $(fenix6s.resourcePath);resources-launcher-40-40;resources-icons-28
+fenix6spro.resourcePath = $(fenix6spro.resourcePath);resources-launcher-40-40;resources-icons-28
+# Screen Size 280x280 launcher icon size 40x40
+fenix6xpro.resourcePath = $(fenix6xpro.resourcePath);resources-launcher-40-40;resources-icons-32
+# Screen Size 260x260 launcher icon size 40x40
+fenix7.resourcePath = $(fenix7.resourcePath);resources-launcher-40-40;resources-icons-30
+# Screen Size 260x260 launcher icon size 40x40
+fenix7pro.resourcePath = $(fenix7pro.resourcePath);resources-launcher-40-40;resources-icons-30
+fenix7pronowifi.resourcePath = $(fenix7pronowifi.resourcePath);resources-launcher-40-40;resources-icons-30
+# Screen Size 218x218 launcher icon size 36x36
+fenixchronos.resourcePath = $(fenixchronos.resourcePath);resources-launcher-36-36;resources-icons-26
+# Screen Size 240x240 launcher icon size 40x40
+fenix7s.resourcePath = $(fenix7s.resourcePath);resources-launcher-40-40;resources-icons-28
+# Screen Size 240x240 launcher icon size 40x40
+fenix7spro.resourcePath = $(fenix7spro.resourcePath);resources-launcher-40-40;resources-icons-28
+# Screen Size 280x280 launcher icon size 40x40
+fenix7x.resourcePath = $(fenix7x.resourcePath);resources-launcher-40-40;resources-icons-32
+# Screen Size 280x280 launcher icon size 40x40
+fenix7xpro.resourcePath = $(fenix7xpro.resourcePath);resources-launcher-40-40;resources-icons-32
+fenix7xpronowifi.resourcePath = $(fenix7xpronowifi.resourcePath);resources-launcher-40-40;resources-icons-32
+# Screen Size 240x240 launcher icon size 40x40
+fr245.resourcePath = $(fr245.resourcePath);resources-launcher-40-40;resources-icons-28
+fr245m.resourcePath = $(fr245m.resourcePath);resources-launcher-40-40;resources-icons-28
+# Screen Size 260x260 launcher icon size 40x40
+fr255.resourcePath = $(fr255.resourcePath);resources-launcher-40-40;resources-icons-30
+fr255m.resourcePath = $(fr255m.resourcePath);resources-launcher-40-40;resources-icons-30
+# Screen Size 218x218 launcher icon size 40x40
+fr255s.resourcePath = $(fr255s.resourcePath);resources-launcher-40-40;resources-icons-26
+fr255sm.resourcePath = $(fr255sm.resourcePath);resources-launcher-40-40;resources-icons-26
+# Screen Size 416x416 launcher icon size 60x60
+fr265.resourcePath = $(fr265.resourcePath);resources-launcher-60-60;resources-icons-48
+fr265s.resourcePath = $(fr265s.resourcePath);resources-launcher-60-60;resources-icons-48
+# Screen Size 208x208 launcher icon size 35x35
+fr55.resourcePath = $(fr55.resourcePath);resources-launcher-35-35;resources-icons-24
+# Screen Size 240x240 launcher icon size 40x40
+fr645.resourcePath = $(fr645.resourcePath);resources-launcher-40-40;resources-icons-28
+fr645m.resourcePath = $(fr645m.resourcePath);resources-launcher-40-40;resources-icons-28
+# Screen Size 240x240 launcher icon size 40x40
+fr745.resourcePath = $(fr745.resourcePath);resources-launcher-40-40;resources-icons-28
+fr935.resourcePath = $(fr935.resourcePath);resources-launcher-40-40;resources-icons-28
+fr945.resourcePath = $(fr945.resourcePath);resources-launcher-40-40;resources-icons-28
+fr945lte.resourcePath = $(fr945lte.resourcePath);resources-launcher-40-40;resources-icons-28
+# Screen Size 260x260 launcher icon size 40x40
+fr955.resourcePath = $(fr955.resourcePath);resources-launcher-40-40;resources-icons-30
+# Screen Size 454x454 launcher icon size 65x65
+fr965.resourcePath = $(fr965.resourcePath);resources-launcher-65-65;resources-icons-53
+# Screen Size 240x400 launcher icon size 38x33
+gpsmap67.resourcePath = $(gpsmap67.resourcePath);resources-launcher-33-33;resources-icons-28
+# Screen Size 176x176 launcher icon size 62x62
+instinct2.resourcePath = $(instinct2.resourcePath);resources-launcher-62-62;resources-icons-21
+# Screen Size 163x156 launcher icon size 54x54
+instinct2s.resourcePath = $(instinct2s.resourcePath);resources-launcher-54-54;resources-icons-18
+# Screen Size 176x176 launcher icon size 62x62
+instinct2x.resourcePath = $(instinct2x.resourcePath);resources-launcher-62-62;resources-icons-21
+# Screen Size 176x176 launcher icon size 26x26
+instinctcrossover.resourcePath = $(instinctcrossover.resourcePath);resources-launcher-26-26;resources-icons-21
+# Screen Size 218x218 launcher icon size 30x30
+legacyherocaptainmarvel.resourcePath = $(legacyherocaptainmarvel.resourcePath);resources-launcher-30-30;resources-icons-26
+# Screen Size 260x260 launcher icon size 35x35
+legacyherofirstavenger.resourcePath = $(legacyherofirstavenger.resourcePath);resources-launcher-35-35;resources-icons-30
+legacysagadarthvader.resourcePath = $(legacysagadarthvader.resourcePath);resources-launcher-35-35;resources-icons-30
+# Screen Size 218x218 launcher icon size 30x30
+legacysagarey.resourcePath = $(legacysagarey.resourcePath);resources-launcher-30-30;resources-icons-26
+# Screen Size 390x390 launcher icon size 60x60
+marq2.resourcePath = $(marq2.resourcePath);resources-launcher-60-60;resources-icons-46
+marq2aviator.resourcePath = $(marq2aviator.resourcePath);resources-launcher-60-60;resources-icons-46
+# Screen Size 240x240 launcher icon size 40x40
+marqadventurer.resourcePath = $(marqadventurer.resourcePath);resources-launcher-40-40;resources-icons-28
+marqathlete.resourcePath = $(marqathlete.resourcePath);resources-launcher-40-40;resources-icons-28
+marqaviator.resourcePath = $(marqaviator.resourcePath);resources-launcher-40-40;resources-icons-28
+marqcaptain.resourcePath = $(marqcaptain.resourcePath);resources-launcher-40-40;resources-icons-28
+marqcommander.resourcePath = $(marqcommander.resourcePath);resources-launcher-40-40;resources-icons-28
+marqdriver.resourcePath = $(marqdriver.resourcePath);resources-launcher-40-40;resources-icons-28
+marqexpedition.resourcePath = $(marqexpedition.resourcePath);resources-launcher-40-40;resources-icons-28
+marqgolfer.resourcePath = $(marqgolfer.resourcePath);resources-launcher-40-40;resources-icons-28
+# Screen Size 480x800 launcher icon size 60x60
+montana7xx.resourcePath = $(montana7xx.resourcePath);resources-launcher-60-60;resources-icons-53
+# Screen Size 390x390 launcher icon size 60x60
+venu.resourcePath = $(venu.resourcePath);resources-launcher-60-60;resources-icons-46
+# Screen Size 416x416 launcher icon size 70x70
+venu2.resourcePath = $(venu2.resourcePath);resources-launcher-70-70;resources-icons-48
+venu2plus.resourcePath = $(venu2plus.resourcePath);resources-launcher-70-70;resources-icons-48
+# Screen Size 360x360 launcher icon size 61x61
+venu2s.resourcePath = $(venu2s.resourcePath);resources-launcher-61-61;resources-icons-42
+# Screen Size 454x454 launcher icon size 70x70
+venu3.resourcePath = $(venu3.resourcePath);resources-launcher-70-70;resources-icons-53
+# Screen Size 390x390 launcher icon size 70x70
+venu3s.resourcePath = $(venu3s.resourcePath);resources-launcher-70-70;resources-icons-46
+# Screen Size 390x390 launcher icon size 60x60
+venud.resourcePath = $(venud.resourcePath);resources-launcher-60-60;resources-icons-46
+# Screen Size 240x240 launcher icon size 36x36
+venusq.resourcePath = $(venusq.resourcePath);resources-launcher-36-36;resources-icons-28
+# Screen Size 320x360 launcher icon size 40x40
+venusq2.resourcePath = $(venusq2.resourcePath);resources-launcher-40-40;resources-icons-38
+# Screen Size 320x360 launcher icon size 40x40
+venusq2m.resourcePath = $(venusq2m.resourcePath);resources-launcher-40-40;resources-icons-38
+# Screen Size 240x240 launcher icon size 36x36
+venusqm.resourcePath = $(venusqm.resourcePath);resources-launcher-36-36;resources-icons-28
+# Screen Size 240x240 launcher icon size 40x33
+vivoactive3.resourcePath = $(vivoactive3.resourcePath);resources-launcher-33-33;resources-icons-28
+vivoactive3m.resourcePath = $(vivoactive3m.resourcePath);resources-launcher-33-33;resources-icons-28
+vivoactive3mlte.resourcePath = $(vivoactive3mlte.resourcePath);resources-launcher-33-33;resources-icons-28
+# Screen Size 260x260 launcher icon size 35x35
+vivoactive4.resourcePath = $(vivoactive4.resourcePath);resources-launcher-35-35;resources-icons-30
+# Screen Size 218x218 launcher icon size 30x30
+vivoactive4s.resourcePath = $(vivoactive4s.resourcePath);resources-launcher-30-30;resources-icons-26
+# Screen Size 390x390 launcher icon size 70x70
+vivoactive5.resourcePath = $(vivoactive5.resourcePath);resources-launcher-70-70;resources-icons-46

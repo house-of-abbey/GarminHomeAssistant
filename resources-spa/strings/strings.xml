@@ -25,21 +25,23 @@
   <string id="MenuItemTap">Grifo</string>
   <string id="MenuItemMenu">Menú</string>
   <string id="Confirm">¿Seguro?</string>
-  <string id="NoPhone">Sin conexión telefónica</string>
+  <string id="NoPhone" scope="glance">Sin conexión telefónica</string>
   <string id="NoInternet">Sin conexión a Internet</string>
   <string id="NoResponse">No hay respuesta, verifique la conexión a Internet</string>
-  <string id="NoMenu">Error de recuperación del menú</string>
-  <string id="NoAPIKey">Sin clave API en la configuración de la aplicación</string>
-  <string id="NoApiUrl">No hay URL de API en la configuración de la aplicación</string>
-  <string id="NoConfigUrl">No hay URL de configuración en la configuración de la aplicación.</string>
+  <string id="NoAPIKey" scope="glance">Sin clave API en la configuración de la aplicación</string>
+  <string id="NoApiUrl" scope="glance">No hay URL de API en la configuración de la aplicación</string>
+  <string id="NoConfigUrl" scope="glance">No hay URL de configuración en la configuración de la aplicación.</string>
   <string id="ApiFlood">Llamadas API demasiado rápidas. Por favor, ralentice sus solicitudes.</string>
   <string id="ApiUrlNotFound">URL no encontrada. Posible error de URL de API en la configuración.</string>
   <string id="ConfigUrlNotFound">URL no encontrada. Posible error de URL de configuración en la configuración.</string>
+  <string id="NoJson">No se devolvió ningún JSON de la solicitud HTTP.</string>
   <string id="UnhandledHttpErr">La solicitud HTTP devolvió el código de error =</string>
   <string id="TrailingSlashErr">La URL de API no debe tener una barra diagonal '/'</string>
-  <string id="FetchingMenuConfig">Obteniendo configuración del menú..</string>
-  <string id="ExitViewTouch">Desliza hacia la derecha para salir\nToca para permanecer</string>
-  <string id="ExitViewButtons">Presione Atrás para salir\nEntrar para permanecer</string>
+  <string id="Available" scope="glance">Disponible</string>
+  <string id="Checking" scope="glance">Comprobación...</string>
+  <string id="Unavailable" scope="glance">Indisponible</string>
+  <string id="Unconfigured" scope="glance">Desconfigurado</string>
+  <string id="GlanceMenu" scope="glance">Menú</string>
   <!-- Para la configuración GUI -->
   <string id="SettingsApiKey">Clave API para HomeAssistant.</string>
   <string id="SettingsApiKeyPrompt">Token de acceso de larga duración.</string>
@@ -49,4 +51,5 @@
   <string id="SettingsConfirmTimeout">Después de este tiempo (en segundos), se cierra automáticamente un cuadro de diálogo de confirmación de una acción y se cancela la acción. Establezca en 0 para desactivar el tiempo de espera.</string>
   <string id="SettingsUi">Representando tipos con iconos (apagados) o con etiquetas (encendido).</string>
   <string id="SettingsTextAlign">Alineación del menú izquierda (desactivada) o derecha (activada).</string>
+  <string id="SettingsWidgetStart">(Solo widget) Inicia automáticamente la aplicación desde el widget sin esperar un toque.</string>
 </strings>

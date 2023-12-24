@@ -36,8 +36,22 @@
   -->
   <property id="confirm_timeout" type="number">3</property>
 
+  <!--
+    Lean UI vs second level of menu text.
+  -->
   <property id="types_representation" type="boolean"></property>
 
+  <!--
+    left to right or right-to-left text. Language dependent.
+  -->
   <property id="menu_alignment" type="boolean"></property>
+
+  <!--
+    Widget specific setting:
+    As soon as the menu has been fetched start show the menu of items.
+    This behaviour is inconsistent with the standard Garmin User Interface, but has been
+    requested by users so has been made the non-default option.
+  -->
+  <property id="widget_start_no_tap" type="boolean"></property>
 
 </properties>

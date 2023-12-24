@@ -25,21 +25,23 @@
   <string id="MenuItemTap">Παρακέντηση</string>
   <string id="MenuItemMenu">Μενού</string>
   <string id="Confirm">Σίγουρος?</string>
-  <string id="NoPhone">Δεν υπάρχει σύνδεση τηλεφώνου</string>
+  <string id="NoPhone" scope="glance">Δεν υπάρχει σύνδεση τηλεφώνου</string>
   <string id="NoInternet">Δεν υπάρχει σύνδεση στο διαδίκτυο</string>
   <string id="NoResponse">Καμία απάντηση, ελέγξτε τη σύνδεση στο Διαδίκτυο</string>
-  <string id="NoMenu">Σφάλμα ανάκτησης μενού</string>
-  <string id="NoAPIKey">Δεν υπάρχει κλειδί API στις ρυθμίσεις της εφαρμογής</string>
-  <string id="NoApiUrl">Δεν υπάρχει URL API στις ρυθμίσεις της εφαρμογής</string>
-  <string id="NoConfigUrl">Δεν υπάρχει διεύθυνση URL διαμόρφωσης στις ρυθμίσεις της εφαρμογής</string>
+  <string id="NoAPIKey" scope="glance">Δεν υπάρχει κλειδί API στις ρυθμίσεις της εφαρμογής</string>
+  <string id="NoApiUrl" scope="glance">Δεν υπάρχει URL API στις ρυθμίσεις της εφαρμογής</string>
+  <string id="NoConfigUrl" scope="glance">Δεν υπάρχει διεύθυνση URL διαμόρφωσης στις ρυθμίσεις της εφαρμογής</string>
   <string id="ApiFlood">Κλήσεις API πολύ γρήγορες. Παρακαλώ επιβραδύνετε τα αιτήματά σας.</string>
   <string id="ApiUrlNotFound">Η διεύθυνση URL δεν βρέθηκε. Πιθανό σφάλμα διεύθυνσης URL API στις ρυθμίσεις.</string>
   <string id="ConfigUrlNotFound">Η διεύθυνση URL δεν βρέθηκε. Πιθανό σφάλμα διεύθυνσης URL διαμόρφωσης στις ρυθμίσεις.</string>
+  <string id="NoJson">Δεν επιστράφηκε JSON από αίτημα HTTP.</string>
   <string id="UnhandledHttpErr">Το αίτημα HTTP επέστρεψε κωδικό σφάλματος =</string>
   <string id="TrailingSlashErr">Η διεύθυνση URL του API δεν πρέπει να έχει τελική κάθετο "/"</string>
-  <string id="FetchingMenuConfig">Ανάκτηση παραμέτρων μενού..</string>
-  <string id="ExitViewTouch">Σύρετε προς τα δεξιά για έξοδο\nΠατήστε για να μείνετε</string>
-  <string id="ExitViewButtons">Πατήστε Επιστροφή για Έξοδος\nEnter για να μείνετε</string>
+  <string id="Available" scope="glance">Διαθέσιμος</string>
+  <string id="Checking" scope="glance">Ελεγχος...</string>
+  <string id="Unavailable" scope="glance">Μη διαθέσιμο</string>
+  <string id="Unconfigured" scope="glance">Μη διαμορφωμένο</string>
+  <string id="GlanceMenu" scope="glance">Μενού</string>
   <!-- Για τις ρυθμίσεις GUI -->
   <string id="SettingsApiKey">Κλειδί API για το HomeAssistant.</string>
   <string id="SettingsApiKeyPrompt">Διακριτικό πρόσβασης μακράς διαρκείας.</string>
@@ -49,4 +51,5 @@
   <string id="SettingsConfirmTimeout">Μετά από αυτό το χρονικό διάστημα (σε δευτερόλεπτα), ένα παράθυρο διαλόγου επιβεβαίωσης για μια ενέργεια κλείνει αυτόματα και η ενέργεια ακυρώνεται. Ορίστε στο 0 για να απενεργοποιήσετε το χρονικό όριο.</string>
   <string id="SettingsUi">Αναπαράσταση τύπων με εικονίδια (απενεργοποίηση) ή με ετικέτες (ενεργό).</string>
   <string id="SettingsTextAlign">Αριστερά (απενεργοποίηση) ή Δεξιά (ενεργό) Ευθυγράμμιση μενού.</string>
+  <string id="SettingsWidgetStart">(Μόνο widget) Αυτόματη εκκίνηση της εφαρμογής από το widget χωρίς να περιμένετε ένα πάτημα.</string>
 </strings>

@@ -6,11 +6,20 @@ A Garmin application to provide a "dashboard" to control your devices via [Home 
 
 The application is designed around a simple scrollable menu where menu items have been extended to interface with the [Home Assistant API](https://developers.home-assistant.io/docs/api/rest/), e.g. to get the status of switches or lights for display on the toggle menu item. It is possible to nest menus, so there is a menu item to open a sub-menu. This can be arbitrarily deep and nested in the format of a tree of items, although you need to consider if reaching for your phone becomes quicker to select the device what you want to control.
 
-It is important to note that your Home Assistant instance will need to be accessible via HTTPS with public SSL or all requests from the Garmin will not work. This cannot be a self-signed certificate, it must be a public certificate (You can get one for free from [Let's Encrypt](https://letsencrypt.org/) or you can pay for [Home Assistant cloud](https://www.nabucasa.com/)).
+It is important to note that your Home Assistant instance will need to be accessible via HTTPS with public SSL or all requests from the Garmin will not work. This cannot be a self-signed certificate, it must be a public certificate. You can get one for free from [Let's Encrypt](https://letsencrypt.org/) or you can pay for [Home Assistant cloud](https://www.nabucasa.com/).
 
-## Application Installation
+**If you are struggling with getting the application to work, please consult the [trouble shooting](Troubleshooting.md) guide first.**
 
-Head over to the [GarminHomeAssistant](https://apps.garmin.com/en-US/apps/61c91d28-ec5e-438d-9f83-39e9f45b199d) application page on the [Connect IQ application store](https://apps.garmin.com/en-US/) to download the application.
+## Widget or Application?
+
+As of version 2.0, there are now two installable versions. For older devices before applications supported 'glances', there is a now widget version. These two version must be downloaded separately due to the way the Connect IQ App Store requires them to have separate application IDs. Therefore you need to choose which you want up front. Here how they compare.
+
+| Version                | Explanation |
+|------------------------|-------------|
+| Application (original) | For newer devices that allow glance views in their applications (e.g. Venu2), the GarminHomeAssistant application can be started either from a glance (with only the application name presently, no status) or from the list of applications and activities. Head over to the [GarminHomeAssistant](https://apps.garmin.com/en-US/apps/61c91d28-ec5e-438d-9f83-39e9f45b199d) application page on the [Connect IQ application store](https://apps.garmin.com/en-US/) to download the application. The application can be started two different ways, either from the glance in the carousel, or as an application from the list of applications & activities. With the latter, it is worth marking the application as a favourite.<hr><br/><img src="images/Venu2_app_start.png" width="200" title="Venu 2" style="margin:5px"/><img src="images/Vivoactive3_app_start.jpg" width="200" title="Venu 2" style="margin:5px"/><br/>If you place the application on your list of favourites, and rearrange it to appear near the top, then the item is just one button press away from the watch face. This second picture here shows the application menu on a Vivoactive 3 watch.<br/><img src="images/Venu2_glance_start.png" width="200" title="Venu 2" style="margin:5px"/><br/>On newer watches, you can also start the application from the glance carousel. The glance view here typically displays some trackable status, so ours provides some early indication of availability. Older watches will still allow you to start this application from the list of applications and activities. |
+| Widget                 | For older devices that use widgets (e.g. Venu1) as opposed to applications with "glances", the GarminHomeAssistant application can instead be started from the widget carousel. This is a separate item in the Connect IQ AppStore and with this installation, the application will no longer appear in the list of applications and activities. Head over to the [GarminHomeAssistant](https://apps.garmin.com/en-US/apps/) widget page on the [Connect IQ application store](https://apps.garmin.com/en-US/) to download the widget.<hr><br/><img src="images/Venu_Widget_sim.png" width="200" title="Venu 2" style="margin:5px"/><br/>Typically the widget view implements something similar to the glance view, e.g. status, and exists in a widget carousel to allow you to select an application to launch. |
+
+As the source code base for both is the same, the version numbers of each will be kept in step. that means that the widget version starts version numbering at 2.0 too.
 
 ## Dashboard Definition
 
@@ -161,8 +170,8 @@ This allows the `confirm` field to be accommodated in the `tap_action` along sid
 
 You have options. The first is what we use.
 1. **Best!** Use the [Studio Code Server](https://community.home-assistant.io/t/home-assistant-community-add-on-visual-studio-code/107863) addon for Home Assistant. You can then edit your JSON file in place.
-2. Locally installed VSCode, or if not installed
-3. try the on-line version at https://vscode.dev/
+2. Locally installed VSCode, or if not installed,
+3. try the on-line version at https://vscode.dev/.
 
 Paste in your JSON (and change the file type to JSON if not saving), it will then verify your file format and schema for you, highlighting any errors for you to fix.
 
@@ -184,11 +193,22 @@ Having created that token, before you dismiss the dialogue box with the value yo
 
 <img src="images/GarminHomeAssistantSettings.png" width="400" title="Application Settings"/>
 
-1. Paste your API key you've just created into the top field.
+1. Copy and paste your API key you've just created into the top field.
 2. Add the URL for your Home Assistant API, e.g. `https://<homeassistant>/api`. (No trailing slash `/`` character as one gets appended when creating the URL and you do not want two.)
 3. Add the URL of your JSON file, e.g. `https://<homeassistant>/local/garmin/<something>.json`.
 
 You should now have a working application on your watch and be able to operate your Home Assistant devices for as long as your watch is within Bluetooth range of your phone.
+
+The first toggle option selects between two menu presentations as follows:
+
+| Menu Type       | Image                                                                  | Description |
+|-----------------|------------------------------------------------------------------------|-------------|
+| Icons (default) | <img src="images/Venu2_LeanUI.png" width="200" title="Venu 2"/> | "Lean User Interface" version removing the second row of text in favour of icons. Tap icons are blue with a pointing finger, menu items has three dots as favours by many graphical user interfaces. |
+| Labels          | <img src="images/Venu2_Original.png" width="200" title="Venu 2"/>  | Initial version that had a second row of text. This extra text has yet to add much value. Menu and Tap actions are distinguished by text, and the toggle status is duplicated by text. A future version could possibly offer the means to customise the toggle menu item text, hence this option has not been deprecated yet. |
+
+The second toggle setting is for "text alignment" and provides finer adjustment for right-to-left languages. Perhaps this could be made automatic based on device language.
+
+The third toggle setting is for the Widget version of the application only. It allows the user to select a non-standard user interface behaviour. As soon as the menu is retrieved the widget view is replaced by the menu without waiting for a user selection. This has been included as requested by a user, but defaults to off which retains the expected user interactions.
 
 ## Tap Item Response
 
@@ -202,7 +222,7 @@ The application will display a 'toast' showing Home Assistant's friendly name of
 
 Home Assistant will inevitably change the state of devices you are also controlling via your Garmin. The Garmin application does not maintain a web socket to listen for changes. Instead it must poll the Home Assistant API with your key. Therefore the application is not that responsive to changes. Instead there will be a delay of multiples of 100 ms per item whose status needs to be checked and amended.
 
-The per toggle item delay is caused by a queue of responses to web requests filling up a queue and giving a [Communications](https://developer.garmin.com/connect-iq/api-docs/Toybox/Communications.html).`BLE_QUEUE_FULL` response code.  For a Venu 2 Garmin watch an API call delay of 600 ms was found to be sustainable (500 ms was still too fast). The code now chains a sequence of updates, so as one finishes it invokes the next item's update. The more items requiring a status update that you pack into your dashboard, the slower each individual item will be updated!
+The per toggle item delay is caused by a queue of responses to web requests filling up a queue and giving a [`Communications.BLE_QUEUE_FULL`](https://developer.garmin.com/connect-iq/api-docs/Toybox/Communications.html). response code.  For a Venu 2 Garmin watch an API call delay of 600 ms was found to be sustainable (500 ms was still too fast). The code now chains a sequence of updates, so as one finishes it invokes the next item's update. The more items requiring a status update that you pack into your dashboard, the slower each individual item will be updated!
 
 The thinking here is that the watch application will only ever be open briefly not persistently, so the delay in picking up state changes won't be observed often for any race condition between two controllers.
 
@@ -240,6 +260,11 @@ The `id` attribute values are taken from the same names used in [`strings.xml`](
 |   1.2   | Do not crash on zero items to update. Report unreachable URLs. Verify API URL does not have a trailing slash '/'. Increased HTTP response diagnosis. Reduced minimum API Level required from 3.3.0 to 3.1.0 to allow more device "part numbers" to be satisfied. |
 |   1.3   | Tap for scripts was working in emulation but not on some phones. Decision is to make the 'service' field in the JSON compulsory for 'tap' menu items. This is a breaking change, but for many might be a fix for something not working correctly. Improve language support, we can now accept language corrections and prevent the automated translation of strings from clobbering manually refined entries. Thank you to two new contributors. |
 |   1.4   | New lean user Interface with thanks to [Someone0nEarth](https://github.com/Someone0nEarth) for their contribution which is now the default. If you prefer the old style you can still select it in the settings. The provision of a 'service' tag is now not just heavily suggested by the JSON schema, it is enforced in code. With apologies to anyone suffering a breakage as a result. |
-|   1.5   | <img src="images/confirmation_view.jpg" width="200" title="Confirmation View" style="float:right"/> Added an optional confirmation dialogue view to prevent accidental execution of actions on mistaken tap. This also brings a change in the JSON schema to allow an optional field to specify that the confirmation should be used for a menu item. As we are now maturing and adding features we have decided to mitigate breaking changes to the JSON schema by being more careful to adopt the Home Assistant schema (noting there is a 1:1 mapping between YAML and JSON). This change does deprecate the top level `service` tag in favour of `tag_action` containing multiple fields including `service` & `confirm`. Users should migrate to the new format for the new functionality, but the timescale for actual deprecation are long and undecided. |
+|   1.5   | <img src="images/confirmation_view.jpg" width="200" title="Confirmation View"/><br/>Added an optional confirmation dialogue view to prevent accidental execution of actions on mistaken tap. This also brings a change in the JSON schema to allow an optional field to specify that the confirmation should be used for a menu item. As we are now maturing and adding features we have decided to mitigate breaking changes to the JSON schema by being more careful to adopt the Home Assistant schema (noting there is a 1:1 mapping between YAML and JSON). This change does deprecate the top level `service` tag in favour of `tag_action` containing multiple fields including `service` & `confirm`. Users should migrate to the new format for the new functionality, but the timescale for actual deprecation are long and undecided. |
 |   1.6   | Added a user configurable 'timeout' in seconds so that when no action is taken the application automatically closes, stopping the continuous polling for changes of status and hence saving the drain on the battery. This can be disabled with timeout=0. |
 |   1.7   | Added timeout to confirmation views so that when used for security devices it does not linger when left unconfirmed. Thanks to [Jan Schneider](https://github.com/j-a-n) for the contribution. Known bug for devices not supporting [`WatchUi.getCurrentView()`](https://developer.garmin.com/connect-iq/api-docs/Toybox/WatchUi.html#getCurrentView-instance_function) API call which is only available on API Level 3.4.0, e.g. Vivoactive 4S. |
+|   2.0   | A significant code base change to enable both a 'widget' version for older devices, e.g. Venu (1), and an application with a glance, e.g. Venu2. These two versions must now be distributed under separate application IDs, but they have the same code base. A further 20 more devices are now supported, the settings have been internationalised, and there's a bug fix for older devices when trying to display a helpful error message but instead the application crashed. This version has come from a significant collaboration with [Someone0nEarth](https://github.com/Someone0nEarth). |
+
+## Known Issues
+
+1. On some (old) devices (e.g. Vivoactive 3, Fexix 5s & Edge 520+), the menu does not update correctly to reflect changes in state effected by an external Home Assistant control. E.g. when the phone application changes the toggle status of a switch, the Garmin application does not reflect that change until the menu is touched or scrolled a little. This is a [known issue](https://forums.garmin.com/developer/connect-iq/i/bug-reports/menu2-doesn-t-allow-live-updates) already reported without a suggested software fix.
