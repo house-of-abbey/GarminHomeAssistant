@@ -38,7 +38,7 @@ class HomeAssistantApp extends Application.AppBase {
     private var strTrailingSlashErr  as Lang.String or Null;
     private var strAvailable         = WatchUi.loadResource($.Rez.Strings.Available);
     private var strUnavailable       = WatchUi.loadResource($.Rez.Strings.Unavailable);
-    private var strUnconfigured       = WatchUi.loadResource($.Rez.Strings.Unconfigured);
+    private var strUnconfigured      = WatchUi.loadResource($.Rez.Strings.Unconfigured);
 
     private var mApiKey              as Lang.String or Null; // The compiler can't tell these are updated by
     private var mApiUrl              as Lang.String or Null; // initialize(), hence the "or Null".
@@ -441,8 +441,17 @@ class HomeAssistantApp extends Application.AppBase {
     // This function is called by a timer every Globals.menuItemUpdateInterval ms.
     function updateNextMenuItem() as Void {
         var itu = mItemsToUpdate as Lang.Array<HomeAssistantToggleMenuItem>;
-        itu[mNextItemToUpdate].getState();
-        mNextItemToUpdate = (mNextItemToUpdate + 1) % itu.size();
+        if (itu == null) {
+            if (Globals.scDebug) {
+                System.println("HomeAssistantApp updateNextMenuItem(): No menu items to update");
+            }
+            if (!mIsGlance) {
+                ErrorView.show(WatchUi.loadResource($.Rez.Strings.ConfigUrlNotFound));
+            }
+        } else {
+            itu[mNextItemToUpdate].getState();
+            mNextItemToUpdate = (mNextItemToUpdate + 1) % itu.size();
+        }
     }
 
     function getQuitTimer() as QuitTimer {
