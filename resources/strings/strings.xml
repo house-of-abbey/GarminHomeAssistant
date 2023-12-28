@@ -47,4 +47,5 @@
     <string id="SettingsUi">Representing types with icons (off) or with labels (on).</string>
     <string id="SettingsTextAlign">Left (off) or Right (on) Menu Alignment.</string>
     <string id="SettingsWidgetStart">(Widget only) Automatically start the application from the widget without waiting for a tap.</string>
+    <string id="SettingsGlanceSecondaryDesign">If enabled, glance won't have blue background and text won't be centered.</string>
 </strings>

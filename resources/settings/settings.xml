@@ -90,4 +90,13 @@
     />
   </setting>
 
+    <setting
+    propertyKey="@Properties.glance_secondary_design"
+    title="@Strings.SettingsGlanceSecondaryDesign"
+  >
+    <settingConfig
+      type="boolean"
+    />
+  </setting>
+
 </settings>

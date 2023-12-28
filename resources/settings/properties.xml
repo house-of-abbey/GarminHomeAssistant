@@ -54,4 +54,9 @@
   -->
   <property id="widget_start_no_tap" type="boolean"></property>
 
+  <!--
+    Enable or disable glance background and right alignment
+  -->
+  <property id="glance_secondary_design" type="boolean"></property>
+
 </properties>
