@@ -43,13 +43,20 @@
   <string id="Unconfigured" scope="glance">Неналаштований</string>
   <string id="GlanceMenu" scope="glance">Меню</string>
   <!-- Для налаштування GUI -->
+  <string id="SettingsSelect">Виберіть...</string>
   <string id="SettingsApiKey">Ключ API для HomeAssistant.</string>
   <string id="SettingsApiKeyPrompt">Довговічний маркер доступу.</string>
   <string id="SettingsApiUrl">URL для HomeAssistant API.</string>
   <string id="SettingsConfigUrl">URL-адреса для налаштування меню (JSON).</string>
   <string id="SettingsAppTimeout">Час очікування в секундах. Вийдіть із програми після цього періоду бездіяльності, щоб заощадити батарею пристрою.</string>
   <string id="SettingsConfirmTimeout">Після закінчення цього часу (у секундах) діалогове вікно підтвердження дії автоматично закривається, а дія скасовується. Встановіть 0, щоб вимкнути тайм-аут.</string>
-  <string id="SettingsUi">Представлення типів піктограмами (вимкнено) або мітками (увімкнено).</string>
+  <string id="SettingsMenuItemStyle">Стиль пункту меню.</string>
+  <string id="SettingsMenuItemStyleIcons">Ікони</string>
+  <string id="SettingsMenuItemStyleText">Додатковий текст</string>
   <string id="SettingsTextAlign">Ліворуч (вимкнено) або праворуч (увімкнено) вирівнювання меню.</string>
+  <string id="LeftToRight">Зліва направо</string>
+  <string id="RightToLeft">Справа наліво</string>
   <string id="SettingsWidgetStart">(Лише віджет) Автоматично запускайте програму з віджета, не чекаючи дотику.</string>
+  <string id="SettingsEnableBatteryLevel">Увімкніть фонову службу, щоб надсилати інформацію про рівень заряду акумулятора годинника до Home Assistant.</string>
+  <string id="SettingsBatteryLevelRefreshRate">Частота оновлення (у хвилинах), з якою фонова служба має повторно надсилати рівень заряду акумулятора.</string>
 </strings>

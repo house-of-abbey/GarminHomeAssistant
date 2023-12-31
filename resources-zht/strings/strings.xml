@@ -43,13 +43,20 @@
   <string id="Unconfigured" scope="glance">未配置</string>
   <string id="GlanceMenu" scope="glance">選單</string>
   <!-- 對於設定 GUI -->
+  <string id="SettingsSelect">選擇...</string>
   <string id="SettingsApiKey">HomeAssistant 的 API 金鑰。</string>
   <string id="SettingsApiKeyPrompt">長期訪問令牌。</string>
   <string id="SettingsApiUrl">HomeAssistant API 的 URL。</string>
   <string id="SettingsConfigUrl">選單配置的 URL (JSON)。</string>
   <string id="SettingsAppTimeout">超時（以秒為單位）。閒置一段時間後退出應用程式以節省設備電池。</string>
   <string id="SettingsConfirmTimeout">在此時間（以秒為單位）之後，操作的確認對話方塊將自動關閉並取消該操作。設定為 0 以停用逾時。</string>
-  <string id="SettingsUi">用圖示（關閉）或標籤（開啟）表示類型。</string>
+  <string id="SettingsMenuItemStyle">選單項目樣式。</string>
+  <string id="SettingsMenuItemStyleIcons">圖示</string>
+  <string id="SettingsMenuItemStyleText">附加文字</string>
   <string id="SettingsTextAlign">左（關）或右（開）選單對齊。</string>
+  <string id="LeftToRight">左至右</string>
+  <string id="RightToLeft">右到左</string>
   <string id="SettingsWidgetStart">（僅限小部件）從小部件自動啟動應用程序，無需等待點擊。</string>
+  <string id="SettingsEnableBatteryLevel">啟用後台服務將時鐘電池電量傳送到 Home Assistant。</string>
+  <string id="SettingsBatteryLevelRefreshRate">後台服務應重複發送電池電量的更新率（以分鐘為單位）。</string>
 </strings>

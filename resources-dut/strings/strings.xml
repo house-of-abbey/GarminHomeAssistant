@@ -43,13 +43,20 @@
   <string id="Unconfigured" scope="glance">Niet geconfigureerd</string>
   <string id="GlanceMenu" scope="glance">Menu</string>
   <!-- Voor de instellingen-GUI -->
+  <string id="SettingsSelect">Selecteer...</string>
   <string id="SettingsApiKey">API-sleutel voor HomeAssistant.</string>
   <string id="SettingsApiKeyPrompt">Toegangstoken met lange levensduur.</string>
   <string id="SettingsApiUrl">URL voor HomeAssistant API.</string>
   <string id="SettingsConfigUrl">URL voor menuconfiguratie (JSON).</string>
   <string id="SettingsAppTimeout">Time-out in seconden. Sluit de applicatie af na deze periode van inactiviteit om de batterij van het apparaat te sparen.</string>
   <string id="SettingsConfirmTimeout">Na deze tijd (in seconden) wordt automatisch een bevestigingsvenster voor een actie gesloten en wordt de actie geannuleerd. Stel in op 0 om de time-out uit te schakelen.</string>
-  <string id="SettingsUi">Typen weergeven met pictogrammen (uit) of met labels (aan).</string>
+  <string id="SettingsMenuItemStyle">Stijl van menu-items.</string>
+  <string id="SettingsMenuItemStyleIcons">Pictogrammen</string>
+  <string id="SettingsMenuItemStyleText">Aanvullende tekst</string>
   <string id="SettingsTextAlign">Links (uit) of rechts (aan) Menu-uitlijning.</string>
+  <string id="LeftToRight">Van links naar rechts</string>
+  <string id="RightToLeft">Rechts naar links</string>
   <string id="SettingsWidgetStart">(Alleen Widget) Start de applicatie automatisch vanuit de widget zonder te wachten op een tik.</string>
+  <string id="SettingsEnableBatteryLevel">Schakel de achtergrondservice in om het batterijniveau van de klok naar Home Assistant te sturen.</string>
+  <string id="SettingsBatteryLevelRefreshRate">De vernieuwingsfrequentie (in minuten) waarmee de achtergrondservice het batterijniveau opnieuw moet verzenden.</string>
 </strings>

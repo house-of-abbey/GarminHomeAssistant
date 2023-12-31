@@ -43,13 +43,20 @@
   <string id="Unconfigured" scope="glance">Yapılandırılmamış</string>
   <string id="GlanceMenu" scope="glance">Menü</string>
   <!-- Ayarlar GUI'si için -->
+  <string id="SettingsSelect">Seçme...</string>
   <string id="SettingsApiKey">HomeAssistant için API Anahtarı.</string>
   <string id="SettingsApiKeyPrompt">Uzun Ömürlü Erişim Jetonu.</string>
   <string id="SettingsApiUrl">HomeAssistant API'sinin URL'si.</string>
   <string id="SettingsConfigUrl">Menü yapılandırmasının URL'si (JSON).</string>
   <string id="SettingsAppTimeout">Saniye cinsinden zaman aşımı. Cihazın pilinden tasarruf etmek için bu süre boyunca işlem yapılmadığında uygulamadan çıkın.</string>
-  <string id="SettingsConfirmTimeout">Bu sürenin sonunda (saniye cinsinden), bir eyleme ilişkin onay iletişim kutusu otomatik olarak kapatılır ve eylem iptal edilir. Zaman aşımını devre dışı bırakmak için 0'a ayarlayın.</string>
-  <string id="SettingsUi">Türleri simgelerle (kapalı) veya etiketlerle (açık) temsil etme.</string>
+  <string id="SettingsConfirmTimeout">Bu sürenin sonunda (saniye olarak), bir eyleme ilişkin onay iletişim kutusu otomatik olarak kapatılır ve eylem iptal edilir. Zaman aşımını devre dışı bırakmak için 0'a ayarlayın.</string>
+  <string id="SettingsMenuItemStyle">Menü öğesi stili.</string>
+  <string id="SettingsMenuItemStyleIcons">Simgeler</string>
+  <string id="SettingsMenuItemStyleText">Ek Metin</string>
   <string id="SettingsTextAlign">Sol (kapalı) veya Sağ (açık) Menü Hizalaması.</string>
+  <string id="LeftToRight">Soldan sağa</string>
+  <string id="RightToLeft">Sağdan sola</string>
   <string id="SettingsWidgetStart">(Yalnızca Widget) Dokunmayı beklemeden uygulamayı widget'tan otomatik olarak başlatın.</string>
+  <string id="SettingsEnableBatteryLevel">Saatin pil seviyesini Ev Asistanına göndermek için arka plan hizmetini etkinleştirin.</string>
+  <string id="SettingsBatteryLevelRefreshRate">Arka plan hizmetinin pil seviyesini göndermeyi tekrarlaması gereken yenileme hızı (dakika olarak).</string>
 </strings>

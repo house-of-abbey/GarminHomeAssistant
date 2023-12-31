@@ -24,12 +24,9 @@ using Toybox.Application.Properties;
 using Toybox.WatchUi;
 
 class QuitTimer extends Timer.Timer {
-    private var api_timeout;
-    
+
     function initialize() {
         Timer.Timer.initialize();
-        // Timer needs delay in milliseconds.
-        api_timeout = (Properties.getValue("app_timeout") as Lang.Number) * 1000;
     }
 
     function exitApp() as Void {
@@ -41,6 +38,7 @@ class QuitTimer extends Timer.Timer {
     }
 
     function begin() {
+        var api_timeout = Settings.get().getAppTimeout(); // ms
         if (api_timeout > 0) {
             start(method(:exitApp), api_timeout, false);
         }

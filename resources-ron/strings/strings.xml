@@ -43,13 +43,20 @@
   <string id="Unconfigured" scope="glance">Neconfigurat</string>
   <string id="GlanceMenu" scope="glance">Meniul</string>
   <!-- Pentru GUI de setări -->
+  <string id="SettingsSelect">Selectați...</string>
   <string id="SettingsApiKey">Cheie API pentru HomeAssistant.</string>
   <string id="SettingsApiKeyPrompt">Token de acces cu viață lungă.</string>
   <string id="SettingsApiUrl">Adresa URL pentru API-ul HomeAssistant.</string>
   <string id="SettingsConfigUrl">URL pentru configurarea meniului (JSON).</string>
   <string id="SettingsAppTimeout">Timeout în secunde. Ieșiți din aplicație după această perioadă de inactivitate pentru a economisi bateria dispozitivului.</string>
   <string id="SettingsConfirmTimeout">După acest timp (în secunde), un dialog de confirmare pentru o acțiune este închis automat și acțiunea este anulată. Setați la 0 pentru a dezactiva timeout-ul.</string>
-  <string id="SettingsUi">Reprezentarea tipurilor cu pictograme (dezactivate) sau cu etichete (activate).</string>
+  <string id="SettingsMenuItemStyle">Stilul elementului de meniu.</string>
+  <string id="SettingsMenuItemStyleIcons">icoane</string>
+  <string id="SettingsMenuItemStyleText">Text suplimentar</string>
   <string id="SettingsTextAlign">Alinierea meniului la stânga (dezactivată) sau la dreapta (activată).</string>
+  <string id="LeftToRight">De la stânga la dreapta</string>
+  <string id="RightToLeft">De la dreapta la stanga</string>
   <string id="SettingsWidgetStart">(Numai widget) Porniți automat aplicația din widget fără a aștepta o atingere.</string>
+  <string id="SettingsEnableBatteryLevel">Activați serviciul de fundal pentru a trimite nivelul bateriei ceasului către Home Assistant.</string>
+  <string id="SettingsBatteryLevelRefreshRate">Rata de reîmprospătare (în minute) la care serviciul de fundal ar trebui să repete trimiterea nivelului bateriei.</string>
 </strings>

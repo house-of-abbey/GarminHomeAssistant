@@ -31,7 +31,7 @@
   <string id="NoAPIKey" scope="glance">Nenhuma chave de API nas configurações do aplicativo</string>
   <string id="NoApiUrl" scope="glance">Nenhum URL de API nas configurações do aplicativo</string>
   <string id="NoConfigUrl" scope="glance">Nenhum URL de configuração nas configurações do aplicativo</string>
-  <string id="ApiFlood">Chamadas de API muito rápidas. Por favor, diminua a velocidade de seus pedidos.</string>
+  <string id="ApiFlood">Chamadas de API muito rápidas. Por favor, desacelere seus pedidos.</string>
   <string id="ApiUrlNotFound">URL não encontrado. Possível erro de URL da API nas configurações.</string>
   <string id="ConfigUrlNotFound">URL não encontrado. Possível erro de URL de configuração nas configurações.</string>
   <string id="NoJson">Nenhum JSON foi retornado da solicitação HTTP.</string>
@@ -43,13 +43,20 @@
   <string id="Unconfigured" scope="glance">Não configurado</string>
   <string id="GlanceMenu" scope="glance">Cardápio</string>
   <!-- Para a GUI de configurações -->
+  <string id="SettingsSelect">Selecione...</string>
   <string id="SettingsApiKey">Chave de API para HomeAssistant.</string>
   <string id="SettingsApiKeyPrompt">Token de acesso de longa duração.</string>
   <string id="SettingsApiUrl">URL para API HomeAssistant.</string>
   <string id="SettingsConfigUrl">URL para configuração do menu (JSON).</string>
   <string id="SettingsAppTimeout">Tempo limite em segundos. Saia do aplicativo após esse período de inatividade para economizar bateria do aparelho.</string>
   <string id="SettingsConfirmTimeout">Após esse tempo (em segundos), uma caixa de diálogo de confirmação de uma ação é automaticamente fechada e a ação é cancelada. Defina como 0 para desativar o tempo limite.</string>
-  <string id="SettingsUi">Representando tipos com ícones (desligado) ou com rótulos (ligado).</string>
+  <string id="SettingsMenuItemStyle">Estilo do item de menu.</string>
+  <string id="SettingsMenuItemStyleIcons">Ícones</string>
+  <string id="SettingsMenuItemStyleText">Texto Adicional</string>
   <string id="SettingsTextAlign">Alinhamento do menu à esquerda (desligado) ou à direita (ligado).</string>
+  <string id="LeftToRight">Da esquerda para direita</string>
+  <string id="RightToLeft">Direita para esquerda</string>
   <string id="SettingsWidgetStart">(Somente widget) Inicie automaticamente o aplicativo a partir do widget sem esperar por um toque.</string>
+  <string id="SettingsEnableBatteryLevel">Ative o serviço em segundo plano para enviar o nível da bateria do relógio ao Home Assistant.</string>
+  <string id="SettingsBatteryLevelRefreshRate">A taxa de atualização (em minutos) na qual o serviço em segundo plano deve repetir o envio do nível da bateria.</string>
 </strings>

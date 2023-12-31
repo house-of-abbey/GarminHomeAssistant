@@ -18,9 +18,7 @@
     title="@Strings.SettingsApiKey"
     prompt="@Strings.SettingsApiKeyPrompt"
   >
-    <settingConfig
-      type="alphaNumeric"
-    />
+    <settingConfig type="alphaNumeric" />
   </setting>
 
   <setting
@@ -28,9 +26,7 @@
     title="@Strings.SettingsApiUrl"
     prompt="https://homeassistant.local/api"
   >
-    <settingConfig
-      type="alphaNumeric"
-    />
+    <settingConfig type="alphaNumeric" />
   </setting>
 
   <setting
@@ -38,56 +34,63 @@
     title="@Strings.SettingsConfigUrl"
     prompt="https://homeassistant.local/local/garmin/menu.json"
   >
-    <settingConfig
-      type="alphaNumeric"
-    />
+    <settingConfig type="alphaNumeric" />
   </setting>
 
   <setting
     propertyKey="@Properties.app_timeout"
     title="@Strings.SettingsAppTimeout"
   >
-    <settingConfig
-      type="numeric"
-      min="0"
-    />
+    <settingConfig type="numeric" min="0" />
   </setting>
 
   <setting
     propertyKey="@Properties.confirm_timeout"
     title="@Strings.SettingsConfirmTimeout"
   >
-    <settingConfig
-      type="numeric"
-      min="0"
-    />
+    <settingConfig type="numeric" min="0" />
   </setting>
 
   <setting
-    propertyKey="@Properties.types_representation"
-    title="@Strings.SettingsUi"
+    propertyKey="@Properties.menu_theme"
+    title="@Strings.SettingsMenuItemStyle"
+    prompt="@Strings.SettingsSelect"
   >
-    <settingConfig
-      type="boolean"
-    />
+    <settingConfig type="list">
+      <listEntry value="0">@Strings.SettingsMenuItemStyleIcons</listEntry>
+      <listEntry value="1">@Strings.SettingsMenuItemStyleText</listEntry>
+    </settingConfig>
   </setting>
 
   <setting
     propertyKey="@Properties.menu_alignment"
     title="@Strings.SettingsTextAlign"
   >
-    <settingConfig
-      type="boolean"
-    />
+    <settingConfig type="list">
+      <listEntry value="1">@Strings.LeftToRight</listEntry>
+      <listEntry value="0">@Strings.RightToLeft</listEntry>
+    </settingConfig>
   </setting>
 
   <setting
     propertyKey="@Properties.widget_start_no_tap"
     title="@Strings.SettingsWidgetStart"
   >
-    <settingConfig
-      type="boolean"
-    />
+    <settingConfig type="boolean" />
+  </setting>
+
+  <setting
+    propertyKey="@Properties.enable_battery_level"
+    title="@Strings.SettingsEnableBatteryLevel"
+  >
+    <settingConfig type="boolean" />
+  </setting>
+
+  <setting
+    propertyKey="@Properties.battery_level_refresh_rate"
+    title="@Strings.SettingsBatteryLevelRefreshRate"
+  >
+    <settingConfig type="numeric" min="5" />
   </setting>
 
 </settings>

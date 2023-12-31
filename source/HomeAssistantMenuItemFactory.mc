@@ -23,13 +23,12 @@ using Toybox.Lang;
 using Toybox.WatchUi;
 
 class HomeAssistantMenuItemFactory {
-    private var mMenuItemOptions          as Lang.Dictionary;
-    private var mLabelToggle              as Lang.Dictionary;
-    private var strMenuItemTap            as Lang.String;
-    private var bRepresentTypesWithLabels as Lang.Boolean;
-    private var mTapTypeIcon              as WatchUi.Bitmap;
-    private var mGroupTypeIcon            as WatchUi.Bitmap;
-    private var mHomeAssistantService     as HomeAssistantService;
+    private var mMenuItemOptions      as Lang.Dictionary;
+    private var mLabelToggle          as Lang.Dictionary;
+    private var strMenuItemTap        as Lang.String;
+    private var mTapTypeIcon          as WatchUi.Bitmap;
+    private var mGroupTypeIcon        as WatchUi.Bitmap;
+    private var mHomeAssistantService as HomeAssistantService;
 
     private static var instance;
 
@@ -38,18 +37,10 @@ class HomeAssistantMenuItemFactory {
             :enabled  => WatchUi.loadResource($.Rez.Strings.MenuItemOn)  as Lang.String,
             :disabled => WatchUi.loadResource($.Rez.Strings.MenuItemOff) as Lang.String
         };
-        bRepresentTypesWithLabels = Application.Properties.getValue("types_representation") as Lang.Boolean;
 
-        var menuItemAlignment = Application.Properties.getValue("menu_alignment") as Lang.Boolean;
-        if(menuItemAlignment){
-            mMenuItemOptions = {
-                :alignment => WatchUi.MenuItem.MENU_ITEM_LABEL_ALIGN_RIGHT
-            };
-        } else {
-            mMenuItemOptions = {
-                :alignment => WatchUi.MenuItem.MENU_ITEM_LABEL_ALIGN_LEFT
-            };
-        }
+        mMenuItemOptions = {
+            :alignment => Settings.get().getMenuAlignment()
+        };
 
         strMenuItemTap = WatchUi.loadResource($.Rez.Strings.MenuItemTap);
         mTapTypeIcon = new WatchUi.Bitmap({
@@ -74,15 +65,9 @@ class HomeAssistantMenuItemFactory {
     }
 
     function toggle(label as Lang.String or Lang.Symbol, identifier as Lang.Object or Null) as WatchUi.MenuItem {
-        var subLabel = null;
-
-        if (bRepresentTypesWithLabels == true){
-            subLabel=mLabelToggle;
-        }
-     
         return new HomeAssistantToggleMenuItem(
             label,
-            subLabel,
+            Settings.get().getMenuStyle() == Settings.MENU_STYLE_TEXT ? mLabelToggle : null,
             identifier,
             false,
             mMenuItemOptions
@@ -95,7 +80,7 @@ class HomeAssistantMenuItemFactory {
         service    as Lang.String or Null,
         confirm    as Lang.Boolean
     ) as WatchUi.MenuItem {
-        if (bRepresentTypesWithLabels) {
+        if (Settings.get().getMenuStyle() == Settings.MENU_STYLE_TEXT) {
             return new HomeAssistantMenuItem(
                 label,
                 strMenuItemTap,
@@ -120,7 +105,7 @@ class HomeAssistantMenuItemFactory {
     }
 
     function group(definition as Lang.Dictionary) as WatchUi.MenuItem {
-        if (bRepresentTypesWithLabels) {
+        if (Settings.get().getMenuStyle() == Settings.MENU_STYLE_TEXT) {
             return new HomeAssistantViewMenuItem(definition);
         } else {
             return new HomeAssistantViewIconMenuItem(definition, mGroupTypeIcon, mMenuItemOptions);

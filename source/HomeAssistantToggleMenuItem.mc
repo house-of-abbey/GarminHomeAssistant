@@ -35,8 +35,6 @@ class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
     private var strUnavailable      = WatchUi.loadResource($.Rez.Strings.Unavailable);
     private var strAvailable        = WatchUi.loadResource($.Rez.Strings.Available);
 
-    private var mApiKey as Lang.String;
-
     function initialize(
         label     as Lang.String or Lang.Symbol,
         subLabel  as Lang.String or Lang.Symbol or {
@@ -50,7 +48,6 @@ class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
             :icon      as Graphics.BitmapType or WatchUi.Drawable or Lang.Symbol
         } or Null
     ) {
-        mApiKey = Properties.getValue("api_key");
         WatchUi.ToggleMenuItem.initialize(label, subLabel, identifier, enabled, options);
     }
 
@@ -76,7 +73,7 @@ class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
             System.println("HomeAssistantToggleMenuItem onReturnGetState() Response Data: " + data);
         }
 
-        var status       = strUnavailable;
+        var status = strUnavailable;
         switch (responseCode) {
             case Communications.BLE_HOST_TIMEOUT:
             case Communications.BLE_CONNECTION_UNAVAILABLE:
@@ -168,13 +165,6 @@ class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
     }
 
     function getState() as Void {
-        var options = {
-            :method  => Communications.HTTP_REQUEST_METHOD_GET,
-            :headers => {
-                "Authorization" => "Bearer " + mApiKey
-            },
-            :responseType => Communications.HTTP_RESPONSE_CONTENT_TYPE_JSON
-        };
         if (! System.getDeviceSettings().phoneConnected) {
             if (Globals.scDebug) {
                 System.println("HomeAssistantToggleMenuItem getState(): No Phone connection, skipping API call.");
@@ -188,14 +178,20 @@ class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
             ErrorView.show(strNoInternet + ".");
             getApp().setApiStatus(strUnavailable);
         } else {
-            var url = Properties.getValue("api_url") + "/states/" + mIdentifier;
+            var url = Settings.get().getApiUrl() + "/states/" + mIdentifier;
             if (Globals.scDebug) {
                 System.println("HomeAssistantToggleMenuItem getState() URL=" + url);
             }
             Communications.makeWebRequest(
                 url,
                 null,
-                options,
+                {
+                    :method  => Communications.HTTP_REQUEST_METHOD_GET,
+                    :headers => {
+                        "Authorization" => "Bearer " + Settings.get().getApiKey()
+                    },
+                    :responseType => Communications.HTTP_RESPONSE_CONTENT_TYPE_JSON
+                },
                 method(:onReturnGetState)
             );
         }
@@ -272,14 +268,6 @@ class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
     }
 
     function setState(s as Lang.Boolean) as Void {
-        var options = {
-            :method  => Communications.HTTP_REQUEST_METHOD_POST,
-            :headers => {
-                "Content-Type"  => Communications.REQUEST_CONTENT_TYPE_JSON,
-                "Authorization" => "Bearer " + mApiKey
-            },
-            :responseType => Communications.HTTP_RESPONSE_CONTENT_TYPE_JSON
-        };
         if (! System.getDeviceSettings().phoneConnected) {
             if (Globals.scDebug) {
                 System.println("HomeAssistantToggleMenuItem getState(): No Phone connection, skipping API call.");
@@ -297,12 +285,12 @@ class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
         } else {
             // Updated SDK and got a new error
             // ERROR: venu: Cannot find symbol ':substring' on type 'PolyType<Null or $.Toybox.Lang.Object>'.
-            var id = mIdentifier as Lang.String;
-            var url;
+            var id  = mIdentifier as Lang.String;
+            var url = Settings.get().getApiKey() + "/services/";
             if (s) {
-                url = Properties.getValue("api_url") + "/services/" + id.substring(0, id.find(".")) + "/turn_on";
+                url = url + id.substring(0, id.find(".")) + "/turn_on";
             } else {
-                url = Properties.getValue("api_url") + "/services/" + id.substring(0, id.find(".")) + "/turn_off";
+                url = url + id.substring(0, id.find(".")) + "/turn_off";
             }
             if (Globals.scDebug) {
                 System.println("HomeAssistantToggleMenuItem setState() URL=" + url);
@@ -313,7 +301,14 @@ class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
                 {
                     "entity_id" => mIdentifier
                 },
-                options,
+                {
+                    :method  => Communications.HTTP_REQUEST_METHOD_POST,
+                    :headers => {
+                        "Content-Type"  => Communications.REQUEST_CONTENT_TYPE_JSON,
+                        "Authorization" => "Bearer " + Settings.get().getApiKey()
+                    },
+                    :responseType => Communications.HTTP_RESPONSE_CONTENT_TYPE_JSON
+                },
                 method(:onReturnSetState)
             );
         }

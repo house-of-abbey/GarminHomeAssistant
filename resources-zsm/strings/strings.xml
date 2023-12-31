@@ -43,13 +43,20 @@
   <string id="Unconfigured" scope="glance">Tidak dikonfigurasikan</string>
   <string id="GlanceMenu" scope="glance">Menu</string>
   <!-- Untuk GUI tetapan -->
+  <string id="SettingsSelect">Pilih...</string>
   <string id="SettingsApiKey">Kunci API untuk HomeAssistant.</string>
   <string id="SettingsApiKeyPrompt">Token Akses Berumur Panjang.</string>
   <string id="SettingsApiUrl">URL untuk API HomeAssistant.</string>
   <string id="SettingsConfigUrl">URL untuk konfigurasi menu (JSON).</string>
   <string id="SettingsAppTimeout">Tamat masa dalam beberapa saat. Keluar dari aplikasi selepas tempoh tidak aktif ini untuk menjimatkan bateri peranti.</string>
   <string id="SettingsConfirmTimeout">Selepas masa ini (dalam beberapa saat), dialog pengesahan untuk tindakan ditutup secara automatik dan tindakan itu dibatalkan. Tetapkan kepada 0 untuk melumpuhkan tamat masa.</string>
-  <string id="SettingsUi">Mewakili jenis dengan ikon (dimatikan) atau dengan label (dihidupkan).</string>
+  <string id="SettingsMenuItemStyle">Gaya item menu.</string>
+  <string id="SettingsMenuItemStyleIcons">ikon</string>
+  <string id="SettingsMenuItemStyleText">Teks Tambahan</string>
   <string id="SettingsTextAlign">Penjajaran Menu Kiri (mati) atau Kanan (hidup).</string>
+  <string id="LeftToRight">Kiri ke kanan</string>
+  <string id="RightToLeft">Kanan ke kiri</string>
   <string id="SettingsWidgetStart">(Widget sahaja) Mulakan aplikasi secara automatik daripada widget tanpa menunggu satu ketikan.</string>
+  <string id="SettingsEnableBatteryLevel">Dayakan perkhidmatan latar belakang untuk menghantar paras bateri jam kepada Home Assistant.</string>
+  <string id="SettingsBatteryLevelRefreshRate">Kadar penyegaran semula (dalam minit) di mana perkhidmatan latar belakang harus mengulangi penghantaran tahap bateri.</string>
 </strings>

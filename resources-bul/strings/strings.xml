@@ -43,13 +43,20 @@
   <string id="Unconfigured" scope="glance">Неконфигуриран</string>
   <string id="GlanceMenu" scope="glance">Меню</string>
   <!-- За GUI за настройки -->
+  <string id="SettingsSelect">Изберете...</string>
   <string id="SettingsApiKey">API ключ за HomeAssistant.</string>
   <string id="SettingsApiKeyPrompt">Токен за дълготраен достъп.</string>
   <string id="SettingsApiUrl">URL адрес за API на HomeAssistant.</string>
   <string id="SettingsConfigUrl">URL за конфигурация на менюто (JSON).</string>
   <string id="SettingsAppTimeout">Изчакване в секунди. Излезте от приложението след този период на неактивност, за да запазите батерията на устройството.</string>
   <string id="SettingsConfirmTimeout">След това време (в секунди) диалоговият прозорец за потвърждение за действие се затваря автоматично и действието се отменя. Задайте 0, за да деактивирате изчакването.</string>
-  <string id="SettingsUi">Представяне на типове с икони (изключено) или с етикети (включено).</string>
+  <string id="SettingsMenuItemStyle">Стил на елемент от менюто.</string>
+  <string id="SettingsMenuItemStyleIcons">Икони</string>
+  <string id="SettingsMenuItemStyleText">Допълнителен текст</string>
   <string id="SettingsTextAlign">Ляво (изключено) или дясно (включено) подравняване на менюто.</string>
+  <string id="LeftToRight">Отляво надясно</string>
+  <string id="RightToLeft">От дясно на ляво</string>
   <string id="SettingsWidgetStart">(Само за джаджа) Автоматично стартирайте приложението от джаджата, без да чакате докосване.</string>
+  <string id="SettingsEnableBatteryLevel">Активирайте фоновата услуга, за да изпратите нивото на батерията на часовника до Home Assistant.</string>
+  <string id="SettingsBatteryLevelRefreshRate">Честотата на опресняване (в минути), с която фоновата услуга трябва да повтори изпращането на нивото на батерията.</string>
 </strings>

@@ -43,13 +43,20 @@
   <string id="Unconfigured" scope="glance">Nieskonfigurowane</string>
   <string id="GlanceMenu" scope="glance">Menu</string>
   <!-- Dla ustawień GUI -->
+  <string id="SettingsSelect">Wybierać...</string>
   <string id="SettingsApiKey">Klucz API dla HomeAssistant.</string>
   <string id="SettingsApiKeyPrompt">Długowieczny token dostępu.</string>
   <string id="SettingsApiUrl">Adres URL interfejsu API HomeAssistant.</string>
   <string id="SettingsConfigUrl">Adres URL konfiguracji menu (JSON).</string>
   <string id="SettingsAppTimeout">Limit czasu w sekundach. Wyjdź z aplikacji po tym okresie bezczynności, aby oszczędzać baterię urządzenia.</string>
   <string id="SettingsConfirmTimeout">Po tym czasie (w sekundach) okno dialogowe z potwierdzeniem akcji zamyka się automatycznie, a akcja zostaje anulowana. Ustaw na 0, aby wyłączyć limit czasu.</string>
-  <string id="SettingsUi">Reprezentowanie typów za pomocą ikon (wyłączone) lub etykiet (włączone).</string>
+  <string id="SettingsMenuItemStyle">Styl pozycji menu.</string>
+  <string id="SettingsMenuItemStyleIcons">Ikony</string>
+  <string id="SettingsMenuItemStyleText">Dodatkowy tekst</string>
   <string id="SettingsTextAlign">Wyrównanie menu do lewej (wyłączone) lub do prawej (włączone).</string>
+  <string id="LeftToRight">Od lewej do prawej</string>
+  <string id="RightToLeft">Od prawej do lewej</string>
   <string id="SettingsWidgetStart">(Tylko widget) Automatycznie uruchamiaj aplikację z widgetu, bez czekania na dotknięcie.</string>
+  <string id="SettingsEnableBatteryLevel">Włącz usługę działającą w tle, aby wysyłać poziom naładowania baterii zegara do Home Assistant.</string>
+  <string id="SettingsBatteryLevelRefreshRate">Częstotliwość odświeżania (w minutach), z jaką usługa działająca w tle powinna powtarzać wysyłanie informacji o poziomie baterii.</string>
 </strings>

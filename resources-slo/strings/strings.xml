@@ -37,19 +37,26 @@
   <string id="NoJson">Z požiadavky HTTP sa nevrátil žiadny JSON.</string>
   <string id="UnhandledHttpErr">Požiadavka HTTP vrátila kód chyby =</string>
   <string id="TrailingSlashErr">Adresa URL rozhrania API nesmie obsahovať koncovú lomku „/“</string>
-  <string id="Available" scope="glance">Dostupné</string>
+  <string id="Available" scope="glance">K dispozícii</string>
   <string id="Checking" scope="glance">Prebieha kontrola...</string>
   <string id="Unavailable" scope="glance">nedostupné</string>
   <string id="Unconfigured" scope="glance">Nekonfigurované</string>
   <string id="GlanceMenu" scope="glance">Ponuka</string>
   <!-- Pre nastavenia GUI -->
+  <string id="SettingsSelect">Vybrať...</string>
   <string id="SettingsApiKey">Kľúč API pre HomeAssistant.</string>
   <string id="SettingsApiKeyPrompt">Prístupový token s dlhou životnosťou.</string>
   <string id="SettingsApiUrl">URL pre HomeAssistant API.</string>
   <string id="SettingsConfigUrl">Webová adresa pre konfiguráciu ponuky (JSON).</string>
   <string id="SettingsAppTimeout">Časový limit v sekundách. Po tejto dobe nečinnosti ukončite aplikáciu, aby ste šetrili batériu zariadenia.</string>
   <string id="SettingsConfirmTimeout">Po tomto čase (v sekundách) sa dialógové okno s potvrdením akcie automaticky zatvorí a akcia sa zruší. Ak chcete časový limit deaktivovať, nastavte na 0.</string>
-  <string id="SettingsUi">Typy predstavujú ikony (vypnuté) alebo štítky (zapnuté).</string>
+  <string id="SettingsMenuItemStyle">Štýl položky menu.</string>
+  <string id="SettingsMenuItemStyleIcons">ikony</string>
+  <string id="SettingsMenuItemStyleText">Doplnkový text</string>
   <string id="SettingsTextAlign">Zarovnanie ponuky vľavo (vypnuté) alebo vpravo (zapnuté).</string>
+  <string id="LeftToRight">Zľava doprava</string>
+  <string id="RightToLeft">Zprava doľava</string>
   <string id="SettingsWidgetStart">(Len miniaplikácia) Automaticky spustite aplikáciu z miniaplikácie bez čakania na klepnutie.</string>
+  <string id="SettingsEnableBatteryLevel">Povoľte službu na pozadí na odosielanie úrovne batérie hodín do domáceho asistenta.</string>
+  <string id="SettingsBatteryLevelRefreshRate">Obnovovacia frekvencia (v minútach), pri ktorej by služba na pozadí mala opakovať odosielanie úrovne batérie.</string>
 </strings>

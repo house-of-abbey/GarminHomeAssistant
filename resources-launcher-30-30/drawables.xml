@@ -13,5 +13,5 @@
 -->
 
 <drawables>
-    <bitmap id="LauncherIcon" filename="launcher.png" />
+    <bitmap id="LauncherIcon" filename="launcher.svg" />
 </drawables>

@@ -43,13 +43,20 @@
   <string id="Unconfigured" scope="glance">Ukonfigurert</string>
   <string id="GlanceMenu" scope="glance">Meny</string>
   <!-- For innstillingene GUI -->
+  <string id="SettingsSelect">Plukke ut...</string>
   <string id="SettingsApiKey">API-nøkkel for HomeAssistant.</string>
   <string id="SettingsApiKeyPrompt">Langlevd tilgangstoken.</string>
   <string id="SettingsApiUrl">URL for HomeAssistant API.</string>
   <string id="SettingsConfigUrl">URL for menykonfigurasjon (JSON).</string>
   <string id="SettingsAppTimeout">Tidsavbrudd i sekunder. Avslutt applikasjonen etter denne perioden med inaktivitet for å spare enhetens batteri.</string>
   <string id="SettingsConfirmTimeout">Etter denne tiden (i sekunder), lukkes en bekreftelsesdialog for en handling automatisk og handlingen avbrytes. Sett til 0 for å deaktivere tidsavbruddet.</string>
-  <string id="SettingsUi">Representerer typer med ikoner (av) eller med etiketter (på).</string>
+  <string id="SettingsMenuItemStyle">Menyelementstil.</string>
+  <string id="SettingsMenuItemStyleIcons">Ikoner</string>
+  <string id="SettingsMenuItemStyleText">Ekstra tekst</string>
   <string id="SettingsTextAlign">Venstre (av) eller Høyre (på) Menyjustering.</string>
+  <string id="LeftToRight">Venstre til høyre</string>
+  <string id="RightToLeft">Høyre til venstre</string>
   <string id="SettingsWidgetStart">(Kun widget) Start applikasjonen automatisk fra widgeten uten å vente på et trykk.</string>
+  <string id="SettingsEnableBatteryLevel">Aktiver bakgrunnstjenesten for å sende klokkens batterinivå til Home Assistant.</string>
+  <string id="SettingsBatteryLevelRefreshRate">Oppdateringshastigheten (i minutter) som bakgrunnstjenesten skal gjenta sendingen av batterinivået med.</string>
 </strings>

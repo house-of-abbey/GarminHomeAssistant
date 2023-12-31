@@ -27,16 +27,10 @@ class HomeAssistantService {
     private var strNoPhone          = WatchUi.loadResource($.Rez.Strings.NoPhone);
     private var strNoInternet       = WatchUi.loadResource($.Rez.Strings.NoInternet);
     private var strNoResponse       = WatchUi.loadResource($.Rez.Strings.NoResponse);
-    private var strNoJson            = WatchUi.loadResource($.Rez.Strings.NoJson);
+    private var strNoJson           = WatchUi.loadResource($.Rez.Strings.NoJson);
     private var strApiFlood         = WatchUi.loadResource($.Rez.Strings.ApiFlood);
     private var strApiUrlNotFound   = WatchUi.loadResource($.Rez.Strings.ApiUrlNotFound);
     private var strUnhandledHttpErr = WatchUi.loadResource($.Rez.Strings.UnhandledHttpErr);
-
-    private var mApiKey as Lang.String;
-
-    function initialize() {
-        mApiKey = Properties.getValue("api_key");
-    }
 
     // Callback function after completing the POST request to call a service.
     //
@@ -123,15 +117,6 @@ class HomeAssistantService {
     }
 
     function call(identifier as Lang.String, service as Lang.String) as Void {
-        var options = {
-            :method  => Communications.HTTP_REQUEST_METHOD_POST,
-            :headers => {
-                "Content-Type"  => Communications.REQUEST_CONTENT_TYPE_JSON,
-                "Authorization" => "Bearer " + mApiKey
-            },
-            :responseType => Communications.HTTP_RESPONSE_CONTENT_TYPE_JSON,
-            :context      => identifier
-        };
         if (! System.getDeviceSettings().phoneConnected) {
             if (Globals.scDebug) {
                 System.println("HomeAssistantService call(): No Phone connection, skipping API call.");
@@ -144,7 +129,7 @@ class HomeAssistantService {
             ErrorView.show(strNoInternet + ".");
         } else {
             // Can't use null for substring() parameters due to API version level.
-            var url = (Properties.getValue("api_url") as Lang.String) + "/services/" + service.substring(0, service.find(".")) + "/" + service.substring(service.find(".")+1, service.length());
+            var url = Settings.get().getApiUrl() + "/services/" + service.substring(0, service.find(".")) + "/" + service.substring(service.find(".")+1, service.length());
             if (Globals.scDebug) {
                 System.println("HomeAssistantService call() URL=" + url);
                 System.println("HomeAssistantService call() service=" + service);
@@ -154,7 +139,15 @@ class HomeAssistantService {
                 {
                     "entity_id" => identifier
                 },
-                options,
+                {
+                    :method       => Communications.HTTP_REQUEST_METHOD_POST,
+                    :headers      => {
+                        "Content-Type"  => Communications.REQUEST_CONTENT_TYPE_JSON,
+                        "Authorization" => "Bearer " + Settings.get().getApiKey()
+                    },
+                    :responseType => Communications.HTTP_RESPONSE_CONTENT_TYPE_JSON,
+                    :context      => identifier
+                },
                 method(:onReturnCall)
             );
             if (Attention has :vibrate) {

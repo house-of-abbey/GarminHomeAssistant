@@ -21,40 +21,39 @@
 using Toybox.Application;
 using Toybox.Lang;
 using Toybox.WatchUi;
+using Toybox.System;
 using Toybox.Application.Properties;
 using Toybox.Timer;
 
+(:background)
 class HomeAssistantApp extends Application.AppBase {
-    private var strNoApiKey          as Lang.String or Null;
-    private var strNoApiUrl          as Lang.String or Null;
-    private var strNoConfigUrl       as Lang.String or Null;
-    private var strNoPhone           as Lang.String or Null;
-    private var strNoInternet        as Lang.String or Null;
-    private var strNoResponse        as Lang.String or Null;
-    private var strApiFlood          as Lang.String or Null;
-    private var strConfigUrlNotFound as Lang.String or Null;
-    private var strNoJson            as Lang.String or Null;
-    private var strUnhandledHttpErr  as Lang.String or Null;
-    private var strTrailingSlashErr  as Lang.String or Null;
-    private var strAvailable         = WatchUi.loadResource($.Rez.Strings.Available);
-    private var strUnavailable       = WatchUi.loadResource($.Rez.Strings.Unavailable);
-    private var strUnconfigured      = WatchUi.loadResource($.Rez.Strings.Unconfigured);
+    private var strNoApiKey          as Lang.String       or Null;
+    private var strNoApiUrl          as Lang.String       or Null;
+    private var strNoConfigUrl       as Lang.String       or Null;
+    private var strNoPhone           as Lang.String       or Null;
+    private var strNoInternet        as Lang.String       or Null;
+    private var strNoResponse        as Lang.String       or Null;
+    private var strApiFlood          as Lang.String       or Null;
+    private var strConfigUrlNotFound as Lang.String       or Null;
+    private var strNoJson            as Lang.String       or Null;
+    private var strUnhandledHttpErr  as Lang.String       or Null;
+    private var strTrailingSlashErr  as Lang.String       or Null;
+    private var strAvailable         as Lang.String       or Null;
+    private var strUnavailable       as Lang.String       or Null;
+    private var strUnconfigured      as Lang.String       or Null;
 
-    private var mApiKey              as Lang.String or Null; // The compiler can't tell these are updated by
-    private var mApiUrl              as Lang.String or Null; // initialize(), hence the "or Null".
-    private var mConfigUrl           as Lang.String or Null; //
-    private var mApiStatus           as Lang.String = WatchUi.loadResource($.Rez.Strings.Checking);
-    private var mMenuStatus          as Lang.String = WatchUi.loadResource($.Rez.Strings.Checking);
+    private var mApiStatus           as Lang.String       or Null;
+    private var mMenuStatus          as Lang.String       or Null;
     private var mHaMenu              as HomeAssistantView or Null;
     private var mQuitTimer           as QuitTimer         or Null;
     private var mTimer               as Timer.Timer       or Null;
-    private var mItemsToUpdate;           // Array initialised by onReturnFetchMenuConfig()
-    private var mNextItemToUpdate    = 0; // Index into the above array
+    private var mItemsToUpdate       as Lang.Array<HomeAssistantToggleMenuItem> or Null; // Array initialised by onReturnFetchMenuConfig()
+    private var mNextItemToUpdate    as Lang.Number  = 0;                                // Index into the above array
     private var mIsGlance            as Lang.Boolean = false;
+    private var mIsApp               as Lang.Boolean = false; // Or Widget
 
     function initialize() {
         AppBase.initialize();
-        onSettingsChanged();
         // ATTENTION when adding stuff into this block:
         // Because of the >>GlanceView<<, it should contain only
         // code, which is used as well for the glance:
@@ -100,8 +99,18 @@ class HomeAssistantApp extends Application.AppBase {
         // with "(:glance)".
     }
 
+    // These are required for the Application/Widget and the Glance view, but not for the background service.
+    function initResources() {
+        strAvailable    = WatchUi.loadResource($.Rez.Strings.Available);
+        strUnavailable  = WatchUi.loadResource($.Rez.Strings.Unavailable);
+        strUnconfigured = WatchUi.loadResource($.Rez.Strings.Unconfigured);
+        mApiStatus      = WatchUi.loadResource($.Rez.Strings.Checking);
+        mMenuStatus     = WatchUi.loadResource($.Rez.Strings.Checking);
+    }
+
     // Return the initial view of your application here
     function getInitialView() as Lang.Array<WatchUi.Views or WatchUi.InputDelegates>? {
+        mIsApp               = true;
         strNoApiKey          = WatchUi.loadResource($.Rez.Strings.NoAPIKey);
         strNoApiUrl          = WatchUi.loadResource($.Rez.Strings.NoApiUrl);
         strNoConfigUrl       = WatchUi.loadResource($.Rez.Strings.NoConfigUrl);
@@ -113,24 +122,25 @@ class HomeAssistantApp extends Application.AppBase {
         strNoJson            = WatchUi.loadResource($.Rez.Strings.NoJson);
         strUnhandledHttpErr  = WatchUi.loadResource($.Rez.Strings.UnhandledHttpErr);
         strTrailingSlashErr  = WatchUi.loadResource($.Rez.Strings.TrailingSlashErr);
+        initResources();
         mQuitTimer           = new QuitTimer();
 
-        if (mApiKey.length() == 0) {
+        if (Settings.get().getApiKey().length() == 0) {
             if (Globals.scDebug) {
-                System.println("HomeAssistantApp getInitialView(): No API key in the application settings.");
+                System.println("HomeAssistantApp getInitialView(): No API key in the application Settings.get().");
             }
             return ErrorView.create(strNoApiKey + ".");
-        } else if (mApiUrl.length() == 0) {
+        } else if (Settings.get().getApiUrl().length() == 0) {
             if (Globals.scDebug) {
-                System.println("HomeAssistantApp getInitialView(): No API URL in the application settings.");
+                System.println("HomeAssistantApp getInitialView(): No API URL in the application Settings.get().");
             }
             return ErrorView.create(strNoApiUrl + ".");
-        } else if (mApiUrl.substring(-1, mApiUrl.length()).equals("/")) {
+        } else if (Settings.get().getApiUrl().substring(-1, Settings.get().getApiUrl().length()).equals("/")) {
             if (Globals.scDebug) {
                 System.println("HomeAssistantApp getInitialView(): API URL must not have a trailing slash '/'.");
             }
             return ErrorView.create(strTrailingSlashErr + ".");
-        } else if (mConfigUrl.length() == 0) {
+        } else if (Settings.get().getConfigUrl().length() == 0) {
             if (Globals.scDebug) {
                 System.println("HomeAssistantApp getInitialView(): No configuration URL in the application settings.");
             }
@@ -218,7 +228,7 @@ class HomeAssistantApp extends Application.AppBase {
                 if (!mIsGlance) {
                     mHaMenu = new HomeAssistantView(data, null);
                     mQuitTimer.begin();
-                    if (Properties.getValue("widget_start_no_tap")) {
+                    if (Settings.get().get().getIsWidgetStartNoTap()) {
                         // As soon as the menu has been fetched start show the menu of items.
                         // This behaviour is inconsistent with the standard Garmin User Interface, but has been
                         // requested by users so has been made the non-default option.
@@ -250,14 +260,10 @@ class HomeAssistantApp extends Application.AppBase {
 
     (:glance)
     function fetchMenuConfig() as Void {
-        if (mConfigUrl.equals("")) {
+        if (Settings.get().getConfigUrl().equals("")) {
             mMenuStatus = strUnconfigured;
             WatchUi.requestUpdate();
         } else {
-            var options = {
-                :method       => Communications.HTTP_REQUEST_METHOD_GET,
-                :responseType => Communications.HTTP_RESPONSE_CONTENT_TYPE_JSON
-            };
             if (! System.getDeviceSettings().phoneConnected) {
                 if (Globals.scDebug) {
                     System.println("HomeAssistantToggleMenuItem getState(): No Phone connection, skipping API call.");
@@ -280,9 +286,12 @@ class HomeAssistantApp extends Application.AppBase {
                 mMenuStatus = strUnavailable;
             } else {
                 Communications.makeWebRequest(
-                    mConfigUrl,
+                    Settings.get().getConfigUrl(),
                     null,
-                    options,
+                    {
+                        :method       => Communications.HTTP_REQUEST_METHOD_GET,
+                        :responseType => Communications.HTTP_RESPONSE_CONTENT_TYPE_JSON
+                    },
                     method(:onReturnFetchMenuConfig)
                 );
             }
@@ -373,17 +382,10 @@ class HomeAssistantApp extends Application.AppBase {
 
     (:glance)
     function fetchApiStatus() as Void {
-        if (mApiUrl.equals("")) {
+        if (Settings.get().getApiUrl().equals("")) {
             mApiStatus = strUnconfigured;
             WatchUi.requestUpdate();
         } else {
-            var options = {
-                :method       => Communications.HTTP_REQUEST_METHOD_GET,
-                :headers      => {
-                    "Authorization" => "Bearer " + mApiKey
-                },
-                :responseType => Communications.HTTP_RESPONSE_CONTENT_TYPE_JSON
-            };
             if (! System.getDeviceSettings().phoneConnected) {
                 if (Globals.scDebug) {
                     System.println("HomeAssistantToggleMenuItem getState(): No Phone connection, skipping API call.");
@@ -406,9 +408,15 @@ class HomeAssistantApp extends Application.AppBase {
                 }
             } else {
                 Communications.makeWebRequest(
-                    mApiUrl + "/",
+                    Settings.get().getApiUrl() + "/",
                     null,
-                    options,
+                    {
+                        :method       => Communications.HTTP_REQUEST_METHOD_GET,
+                        :headers      => {
+                            "Authorization" => "Bearer " + Settings.get().getApiKey()
+                        },
+                        :responseType => Communications.HTTP_RESPONSE_CONTENT_TYPE_JSON
+                    },
                     method(:onReturnFetchApiStatus)
                 );
             }
@@ -437,8 +445,8 @@ class HomeAssistantApp extends Application.AppBase {
         WatchUi.pushView(mHaMenu, new HomeAssistantViewDelegate(true), WatchUi.SLIDE_IMMEDIATE);
     }
 
-    // We need to spread out the API calls so as not to overload the results queue and cause Communications.BLE_QUEUE_FULL (-101) error.
-    // This function is called by a timer every Globals.menuItemUpdateInterval ms.
+    // We need to spread out the API calls so as not to overload the results queue and cause Communications.BLE_QUEUE_FULL
+    // (-101) error. This function is called by a timer every Globals.menuItemUpdateInterval ms.
     function updateNextMenuItem() as Void {
         var itu = mItemsToUpdate as Lang.Array<HomeAssistantToggleMenuItem>;
         if (itu == null) {
@@ -458,9 +466,9 @@ class HomeAssistantApp extends Application.AppBase {
         return mQuitTimer;
     }
 
-    (:glance)
     function getGlanceView() as Lang.Array<WatchUi.GlanceView or WatchUi.GlanceViewDelegate> or Null {
         mIsGlance = true;
+        initResources();
         updateGlance();
         mTimer = new Timer.Timer();
         mTimer.start(method(:updateGlance), Globals.scApiBackoff, true);
@@ -476,12 +484,25 @@ class HomeAssistantApp extends Application.AppBase {
     // Replace this functionality with a more central settings class as proposed in
     // https://github.com/house-of-abbey/GarminHomeAssistant/pull/17.
     function onSettingsChanged() as Void {
-        mApiKey    = Properties.getValue("api_key");
-        mApiUrl    = Properties.getValue("api_url");
-        mConfigUrl = Properties.getValue("config_url");
+        if (Globals.scDebug) {
+            System.println("HomeAssistantApp onSettingsChanged()");
+        }
+        Settings.get().update();
     }
+
+    // Called each time the Registered Temporal Event is to be invoked. So the object is created each time on request and
+    // then destroyed on completion (to save resources).
+    function getServiceDelegate() as Lang.Array<System.ServiceDelegate> {
+        return [new BackgroundServiceDelegate()];
+    }
+
+    function getIsApp() as Lang.Boolean {
+        return mIsApp;
+    }
+
 }
 
+(:glance, :background)
 function getApp() as HomeAssistantApp {
     return Application.getApp() as HomeAssistantApp;
 }
