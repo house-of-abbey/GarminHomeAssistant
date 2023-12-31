@@ -40,7 +40,7 @@ class HomeAssistantConfirmationDelegate extends WatchUi.ConfirmationDelegate {
     function initialize(callback as Method() as Void) {
         WatchUi.ConfirmationDelegate.initialize();
         mConfirmMethod = callback;
-        var timeout = Settings.get().getConfirmTimeout(); // ms
+        var timeout = Settings.getConfirmTimeout(); // ms
         if (timeout > 0) {
             mTimer = new Timer.Timer();
             mTimer.start(method(:onTimeout), timeout, true);

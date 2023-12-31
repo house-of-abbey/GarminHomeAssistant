@@ -38,7 +38,7 @@ class QuitTimer extends Timer.Timer {
     }
 
     function begin() {
-        var api_timeout = Settings.get().getAppTimeout(); // ms
+        var api_timeout = Settings.getAppTimeout(); // ms
         if (api_timeout > 0) {
             start(method(:exitApp), api_timeout, false);
         }

@@ -39,7 +39,7 @@ class HomeAssistantMenuItemFactory {
         };
 
         mMenuItemOptions = {
-            :alignment => Settings.get().getMenuAlignment()
+            :alignment => Settings.getMenuAlignment()
         };
 
         strMenuItemTap = WatchUi.loadResource($.Rez.Strings.MenuItemTap);
@@ -67,7 +67,7 @@ class HomeAssistantMenuItemFactory {
     function toggle(label as Lang.String or Lang.Symbol, identifier as Lang.Object or Null) as WatchUi.MenuItem {
         return new HomeAssistantToggleMenuItem(
             label,
-            Settings.get().getMenuStyle() == Settings.MENU_STYLE_TEXT ? mLabelToggle : null,
+            Settings.getMenuStyle() == Settings.MENU_STYLE_TEXT ? mLabelToggle : null,
             identifier,
             false,
             mMenuItemOptions
@@ -80,7 +80,7 @@ class HomeAssistantMenuItemFactory {
         service    as Lang.String or Null,
         confirm    as Lang.Boolean
     ) as WatchUi.MenuItem {
-        if (Settings.get().getMenuStyle() == Settings.MENU_STYLE_TEXT) {
+        if (Settings.getMenuStyle() == Settings.MENU_STYLE_TEXT) {
             return new HomeAssistantMenuItem(
                 label,
                 strMenuItemTap,
@@ -105,7 +105,7 @@ class HomeAssistantMenuItemFactory {
     }
 
     function group(definition as Lang.Dictionary) as WatchUi.MenuItem {
-        if (Settings.get().getMenuStyle() == Settings.MENU_STYLE_TEXT) {
+        if (Settings.getMenuStyle() == Settings.MENU_STYLE_TEXT) {
             return new HomeAssistantViewMenuItem(definition);
         } else {
             return new HomeAssistantViewIconMenuItem(definition, mGroupTypeIcon, mMenuItemOptions);

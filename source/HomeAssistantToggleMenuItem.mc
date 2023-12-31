@@ -178,7 +178,7 @@ class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
             ErrorView.show(strNoInternet + ".");
             getApp().setApiStatus(strUnavailable);
         } else {
-            var url = Settings.get().getApiUrl() + "/states/" + mIdentifier;
+            var url = Settings.getApiUrl() + "/states/" + mIdentifier;
             if (Globals.scDebug) {
                 System.println("HomeAssistantToggleMenuItem getState() URL=" + url);
             }
@@ -188,7 +188,7 @@ class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
                 {
                     :method  => Communications.HTTP_REQUEST_METHOD_GET,
                     :headers => {
-                        "Authorization" => "Bearer " + Settings.get().getApiKey()
+                        "Authorization" => "Bearer " + Settings.getApiKey()
                     },
                     :responseType => Communications.HTTP_RESPONSE_CONTENT_TYPE_JSON
                 },
@@ -286,7 +286,7 @@ class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
             // Updated SDK and got a new error
             // ERROR: venu: Cannot find symbol ':substring' on type 'PolyType<Null or $.Toybox.Lang.Object>'.
             var id  = mIdentifier as Lang.String;
-            var url = Settings.get().getApiKey() + "/services/";
+            var url = Settings.getApiUrl() + "/services/";
             if (s) {
                 url = url + id.substring(0, id.find(".")) + "/turn_on";
             } else {
@@ -305,7 +305,7 @@ class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
                     :method  => Communications.HTTP_REQUEST_METHOD_POST,
                     :headers => {
                         "Content-Type"  => Communications.REQUEST_CONTENT_TYPE_JSON,
-                        "Authorization" => "Bearer " + Settings.get().getApiKey()
+                        "Authorization" => "Bearer " + Settings.getApiKey()
                     },
                     :responseType => Communications.HTTP_RESPONSE_CONTENT_TYPE_JSON
                 },

@@ -122,25 +122,26 @@ class HomeAssistantApp extends Application.AppBase {
         strNoJson            = WatchUi.loadResource($.Rez.Strings.NoJson);
         strUnhandledHttpErr  = WatchUi.loadResource($.Rez.Strings.UnhandledHttpErr);
         strTrailingSlashErr  = WatchUi.loadResource($.Rez.Strings.TrailingSlashErr);
-        initResources();
         mQuitTimer           = new QuitTimer();
+        Settings.update();
+        initResources();
 
-        if (Settings.get().getApiKey().length() == 0) {
+        if (Settings.getApiKey().length() == 0) {
             if (Globals.scDebug) {
-                System.println("HomeAssistantApp getInitialView(): No API key in the application Settings.get().");
+                System.println("HomeAssistantApp getInitialView(): No API key in the application Settings.");
             }
             return ErrorView.create(strNoApiKey + ".");
-        } else if (Settings.get().getApiUrl().length() == 0) {
+        } else if (Settings.getApiUrl().length() == 0) {
             if (Globals.scDebug) {
-                System.println("HomeAssistantApp getInitialView(): No API URL in the application Settings.get().");
+                System.println("HomeAssistantApp getInitialView(): No API URL in the application Settings.");
             }
             return ErrorView.create(strNoApiUrl + ".");
-        } else if (Settings.get().getApiUrl().substring(-1, Settings.get().getApiUrl().length()).equals("/")) {
+        } else if (Settings.getApiUrl().substring(-1, Settings.getApiUrl().length()).equals("/")) {
             if (Globals.scDebug) {
                 System.println("HomeAssistantApp getInitialView(): API URL must not have a trailing slash '/'.");
             }
             return ErrorView.create(strTrailingSlashErr + ".");
-        } else if (Settings.get().getConfigUrl().length() == 0) {
+        } else if (Settings.getConfigUrl().length() == 0) {
             if (Globals.scDebug) {
                 System.println("HomeAssistantApp getInitialView(): No configuration URL in the application settings.");
             }
@@ -228,7 +229,7 @@ class HomeAssistantApp extends Application.AppBase {
                 if (!mIsGlance) {
                     mHaMenu = new HomeAssistantView(data, null);
                     mQuitTimer.begin();
-                    if (Settings.get().get().getIsWidgetStartNoTap()) {
+                    if (Settings.getIsWidgetStartNoTap()) {
                         // As soon as the menu has been fetched start show the menu of items.
                         // This behaviour is inconsistent with the standard Garmin User Interface, but has been
                         // requested by users so has been made the non-default option.
@@ -260,7 +261,7 @@ class HomeAssistantApp extends Application.AppBase {
 
     (:glance)
     function fetchMenuConfig() as Void {
-        if (Settings.get().getConfigUrl().equals("")) {
+        if (Settings.getConfigUrl().equals("")) {
             mMenuStatus = strUnconfigured;
             WatchUi.requestUpdate();
         } else {
@@ -286,7 +287,7 @@ class HomeAssistantApp extends Application.AppBase {
                 mMenuStatus = strUnavailable;
             } else {
                 Communications.makeWebRequest(
-                    Settings.get().getConfigUrl(),
+                    Settings.getConfigUrl(),
                     null,
                     {
                         :method       => Communications.HTTP_REQUEST_METHOD_GET,
@@ -382,7 +383,7 @@ class HomeAssistantApp extends Application.AppBase {
 
     (:glance)
     function fetchApiStatus() as Void {
-        if (Settings.get().getApiUrl().equals("")) {
+        if (Settings.getApiUrl().equals("")) {
             mApiStatus = strUnconfigured;
             WatchUi.requestUpdate();
         } else {
@@ -408,12 +409,12 @@ class HomeAssistantApp extends Application.AppBase {
                 }
             } else {
                 Communications.makeWebRequest(
-                    Settings.get().getApiUrl() + "/",
+                    Settings.getApiUrl() + "/",
                     null,
                     {
                         :method       => Communications.HTTP_REQUEST_METHOD_GET,
                         :headers      => {
-                            "Authorization" => "Bearer " + Settings.get().getApiKey()
+                            "Authorization" => "Bearer " + Settings.getApiKey()
                         },
                         :responseType => Communications.HTTP_RESPONSE_CONTENT_TYPE_JSON
                     },
@@ -470,6 +471,7 @@ class HomeAssistantApp extends Application.AppBase {
         mIsGlance = true;
         initResources();
         updateGlance();
+        Settings.update();
         mTimer = new Timer.Timer();
         mTimer.start(method(:updateGlance), Globals.scApiBackoff, true);
         return [new HomeAssistantGlanceView(self)];
@@ -487,7 +489,7 @@ class HomeAssistantApp extends Application.AppBase {
         if (Globals.scDebug) {
             System.println("HomeAssistantApp onSettingsChanged()");
         }
-        Settings.get().update();
+        Settings.update();
     }
 
     // Called each time the Registered Temporal Event is to be invoked. So the object is created each time on request and

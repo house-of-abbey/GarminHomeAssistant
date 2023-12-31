@@ -28,30 +28,24 @@ using Toybox.Time;
 
 (:glance, :background)
 class Settings {
-    private static var instance;
-
     public static const MENU_STYLE_ICONS = 0;
     public static const MENU_STYLE_TEXT  = 1;
 
-    private var mApiKey                as Lang.String  = "";
-    private var mApiUrl                as Lang.String  = "";
-    private var mConfigUrl             as Lang.String  = "";
-    private var mAppTimeout            as Lang.Number  = 0;  // seconds
-    private var mConfirmTimeout        as Lang.Number  = 3;  // seconds
-    private var mMenuStyle             as Lang.Number  = MENU_STYLE_ICONS;
-    private var mMenuAlignment         as Lang.Number  = WatchUi.MenuItem.MENU_ITEM_LABEL_ALIGN_LEFT;
-    private var mIsWidgetStartNoTap    as Lang.Boolean = false;
-    private var mIsBatteryLevelEnabled as Lang.Boolean = false;
-    private var mBatteryRefreshRate    as Lang.Number  = 15; // minutes
-    private var mIsApp                 as Lang.Boolean = false;
-
-    private function initialize() {
-        mIsApp = getApp().getIsApp();
-        update();
-    }
+    private static var mApiKey                as Lang.String  = "";
+    private static var mApiUrl                as Lang.String  = "";
+    private static var mConfigUrl             as Lang.String  = "";
+    private static var mAppTimeout            as Lang.Number  = 0;  // seconds
+    private static var mConfirmTimeout        as Lang.Number  = 3;  // seconds
+    private static var mMenuStyle             as Lang.Number  = MENU_STYLE_ICONS;
+    private static var mMenuAlignment         as Lang.Number  = WatchUi.MenuItem.MENU_ITEM_LABEL_ALIGN_LEFT;
+    private static var mIsWidgetStartNoTap    as Lang.Boolean = false;
+    private static var mIsBatteryLevelEnabled as Lang.Boolean = false;
+    private static var mBatteryRefreshRate    as Lang.Number  = 15; // minutes
+    private static var mIsApp                 as Lang.Boolean = false;
 
     // Called on application start and then whenever the settings are changed.
-    function update() {
+    static function update() {
+        mIsApp                 = getApp().getIsApp();
         mApiKey                = Properties.getValue("api_key");
         mApiUrl                = Properties.getValue("api_url");
         mConfigUrl             = Properties.getValue("config_url");
@@ -94,42 +88,35 @@ class Settings {
         }
     }
 
-    static function get() as Settings {
-        if (instance == null) {
-            instance = new Settings();
-        }
-        return instance;
-    }
-
-    function getApiKey() as Lang.String {
+    static function getApiKey() as Lang.String {
         return mApiKey;
     }
 
-    function getApiUrl() as Lang.String {
+    static function getApiUrl() as Lang.String {
         return mApiUrl;
     }
 
-    function getConfigUrl() as Lang.String {
+    static function getConfigUrl() as Lang.String {
         return mConfigUrl;
     }
     
-    function getAppTimeout() as Lang.Number {
+    static function getAppTimeout() as Lang.Number {
         return mAppTimeout * 1000; // Convert to milliseconds
     }
 
-    function getConfirmTimeout() as Lang.Number {
+    static function getConfirmTimeout() as Lang.Number {
         return mConfirmTimeout * 1000; // Convert to milliseconds
     }
 
-    function getMenuStyle() as Lang.Number {
+    static function getMenuStyle() as Lang.Number {
         return mMenuStyle; // Either MENU_STYLE_ICONS or MENU_STYLE_TEXT
     }
 
-    function getMenuAlignment() as Lang.Number {
+    static function getMenuAlignment() as Lang.Number {
         return mMenuAlignment; // Either WatchUi.MenuItem.MENU_ITEM_LABEL_ALIGN_RIGHT or WatchUi.MenuItem.MENU_ITEM_LABEL_ALIGN_LEFT
     }
 
-    function getIsWidgetStartNoTap() as Lang.Boolean {
+    static function getIsWidgetStartNoTap() as Lang.Boolean {
         return mIsWidgetStartNoTap;
     }
 

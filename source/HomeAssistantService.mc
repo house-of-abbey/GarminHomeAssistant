@@ -129,7 +129,7 @@ class HomeAssistantService {
             ErrorView.show(strNoInternet + ".");
         } else {
             // Can't use null for substring() parameters due to API version level.
-            var url = Settings.get().getApiUrl() + "/services/" + service.substring(0, service.find(".")) + "/" + service.substring(service.find(".")+1, service.length());
+            var url = Settings.getApiUrl() + "/services/" + service.substring(0, service.find(".")) + "/" + service.substring(service.find(".")+1, service.length());
             if (Globals.scDebug) {
                 System.println("HomeAssistantService call() URL=" + url);
                 System.println("HomeAssistantService call() service=" + service);
@@ -143,7 +143,7 @@ class HomeAssistantService {
                     :method       => Communications.HTTP_REQUEST_METHOD_POST,
                     :headers      => {
                         "Content-Type"  => Communications.REQUEST_CONTENT_TYPE_JSON,
-                        "Authorization" => "Bearer " + Settings.get().getApiKey()
+                        "Authorization" => "Bearer " + Settings.getApiKey()
                     },
                     :responseType => Communications.HTTP_RESPONSE_CONTENT_TYPE_JSON,
                     :context      => identifier
