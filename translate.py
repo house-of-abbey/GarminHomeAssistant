@@ -116,7 +116,7 @@ with open("./resources/strings/strings.xml", "r") as f:
           s.string = a.title()
         else:
           s.string = a
-    for s in soup.find(name="strings").findAll(text=lambda text:isinstance(text, Comment)):
+    for s in soup.find(name="strings").findAll(string=lambda text:isinstance(text, Comment)):
       s.insert_before("  ")
       s.replace_with(Comment(" " + GoogleTranslator(source='en', target=l[1]).translate(s) + " "))
 
