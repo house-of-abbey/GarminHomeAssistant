@@ -140,7 +140,7 @@ The [schema](https://raw.githubusercontent.com/house-of-abbey/GarminHomeAssistan
 
 ### Old deprecated format
 
-Version 1.5 brought in a change to the JSON schema so the follow old format remains useable but is no longer favoured. The schema now marks it as 'depracated' to nudge people over.
+Version 1.5 brought in a change to the JSON schema so the follow old format remains useable but is no longer favoured. The schema now marks it as 'deprecated' to nudge people over.
 
 ```json
     {
@@ -181,15 +181,29 @@ Make sure you can browse to the URL of your JSON file in a standard web browser 
 
 ## API Key Creation
 
-Having created your JSON definition for your dashboard, you need to create an API key for your personal account on Home Assistant.
+Having created your JSON definition for your dashboard, you need to create an API key for your personal account on Home Assistant. You will need a [Long-Lived Access Token](https://developers.home-assistant.io/docs/auth_api/#long-lived-access-token). This is not obvious and is bound to your own Home Assistant account.
+
+Follow the menu sequence: `HA -> user profile -> Long-lived access tokens`. Make sure you save the generated token before dismissing it. You may like to perform this task on your phone so that you can copy and paste it (and message yourself a copy too ;-).
 
 ![Long-Lived Access Token](images/Long_Lived_Access_Tokens.png)
 
 Having created that token, before you dismiss the dialogue box with the value you will never see again, copy it somewhere safe. You need to paste this into the Garmin Application's settings.
 
-**Please, please, please!** Copy and paste this API key, do not retype as it will be wrong.
+## API URL
+
+If you are using Nabu Casa then your Cloud API URL can be found by looking up your URL via `HA -> Settings -> Home Assistant Cloud -> Remote Control -> Nabu Casa URL`.
+
+![Nabu Casa Remote Control](images/Nabu_Casa_Remote_Control.png)
+
+If you have built your own infrastructure, you really don't need any assistance with the API URL!
 
 ## Settings
+
+Unfortunately the Settings dialogue box in the Garmin IQ application times out in Android when you go to a different screen (browser for example). When you go back to the Connect IQ application (select the view again) the settings dialogue box is broken and you have to open the Settings again, so you will need to save the settings every time before you switch applications to avoid losing the information you just put in.
+
+You can instead use an application like [Microsoft's "Phone Link"](https://apps.microsoft.com/detail/9NMPJ99VJBWV?hl=en-gb&gl=US) that allows you to copy and paste between your PC and your phone.
+
+**Please, please, please!** Copy and paste your API key and all URLs, do not retype as it will be wrong.
 
 <img src="images/GarminHomeAssistantSettings.png" width="400" title="Application Settings"/>
 
