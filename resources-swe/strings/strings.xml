@@ -48,7 +48,7 @@
   <string id="SettingsApiKeyPrompt">Långlivad åtkomsttoken.</string>
   <string id="SettingsApiUrl">URL för HomeAssistant API.</string>
   <string id="SettingsConfigUrl">URL för menykonfiguration (JSON).</string>
-  <string id="SettingsAppTimeout">Timeout i sekunder. Avsluta programmet efter denna period av inaktivitet för att spara enhetens batteri.</string>
+  <string id="SettingsAppTimeout">Timeout på sekunder. Avsluta programmet efter denna period av inaktivitet för att spara enhetens batteri.</string>
   <string id="SettingsConfirmTimeout">Efter denna tid (i sekunder) stängs en bekräftelsedialog för en åtgärd automatiskt och åtgärden avbryts. Ställ in på 0 för att inaktivera timeout.</string>
   <string id="SettingsMenuItemStyle">Menyalternativ stil.</string>
   <string id="SettingsMenuItemStyleIcons">Ikoner</string>
