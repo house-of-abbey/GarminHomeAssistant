@@ -54,7 +54,7 @@ class RootView extends ScalableView {
         var w = dc.getWidth();
 
         mTitle = new WatchUi.Text({
-            :text          => RezStrings.strAppName,
+            :text          => RezStrings.getAppName(),
             :color         => Graphics.COLOR_WHITE,
             :font          => Graphics.FONT_TINY,
             :justification => Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER,
@@ -71,7 +71,7 @@ class RootView extends ScalableView {
             :locY          => pixelsForScreen(50.0)
         });
         mApiStatus = new WatchUi.Text({
-            :text          => RezStrings.strChecking,
+            :text          => RezStrings.getChecking(),
             :color         => Graphics.COLOR_WHITE,
             :font          => Graphics.FONT_XTINY,
             :justification => Graphics.TEXT_JUSTIFY_LEFT | Graphics.TEXT_JUSTIFY_VCENTER,
@@ -79,7 +79,7 @@ class RootView extends ScalableView {
             :locY          => pixelsForScreen(50.0)
         });
         mMenuText = new WatchUi.Text({
-            :text          => RezStrings.strGlanceMenu + ":",
+            :text          => RezStrings.getGlanceMenu() + ":",
             :color         => Graphics.COLOR_WHITE,
             :font          => Graphics.FONT_XTINY,
             :justification => Graphics.TEXT_JUSTIFY_RIGHT | Graphics.TEXT_JUSTIFY_VCENTER,
@@ -87,7 +87,7 @@ class RootView extends ScalableView {
             :locY          => pixelsForScreen(70.0)
         });
         mMenuStatus = new WatchUi.Text({
-            :text          => RezStrings.strChecking,
+            :text          => RezStrings.getChecking(),
             :color         => Graphics.COLOR_WHITE,
             :font          => Graphics.FONT_XTINY,
             :justification => Graphics.TEXT_JUSTIFY_LEFT | Graphics.TEXT_JUSTIFY_VCENTER,

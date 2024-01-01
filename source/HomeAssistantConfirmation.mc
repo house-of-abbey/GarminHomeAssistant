@@ -28,7 +28,7 @@ using Toybox.Application.Properties;
 class HomeAssistantConfirmation extends WatchUi.Confirmation {
 
     function initialize() {
-        WatchUi.Confirmation.initialize(RezStrings.strConfirm);
+        WatchUi.Confirmation.initialize(RezStrings.getConfirm());
     }
 
 }

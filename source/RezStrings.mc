@@ -26,37 +26,37 @@ using Toybox.WatchUi;
 class RezStrings {
 
     (:glance)
-    static var strAppName           as Lang.String     or Null;
-    static var strMenuItemTap       as Lang.String     or Null;
-    static var strMenuItemMenu      as Lang.String     or Null;
-    static var strConfirm           as Lang.String     or Null;
+    private static var strAppName           as Lang.String     or Null;
+    private static var strMenuItemTap       as Lang.String     or Null;
+    private static var strMenuItemMenu      as Lang.String     or Null;
+    private static var strConfirm           as Lang.String     or Null;
     (:glance)
-    static var strNoPhone           as Lang.String     or Null;
-    static var strNoInternet        as Lang.String     or Null;
-    static var strNoResponse        as Lang.String     or Null;
+    private static var strNoPhone           as Lang.String     or Null;
+    private static var strNoInternet        as Lang.String     or Null;
+    private static var strNoResponse        as Lang.String     or Null;
     (:glance)
-    static var strNoApiKey          as Lang.String     or Null;
+    private static var strNoApiKey          as Lang.String     or Null;
     (:glance)
-    static var strNoApiUrl          as Lang.String     or Null;
+    private static var strNoApiUrl          as Lang.String     or Null;
     (:glance)
-    static var strNoConfigUrl       as Lang.String     or Null;
-    static var strApiFlood          as Lang.String     or Null;
-    static var strApiUrlNotFound    as Lang.String     or Null;
-    static var strConfigUrlNotFound as Lang.String     or Null;
-    static var strNoJson            as Lang.String     or Null;
-    static var strUnhandledHttpErr  as Lang.String     or Null;
-    static var strTrailingSlashErr  as Lang.String     or Null;
+    private static var strNoConfigUrl       as Lang.String     or Null;
+    private static var strApiFlood          as Lang.String     or Null;
+    private static var strApiUrlNotFound    as Lang.String     or Null;
+    private static var strConfigUrlNotFound as Lang.String     or Null;
+    private static var strNoJson            as Lang.String     or Null;
+    private static var strUnhandledHttpErr  as Lang.String     or Null;
+    private static var strTrailingSlashErr  as Lang.String     or Null;
     (:glance)
-    static var strAvailable         as Lang.String     or Null;
+    private static var strAvailable         as Lang.String     or Null;
     (:glance)
-    static var strChecking          as Lang.String     or Null;
+    private static var strChecking          as Lang.String     or Null;
     (:glance)
-    static var strUnavailable       as Lang.String     or Null;
+    private static var strUnavailable       as Lang.String     or Null;
     (:glance)
-    static var strUnconfigured      as Lang.String     or Null;
+    private static var strUnconfigured      as Lang.String     or Null;
     (:glance)
-    static var strGlanceMenu        as Lang.String     or Null;
-    static var strLabelToggle       as Lang.Dictionary or Null;
+    private static var strGlanceMenu        as Lang.String     or Null;
+    private static var strLabelToggle       as Lang.Dictionary or Null;
 
     // Can't initialise a constant directly, have to be initialised via a function
     // for 'WatchUi.loadResource' to be available.
@@ -103,4 +103,93 @@ class RezStrings {
             :disabled => WatchUi.loadResource($.Rez.Strings.MenuItemOff) as Lang.String
         };
     }
+
+    static function getAppName() as Lang.String {
+        return strAppName;
+    }
+
+    static function getMenuItemTap() as Lang.String {
+        return strMenuItemTap;
+    }
+
+    static function getMenuItemMenu() as Lang.String {
+        return strMenuItemMenu;
+    }
+
+    static function getConfirm() as Lang.String {
+        return strConfirm;
+    }
+
+    static function getNoPhone() as Lang.String {
+        return strNoPhone;
+    }
+
+    static function getNoInternet() as Lang.String {
+        return strNoInternet;
+    }
+
+    static function getNoResponse() as Lang.String {
+        return strNoResponse;
+    }
+
+    static function getNoApiKey() as Lang.String {
+        return strNoApiKey;
+    }
+
+    static function getNoApiUrl() as Lang.String {
+        return strNoApiUrl;
+    }
+
+    static function getNoConfigUrl() as Lang.String {
+        return strNoConfigUrl;
+    }
+
+    static function getApiFlood() as Lang.String {
+        return strApiFlood;
+    }
+
+    static function getApiUrlNotFound() as Lang.String {
+        return strApiUrlNotFound;
+    }
+
+    static function getConfigUrlNotFound() as Lang.String {
+        return strConfigUrlNotFound;
+    }
+
+    static function getNoJson() as Lang.String {
+        return strNoJson;
+    }
+
+    static function getUnhandledHttpErr() as Lang.String {
+        return strUnhandledHttpErr;
+    }
+
+    static function getTrailingSlashErr() as Lang.String {
+        return strTrailingSlashErr;
+    }
+
+    static function getAvailable() as Lang.String {
+        return strAvailable;
+    }
+
+    static function getChecking() as Lang.String {
+        return strChecking;
+    }
+
+    static function getUnavailable() as Lang.String {
+        return strUnavailable;
+    }
+
+    static function getUnconfigured() as Lang.String {
+        return strUnconfigured;
+    }
+
+    static function getGlanceMenu() as Lang.String {
+        return strGlanceMenu;
+    }
+
+    static function getLabelToggle() as Lang.Dictionary {
+        return strLabelToggle;
+    }
+
 }

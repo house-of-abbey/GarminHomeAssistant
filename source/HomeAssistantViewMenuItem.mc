@@ -28,7 +28,7 @@ class HomeAssistantViewMenuItem extends WatchUi.MenuItem {
         // definitions.get(...) are Strings here as they have been checked by HomeAssistantView first
         WatchUi.MenuItem.initialize(
             definition.get("name") as Lang.String,
-            RezStrings.strMenuItemMenu,
+            RezStrings.getMenuItemMenu(),
             definition.get("entity") as Lang.String,
             null
         );

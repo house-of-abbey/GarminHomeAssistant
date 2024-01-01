@@ -40,21 +40,21 @@ class HomeAssistantService {
                 if (Globals.scDebug) {
                     System.println("HomeAssistantService onReturnCall() Response Code: BLE_HOST_TIMEOUT or BLE_CONNECTION_UNAVAILABLE, Bluetooth connection severed.");
                 }
-                ErrorView.show(RezStrings.strNoPhone + ".");
+                ErrorView.show(RezStrings.getNoPhone() + ".");
                 break;
 
             case Communications.BLE_QUEUE_FULL:
                 if (Globals.scDebug) {
                     System.println("HomeAssistantService onReturnCall() Response Code: BLE_QUEUE_FULL, API calls too rapid.");
                 }
-                ErrorView.show(RezStrings.strApiFlood);
+                ErrorView.show(RezStrings.getApiFlood());
                 break;
 
             case Communications.NETWORK_REQUEST_TIMED_OUT:
                 if (Globals.scDebug) {
                     System.println("HomeAssistantService onReturnCall() Response Code: NETWORK_REQUEST_TIMED_OUT, check Internet connection.");
                 }
-                ErrorView.show(RezStrings.strNoResponse);
+                ErrorView.show(RezStrings.getNoResponse());
                 break;
 
             case Communications.NETWORK_RESPONSE_OUT_OF_MEMORY:
@@ -67,14 +67,14 @@ class HomeAssistantService {
                 if (Globals.scDebug) {
                     System.println("HomeAssistantService onReturnCall() Response Code: INVALID_HTTP_BODY_IN_NETWORK_RESPONSE, check JSON is returned.");
                 }
-                ErrorView.show(RezStrings.strNoJson);
+                ErrorView.show(RezStrings.getNoJson());
                 break;
 
             case 404:
                 if (Globals.scDebug) {
                     System.println("HomeAssistantService onReturnCall() Response Code: 404, page not found. Check API URL setting.");
                 }
-                ErrorView.show(RezStrings.strApiUrlNotFound);
+                ErrorView.show(RezStrings.getApiUrlNotFound());
                 break;
 
             case 200:
@@ -105,7 +105,7 @@ class HomeAssistantService {
                 if (Globals.scDebug) {
                     System.println("HomeAssistantService onReturnCall(): Unhandled HTTP response code = " + responseCode);
                 }
-                ErrorView.show(RezStrings.strUnhandledHttpErr + responseCode);
+                ErrorView.show(RezStrings.getUnhandledHttpErr() + responseCode);
         }
     }
 
@@ -114,12 +114,12 @@ class HomeAssistantService {
             if (Globals.scDebug) {
                 System.println("HomeAssistantService call(): No Phone connection, skipping API call.");
             }
-            ErrorView.show(RezStrings.strNoPhone + ".");
+            ErrorView.show(RezStrings.getNoPhone() + ".");
         } else if (! System.getDeviceSettings().connectionAvailable) {
             if (Globals.scDebug) {
                 System.println("HomeAssistantService call(): No Internet connection, skipping API call.");
             }
-            ErrorView.show(RezStrings.strNoInternet + ".");
+            ErrorView.show(RezStrings.getNoInternet() + ".");
         } else {
             // Can't use null for substring() parameters due to API version level.
             var url = Settings.getApiUrl() + "/services/" + service.substring(0, service.find(".")) + "/" + service.substring(service.find(".")+1, service.length());

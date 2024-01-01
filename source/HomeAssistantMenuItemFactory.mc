@@ -59,7 +59,7 @@ class HomeAssistantMenuItemFactory {
     function toggle(label as Lang.String or Lang.Symbol, identifier as Lang.Object or Null) as WatchUi.MenuItem {
         return new HomeAssistantToggleMenuItem(
             label,
-            Settings.getMenuStyle() == Settings.MENU_STYLE_TEXT ? RezStrings.strLabelToggle : null,
+            Settings.getMenuStyle() == Settings.MENU_STYLE_TEXT ? RezStrings.getLabelToggle() : null,
             identifier,
             false,
             mMenuItemOptions
@@ -75,7 +75,7 @@ class HomeAssistantMenuItemFactory {
         if (Settings.getMenuStyle() == Settings.MENU_STYLE_TEXT) {
             return new HomeAssistantMenuItem(
                 label,
-                RezStrings.strMenuItemTap,
+                RezStrings.getMenuItemTap(),
                 identifier,
                 service,
                 confirm,
