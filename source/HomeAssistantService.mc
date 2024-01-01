@@ -24,13 +24,6 @@ using Toybox.Graphics;
 using Toybox.Application.Properties;
 
 class HomeAssistantService {
-    private var strNoPhone          = WatchUi.loadResource($.Rez.Strings.NoPhone);
-    private var strNoInternet       = WatchUi.loadResource($.Rez.Strings.NoInternet);
-    private var strNoResponse       = WatchUi.loadResource($.Rez.Strings.NoResponse);
-    private var strNoJson           = WatchUi.loadResource($.Rez.Strings.NoJson);
-    private var strApiFlood         = WatchUi.loadResource($.Rez.Strings.ApiFlood);
-    private var strApiUrlNotFound   = WatchUi.loadResource($.Rez.Strings.ApiUrlNotFound);
-    private var strUnhandledHttpErr = WatchUi.loadResource($.Rez.Strings.UnhandledHttpErr);
 
     // Callback function after completing the POST request to call a service.
     //
@@ -47,21 +40,21 @@ class HomeAssistantService {
                 if (Globals.scDebug) {
                     System.println("HomeAssistantService onReturnCall() Response Code: BLE_HOST_TIMEOUT or BLE_CONNECTION_UNAVAILABLE, Bluetooth connection severed.");
                 }
-                ErrorView.show(strNoPhone + ".");
+                ErrorView.show(RezStrings.strNoPhone + ".");
                 break;
 
             case Communications.BLE_QUEUE_FULL:
                 if (Globals.scDebug) {
                     System.println("HomeAssistantService onReturnCall() Response Code: BLE_QUEUE_FULL, API calls too rapid.");
                 }
-                ErrorView.show(strApiFlood);
+                ErrorView.show(RezStrings.strApiFlood);
                 break;
 
             case Communications.NETWORK_REQUEST_TIMED_OUT:
                 if (Globals.scDebug) {
                     System.println("HomeAssistantService onReturnCall() Response Code: NETWORK_REQUEST_TIMED_OUT, check Internet connection.");
                 }
-                ErrorView.show(strNoResponse);
+                ErrorView.show(RezStrings.strNoResponse);
                 break;
 
             case Communications.NETWORK_RESPONSE_OUT_OF_MEMORY:
@@ -74,14 +67,14 @@ class HomeAssistantService {
                 if (Globals.scDebug) {
                     System.println("HomeAssistantService onReturnCall() Response Code: INVALID_HTTP_BODY_IN_NETWORK_RESPONSE, check JSON is returned.");
                 }
-                ErrorView.show(strNoJson);
+                ErrorView.show(RezStrings.strNoJson);
                 break;
 
             case 404:
                 if (Globals.scDebug) {
                     System.println("HomeAssistantService onReturnCall() Response Code: 404, page not found. Check API URL setting.");
                 }
-                ErrorView.show(strApiUrlNotFound);
+                ErrorView.show(RezStrings.strApiUrlNotFound);
                 break;
 
             case 200:
@@ -112,7 +105,7 @@ class HomeAssistantService {
                 if (Globals.scDebug) {
                     System.println("HomeAssistantService onReturnCall(): Unhandled HTTP response code = " + responseCode);
                 }
-                ErrorView.show(strUnhandledHttpErr + responseCode);
+                ErrorView.show(RezStrings.strUnhandledHttpErr + responseCode);
         }
     }
 
@@ -121,12 +114,12 @@ class HomeAssistantService {
             if (Globals.scDebug) {
                 System.println("HomeAssistantService call(): No Phone connection, skipping API call.");
             }
-            ErrorView.show(strNoPhone + ".");
+            ErrorView.show(RezStrings.strNoPhone + ".");
         } else if (! System.getDeviceSettings().connectionAvailable) {
             if (Globals.scDebug) {
                 System.println("HomeAssistantService call(): No Internet connection, skipping API call.");
             }
-            ErrorView.show(strNoInternet + ".");
+            ErrorView.show(RezStrings.strNoInternet + ".");
         } else {
             // Can't use null for substring() parameters due to API version level.
             var url = Settings.getApiUrl() + "/services/" + service.substring(0, service.find(".")) + "/" + service.substring(service.find(".")+1, service.length());

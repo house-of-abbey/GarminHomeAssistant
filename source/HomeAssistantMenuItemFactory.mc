@@ -24,8 +24,6 @@ using Toybox.WatchUi;
 
 class HomeAssistantMenuItemFactory {
     private var mMenuItemOptions      as Lang.Dictionary;
-    private var mLabelToggle          as Lang.Dictionary;
-    private var strMenuItemTap        as Lang.String;
     private var mTapTypeIcon          as WatchUi.Bitmap;
     private var mGroupTypeIcon        as WatchUi.Bitmap;
     private var mHomeAssistantService as HomeAssistantService;
@@ -33,16 +31,10 @@ class HomeAssistantMenuItemFactory {
     private static var instance;
 
     private function initialize() {
-        mLabelToggle = {
-            :enabled  => WatchUi.loadResource($.Rez.Strings.MenuItemOn)  as Lang.String,
-            :disabled => WatchUi.loadResource($.Rez.Strings.MenuItemOff) as Lang.String
-        };
-
         mMenuItemOptions = {
             :alignment => Settings.getMenuAlignment()
         };
 
-        strMenuItemTap = WatchUi.loadResource($.Rez.Strings.MenuItemTap);
         mTapTypeIcon = new WatchUi.Bitmap({
             :rezId => $.Rez.Drawables.TapTypeIcon,
             :locX  => WatchUi.LAYOUT_HALIGN_CENTER,
@@ -67,7 +59,7 @@ class HomeAssistantMenuItemFactory {
     function toggle(label as Lang.String or Lang.Symbol, identifier as Lang.Object or Null) as WatchUi.MenuItem {
         return new HomeAssistantToggleMenuItem(
             label,
-            Settings.getMenuStyle() == Settings.MENU_STYLE_TEXT ? mLabelToggle : null,
+            Settings.getMenuStyle() == Settings.MENU_STYLE_TEXT ? RezStrings.strLabelToggle : null,
             identifier,
             false,
             mMenuItemOptions
@@ -83,7 +75,7 @@ class HomeAssistantMenuItemFactory {
         if (Settings.getMenuStyle() == Settings.MENU_STYLE_TEXT) {
             return new HomeAssistantMenuItem(
                 label,
-                strMenuItemTap,
+                RezStrings.strMenuItemTap,
                 identifier,
                 service,
                 confirm,

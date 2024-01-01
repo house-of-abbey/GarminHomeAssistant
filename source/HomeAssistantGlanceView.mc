@@ -39,13 +39,11 @@ class HomeAssistantGlanceView extends WatchUi.GlanceView {
     }
 
     function onLayout(dc as Graphics.Dc) as Void {
-        var strChecking   = WatchUi.loadResource($.Rez.Strings.Checking);
-        var strGlanceMenu = WatchUi.loadResource($.Rez.Strings.GlanceMenu);
-        var h             = dc.getHeight();
-        var tw            = dc.getTextWidthInPixels(strGlanceMenu, Graphics.FONT_XTINY);
+        var h  = dc.getHeight();
+        var tw = dc.getTextWidthInPixels(RezStrings.strGlanceMenu, Graphics.FONT_XTINY);
 
         mTitle = new WatchUi.Text({
-            :text          => WatchUi.loadResource($.Rez.Strings.AppName),
+            :text          => RezStrings.strAppName,
             :color         => Graphics.COLOR_WHITE,
             :font          => Graphics.FONT_TINY,
             :justification => Graphics.TEXT_JUSTIFY_LEFT | Graphics.TEXT_JUSTIFY_VCENTER,
@@ -62,7 +60,7 @@ class HomeAssistantGlanceView extends WatchUi.GlanceView {
             :locY          => 3 * h / 6
         });
         mApiStatus = new WatchUi.Text({
-            :text          => strChecking,
+            :text          => RezStrings.strChecking,
             :color         => Graphics.COLOR_WHITE,
             :font          => Graphics.FONT_XTINY,
             :justification => Graphics.TEXT_JUSTIFY_LEFT | Graphics.TEXT_JUSTIFY_VCENTER,
@@ -70,7 +68,7 @@ class HomeAssistantGlanceView extends WatchUi.GlanceView {
             :locY          => 3 * h / 6
         });
         mMenuText = new WatchUi.Text({
-            :text          => strGlanceMenu + ":",
+            :text          => RezStrings.strGlanceMenu + ":",
             :color         => Graphics.COLOR_WHITE,
             :font          => Graphics.FONT_XTINY,
             :justification => Graphics.TEXT_JUSTIFY_LEFT | Graphics.TEXT_JUSTIFY_VCENTER,
@@ -78,7 +76,7 @@ class HomeAssistantGlanceView extends WatchUi.GlanceView {
             :locY          => 5 * h / 6
         });
         mMenuStatus = new WatchUi.Text({
-            :text          => strChecking,
+            :text          => RezStrings.strChecking,
             :color         => Graphics.COLOR_WHITE,
             :font          => Graphics.FONT_XTINY,
             :justification => Graphics.TEXT_JUSTIFY_LEFT | Graphics.TEXT_JUSTIFY_VCENTER,
