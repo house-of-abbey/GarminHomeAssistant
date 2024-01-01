@@ -43,13 +43,20 @@
   <string id="Unconfigured" scope="glance">未構成</string>
   <string id="GlanceMenu" scope="glance">メニュー</string>
   <!-- 設定GUIの場合 -->
+  <string id="SettingsSelect">選択する...</string>
   <string id="SettingsApiKey">ホームアシスタントの API キー。</string>
   <string id="SettingsApiKeyPrompt">有効期間の長いアクセス トークン。</string>
   <string id="SettingsApiUrl">ホームアシスタント API の URL。</string>
   <string id="SettingsConfigUrl">メニュー構成の URL (JSON)。</string>
   <string id="SettingsAppTimeout">秒単位のタイムアウト。デバイスのバッテリーを節約するために、この期間非アクティブになった後はアプリケーションを終了してください。</string>
   <string id="SettingsConfirmTimeout">この時間 (秒単位) が経過すると、アクションの確認ダイアログが自動的に閉じられ、アクションがキャンセルされます。タイムアウトを無効にするには、0 に設定します。</string>
-  <string id="SettingsUi">タイプをアイコン (オフ) またはラベル (オン) で表します。</string>
+  <string id="SettingsMenuItemStyle">メニュー項目のスタイル。</string>
+  <string id="SettingsMenuItemStyleIcons">アイコン</string>
+  <string id="SettingsMenuItemStyleText">追加テキスト</string>
   <string id="SettingsTextAlign">左 (オフ) または右 (オン) メニューの配置。</string>
+  <string id="LeftToRight">左から右へ</string>
+  <string id="RightToLeft">右から左に</string>
   <string id="SettingsWidgetStart">（ウィジェットのみ）タップを待たずにウィジェットからアプリを自動起動します。</string>
+  <string id="SettingsEnableBatteryLevel">バックグラウンド サービスを有効にして、時計のバッテリー レベルをホーム アシスタントに送信します。</string>
+  <string id="SettingsBatteryLevelRefreshRate">バックグラウンド サービスがバッテリー レベルの送信を繰り返すリフレッシュ レート (分単位)。</string>
 </strings>

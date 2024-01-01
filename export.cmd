@@ -1,21 +1,23 @@
 @echo off
 rem -----------------------------------------------------------------------------------
-rem 
+rem
 rem  Distributed under MIT Licence
 rem    See https://github.com/house-of-abbey/GarminHomeAssistant/blob/main/LICENSE.
-rem 
+rem
 rem -----------------------------------------------------------------------------------
-rem 
+rem
 rem  GarminHomeAssistant is a Garmin IQ application written in Monkey C and routinely
 rem  tested on a Venu 2 device. The source code is provided at:
 rem             https://github.com/house-of-abbey/GarminHomeAssistant.
-rem 
+rem
 rem  J D Abbey & P A Abbey, 28 December 2022
-rem 
+rem
+rem  Export both the Application and the Widget IQ files for upload to Garmin's App Store.
+rem
 rem  Reference:
 rem   * Using Monkey C from the Command Line
-rem   * https://developer.garmin.com/connect-iq/reference-guides/monkey-c-command-line-setup/
-rem 
+rem     https://developer.garmin.com/connect-iq/reference-guides/monkey-c-command-line-setup/
+rem
 rem -----------------------------------------------------------------------------------
 
 rem Check this path is correct for your Java installation
@@ -118,16 +120,3 @@ echo Finished exporting HomeAssistant
 dir %SRC%\export\HomeAssistant*.iq
 
 pause
-exit /b
-
-rem Compile PRG for a single device for side loading
-"%JAVA_PATH%\java.exe" ^
-  -Xms1g ^
-  -Dfile.encoding=UTF-8 ^
-  -Dapple.awt.UIElement=true ^
-  -jar %SDK_PATH%\monkeybrains.jar ^
-  --output %SRC%\bin\HomeAssistant.prg ^
-  --jungles %SRC%\monkey.jungle ^
-  --private-key %SRC%\..\developer_key ^
-  --device venu2_sim ^
-  --warn

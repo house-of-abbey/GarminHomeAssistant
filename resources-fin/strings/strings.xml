@@ -43,13 +43,20 @@
   <string id="Unconfigured" scope="glance">Määrittämätön</string>
   <string id="GlanceMenu" scope="glance">Valikko</string>
   <!-- GUI-asetusten osalta -->
+  <string id="SettingsSelect">Valitse...</string>
   <string id="SettingsApiKey">API-avain HomeAssistantille.</string>
   <string id="SettingsApiKeyPrompt">Pitkäikäinen pääsytunnus.</string>
   <string id="SettingsApiUrl">HomeAssistant API:n URL-osoite.</string>
   <string id="SettingsConfigUrl">URL-osoite valikon määrityksiä varten (JSON).</string>
   <string id="SettingsAppTimeout">Aikakatkaisu sekunneissa. Poistu sovelluksesta tämän käyttämättömyyden jälkeen säästääksesi laitteen akkua.</string>
   <string id="SettingsConfirmTimeout">Tämän ajan kuluttua (sekunneissa) toiminnon vahvistusikkuna suljetaan automaattisesti ja toiminto peruutetaan. Aseta arvoksi 0 poistaaksesi aikakatkaisun käytöstä.</string>
-  <string id="SettingsUi">Esittää tyyppejä kuvakkeilla (pois päältä) tai tarroilla (päällä).</string>
+  <string id="SettingsMenuItemStyle">Valikkokohdan tyyli.</string>
+  <string id="SettingsMenuItemStyleIcons">Kuvakkeet</string>
+  <string id="SettingsMenuItemStyleText">Lisäteksti</string>
   <string id="SettingsTextAlign">Vasen (pois) tai oikea (päällä) valikon kohdistus.</string>
+  <string id="LeftToRight">Vasemmalta oikealle</string>
+  <string id="RightToLeft">Oikealta vasemmalle</string>
   <string id="SettingsWidgetStart">(Vain widget) Käynnistä sovellus automaattisesti widgetistä odottamatta napautusta.</string>
+  <string id="SettingsEnableBatteryLevel">Ota taustapalvelu käyttöön lähettääksesi kellon akun varaustason Home Assistantille.</string>
+  <string id="SettingsBatteryLevelRefreshRate">Virkistystaajuus (minuutteina), jolla taustapalvelun pitäisi toistaa akun varaustason lähettämistä.</string>
 </strings>

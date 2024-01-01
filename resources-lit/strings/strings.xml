@@ -37,19 +37,26 @@
   <string id="NoJson">Joks JSON negrąžintas iš HTTP užklausos.</string>
   <string id="UnhandledHttpErr">HTTP užklausa grąžino klaidos kodą =</string>
   <string id="TrailingSlashErr">API URL pabaigoje negali būti pasvirojo brūkšnio „/“</string>
-  <string id="Available" scope="glance">Yra</string>
+  <string id="Available" scope="glance">Galima</string>
   <string id="Checking" scope="glance">Tikrinama...</string>
   <string id="Unavailable" scope="glance">Nepasiekiamas</string>
   <string id="Unconfigured" scope="glance">Nesukonfigūruotas</string>
   <string id="GlanceMenu" scope="glance">Meniu</string>
   <!-- Dėl nustatymų GUI -->
-  <string id="SettingsApiKey">API raktas, skirtas HomeAssistant.</string>
+  <string id="SettingsSelect">Pasirinkite...</string>
+  <string id="SettingsApiKey">API raktas, skirtas „HomeAssistant“.</string>
   <string id="SettingsApiKeyPrompt">Ilgalaikis prieigos raktas.</string>
   <string id="SettingsApiUrl">„HomeAssistant“ API URL.</string>
   <string id="SettingsConfigUrl">Meniu konfigūravimo URL (JSON).</string>
   <string id="SettingsAppTimeout">Skirtasis laikas sekundėmis. Po šio neveiklumo laikotarpio išeikite iš programos, kad taupytumėte įrenginio akumuliatorių.</string>
   <string id="SettingsConfirmTimeout">Praėjus šiam laikui (sekundėmis), veiksmo patvirtinimo dialogo langas automatiškai uždaromas ir veiksmas atšaukiamas. Nustatykite 0, kad išjungtumėte skirtąjį laiką.</string>
-  <string id="SettingsUi">Tipai su piktogramomis (išjungta) arba etiketėmis (įjungta).</string>
+  <string id="SettingsMenuItemStyle">Meniu elemento stilius.</string>
+  <string id="SettingsMenuItemStyleIcons">Piktogramos</string>
+  <string id="SettingsMenuItemStyleText">Papildomas tekstas</string>
   <string id="SettingsTextAlign">Kairysis (išjungtas) arba dešinysis (įjungtas) meniu lygiavimas.</string>
-  <string id="SettingsWidgetStart">(Tik valdiklis) Automatiškai paleiskite programą iš valdiklio, nelaukdami palietimo.</string>
+  <string id="LeftToRight">Iš kairės į dešinę</string>
+  <string id="RightToLeft">Iš dešinės į kairę</string>
+  <string id="SettingsWidgetStart">(Tik valdikliui) Automatiškai paleiskite programą iš valdiklio, nelaukdami, kol bus palietus.</string>
+  <string id="SettingsEnableBatteryLevel">Įgalinkite foninę paslaugą, kad į „Home Assistant“ būtų išsiųstas laikrodžio akumuliatoriaus lygis.</string>
+  <string id="SettingsBatteryLevelRefreshRate">Atnaujinimo dažnis (minutėmis), kuriuo foninė paslauga turėtų pakartoti baterijos lygio siuntimą.</string>
 </strings>

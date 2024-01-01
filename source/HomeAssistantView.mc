@@ -49,11 +49,11 @@ class HomeAssistantView extends WatchUi.Menu2 {
 
         var items = definition.get("items") as Lang.Dictionary;
         for(var i = 0; i < items.size(); i++) {
-            var type       = items[i].get("type")       as Lang.String or Null;
-            var name       = items[i].get("name")       as Lang.String or Null;
-            var entity     = items[i].get("entity")     as Lang.String or Null;
+            var type       = items[i].get("type")       as Lang.String     or Null;
+            var name       = items[i].get("name")       as Lang.String     or Null;
+            var entity     = items[i].get("entity")     as Lang.String     or Null;
             var tap_action = items[i].get("tap_action") as Lang.Dictionary or Null;
-            var service    = items[i].get("service")    as Lang.String or Null;
+            var service    = items[i].get("service")    as Lang.String     or Null;
             var confirm    = false                      as Lang.Boolean;
             if (tap_action != null) {
                 service = tap_action.get("service");

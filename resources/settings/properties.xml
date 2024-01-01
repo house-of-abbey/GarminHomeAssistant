@@ -31,20 +31,20 @@
   <property id="app_timeout" type="number">0</property>
 
   <!--
-    After this time (in seconds), a confirmation dialog for an action is automatically closed and the action is cancelled.
-    Set to 0 to disable the timeout. The default value is 3 seconds.
+    After this time (in seconds), a confirmation dialog for an action is automatically closed and the action
+    is cancelled. Set to 0 to disable the timeout. The default value is 3 seconds.
   -->
   <property id="confirm_timeout" type="number">3</property>
 
   <!--
-    Lean UI vs second level of menu text.
+    Lean UI with icons vs second level of menu text.
   -->
-  <property id="types_representation" type="boolean"></property>
+  <property id="menu_theme" type="number">0</property>
 
   <!--
-    left to right or right-to-left text. Language dependent.
+    Left to right or right to left text. Language dependent.
   -->
-  <property id="menu_alignment" type="boolean"></property>
+  <property id="menu_alignment" type="number">1</property>
 
   <!--
     Widget specific setting:
@@ -52,6 +52,17 @@
     This behaviour is inconsistent with the standard Garmin User Interface, but has been
     requested by users so has been made the non-default option.
   -->
-  <property id="widget_start_no_tap" type="boolean"></property>
+  <property id="widget_start_no_tap" type="boolean">false</property>
+
+  <!--
+    Enable the background service to send the clock battery level to Home Assistant.
+  -->
+  <property id="enable_battery_level" type="boolean">false</property>
+
+  <!--
+    If enabled by 'enable_battery_level', the refresh rate (in minutes) at which the background service
+    should repeat sending the battery level.
+  -->
+  <property id="battery_level_refresh_rate" type="number">15</property>
 
 </properties>

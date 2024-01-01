@@ -24,8 +24,7 @@ using Toybox.Graphics;
 
 (:glance)
 class HomeAssistantGlanceView extends WatchUi.GlanceView {
-    private static const scLeftMargin = 20; // in pixels
-    private static const scLeftIndent = 10; // Left Indent "_text:" in pixels
+    private static const scLeftMargin =  5; // in pixels
     private static const scMidSep     = 10; // Middle Separator "text:_text" in pixels
     private var mApp        as HomeAssistantApp;
     private var mTitle      as WatchUi.Text or Null;
@@ -40,13 +39,11 @@ class HomeAssistantGlanceView extends WatchUi.GlanceView {
     }
 
     function onLayout(dc as Graphics.Dc) as Void {
-        var strChecking   = WatchUi.loadResource($.Rez.Strings.Checking);
-        var strGlanceMenu = WatchUi.loadResource($.Rez.Strings.GlanceMenu);
-        var h             = dc.getHeight();
-        var tw            = dc.getTextWidthInPixels(strGlanceMenu, Graphics.FONT_XTINY);
+        var h  = dc.getHeight();
+        var tw = dc.getTextWidthInPixels(RezStrings.getGlanceMenu(), Graphics.FONT_XTINY);
 
         mTitle = new WatchUi.Text({
-            :text          => WatchUi.loadResource($.Rez.Strings.AppName),
+            :text          => RezStrings.getAppName(),
             :color         => Graphics.COLOR_WHITE,
             :font          => Graphics.FONT_TINY,
             :justification => Graphics.TEXT_JUSTIFY_LEFT | Graphics.TEXT_JUSTIFY_VCENTER,
@@ -58,32 +55,32 @@ class HomeAssistantGlanceView extends WatchUi.GlanceView {
             :text          => "API:",
             :color         => Graphics.COLOR_WHITE,
             :font          => Graphics.FONT_XTINY,
-            :justification => Graphics.TEXT_JUSTIFY_RIGHT | Graphics.TEXT_JUSTIFY_VCENTER,
-            :locX          => scLeftMargin + scLeftIndent + tw,
+            :justification => Graphics.TEXT_JUSTIFY_LEFT | Graphics.TEXT_JUSTIFY_VCENTER,
+            :locX          => scLeftMargin,
             :locY          => 3 * h / 6
         });
         mApiStatus = new WatchUi.Text({
-            :text          => strChecking,
+            :text          => RezStrings.getChecking(),
             :color         => Graphics.COLOR_WHITE,
             :font          => Graphics.FONT_XTINY,
             :justification => Graphics.TEXT_JUSTIFY_LEFT | Graphics.TEXT_JUSTIFY_VCENTER,
-            :locX          => scLeftMargin + scLeftIndent + scMidSep + tw,
+            :locX          => scLeftMargin + scMidSep + tw,
             :locY          => 3 * h / 6
         });
         mMenuText = new WatchUi.Text({
-            :text          => strGlanceMenu + ":",
-            :color         => Graphics.COLOR_WHITE,
-            :font          => Graphics.FONT_XTINY,
-            :justification => Graphics.TEXT_JUSTIFY_RIGHT | Graphics.TEXT_JUSTIFY_VCENTER,
-            :locX          => scLeftMargin + scLeftIndent + tw,
-            :locY          => 5 * h / 6
-        });
-        mMenuStatus = new WatchUi.Text({
-            :text          => strChecking,
+            :text          => RezStrings.getGlanceMenu() + ":",
             :color         => Graphics.COLOR_WHITE,
             :font          => Graphics.FONT_XTINY,
             :justification => Graphics.TEXT_JUSTIFY_LEFT | Graphics.TEXT_JUSTIFY_VCENTER,
-            :locX          => scLeftMargin + scLeftIndent + scMidSep + tw,
+            :locX          => scLeftMargin,
+            :locY          => 5 * h / 6
+        });
+        mMenuStatus = new WatchUi.Text({
+            :text          => RezStrings.getChecking(),
+            :color         => Graphics.COLOR_WHITE,
+            :font          => Graphics.FONT_XTINY,
+            :justification => Graphics.TEXT_JUSTIFY_LEFT | Graphics.TEXT_JUSTIFY_VCENTER,
+            :locX          => scLeftMargin + scMidSep + tw,
             :locY          => 5 * h / 6
         });
     }
@@ -95,7 +92,7 @@ class HomeAssistantGlanceView extends WatchUi.GlanceView {
         }
         dc.setColor(
             Graphics.COLOR_WHITE,
-            Graphics.COLOR_BLUE
+            Graphics.COLOR_TRANSPARENT
         );
         dc.clear();
         mTitle.draw(dc);

@@ -43,13 +43,20 @@
   <string id="Unconfigured" scope="glance">Non configuré</string>
   <string id="GlanceMenu" scope="glance">Menu</string>
   <!-- Pour l'interface graphique des paramètres -->
+  <string id="SettingsSelect">Sélectionner...</string>
   <string id="SettingsApiKey">Clé API pour HomeAssistant.</string>
   <string id="SettingsApiKeyPrompt">Jeton d'accès de longue durée.</string>
   <string id="SettingsApiUrl">URL de l’API HomeAssistant.</string>
   <string id="SettingsConfigUrl">URL de configuration des menus (JSON).</string>
-  <string id="SettingsAppTimeout">Délai d'expiration en secondes. Quittez l'application après cette période d'inactivité pour économiser la batterie de l'appareil.</string>
+  <string id="SettingsAppTimeout">Délai d'attente en secondes. Quittez l'application après cette période d'inactivité pour économiser la batterie de l'appareil.</string>
   <string id="SettingsConfirmTimeout">Passé ce délai (en secondes), une boîte de dialogue de confirmation d'une action se ferme automatiquement et l'action est annulée. Réglez sur 0 pour désactiver le délai d'attente.</string>
-  <string id="SettingsUi">Représentation des types avec des icônes (off) ou avec des étiquettes (on).</string>
+  <string id="SettingsMenuItemStyle">Style des éléments de menu.</string>
+  <string id="SettingsMenuItemStyleIcons">Icônes</string>
+  <string id="SettingsMenuItemStyleText">Texte supplémentaire</string>
   <string id="SettingsTextAlign">Alignement du menu à gauche (désactivé) ou à droite (activé).</string>
+  <string id="LeftToRight">De gauche à droite</string>
+  <string id="RightToLeft">De droite à gauche</string>
   <string id="SettingsWidgetStart">(Widget uniquement) Démarrez automatiquement l'application à partir du widget sans attendre un clic.</string>
+  <string id="SettingsEnableBatteryLevel">Activez le service d'arrière-plan pour envoyer le niveau de batterie de l'horloge à Home Assistant.</string>
+  <string id="SettingsBatteryLevelRefreshRate">Fréquence de rafraîchissement (en minutes) à laquelle le service en arrière-plan doit répéter l'envoi du niveau de la batterie.</string>
 </strings>

@@ -2,3 +2,6 @@ bin/
 export/
 **/Thumbs.db
 settings.txt
+Thumbs.db
+# This file contain credentials, instead provide the empty file ClientId.mc.unpopulated
+source/ClientId.mc

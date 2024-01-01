@@ -43,13 +43,20 @@
   <string id="Unconfigured" scope="glance">Nekonfigurirano</string>
   <string id="GlanceMenu" scope="glance">Jelovnik</string>
   <!-- Za GUI postavki -->
+  <string id="SettingsSelect">Izaberi...</string>
   <string id="SettingsApiKey">API ključ za HomeAssistant.</string>
   <string id="SettingsApiKeyPrompt">Dugotrajni pristupni token.</string>
   <string id="SettingsApiUrl">URL za HomeAssistant API.</string>
   <string id="SettingsConfigUrl">URL za konfiguraciju izbornika (JSON).</string>
   <string id="SettingsAppTimeout">Istek u sekundama. Izađite iz aplikacije nakon ovog razdoblja neaktivnosti kako biste uštedjeli bateriju uređaja.</string>
   <string id="SettingsConfirmTimeout">Nakon tog vremena (u sekundama), dijaloški okvir za potvrdu radnje automatski se zatvara i radnja se poništava. Postavite na 0 da onemogućite vremensko ograničenje.</string>
-  <string id="SettingsUi">Predstavljanje tipova ikonama (isključeno) ili oznakama (uključeno).</string>
+  <string id="SettingsMenuItemStyle">Stil stavke izbornika.</string>
+  <string id="SettingsMenuItemStyleIcons">Ikone</string>
+  <string id="SettingsMenuItemStyleText">Dodatni tekst</string>
   <string id="SettingsTextAlign">Lijevo (isključeno) ili desno (uključeno) poravnanje izbornika.</string>
+  <string id="LeftToRight">S lijeva nadesno</string>
+  <string id="RightToLeft">S desna na lijevo</string>
   <string id="SettingsWidgetStart">(Samo widget) Automatski pokrenite aplikaciju iz widgeta bez čekanja na dodir.</string>
+  <string id="SettingsEnableBatteryLevel">Omogućite pozadinsku uslugu za slanje razine baterije sata kućnom pomoćniku.</string>
+  <string id="SettingsBatteryLevelRefreshRate">Brzina osvježavanja (u minutama) pri kojoj bi pozadinska usluga trebala ponavljati slanje razine baterije.</string>
 </strings>

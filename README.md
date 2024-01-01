@@ -138,9 +138,9 @@ Possible future extensions might include specifying the alternative texts to use
 
 The [schema](https://raw.githubusercontent.com/house-of-abbey/GarminHomeAssistant/main/config.schema.json) is checked by using a URL directly back to this GitHub source repository, so you do not need to install that file. You can just copy & paste your entity names from the YAML configuration files used to configure Home Assistant. With a submenu, there's a difference between "title" and "name". The "name" goes on the menu item, and the "title" at the head of the submenu. If your dashboard definition fails to meet the schema, the application will simply drop items with the wrong field names without warning.
 
-### Old depricated format
+### Old deprecated format
 
-Version 1.5 brought in a change to the JSON schema so the follow old format remains useable but is no longer favoured. The schema now marks it as 'depracated' to nudge people over.
+Version 1.5 brought in a change to the JSON schema so the follow old format remains useable but is no longer favoured. The schema now marks it as 'deprecated' to nudge people over.
 
 ```json
     {
@@ -181,15 +181,29 @@ Make sure you can browse to the URL of your JSON file in a standard web browser 
 
 ## API Key Creation
 
-Having created your JSON definition for your dashboard, you need to create an API key for your personal account on Home Assistant.
+Having created your JSON definition for your dashboard, you need to create an API key for your personal account on Home Assistant. You will need a [Long-Lived Access Token](https://developers.home-assistant.io/docs/auth_api/#long-lived-access-token). This is not obvious and is bound to your own Home Assistant account.
+
+Follow the menu sequence: `HA -> user profile -> Long-lived access tokens`. Make sure you save the generated token before dismissing it. You may like to perform this task on your phone so that you can copy and paste it (and message yourself a copy too ;-).
 
 ![Long-Lived Access Token](images/Long_Lived_Access_Tokens.png)
 
 Having created that token, before you dismiss the dialogue box with the value you will never see again, copy it somewhere safe. You need to paste this into the Garmin Application's settings.
 
-**Please, please, please!** Copy and paste this API key, do not retype as it will be wrong.
+## API URL
+
+If you are using Nabu Casa then your Cloud API URL can be found by looking up your URL via `HA -> Settings -> Home Assistant Cloud -> Remote Control -> Nabu Casa URL`.
+
+![Nabu Casa Remote Control](images/Nabu_Casa_Remote_Control.png)
+
+If you have built your own infrastructure, you really don't need any assistance with the API URL!
 
 ## Settings
+
+Unfortunately the Settings dialogue box in the Garmin IQ application times out in Android when you go to a different screen (browser for example). When you go back to the Connect IQ application (select the view again) the settings dialogue box is broken and you have to open the Settings again, so you will need to save the settings every time before you switch applications to avoid losing the information you just put in.
+
+You can instead use an application like [Microsoft's "Phone Link"](https://apps.microsoft.com/detail/9NMPJ99VJBWV?hl=en-gb&gl=US) that allows you to copy and paste between your PC and your phone.
+
+**Please, please, please!** Copy and paste your API key and all URLs, do not retype as it will be wrong.
 
 <img src="images/GarminHomeAssistantSettings.png" width="400" title="Application Settings"/>
 
@@ -251,6 +265,10 @@ The `id` attribute values are taken from the same names used in [`strings.xml`](
 * The Python script will use the corrections in preference to translating, and
 * Your pull request will be honoured without comment as we will take your corrections on trust.
 
+## Battery Level Reporting
+
+The application and widget both now include a background service to report your watch's battery level and charging status. This requires [significant setup](BatteryReporting.md) via YAML in Home Assistant to work. This is not for the feint hearted! We are keen to received improvements, but are reluctant to provide much in the way of support. The Home Assistant community, in particular the posts on the forum at [Bluetooth Battery Levels (Android)](https://community.home-assistant.io/t/bluetooth-battery-levels-android/661525), are your best source of support for this feature.
+
 ## Version History
 
 | Version | Comment |
@@ -264,6 +282,7 @@ The `id` attribute values are taken from the same names used in [`strings.xml`](
 |   1.6   | Added a user configurable 'timeout' in seconds so that when no action is taken the application automatically closes, stopping the continuous polling for changes of status and hence saving the drain on the battery. This can be disabled with timeout=0. |
 |   1.7   | Added timeout to confirmation views so that when used for security devices it does not linger when left unconfirmed. Thanks to [Jan Schneider](https://github.com/j-a-n) for the contribution. Known bug for devices not supporting [`WatchUi.getCurrentView()`](https://developer.garmin.com/connect-iq/api-docs/Toybox/WatchUi.html#getCurrentView-instance_function) API call which is only available on API Level 3.4.0, e.g. Vivoactive 4S. |
 |   2.0   | A significant code base change to enable both a 'widget' version for older devices, e.g. Venu (1), and an application with a glance, e.g. Venu2. These two versions must now be distributed under separate application IDs, but they have the same code base. A further 20 more devices are now supported, the settings have been internationalised, and there's a bug fix for older devices when trying to display a helpful error message but instead the application crashed. This version has come from a significant collaboration with [Someone0nEarth](https://github.com/Someone0nEarth). |
+|   2.1   | Deployment of an idea to provide Home Assistant with access to the watch battery level. Using this requires [significant setup](BatteryReporting.md) on the Home Assistant configuration and will be detailed separately. Due to this, the default state for this battery option is _off_. Changed the application settings user interface to be more intuitive, and hence amended the way settings are managed in the background. |
 
 ## Known Issues
 

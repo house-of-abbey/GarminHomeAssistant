@@ -43,13 +43,20 @@
   <string id="Unconfigured" scope="glance">Nav konfigurēts</string>
   <string id="GlanceMenu" scope="glance">Izvēlne</string>
   <!-- Iestatījumu GUI -->
+  <string id="SettingsSelect">Izvēlieties...</string>
   <string id="SettingsApiKey">API atslēga Home Assistant.</string>
   <string id="SettingsApiKeyPrompt">Ilgmūžīgs piekļuves marķieris.</string>
   <string id="SettingsApiUrl">HomeAssistant API URL.</string>
   <string id="SettingsConfigUrl">URL izvēlnes konfigurācijai (JSON).</string>
   <string id="SettingsAppTimeout">Taimauts sekundēs. Pēc šī neaktivitātes perioda izejiet no lietojumprogrammas, lai taupītu ierīces akumulatoru.</string>
   <string id="SettingsConfirmTimeout">Pēc šī laika (sekundēs) tiek automātiski aizvērts darbības apstiprinājuma dialoglodziņš un darbība tiek atcelta. Iestatiet uz 0, lai atspējotu taimautu.</string>
-  <string id="SettingsUi">Apzīmē veidus ar ikonām (izslēgts) vai ar etiķetēm (ieslēgts).</string>
-  <string id="SettingsTextAlign">Kreisā (izslēgta) vai labā (ieslēgta) izvēlnes līdzināšana.</string>
+  <string id="SettingsMenuItemStyle">Izvēlnes vienuma stils.</string>
+  <string id="SettingsMenuItemStyleIcons">Ikonas</string>
+  <string id="SettingsMenuItemStyleText">Papildu teksts</string>
+  <string id="SettingsTextAlign">Kreisā (izslēgta) vai labā (ieslēgta) izvēlnes izlīdzināšana.</string>
+  <string id="LeftToRight">No kreisās uz labo</string>
+  <string id="RightToLeft">No labās uz kreiso</string>
   <string id="SettingsWidgetStart">(tikai logrīkam) Automātiski startējiet lietojumprogrammu no logrīka, negaidot pieskārienu.</string>
+  <string id="SettingsEnableBatteryLevel">Iespējojiet fona pakalpojumu, lai uz Home Assistant nosūtītu pulksteņa akumulatora uzlādes līmeni.</string>
+  <string id="SettingsBatteryLevelRefreshRate">Atsvaidzes intensitāte (minūtēs), ar kādu fona pakalpojumam ir jāatkārto akumulatora līmeņa nosūtīšana.</string>
 </strings>

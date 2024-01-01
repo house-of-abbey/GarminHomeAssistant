@@ -20,6 +20,7 @@
 
 using Toybox.Lang;
 
+(:glance)
 class Globals {
     // Enable printing of messages to the debug console (don't make this a Property
     // as the messages can't be read from a watch!)
