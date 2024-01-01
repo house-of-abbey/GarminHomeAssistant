@@ -73,4 +73,64 @@ The watch will send HTTP requests to HomeAssistant every 5+ minutes in a backgro
 
 ## Adding a sample Home Assistant UI widget
 
-## TODO: YAML for a dashboard
+A gauge for battery level with a chargin icon making use of [mushroom cards](https://github.com/piitaya/lovelace-mushroom), [card_mod](https://github.com/thomasloven/lovelace-card-mod) and [stack-in-card](https://github.com/custom-cards/stack-in-card):
+
+<img src="images/Battery_Guage_Screenshot.png" width="120" title="Battery Guage"/>
+
+```yaml
+type: custom:stack-in-card
+direction: vertical
+cards:
+  - type: custom:mushroom-chips-card
+    card_mod:
+      style: |
+        ha-card {
+          height: 0.25rem;
+        }
+    chips:
+      - type: conditional
+        conditions:
+          - condition: state
+            entity: binary_sensor.<device>_is_charging
+            state: 'on'
+        chip:
+          type: entity
+          icon_color: yellow
+          entity: sensor.<device>_battery_level
+          content_info: none
+          use_entity_picture: false
+          card_mod:
+            style: |
+              ha-card {
+                border: none !important;
+              }
+      - type: conditional
+        conditions:
+          - condition: state
+            entity: binary_sensor.<device>_is_charging
+            state: 'off'
+        chip:
+          type: entity
+          entity: sensor.<device>_battery_level
+          content_info: none
+          use_entity_picture: false
+          card_mod:
+            style: |
+              ha-card {
+                border: none !important;
+              }
+  - type: gauge
+    entity: sensor.<device>_battery_level
+    unit: '%'
+    name: Watch
+    needle: false
+    severity:
+      green: 50
+      yellow: 20
+      red: 0
+    card_mod:
+      style: |
+        ha-card {
+          border: none !important;
+        }
+```
