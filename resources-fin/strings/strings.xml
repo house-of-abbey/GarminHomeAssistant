@@ -49,7 +49,7 @@
   <string id="SettingsApiUrl">HomeAssistant API:n URL-osoite.</string>
   <string id="SettingsConfigUrl">URL-osoite valikon määrityksiä varten (JSON).</string>
   <string id="SettingsAppTimeout">Aikakatkaisu sekunneissa. Poistu sovelluksesta tämän käyttämättömyyden jälkeen säästääksesi laitteen akkua.</string>
-  <string id="SettingsConfirmTimeout">Tämän ajan kuluttua (sekunneissa) toiminnon vahvistusikkuna suljetaan automaattisesti ja toiminto peruutetaan. Aseta arvoksi 0, jos haluat poistaa aikakatkaisun käytöstä.</string>
+  <string id="SettingsConfirmTimeout">Tämän ajan kuluttua (sekunneissa) toiminnon vahvistusikkuna suljetaan automaattisesti ja toiminto peruutetaan. Aseta arvoksi 0 poistaaksesi aikakatkaisun käytöstä.</string>
   <string id="SettingsMenuItemStyle">Valikkokohdan tyyli.</string>
   <string id="SettingsMenuItemStyleIcons">Kuvakkeet</string>
   <string id="SettingsMenuItemStyleText">Lisäteksti</string>

@@ -20,7 +20,7 @@
 
 <strings>
   <string id="AppName" scope="glance">HomeAssistant</string>
-  <string id="MenuItemOn">ActivÃ©</string>
+  <string id="MenuItemOn">Activé</string>
   <string id="MenuItemOff">Désactivé</string>
   <string id="MenuItemTap">Clic</string>
   <string id="MenuItemMenu">Menu</string>
@@ -31,7 +31,7 @@
   <string id="NoAPIKey" scope="glance">Pas de clé API dans les paramètres de l'application</string>
   <string id="NoApiUrl" scope="glance">Aucune URL API dans les paramètres de l'application</string>
   <string id="NoConfigUrl" scope="glance">Aucune URL de configuration dans les paramètres de l'application</string>
-  <string id="ApiFlood">Appels API trop rapide. Veuillez signaler cette erreur avec les dÃ©tails de l'appareil.</string>
+  <string id="ApiFlood">Appels API trop rapide. Veuillez signaler cette erreur avec les détails de l'appareil.</string>
   <string id="ApiUrlNotFound">URL introuvable. Erreur potentielle d'URL d'API dans les paramètres.</string>
   <string id="ConfigUrlNotFound">URL introuvable. Erreur potentielle d'URL de configuration dans les paramètres.</string>
   <string id="NoJson">Aucun JSON renvoyé par la requête HTTP.</string>
@@ -48,7 +48,7 @@
   <string id="SettingsApiKeyPrompt">Jeton d'accès de longue durée.</string>
   <string id="SettingsApiUrl">URL de l’API HomeAssistant.</string>
   <string id="SettingsConfigUrl">URL de configuration des menus (JSON).</string>
-  <string id="SettingsAppTimeout">Délai d'expiration en secondes. Quittez l'application après cette période d'inactivité pour économiser la batterie de l'appareil.</string>
+  <string id="SettingsAppTimeout">Délai d'attente en secondes. Quittez l'application après cette période d'inactivité pour économiser la batterie de l'appareil.</string>
   <string id="SettingsConfirmTimeout">Passé ce délai (en secondes), une boîte de dialogue de confirmation d'une action se ferme automatiquement et l'action est annulée. Réglez sur 0 pour désactiver le délai d'attente.</string>
   <string id="SettingsMenuItemStyle">Style des éléments de menu.</string>
   <string id="SettingsMenuItemStyleIcons">Icônes</string>

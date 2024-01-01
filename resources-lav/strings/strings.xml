@@ -53,7 +53,7 @@
   <string id="SettingsMenuItemStyle">Izvēlnes vienuma stils.</string>
   <string id="SettingsMenuItemStyleIcons">Ikonas</string>
   <string id="SettingsMenuItemStyleText">Papildu teksts</string>
-  <string id="SettingsTextAlign">Kreisā (izslēgta) vai labā (ieslēgta) izvēlnes līdzināšana.</string>
+  <string id="SettingsTextAlign">Kreisā (izslēgta) vai labā (ieslēgta) izvēlnes izlīdzināšana.</string>
   <string id="LeftToRight">No kreisās uz labo</string>
   <string id="RightToLeft">No labās uz kreiso</string>
   <string id="SettingsWidgetStart">(tikai logrīkam) Automātiski startējiet lietojumprogrammu no logrīka, negaidot pieskārienu.</string>

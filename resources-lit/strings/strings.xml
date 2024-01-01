@@ -37,14 +37,14 @@
   <string id="NoJson">Joks JSON negrąžintas iš HTTP užklausos.</string>
   <string id="UnhandledHttpErr">HTTP užklausa grąžino klaidos kodą =</string>
   <string id="TrailingSlashErr">API URL pabaigoje negali būti pasvirojo brūkšnio „/“</string>
-  <string id="Available" scope="glance">Yra</string>
+  <string id="Available" scope="glance">Galima</string>
   <string id="Checking" scope="glance">Tikrinama...</string>
   <string id="Unavailable" scope="glance">Nepasiekiamas</string>
   <string id="Unconfigured" scope="glance">Nesukonfigūruotas</string>
   <string id="GlanceMenu" scope="glance">Meniu</string>
   <!-- Dėl nustatymų GUI -->
   <string id="SettingsSelect">Pasirinkite...</string>
-  <string id="SettingsApiKey">API raktas, skirtas HomeAssistant.</string>
+  <string id="SettingsApiKey">API raktas, skirtas „HomeAssistant“.</string>
   <string id="SettingsApiKeyPrompt">Ilgalaikis prieigos raktas.</string>
   <string id="SettingsApiUrl">„HomeAssistant“ API URL.</string>
   <string id="SettingsConfigUrl">Meniu konfigūravimo URL (JSON).</string>
