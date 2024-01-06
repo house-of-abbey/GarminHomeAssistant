@@ -192,7 +192,7 @@ Having created that token, before you dismiss the dialogue box with the value yo
 
 ## API URL
 
-If you are using Nabu Casa then your Cloud API URL can be found by looking up your URL via `HA -> Settings -> Home Assistant Cloud -> Remote Control -> Nabu Casa URL`.
+If you are using Nabu Casa then your Cloud API URL can be found by looking up your URL via `HA -> Settings -> Home Assistant Cloud -> Remote Control -> Nabu Casa URL` and don't forget to add `/api` to the end of the copied string.
 
 ![Nabu Casa Remote Control](images/Nabu_Casa_Remote_Control.png)
 
@@ -284,7 +284,7 @@ The application and widget both now include a background service to report your 
 |   1.6   | Added a user configurable 'timeout' in seconds so that when no action is taken the application automatically closes, stopping the continuous polling for changes of status and hence saving the drain on the battery. This can be disabled with timeout=0. |
 |   1.7   | Added timeout to confirmation views so that when used for security devices it does not linger when left unconfirmed. Thanks to [Jan Schneider](https://github.com/j-a-n) for the contribution. Known bug for devices not supporting [`WatchUi.getCurrentView()`](https://developer.garmin.com/connect-iq/api-docs/Toybox/WatchUi.html#getCurrentView-instance_function) API call which is only available on API Level 3.4.0, e.g. Vivoactive 4S. |
 |   2.0   | A significant code base change to enable both a 'widget' version for older devices, e.g. Venu (1), and an application with a glance, e.g. Venu2. These two versions must now be distributed under separate application IDs, but they have the same code base. A further 20 more devices are now supported, the settings have been internationalised, and there's a bug fix for older devices when trying to display a helpful error message but instead the application crashed. This version has come from a significant collaboration with [Someone0nEarth](https://github.com/Someone0nEarth). |
-|   2.1   | Deployment of an idea to provide Home Assistant with access to the watch battery level. Using this requires [significant setup](BatteryReporting.md) on the Home Assistant configuration and will be detailed separately. Due to this, the default state for this battery option is _off_. Changed the application settings user interface to be more intuitive, and hence amended the way settings are managed in the background. |
+|   2.1   | Deployment of an idea to provide Home Assistant with access to the watch battery level. Using this requires [significant setup](BatteryReporting.md) on the Home Assistant configuration and hence is detailed separately. Due to this, the default state for this battery option is _off_. Changed the application settings user interface to be more intuitive, and hence amended the way settings are managed in the background. |
 
 ## Known Issues
 
