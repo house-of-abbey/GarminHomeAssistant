@@ -68,8 +68,13 @@ The watch will send HTTP requests to HomeAssistant every 5+ minutes in a backgro
 
 1. Copy this yaml to your `configuration.yaml`.
 2. Swap `<device-name>` for the name of your device (This can be anything and is purely for the UI). Swap `<uid-0>` and `<uid-1>` for two different unique identifiers (in the Studio Code Server these can be generated from the right click menu).
-3. Open the [event dashboard](https://my.home-assistant.io/redirect/developer_events/) and start listening for `garmin.battery_level` events and when your recieve one copy the device id and replace `<device-id>` with it (to speed up this process you can close and reopen the GarminHomeAssistant app).
-4. Restart HomeAssistant or reload the YAML [here](https://my.home-assistant.io/redirect/server_controls/).
+3. Open the event dashboard and start listening for `garmin.battery_level` events and when your recieve one copy the device id and replace `<device-id>` with it (to speed up this process you can close and reopen the GarminHomeAssistant app).
+
+[![Open your Home Assistant instance and show your event developer tools.](https://my.home-assistant.io/badges/developer_events.svg)](https://my.home-assistant.io/redirect/developer_events/)
+
+4. Restart HomeAssistant or reload the YAML.
+
+[![Open your Home Assistant instance and show your server controls.](https://my.home-assistant.io/badges/server_controls.svg)](https://my.home-assistant.io/redirect/server_controls/)
 
 ## Adding a sample Home Assistant UI widget
 
