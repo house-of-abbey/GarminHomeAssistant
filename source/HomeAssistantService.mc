@@ -82,7 +82,7 @@ class HomeAssistantService {
                     System.println("HomeAssistantService onReturnCall(): Service executed.");
                 }
                 var d     = data as Lang.Array;
-                var toast = "Executed";
+                var toast = RezStrings.getExecuted();
                 for(var i = 0; i < d.size(); i++) {
                     if ((d[i].get("entity_id") as Lang.String).equals(identifier)) {
                         toast = (d[i].get("attributes") as Lang.Dictionary).get("friendly_name") as Lang.String;

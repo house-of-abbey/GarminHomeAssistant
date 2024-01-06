@@ -30,6 +30,7 @@ class RezStrings {
     private static var strMenuItemTap       as Lang.String     or Null;
     private static var strMenuItemMenu      as Lang.String     or Null;
     private static var strConfirm           as Lang.String     or Null;
+    private static var strExecuted          as Lang.String     or Null;
     (:glance)
     private static var strNoPhone           as Lang.String     or Null;
     private static var strNoInternet        as Lang.String     or Null;
@@ -81,6 +82,7 @@ class RezStrings {
         strMenuItemTap       = WatchUi.loadResource($.Rez.Strings.MenuItemTap);
         strMenuItemMenu      = WatchUi.loadResource($.Rez.Strings.MenuItemMenu);
         strConfirm           = WatchUi.loadResource($.Rez.Strings.Confirm);
+        strExecuted          = WatchUi.loadResource($.Rez.Strings.Executed);
         strNoPhone           = WatchUi.loadResource($.Rez.Strings.NoPhone);
         strNoInternet        = WatchUi.loadResource($.Rez.Strings.NoInternet);
         strNoResponse        = WatchUi.loadResource($.Rez.Strings.NoResponse);
@@ -118,6 +120,10 @@ class RezStrings {
 
     static function getConfirm() as Lang.String {
         return strConfirm;
+    }
+
+    static function getExecuted() as Lang.String {
+        return strExecuted;
     }
 
     static function getNoPhone() as Lang.String {
