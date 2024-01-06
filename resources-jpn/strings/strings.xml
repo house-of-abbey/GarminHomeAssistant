@@ -25,6 +25,7 @@
   <string id="MenuItemTap">タップ</string>
   <string id="MenuItemMenu">メニュー</string>
   <string id="Confirm">もちろん？</string>
+  <string id="Executed" scope="glance">実行されました</string>
   <string id="NoPhone" scope="glance">電話が接続されていません</string>
   <string id="NoInternet">インターネット接続なし</string>
   <string id="NoResponse">応答がありません。インターネット接続を確認してください</string>

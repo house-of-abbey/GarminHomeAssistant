@@ -25,6 +25,7 @@
   <string id="MenuItemTap">Rubinetto</string>
   <string id="MenuItemMenu">Menù</string>
   <string id="Confirm">Sicuro?</string>
+  <string id="Executed" scope="glance">Eseguito</string>
   <string id="NoPhone" scope="glance">Nessuna connessione telefonica</string>
   <string id="NoInternet">Nessuna connessione internet</string>
   <string id="NoResponse">Nessuna risposta, controlla la connessione Internet</string>

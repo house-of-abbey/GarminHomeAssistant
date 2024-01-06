@@ -25,6 +25,7 @@
   <string id="MenuItemTap">Krāns</string>
   <string id="MenuItemMenu">Izvēlne</string>
   <string id="Confirm">Protams?</string>
+  <string id="Executed" scope="glance">Izpildīts</string>
   <string id="NoPhone" scope="glance">Nav tālruņa savienojuma</string>
   <string id="NoInternet">Nav interneta savienojuma</string>
   <string id="NoResponse">Nav atbildes, pārbaudiet interneta savienojumu</string>
