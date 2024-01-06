@@ -191,7 +191,7 @@ Having created that token, before you dismiss the dialogue box with the value yo
 
 ## API URL
 
-If you are using Nabu Casa then your Cloud API URL can be found by looking up your URL via `HA -> Settings -> Home Assistant Cloud -> Remote Control -> Nabu Casa URL`.
+If you are using Nabu Casa then your Cloud API URL can be found by looking up your URL via `HA -> Settings -> Home Assistant Cloud -> Remote Control -> Nabu Casa URL` and don't forget to add `/api` to the end of the copied string.
 
 ![Nabu Casa Remote Control](images/Nabu_Casa_Remote_Control.png)
 
