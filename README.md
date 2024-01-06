@@ -8,7 +8,8 @@ The application is designed around a simple scrollable menu where menu items hav
 
 It is important to note that your Home Assistant instance will need to be accessible via HTTPS with public SSL or all requests from the Garmin will not work. This cannot be a self-signed certificate, it must be a public certificate. You can get one for free from [Let's Encrypt](https://letsencrypt.org/) or you can pay for [Home Assistant cloud](https://www.nabucasa.com/).
 
-**If you are struggling with getting the application to work, please consult the [trouble shooting](Troubleshooting.md) guide first.**
+**If you are struggling with getting the application to work, please consult the [trouble shooting](Troubleshooting.md#menu-configuration-url) guide first.**
+
 
 ## Widget or Application?
 
@@ -267,7 +268,8 @@ The `id` attribute values are taken from the same names used in [`strings.xml`](
 
 ## Battery Level Reporting
 
-The application and widget both now include a background service to report your watch's battery level and charging status. This requires [significant setup](BatteryReporting.md) via YAML in Home Assistant to work. This is not for the feint hearted! We are keen to received improvements, but are reluctant to provide much in the way of support. The Home Assistant community, in particular the posts on the forum at [Bluetooth Battery Levels (Android)](https://community.home-assistant.io/t/bluetooth-battery-levels-android/661525), are your best source of support for this feature.
+The application and widget both now include a background service to report your watch's battery level and charging status. This requires [significant setup](BatteryReporting.md) via YAML in Home Assistant to work. This is not for the feint hearted! We are keen to received improvements, but are reluctant to provide much in the way of support. The Home Assistant community, in particular the posts on the forum at [Bluetooth Battery Levels (Android)](https://community.home-assistant.io/t/bluetooth-battery-levels-android/661525), are your best source of support for this feature. We do however offer this [trouble shooting](Troubleshooting.md#watch-battery-level-reporting) guide.
+
 
 ## Version History
 
