@@ -110,9 +110,7 @@ There's an online way of testing the API URL too, thanks to [REQBIN](https://req
 
 ## Watch Battery Level Reporting
 
-For this you will need to have already got the main application or widget working with a menu in order to prove that the API calls are successful. We have proven this works with both our home brew infrastructure as well as Nabu Casa. Now with a script similar to one of the following two, you should be able to fake the watch API call and verify receipt by Home Assistant in the Event logging by clicking the following button.
-
-[![Open your Home Assistant instance and show your event developer tools.](https://my.home-assistant.io/badges/developer_events.svg)](https://my.home-assistant.io/redirect/developer_events/)
+For this you will need to have already got the main application or widget working with a menu in order to prove that the API calls are successful. We have proven this works with both our home brew infrastructure as well as Nabu Casa. Now with a script similar to one of the following two, you should be able to fake the watch API call and verify receipt by Home Assistant in the Event logging as shown in '[Listening for the `device_id`](BatteryReporting.md#listening-for-the-device_id)'.
 
 #### Battery: Linux, MacOS, UNIX, Cygwin etc
 

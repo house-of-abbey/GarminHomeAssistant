@@ -14,6 +14,10 @@ In both cases, the enable and repeat time settings can be changed whilst the app
 
 ## Listening for the `device_id`
 
+Open the event viewer in Home Assistant and add `garmin.battery_level` as the event to listen to as shown below.
+
+[![Open your Home Assistant instance and show your event developer tools.](https://my.home-assistant.io/badges/developer_events.svg)](https://my.home-assistant.io/redirect/developer_events/)
+
 <img src="images/Battery_Event_Screenshot.png" width="600" title="Listening for battery events"/>
 
 ```yaml
