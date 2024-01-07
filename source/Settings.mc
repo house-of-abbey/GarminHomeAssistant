@@ -93,7 +93,7 @@ class Settings {
     static function getConfigUrl() as Lang.String {
         return mConfigUrl;
     }
-    
+
     static function getAppTimeout() as Lang.Number {
         return mAppTimeout * 1000; // Convert to milliseconds
     }
