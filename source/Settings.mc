@@ -71,12 +71,6 @@ class Settings {
                     Background.deleteTemporalEvent();
                 }
             }
-        } else {
-            // Explicitly disable the background events for glances and ironically any use by the background service. However
-            // that has been avoided more recently by not using this object in BackgroundServiceDelegate.
-            if ((System has :ServiceDelegate) and (Background.getTemporalEventRegisteredTime() != null)) {
-                Background.deleteTemporalEvent();
-            }
         }
         if (Globals.scDebug) {
             System.println("Settings update(): getTemporalEventRegisteredTime() = " + Background.getTemporalEventRegisteredTime());
@@ -99,7 +93,7 @@ class Settings {
     static function getConfigUrl() as Lang.String {
         return mConfigUrl;
     }
-    
+
     static function getAppTimeout() as Lang.Number {
         return mAppTimeout * 1000; // Convert to milliseconds
     }
