@@ -42,6 +42,7 @@
   <string id="Checking" scope="glance">Notiek pārbaude...</string>
   <string id="Unavailable" scope="glance">Nav pieejams</string>
   <string id="Unconfigured" scope="glance">Nav konfigurēts</string>
+  <string id="Cached" scope="glance">Kešatmiņā saglabāts</string>
   <string id="GlanceMenu" scope="glance">Izvēlne</string>
   <!-- Iestatījumu GUI -->
   <string id="SettingsSelect">Izvēlieties...</string>
@@ -49,6 +50,8 @@
   <string id="SettingsApiKeyPrompt">Ilgmūžīgs piekļuves marķieris.</string>
   <string id="SettingsApiUrl">HomeAssistant API URL.</string>
   <string id="SettingsConfigUrl">URL izvēlnes konfigurācijai (JSON).</string>
+  <string id="SettingsCacheConfig">Vai lietojumprogrammai vajadzētu saglabāt izvēlnes konfigurāciju kešatmiņā?</string>
+  <string id="SettingsClearCache">Vai lietojumprogrammai nākamajā startēšanas reizē vajadzētu notīrīt esošo kešatmiņu?</string>
   <string id="SettingsAppTimeout">Taimauts sekundēs. Pēc šī neaktivitātes perioda izejiet no lietojumprogrammas, lai taupītu ierīces akumulatoru.</string>
   <string id="SettingsConfirmTimeout">Pēc šī laika (sekundēs) tiek automātiski aizvērts darbības apstiprinājuma dialoglodziņš un darbība tiek atcelta. Iestatiet uz 0, lai atspējotu taimautu.</string>
   <string id="SettingsMenuItemStyle">Izvēlnes vienuma stils.</string>

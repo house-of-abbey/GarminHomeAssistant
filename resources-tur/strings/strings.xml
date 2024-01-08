@@ -42,6 +42,7 @@
   <string id="Checking" scope="glance">Kontrol etme...</string>
   <string id="Unavailable" scope="glance">Kullanım dışı</string>
   <string id="Unconfigured" scope="glance">Yapılandırılmamış</string>
+  <string id="Cached" scope="glance">Önbelleğe alındı</string>
   <string id="GlanceMenu" scope="glance">Menü</string>
   <!-- Ayarlar GUI'si için -->
   <string id="SettingsSelect">Seçme...</string>
@@ -49,6 +50,8 @@
   <string id="SettingsApiKeyPrompt">Uzun Ömürlü Erişim Jetonu.</string>
   <string id="SettingsApiUrl">HomeAssistant API'sinin URL'si.</string>
   <string id="SettingsConfigUrl">Menü yapılandırmasının URL'si (JSON).</string>
+  <string id="SettingsCacheConfig">Uygulama menü yapılandırmasını önbelleğe almalı mı?</string>
+  <string id="SettingsClearCache">Uygulama bir sonraki başlatılışında mevcut önbelleği temizlemeli mi?</string>
   <string id="SettingsAppTimeout">Saniye cinsinden zaman aşımı. Cihazın pilinden tasarruf etmek için bu süre boyunca işlem yapılmadığında uygulamadan çıkın.</string>
   <string id="SettingsConfirmTimeout">Bu sürenin sonunda (saniye olarak), bir eyleme ilişkin onay iletişim kutusu otomatik olarak kapatılır ve eylem iptal edilir. Zaman aşımını devre dışı bırakmak için 0'a ayarlayın.</string>
   <string id="SettingsMenuItemStyle">Menü öğesi stili.</string>

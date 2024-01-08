@@ -42,6 +42,7 @@
   <string id="Checking" scope="glance">Tjekker...</string>
   <string id="Unavailable" scope="glance">Ikke tilgængelig</string>
   <string id="Unconfigured" scope="glance">Ukonfigureret</string>
+  <string id="Cached" scope="glance">Cachelagret</string>
   <string id="GlanceMenu" scope="glance">Menu</string>
   <!-- Til indstillingerne GUI -->
   <string id="SettingsSelect">Vælg...</string>
@@ -49,6 +50,8 @@
   <string id="SettingsApiKeyPrompt">Adgangstoken med lang levetid.</string>
   <string id="SettingsApiUrl">URL til HomeAssistant API.</string>
   <string id="SettingsConfigUrl">URL til menukonfiguration (JSON).</string>
+  <string id="SettingsCacheConfig">Skal applikationen cache menukonfigurationen?</string>
+  <string id="SettingsClearCache">Skal applikationen rydde den eksisterende cache næste gang den startes?</string>
   <string id="SettingsAppTimeout">Timeout i sekunder. Afslut applikationen efter denne periode med inaktivitet for at spare på enhedens batteri.</string>
   <string id="SettingsConfirmTimeout">Efter dette tidspunkt (i sekunder) lukkes en bekræftelsesdialog for en handling automatisk, og handlingen annulleres. Indstil til 0 for at deaktivere timeout.</string>
   <string id="SettingsMenuItemStyle">Menupunkt stil.</string>

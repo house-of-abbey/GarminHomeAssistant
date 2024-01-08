@@ -42,6 +42,7 @@
   <string id="Checking" scope="glance">Controllo...</string>
   <string id="Unavailable" scope="glance">Non disponibile</string>
   <string id="Unconfigured" scope="glance">Non configurato</string>
+  <string id="Cached" scope="glance">Memorizzato nella cache</string>
   <string id="GlanceMenu" scope="glance">Menù</string>
   <!-- Per la GUI delle impostazioni -->
   <string id="SettingsSelect">Selezionare...</string>
@@ -49,6 +50,8 @@
   <string id="SettingsApiKeyPrompt">Token di accesso di lunga durata.</string>
   <string id="SettingsApiUrl">URL per l'API HomeAssistant.</string>
   <string id="SettingsConfigUrl">URL per la configurazione del menu (JSON).</string>
+  <string id="SettingsCacheConfig">L'applicazione dovrebbe memorizzare nella cache la configurazione del menu?</string>
+  <string id="SettingsClearCache">L'applicazione dovrebbe svuotare la cache esistente al successivo avvio?</string>
   <string id="SettingsAppTimeout">Timeout in secondi. Uscire dall'applicazione dopo questo periodo di inattività per risparmiare la batteria del dispositivo.</string>
   <string id="SettingsConfirmTimeout">Trascorso questo tempo (in secondi), una finestra di dialogo di conferma per un'azione viene chiusa automaticamente e l'azione viene annullata. Impostare su 0 per disabilitare il timeout.</string>
   <string id="SettingsMenuItemStyle">Stile della voce di menu.</string>

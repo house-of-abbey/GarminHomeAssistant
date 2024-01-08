@@ -42,6 +42,7 @@
   <string id="Checking" scope="glance">확인 중...</string>
   <string id="Unavailable" scope="glance">없는</string>
   <string id="Unconfigured" scope="glance">구성되지 않음</string>
+  <string id="Cached" scope="glance">캐시됨</string>
   <string id="GlanceMenu" scope="glance">메뉴</string>
   <!-- 설정 GUI의 경우 -->
   <string id="SettingsSelect">선택하다...</string>
@@ -49,6 +50,8 @@
   <string id="SettingsApiKeyPrompt">장기 액세스 토큰.</string>
   <string id="SettingsApiUrl">HomeAssistant API의 URL입니다.</string>
   <string id="SettingsConfigUrl">메뉴 구성을 위한 URL(JSON)입니다.</string>
+  <string id="SettingsCacheConfig">애플리케이션이 메뉴 구성을 캐시해야 합니까?</string>
+  <string id="SettingsClearCache">애플리케이션이 다음에 시작될 때 기존 캐시를 지워야 합니까?</string>
   <string id="SettingsAppTimeout">시간 초과(초)입니다. 장치 배터리를 절약하려면 이 비활성 기간 후에 애플리케이션을 종료하십시오.</string>
   <string id="SettingsConfirmTimeout">이 시간(초)이 지나면 작업에 대한 확인 대화 상자가 자동으로 닫히고 작업이 취소됩니다. 시간 초과를 비활성화하려면 0으로 설정합니다.</string>
   <string id="SettingsMenuItemStyle">메뉴 항목 스타일.</string>
