@@ -102,6 +102,8 @@ class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
                 var myTimer = new Timer.Timer();
                 // Now this feels very "closely coupled" to the application, but it is the most reliable method instead of using a timer.
                 myTimer.start(getApp().method(:updateNextMenuItem), Globals.scApiBackoff, false);
+                // Revert status
+                status = getApp().getApiStatus();
                 break;
 
             case 404:

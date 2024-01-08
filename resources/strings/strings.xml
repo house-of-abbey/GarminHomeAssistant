@@ -35,6 +35,7 @@
     <string id="Checking" scope="glance">Checking...</string>
     <string id="Unavailable" scope="glance">Unavailable</string>
     <string id="Unconfigured" scope="glance">Unconfigured</string>
+    <string id="Cached" scope="glance">Cached</string>
     <string id="GlanceMenu" scope="glance">Menu</string>
 
     <!-- For the settings GUI -->
@@ -43,6 +44,8 @@
     <string id="SettingsApiKeyPrompt">Long-Lived Access Token.</string>
     <string id="SettingsApiUrl">URL for HomeAssistant API.</string>
     <string id="SettingsConfigUrl">URL for menu configuration (JSON).</string>
+    <string id="SettingsCacheConfig">Should the application cache the menu configuration?</string>
+    <string id="SettingsClearCache">Should the application clear the existing cache next time it is started?</string>
     <string id="SettingsAppTimeout">Timeout in seconds. Exit the application after this period of inactivity to save the device battery.</string>
     <string id="SettingsConfirmTimeout">After this time (in seconds), a confirmation dialog for an action is automatically closed and the action is cancelled. Set to 0 to disable the timeout.</string>
     <string id="SettingsMenuItemStyle">Menu item style.</string>

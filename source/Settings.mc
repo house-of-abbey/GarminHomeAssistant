@@ -34,6 +34,8 @@ class Settings {
     private static var mApiKey                as Lang.String  = "";
     private static var mApiUrl                as Lang.String  = "";
     private static var mConfigUrl             as Lang.String  = "";
+    private static var mCacheConfig           as Lang.Boolean = false;
+    private static var mClearCache            as Lang.Boolean = false;
     private static var mAppTimeout            as Lang.Number  = 0;  // seconds
     private static var mConfirmTimeout        as Lang.Number  = 3;  // seconds
     private static var mMenuStyle             as Lang.Number  = MENU_STYLE_ICONS;
@@ -49,6 +51,8 @@ class Settings {
         mApiKey                = Properties.getValue("api_key");
         mApiUrl                = Properties.getValue("api_url");
         mConfigUrl             = Properties.getValue("config_url");
+        mCacheConfig           = Properties.getValue("cache_config");
+        mClearCache            = Properties.getValue("clear_cache");
         mAppTimeout            = Properties.getValue("app_timeout");
         mConfirmTimeout        = Properties.getValue("confirm_timeout");
         mMenuStyle             = Properties.getValue("menu_theme");
@@ -99,7 +103,20 @@ class Settings {
     static function getConfigUrl() as Lang.String {
         return mConfigUrl;
     }
-    
+
+    static function getCacheConfig() as Lang.Boolean {
+        return mCacheConfig;
+    }
+
+    static function getClearCache() as Lang.Boolean {
+        return mClearCache;
+    }
+
+    static function unsetClearCache() {
+        mClearCache = false;
+        Properties.setValue("clear_cache", mClearCache);
+    }
+
     static function getAppTimeout() as Lang.Number {
         return mAppTimeout * 1000; // Convert to milliseconds
     }

@@ -124,12 +124,16 @@ class HomeAssistantApp extends Application.AppBase {
             }
             return ErrorView.create(RezStrings.getNoInternet() + ".");
         } else {
-            fetchMenuConfig();
+            var isCached = fetchMenuConfig();
             fetchApiStatus();
             if (WidgetApp.isWidget) {
                 return [new RootView(self), new RootViewDelegate(self)] as Lang.Array<WatchUi.Views or WatchUi.InputDelegates>;
             } else {
-                return [new WatchUi.View(), new WatchUi.BehaviorDelegate()] as Lang.Array<WatchUi.Views or WatchUi.InputDelegates>;
+                if (isCached) {
+                    return [mHaMenu, new HomeAssistantViewDelegate(true)] as Lang.Array<WatchUi.Views or WatchUi.InputDelegates>;
+                } else {
+                    return [new WatchUi.View(), new WatchUi.BehaviorDelegate()] as Lang.Array<WatchUi.Views or WatchUi.InputDelegates>;
+                }
             }
         }
     }
@@ -193,21 +197,11 @@ class HomeAssistantApp extends Application.AppBase {
 
             case 200:
                 mMenuStatus = RezStrings.getAvailable();
+                if (Settings.getCacheConfig()) {
+                    Storage.setValue("menu", data as Lang.Dictionary);
+                }
                 if (!mIsGlance) {
-                    mHaMenu = new HomeAssistantView(data, null);
-                    mQuitTimer.begin();
-                    if (Settings.getIsWidgetStartNoTap()) {
-                        // As soon as the menu has been fetched start show the menu of items.
-                        // This behaviour is inconsistent with the standard Garmin User Interface, but has been
-                        // requested by users so has been made the non-default option.
-                        pushHomeAssistantMenuView();
-                    }
-                    mItemsToUpdate = mHaMenu.getItemsToUpdate();
-                    // Start the continuous update process that continues for as long as the application is running.
-                    // The chain of functions from 'updateNextMenuItem()' calls 'updateNextMenuItem()' on completion.
-                    if (mItemsToUpdate.size() > 0) {
-                        updateNextMenuItem();
-                    }
+                    buildMenu(data);
                     if (!WidgetApp.isWidget) {
                         WatchUi.switchToView(mHaMenu, new HomeAssistantViewDelegate(false), WatchUi.SLIDE_IMMEDIATE);
                     }
@@ -226,43 +220,77 @@ class HomeAssistantApp extends Application.AppBase {
         WatchUi.requestUpdate();
     }
 
+    // Return true if the menu came from the cache, otherwise false. This is because fetching the menu when not in the cache is
+    // asynchronous and affects how the views are managed.
     (:glance)
-    function fetchMenuConfig() as Void {
+    function fetchMenuConfig() as Lang.Boolean {
         if (Settings.getConfigUrl().equals("")) {
             mMenuStatus = RezStrings.getUnconfigured();
             WatchUi.requestUpdate();
         } else {
-            if (! System.getDeviceSettings().phoneConnected) {
-                if (Globals.scDebug) {
-                    System.println("HomeAssistantToggleMenuItem getState(): No Phone connection, skipping API call.");
-                }
-                if (mIsGlance) {
-                    WatchUi.requestUpdate();
-                } else {
-                    ErrorView.show(RezStrings.getNoPhone() + ".");
-                }
-                mMenuStatus = RezStrings.getUnavailable();
-            } else if (! System.getDeviceSettings().connectionAvailable) {
-                if (Globals.scDebug) {
-                    System.println("HomeAssistantToggleMenuItem getState(): No Internet connection, skipping API call.");
-                }
-                if (mIsGlance) {
-                    WatchUi.requestUpdate();
-                } else {
-                    ErrorView.show(RezStrings.getNoInternet() + ".");
-                }
-                mMenuStatus = RezStrings.getUnavailable();
-            } else {
-                Communications.makeWebRequest(
-                    Settings.getConfigUrl(),
-                    null,
-                    {
-                        :method       => Communications.HTTP_REQUEST_METHOD_GET,
-                        :responseType => Communications.HTTP_RESPONSE_CONTENT_TYPE_JSON
-                    },
-                    method(:onReturnFetchMenuConfig)
-                );
+            var menu = Storage.getValue("menu") as Lang.Dictionary;
+            if (menu != null and Settings.getClearCache()) {
+                Storage.deleteValue("menu");
+                menu = null;
+                Settings.unsetClearCache();
             }
+            if (menu == null) {
+                if (! System.getDeviceSettings().phoneConnected) {
+                    if (Globals.scDebug) {
+                        System.println("HomeAssistantToggleMenuItem getState(): No Phone connection, skipping API call.");
+                    }
+                    if (mIsGlance) {
+                        WatchUi.requestUpdate();
+                    } else {
+                        ErrorView.show(RezStrings.getNoPhone() + ".");
+                    }
+                    mMenuStatus = RezStrings.getUnavailable();
+                } else if (! System.getDeviceSettings().connectionAvailable) {
+                    if (Globals.scDebug) {
+                        System.println("HomeAssistantToggleMenuItem getState(): No Internet connection, skipping API call.");
+                    }
+                    if (mIsGlance) {
+                        WatchUi.requestUpdate();
+                    } else {
+                        ErrorView.show(RezStrings.getNoInternet() + ".");
+                    }
+                    mMenuStatus = RezStrings.getUnavailable();
+                } else {
+                    Communications.makeWebRequest(
+                        Settings.getConfigUrl(),
+                        null,
+                        {
+                            :method       => Communications.HTTP_REQUEST_METHOD_GET,
+                            :responseType => Communications.HTTP_RESPONSE_CONTENT_TYPE_JSON
+                        },
+                        method(:onReturnFetchMenuConfig)
+                    );
+                }
+            } else {
+                mMenuStatus = RezStrings.getCached();
+                if (!mIsGlance) {
+                    buildMenu(menu);
+                }
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private function buildMenu(menu as Lang.Dictionary) {
+        mHaMenu = new HomeAssistantView(menu, null);
+        mQuitTimer.begin();
+        if (Settings.getIsWidgetStartNoTap()) {
+            // As soon as the menu has been fetched start show the menu of items.
+            // This behaviour is inconsistent with the standard Garmin User Interface, but has been
+            // requested by users so has been made the non-default option.
+            pushHomeAssistantMenuView();
+        }
+        mItemsToUpdate = mHaMenu.getItemsToUpdate();
+        // Start the continuous update process that continues for as long as the application is running.
+        // The chain of functions from 'updateNextMenuItem()' calls 'updateNextMenuItem()' on completion.
+        if (mItemsToUpdate.size() > 0) {
+            updateNextMenuItem();
         }
     }
 
