@@ -25,6 +25,7 @@
   <string id="MenuItemTap">Tocar</string>
   <string id="MenuItemMenu">Cardápio</string>
   <string id="Confirm">Claro?</string>
+  <string id="Executed" scope="glance">Executado</string>
   <string id="NoPhone" scope="glance">Sem conexão telefônica</string>
   <string id="NoInternet">Sem conexão com a Internet</string>
   <string id="NoResponse">Sem resposta, verifique a conexão com a Internet</string>
