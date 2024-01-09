@@ -268,6 +268,8 @@ The `id` attribute values are taken from the same names used in [`strings.xml`](
 
 ## Battery Level Reporting
 
+We've had [a report](https://github.com/house-of-abbey/GarminHomeAssistant/issues/39) that this feature does not work without **administrator priviledges**. We've reviewed possible fixes and come up short. We are unable to fix this at present but invite those skilled in the art of Home Assistant to suggest a solution to us!
+
 The application and widget both now include a background service to report your watch's battery level and charging status. This requires [significant setup](BatteryReporting.md) via YAML in Home Assistant to work. This is not for the feint hearted! We are keen to received improvements, but are reluctant to provide much in the way of support. The Home Assistant community, in particular the posts on the forum at [Bluetooth Battery Levels (Android)](https://community.home-assistant.io/t/bluetooth-battery-levels-android/661525), are your best source of support for this feature. We do however offer this [trouble shooting](Troubleshooting.md#watch-battery-level-reporting) guide.
 
 
@@ -288,4 +290,5 @@ The application and widget both now include a background service to report your 
 
 ## Known Issues
 
-1. On some (old) devices (e.g. Vivoactive 3, Fexix 5s & Edge 520+), the menu does not update correctly to reflect changes in state effected by an external Home Assistant control. E.g. when the phone application changes the toggle status of a switch, the Garmin application does not reflect that change until the menu is touched or scrolled a little. This is a [known issue](https://forums.garmin.com/developer/connect-iq/i/bug-reports/menu2-doesn-t-allow-live-updates) already reported without a suggested software fix.
+1. On some (old) devices (e.g. Vivoactive 3, Fenix 5s & Edge 520+), the menu does not update correctly to reflect changes in state effected by an external Home Assistant control. E.g. when the phone application changes the toggle status of a switch, the Garmin application does not reflect that change until the menu is touched or scrolled a little. This is a [known issue](https://forums.garmin.com/developer/connect-iq/i/bug-reports/menu2-doesn-t-allow-live-updates) already reported without a suggested software fix.
+2. The [battery level reporting function](BatteryReporting.md) requires the user to have administrator priviledges. We are unable to fix this at present.
