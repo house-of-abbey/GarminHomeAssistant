@@ -80,12 +80,12 @@ class HomeAssistantView extends WatchUi.Menu2 {
 
     function getItemsToUpdate() as Lang.Array<HomeAssistantToggleMenuItem> {
         var fullList = [];
-        
+
         var lmi = mListMenuItems as Lang.Array<WatchUi.MenuItem>;
         for(var i = 0; i < mListMenuItems.size(); i++) {
             var item = lmi[i];
             if (item instanceof HomeAssistantViewMenuItem || item instanceof HomeAssistantViewIconMenuItem) {
-                fullList.addAll(item.getMenuView().getItemsToUpdate()); 
+                fullList.addAll(item.getMenuView().getItemsToUpdate());
             }
         }
 
@@ -120,7 +120,7 @@ class HomeAssistantViewDelegate extends WatchUi.Menu2InputDelegate {
             // (on widgets without glance, this exit() won't do anything,
             // so the base view will be shown instead, through the popView below this "if body")
             System.exit();
-        } 
+        }
 
         WatchUi.popView(WatchUi.SLIDE_RIGHT);
     }
