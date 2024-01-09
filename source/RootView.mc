@@ -115,6 +115,10 @@ class RootView extends ScalableView {
         mMenuStatus.setText(mApp.getMenuStatus());
         mMenuStatus.draw(dc);
     }
+
+    function onShow() as Void {
+        WatchUi.requestUpdate();
+    }
 }
 
 class RootViewDelegate extends WatchUi.BehaviorDelegate {

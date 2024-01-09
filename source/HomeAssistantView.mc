@@ -104,12 +104,12 @@ class HomeAssistantView extends WatchUi.Menu2 {
 //
 class HomeAssistantViewDelegate extends WatchUi.Menu2InputDelegate {
     private var mIsRootMenuView as Lang.Boolean = false;
-    private var mTimer as QuitTimer;
+    private var mTimer          as QuitTimer;
 
     function initialize(isRootMenuView as Lang.Boolean) {
         Menu2InputDelegate.initialize();
         mIsRootMenuView = isRootMenuView;
-        mTimer = getApp().getQuitTimer();
+        mTimer          = getApp().getQuitTimer();
     }
 
     function onBack() {

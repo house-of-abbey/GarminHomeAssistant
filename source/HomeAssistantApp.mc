@@ -196,9 +196,11 @@ class HomeAssistantApp extends Application.AppBase {
                 break;
 
             case 200:
-                mMenuStatus = RezStrings.getAvailable();
                 if (Settings.getCacheConfig()) {
                     Storage.setValue("menu", data as Lang.Dictionary);
+                    mMenuStatus = RezStrings.getCached();
+                } else {
+                    mMenuStatus = RezStrings.getAvailable();
                 }
                 if (!mIsGlance) {
                     buildMenu(data);
@@ -268,6 +270,7 @@ class HomeAssistantApp extends Application.AppBase {
                 }
             } else {
                 mMenuStatus = RezStrings.getCached();
+                WatchUi.requestUpdate();
                 if (!mIsGlance) {
                     buildMenu(menu);
                 }
@@ -467,15 +470,15 @@ class HomeAssistantApp extends Application.AppBase {
         RezStrings.update_glance();
         mApiStatus  = RezStrings.getChecking();
         mMenuStatus = RezStrings.getChecking();
-        updateGlance();
+        updateStatus();
         Settings.update();
         mTimer = new Timer.Timer();
-        mTimer.start(method(:updateGlance), Globals.scApiBackoff, true);
+        mTimer.start(method(:updateStatus), Globals.scApiBackoff, true);
         return [new HomeAssistantGlanceView(self)];
     }
 
     // Required for the Glance update timer.
-    function updateGlance() as Void {
+    function updateStatus() as Void {
         fetchMenuConfig();
         fetchApiStatus();
     }
