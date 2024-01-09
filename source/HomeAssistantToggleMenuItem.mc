@@ -130,7 +130,7 @@ class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
                     System.println("HomeAssistantToggleMenuItem onReturnGetState() Response Code: 405. " + mIdentifier + " " + data.get("message"));
                 }
                 ErrorView.show("HTTP 405, " + mIdentifier + ". " + data.get("message"));
-                
+
                 break;
 
             case 200:
