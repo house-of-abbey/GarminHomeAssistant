@@ -42,6 +42,7 @@
   <string id="Checking" scope="glance">チェック中...</string>
   <string id="Unavailable" scope="glance">利用不可</string>
   <string id="Unconfigured" scope="glance">未構成</string>
+  <string id="Cached" scope="glance">キャッシュされた</string>
   <string id="GlanceMenu" scope="glance">メニュー</string>
   <!-- 設定GUIの場合 -->
   <string id="SettingsSelect">選択する...</string>
@@ -49,6 +50,8 @@
   <string id="SettingsApiKeyPrompt">有効期間の長いアクセス トークン。</string>
   <string id="SettingsApiUrl">ホームアシスタント API の URL。</string>
   <string id="SettingsConfigUrl">メニュー構成の URL (JSON)。</string>
+  <string id="SettingsCacheConfig">アプリケーションはメニュー構成をキャッシュする必要がありますか?</string>
+  <string id="SettingsClearCache">アプリケーションは次回起動時に既存のキャッシュをクリアする必要がありますか?</string>
   <string id="SettingsAppTimeout">秒単位のタイムアウト。デバイスのバッテリーを節約するために、この期間非アクティブになった後はアプリケーションを終了してください。</string>
   <string id="SettingsConfirmTimeout">この時間 (秒単位) が経過すると、アクションの確認ダイアログが自動的に閉じられ、アクションがキャンセルされます。タイムアウトを無効にするには、0 に設定します。</string>
   <string id="SettingsMenuItemStyle">メニュー項目のスタイル。</string>

@@ -42,6 +42,7 @@
   <string id="Checking" scope="glance">檢查...</string>
   <string id="Unavailable" scope="glance">不可用</string>
   <string id="Unconfigured" scope="glance">未配置</string>
+  <string id="Cached" scope="glance">快取</string>
   <string id="GlanceMenu" scope="glance">選單</string>
   <!-- 對於設定 GUI -->
   <string id="SettingsSelect">選擇...</string>
@@ -49,6 +50,8 @@
   <string id="SettingsApiKeyPrompt">長期訪問令牌。</string>
   <string id="SettingsApiUrl">HomeAssistant API 的 URL。</string>
   <string id="SettingsConfigUrl">選單配置的 URL (JSON)。</string>
+  <string id="SettingsCacheConfig">應用程式是否應該快取選單配置？</string>
+  <string id="SettingsClearCache">應用程式是否應該在下次啟動時清除現有快取？</string>
   <string id="SettingsAppTimeout">超時（以秒為單位）。閒置一段時間後退出應用程式以節省設備電池。</string>
   <string id="SettingsConfirmTimeout">在此時間（以秒為單位）之後，操作的確認對話方塊將自動關閉並取消該操作。設定為 0 以停用逾時。</string>
   <string id="SettingsMenuItemStyle">選單項目樣式。</string>

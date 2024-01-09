@@ -26,8 +26,8 @@ using Toybox.WatchUi;
 
 class HomeAssistantView extends WatchUi.Menu2 {
     // List of items that need to have their status updated periodically
-    private var mListToggleItems   = [];
-    private var mListMenuItems     = [];
+    private var mListToggleItems = [];
+    private var mListMenuItems   = [];
 
     function initialize(
         definition as Lang.Dictionary,
@@ -80,12 +80,12 @@ class HomeAssistantView extends WatchUi.Menu2 {
 
     function getItemsToUpdate() as Lang.Array<HomeAssistantToggleMenuItem> {
         var fullList = [];
-        
+
         var lmi = mListMenuItems as Lang.Array<WatchUi.MenuItem>;
         for(var i = 0; i < mListMenuItems.size(); i++) {
             var item = lmi[i];
             if (item instanceof HomeAssistantViewMenuItem || item instanceof HomeAssistantViewIconMenuItem) {
-                fullList.addAll(item.getMenuView().getItemsToUpdate()); 
+                fullList.addAll(item.getMenuView().getItemsToUpdate());
             }
         }
 
@@ -104,12 +104,12 @@ class HomeAssistantView extends WatchUi.Menu2 {
 //
 class HomeAssistantViewDelegate extends WatchUi.Menu2InputDelegate {
     private var mIsRootMenuView as Lang.Boolean = false;
-    private var mTimer as QuitTimer;
+    private var mTimer          as QuitTimer;
 
     function initialize(isRootMenuView as Lang.Boolean) {
         Menu2InputDelegate.initialize();
         mIsRootMenuView = isRootMenuView;
-        mTimer = getApp().getQuitTimer();
+        mTimer          = getApp().getQuitTimer();
     }
 
     function onBack() {
@@ -120,7 +120,7 @@ class HomeAssistantViewDelegate extends WatchUi.Menu2InputDelegate {
             // (on widgets without glance, this exit() won't do anything,
             // so the base view will be shown instead, through the popView below this "if body")
             System.exit();
-        } 
+        }
 
         WatchUi.popView(WatchUi.SLIDE_RIGHT);
     }

@@ -42,6 +42,7 @@
   <string id="Checking" scope="glance">Provjera...</string>
   <string id="Unavailable" scope="glance">Nedostupan</string>
   <string id="Unconfigured" scope="glance">Nekonfigurirano</string>
+  <string id="Cached" scope="glance">Spremljeno u predmemoriju</string>
   <string id="GlanceMenu" scope="glance">Jelovnik</string>
   <!-- Za GUI postavki -->
   <string id="SettingsSelect">Izaberi...</string>
@@ -49,6 +50,8 @@
   <string id="SettingsApiKeyPrompt">Dugotrajni pristupni token.</string>
   <string id="SettingsApiUrl">URL za HomeAssistant API.</string>
   <string id="SettingsConfigUrl">URL za konfiguraciju izbornika (JSON).</string>
+  <string id="SettingsCacheConfig">Treba li aplikacija spremiti konfiguraciju izbornika u predmemoriju?</string>
+  <string id="SettingsClearCache">Treba li aplikacija prilikom sljedećeg pokretanja očistiti postojeću predmemoriju?</string>
   <string id="SettingsAppTimeout">Istek u sekundama. Izađite iz aplikacije nakon ovog razdoblja neaktivnosti kako biste uštedjeli bateriju uređaja.</string>
   <string id="SettingsConfirmTimeout">Nakon tog vremena (u sekundama), dijaloški okvir za potvrdu radnje automatski se zatvara i radnja se poništava. Postavite na 0 da onemogućite vremensko ograničenje.</string>
   <string id="SettingsMenuItemStyle">Stil stavke izbornika.</string>

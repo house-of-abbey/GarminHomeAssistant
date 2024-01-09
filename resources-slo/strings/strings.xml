@@ -42,6 +42,7 @@
   <string id="Checking" scope="glance">Prebieha kontrola...</string>
   <string id="Unavailable" scope="glance">nedostupné</string>
   <string id="Unconfigured" scope="glance">Nekonfigurované</string>
+  <string id="Cached" scope="glance">Vo vyrovnávacej pamäti</string>
   <string id="GlanceMenu" scope="glance">Ponuka</string>
   <!-- Pre nastavenia GUI -->
   <string id="SettingsSelect">Vybrať...</string>
@@ -49,6 +50,8 @@
   <string id="SettingsApiKeyPrompt">Prístupový token s dlhou životnosťou.</string>
   <string id="SettingsApiUrl">URL pre HomeAssistant API.</string>
   <string id="SettingsConfigUrl">Webová adresa pre konfiguráciu ponuky (JSON).</string>
+  <string id="SettingsCacheConfig">Má aplikácia uložiť do vyrovnávacej pamäte konfiguráciu ponuky?</string>
+  <string id="SettingsClearCache">Mala by aplikácia pri ďalšom spustení vymazať existujúcu vyrovnávaciu pamäť?</string>
   <string id="SettingsAppTimeout">Časový limit v sekundách. Po tejto dobe nečinnosti ukončite aplikáciu, aby ste šetrili batériu zariadenia.</string>
   <string id="SettingsConfirmTimeout">Po tomto čase (v sekundách) sa dialógové okno s potvrdením akcie automaticky zatvorí a akcia sa zruší. Ak chcete časový limit deaktivovať, nastavte na 0.</string>
   <string id="SettingsMenuItemStyle">Štýl položky menu.</string>

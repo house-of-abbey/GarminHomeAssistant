@@ -42,6 +42,7 @@
   <string id="Checking" scope="glance">Memeriksa...</string>
   <string id="Unavailable" scope="glance">Tidak tersedia</string>
   <string id="Unconfigured" scope="glance">Tidak dikonfigurasi</string>
+  <string id="Cached" scope="glance">Di-cache</string>
   <string id="GlanceMenu" scope="glance">Menu</string>
   <!-- Untuk pengaturan GUI -->
   <string id="SettingsSelect">Pilih...</string>
@@ -49,6 +50,8 @@
   <string id="SettingsApiKeyPrompt">Token Akses Berumur Panjang.</string>
   <string id="SettingsApiUrl">URL untuk API HomeAssistant.</string>
   <string id="SettingsConfigUrl">URL untuk konfigurasi menu (JSON).</string>
+  <string id="SettingsCacheConfig">Haruskah aplikasi menyimpan konfigurasi menu dalam cache?</string>
+  <string id="SettingsClearCache">Haruskah aplikasi menghapus cache yang ada saat dijalankan lagi?</string>
   <string id="SettingsAppTimeout">Batas waktu dalam hitungan detik. Keluar dari aplikasi setelah periode tidak aktif ini untuk menghemat baterai perangkat.</string>
   <string id="SettingsConfirmTimeout">Setelah waktu ini (dalam detik), dialog konfirmasi untuk suatu tindakan secara otomatis ditutup dan tindakan tersebut dibatalkan. Setel ke 0 untuk menonaktifkan batas waktu.</string>
   <string id="SettingsMenuItemStyle">Gaya item menu.</string>

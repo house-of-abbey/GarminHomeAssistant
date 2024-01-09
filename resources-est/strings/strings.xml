@@ -42,6 +42,7 @@
   <string id="Checking" scope="glance">Kontrollimine...</string>
   <string id="Unavailable" scope="glance">Pole saadaval</string>
   <string id="Unconfigured" scope="glance">Konfigureerimata</string>
+  <string id="Cached" scope="glance">Vahemällu salvestatud</string>
   <string id="GlanceMenu" scope="glance">Menüü</string>
   <!-- Seadete GUI jaoks -->
   <string id="SettingsSelect">Vali...</string>
@@ -49,6 +50,8 @@
   <string id="SettingsApiKeyPrompt">Pikaealine juurdepääsuluba.</string>
   <string id="SettingsApiUrl">HomeAssistant API URL.</string>
   <string id="SettingsConfigUrl">URL menüü konfigureerimiseks (JSON).</string>
+  <string id="SettingsCacheConfig">Kas rakendus peaks menüü konfiguratsiooni vahemällu salvestama?</string>
+  <string id="SettingsClearCache">Kas rakendus peaks järgmisel käivitamisel olemasoleva vahemälu tühjendama?</string>
   <string id="SettingsAppTimeout">Aegumine sekundites. Seadme aku säästmiseks sulgege rakendus pärast seda tegevusetusperioodi.</string>
   <string id="SettingsConfirmTimeout">Pärast seda aega (sekundites) suletakse automaatselt toimingu kinnitusdialoog ja toiming tühistatakse. Ajalõpu keelamiseks määrake väärtusele 0.</string>
   <string id="SettingsMenuItemStyle">Menüüelemendi stiil.</string>

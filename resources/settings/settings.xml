@@ -38,6 +38,20 @@
   </setting>
 
   <setting
+    propertyKey="@Properties.cache_config"
+    title="@Strings.SettingsCacheConfig"
+  >
+    <settingConfig type="boolean" />
+  </setting>
+
+  <setting
+    propertyKey="@Properties.clear_cache"
+    title="@Strings.SettingsClearCache"
+  >
+    <settingConfig type="boolean" />
+  </setting>
+
+  <setting
     propertyKey="@Properties.app_timeout"
     title="@Strings.SettingsAppTimeout"
   >

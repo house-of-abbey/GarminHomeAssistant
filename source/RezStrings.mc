@@ -56,6 +56,8 @@ class RezStrings {
     (:glance)
     private static var strUnconfigured      as Lang.String     or Null;
     (:glance)
+    private static var strCached            as Lang.String     or Null;
+    (:glance)
     private static var strGlanceMenu        as Lang.String     or Null;
     private static var strLabelToggle       as Lang.Dictionary or Null;
 
@@ -72,6 +74,7 @@ class RezStrings {
         strChecking     = WatchUi.loadResource($.Rez.Strings.Checking);
         strUnavailable  = WatchUi.loadResource($.Rez.Strings.Unavailable);
         strUnconfigured = WatchUi.loadResource($.Rez.Strings.Unconfigured);
+        strCached       = WatchUi.loadResource($.Rez.Strings.Cached);
         strGlanceMenu   = WatchUi.loadResource($.Rez.Strings.GlanceMenu);
     }
 
@@ -99,6 +102,7 @@ class RezStrings {
         strChecking          = WatchUi.loadResource($.Rez.Strings.Checking);
         strUnavailable       = WatchUi.loadResource($.Rez.Strings.Unavailable);
         strUnconfigured      = WatchUi.loadResource($.Rez.Strings.Unconfigured);
+        strCached            = WatchUi.loadResource($.Rez.Strings.Cached);
         strGlanceMenu        = WatchUi.loadResource($.Rez.Strings.GlanceMenu);
         strLabelToggle       = {
             :enabled  => WatchUi.loadResource($.Rez.Strings.MenuItemOn)  as Lang.String,
@@ -188,6 +192,10 @@ class RezStrings {
 
     static function getUnconfigured() as Lang.String {
         return strUnconfigured;
+    }
+
+    static function getCached() as Lang.String {
+        return strCached;
     }
 
     static function getGlanceMenu() as Lang.String {

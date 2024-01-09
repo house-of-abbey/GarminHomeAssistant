@@ -24,6 +24,12 @@
   <!-- Best be a public URL in order to work away from your home LAN and have a trusted HTTPS certificate -->
   <property id="config_url" type="string"></property>
 
+  <!-- Decide if the menu configuration should be cached. -->
+  <property id="cache_config" type="boolean">false</property>
+
+  <!-- Clear the menu configuration on next application start, and refetch, then set this back to false -->
+  <property id="clear_cache" type="boolean">false</property>
+
   <!--
     Application timeout in seconds, except 0 for no timeout (default). After this amount of elapsed time
     with no activity, exit the application.

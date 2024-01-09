@@ -42,6 +42,7 @@
   <string id="Checking" scope="glance">تدقيق...</string>
   <string id="Unavailable" scope="glance">غير متوفره</string>
   <string id="Unconfigured" scope="glance">غير مهيأ</string>
+  <string id="Cached" scope="glance">مخبأة</string>
   <string id="GlanceMenu" scope="glance">قائمة طعام</string>
   <!-- لإعدادات واجهة المستخدم الرسومية -->
   <string id="SettingsSelect">يختار...</string>
@@ -49,6 +50,8 @@
   <string id="SettingsApiKeyPrompt">رمز الوصول طويل الأمد.</string>
   <string id="SettingsApiUrl">عنوان URL لواجهة برمجة تطبيقات HomeAssistant.</string>
   <string id="SettingsConfigUrl">عنوان URL لتكوين القائمة (JSON).</string>
+  <string id="SettingsCacheConfig">هل يجب على التطبيق تخزين تكوين القائمة مؤقتًا؟</string>
+  <string id="SettingsClearCache">هل يجب على التطبيق مسح ذاكرة التخزين المؤقت الموجودة في المرة القادمة التي يتم فيها تشغيله؟</string>
   <string id="SettingsAppTimeout">المهلة بالثواني. قم بالخروج من التطبيق بعد هذه الفترة من عدم النشاط لحفظ بطارية الجهاز.</string>
   <string id="SettingsConfirmTimeout">بعد هذا الوقت (بالثواني)، يتم إغلاق مربع حوار تأكيد الإجراء تلقائيًا ويتم إلغاء الإجراء. اضبط على 0 لتعطيل المهلة.</string>
   <string id="SettingsMenuItemStyle">نمط عنصر القائمة.</string>

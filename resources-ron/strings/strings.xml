@@ -42,6 +42,7 @@
   <string id="Checking" scope="glance">Control...</string>
   <string id="Unavailable" scope="glance">Indisponibil</string>
   <string id="Unconfigured" scope="glance">Neconfigurat</string>
+  <string id="Cached" scope="glance">În cache</string>
   <string id="GlanceMenu" scope="glance">Meniul</string>
   <!-- Pentru GUI de setări -->
   <string id="SettingsSelect">Selectați...</string>
@@ -49,6 +50,8 @@
   <string id="SettingsApiKeyPrompt">Token de acces cu viață lungă.</string>
   <string id="SettingsApiUrl">Adresa URL pentru API-ul HomeAssistant.</string>
   <string id="SettingsConfigUrl">URL pentru configurarea meniului (JSON).</string>
+  <string id="SettingsCacheConfig">Ar trebui aplicația să memoreze în cache configurația meniului?</string>
+  <string id="SettingsClearCache">Ar trebui aplicația să golească memoria cache existentă data viitoare când este pornită?</string>
   <string id="SettingsAppTimeout">Timeout în secunde. Ieșiți din aplicație după această perioadă de inactivitate pentru a economisi bateria dispozitivului.</string>
   <string id="SettingsConfirmTimeout">După acest timp (în secunde), un dialog de confirmare pentru o acțiune este închis automat și acțiunea este anulată. Setați la 0 pentru a dezactiva timeout-ul.</string>
   <string id="SettingsMenuItemStyle">Stilul elementului de meniu.</string>
