@@ -6,6 +6,8 @@ A Garmin application to provide a "dashboard" to control your devices via [Home 
 
 The application is designed around a simple scrollable menu where menu items have been extended to interface with the [Home Assistant API](https://developers.home-assistant.io/docs/api/rest/), e.g. to get the status of switches or lights for display on the toggle menu item. It is possible to nest menus, so there is a menu item to open a sub-menu. This can be arbitrarily deep and nested in the format of a tree of items, although you need to consider if reaching for your phone becomes quicker to select the device what you want to control.
 
+The intended audience for this application are those comfortable with configuring a Home Assistant (e.g. editing the YAML configuration files) and debugging why URLs don't work. It does not require programming skills, but the menu is configured via JSON which feels like "coding". If you are not comfortable with this relatively low level of configuration, you may like to try other Garmin applications instead.
+
 It is important to note that your Home Assistant instance will need to be accessible via HTTPS with public SSL or all requests from the Garmin will not work. This cannot be a self-signed certificate, it must be a public certificate. You can get one for free from [Let's Encrypt](https://letsencrypt.org/) or you can pay for [Home Assistant cloud](https://www.nabucasa.com/).
 
 **If you are struggling with getting the application to work, please consult the [trouble shooting](Troubleshooting.md#menu-configuration-url) guide first.**
@@ -214,16 +216,22 @@ You can instead use an application like [Microsoft's "Phone Link"](https://apps.
 
 You should now have a working application on your watch and be able to operate your Home Assistant devices for as long as your watch is within Bluetooth range of your phone.
 
-The first toggle option selects between two menu presentations as follows:
+You may choose to cache your menu definition on your device in order to reduce the delay in showing the menu (as it saves waiting for an HTTP GET request). If you use this option you are responsible for managing the cache when the menu is updated at source. The Toggle below allows you to choose to refresh the cache the next time the application starts. Once the cache has been cleared, the application will reset this toggle for you, so you do not need to return to the settings to flip it.
+
+The application timeout prevents the app running on your watch when you have forgotten to close it. It prevents the refreshing of the menu statuses and therefore excessive wear on your battery level. There is a second timeout value for confirmation views. This is intended for use with more sensitive toggles so that the confirmation view is not left open and forgotten and then confirmed accidentally without you noticing. **We cannot advise you this is safe, be careful what you toggle with the watch application!**
+
+The menu style option selects between two menu presentations as follows:
 
 | Menu Type       | Image                                                                  | Description |
 |-----------------|------------------------------------------------------------------------|-------------|
 | Icons (default) | <img src="images/Venu2_LeanUI.png" width="200" title="Venu 2"/> | "Lean User Interface" version removing the second row of text in favour of icons. Tap icons are blue with a pointing finger, menu items has three dots as favours by many graphical user interfaces. |
 | Labels          | <img src="images/Venu2_Original.png" width="200" title="Venu 2"/>  | Initial version that had a second row of text. This extra text has yet to add much value. Menu and Tap actions are distinguished by text, and the toggle status is duplicated by text. A future version could possibly offer the means to customise the toggle menu item text, hence this option has not been deprecated yet. |
 
-The second toggle setting is for "text alignment" and provides finer adjustment for right-to-left languages. Perhaps this could be made automatic based on device language.
+There is a toggle setting for "text alignment" and provides finer adjustment for right-to-left languages. Perhaps this could be made automatic based on device language?
 
-The third toggle setting is for the Widget version of the application only. It allows the user to select a non-standard user interface behaviour. As soon as the menu is retrieved the widget view is replaced by the menu without waiting for a user selection. This has been included as requested by a user, but defaults to off which retains the expected user interactions.
+Another toggle setting for the **Widget version only** allows the user to select a non-standard user interface behaviour. As soon as the menu is retrieved the widget view is replaced by the menu without waiting for a user selection. This has been included as requested by a user, but defaults to off which retains the expected user interactions.
+
+Finally you may enable a background service to report the battery level to your Home Assistant. This is not available over Bluetooth like with other Bluetooth devices as Garmin did not implement it. This is more complicated than the rest of the application to [set up](#battery-level-reporting).
 
 ## Tap Item Response
 
