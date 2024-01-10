@@ -25,6 +25,110 @@ using Toybox.System;
 // Battery Level Reporting
 using Toybox.Background;
 using Toybox.Time;
+using Toybox.Communications;
+
+class WebhookManager {
+    function onReturnRequestWebhookId(responseCode as Lang.Number, data as Null or Lang.Dictionary or Lang.String) as Void {
+        // TODO: Handle errors
+        if (responseCode == 201) {
+            var id = data.get("webhook_id") as Lang.String or Null;
+            if (id != null) {
+                Settings.setWebhookId(id);
+                registerWebhookSensor({
+                    "device_class"        => "battery",
+                    "name"                => "Battery Level",
+                    "state"               => System.getSystemStats().battery,
+                    "type"                => "sensor",
+                    "unique_id"           => "battery_level",
+                    "unit_of_measurement" => "%",
+                    "state_class"         => "measurement",
+                    "entity_category"     => "diagnostic",
+                    "disabled"            => false
+                });
+                registerWebhookSensor({
+                    "device_class"    => "battery_charging",
+                    "name"            => "Battery is Charging",
+                    "state"           => System.getSystemStats().charging,
+                    "type"            => "binary_sensor",
+                    "unique_id"       => "battery_is_charging",
+                    "entity_category" => "diagnostic",
+                    "disabled"        => false
+                });
+            }
+        } else {
+            if (Globals.scDebug) {
+                System.println("Settings onReturnRequestWebhookId(): Error: " + responseCode);
+            }
+        }
+    }
+
+    function requestWebhookId() {
+        if (Globals.scDebug) {
+            System.println("Settings requestWebhookId(): Requesting webhook id");
+        }
+        Communications.makeWebRequest(
+            Settings.getApiUrl() + "/mobile_app/registrations",
+            {
+                "device_id"           => System.getDeviceSettings().uniqueIdentifier,
+                "app_id"              => "garmin_home_assistant",
+                "app_name"            => "GarminHomeAssistant",
+                "app_version"         => "",
+                "device_name"         => "Garmin Watch",
+                "manufacturer"        => "Garmin",
+                "model"               => "",
+                "os_name"             => "",
+                "os_version"          => Lang.format("$1$.$2$", System.getDeviceSettings().firmwareVersion),
+                "supports_encryption" => false,
+                "app_data"            => {}
+            },
+            {
+                :method       => Communications.HTTP_REQUEST_METHOD_POST,
+                :headers      => {
+                    "Content-Type"  => Communications.REQUEST_CONTENT_TYPE_JSON,
+                    "Authorization" => "Bearer " + Settings.getApiKey()
+                },
+                :responseType => Communications.HTTP_RESPONSE_CONTENT_TYPE_JSON
+            },
+            method(:onReturnRequestWebhookId)
+        );
+    }
+
+    function onReturnRegisterWebhookSensor(responseCode as Lang.Number, data as Null or Lang.Dictionary or Lang.String) as Void {
+        // TODO: Handle errors
+        if (responseCode == 201) {
+            if ((data.get("success") as Lang.Boolean or Null) == true) {
+                if (Globals.scDebug) {
+                    System.println("Settings onReturnRegisterWebhookSensor(): Success");
+                }
+            }
+        } else {
+            if (Globals.scDebug) {
+                System.println("Settings onReturnRegisterWebhookSensor(): Error: " + responseCode);
+            }
+        }
+    }
+
+    function registerWebhookSensor(sensor as Lang.Object) {
+        if (Globals.scDebug) {
+            System.println("Settings registerWebhookSensor(): Registering webhook sensor: " + sensor.toString());
+        }
+        Communications.makeWebRequest(
+            Settings.getApiUrl() + "/webhook/" + Settings.getWebhookId(),
+            {
+                "type" => "register_sensor",
+                "data" => sensor
+            },
+            {
+                :method       => Communications.HTTP_REQUEST_METHOD_POST,
+                :headers      => {
+                    "Content-Type"  => Communications.REQUEST_CONTENT_TYPE_JSON
+                },
+                :responseType => Communications.HTTP_RESPONSE_CONTENT_TYPE_JSON
+            },
+            method(:onReturnRegisterWebhookSensor)
+        );
+    }
+}
 
 (:glance, :background)
 class Settings {
@@ -32,6 +136,7 @@ class Settings {
     public static const MENU_STYLE_TEXT  = 1;
 
     private static var mApiKey                as Lang.String  = "";
+    private static var mWebhookId             as Lang.String  = "";
     private static var mApiUrl                as Lang.String  = "";
     private static var mConfigUrl             as Lang.String  = "";
     private static var mCacheConfig           as Lang.Boolean = false;
@@ -45,10 +150,14 @@ class Settings {
     private static var mBatteryRefreshRate    as Lang.Number  = 15; // minutes
     private static var mIsApp                 as Lang.Boolean = false;
 
+    // Must keep the object so it doesn't get garbage collected.
+    private static var mWebhookManager        as WebhookManager or Null;
+
     // Called on application start and then whenever the settings are changed.
     static function update() {
         mIsApp                 = getApp().getIsApp();
         mApiKey                = Properties.getValue("api_key");
+        mWebhookId             = Properties.getValue("webhook_id");
         mApiUrl                = Properties.getValue("api_url");
         mConfigUrl             = Properties.getValue("config_url");
         mCacheConfig           = Properties.getValue("cache_config");
@@ -64,7 +173,12 @@ class Settings {
         // Manage this inside the application or widget only (not a glance or background service process)
         if (mIsApp) {
             if (mIsBatteryLevelEnabled) {
-                if ((System has :ServiceDelegate) and
+                if (getWebhookId().equals("")) {
+                    mWebhookManager = new WebhookManager();
+                    mWebhookManager.requestWebhookId();
+                }
+                if (!getWebhookId().equals("") and 
+                    (System has :ServiceDelegate) and
                     ((Background.getTemporalEventRegisteredTime() == null) or
                     (Background.getTemporalEventRegisteredTime() != (mBatteryRefreshRate * 60)))) {
                     Background.registerForTemporalEvent(new Time.Duration(mBatteryRefreshRate * 60)); // Convert to seconds
@@ -88,6 +202,15 @@ class Settings {
 
     static function getApiKey() as Lang.String {
         return mApiKey;
+    }
+
+    static function getWebhookId() as Lang.String {
+        return mWebhookId;
+    }
+
+    static function setWebhookId(webhookId as Lang.String) {
+        mWebhookId = webhookId;
+        Properties.setValue("webhook_id", mWebhookId);
     }
 
     static function getApiUrl() as Lang.String {
@@ -130,5 +253,4 @@ class Settings {
     static function getIsWidgetStartNoTap() as Lang.Boolean {
         return mIsWidgetStartNoTap;
     }
-
 }

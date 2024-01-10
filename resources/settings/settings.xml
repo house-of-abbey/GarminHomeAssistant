@@ -107,4 +107,10 @@
     <settingConfig type="numeric" min="5" />
   </setting>
 
+  <setting
+    propertyKey="@Properties.webhook_id"
+    title="Webhook ID"
+  >
+    <settingConfig type="alphaNumeric" />
+  </setting>
 </settings>
