@@ -177,7 +177,7 @@ class Settings {
                     mWebhookManager = new WebhookManager();
                     mWebhookManager.requestWebhookId();
                 }
-                if (!getWebhookId().equals("") and 
+                if (!getWebhookId().equals("") and
                     (System has :ServiceDelegate) and
                     ((Background.getTemporalEventRegisteredTime() == null) or
                     (Background.getTemporalEventRegisteredTime() != (mBatteryRefreshRate * 60)))) {
