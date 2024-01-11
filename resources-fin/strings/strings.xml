@@ -25,7 +25,7 @@
   <string id="MenuItemTap">Napauta</string>
   <string id="MenuItemMenu">Valikko</string>
   <string id="Confirm">Varma?</string>
-  <string id="Executed" scope="glance">Toteutettu</string>
+  <string id="Executed" scope="glance">Vahvistettu</string>
   <string id="NoPhone" scope="glance">Ei puhelinyhteyttä</string>
   <string id="NoInternet">Ei Internet-yhteyttä</string>
   <string id="NoResponse">Ei vastausta, tarkista Internet-yhteys</string>

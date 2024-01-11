@@ -25,7 +25,7 @@
   <string id="MenuItemTap">בֶּרֶז</string>
   <string id="MenuItemMenu">תַפרִיט</string>
   <string id="Confirm">בטוח?</string>
-  <string id="Executed" scope="glance">יצא לפועל</string>
+  <string id="Executed" scope="glance">מְאוּשָׁר</string>
   <string id="NoPhone" scope="glance">אין חיבור לטלפון</string>
   <string id="NoInternet">אין חיבור אינטרנט</string>
   <string id="NoResponse">אין תגובה, בדוק את חיבור האינטרנט</string>
@@ -50,11 +50,11 @@
   <string id="SettingsApiKey">מפתח API עבור HomeAssistant.</string>
   <string id="SettingsApiKeyPrompt">אסימון גישה ארוך-חיים.</string>
   <string id="SettingsApiUrl">כתובת URL עבור HomeAssistant API.</string>
-  <string id="SettingsConfigUrl">כתובת URL עבור תצורת תפריט (JSON).</string>
+  <string id="SettingsConfigUrl">כתובת URL לתצורת תפריט (JSON).</string>
   <string id="SettingsCacheConfig">האם האפליקציה צריכה לשמור את תצורת התפריט במטמון?</string>
   <string id="SettingsClearCache">האם היישום צריך לנקות את המטמון הקיים בפעם הבאה שהוא יופעל?</string>
   <string id="SettingsAppTimeout">פסק זמן בשניות. צא מהאפליקציה לאחר תקופה זו של חוסר פעילות כדי לחסוך בסוללת המכשיר.</string>
-  <string id="SettingsConfirmTimeout">לאחר זמן זה (בשניות), תיבת דו-שיח לאישור פעולה נסגרת אוטומטית והפעולה מבוטלת. הגדר ל-0 כדי להשבית את הזמן הקצוב.</string>
+  <string id="SettingsConfirmTimeout">לאחר זמן זה (בשניות), תיבת דו-שיח לאישור פעולה נסגרת אוטומטית והפעולה מבוטלת. הגדר ל-0 כדי לבטל את הזמן הקצוב.</string>
   <string id="SettingsMenuItemStyle">סגנון פריט בתפריט.</string>
   <string id="SettingsMenuItemStyleIcons">אייקונים</string>
   <string id="SettingsMenuItemStyleText">טקסט נוסף</string>

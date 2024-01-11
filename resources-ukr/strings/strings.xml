@@ -25,7 +25,7 @@
   <string id="MenuItemTap">Торкніться</string>
   <string id="MenuItemMenu">Меню</string>
   <string id="Confirm">Зрозуміло?</string>
-  <string id="Executed" scope="glance">Виконано</string>
+  <string id="Executed" scope="glance">Підтверджено</string>
   <string id="NoPhone" scope="glance">Немає телефонного зв'язку</string>
   <string id="NoInternet">Немає підключення до Інтернету</string>
   <string id="NoResponse">Немає відповіді, перевірте підключення до Інтернету</string>
