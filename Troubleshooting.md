@@ -110,7 +110,7 @@ There's an online way of testing the API URL too, thanks to [REQBIN](https://req
 
 ## Watch Battery Level Reporting
 
-For this you will need to have already got the main application or widget working with a menu in order to prove that the API calls are successful. We have proven this works with both our home brew infrastructure as well as Nabu Casa. Now with a script similar to one of the following two, you should be able to fake the watch API call and verify receipt by Home Assistant in the Event logging as shown in '[Listening for the `device_id`](BatteryReporting.md#listening-for-the-device_id)'.
+For this you will need to have already got the main application or widget working with a menu in order to prove that the API calls are successful. We have proven this works with both our home brew infrastructure as well as Nabu Casa. Now with a script similar to one of the following two, you should be able to fake the watch API call and verify receipt by Home Assistant.
 
 #### Battery: Linux, MacOS, UNIX, Cygwin etc
 
@@ -123,7 +123,7 @@ Assume a file called: `send_battery.bash`
 # ./send_battery.bash 19 0
 #
 
-API_KEY="<Your API key>"
+WEBHOOK_ID="<Your Webhook ID>"
 URL="https://<Your Domain>/api"
 
 level=${1:-50}
@@ -138,10 +138,9 @@ echo "Battery Charging? = ${is_charging}"
 echo ""
 
 curl -s -X POST \
-  -H "Authorization: Bearer ${API_KEY}" \
   -H "Content-Type: application/json" \
-  -d '{"level": '${level}', "is_charging": '${is_charging}', "device_id": "Bash Script"}' \
-  ${URL}/events/garmin.battery_level
+  -d '{ "type": "update_sensor_states", "data": [ {"state": ${level},"type": "sensor","unique_id": "battery_level"}, {"state": ${is_charging},"type": "binary_sensor","unique_id": "battery_is_charging"} ] }' \
+  ${URL}/webhook/${WEBHOOK_ID}
 ```
 
 Execute:
@@ -156,7 +155,15 @@ The output looks like this:
 Battery Level = 45
 Battery Charging? = true
 
-{"message":"Event garmin.battery_level fired."}
+{
+  "battery_level": {
+    "success": true
+  },
+  "battery_is_charging": {
+    "success": true
+  }
+}
+
 ```
 
 NB. The device ID can be any string for the purposes of this testing. Your Garmin device will choose this ID for you when it submits the readings.
@@ -171,7 +178,7 @@ rem               battery% charging {0|1}
 rem ./home_assistant_battery_level 19 0
 rem
 
-set API_KEY=<Your API key>FEt_fGzW_lV0xitvJPkaQHSLhGm90ADovgMbJxdHH2I
+set WEBHOOK_ID=<Your Webhook ID>
 set URL=https://<Your Domain>/api
 
 if [%1] == [] (
@@ -195,10 +202,9 @@ echo "Battery Charging? = %is_charging%"
 echo.
 
 curl -s -X POST ^
-  -H "Authorization: Bearer %API_KEY%" ^
   -H "Content-Type: application/json" ^
-  -d "{\"level\": %level%, \"is_charging\": %is_charging%, \"device_id\": \"Batch File\"}" ^
-  %URL%/events/garmin.battery_level
+  -d "{ \"type\": \"update_sensor_states\", \"data\": [ {\"state\": %level%,\"type\": \"sensor\",\"unique_id\": \"battery_level\"}, {\"state\": %is_charging%,\"type\": \"binary_sensor\",\"unique_id\": \"battery_is_charging\"} ] }" ^
+  %URL%/webhook/%WEBHOOK_ID%
 
 echo.
 pause
@@ -216,7 +222,15 @@ The output looks like this:
 "Battery Level = 41"
 "Battery Charging? = true"
 
-{"message":"Event garmin.battery_level fired."}
+{
+  "battery_level": {
+    "success": true
+  },
+  "battery_is_charging": {
+    "success": true
+  }
+}
+
 Press any key to continue . . .
 ```
 
@@ -237,7 +251,21 @@ https://<Your Domain>/api/events/garmin.battery_level
 JSON for copy & paste:
 
 ```json
-{"level": 19, "is_charging": true, "device_id": "REQBIN"}
+{
+  "type": "update_sensor_states",
+  "data": [
+    {
+      "state": 19,
+      "type": "sensor",
+      "unique_id": "battery_level"
+    },
+    {
+      "state": true,
+      "type": "binary_sensor",
+      "unique_id": "battery_is_charging"
+    }
+  ]
+}
 ```
 
 ![API Test REQBIN](images/api_test_online_battery2.png)
