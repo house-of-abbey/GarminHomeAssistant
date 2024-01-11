@@ -122,5 +122,5 @@ with open("./resources/strings/strings.xml", "r") as f:
 
     #print(str(soup))
     with open(f"./resources-{l[0]}/strings/strings.xml", "wb") as w:
-      w.write(soup.encode("utf-8"))
+      w.write(soup.encode("utf-8") + b"\n")
     i += 1
