@@ -31,9 +31,10 @@
 #
 ####################################################################################
 
-from deep_translator import GoogleTranslator
-from bs4 import BeautifulSoup, Comment
 import os
+
+from bs4 import BeautifulSoup, Comment
+from deep_translator import GoogleTranslator
 
 # List of tuples in the form os:
 #  * Garmin IQ language three letter mnemonic,
