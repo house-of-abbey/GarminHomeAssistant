@@ -39,7 +39,7 @@ cards:
         conditions:
           - condition: state
             entity: binary_sensor.<device>_is_charging
-            state: 'on'
+            state: "on"
         chip:
           type: entity
           icon_color: yellow
@@ -55,7 +55,7 @@ cards:
         conditions:
           - condition: state
             entity: binary_sensor.<device>_is_charging
-            state: 'off'
+            state: "off"
         chip:
           type: entity
           entity: sensor.<device>_battery_level
@@ -68,7 +68,7 @@ cards:
               }
   - type: gauge
     entity: sensor.<device>_battery_level
-    unit: '%'
+    unit: "%"
     name: Watch
     needle: false
     severity:

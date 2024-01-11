@@ -10,8 +10,8 @@ You can purchase cloud-based access to your Home Assistant from [Nabu Casa](http
 
 ![Nabu Casa Setup](images/nabu_casa_setup.png)
 
-* Your API URL would be of the format `https://<id>.ui.nabu.casa/api`
-* Your Garmin Watch Menu would be of the format Menu: `https://<id>.ui.nabu.casa/local/garmin/menu.json`
+- Your API URL would be of the format `https://<id>.ui.nabu.casa/api`
+- Your Garmin Watch Menu would be of the format Menu: `https://<id>.ui.nabu.casa/local/garmin/menu.json`
 
 Where `<id>` is your personal Nabu Casa account ID.
 
@@ -23,21 +23,21 @@ Before Nabu Casa, or if you wanted to manage your own infrastructure, you might 
 
 Now you have to manage:
 
-* Dynamic DNS
-* Public access via router port forwarding
-* Security via HTTPS and URL forwarding
-* Certificates for HTTPS via say [Let's Encrypt](https://letsencrypt.org/) (Nginx web server helps here)
-* Proxy allow list in `configuration.yaml` as follows:
+- Dynamic DNS
+- Public access via router port forwarding
+- Security via HTTPS and URL forwarding
+- Certificates for HTTPS via say [Let's Encrypt](https://letsencrypt.org/) (Nginx web server helps here)
+- Proxy allow list in `configuration.yaml` as follows:
 
 ```yaml
 http:
   use_x_forwarded_for: true
   trusted_proxies:
     - 127.0.0.1
-    - 192.168.xx.xx  # Server IP - AMEND THIS
+    - 192.168.xx.xx # Server IP - AMEND THIS
     - 172.30.32.0/23 # Docker IPs for NGINX
     - 172.30.33.0/24 # SSL proxy server
-    - 172.16.0.0/12  #
+    - 172.16.0.0/12 #
 ```
 
 ### Menu Configuration URL
@@ -57,7 +57,7 @@ The menu configuration can be hosted anywhere, it does not have to be on the Hom
 This is slightly trickier owning to the need to supply the API key. Here are three ways you can test your API URL is correctly configured. If successful, each of these should produce a JSON string output looking like:
 
 ```json
-{"message":"API running."}
+{ "message": "API running." }
 ```
 
 #### API: Linux, MacOS, UNIX, Cygwin etc
