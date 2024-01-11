@@ -25,7 +25,7 @@
   <string id="MenuItemTap">مقبض</string>
   <string id="MenuItemMenu">قائمة طعام</string>
   <string id="Confirm">بالتأكيد؟</string>
-  <string id="Executed" scope="glance">أعدم</string>
+  <string id="Executed" scope="glance">مؤكد</string>
   <string id="NoPhone" scope="glance">لا يوجد اتصال الهاتف</string>
   <string id="NoInternet">لا يوجد اتصال بالإنترنت</string>
   <string id="NoResponse">لا توجد استجابة، تحقق من الاتصال بالإنترنت</string>

@@ -25,7 +25,7 @@
   <string id="MenuItemTap">Koppintson a</string>
   <string id="MenuItemMenu">Menü</string>
   <string id="Confirm">Biztos?</string>
-  <string id="Executed" scope="glance">Végrehajtott</string>
+  <string id="Executed" scope="glance">Megerősített</string>
   <string id="NoPhone" scope="glance">Nincs telefonkapcsolat</string>
   <string id="NoInternet">Nincs internetkapcsolat</string>
   <string id="NoResponse">Nincs válasz, ellenőrizze az internetkapcsolatot</string>
@@ -42,7 +42,7 @@
   <string id="Checking" scope="glance">Ellenőrzés...</string>
   <string id="Unavailable" scope="glance">Nem érhető el</string>
   <string id="Unconfigured" scope="glance">Nincs konfigurálva</string>
-  <string id="Cached" scope="glance">Gyorsítótárban</string>
+  <string id="Cached" scope="glance">Gyorsítótárazott</string>
   <string id="GlanceMenu" scope="glance">Menü</string>
   <!-- A beállítások GUI-hoz -->
   <string id="SettingsSelect">Válassz...</string>

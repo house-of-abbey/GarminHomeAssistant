@@ -25,7 +25,7 @@
   <string id="MenuItemTap">Παρακέντηση</string>
   <string id="MenuItemMenu">Μενού</string>
   <string id="Confirm">Σίγουρος?</string>
-  <string id="Executed" scope="glance">Εκτελέστηκε</string>
+  <string id="Executed" scope="glance">Επιβεβαιωμένος</string>
   <string id="NoPhone" scope="glance">Δεν υπάρχει σύνδεση τηλεφώνου</string>
   <string id="NoInternet">Δεν υπάρχει σύνδεση στο διαδίκτυο</string>
   <string id="NoResponse">Καμία απάντηση, ελέγξτε τη σύνδεση στο Διαδίκτυο</string>
@@ -34,7 +34,7 @@
   <string id="NoConfigUrl" scope="glance">Δεν υπάρχει διεύθυνση URL διαμόρφωσης στις ρυθμίσεις της εφαρμογής</string>
   <string id="ApiFlood">Κλήσεις API πολύ γρήγορες. Παρακαλώ επιβραδύνετε τα αιτήματά σας.</string>
   <string id="ApiUrlNotFound">Η διεύθυνση URL δεν βρέθηκε. Πιθανό σφάλμα διεύθυνσης URL API στις ρυθμίσεις.</string>
-  <string id="ConfigUrlNotFound">Η διεύθυνση URL δεν βρέθηκε. Πιθανό σφάλμα διεύθυνσης URL διαμόρφωσης στις ρυθμίσεις.</string>
+  <string id="ConfigUrlNotFound">Η διεύθυνση URL δεν βρέθηκε. Πιθανό σφάλμα διαμόρφωσης URL στις ρυθμίσεις.</string>
   <string id="NoJson">Δεν επιστράφηκε JSON από αίτημα HTTP.</string>
   <string id="UnhandledHttpErr">Το αίτημα HTTP επέστρεψε κωδικό σφάλματος =</string>
   <string id="TrailingSlashErr">Η διεύθυνση URL του API δεν πρέπει να έχει τελική κάθετο "/"</string>

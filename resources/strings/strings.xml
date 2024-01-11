@@ -19,7 +19,7 @@
     <string id="MenuItemTap">Tap</string>
     <string id="MenuItemMenu">Menu</string>
     <string id="Confirm">Sure?</string>
-    <string id="Executed" scope="glance">Executed</string>
+    <string id="Executed" scope="glance">Confirmed</string>
     <string id="NoPhone" scope="glance">No Phone connection</string>
     <string id="NoInternet">No Internet connection</string>
     <string id="NoResponse">No Response, check Internet connection</string>

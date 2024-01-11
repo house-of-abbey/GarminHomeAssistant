@@ -25,7 +25,7 @@
   <string id="MenuItemTap">Grifo</string>
   <string id="MenuItemMenu">Menú</string>
   <string id="Confirm">¿Seguro?</string>
-  <string id="Executed" scope="glance">Ejecutado</string>
+  <string id="Executed" scope="glance">Confirmado</string>
   <string id="NoPhone" scope="glance">Sin conexión telefónica</string>
   <string id="NoInternet">Sin conexión a Internet</string>
   <string id="NoResponse">No hay respuesta, verifique la conexión a Internet</string>

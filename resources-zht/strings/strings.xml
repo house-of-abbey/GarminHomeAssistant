@@ -25,7 +25,7 @@
   <string id="MenuItemTap">輕敲</string>
   <string id="MenuItemMenu">選單</string>
   <string id="Confirm">當然？</string>
-  <string id="Executed" scope="glance">執行</string>
+  <string id="Executed" scope="glance">確認的</string>
   <string id="NoPhone" scope="glance">沒有電話連接</string>
   <string id="NoInternet">沒有網路連線</string>
   <string id="NoResponse">無響應，請檢查互聯網連接</string>

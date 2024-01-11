@@ -25,7 +25,7 @@
   <string id="MenuItemTap">Vỗ nhẹ</string>
   <string id="MenuItemMenu">Thực đơn</string>
   <string id="Confirm">Chắc chắn?</string>
-  <string id="Executed" scope="glance">Thực thi</string>
+  <string id="Executed" scope="glance">Đã xác nhận</string>
   <string id="NoPhone" scope="glance">Không có kết nối điện thoại</string>
   <string id="NoInternet">Không có kết nối Internet</string>
   <string id="NoResponse">Không có phản hồi, kiểm tra kết nối Internet</string>

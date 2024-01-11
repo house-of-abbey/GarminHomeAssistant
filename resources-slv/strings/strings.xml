@@ -25,7 +25,7 @@
   <string id="MenuItemTap">Tapnite</string>
   <string id="MenuItemMenu">meni</string>
   <string id="Confirm">Seveda?</string>
-  <string id="Executed" scope="glance">Izvedeno</string>
+  <string id="Executed" scope="glance">Potrjeno</string>
   <string id="NoPhone" scope="glance">Ni telefonske povezave</string>
   <string id="NoInternet">Ni internetne povezave</string>
   <string id="NoResponse">Ni odgovora, preverite internetno povezavo</string>

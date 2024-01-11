@@ -25,7 +25,7 @@
   <string id="MenuItemTap">Dodirnite</string>
   <string id="MenuItemMenu">Jelovnik</string>
   <string id="Confirm">Naravno?</string>
-  <string id="Executed" scope="glance">Pogubljen</string>
+  <string id="Executed" scope="glance">Potvrđeno</string>
   <string id="NoPhone" scope="glance">Nema telefonske veze</string>
   <string id="NoInternet">Nema internetske veze</string>
   <string id="NoResponse">Nema odgovora, provjerite internetsku vezu</string>

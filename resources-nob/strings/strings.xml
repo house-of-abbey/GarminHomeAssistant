@@ -25,7 +25,7 @@
   <string id="MenuItemTap">Trykk på</string>
   <string id="MenuItemMenu">Meny</string>
   <string id="Confirm">Sikker?</string>
-  <string id="Executed" scope="glance">Henrettet</string>
+  <string id="Executed" scope="glance">Bekreftet</string>
   <string id="NoPhone" scope="glance">Ingen telefonforbindelse</string>
   <string id="NoInternet">Ingen Internett-tilkobling</string>
   <string id="NoResponse">Ingen svar, sjekk Internett-tilkoblingen</string>

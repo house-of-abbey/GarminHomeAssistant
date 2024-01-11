@@ -25,7 +25,7 @@
   <string id="MenuItemTap">Antippen</string>
   <string id="MenuItemMenu">Menü</string>
   <string id="Confirm">Sicher?</string>
-  <string id="Executed" scope="glance">Hingerichtet</string>
+  <string id="Executed" scope="glance">Bestätigt</string>
   <string id="NoPhone" scope="glance">Keine Telefonverbindung</string>
   <string id="NoInternet">Keine Internetverbindung</string>
   <string id="NoResponse">Keine Antwort, überprüfen Sie die Internetverbindung</string>
