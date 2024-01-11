@@ -38,6 +38,7 @@
   <string id="NoJson">Von der HTTP-Anfrage wurde kein JSON zurückgegeben.</string>
   <string id="UnhandledHttpErr">Die HTTP-Anfrage gab folgenden Fehlercode zurück = </string>
   <string id="TrailingSlashErr">Die API-URL darf keinen abschließenden Schrägstrich „/“ enthalten.</string>
+  <string id="WebhookFailed">Webhook konnte nicht registriert werden</string>
   <string id="Available" scope="glance">Verfügbar</string>
   <string id="Checking" scope="glance">Überprüfung...</string>
   <string id="Unavailable" scope="glance">Nicht verfügbar</string>

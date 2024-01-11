@@ -31,13 +31,14 @@
   <string id="NoResponse">Tidak Ada Respon, periksa koneksi Internet</string>
   <string id="NoAPIKey" scope="glance">Tidak ada kunci API di pengaturan aplikasi</string>
   <string id="NoApiUrl" scope="glance">Tidak ada URL API di pengaturan aplikasi</string>
-  <string id="NoConfigUrl" scope="glance">Tidak ada URL konfigurasi dalam pengaturan aplikasi</string>
+  <string id="NoConfigUrl" scope="glance">Tidak ada URL konfigurasi di pengaturan aplikasi</string>
   <string id="ApiFlood">Panggilan API terlalu cepat. Harap memperlambat permintaan Anda.</string>
   <string id="ApiUrlNotFound">URL tidak ditemukan. Potensi kesalahan URL API dalam pengaturan.</string>
   <string id="ConfigUrlNotFound">URL tidak ditemukan. Potensi kesalahan URL Konfigurasi dalam pengaturan.</string>
   <string id="NoJson">Tidak ada JSON yang dikembalikan dari permintaan HTTP.</string>
   <string id="UnhandledHttpErr">Permintaan HTTP mengembalikan kode kesalahan =</string>
   <string id="TrailingSlashErr">URL API tidak boleh memiliki garis miring '/'</string>
+  <string id="WebhookFailed">Gagal mendaftarkan Webhook</string>
   <string id="Available" scope="glance">Tersedia</string>
   <string id="Checking" scope="glance">Memeriksa...</string>
   <string id="Unavailable" scope="glance">Tidak tersedia</string>

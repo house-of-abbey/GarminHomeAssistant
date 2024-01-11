@@ -38,10 +38,11 @@
   <string id="NoJson">لم يتم إرجاع JSON من طلب HTTP.</string>
   <string id="UnhandledHttpErr">قام طلب HTTP بإرجاع رمز الخطأ =</string>
   <string id="TrailingSlashErr">يجب ألا يحتوي عنوان URL لواجهة برمجة التطبيقات على شرطة مائلة لاحقة '/'</string>
+  <string id="WebhookFailed">فشل تسجيل Webhook</string>
   <string id="Available" scope="glance">متاح</string>
   <string id="Checking" scope="glance">تدقيق...</string>
   <string id="Unavailable" scope="glance">غير متوفره</string>
-  <string id="Unconfigured" scope="glance">غير مهيأ</string>
+  <string id="Unconfigured" scope="glance">غير مكون</string>
   <string id="Cached" scope="glance">مخبأة</string>
   <string id="GlanceMenu" scope="glance">قائمة طعام</string>
   <!-- لإعدادات واجهة المستخدم الرسومية -->

@@ -38,6 +38,7 @@
   <string id="NoJson">HTTP 請求未傳回 JSON。</string>
   <string id="UnhandledHttpErr">HTTP請求回傳錯誤碼=</string>
   <string id="TrailingSlashErr">API URL 不得有尾部斜線“/”</string>
+  <string id="WebhookFailed">註冊Webhook失敗</string>
   <string id="Available" scope="glance">可用的</string>
   <string id="Checking" scope="glance">檢查...</string>
   <string id="Unavailable" scope="glance">不可用</string>

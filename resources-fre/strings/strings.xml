@@ -38,6 +38,7 @@
   <string id="NoJson">Aucun JSON renvoyé par la requête HTTP.</string>
   <string id="UnhandledHttpErr">La requête HTTP a renvoyé un code d'erreur =</string>
   <string id="TrailingSlashErr">L'URL de l'API ne doit pas comporter de barre oblique finale '/'</string>
+  <string id="WebhookFailed">Échec de l'enregistrement du Webhook</string>
   <string id="Available" scope="glance">Disponible</string>
   <string id="Checking" scope="glance">Vérification...</string>
   <string id="Unavailable" scope="glance">Indisponible</string>
@@ -52,7 +53,7 @@
   <string id="SettingsConfigUrl">URL de configuration des menus (JSON).</string>
   <string id="SettingsCacheConfig">L'application doit-elle mettre en cache la configuration du menu ?</string>
   <string id="SettingsClearCache">L'application doit-elle vider le cache existant au prochain démarrage ?</string>
-  <string id="SettingsAppTimeout">Délai d'expiration en secondes. Quittez l'application après cette période d'inactivité pour économiser la batterie de l'appareil.</string>
+  <string id="SettingsAppTimeout">Délai d'attente en secondes. Quittez l'application après cette période d'inactivité pour économiser la batterie de l'appareil.</string>
   <string id="SettingsConfirmTimeout">Passé ce délai (en secondes), une boîte de dialogue de confirmation d'une action se ferme automatiquement et l'action est annulée. Réglez sur 0 pour désactiver le délai d'attente.</string>
   <string id="SettingsMenuItemStyle">Style des éléments de menu.</string>
   <string id="SettingsMenuItemStyleIcons">Icônes</string>

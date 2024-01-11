@@ -30,14 +30,15 @@
   <string id="NoInternet">Δεν υπάρχει σύνδεση στο διαδίκτυο</string>
   <string id="NoResponse">Καμία απάντηση, ελέγξτε τη σύνδεση στο Διαδίκτυο</string>
   <string id="NoAPIKey" scope="glance">Δεν υπάρχει κλειδί API στις ρυθμίσεις της εφαρμογής</string>
-  <string id="NoApiUrl" scope="glance">Δεν υπάρχει URL API στις ρυθμίσεις της εφαρμογής</string>
+  <string id="NoApiUrl" scope="glance">Δεν υπάρχει διεύθυνση URL API στις ρυθμίσεις της εφαρμογής</string>
   <string id="NoConfigUrl" scope="glance">Δεν υπάρχει διεύθυνση URL διαμόρφωσης στις ρυθμίσεις της εφαρμογής</string>
   <string id="ApiFlood">Κλήσεις API πολύ γρήγορες. Παρακαλώ επιβραδύνετε τα αιτήματά σας.</string>
   <string id="ApiUrlNotFound">Η διεύθυνση URL δεν βρέθηκε. Πιθανό σφάλμα διεύθυνσης URL API στις ρυθμίσεις.</string>
-  <string id="ConfigUrlNotFound">Η διεύθυνση URL δεν βρέθηκε. Πιθανό σφάλμα διεύθυνσης URL διαμόρφωσης στις ρυθμίσεις.</string>
+  <string id="ConfigUrlNotFound">Η διεύθυνση URL δεν βρέθηκε. Πιθανό σφάλμα διαμόρφωσης URL στις ρυθμίσεις.</string>
   <string id="NoJson">Δεν επιστράφηκε JSON από αίτημα HTTP.</string>
   <string id="UnhandledHttpErr">Το αίτημα HTTP επέστρεψε κωδικό σφάλματος =</string>
-  <string id="TrailingSlashErr">Η διεύθυνση URL του API δεν πρέπει να έχει τελική κάθετο "/"</string>
+  <string id="TrailingSlashErr">Η διεύθυνση URL του API δεν πρέπει να έχει κάθετο "/"</string>
+  <string id="WebhookFailed">Η εγγραφή του Webhook απέτυχε</string>
   <string id="Available" scope="glance">Διαθέσιμος</string>
   <string id="Checking" scope="glance">Ελεγχος...</string>
   <string id="Unavailable" scope="glance">Μη διαθέσιμο</string>
@@ -53,7 +54,7 @@
   <string id="SettingsCacheConfig">Πρέπει η εφαρμογή να αποθηκεύσει προσωρινά τη διαμόρφωση του μενού;</string>
   <string id="SettingsClearCache">Πρέπει η εφαρμογή να διαγράψει την υπάρχουσα προσωρινή μνήμη την επόμενη φορά που θα ξεκινήσει;</string>
   <string id="SettingsAppTimeout">Timeout σε δευτερόλεπτα. Κλείστε την εφαρμογή μετά από αυτήν την περίοδο αδράνειας για να εξοικονομήσετε την μπαταρία της συσκευής.</string>
-  <string id="SettingsConfirmTimeout">Μετά από αυτό το χρονικό διάστημα (σε δευτερόλεπτα), ένα παράθυρο διαλόγου επιβεβαίωσης για μια ενέργεια κλείνει αυτόματα και η ενέργεια ακυρώνεται. Ορίστε στο 0 για να απενεργοποιήσετε το χρονικό όριο.</string>
+  <string id="SettingsConfirmTimeout">Μετά από αυτό το διάστημα (σε δευτερόλεπτα), ένα παράθυρο διαλόγου επιβεβαίωσης για μια ενέργεια κλείνει αυτόματα και η ενέργεια ακυρώνεται. Ορίστε στο 0 για να απενεργοποιήσετε το χρονικό όριο.</string>
   <string id="SettingsMenuItemStyle">Στυλ στοιχείου μενού.</string>
   <string id="SettingsMenuItemStyleIcons">εικονίδια</string>
   <string id="SettingsMenuItemStyleText">Πρόσθετο Κείμενο</string>

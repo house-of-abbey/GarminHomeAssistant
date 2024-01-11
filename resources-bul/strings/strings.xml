@@ -38,6 +38,7 @@
   <string id="NoJson">Няма върнат JSON от HTTP заявка.</string>
   <string id="UnhandledHttpErr">HTTP заявката върна код на грешка =</string>
   <string id="TrailingSlashErr">URL адресът на API не трябва да има наклонена черта '/' в края</string>
+  <string id="WebhookFailed">Неуспешно регистриране на Webhook</string>
   <string id="Available" scope="glance">На разположение</string>
   <string id="Checking" scope="glance">Проверка...</string>
   <string id="Unavailable" scope="glance">Недостъпен</string>
@@ -53,7 +54,7 @@
   <string id="SettingsCacheConfig">Трябва ли приложението да кешира конфигурацията на менюто?</string>
   <string id="SettingsClearCache">Трябва ли приложението да изчисти съществуващия кеш при следващото стартиране?</string>
   <string id="SettingsAppTimeout">Изчакване в секунди. Излезте от приложението след този период на неактивност, за да запазите батерията на устройството.</string>
-  <string id="SettingsConfirmTimeout">След това време (в секунди) диалоговият прозорец за потвърждение за действие се затваря автоматично и действието се отменя. Задайте 0, за да деактивирате изчакването.</string>
+  <string id="SettingsConfirmTimeout">След това време (в секунди) диалоговият прозорец за потвърждение на действие се затваря автоматично и действието се отменя. Задайте 0, за да деактивирате изчакването.</string>
   <string id="SettingsMenuItemStyle">Стил на елемент от менюто.</string>
   <string id="SettingsMenuItemStyleIcons">Икони</string>
   <string id="SettingsMenuItemStyleText">Допълнителен текст</string>

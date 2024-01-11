@@ -29,7 +29,7 @@
   <string id="NoPhone" scope="glance">Ei puhelinyhteyttä</string>
   <string id="NoInternet">Ei Internet-yhteyttä</string>
   <string id="NoResponse">Ei vastausta, tarkista Internet-yhteys</string>
-  <string id="NoAPIKey" scope="glance">Sovelluksen asetuksissa ei ole API-avainta</string>
+  <string id="NoAPIKey" scope="glance">Sovellusasetuksissa ei ole API-avainta</string>
   <string id="NoApiUrl" scope="glance">Sovellusasetuksissa ei ole API URL-osoitetta</string>
   <string id="NoConfigUrl" scope="glance">Sovelluksen asetuksissa ei ole konfigurointi-URL-osoitetta</string>
   <string id="ApiFlood">API-kutsut liian nopeita. Hidasta pyyntöjäsi.</string>
@@ -38,6 +38,7 @@
   <string id="NoJson">HTTP-pyynnöstä ei palautettu JSON-tiedostoja.</string>
   <string id="UnhandledHttpErr">HTTP-pyyntö palautti virhekoodin =</string>
   <string id="TrailingSlashErr">API-URL-osoitteessa ei saa olla perässä olevaa kauttaviivaa '/'</string>
+  <string id="WebhookFailed">Webhookin rekisteröinti epäonnistui</string>
   <string id="Available" scope="glance">Saatavilla</string>
   <string id="Checking" scope="glance">Tarkistetaan...</string>
   <string id="Unavailable" scope="glance">Ei saatavilla</string>
@@ -53,7 +54,7 @@
   <string id="SettingsCacheConfig">Pitäisikö sovelluksen tallentaa valikon asetukset välimuistiin?</string>
   <string id="SettingsClearCache">Pitäisikö sovelluksen tyhjentää olemassa oleva välimuisti, kun se käynnistetään seuraavan kerran?</string>
   <string id="SettingsAppTimeout">Aikakatkaisu sekunneissa. Poistu sovelluksesta tämän käyttämättömyyden jälkeen säästääksesi laitteen akkua.</string>
-  <string id="SettingsConfirmTimeout">Tämän ajan kuluttua (sekunneissa) toiminnon vahvistusikkuna suljetaan automaattisesti ja toiminto peruutetaan. Aseta arvoksi 0, jos haluat poistaa aikakatkaisun käytöstä.</string>
+  <string id="SettingsConfirmTimeout">Tämän ajan kuluttua (sekunneissa) toiminnon vahvistusikkuna suljetaan automaattisesti ja toiminto peruutetaan. Aseta arvoksi 0 poistaaksesi aikakatkaisun käytöstä.</string>
   <string id="SettingsMenuItemStyle">Valikkokohdan tyyli.</string>
   <string id="SettingsMenuItemStyleIcons">Kuvakkeet</string>
   <string id="SettingsMenuItemStyleText">Lisäteksti</string>

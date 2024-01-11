@@ -32,12 +32,13 @@
   <string id="NoAPIKey" scope="glance">Rakenduse seadetes pole API-võtit</string>
   <string id="NoApiUrl" scope="glance">Rakenduse seadetes pole API URL-i</string>
   <string id="NoConfigUrl" scope="glance">Rakenduse seadetes pole konfiguratsiooni URL-i</string>
-  <string id="ApiFlood">API-kõned liiga kiired. Palun aeglustage taotluste esitamist.</string>
+  <string id="ApiFlood">API-kõned liiga kiired. Palun aeglustage oma taotlusi.</string>
   <string id="ApiUrlNotFound">URL-i ei leitud. Võimalik API URL-i viga seadetes.</string>
   <string id="ConfigUrlNotFound">URL-i ei leitud. Võimalik konfiguratsiooni URL-i viga seadetes.</string>
-  <string id="NoJson">HTTP-päringust ei tagastatud ühtegi JSON-i.</string>
+  <string id="NoJson">HTTP päringust ei tagastatud ühtegi JSON-i.</string>
   <string id="UnhandledHttpErr">HTTP päring tagastas veakoodi =</string>
   <string id="TrailingSlashErr">API URL-i lõpus ei tohi olla kaldkriipsu „/”</string>
+  <string id="WebhookFailed">Webhaoki registreerimine ebaõnnestus</string>
   <string id="Available" scope="glance">Saadaval</string>
   <string id="Checking" scope="glance">Kontrollimine...</string>
   <string id="Unavailable" scope="glance">Pole saadaval</string>
@@ -61,6 +62,6 @@
   <string id="LeftToRight">Vasakult paremale</string>
   <string id="RightToLeft">Paremalt vasakule</string>
   <string id="SettingsWidgetStart">(Ainult vidin) Käivitage rakendus automaatselt vidinast ilma puudutust ootamata.</string>
-  <string id="SettingsEnableBatteryLevel">Lubage taustteenus, et saata Home Assistantile kella aku tase.</string>
+  <string id="SettingsEnableBatteryLevel">Lubage taustateenus, et saata Home Assistantile kella aku tase.</string>
   <string id="SettingsBatteryLevelRefreshRate">Värskendussagedus (minutites), mille juures taustateenus peaks aku taseme saatmist kordama.</string>
 </strings>
