@@ -30,10 +30,10 @@
 #  * https://www.crummy.com/software/BeautifulSoup/bs4/doc/#xml
 #
 ####################################################################################
-
 import os
 
-from bs4 import BeautifulSoup, Comment
+from bs4 import BeautifulSoup
+from bs4 import Comment
 from deep_translator import GoogleTranslator
 
 # List of tuples in the form os:
