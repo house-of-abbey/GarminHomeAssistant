@@ -38,6 +38,7 @@ class WebhookManager {
                 if (Globals.scDebug) {
                     System.println("WebhookManager onReturnRequestWebhookId() Response Code: INVALID_HTTP_BODY_IN_NETWORK_RESPONSE, check JSON is returned.");
                 }
+                Settings.disableBatteryLevel();
                 ErrorView.show(RezStrings.getWebhookFailed() + "\n" + RezStrings.getNoJson());
                 break;
 
@@ -45,6 +46,7 @@ class WebhookManager {
                 if (Globals.scDebug) {
                     System.println("WebhookManager onReturnRequestWebhookId() Response Code: 404, page not found. Check API URL setting.");
                 }
+                Settings.disableBatteryLevel();
                 ErrorView.show(RezStrings.getWebhookFailed() + "\n" + RezStrings.getApiUrlNotFound());
                 break;
 
@@ -76,6 +78,8 @@ class WebhookManager {
                     if (Globals.scDebug) {
                         System.println("WebhookManager onReturnRequestWebhookId(): No webhook id in response data.");
                     }
+                    Settings.disableBatteryLevel();
+                    ErrorView.show(RezStrings.getWebhookFailed());
                 }
                 break;
 
@@ -83,6 +87,7 @@ class WebhookManager {
                 if (Globals.scDebug) {
                     System.println("WebhookManager onReturnRequestWebhookId(): Unhandled HTTP response code = " + responseCode);
                 }
+                Settings.disableBatteryLevel();
                 ErrorView.show(RezStrings.getWebhookFailed() + "\n" + RezStrings.getUnhandledHttpErr() + responseCode);
         }
     }
@@ -119,17 +124,79 @@ class WebhookManager {
     }
 
     function onReturnRegisterWebhookSensor(responseCode as Lang.Number, data as Null or Lang.Dictionary or Lang.String) as Void {
-        // TODO: Handle errors
-        if (responseCode == 201) {
-            if ((data.get("success") as Lang.Boolean or Null) == true) {
+        switch (responseCode) {
+            case Communications.BLE_HOST_TIMEOUT:
+            case Communications.BLE_CONNECTION_UNAVAILABLE:
                 if (Globals.scDebug) {
-                    System.println("WebhookManager onReturnRegisterWebhookSensor(): Success");
+                    System.println("WebhookManager onReturnRegisterWebhookSensor() Response Code: BLE_HOST_TIMEOUT or BLE_CONNECTION_UNAVAILABLE, Bluetooth connection severed.");
                 }
-            }
-        } else {
-            if (Globals.scDebug) {
-                System.println("WebhookManager onReturnRegisterWebhookSensor(): Error: " + responseCode);
-            }
+                Settings.removeWebhookId();
+                ErrorView.show(RezStrings.getWebhookFailed() + "\n" + RezStrings.getNoPhone() + ".");
+                break;
+
+            case Communications.BLE_QUEUE_FULL:
+                if (Globals.scDebug) {
+                    System.println("WebhookManager onReturnRegisterWebhookSensor() Response Code: BLE_QUEUE_FULL, API calls too rapid.");
+                }
+                Settings.removeWebhookId();
+                ErrorView.show(RezStrings.getWebhookFailed() + "\n" + RezStrings.getApiFlood());
+                break;
+
+            case Communications.NETWORK_REQUEST_TIMED_OUT:
+                if (Globals.scDebug) {
+                    System.println("WebhookManager onReturnRegisterWebhookSensor() Response Code: NETWORK_REQUEST_TIMED_OUT, check Internet connection.");
+                }
+                Settings.removeWebhookId();
+                ErrorView.show(RezStrings.getWebhookFailed() + "\n" + RezStrings.getNoResponse());
+                break;
+
+            case Communications.NETWORK_RESPONSE_OUT_OF_MEMORY:
+                if (Globals.scDebug) {
+                    System.println("WebhookManager onReturnRegisterWebhookSensor() Response Code: NETWORK_RESPONSE_OUT_OF_MEMORY, are we going too fast?");
+                }
+                Settings.removeWebhookId();
+                // Ignore and see if we can carry on
+                break;
+            case Communications.INVALID_HTTP_BODY_IN_NETWORK_RESPONSE:
+                if (Globals.scDebug) {
+                    System.println("WebhookManager onReturnRegisterWebhookSensor() Response Code: INVALID_HTTP_BODY_IN_NETWORK_RESPONSE, check JSON is returned.");
+                }
+                Settings.removeWebhookId();
+                Settings.disableBatteryLevel();
+                ErrorView.show(RezStrings.getWebhookFailed() + "\n" + RezStrings.getNoJson());
+                break;
+
+            case 404:
+                if (Globals.scDebug) {
+                    System.println("WebhookManager onReturnRequestWebhookId() Response Code: 404, page not found. Check API URL setting.");
+                }
+                Settings.removeWebhookId();
+                Settings.disableBatteryLevel();
+                ErrorView.show(RezStrings.getWebhookFailed() + "\n" + RezStrings.getApiUrlNotFound());
+                break;
+
+            case 201:
+                if ((data.get("success") as Lang.Boolean or Null) == true) {
+                    if (Globals.scDebug) {
+                        System.println("WebhookManager onReturnRegisterWebhookSensor(): Success");
+                    }
+                } else {
+                    if (Globals.scDebug) {
+                        System.println("WebhookManager onReturnRegisterWebhookSensor(): Failure");
+                    }
+                    Settings.removeWebhookId();
+                    Settings.disableBatteryLevel();
+                    ErrorView.show(RezStrings.getWebhookFailed());
+                }
+                break;
+
+            default:
+                if (Globals.scDebug) {
+                    System.println("WebhookManager onReturnRequestWebhookId(): Unhandled HTTP response code = " + responseCode);
+                }
+                Settings.removeWebhookId();
+                Settings.disableBatteryLevel();
+                ErrorView.show(RezStrings.getWebhookFailed() + "\n" + RezStrings.getUnhandledHttpErr() + responseCode);
         }
     }
 

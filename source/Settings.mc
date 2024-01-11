@@ -109,6 +109,11 @@ class Settings {
         Properties.setValue("webhook_id", mWebhookId);
     }
 
+    static function removeWebhookId() {
+        mWebhookId = "";
+        Properties.setValue("webhook_id", mWebhookId);
+    }
+
     static function getApiUrl() as Lang.String {
         return mApiUrl;
     }
@@ -148,5 +153,13 @@ class Settings {
 
     static function getIsWidgetStartNoTap() as Lang.Boolean {
         return mIsWidgetStartNoTap;
+    }
+
+    static function disableBatteryLevel() {
+        mIsBatteryLevelEnabled = false;
+        Properties.setValue("enable_battery_level", mIsBatteryLevelEnabled);
+        if ((System has :ServiceDelegate) and (Background.getTemporalEventRegisteredTime() != null)) {
+            Background.deleteTemporalEvent();
+        }
     }
 }
