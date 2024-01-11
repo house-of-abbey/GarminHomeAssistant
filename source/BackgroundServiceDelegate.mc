@@ -51,17 +51,26 @@ class BackgroundServiceDelegate extends System.ServiceDelegate {
         } else {
             // Don't use Settings.* here as the object lasts < 30 secs and is recreated each time the background service is run
             Communications.makeWebRequest(
-                (Properties.getValue("api_url") as Lang.String) + "/events/garmin.battery_level",
+                (Properties.getValue("api_url") as Lang.String) + "/webhook/" + (Properties.getValue("webhook_id") as Lang.String),
                 {
-                    "level"       => System.getSystemStats().battery,
-                    "is_charging" => System.getSystemStats().charging,
-                    "device_id"   => System.getDeviceSettings().uniqueIdentifier
+                    "type" => "update_sensor_states",
+                    "data" => [
+                        {
+                            "state" => System.getSystemStats().battery,
+                            "type" => "sensor",
+                            "unique_id" => "battery_level"
+                        },
+                        {
+                            "state" => System.getSystemStats().charging,
+                            "type" => "binary_sensor",
+                            "unique_id" => "battery_is_charging"
+                        }
+                    ]
                 },
                 {
                     :method       => Communications.HTTP_REQUEST_METHOD_POST,
                     :headers      => {
-                        "Content-Type"  => Communications.REQUEST_CONTENT_TYPE_JSON,
-                        "Authorization" => "Bearer " + (Properties.getValue("api_key") as Lang.String)
+                        "Content-Type"  => Communications.REQUEST_CONTENT_TYPE_JSON
                     },
                     :responseType => Communications.HTTP_RESPONSE_CONTENT_TYPE_JSON
                 },

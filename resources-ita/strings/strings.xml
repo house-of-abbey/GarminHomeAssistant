@@ -38,6 +38,7 @@
   <string id="NoJson">Nessun JSON restituito dalla richiesta HTTP.</string>
   <string id="UnhandledHttpErr">La richiesta HTTP ha restituito il codice di errore =</string>
   <string id="TrailingSlashErr">L'URL dell'API non deve avere una barra finale "/"</string>
+  <string id="WebhookFailed">Impossibile registrare il Webhook</string>
   <string id="Available" scope="glance">Disponibile</string>
   <string id="Checking" scope="glance">Controllo...</string>
   <string id="Unavailable" scope="glance">Non disponibile</string>

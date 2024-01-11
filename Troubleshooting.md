@@ -10,8 +10,8 @@ You can purchase cloud-based access to your Home Assistant from [Nabu Casa](http
 
 ![Nabu Casa Setup](images/nabu_casa_setup.png)
 
-* Your API URL would be of the format `https://<id>.ui.nabu.casa/api`
-* Your Garmin Watch Menu would be of the format Menu: `https://<id>.ui.nabu.casa/local/garmin/menu.json`
+- Your API URL would be of the format `https://<id>.ui.nabu.casa/api`
+- Your Garmin Watch Menu would be of the format Menu: `https://<id>.ui.nabu.casa/local/garmin/menu.json`
 
 Where `<id>` is your personal Nabu Casa account ID.
 
@@ -23,21 +23,21 @@ Before Nabu Casa, or if you wanted to manage your own infrastructure, you might 
 
 Now you have to manage:
 
-* Dynamic DNS
-* Public access via router port forwarding
-* Security via HTTPS and URL forwarding
-* Certificates for HTTPS via say [Let's Encrypt](https://letsencrypt.org/) (Nginx web server helps here)
-* Proxy allow list in `configuration.yaml` as follows:
+- Dynamic DNS
+- Public access via router port forwarding
+- Security via HTTPS and URL forwarding
+- Certificates for HTTPS via say [Let's Encrypt](https://letsencrypt.org/) (Nginx web server helps here)
+- Proxy allow list in `configuration.yaml` as follows:
 
 ```yaml
 http:
   use_x_forwarded_for: true
   trusted_proxies:
     - 127.0.0.1
-    - 192.168.xx.xx  # Server IP - AMEND THIS
+    - 192.168.xx.xx # Server IP - AMEND THIS
     - 172.30.32.0/23 # Docker IPs for NGINX
     - 172.30.33.0/24 # SSL proxy server
-    - 172.16.0.0/12  #
+    - 172.16.0.0/12 #
 ```
 
 ### Menu Configuration URL
@@ -57,7 +57,7 @@ The menu configuration can be hosted anywhere, it does not have to be on the Hom
 This is slightly trickier owning to the need to supply the API key. Here are three ways you can test your API URL is correctly configured. If successful, each of these should produce a JSON string output looking like:
 
 ```json
-{"message":"API running."}
+{ "message": "API running." }
 ```
 
 #### API: Linux, MacOS, UNIX, Cygwin etc
@@ -110,7 +110,7 @@ There's an online way of testing the API URL too, thanks to [REQBIN](https://req
 
 ## Watch Battery Level Reporting
 
-For this you will need to have already got the main application or widget working with a menu in order to prove that the API calls are successful. We have proven this works with both our home brew infrastructure as well as Nabu Casa. Now with a script similar to one of the following two, you should be able to fake the watch API call and verify receipt by Home Assistant in the Event logging as shown in '[Listening for the `device_id`](BatteryReporting.md#listening-for-the-device_id)'.
+For this you will need to have already got the main application or widget working with a menu in order to prove that the API calls are successful. We have proven this works with both our home brew infrastructure as well as Nabu Casa. Now with a script similar to one of the following two, you should be able to fake the watch API call and verify receipt by Home Assistant.
 
 #### Battery: Linux, MacOS, UNIX, Cygwin etc
 
@@ -123,7 +123,7 @@ Assume a file called: `send_battery.bash`
 # ./send_battery.bash 19 0
 #
 
-API_KEY="<Your API key>"
+WEBHOOK_ID="<Your Webhook ID>"
 URL="https://<Your Domain>/api"
 
 level=${1:-50}
@@ -138,10 +138,9 @@ echo "Battery Charging? = ${is_charging}"
 echo ""
 
 curl -s -X POST \
-  -H "Authorization: Bearer ${API_KEY}" \
   -H "Content-Type: application/json" \
-  -d '{"level": '${level}', "is_charging": '${is_charging}', "device_id": "Bash Script"}' \
-  ${URL}/events/garmin.battery_level
+  -d '{ "type": "update_sensor_states", "data": [ {"state": ${level},"type": "sensor","unique_id": "battery_level"}, {"state": ${is_charging},"type": "binary_sensor","unique_id": "battery_is_charging"} ] }' \
+  ${URL}/webhook/${WEBHOOK_ID}
 ```
 
 Execute:
@@ -156,7 +155,15 @@ The output looks like this:
 Battery Level = 45
 Battery Charging? = true
 
-{"message":"Event garmin.battery_level fired."}
+{
+  "battery_level": {
+    "success": true
+  },
+  "battery_is_charging": {
+    "success": true
+  }
+}
+
 ```
 
 NB. The device ID can be any string for the purposes of this testing. Your Garmin device will choose this ID for you when it submits the readings.
@@ -171,7 +178,7 @@ rem               battery% charging {0|1}
 rem ./home_assistant_battery_level 19 0
 rem
 
-set API_KEY=<Your API key>FEt_fGzW_lV0xitvJPkaQHSLhGm90ADovgMbJxdHH2I
+set WEBHOOK_ID=<Your Webhook ID>
 set URL=https://<Your Domain>/api
 
 if [%1] == [] (
@@ -195,10 +202,9 @@ echo "Battery Charging? = %is_charging%"
 echo.
 
 curl -s -X POST ^
-  -H "Authorization: Bearer %API_KEY%" ^
   -H "Content-Type: application/json" ^
-  -d "{\"level\": %level%, \"is_charging\": %is_charging%, \"device_id\": \"Batch File\"}" ^
-  %URL%/events/garmin.battery_level
+  -d "{ \"type\": \"update_sensor_states\", \"data\": [ {\"state\": %level%,\"type\": \"sensor\",\"unique_id\": \"battery_level\"}, {\"state\": %is_charging%,\"type\": \"binary_sensor\",\"unique_id\": \"battery_is_charging\"} ] }" ^
+  %URL%/webhook/%WEBHOOK_ID%
 
 echo.
 pause
@@ -216,7 +222,15 @@ The output looks like this:
 "Battery Level = 41"
 "Battery Charging? = true"
 
-{"message":"Event garmin.battery_level fired."}
+{
+  "battery_level": {
+    "success": true
+  },
+  "battery_is_charging": {
+    "success": true
+  }
+}
+
 Press any key to continue . . .
 ```
 
@@ -237,7 +251,21 @@ https://<Your Domain>/api/events/garmin.battery_level
 JSON for copy & paste:
 
 ```json
-{"level": 19, "is_charging": true, "device_id": "REQBIN"}
+{
+  "type": "update_sensor_states",
+  "data": [
+    {
+      "state": 19,
+      "type": "sensor",
+      "unique_id": "battery_level"
+    },
+    {
+      "state": true,
+      "type": "binary_sensor",
+      "unique_id": "battery_is_charging"
+    }
+  ]
+}
 ```
 
 ![API Test REQBIN](images/api_test_online_battery2.png)

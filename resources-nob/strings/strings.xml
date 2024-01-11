@@ -38,6 +38,7 @@
   <string id="NoJson">Ingen JSON returnert fra HTTP-forespørsel.</string>
   <string id="UnhandledHttpErr">HTTP-forespørsel returnerte feilkode =</string>
   <string id="TrailingSlashErr">API URL må ikke ha en etterfølgende skråstrek '/'</string>
+  <string id="WebhookFailed">Kunne ikke registrere Webhook</string>
   <string id="Available" scope="glance">Tilgjengelig</string>
   <string id="Checking" scope="glance">Sjekker...</string>
   <string id="Unavailable" scope="glance">Utilgjengelig</string>

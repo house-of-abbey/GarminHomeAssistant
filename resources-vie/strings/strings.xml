@@ -38,6 +38,7 @@
   <string id="NoJson">Không có JSON nào được trả về từ yêu cầu HTTP.</string>
   <string id="UnhandledHttpErr">Yêu cầu HTTP trả về mã lỗi =</string>
   <string id="TrailingSlashErr">URL API không được có dấu gạch chéo ở cuối '/'</string>
+  <string id="WebhookFailed">Không đăng ký được Webhook</string>
   <string id="Available" scope="glance">Có sẵn</string>
   <string id="Checking" scope="glance">Đang kiểm tra...</string>
   <string id="Unavailable" scope="glance">Không có sẵn</string>

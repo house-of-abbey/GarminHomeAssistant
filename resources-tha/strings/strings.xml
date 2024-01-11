@@ -38,6 +38,7 @@
   <string id="NoJson">ไม่มี JSON ที่ส่งคืนจากคำขอ HTTP</string>
   <string id="UnhandledHttpErr">คำขอ HTTP ส่งคืนรหัสข้อผิดพลาด =</string>
   <string id="TrailingSlashErr">URL ของ API ต้องไม่มีเครื่องหมายทับต่อท้าย '/'</string>
+  <string id="WebhookFailed">ลงทะเบียน Webhook.dll ไม่สำเร็จ</string>
   <string id="Available" scope="glance">มีอยู่</string>
   <string id="Checking" scope="glance">กำลังตรวจสอบ...</string>
   <string id="Unavailable" scope="glance">ไม่พร้อมใช้งาน</string>

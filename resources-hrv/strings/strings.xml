@@ -38,6 +38,7 @@
   <string id="NoJson">HTTP zahtjev nije vratio JSON.</string>
   <string id="UnhandledHttpErr">HTTP zahtjev vratio je kod greške =</string>
   <string id="TrailingSlashErr">API URL ne smije imati kosu crtu na kraju '/'</string>
+  <string id="WebhookFailed">Registracija Webhooka nije uspjela</string>
   <string id="Available" scope="glance">Dostupno</string>
   <string id="Checking" scope="glance">Provjera...</string>
   <string id="Unavailable" scope="glance">Nedostupan</string>

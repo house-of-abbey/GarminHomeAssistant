@@ -38,6 +38,7 @@
   <string id="NoJson">HTTP リクエストから JSON が返されませんでした。</string>
   <string id="UnhandledHttpErr">HTTP リクエストがエラー コードを返しました =</string>
   <string id="TrailingSlashErr">API URL の末尾にスラッシュ「/」を含めることはできません</string>
+  <string id="WebhookFailed">Webhookの登録に失敗しました</string>
   <string id="Available" scope="glance">利用可能</string>
   <string id="Checking" scope="glance">チェック中...</string>
   <string id="Unavailable" scope="glance">利用不可</string>

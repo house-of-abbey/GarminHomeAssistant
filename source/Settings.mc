@@ -32,6 +32,7 @@ class Settings {
     public static const MENU_STYLE_TEXT  = 1;
 
     private static var mApiKey                as Lang.String  = "";
+    private static var mWebhookId             as Lang.String  = "";
     private static var mApiUrl                as Lang.String  = "";
     private static var mConfigUrl             as Lang.String  = "";
     private static var mCacheConfig           as Lang.Boolean = false;
@@ -45,10 +46,14 @@ class Settings {
     private static var mBatteryRefreshRate    as Lang.Number  = 15; // minutes
     private static var mIsApp                 as Lang.Boolean = false;
 
+    // Must keep the object so it doesn't get garbage collected.
+    private static var mWebhookManager        as WebhookManager or Null;
+
     // Called on application start and then whenever the settings are changed.
     static function update() {
         mIsApp                 = getApp().getIsApp();
         mApiKey                = Properties.getValue("api_key");
+        mWebhookId             = Properties.getValue("webhook_id");
         mApiUrl                = Properties.getValue("api_url");
         mConfigUrl             = Properties.getValue("config_url");
         mCacheConfig           = Properties.getValue("cache_config");
@@ -64,7 +69,12 @@ class Settings {
         // Manage this inside the application or widget only (not a glance or background service process)
         if (mIsApp) {
             if (mIsBatteryLevelEnabled) {
-                if ((System has :ServiceDelegate) and
+                if (getWebhookId().equals("")) {
+                    mWebhookManager = new WebhookManager();
+                    mWebhookManager.requestWebhookId();
+                }
+                if (!getWebhookId().equals("") and
+                    (System has :ServiceDelegate) and
                     ((Background.getTemporalEventRegisteredTime() == null) or
                     (Background.getTemporalEventRegisteredTime() != (mBatteryRefreshRate * 60)))) {
                     Background.registerForTemporalEvent(new Time.Duration(mBatteryRefreshRate * 60)); // Convert to seconds
@@ -88,6 +98,20 @@ class Settings {
 
     static function getApiKey() as Lang.String {
         return mApiKey;
+    }
+
+    static function getWebhookId() as Lang.String {
+        return mWebhookId;
+    }
+
+    static function setWebhookId(webhookId as Lang.String) {
+        mWebhookId = webhookId;
+        Properties.setValue("webhook_id", mWebhookId);
+    }
+
+    static function removeWebhookId() {
+        mWebhookId = "";
+        Properties.setValue("webhook_id", mWebhookId);
     }
 
     static function getApiUrl() as Lang.String {
@@ -131,4 +155,11 @@ class Settings {
         return mIsWidgetStartNoTap;
     }
 
+    static function disableBatteryLevel() {
+        mIsBatteryLevelEnabled = false;
+        Properties.setValue("enable_battery_level", mIsBatteryLevelEnabled);
+        if ((System has :ServiceDelegate) and (Background.getTemporalEventRegisteredTime() != null)) {
+            Background.deleteTemporalEvent();
+        }
+    }
 }

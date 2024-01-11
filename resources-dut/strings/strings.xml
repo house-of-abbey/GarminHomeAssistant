@@ -38,17 +38,18 @@
   <string id="NoJson">Er is geen JSON geretourneerd door een HTTP-verzoek.</string>
   <string id="UnhandledHttpErr">HTTP-verzoek retourneerde foutcode =</string>
   <string id="TrailingSlashErr">API-URL mag geen afsluitende slash '/' bevatten</string>
+  <string id="WebhookFailed">Registreren van Webhook is mislukt</string>
   <string id="Available" scope="glance">Beschikbaar</string>
   <string id="Checking" scope="glance">Controleren...</string>
   <string id="Unavailable" scope="glance">Niet beschikbaar</string>
   <string id="Unconfigured" scope="glance">Niet geconfigureerd</string>
   <string id="Cached" scope="glance">In cache opgeslagen</string>
   <string id="GlanceMenu" scope="glance">Menu</string>
-  <!-- Voor de instellingen-GUI -->
+  <!-- Voor de instellingen GUI -->
   <string id="SettingsSelect">Selecteer...</string>
   <string id="SettingsApiKey">API-sleutel voor HomeAssistant.</string>
   <string id="SettingsApiKeyPrompt">Toegangstoken met lange levensduur.</string>
-  <string id="SettingsApiUrl">URL voor HomeAssistant API.</string>
+  <string id="SettingsApiUrl">URL voor HomeAssistant-API.</string>
   <string id="SettingsConfigUrl">URL voor menuconfiguratie (JSON).</string>
   <string id="SettingsCacheConfig">Moet de applicatie de menuconfiguratie in de cache opslaan?</string>
   <string id="SettingsClearCache">Moet de applicatie de volgende keer dat deze wordt gestart de bestaande cache wissen?</string>

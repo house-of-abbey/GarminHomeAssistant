@@ -38,6 +38,7 @@
   <string id="NoJson">Niciun JSON nu a fost returnat de la solicitarea HTTP.</string>
   <string id="UnhandledHttpErr">Solicitarea HTTP a returnat codul de eroare =</string>
   <string id="TrailingSlashErr">Adresa URL API nu trebuie să aibă o bară oblică „/”</string>
+  <string id="WebhookFailed">Nu s-a putut înregistra Webhook</string>
   <string id="Available" scope="glance">Disponibil</string>
   <string id="Checking" scope="glance">Control...</string>
   <string id="Unavailable" scope="glance">Indisponibil</string>

@@ -47,6 +47,7 @@ class RezStrings {
     private static var strNoJson            as Lang.String     or Null;
     private static var strUnhandledHttpErr  as Lang.String     or Null;
     private static var strTrailingSlashErr  as Lang.String     or Null;
+    private static var strWebhookFailed     as Lang.String or Null;
     (:glance)
     private static var strAvailable         as Lang.String     or Null;
     (:glance)
@@ -98,6 +99,7 @@ class RezStrings {
         strNoJson            = WatchUi.loadResource($.Rez.Strings.NoJson);
         strUnhandledHttpErr  = WatchUi.loadResource($.Rez.Strings.UnhandledHttpErr);
         strTrailingSlashErr  = WatchUi.loadResource($.Rez.Strings.TrailingSlashErr);
+        strWebhookFailed     = WatchUi.loadResource($.Rez.Strings.WebhookFailed);
         strAvailable         = WatchUi.loadResource($.Rez.Strings.Available);
         strChecking          = WatchUi.loadResource($.Rez.Strings.Checking);
         strUnavailable       = WatchUi.loadResource($.Rez.Strings.Unavailable);
@@ -176,6 +178,10 @@ class RezStrings {
 
     static function getTrailingSlashErr() as Lang.String {
         return strTrailingSlashErr;
+    }
+
+    static function getWebhookFailed() as Lang.String {
+        return strWebhookFailed;
     }
 
     static function getAvailable() as Lang.String {
