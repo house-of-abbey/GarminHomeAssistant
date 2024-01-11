@@ -11,21 +11,21 @@ class WebhookManager {
                 if (Globals.scDebug) {
                     System.println("WebhookManager onReturnRequestWebhookId() Response Code: BLE_HOST_TIMEOUT or BLE_CONNECTION_UNAVAILABLE, Bluetooth connection severed.");
                 }
-                ErrorView.show(RezStrings.getWebhookFailed()+ "\n" + RezStrings.getNoPhone() + ".");
+                ErrorView.show(RezStrings.getWebhookFailed() + "\n" + RezStrings.getNoPhone() + ".");
                 break;
 
             case Communications.BLE_QUEUE_FULL:
                 if (Globals.scDebug) {
                     System.println("WebhookManager onReturnRequestWebhookId() Response Code: BLE_QUEUE_FULL, API calls too rapid.");
                 }
-                ErrorView.show(RezStrings.getWebhookFailed()+ "\n" + RezStrings.getApiFlood());
+                ErrorView.show(RezStrings.getWebhookFailed() + "\n" + RezStrings.getApiFlood());
                 break;
 
             case Communications.NETWORK_REQUEST_TIMED_OUT:
                 if (Globals.scDebug) {
                     System.println("WebhookManager onReturnRequestWebhookId() Response Code: NETWORK_REQUEST_TIMED_OUT, check Internet connection.");
                 }
-                ErrorView.show(RezStrings.getWebhookFailed()+ "\n" + RezStrings.getNoResponse());
+                ErrorView.show(RezStrings.getWebhookFailed() + "\n" + RezStrings.getNoResponse());
                 break;
 
             case Communications.NETWORK_RESPONSE_OUT_OF_MEMORY:
@@ -38,14 +38,14 @@ class WebhookManager {
                 if (Globals.scDebug) {
                     System.println("WebhookManager onReturnRequestWebhookId() Response Code: INVALID_HTTP_BODY_IN_NETWORK_RESPONSE, check JSON is returned.");
                 }
-                ErrorView.show(RezStrings.getWebhookFailed()+ "\n" + RezStrings.getNoJson());
+                ErrorView.show(RezStrings.getWebhookFailed() + "\n" + RezStrings.getNoJson());
                 break;
 
             case 404:
                 if (Globals.scDebug) {
                     System.println("WebhookManager onReturnRequestWebhookId() Response Code: 404, page not found. Check API URL setting.");
                 }
-                ErrorView.show(RezStrings.getWebhookFailed()+ "\n" + RezStrings.getApiUrlNotFound());
+                ErrorView.show(RezStrings.getWebhookFailed() + "\n" + RezStrings.getApiUrlNotFound());
                 break;
 
             case 201:
@@ -83,7 +83,7 @@ class WebhookManager {
                 if (Globals.scDebug) {
                     System.println("WebhookManager onReturnRequestWebhookId(): Unhandled HTTP response code = " + responseCode);
                 }
-                ErrorView.show(RezStrings.getWebhookFailed()+ "\n" + RezStrings.getUnhandledHttpErr() + responseCode);
+                ErrorView.show(RezStrings.getWebhookFailed() + "\n" + RezStrings.getUnhandledHttpErr() + responseCode);
         }
     }
 
