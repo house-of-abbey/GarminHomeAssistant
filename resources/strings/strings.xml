@@ -32,6 +32,7 @@
     <string id="NoJson">No JSON returned from HTTP request.</string>
     <string id="UnhandledHttpErr">HTTP request returned error code = </string>
     <string id="TrailingSlashErr">API URL must not have a trailing slash '/'</string>
+    <string id="WebhookFailed">Failed to register Webhook</string>
     <string id="Available" scope="glance">Available</string>
     <string id="Checking" scope="glance">Checking...</string>
     <string id="Unavailable" scope="glance">Unavailable</string>
