@@ -25,7 +25,7 @@
   <string id="MenuItemTap">Торкніться</string>
   <string id="MenuItemMenu">Меню</string>
   <string id="Confirm">Зрозуміло?</string>
-  <string id="Executed" scope="glance">Виконано</string>
+  <string id="Executed" scope="glance">Підтверджено</string>
   <string id="NoPhone" scope="glance">Немає телефонного зв'язку</string>
   <string id="NoInternet">Немає підключення до Інтернету</string>
   <string id="NoResponse">Немає відповіді, перевірте підключення до Інтернету</string>
@@ -55,7 +55,7 @@
   <string id="SettingsAppTimeout">Час очікування в секундах. Вийдіть із програми після цього періоду бездіяльності, щоб заощадити батарею пристрою.</string>
   <string id="SettingsConfirmTimeout">Після закінчення цього часу (у секундах) діалогове вікно підтвердження дії автоматично закривається, а дія скасовується. Встановіть 0, щоб вимкнути тайм-аут.</string>
   <string id="SettingsMenuItemStyle">Стиль пункту меню.</string>
-  <string id="SettingsMenuItemStyleIcons">іконки</string>
+  <string id="SettingsMenuItemStyleIcons">Ікони</string>
   <string id="SettingsMenuItemStyleText">Додатковий текст</string>
   <string id="SettingsTextAlign">Ліворуч (вимкнено) або праворуч (увімкнено) вирівнювання меню.</string>
   <string id="LeftToRight">Зліва направо</string>

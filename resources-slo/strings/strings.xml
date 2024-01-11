@@ -25,7 +25,7 @@
   <string id="MenuItemTap">Klepnite</string>
   <string id="MenuItemMenu">Ponuka</string>
   <string id="Confirm">Samozrejme?</string>
-  <string id="Executed" scope="glance">Popravený</string>
+  <string id="Executed" scope="glance">Potvrdené</string>
   <string id="NoPhone" scope="glance">Žiadne telefónne spojenie</string>
   <string id="NoInternet">Žiadne internetové pripojenie</string>
   <string id="NoResponse">Žiadna odpoveď, skontrolujte internetové pripojenie</string>
@@ -47,7 +47,7 @@
   <!-- Pre nastavenia GUI -->
   <string id="SettingsSelect">Vybrať...</string>
   <string id="SettingsApiKey">Kľúč API pre HomeAssistant.</string>
-  <string id="SettingsApiKeyPrompt">Prístupový token s dlhou životnosťou.</string>
+  <string id="SettingsApiKeyPrompt">Dlhotrvajúci prístupový token.</string>
   <string id="SettingsApiUrl">URL pre HomeAssistant API.</string>
   <string id="SettingsConfigUrl">Webová adresa pre konfiguráciu ponuky (JSON).</string>
   <string id="SettingsCacheConfig">Má aplikácia uložiť do vyrovnávacej pamäte konfiguráciu ponuky?</string>

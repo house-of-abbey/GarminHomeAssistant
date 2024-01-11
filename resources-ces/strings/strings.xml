@@ -25,7 +25,7 @@
   <string id="MenuItemTap">Klepněte</string>
   <string id="MenuItemMenu">Jídelní lístek</string>
   <string id="Confirm">Tak určitě?</string>
-  <string id="Executed" scope="glance">Popraven</string>
+  <string id="Executed" scope="glance">Potvrzeno</string>
   <string id="NoPhone" scope="glance">Žádné telefonní spojení</string>
   <string id="NoInternet">Žádné internetové připojení</string>
   <string id="NoResponse">Žádná odpověď, zkontrolujte připojení k internetu</string>

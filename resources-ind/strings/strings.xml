@@ -25,7 +25,7 @@
   <string id="MenuItemTap">Mengetuk</string>
   <string id="MenuItemMenu">Menu</string>
   <string id="Confirm">Tentu?</string>
-  <string id="Executed" scope="glance">Dieksekusi</string>
+  <string id="Executed" scope="glance">Dikonfirmasi</string>
   <string id="NoPhone" scope="glance">Tidak ada koneksi Telepon</string>
   <string id="NoInternet">Tidak ada koneksi internet</string>
   <string id="NoResponse">Tidak Ada Respon, periksa koneksi Internet</string>

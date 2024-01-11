@@ -25,7 +25,7 @@
   <string id="MenuItemTap">Bakstelėkite</string>
   <string id="MenuItemMenu">Meniu</string>
   <string id="Confirm">Žinoma?</string>
-  <string id="Executed" scope="glance">Vykdoma</string>
+  <string id="Executed" scope="glance">Patvirtinta</string>
   <string id="NoPhone" scope="glance">Nėra telefono ryšio</string>
   <string id="NoInternet">Nėra interneto ryšio</string>
   <string id="NoResponse">Neatsako, patikrinkite interneto ryšį</string>
@@ -60,7 +60,7 @@
   <string id="SettingsTextAlign">Kairysis (išjungtas) arba dešinysis (įjungtas) meniu lygiavimas.</string>
   <string id="LeftToRight">Iš kairės į dešinę</string>
   <string id="RightToLeft">Iš dešinės į kairę</string>
-  <string id="SettingsWidgetStart">(Tik valdiklis) Automatiškai paleiskite programą iš valdiklio, nelaukdami palietimo.</string>
+  <string id="SettingsWidgetStart">(Tik valdikliui) Automatiškai paleiskite programą iš valdiklio, nelaukdami, kol bus palietus.</string>
   <string id="SettingsEnableBatteryLevel">Įgalinkite foninę paslaugą, kad į „Home Assistant“ būtų išsiųstas laikrodžio akumuliatoriaus lygis.</string>
   <string id="SettingsBatteryLevelRefreshRate">Atnaujinimo dažnis (minutėmis), kuriuo foninė paslauga turėtų pakartoti baterijos lygio siuntimą.</string>
 </strings>

@@ -25,7 +25,7 @@
   <string id="MenuItemTap">Clic</string>
   <string id="MenuItemMenu">Menu</string>
   <string id="Confirm">Bien sûr?</string>
-  <string id="Executed" scope="glance">Réalisé</string>
+  <string id="Executed" scope="glance">Confirmé</string>
   <string id="NoPhone" scope="glance">Pas de connexion téléphonique</string>
   <string id="NoInternet">Pas de connexion Internet</string>
   <string id="NoResponse">Pas de réponse, vérifiez la connexion Internet</string>
