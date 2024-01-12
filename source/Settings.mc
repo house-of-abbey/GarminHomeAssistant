@@ -72,8 +72,7 @@ class Settings {
                 if (getWebhookId().equals("")) {
                     mWebhookManager = new WebhookManager();
                     mWebhookManager.requestWebhookId();
-                }
-                if (!getWebhookId().equals("") and
+                } else if (
                     (System has :ServiceDelegate) and
                     ((Background.getTemporalEventRegisteredTime() == null) or
                     (Background.getTemporalEventRegisteredTime() != (mBatteryRefreshRate * 60)))) {
@@ -84,6 +83,7 @@ class Settings {
                 if ((System has :ServiceDelegate) and (Background.getTemporalEventRegisteredTime() != null)) {
                     Background.deleteTemporalEvent();
                 }
+                removeWebhookId();
             }
         }
         if (Globals.scDebug) {
