@@ -139,7 +139,7 @@ echo ""
 
 curl -s -X POST \
   -H "Content-Type: application/json" \
-  -d '{ "type": "update_sensor_states", "data": [ {"state": ${level},"type": "sensor","unique_id": "battery_level"}, {"state": ${is_charging},"type": "binary_sensor","unique_id": "battery_is_charging"} ] }' \
+  -d '{ "type": "update_sensor_states", "data": [ {"state": '${level}',"type": "sensor","unique_id": "battery_level"}, {"state": '${is_charging}',"type": "binary_sensor","unique_id": "battery_is_charging"} ] }' \
   ${URL}/webhook/${WEBHOOK_ID}
 ```
 
