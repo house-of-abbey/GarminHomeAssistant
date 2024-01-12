@@ -18,13 +18,21 @@ To stop the reporting, the option must be turned off in the settings and then th
 
 In both cases, the enable and repeat time settings can be changed whilst the application is running (i.e. live) and the background service will be amended.
 
-## Adding a sample Home Assistant UI widget
+## Renaming the device
 
-A gauge for battery level with a charging icon making use of [mushroom cards](https://github.com/piitaya/lovelace-mushroom), [card_mod](https://github.com/thomasloven/lovelace-card-mod) and [stack-in-card](https://github.com/custom-cards/stack-in-card):
+When the device is first created, it will be called `Garmin Watch`. This can be changed in the mobile app integration settings (button below).
 
-<img src="images/Battery_Guage_Screenshot.png" width="120" title="Battery Gauge"/>
+[![Open your Home Assistant instance and show an integration.](https://my.home-assistant.io/badges/integration.svg)](https://my.home-assistant.io/redirect/integration/?domain=mobile_app)
 
-### Fixing the icon
+Select the device called `Garmin Watch` and then click on the edit icon in the top right corner. You can then change the name of the device to whatever you like, then press `UPDATE` and then `RENAME`.
+
+![Rename device](images/rename_device.png)
+
+
+![Rename entity ids](images/rename_device_2.png)
+
+
+## Fixing the icon
 
 In configuration.yaml:
 
@@ -40,7 +48,11 @@ template:
         icon: "mdi:battery{% if is_state('binary_sensor.<device>_battery_is_charging', 'on') %}-charging{% endif %}{% if 0 < (states('sensor.<device>_battery_level') | float / 10 ) | round(0) * 10 < 100 %}-{{ (states('sensor.<device>_battery_level') | float / 10 ) | round(0) * 10 }}{% else %}{% if (states('sensor.<device>_battery_level') | float / 10 ) | round(0) * 10 == 0 %}-outline{% else %}{% if is_state('binary_sensor.<device>_battery_is_charging', 'on') %}-100{% endif %}{% endif %}{% endif %}"
 ```
 
-### Adding the widget
+## Adding a sample Home Assistant UI widget
+
+A gauge for battery level with a charging icon making use of [mushroom cards](https://github.com/piitaya/lovelace-mushroom), [card_mod](https://github.com/thomasloven/lovelace-card-mod) and [stack-in-card](https://github.com/custom-cards/stack-in-card):
+
+<img src="images/Battery_Guage_Screenshot.png" width="120" title="Battery Gauge"/>
 
 In lovelace:
 
