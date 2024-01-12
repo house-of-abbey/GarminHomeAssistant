@@ -28,9 +28,7 @@ Select the device called `Garmin Watch` and then click on the edit icon in the t
 
 ![Rename device](images/rename_device.png)
 
-
 ![Rename entity ids](images/rename_device_2.png)
-
 
 ## Fixing the icon
 
@@ -115,3 +113,9 @@ cards:
 ```
 
 N.B. `sensor.<device>_battery_level` will likely need to be changed to `sensor.<device>_battery_level_2` if you have fixed the icon as above.
+
+## Migrating
+
+You should remove your old template sensors before migrating to the new integration. You can do this by removing the `sensor.<device>_battery_level` and `binary_sensor.<device>_battery_is_charging` entities from `configuration.yaml` and then restarting Home Assistant or reloading the yaml.
+
+[Here is the old configuration method for reference.](https://github.com/house-of-abbey/GarminHomeAssistant/blob/b51e2aa2a4afbc58ad466f3b81667d1cd252d091/BatteryReporting.md)
