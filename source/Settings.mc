@@ -83,7 +83,7 @@ class Settings {
                 if ((System has :ServiceDelegate) and (Background.getTemporalEventRegisteredTime() != null)) {
                     Background.deleteTemporalEvent();
                 }
-                removeWebhookId();
+                unsetWebhookId();
             }
         }
         if (Globals.scDebug) {
@@ -109,7 +109,7 @@ class Settings {
         Properties.setValue("webhook_id", mWebhookId);
     }
 
-    static function removeWebhookId() {
+    static function unsetWebhookId() {
         mWebhookId = "";
         Properties.setValue("webhook_id", mWebhookId);
     }
@@ -155,7 +155,7 @@ class Settings {
         return mIsWidgetStartNoTap;
     }
 
-    static function disableBatteryLevel() {
+    static function unsetIsBatteryLevelEnabled() {
         mIsBatteryLevelEnabled = false;
         Properties.setValue("enable_battery_level", mIsBatteryLevelEnabled);
         if ((System has :ServiceDelegate) and (Background.getTemporalEventRegisteredTime() != null)) {
