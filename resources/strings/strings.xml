@@ -59,4 +59,5 @@
     <string id="SettingsWidgetStart">(Widget only) Automatically start the application from the widget without waiting for a tap.</string>
     <string id="SettingsEnableBatteryLevel">Enable the background service to send the clock battery level to Home Assistant.</string>
     <string id="SettingsBatteryLevelRefreshRate">The refresh rate (in minutes) at which the background service should repeat sending the battery level.</string>
+    <string id="WebhookId">(Read only) The Webhook ID created by the watch for battery level updates. You might require this for debugging.</string>
 </strings>

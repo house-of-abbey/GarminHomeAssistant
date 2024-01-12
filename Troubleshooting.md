@@ -243,10 +243,10 @@ There's an online way of testing the API URL too, thanks to [REQBIN](https://req
 URL for copy & paste:
 
 ```
-https://<Your Domain>/api/events/garmin.battery_level
+https://<Your Domain>/api/webhook/<Your Webhook ID>
 ```
 
-![API Test REQBIN](images/api_test_online_battery1.png)
+![API Test REQBIN](images/api_test_online_battery.png)
 
 JSON for copy & paste:
 
@@ -255,7 +255,7 @@ JSON for copy & paste:
   "type": "update_sensor_states",
   "data": [
     {
-      "state": 19,
+      "state": 40,
       "type": "sensor",
       "unique_id": "battery_level"
     },
@@ -267,5 +267,3 @@ JSON for copy & paste:
   ]
 }
 ```
-
-![API Test REQBIN](images/api_test_online_battery2.png)
