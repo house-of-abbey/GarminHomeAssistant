@@ -15,11 +15,25 @@
         "name": { "title": "Your familiar name", "type": "string" },
         "type": {
           "title": "Menu item type",
-          "description": "One of 'tap, 'toggle' or 'group'.",
+          "description": "One of 'tap', 'template', 'toggle' or 'group'.",
           "const": "toggle"
         }
       },
       "required": ["entity", "name", "type"],
+      "additionalProperties": false
+    },
+    "template": {
+      "type": "object",
+      "properties": {
+        "name": { "title": "Your familiar name", "type": "string" },
+        "content": { "title": "What to display (template)", "type": "string" },
+        "type": {
+          "title": "Menu item type",
+          "description": "One of 'tap', 'template', 'toggle' or 'group'.",
+          "const": "template"
+        }
+      },
+      "required": ["name", "content", "type"],
       "additionalProperties": false
     },
     "tap": {
@@ -29,7 +43,7 @@
         "name": { "title": "Your familiar name", "type": "string" },
         "type": {
           "title": "Menu item type",
-          "description": "One of 'tap, 'toggle' or 'group'.",
+          "description": "One of 'tap', 'template', 'toggle' or 'group'.",
           "const": "tap"
         },
         "service": {
@@ -54,7 +68,7 @@
         "title": { "type": "string" },
         "type": {
           "title": "Menu item type",
-          "description": "One of 'tap, 'toggle' or 'group'.",
+          "description": "One of 'tap', 'template', 'toggle' or 'group'.",
           "const": "group"
         },
         "items": { "$ref": "#/$defs/items" }
@@ -66,8 +80,9 @@
       "type": "array",
       "items": {
         "oneOf": [
-          { "$ref": "#/$defs/toggle" },
           { "$ref": "#/$defs/tap" },
+          { "$ref": "#/$defs/template" },
+          { "$ref": "#/$defs/toggle" },
           { "$ref": "#/$defs/menu" }
         ]
       }
