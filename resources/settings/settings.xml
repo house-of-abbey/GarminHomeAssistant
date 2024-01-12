@@ -109,8 +109,8 @@
 
   <setting
     propertyKey="@Properties.webhook_id"
-    title="Webhook ID"
+    title="@Strings.WebhookId"
   >
-    <settingConfig type="alphaNumeric" />
+    <settingConfig type="alphaNumeric" readonly="true" />
   </setting>
 </settings>
