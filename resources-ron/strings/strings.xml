@@ -56,7 +56,7 @@
   <string id="SettingsAppTimeout">Timeout în secunde. Ieșiți din aplicație după această perioadă de inactivitate pentru a economisi bateria dispozitivului.</string>
   <string id="SettingsConfirmTimeout">După acest timp (în secunde), un dialog de confirmare pentru o acțiune este închis automat și acțiunea este anulată. Setați la 0 pentru a dezactiva timeout-ul.</string>
   <string id="SettingsMenuItemStyle">Stilul elementului de meniu.</string>
-  <string id="SettingsMenuItemStyleIcons">Pictograme</string>
+  <string id="SettingsMenuItemStyleIcons">icoane</string>
   <string id="SettingsMenuItemStyleText">Text suplimentar</string>
   <string id="SettingsTextAlign">Alinierea meniului la stânga (dezactivată) sau la dreapta (activată).</string>
   <string id="LeftToRight">De la stânga la dreapta</string>
@@ -64,4 +64,5 @@
   <string id="SettingsWidgetStart">(Numai widget) Porniți automat aplicația din widget fără a aștepta o atingere.</string>
   <string id="SettingsEnableBatteryLevel">Activați serviciul de fundal pentru a trimite nivelul bateriei ceasului către Home Assistant.</string>
   <string id="SettingsBatteryLevelRefreshRate">Rata de reîmprospătare (în minute) la care serviciul de fundal ar trebui să repete trimiterea nivelului bateriei.</string>
+  <string id="WebhookId">(Numai citire) ID-ul Webhook creat de ceas pentru actualizările nivelului bateriei. Este posibil să aveți nevoie de acest lucru pentru depanare.</string>
 </strings>

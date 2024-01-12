@@ -64,4 +64,5 @@
   <string id="SettingsWidgetStart">(วิดเจ็ตเท่านั้น) เริ่มแอปพลิเคชันโดยอัตโนมัติจากวิดเจ็ตโดยไม่ต้องรอการแตะ</string>
   <string id="SettingsEnableBatteryLevel">เปิดใช้บริการพื้นหลังเพื่อส่งระดับแบตเตอรี่นาฬิกาไปยัง Home Assistant</string>
   <string id="SettingsBatteryLevelRefreshRate">อัตรารีเฟรช (เป็นนาที) ที่บริการพื้นหลังควรส่งระดับแบตเตอรี่ซ้ำ</string>
+  <string id="WebhookId">(อ่านอย่างเดียว) Webhook ID ที่สร้างโดยนาฬิกาสำหรับการอัปเดตระดับแบตเตอรี่ คุณอาจต้องการสิ่งนี้สำหรับการดีบัก</string>
 </strings>

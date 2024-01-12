@@ -64,4 +64,5 @@
   <string id="SettingsWidgetStart">(Somente widget) Inicie automaticamente o aplicativo a partir do widget sem esperar por um toque.</string>
   <string id="SettingsEnableBatteryLevel">Ative o serviço em segundo plano para enviar o nível da bateria do relógio ao Home Assistant.</string>
   <string id="SettingsBatteryLevelRefreshRate">A taxa de atualização (em minutos) na qual o serviço em segundo plano deve repetir o envio do nível da bateria.</string>
+  <string id="WebhookId">(Somente leitura) O ID do Webhook criado pelo relógio para atualizações do nível da bateria. Você pode precisar disso para depuração.</string>
 </strings>

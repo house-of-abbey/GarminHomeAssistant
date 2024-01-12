@@ -64,4 +64,5 @@
   <string id="SettingsWidgetStart">(Samo widget) Automatski pokrenite aplikaciju iz widgeta bez čekanja na dodir.</string>
   <string id="SettingsEnableBatteryLevel">Omogućite pozadinsku uslugu za slanje razine baterije sata kućnom pomoćniku.</string>
   <string id="SettingsBatteryLevelRefreshRate">Brzina osvježavanja (u minutama) pri kojoj bi pozadinska usluga trebala ponavljati slanje razine baterije.</string>
+  <string id="WebhookId">(Samo za čitanje) Webhook ID koji je izradio sat za ažuriranje razine baterije. Ovo vam može trebati za otklanjanje pogrešaka.</string>
 </strings>

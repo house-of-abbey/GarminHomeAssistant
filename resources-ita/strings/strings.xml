@@ -64,4 +64,5 @@
   <string id="SettingsWidgetStart">(Solo widget) Avvia automaticamente l'applicazione dal widget senza attendere un tocco.</string>
   <string id="SettingsEnableBatteryLevel">Abilita il servizio in background per inviare il livello della batteria dell'orologio a Home Assistant.</string>
   <string id="SettingsBatteryLevelRefreshRate">La frequenza di aggiornamento (in minuti) alla quale il servizio in background deve ripetere l'invio del livello della batteria.</string>
+  <string id="WebhookId">(Sola lettura) L'ID webhook creato dall'orologio per gli aggiornamenti del livello della batteria. Potrebbe essere necessario per il debug.</string>
 </strings>

@@ -64,4 +64,5 @@
   <string id="SettingsWidgetStart">(tikai logrīkam) Automātiski startējiet lietojumprogrammu no logrīka, negaidot pieskārienu.</string>
   <string id="SettingsEnableBatteryLevel">Iespējojiet fona pakalpojumu, lai uz Home Assistant nosūtītu pulksteņa akumulatora uzlādes līmeni.</string>
   <string id="SettingsBatteryLevelRefreshRate">Atsvaidzes intensitāte (minūtēs), ar kādu fona pakalpojumam ir jāatkārto akumulatora līmeņa nosūtīšana.</string>
+  <string id="WebhookId">(Tikai lasāms) Web aizķeres ID, ko pulkstenis izveidojis akumulatora uzlādes līmeņa atjauninājumiem. Tas var būt nepieciešams atkļūdošanai.</string>
 </strings>

@@ -64,4 +64,5 @@
   <string id="SettingsWidgetStart">(Alleen Widget) Start de applicatie automatisch vanuit de widget zonder te wachten op een tik.</string>
   <string id="SettingsEnableBatteryLevel">Schakel de achtergrondservice in om het batterijniveau van de klok naar Home Assistant te sturen.</string>
   <string id="SettingsBatteryLevelRefreshRate">De vernieuwingsfrequentie (in minuten) waarmee de achtergrondservice het batterijniveau opnieuw moet verzenden.</string>
+  <string id="WebhookId">(Alleen-lezen) De Webhook-ID die door het horloge is aangemaakt voor updates van het batterijniveau. Mogelijk hebt u dit nodig voor foutopsporing.</string>
 </strings>

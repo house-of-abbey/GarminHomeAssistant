@@ -64,4 +64,5 @@
   <string id="SettingsWidgetStart">(Khusus widget) Secara otomatis memulai aplikasi dari widget tanpa menunggu ketukan.</string>
   <string id="SettingsEnableBatteryLevel">Aktifkan layanan latar belakang untuk mengirim level baterai jam ke Home Assistant.</string>
   <string id="SettingsBatteryLevelRefreshRate">Kecepatan refresh (dalam menit) saat layanan latar belakang harus mengulangi pengiriman level baterai.</string>
+  <string id="WebhookId">(Hanya baca) ID Webhook yang dibuat oleh jam tangan untuk pembaruan level baterai. Anda mungkin memerlukan ini untuk debugging.</string>
 </strings>

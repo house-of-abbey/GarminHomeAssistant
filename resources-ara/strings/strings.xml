@@ -64,4 +64,5 @@
   <string id="SettingsWidgetStart">(القطعة فقط) قم بتشغيل التطبيق تلقائيًا من الأداة دون انتظار نقرة واحدة.</string>
   <string id="SettingsEnableBatteryLevel">قم بتمكين خدمة الخلفية لإرسال مستوى بطارية الساعة إلى Home Assistant.</string>
   <string id="SettingsBatteryLevelRefreshRate">معدل التحديث (بالدقائق) الذي يجب أن تكرر عنده خدمة الخلفية إرسال مستوى البطارية.</string>
+  <string id="WebhookId">(للقراءة فقط) معرف Webhook الذي أنشأته الساعة لتحديثات مستوى البطارية. قد تحتاج إلى هذا لتصحيح الأخطاء.</string>
 </strings>

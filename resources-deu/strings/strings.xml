@@ -64,4 +64,5 @@
   <string id="SettingsWidgetStart">(Nur Widget) Starten Sie die Anwendung automatisch über das Widget, ohne auf einen Tipp warten zu müssen.</string>
   <string id="SettingsEnableBatteryLevel">Aktivieren Sie den Hintergrunddienst, um den Batteriestand der Uhr an Home Assistant zu senden.</string>
   <string id="SettingsBatteryLevelRefreshRate">Die Aktualisierungsrate (in Minuten), mit der der Hintergrunddienst das Senden des Akkustands wiederholen soll.</string>
+  <string id="WebhookId">(Schreibgeschützt) Die von der Uhr erstellte Webhook-ID für Aktualisierungen des Batteriestands. Möglicherweise benötigen Sie dies zum Debuggen.</string>
 </strings>

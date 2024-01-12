@@ -64,4 +64,5 @@
   <string id="SettingsWidgetStart">(Yalnızca Widget) Dokunmayı beklemeden uygulamayı widget'tan otomatik olarak başlatın.</string>
   <string id="SettingsEnableBatteryLevel">Saatin pil seviyesini Ev Asistanına göndermek için arka plan hizmetini etkinleştirin.</string>
   <string id="SettingsBatteryLevelRefreshRate">Arka plan hizmetinin pil seviyesini göndermeyi tekrarlaması gereken yenileme hızı (dakika olarak).</string>
+  <string id="WebhookId">(Salt okunur) Saatin pil seviyesi güncellemeleri için oluşturduğu Webhook Kimliği. Hata ayıklama için buna ihtiyacınız olabilir.</string>
 </strings>

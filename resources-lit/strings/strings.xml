@@ -61,7 +61,8 @@
   <string id="SettingsTextAlign">Kairysis (išjungtas) arba dešinysis (įjungtas) meniu lygiavimas.</string>
   <string id="LeftToRight">Iš kairės į dešinę</string>
   <string id="RightToLeft">Iš dešinės į kairę</string>
-  <string id="SettingsWidgetStart">(Tik valdikliui) Automatiškai paleiskite programą iš valdiklio, nelaukdami, kol bus palietus.</string>
+  <string id="SettingsWidgetStart">(Tik valdiklis) Automatiškai paleiskite programą iš valdiklio, nelaukdami palietimo.</string>
   <string id="SettingsEnableBatteryLevel">Įgalinkite foninę paslaugą, kad į „Home Assistant“ būtų išsiųstas laikrodžio akumuliatoriaus lygis.</string>
   <string id="SettingsBatteryLevelRefreshRate">Atnaujinimo dažnis (minutėmis), kuriuo foninė paslauga turėtų pakartoti baterijos lygio siuntimą.</string>
+  <string id="WebhookId">(Tik skaitoma) „Webhook“ ID, kurį sukūrė laikrodis, norint atnaujinti akumuliatoriaus lygį. Jums gali prireikti derinimo.</string>
 </strings>

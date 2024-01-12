@@ -64,4 +64,5 @@
   <string id="SettingsWidgetStart">（僅限小部件）從小部件自動啟動應用程序，無需等待點擊。</string>
   <string id="SettingsEnableBatteryLevel">啟用後台服務將時鐘電池電量傳送到 Home Assistant。</string>
   <string id="SettingsBatteryLevelRefreshRate">後台服務應重複發送電池電量的更新率（以分鐘為單位）。</string>
+  <string id="WebhookId">（唯讀）手錶創建的用於電池電量更新的 Webhook ID。您可能需要它來進行調試。</string>
 </strings>

@@ -64,4 +64,5 @@
   <string id="SettingsWidgetStart">(Len miniaplikácia) Automaticky spustite aplikáciu z miniaplikácie bez čakania na klepnutie.</string>
   <string id="SettingsEnableBatteryLevel">Povoľte službu na pozadí na odosielanie úrovne batérie hodín do domáceho asistenta.</string>
   <string id="SettingsBatteryLevelRefreshRate">Obnovovacia frekvencia (v minútach), pri ktorej by služba na pozadí mala opakovať odosielanie úrovne batérie.</string>
+  <string id="WebhookId">(Iba na čítanie) Webhook ID vytvorený hodinkami na aktualizáciu úrovne batérie. Možno to budete potrebovať na ladenie.</string>
 </strings>

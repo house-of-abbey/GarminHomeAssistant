@@ -64,4 +64,5 @@
   <string id="SettingsWidgetStart">(Vain widget) Käynnistä sovellus automaattisesti widgetistä odottamatta napautusta.</string>
   <string id="SettingsEnableBatteryLevel">Ota taustapalvelu käyttöön lähettääksesi kellon akun varaustason Home Assistantille.</string>
   <string id="SettingsBatteryLevelRefreshRate">Virkistystaajuus (minuutteina), jolla taustapalvelun pitäisi toistaa akun varaustason lähettämistä.</string>
+  <string id="WebhookId">(Vain luku) Kellon luoma Webhook-tunnus akun varaustason päivityksiä varten. Saatat tarvita tätä virheenkorjaukseen.</string>
 </strings>

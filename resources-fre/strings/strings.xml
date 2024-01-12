@@ -64,4 +64,5 @@
   <string id="SettingsWidgetStart">(Widget uniquement) Démarrez automatiquement l'application à partir du widget sans attendre un clic.</string>
   <string id="SettingsEnableBatteryLevel">Activez le service d'arrière-plan pour envoyer le niveau de batterie de l'horloge à Home Assistant.</string>
   <string id="SettingsBatteryLevelRefreshRate">Fréquence de rafraîchissement (en minutes) à laquelle le service en arrière-plan doit répéter l'envoi du niveau de la batterie.</string>
+  <string id="WebhookId">(Lecture seule) L'ID Webhook créé par la montre pour les mises à jour du niveau de batterie. Vous pourriez en avoir besoin pour le débogage.</string>
 </strings>

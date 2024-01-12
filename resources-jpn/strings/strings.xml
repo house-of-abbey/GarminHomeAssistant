@@ -64,4 +64,5 @@
   <string id="SettingsWidgetStart">（ウィジェットのみ）タップを待たずにウィジェットからアプリを自動起動します。</string>
   <string id="SettingsEnableBatteryLevel">バックグラウンド サービスを有効にして、時計のバッテリー レベルをホーム アシスタントに送信します。</string>
   <string id="SettingsBatteryLevelRefreshRate">バックグラウンド サービスがバッテリー レベルの送信を繰り返すリフレッシュ レート (分単位)。</string>
+  <string id="WebhookId">(読み取り専用) バッテリー レベルの更新のためにウォッチによって作成された Webhook ID。デバッグのためにこれが必要になる場合があります。</string>
 </strings>

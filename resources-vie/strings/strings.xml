@@ -64,4 +64,5 @@
   <string id="SettingsWidgetStart">(Chỉ tiện ích) Tự động khởi động ứng dụng từ tiện ích mà không cần chờ nhấn.</string>
   <string id="SettingsEnableBatteryLevel">Kích hoạt dịch vụ nền để gửi mức pin đồng hồ đến Home Assistant.</string>
   <string id="SettingsBatteryLevelRefreshRate">Tốc độ làm mới (tính bằng phút) mà dịch vụ nền sẽ lặp lại việc gửi mức pin.</string>
+  <string id="WebhookId">(Chỉ đọc) ID Webhook do đồng hồ tạo để cập nhật mức pin. Bạn có thể yêu cầu điều này để gỡ lỗi.</string>
 </strings>

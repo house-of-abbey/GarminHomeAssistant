@@ -64,4 +64,5 @@
   <string id="SettingsWidgetStart">(Samo pripomoček) Samodejno zaženite aplikacijo iz pripomočka, ne da bi čakali na dotik.</string>
   <string id="SettingsEnableBatteryLevel">Omogočite storitev v ozadju za pošiljanje ravni baterije ure domačemu pomočniku.</string>
   <string id="SettingsBatteryLevelRefreshRate">Hitrost osveževanja (v minutah), pri kateri naj storitev v ozadju ponavlja pošiljanje stanja baterije.</string>
+  <string id="WebhookId">(Samo za branje) ID Webhook, ki ga ustvari ura za posodobitve ravni baterije. To boste morda potrebovali za odpravljanje napak.</string>
 </strings>
