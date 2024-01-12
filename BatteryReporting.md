@@ -24,6 +24,26 @@ A gauge for battery level with a charging icon making use of [mushroom cards](ht
 
 <img src="images/Battery_Guage_Screenshot.png" width="120" title="Battery Gauge"/>
 
+### Fixing the icon
+
+In configuration.yaml:
+
+```yaml
+template:
+  - sensor:
+      - name: "<device-name> Battery Level"
+        unique_id: "<unique-id>"
+        device_class: "battery"
+        unit_of_measurement: "%"
+        state_class: "measurement"
+        state: "{{ states('sensor.<device>_battery_level') }}"
+        icon: "mdi:battery{% if is_state('binary_sensor.<device>_battery_is_charging', 'on') %}-charging{% endif %}{% if 0 < (states('sensor.<device>_battery_level') | float / 10 ) | round(0) * 10 < 100 %}-{{ (states('sensor.<device>_battery_level') | float / 10 ) | round(0) * 10 }}{% else %}{% if (states('sensor.<device>_battery_level') | float / 10 ) | round(0) * 10 == 0 %}-outline{% else %}{% if is_state('binary_sensor.<device>_battery_is_charging', 'on') %}-100{% endif %}{% endif %}{% endif %}"
+```
+
+### Adding the widget
+
+In lovelace:
+
 ```yaml
 type: custom:stack-in-card
 direction: vertical
@@ -38,7 +58,7 @@ cards:
       - type: conditional
         conditions:
           - condition: state
-            entity: binary_sensor.<device>_is_charging
+            entity: binary_sensor.<device>_battery_is_charging
             state: "on"
         chip:
           type: entity
@@ -54,7 +74,7 @@ cards:
       - type: conditional
         conditions:
           - condition: state
-            entity: binary_sensor.<device>_is_charging
+            entity: binary_sensor.<device>_battery_is_charging
             state: "off"
         chip:
           type: entity
@@ -81,3 +101,5 @@ cards:
           border: none !important;
         }
 ```
+
+N.B. `sensor.<device>_battery_level` will likely need to be changed to `sensor.<device>_battery_level_2` if you have fixed the icon as above.
