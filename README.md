@@ -231,7 +231,7 @@ There is a toggle setting for "text alignment" and provides finer adjustment for
 
 Another toggle setting for the **Widget version only** allows the user to select a non-standard user interface behaviour. As soon as the menu is retrieved the widget view is replaced by the menu without waiting for a user selection. This has been included as requested by a user, but defaults to off which retains the expected user interactions.
 
-Finally you may enable a background service to report the battery level to your Home Assistant. This is not available over Bluetooth like with other Bluetooth devices as Garmin did not implement it. This is more complicated than the rest of the application to [set up](#battery-level-reporting).
+Finally you may enable a background service to report the battery level to your Home Assistant. This is not available over Bluetooth like with other Bluetooth devices as Garmin did not implement it. See the [set up instructions](#battery-level-reporting). the last field here is readonly and allows the user to copy & paste the Webhook ID setup by the application when required for debug.
 
 ## Tap Item Response
 
@@ -278,7 +278,7 @@ The `id` attribute values are taken from the same names used in [`strings.xml`](
 
 We've had [a report](https://github.com/house-of-abbey/GarminHomeAssistant/issues/39) that this feature does not work without **administrator priviledges**. We've reviewed possible fixes and come up short. We are unable to fix this at present but invite those skilled in the art of Home Assistant to suggest a solution to us!
 
-The application and widget both now include a background service to report your watch's battery level and charging status. This requires [significant setup](BatteryReporting.md) via YAML in Home Assistant to work. This is not for the feint hearted! We are keen to received improvements, but are reluctant to provide much in the way of support. The Home Assistant community, in particular the posts on the forum at [Bluetooth Battery Levels (Android)](https://community.home-assistant.io/t/bluetooth-battery-levels-android/661525), are your best source of support for this feature. We do however offer this [trouble shooting](Troubleshooting.md#watch-battery-level-reporting) guide.
+The application and widget both now include a background service to report your watch's battery level and charging status. This requires some [setup](BatteryReporting.md) via YAML in Home Assistant to display the transmitted value. We offer this [trouble shooting](Troubleshooting.md#watch-battery-level-reporting) guide.
 
 ## Version History
 
