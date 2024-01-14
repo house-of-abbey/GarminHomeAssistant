@@ -20,10 +20,6 @@
 
 <strings>
   <string id="AppName" scope="glance">HomeAssistant</string>
-  <string id="MenuItemOn">Tovább</string>
-  <string id="MenuItemOff">Ki</string>
-  <string id="MenuItemTap">Koppintson a</string>
-  <string id="MenuItemMenu">Menü</string>
   <string id="Confirm">Biztos?</string>
   <string id="Executed" scope="glance">Megerősített</string>
   <string id="NoPhone" scope="glance">Nincs telefonkapcsolat</string>
@@ -44,26 +40,30 @@
   <string id="Checking" scope="glance">Ellenőrzés...</string>
   <string id="Unavailable" scope="glance">Nem érhető el</string>
   <string id="Unconfigured" scope="glance">Nincs konfigurálva</string>
-  <string id="Cached" scope="glance">Gyorsítótárazott</string>
+  <string id="Cached" scope="glance">Gyorsítótárban</string>
   <string id="GlanceMenu" scope="glance">Menü</string>
   <!-- A beállítások GUI-hoz -->
-  <string id="SettingsSelect">Válassz...</string>
+  <string id="SettingsSelect">Válasszon...</string>
   <string id="SettingsApiKey">API-kulcs a HomeAssistant számára.</string>
   <string id="SettingsApiKeyPrompt">Hosszú életű hozzáférési token.</string>
   <string id="SettingsApiUrl">A HomeAssistant API URL-je.</string>
   <string id="SettingsConfigUrl">URL a menükonfigurációhoz (JSON).</string>
-  <string id="SettingsCacheConfig">Az alkalmazásnak gyorsítótárba kell helyeznie a menü konfigurációját?</string>
-  <string id="SettingsClearCache">Törölje az alkalmazásnak a meglévő gyorsítótárat a következő indításakor?</string>
-  <string id="SettingsAppTimeout">Időtúllépés másodpercben. Az eszköz akkumulátorának kímélése érdekében lépjen ki az alkalmazásból ezen inaktivitási időszak után.</string>
-  <string id="SettingsConfirmTimeout">Ezen idő elteltével (másodpercben) egy művelet megerősítő párbeszédpanele automatikusan bezárul, és a művelet megszakad. Állítsa 0-ra az időtúllépés letiltásához.</string>
-  <string id="SettingsMenuItemStyle">Menüelem stílusa.</string>
-  <string id="SettingsMenuItemStyleIcons">Ikonok</string>
-  <string id="SettingsMenuItemStyleText">Kiegészítő szöveg</string>
+  <string id="SettingsCacheConfig">Az alkalmazásnak gyorsítótárba kell helyeznie a menükonfigurációt?</string>
+  <string id="SettingsClearCache">Ha az alkalmazás legközelebb törli a meglévő gyorsítótárat
+    elkezdődött?</string>
+  <string id="SettingsAppTimeout">Időtúllépés másodpercben. Lépjen ki az alkalmazásból ezen időszak után
+    tétlenség, hogy kímélje a készülék akkumulátorát.</string>
+  <string id="SettingsConfirmTimeout">Ezen idő elteltével (másodpercben), egy megerősítő párbeszédpanel egy
+    A művelet automatikusan bezárul, és a művelet megszakad. Állítsa 0-ra az időtúllépés letiltásához.</string>
   <string id="SettingsTextAlign">Balra (ki) vagy Jobbra (be) Menüigazítás.</string>
   <string id="LeftToRight">Balról jobbra</string>
   <string id="RightToLeft">Jobbról balra</string>
-  <string id="SettingsWidgetStart">(Csak Widget) Az alkalmazás automatikus indítása a widgetről anélkül, hogy egy érintésre várna.</string>
-  <string id="SettingsEnableBatteryLevel">Engedélyezze a háttérszolgáltatást, hogy elküldje az óra töltöttségi szintjét a Home Assistantnek.</string>
-  <string id="SettingsBatteryLevelRefreshRate">Az a frissítési gyakoriság (percben), amelynél a háttérszolgáltatásnak meg kell ismételnie az akkumulátor töltöttségi szintjének küldését.</string>
-  <string id="WebhookId">(Csak olvasható) Az óra által az akkumulátor töltöttségi szintjének frissítéséhez létrehozott Webhook azonosító. Erre szükség lehet a hibakereséshez.</string>
+  <string id="SettingsWidgetStart">(Csak widget) Az alkalmazás automatikus indítása a widgetről
+    csapásra várva.</string>
+  <string id="SettingsEnableBatteryLevel">Engedélyezze a háttérszolgáltatást az óra akkumulátorának küldéséhez
+    szinten az Otthoni asszisztensre.</string>
+  <string id="SettingsBatteryLevelRefreshRate">Az a frissítési gyakoriság (percben), amelynél a háttér
+    a szerviznek meg kell ismételnie az akkumulátor töltöttségi szintjének küldését.</string>
+  <string id="WebhookId">(Csak olvasható) Az óra által az akkumulátor töltöttségi szintjének frissítéséhez létrehozott Webhook azonosító.
+    Erre szükség lehet a hibakereséshez.</string>
 </strings>

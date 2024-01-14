@@ -20,10 +20,6 @@
 
 <strings>
   <string id="AppName" scope="glance">HomeAssistant</string>
-  <string id="MenuItemOn">บน</string>
-  <string id="MenuItemOff">ปิด</string>
-  <string id="MenuItemTap">แตะ</string>
-  <string id="MenuItemMenu">เมนู</string>
   <string id="Confirm">แน่นอน?</string>
   <string id="Executed" scope="glance">ยืนยันแล้ว</string>
   <string id="NoPhone" scope="glance">ไม่มีการเชื่อมต่อโทรศัพท์</string>
@@ -53,17 +49,21 @@
   <string id="SettingsApiUrl">URL สำหรับ HomeAssistant API</string>
   <string id="SettingsConfigUrl">URL สำหรับการกำหนดค่าเมนู (JSON)</string>
   <string id="SettingsCacheConfig">แอปพลิเคชันควรแคชการกำหนดค่าเมนูหรือไม่</string>
-  <string id="SettingsClearCache">แอปพลิเคชันควรล้างแคชที่มีอยู่ในครั้งถัดไปที่เริ่มทำงานหรือไม่</string>
-  <string id="SettingsAppTimeout">หมดเวลาเป็นวินาที ออกจากแอปพลิเคชันหลังจากไม่มีการใช้งานเป็นระยะเวลาหนึ่งเพื่อประหยัดแบตเตอรี่ของอุปกรณ์</string>
-  <string id="SettingsConfirmTimeout">หลังจากเวลานี้ (เป็นวินาที) กล่องโต้ตอบการยืนยันสำหรับการดำเนินการจะปิดโดยอัตโนมัติและการดำเนินการจะถูกยกเลิก ตั้งค่าเป็น 0 เพื่อปิดใช้งานการหมดเวลา</string>
-  <string id="SettingsMenuItemStyle">รูปแบบรายการเมนู</string>
-  <string id="SettingsMenuItemStyleIcons">ไอคอน</string>
-  <string id="SettingsMenuItemStyleText">ข้อความเพิ่มเติม</string>
+  <string id="SettingsClearCache">หากแอปพลิเคชันล้างแคชที่มีอยู่ในครั้งต่อไป
+    เริ่ม?</string>
+  <string id="SettingsAppTimeout">หมดเวลาเป็นวินาที ออกจากแอปพลิเคชันหลังจากช่วงเวลานี้
+    ไม่มีการใช้งานเพื่อประหยัดแบตเตอรี่ของอุปกรณ์</string>
+  <string id="SettingsConfirmTimeout">หลังจากเวลานี้ (เป็นวินาที) กล่องโต้ตอบการยืนยันสำหรับ
+    การดำเนินการจะปิดโดยอัตโนมัติและการดำเนินการจะถูกยกเลิก ตั้งค่าเป็น 0 เพื่อปิดใช้งานการหมดเวลา</string>
   <string id="SettingsTextAlign">การจัดตำแหน่งเมนูซ้าย (ปิด) หรือขวา (เปิด)</string>
   <string id="LeftToRight">จากซ้ายไปขวา</string>
   <string id="RightToLeft">จากขวาไปซ้าย</string>
-  <string id="SettingsWidgetStart">(วิดเจ็ตเท่านั้น) เริ่มแอปพลิเคชันโดยอัตโนมัติจากวิดเจ็ตโดยไม่ต้องรอการแตะ</string>
-  <string id="SettingsEnableBatteryLevel">เปิดใช้บริการพื้นหลังเพื่อส่งระดับแบตเตอรี่นาฬิกาไปยัง Home Assistant</string>
-  <string id="SettingsBatteryLevelRefreshRate">อัตรารีเฟรช (เป็นนาที) ที่บริการพื้นหลังควรส่งระดับแบตเตอรี่ซ้ำ</string>
-  <string id="WebhookId">(อ่านอย่างเดียว) Webhook ID ที่สร้างโดยนาฬิกาสำหรับการอัปเดตระดับแบตเตอรี่ คุณอาจต้องการสิ่งนี้สำหรับการดีบัก</string>
+  <string id="SettingsWidgetStart">(วิดเจ็ตเท่านั้น) เริ่มแอปพลิเคชันจากวิดเจ็ตโดยอัตโนมัติ
+    โดยไม่ต้องรอการแตะ</string>
+  <string id="SettingsEnableBatteryLevel">เปิดใช้งานบริการพื้นหลังเพื่อส่งแบตเตอรี่นาฬิกา
+    ระดับผู้ช่วยที่บ้าน</string>
+  <string id="SettingsBatteryLevelRefreshRate">อัตรารีเฟรช (เป็นนาที) ที่พื้นหลัง
+    บริการควรส่งระดับแบตเตอรี่ซ้ำ</string>
+  <string id="WebhookId">(อ่านอย่างเดียว) Webhook ID ที่สร้างโดยนาฬิกาสำหรับการอัปเดตระดับแบตเตอรี่
+    คุณอาจต้องการสิ่งนี้สำหรับการดีบัก</string>
 </strings>

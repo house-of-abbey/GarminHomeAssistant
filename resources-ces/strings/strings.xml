@@ -20,10 +20,6 @@
 
 <strings>
   <string id="AppName" scope="glance">HomeAssistant</string>
-  <string id="MenuItemOn">Na</string>
-  <string id="MenuItemOff">Vypnuto</string>
-  <string id="MenuItemTap">Klepněte</string>
-  <string id="MenuItemMenu">Jídelní lístek</string>
   <string id="Confirm">Tak určitě?</string>
   <string id="Executed" scope="glance">Potvrzeno</string>
   <string id="NoPhone" scope="glance">Žádné telefonní spojení</string>
@@ -33,7 +29,7 @@
   <string id="NoApiUrl" scope="glance">V nastavení aplikace není žádná adresa URL API</string>
   <string id="NoConfigUrl" scope="glance">V nastavení aplikace není žádná konfigurační URL</string>
   <string id="ApiFlood">Příliš rychlá volání API. Zpomalte prosím své požadavky.</string>
-  <string id="ApiUrlNotFound">Adresa URL nenalezena. Potenciální chyba adresy URL rozhraní API v nastavení.</string>
+  <string id="ApiUrlNotFound">Adresa URL nenalezena. Potenciální chyba URL API v nastavení.</string>
   <string id="ConfigUrlNotFound">Adresa URL nenalezena. Potenciální chyba konfigurační adresy URL v nastavení.</string>
   <string id="NoJson">Z požadavku HTTP se nevrátil žádný JSON.</string>
   <string id="UnhandledHttpErr">Požadavek HTTP vrátil kód chyby =</string>
@@ -53,17 +49,21 @@
   <string id="SettingsApiUrl">URL pro HomeAssistant API.</string>
   <string id="SettingsConfigUrl">Adresa URL pro konfiguraci nabídky (JSON).</string>
   <string id="SettingsCacheConfig">Má aplikace uložit konfiguraci nabídky do mezipaměti?</string>
-  <string id="SettingsClearCache">Měla by aplikace při příštím spuštění vymazat stávající mezipaměť?</string>
-  <string id="SettingsAppTimeout">Časový limit v sekundách. Po této době nečinnosti aplikaci ukončete, abyste šetřili baterii zařízení.</string>
-  <string id="SettingsConfirmTimeout">Po uplynutí této doby (v sekundách) se dialog pro potvrzení akce automaticky zavře a akce se zruší. Nastavením na 0 deaktivujete časový limit.</string>
-  <string id="SettingsMenuItemStyle">Styl položky menu.</string>
-  <string id="SettingsMenuItemStyleIcons">ikony</string>
-  <string id="SettingsMenuItemStyleText">Doplňkový text</string>
+  <string id="SettingsClearCache">Měla by aplikace příště vymazat stávající mezipaměť
+    začal?</string>
+  <string id="SettingsAppTimeout">Časový limit v sekundách. Po uplynutí této doby aplikaci ukončete
+    nečinnosti, aby se šetřila baterie zařízení.</string>
+  <string id="SettingsConfirmTimeout">Po uplynutí této doby (v sekundách) se zobrazí potvrzovací dialog
+    akce se automaticky zavře a akce se zruší. Nastavením na 0 deaktivujete časový limit.</string>
   <string id="SettingsTextAlign">Zarovnání nabídky vlevo (vypnuto) nebo vpravo (zapnuto).</string>
   <string id="LeftToRight">Zleva do prava</string>
   <string id="RightToLeft">Zprava doleva</string>
-  <string id="SettingsWidgetStart">(Pouze widget) Automaticky spusťte aplikaci z widgetu bez čekání na klepnutí.</string>
-  <string id="SettingsEnableBatteryLevel">Povolte službu na pozadí, aby odeslala stav baterie hodin do Home Assistant.</string>
-  <string id="SettingsBatteryLevelRefreshRate">Obnovovací frekvence (v minutách), při které by služba na pozadí měla opakovat odesílání úrovně baterie.</string>
-  <string id="WebhookId">(Pouze pro čtení) ID webhooku vytvořené hodinkami pro aktualizace úrovně baterie. Možná to budete potřebovat pro ladění.</string>
+  <string id="SettingsWidgetStart">(Pouze widget) Automaticky spustit aplikaci z widgetu
+    bez čekání na klepnutí.</string>
+  <string id="SettingsEnableBatteryLevel">Povolte službu na pozadí pro odeslání baterie hodin
+    úroveň na Home Assistant.</string>
+  <string id="SettingsBatteryLevelRefreshRate">Obnovovací frekvence (v minutách), při které je pozadí
+    servis by měl zopakovat odeslání stavu baterie.</string>
+  <string id="WebhookId">(Pouze pro čtení) ID webhooku vytvořené hodinkami pro aktualizace úrovně baterie.
+    Možná to budete potřebovat pro ladění.</string>
 </strings>

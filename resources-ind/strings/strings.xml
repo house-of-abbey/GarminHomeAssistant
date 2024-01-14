@@ -20,10 +20,6 @@
 
 <strings>
   <string id="AppName" scope="glance">HomeAssistant</string>
-  <string id="MenuItemOn">Pada</string>
-  <string id="MenuItemOff">Mati</string>
-  <string id="MenuItemTap">Mengetuk</string>
-  <string id="MenuItemMenu">Menu</string>
   <string id="Confirm">Tentu?</string>
   <string id="Executed" scope="glance">Dikonfirmasi</string>
   <string id="NoPhone" scope="glance">Tidak ada koneksi Telepon</string>
@@ -31,7 +27,7 @@
   <string id="NoResponse">Tidak Ada Respon, periksa koneksi Internet</string>
   <string id="NoAPIKey" scope="glance">Tidak ada kunci API di pengaturan aplikasi</string>
   <string id="NoApiUrl" scope="glance">Tidak ada URL API di pengaturan aplikasi</string>
-  <string id="NoConfigUrl" scope="glance">Tidak ada URL konfigurasi di pengaturan aplikasi</string>
+  <string id="NoConfigUrl" scope="glance">Tidak ada URL konfigurasi dalam pengaturan aplikasi</string>
   <string id="ApiFlood">Panggilan API terlalu cepat. Harap memperlambat permintaan Anda.</string>
   <string id="ApiUrlNotFound">URL tidak ditemukan. Potensi kesalahan URL API dalam pengaturan.</string>
   <string id="ConfigUrlNotFound">URL tidak ditemukan. Potensi kesalahan URL Konfigurasi dalam pengaturan.</string>
@@ -53,17 +49,21 @@
   <string id="SettingsApiUrl">URL untuk API HomeAssistant.</string>
   <string id="SettingsConfigUrl">URL untuk konfigurasi menu (JSON).</string>
   <string id="SettingsCacheConfig">Haruskah aplikasi menyimpan konfigurasi menu dalam cache?</string>
-  <string id="SettingsClearCache">Haruskah aplikasi menghapus cache yang ada saat dijalankan lagi?</string>
-  <string id="SettingsAppTimeout">Batas waktu dalam hitungan detik. Keluar dari aplikasi setelah periode tidak aktif ini untuk menghemat baterai perangkat.</string>
-  <string id="SettingsConfirmTimeout">Setelah waktu ini (dalam detik), dialog konfirmasi untuk suatu tindakan secara otomatis ditutup dan tindakan tersebut dibatalkan. Setel ke 0 untuk menonaktifkan batas waktu.</string>
-  <string id="SettingsMenuItemStyle">Gaya item menu.</string>
-  <string id="SettingsMenuItemStyleIcons">Ikon</string>
-  <string id="SettingsMenuItemStyleText">Teks Tambahan</string>
+  <string id="SettingsClearCache">Sebaiknya aplikasi menghapus cache yang ada di lain waktu
+    dimulai?</string>
+  <string id="SettingsAppTimeout">Batas waktu dalam hitungan detik. Keluar dari aplikasi setelah periode ini
+    ketidakaktifan untuk menghemat baterai perangkat.</string>
+  <string id="SettingsConfirmTimeout">Setelah waktu ini (dalam detik), dialog konfirmasi untuk
+    tindakan secara otomatis ditutup dan tindakan dibatalkan. Setel ke 0 untuk menonaktifkan batas waktu.</string>
   <string id="SettingsTextAlign">Penyelarasan Menu Kiri (mati) atau Kanan (hidup).</string>
   <string id="LeftToRight">Kiri ke kanan</string>
   <string id="RightToLeft">Kanan ke kiri</string>
-  <string id="SettingsWidgetStart">(Khusus widget) Secara otomatis memulai aplikasi dari widget tanpa menunggu ketukan.</string>
-  <string id="SettingsEnableBatteryLevel">Aktifkan layanan latar belakang untuk mengirim level baterai jam ke Home Assistant.</string>
-  <string id="SettingsBatteryLevelRefreshRate">Kecepatan refresh (dalam menit) saat layanan latar belakang harus mengulangi pengiriman level baterai.</string>
-  <string id="WebhookId">(Hanya baca) ID Webhook yang dibuat oleh jam tangan untuk pembaruan level baterai. Anda mungkin memerlukan ini untuk debugging.</string>
+  <string id="SettingsWidgetStart">(Khusus widget) Secara otomatis memulai aplikasi dari widget
+    tanpa menunggu ketukan.</string>
+  <string id="SettingsEnableBatteryLevel">Aktifkan layanan latar belakang untuk mengirim baterai jam
+    tingkat ke Asisten Rumah.</string>
+  <string id="SettingsBatteryLevelRefreshRate">Kecepatan refresh (dalam menit) pada latar belakang
+    layanan harus mengulangi pengiriman level baterai.</string>
+  <string id="WebhookId">(Hanya baca) ID Webhook yang dibuat oleh jam tangan untuk pembaruan level baterai.
+    Anda mungkin memerlukan ini untuk debugging.</string>
 </strings>

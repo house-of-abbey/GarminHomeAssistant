@@ -20,10 +20,6 @@
 
 <strings>
   <string id="AppName" scope="glance">HomeAssistant</string>
-  <string id="MenuItemOn">На</string>
-  <string id="MenuItemOff">Изкл</string>
-  <string id="MenuItemTap">Докоснете</string>
-  <string id="MenuItemMenu">Меню</string>
   <string id="Confirm">Сигурен?</string>
   <string id="Executed" scope="glance">Потвърдено</string>
   <string id="NoPhone" scope="glance">Няма телефонна връзка</string>
@@ -53,17 +49,21 @@
   <string id="SettingsApiUrl">URL адрес за API на HomeAssistant.</string>
   <string id="SettingsConfigUrl">URL за конфигурация на менюто (JSON).</string>
   <string id="SettingsCacheConfig">Трябва ли приложението да кешира конфигурацията на менюто?</string>
-  <string id="SettingsClearCache">Трябва ли приложението да изчисти съществуващия кеш при следващото стартиране?</string>
-  <string id="SettingsAppTimeout">Изчакване в секунди. Излезте от приложението след този период на неактивност, за да запазите батерията на устройството.</string>
-  <string id="SettingsConfirmTimeout">След това време (в секунди) диалоговият прозорец за потвърждение за действие се затваря автоматично и действието се отменя. Задайте 0, за да деактивирате изчакването.</string>
-  <string id="SettingsMenuItemStyle">Стил на елемент от менюто.</string>
-  <string id="SettingsMenuItemStyleIcons">Икони</string>
-  <string id="SettingsMenuItemStyleText">Допълнителен текст</string>
+  <string id="SettingsClearCache">Трябва ли приложението да изчисти съществуващия кеш следващия път, когато е
+    започна?</string>
+  <string id="SettingsAppTimeout">Изчакване в секунди. Излезте от приложението след този период от
+    бездействие, за да запазите батерията на устройството.</string>
+  <string id="SettingsConfirmTimeout">След това време (в секунди) се появява диалогов прозорец за потвърждение за an
+    действието се затваря автоматично и действието се отменя. Задайте 0, за да деактивирате изчакването.</string>
   <string id="SettingsTextAlign">Ляво (изключено) или дясно (включено) подравняване на менюто.</string>
   <string id="LeftToRight">Отляво надясно</string>
   <string id="RightToLeft">От дясно на ляво</string>
-  <string id="SettingsWidgetStart">(Само за джаджа) Автоматично стартирайте приложението от джаджата, без да чакате докосване.</string>
-  <string id="SettingsEnableBatteryLevel">Активирайте фоновата услуга, за да изпратите нивото на батерията на часовника до Home Assistant.</string>
-  <string id="SettingsBatteryLevelRefreshRate">Честотата на опресняване (в минути), с която фоновата услуга трябва да повтори изпращането на нивото на батерията.</string>
-  <string id="WebhookId">(Само за четене) ID на Webhook, създаден от часовника за актуализации на нивото на батерията. Може да ви е необходимо това за отстраняване на грешки.</string>
+  <string id="SettingsWidgetStart">(Само за притурка) Автоматично стартирайте приложението от притурката
+    без да чакате кран.</string>
+  <string id="SettingsEnableBatteryLevel">Активирайте фоновата услуга, за да изпратите батерията на часовника
+    ниво до домашен асистент.</string>
+  <string id="SettingsBatteryLevelRefreshRate">Честотата на опресняване (в минути), с която фонът
+    услугата трябва да повтори изпращането на нивото на батерията.</string>
+  <string id="WebhookId">(Само за четене) ID на Webhook, създаден от часовника за актуализации на нивото на батерията.
+    Може да ви е необходимо това за отстраняване на грешки.</string>
 </strings>

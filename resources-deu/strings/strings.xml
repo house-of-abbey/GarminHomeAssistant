@@ -20,10 +20,6 @@
 
 <strings>
   <string id="AppName" scope="glance">HomeAssistant</string>
-  <string id="MenuItemOn">An</string>
-  <string id="MenuItemOff">Aus</string>
-  <string id="MenuItemTap">Antippen</string>
-  <string id="MenuItemMenu">Menü</string>
   <string id="Confirm">Sicher?</string>
   <string id="Executed" scope="glance">Bestätigt</string>
   <string id="NoPhone" scope="glance">Keine Telefonverbindung</string>
@@ -53,17 +49,21 @@
   <string id="SettingsApiUrl">URL für die HomeAssistant-API.</string>
   <string id="SettingsConfigUrl">URL zur Menükonfiguration (JSON).</string>
   <string id="SettingsCacheConfig">Soll die Anwendung die Menükonfiguration zwischenspeichern?</string>
-  <string id="SettingsClearCache">Sollte die Anwendung beim nächsten Start den vorhandenen Cache löschen?</string>
-  <string id="SettingsAppTimeout">Timeout in Sekunden. Beenden Sie die Anwendung nach dieser Zeit der Inaktivität, um den Akku des Geräts zu schonen.</string>
-  <string id="SettingsConfirmTimeout">Nach dieser Zeit (in Sekunden) wird automatisch ein Bestätigungsdialog für eine Aktion geschlossen und die Aktion abgebrochen. Auf 0 setzen, um das Timeout zu deaktivieren.</string>
-  <string id="SettingsMenuItemStyle">Menüelementstil.</string>
-  <string id="SettingsMenuItemStyleIcons">Symbole</string>
-  <string id="SettingsMenuItemStyleText">Zusätzlicher Text</string>
+  <string id="SettingsClearCache">Sollte die Anwendung beim nächsten Mal den vorhandenen Cache löschen?
+    gestartet?</string>
+  <string id="SettingsAppTimeout">Timeout in Sekunden. Beenden Sie die Anwendung nach Ablauf dieser Frist
+    Inaktivität, um den Akku des Geräts zu schonen.</string>
+  <string id="SettingsConfirmTimeout">Nach dieser Zeit (in Sekunden) erscheint ein Bestätigungsdialog für eine
+    Die Aktion wird automatisch geschlossen und die Aktion abgebrochen. Auf 0 setzen, um das Timeout zu deaktivieren.</string>
   <string id="SettingsTextAlign">Menüausrichtung links (aus) oder rechts (ein).</string>
   <string id="LeftToRight">Links nach rechts</string>
   <string id="RightToLeft">Rechts nach links</string>
-  <string id="SettingsWidgetStart">(Nur Widget) Starten Sie die Anwendung automatisch über das Widget, ohne auf einen Tipp warten zu müssen.</string>
-  <string id="SettingsEnableBatteryLevel">Aktivieren Sie den Hintergrunddienst, um den Batteriestand der Uhr an Home Assistant zu senden.</string>
-  <string id="SettingsBatteryLevelRefreshRate">Die Aktualisierungsrate (in Minuten), mit der der Hintergrunddienst das Senden des Akkustands wiederholen soll.</string>
-  <string id="WebhookId">(Schreibgeschützt) Die von der Uhr erstellte Webhook-ID für Aktualisierungen des Batteriestands. Möglicherweise benötigen Sie dies zum Debuggen.</string>
+  <string id="SettingsWidgetStart">(Nur Widget) Starten Sie die Anwendung automatisch über das Widget
+    ohne auf einen Fingertipp warten zu müssen.</string>
+  <string id="SettingsEnableBatteryLevel">Aktivieren Sie den Hintergrunddienst, um die Uhrbatterie zu senden
+    Ebene zum Home Assistant.</string>
+  <string id="SettingsBatteryLevelRefreshRate">Die Aktualisierungsrate (in Minuten), mit der der Hintergrund angezeigt wird
+    Der Service sollte das Senden des Batteriestands wiederholen.</string>
+  <string id="WebhookId">(Schreibgeschützt) Die von der Uhr erstellte Webhook-ID für Aktualisierungen des Batteriestands.
+    Möglicherweise benötigen Sie dies zum Debuggen.</string>
 </strings>

@@ -20,17 +20,13 @@
 
 <strings>
   <string id="AppName" scope="glance">HomeAssistant</string>
-  <string id="MenuItemOn">På</string>
-  <string id="MenuItemOff">Av</string>
-  <string id="MenuItemTap">Knacka</string>
-  <string id="MenuItemMenu">Meny</string>
   <string id="Confirm">Säker?</string>
   <string id="Executed" scope="glance">Bekräftad</string>
   <string id="NoPhone" scope="glance">Ingen telefonanslutning</string>
   <string id="NoInternet">Ingen internetanslutning</string>
   <string id="NoResponse">Inget svar, kontrollera internetanslutningen</string>
   <string id="NoAPIKey" scope="glance">Ingen API-nyckel i applikationsinställningarna</string>
-  <string id="NoApiUrl" scope="glance">Ingen API-URL i programinställningarna</string>
+  <string id="NoApiUrl" scope="glance">Ingen API-URL i applikationsinställningarna</string>
   <string id="NoConfigUrl" scope="glance">Ingen konfigurations-URL i programinställningarna</string>
   <string id="ApiFlood">API-anrop för snabba. Vänligen sakta ner dina förfrågningar.</string>
   <string id="ApiUrlNotFound">Webbadressen hittades inte. Potentiellt API-URL-fel i inställningarna.</string>
@@ -53,17 +49,21 @@
   <string id="SettingsApiUrl">URL för HomeAssistant API.</string>
   <string id="SettingsConfigUrl">URL för menykonfiguration (JSON).</string>
   <string id="SettingsCacheConfig">Ska programmet cachelagra menykonfigurationen?</string>
-  <string id="SettingsClearCache">Ska programmet rensa den befintliga cachen nästa gång den startas?</string>
-  <string id="SettingsAppTimeout">Timeout på sekunder. Avsluta programmet efter denna period av inaktivitet för att spara enhetens batteri.</string>
-  <string id="SettingsConfirmTimeout">Efter denna tid (i sekunder) stängs en bekräftelsedialog för en åtgärd automatiskt och åtgärden avbryts. Ställ in på 0 för att inaktivera timeout.</string>
-  <string id="SettingsMenuItemStyle">Menyalternativ stil.</string>
-  <string id="SettingsMenuItemStyleIcons">Ikoner</string>
-  <string id="SettingsMenuItemStyleText">Ytterligare text</string>
+  <string id="SettingsClearCache">Ska applikationen rensa den befintliga cachen nästa gång
+    satte igång?</string>
+  <string id="SettingsAppTimeout">Timeout på sekunder. Avsluta ansökan efter denna period av
+    inaktivitet för att spara enhetens batteri.</string>
+  <string id="SettingsConfirmTimeout">Efter denna tid (i sekunder) visas en bekräftelsedialog för en
+    åtgärden stängs automatiskt och åtgärden avbryts. Ställ in på 0 för att inaktivera timeout.</string>
   <string id="SettingsTextAlign">Vänster (av) eller höger (på) menyjustering.</string>
   <string id="LeftToRight">Vänster till höger</string>
   <string id="RightToLeft">Höger till vänster</string>
-  <string id="SettingsWidgetStart">(Endast widget) Starta programmet automatiskt från widgeten utan att vänta på ett tryck.</string>
-  <string id="SettingsEnableBatteryLevel">Aktivera bakgrundstjänsten för att skicka klockans batterinivå till Home Assistant.</string>
-  <string id="SettingsBatteryLevelRefreshRate">Uppdateringshastigheten (i minuter) med vilken bakgrundstjänsten ska upprepa sändningen av batterinivån.</string>
-  <string id="WebhookId">(Endast läs) Webhook-ID som skapats av klockan för uppdateringar av batterinivån. Du kan behöva detta för felsökning.</string>
+  <string id="SettingsWidgetStart">(Endast widget) Starta programmet automatiskt från widgeten
+    utan att vänta på ett tryck.</string>
+  <string id="SettingsEnableBatteryLevel">Aktivera bakgrundstjänsten för att skicka klockbatteriet
+    nivå till Home Assistant.</string>
+  <string id="SettingsBatteryLevelRefreshRate">Uppdateringshastigheten (i minuter) med vilken bakgrunden
+    tjänsten bör upprepa sändningen av batterinivån.</string>
+  <string id="WebhookId">(Endast läs) Webhook-ID som skapats av klockan för uppdateringar av batterinivån.
+    Du kan behöva detta för felsökning.</string>
 </strings>

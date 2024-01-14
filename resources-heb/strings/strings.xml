@@ -20,18 +20,14 @@
 
 <strings>
   <string id="AppName" scope="glance">HomeAssistant</string>
-  <string id="MenuItemOn">עַל</string>
-  <string id="MenuItemOff">כבוי</string>
-  <string id="MenuItemTap">בֶּרֶז</string>
-  <string id="MenuItemMenu">תַפרִיט</string>
   <string id="Confirm">בטוח?</string>
   <string id="Executed" scope="glance">מְאוּשָׁר</string>
   <string id="NoPhone" scope="glance">אין חיבור לטלפון</string>
   <string id="NoInternet">אין חיבור אינטרנט</string>
-  <string id="NoResponse">אין תגובה, בדוק את חיבור האינטרנט</string>
+  <string id="NoResponse">אין תגובה, בדוק חיבור לאינטרנט</string>
   <string id="NoAPIKey" scope="glance">אין מפתח API בהגדרות האפליקציה</string>
   <string id="NoApiUrl" scope="glance">אין כתובת API בהגדרות האפליקציה</string>
-  <string id="NoConfigUrl" scope="glance">אין כתובת URL לתצורה בהגדרות האפליקציה</string>
+  <string id="NoConfigUrl" scope="glance">אין כתובת אתר תצורה בהגדרות האפליקציה</string>
   <string id="ApiFlood">קריאות API מהירות מדי. נא להאט את הבקשות שלך.</string>
   <string id="ApiUrlNotFound">כתובת האתר לא נמצאה. שגיאה פוטנציאלית של כתובת ה-API בהגדרות.</string>
   <string id="ConfigUrlNotFound">כתובת האתר לא נמצאה. שגיאת כתובת אתר פוטנציאלית של תצורה בהגדרות.</string>
@@ -51,19 +47,23 @@
   <string id="SettingsApiKey">מפתח API עבור HomeAssistant.</string>
   <string id="SettingsApiKeyPrompt">אסימון גישה ארוך-חיים.</string>
   <string id="SettingsApiUrl">כתובת URL עבור HomeAssistant API.</string>
-  <string id="SettingsConfigUrl">כתובת URL עבור תצורת תפריט (JSON).</string>
+  <string id="SettingsConfigUrl">כתובת URL לתצורת תפריט (JSON).</string>
   <string id="SettingsCacheConfig">האם האפליקציה צריכה לשמור את תצורת התפריט במטמון?</string>
-  <string id="SettingsClearCache">האם היישום צריך לנקות את המטמון הקיים בפעם הבאה שהוא יופעל?</string>
-  <string id="SettingsAppTimeout">פסק זמן בשניות. צא מהאפליקציה לאחר תקופה זו של חוסר פעילות כדי לחסוך בסוללת המכשיר.</string>
-  <string id="SettingsConfirmTimeout">לאחר זמן זה (בשניות), תיבת דו-שיח לאישור פעולה נסגרת אוטומטית והפעולה מבוטלת. הגדר ל-0 כדי לבטל את הזמן הקצוב.</string>
-  <string id="SettingsMenuItemStyle">סגנון פריט בתפריט.</string>
-  <string id="SettingsMenuItemStyleIcons">אייקונים</string>
-  <string id="SettingsMenuItemStyleText">טקסט נוסף</string>
+  <string id="SettingsClearCache">האם היישום צריך לנקות את המטמון הקיים בפעם הבאה שהוא
+    התחיל?</string>
+  <string id="SettingsAppTimeout">פסק זמן בשניות. צא מהאפליקציה לאחר תקופה זו של
+    חוסר פעילות כדי לחסוך בסוללת המכשיר.</string>
+  <string id="SettingsConfirmTimeout">לאחר זמן זה (בשניות), תיבת דו-שיח אישור עבור
+    הפעולה נסגרת אוטומטית והפעולה מבוטלת. הגדר ל-0 כדי לבטל את הזמן הקצוב.</string>
   <string id="SettingsTextAlign">יישור תפריט שמאלה (כבוי) או ימינה (מופעל).</string>
   <string id="LeftToRight">משמאל לימין</string>
   <string id="RightToLeft">מימין לשמאל</string>
-  <string id="SettingsWidgetStart">(יישומון בלבד) הפעל אוטומטית את האפליקציה מהווידג'ט מבלי לחכות להקשה.</string>
-  <string id="SettingsEnableBatteryLevel">אפשר את שירות הרקע כדי לשלוח את רמת הסוללה של השעון אל Home Assistant.</string>
-  <string id="SettingsBatteryLevelRefreshRate">קצב הרענון (בדקות) שבו שירות הרקע אמור לחזור על שליחת רמת הסוללה.</string>
-  <string id="WebhookId">(לקריאה בלבד) מזהה ה-Webhook שנוצר על ידי השעון עבור עדכוני רמת הסוללה. ייתכן שתדרוש זאת לצורך איתור באגים.</string>
+  <string id="SettingsWidgetStart">(יישומון בלבד) הפעל אוטומטית את האפליקציה מהווידג'ט
+    בלי לחכות לברז.</string>
+  <string id="SettingsEnableBatteryLevel">אפשר את שירות הרקע כדי לשלוח את סוללת השעון
+    רמה ל-Home Assistant.</string>
+  <string id="SettingsBatteryLevelRefreshRate">קצב הרענון (בדקות) שבו הרקע
+    השירות צריך לחזור על שליחת רמת הסוללה.</string>
+  <string id="WebhookId">(לקריאה בלבד) מזהה ה-Webhook שנוצר על ידי השעון עבור עדכוני רמת הסוללה.
+    ייתכן שתדרוש זאת לצורך איתור באגים.</string>
 </strings>

@@ -20,10 +20,6 @@
 
 <strings>
   <string id="AppName" scope="glance">HomeAssistant</string>
-  <string id="MenuItemOn">Vklopljeno</string>
-  <string id="MenuItemOff">Izključeno</string>
-  <string id="MenuItemTap">Tapnite</string>
-  <string id="MenuItemMenu">meni</string>
   <string id="Confirm">Seveda?</string>
   <string id="Executed" scope="glance">Potrjeno</string>
   <string id="NoPhone" scope="glance">Ni telefonske povezave</string>
@@ -50,20 +46,24 @@
   <string id="SettingsSelect">Izberite ...</string>
   <string id="SettingsApiKey">API ključ za HomeAssistant.</string>
   <string id="SettingsApiKeyPrompt">Dolgoživ dostopni žeton.</string>
-  <string id="SettingsApiUrl">URL za API HomeAssistant.</string>
+  <string id="SettingsApiUrl">URL za HomeAssistant API.</string>
   <string id="SettingsConfigUrl">URL za konfiguracijo menija (JSON).</string>
   <string id="SettingsCacheConfig">Ali naj aplikacija predpomni konfiguracijo menija?</string>
-  <string id="SettingsClearCache">Ali naj aplikacija ob naslednjem zagonu počisti obstoječi predpomnilnik?</string>
-  <string id="SettingsAppTimeout">Časovna omejitev v sekundah. Po tem obdobju nedejavnosti zaprite aplikacijo, da prihranite baterijo naprave.</string>
-  <string id="SettingsConfirmTimeout">Po tem času (v sekundah) se potrditveno pogovorno okno za dejanje samodejno zapre in dejanje je preklicano. Nastavite na 0, da onemogočite časovno omejitev.</string>
-  <string id="SettingsMenuItemStyle">Slog elementa menija.</string>
-  <string id="SettingsMenuItemStyleIcons">Ikone</string>
-  <string id="SettingsMenuItemStyleText">Dodatno besedilo</string>
+  <string id="SettingsClearCache">Ali naj aplikacija naslednjič počisti obstoječi predpomnilnik
+    začelo?</string>
+  <string id="SettingsAppTimeout">Časovna omejitev v sekundah. Po tem obdobju zaprite aplikacijo
+    nedejavnosti, da prihranite baterijo naprave.</string>
+  <string id="SettingsConfirmTimeout">Po tem času (v sekundah) se prikaže potrditveno pogovorno okno za an
+    dejanje se samodejno zapre in dejanje preklicano. Nastavite na 0, da onemogočite časovno omejitev.</string>
   <string id="SettingsTextAlign">Leva (izklopljena) ali desna (vklopljena) poravnava menija.</string>
   <string id="LeftToRight">Od leve proti desni</string>
   <string id="RightToLeft">Od desne proti levi</string>
-  <string id="SettingsWidgetStart">(Samo pripomoček) Samodejno zaženite aplikacijo iz pripomočka, ne da bi čakali na dotik.</string>
-  <string id="SettingsEnableBatteryLevel">Omogočite storitev v ozadju za pošiljanje ravni baterije ure domačemu pomočniku.</string>
-  <string id="SettingsBatteryLevelRefreshRate">Hitrost osveževanja (v minutah), pri kateri naj storitev v ozadju ponavlja pošiljanje stanja baterije.</string>
-  <string id="WebhookId">(Samo za branje) ID Webhook, ki ga ustvari ura za posodobitve ravni baterije. To boste morda potrebovali za odpravljanje napak.</string>
+  <string id="SettingsWidgetStart">(Samo pripomoček) Samodejni zagon aplikacije iz pripomočka
+    brez čakanja na pipo.</string>
+  <string id="SettingsEnableBatteryLevel">Omogočite storitev v ozadju za pošiljanje baterije ure
+    stopnje do domačega pomočnika.</string>
+  <string id="SettingsBatteryLevelRefreshRate">Hitrost osveževanja (v minutah), pri kateri je ozadje
+    servis bi moral ponoviti pošiljanje stanja baterije.</string>
+  <string id="WebhookId">(Samo za branje) ID Webhook, ki ga ustvari ura za posodobitve ravni baterije.
+    To boste morda potrebovali za odpravljanje napak.</string>
 </strings>
