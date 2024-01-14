@@ -20,10 +20,6 @@
 
 <strings>
   <string id="AppName" scope="glance">HomeAssistant</string>
-  <string id="MenuItemOn">Päällä</string>
-  <string id="MenuItemOff">Vinossa</string>
-  <string id="MenuItemTap">Napauta</string>
-  <string id="MenuItemMenu">Valikko</string>
   <string id="Confirm">Varma?</string>
   <string id="Executed" scope="glance">Vahvistettu</string>
   <string id="NoPhone" scope="glance">Ei puhelinyhteyttä</string>
@@ -39,6 +35,7 @@
   <string id="UnhandledHttpErr">HTTP-pyyntö palautti virhekoodin =</string>
   <string id="TrailingSlashErr">API-URL-osoitteessa ei saa olla perässä olevaa kauttaviivaa '/'</string>
   <string id="WebhookFailed">Webhookin rekisteröinti epäonnistui</string>
+  <string id="TemplateError">Mallin renderöinti epäonnistui</string>
   <string id="Available" scope="glance">Saatavilla</string>
   <string id="Checking" scope="glance">Tarkistetaan...</string>
   <string id="Unavailable" scope="glance">Ei saatavilla</string>
@@ -52,17 +49,21 @@
   <string id="SettingsApiUrl">HomeAssistant API:n URL-osoite.</string>
   <string id="SettingsConfigUrl">URL-osoite valikon määrityksiä varten (JSON).</string>
   <string id="SettingsCacheConfig">Pitäisikö sovelluksen tallentaa valikon asetukset välimuistiin?</string>
-  <string id="SettingsClearCache">Pitäisikö sovelluksen tyhjentää olemassa oleva välimuisti, kun se käynnistetään seuraavan kerran?</string>
-  <string id="SettingsAppTimeout">Aikakatkaisu sekunneissa. Poistu sovelluksesta tämän käyttämättömyyden jälkeen säästääksesi laitteen akkua.</string>
-  <string id="SettingsConfirmTimeout">Tämän ajan kuluttua (sekunneissa) toiminnon vahvistusikkuna suljetaan automaattisesti ja toiminto peruutetaan. Aseta arvoksi 0 poistaaksesi aikakatkaisun käytöstä.</string>
-  <string id="SettingsMenuItemStyle">Valikkokohdan tyyli.</string>
-  <string id="SettingsMenuItemStyleIcons">Kuvakkeet</string>
-  <string id="SettingsMenuItemStyleText">Lisäteksti</string>
+  <string id="SettingsClearCache">Pitäisikö sovelluksen tyhjentää olemassa oleva välimuisti seuraavan kerran
+    alkanut?</string>
+  <string id="SettingsAppTimeout">Aikakatkaisu sekunneissa. Poistu sovelluksesta tämän ajanjakson jälkeen
+    käyttämättömyys säästääksesi laitteen akkua.</string>
+  <string id="SettingsConfirmTimeout">Tämän ajan kuluttua (sekunteina) vahvistusikkuna an
+    toiminto suljetaan automaattisesti ja toiminto peruutetaan. Aseta arvoksi 0 poistaaksesi aikakatkaisun käytöstä.</string>
   <string id="SettingsTextAlign">Vasen (pois) tai oikea (päällä) valikon kohdistus.</string>
   <string id="LeftToRight">Vasemmalta oikealle</string>
   <string id="RightToLeft">Oikealta vasemmalle</string>
-  <string id="SettingsWidgetStart">(Vain widget) Käynnistä sovellus automaattisesti widgetistä odottamatta napautusta.</string>
-  <string id="SettingsEnableBatteryLevel">Ota taustapalvelu käyttöön lähettääksesi kellon akun varaustason Home Assistantille.</string>
-  <string id="SettingsBatteryLevelRefreshRate">Virkistystaajuus (minuutteina), jolla taustapalvelun pitäisi toistaa akun varaustason lähettämistä.</string>
-  <string id="WebhookId">(Vain luku) Kellon luoma Webhook-tunnus akun varaustason päivityksiä varten. Saatat tarvita tätä virheenkorjaukseen.</string>
+  <string id="SettingsWidgetStart">(Vain widget) Käynnistä sovellus automaattisesti widgetistä
+    odottamatta napausta.</string>
+  <string id="SettingsEnableBatteryLevel">Ota taustapalvelu käyttöön kellon akun lähettämiseksi
+    tasolle Home Assistant.</string>
+  <string id="SettingsBatteryLevelRefreshRate">Päivitystaajuus (minuutteina), jolla tausta
+    palvelun tulee toistaa akun varaustason lähettäminen.</string>
+  <string id="WebhookId">(Vain luku) Kellon luoma Webhook-tunnus akun varaustason päivityksiä varten.
+    Saatat tarvita tätä virheenkorjaukseen.</string>
 </strings>

@@ -19,7 +19,5 @@
 -->
 
 <strings>
-  <string id="MenuItemOn">Activé</string>
-  <string id="MenuItemTap">Clic</string>
   <string id="ApiFlood">Appels API trop rapide. Veuillez signaler cette erreur avec les détails de l'appareil.</string>
 </strings>

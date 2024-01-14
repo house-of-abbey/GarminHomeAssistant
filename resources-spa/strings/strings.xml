@@ -20,10 +20,6 @@
 
 <strings>
   <string id="AppName" scope="glance">HomeAssistant</string>
-  <string id="MenuItemOn">En</string>
-  <string id="MenuItemOff">Apagado</string>
-  <string id="MenuItemTap">Grifo</string>
-  <string id="MenuItemMenu">Menú</string>
   <string id="Confirm">¿Seguro?</string>
   <string id="Executed" scope="glance">Confirmado</string>
   <string id="NoPhone" scope="glance">Sin conexión telefónica</string>
@@ -39,6 +35,7 @@
   <string id="UnhandledHttpErr">La solicitud HTTP devolvió el código de error =</string>
   <string id="TrailingSlashErr">La URL de API no debe tener una barra diagonal '/'</string>
   <string id="WebhookFailed">No se pudo registrar el webhook</string>
+  <string id="TemplateError">No se pudo renderizar la plantilla</string>
   <string id="Available" scope="glance">Disponible</string>
   <string id="Checking" scope="glance">Comprobación...</string>
   <string id="Unavailable" scope="glance">Indisponible</string>
@@ -52,17 +49,21 @@
   <string id="SettingsApiUrl">URL para la API de HomeAssistant.</string>
   <string id="SettingsConfigUrl">URL para configuración del menú (JSON).</string>
   <string id="SettingsCacheConfig">¿La aplicación debería almacenar en caché la configuración del menú?</string>
-  <string id="SettingsClearCache">¿La aplicación debería borrar el caché existente la próxima vez que se inicie?</string>
-  <string id="SettingsAppTimeout">Tiempo de espera en segundos. Salga de la aplicación después de este período de inactividad para ahorrar batería del dispositivo.</string>
-  <string id="SettingsConfirmTimeout">Después de este tiempo (en segundos), se cierra automáticamente un cuadro de diálogo de confirmación de una acción y se cancela la acción. Establezca en 0 para desactivar el tiempo de espera.</string>
-  <string id="SettingsMenuItemStyle">Estilo de elemento de menú.</string>
-  <string id="SettingsMenuItemStyleIcons">Iconos</string>
-  <string id="SettingsMenuItemStyleText">Texto adicional</string>
+  <string id="SettingsClearCache">¿Debería la aplicación borrar el caché existente la próxima vez?
+    ¿comenzó?</string>
+  <string id="SettingsAppTimeout">Tiempo de espera en segundos. Salga de la aplicación después de este período de
+    inactividad para ahorrar batería del dispositivo.</string>
+  <string id="SettingsConfirmTimeout">Después de este tiempo (en segundos), aparecerá un cuadro de diálogo de confirmación para una
+    La acción se cierra automáticamente y la acción se cancela. Establezca en 0 para desactivar el tiempo de espera.</string>
   <string id="SettingsTextAlign">Alineación del menú izquierda (desactivada) o derecha (activada).</string>
   <string id="LeftToRight">De izquierda a derecha</string>
   <string id="RightToLeft">De derecha a izquierda</string>
-  <string id="SettingsWidgetStart">(Solo widget) Inicia automáticamente la aplicación desde el widget sin esperar un toque.</string>
-  <string id="SettingsEnableBatteryLevel">Habilite el servicio en segundo plano para enviar el nivel de batería del reloj a Home Assistant.</string>
-  <string id="SettingsBatteryLevelRefreshRate">La frecuencia de actualización (en minutos) a la que el servicio en segundo plano debe repetir el envío del nivel de la batería.</string>
-  <string id="WebhookId">(Solo lectura) El ID de Webhook creado por el reloj para actualizaciones del nivel de batería. Es posible que necesite esto para la depuración.</string>
+  <string id="SettingsWidgetStart">(Solo widget) Inicia automáticamente la aplicación desde el widget
+    sin esperar un toque.</string>
+  <string id="SettingsEnableBatteryLevel">Habilite el servicio en segundo plano para enviar la batería del reloj.
+    nivel a Home Assistant.</string>
+  <string id="SettingsBatteryLevelRefreshRate">La frecuencia de actualización (en minutos) a la que se reproduce el fondo.
+    El servicio debe repetir enviando el nivel de batería.</string>
+  <string id="WebhookId">(Solo lectura) El ID de Webhook creado por el reloj para actualizaciones del nivel de batería.
+    Es posible que necesite esto para la depuración.</string>
 </strings>

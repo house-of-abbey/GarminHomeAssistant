@@ -20,10 +20,6 @@
 
 <strings>
   <string id="AppName" scope="glance">HomeAssistant</string>
-  <string id="MenuItemOn">Op</string>
-  <string id="MenuItemOff">Uit</string>
-  <string id="MenuItemTap">Kraan</string>
-  <string id="MenuItemMenu">Menu</string>
   <string id="Confirm">Zeker?</string>
   <string id="Executed" scope="glance">Bevestigd</string>
   <string id="NoPhone" scope="glance">Geen telefoonverbinding</string>
@@ -39,30 +35,35 @@
   <string id="UnhandledHttpErr">HTTP-verzoek retourneerde foutcode =</string>
   <string id="TrailingSlashErr">API-URL mag geen afsluitende slash '/' bevatten</string>
   <string id="WebhookFailed">Registreren van Webhook is mislukt</string>
+  <string id="TemplateError">Kan de sjabloon niet weergeven</string>
   <string id="Available" scope="glance">Beschikbaar</string>
   <string id="Checking" scope="glance">Controleren...</string>
   <string id="Unavailable" scope="glance">Niet beschikbaar</string>
   <string id="Unconfigured" scope="glance">Niet geconfigureerd</string>
   <string id="Cached" scope="glance">In cache opgeslagen</string>
   <string id="GlanceMenu" scope="glance">Menu</string>
-  <!-- Voor de instellingen GUI -->
+  <!-- Voor de instellingen-GUI -->
   <string id="SettingsSelect">Selecteer...</string>
   <string id="SettingsApiKey">API-sleutel voor HomeAssistant.</string>
   <string id="SettingsApiKeyPrompt">Toegangstoken met lange levensduur.</string>
-  <string id="SettingsApiUrl">URL voor HomeAssistant-API.</string>
+  <string id="SettingsApiUrl">URL voor HomeAssistant API.</string>
   <string id="SettingsConfigUrl">URL voor menuconfiguratie (JSON).</string>
   <string id="SettingsCacheConfig">Moet de applicatie de menuconfiguratie in de cache opslaan?</string>
-  <string id="SettingsClearCache">Moet de applicatie de volgende keer dat deze wordt gestart de bestaande cache wissen?</string>
-  <string id="SettingsAppTimeout">Time-out in seconden. Sluit de applicatie af na deze periode van inactiviteit om de batterij van het apparaat te sparen.</string>
-  <string id="SettingsConfirmTimeout">Na deze tijd (in seconden) wordt automatisch een bevestigingsvenster voor een actie gesloten en wordt de actie geannuleerd. Stel in op 0 om de time-out uit te schakelen.</string>
-  <string id="SettingsMenuItemStyle">Stijl van menu-items.</string>
-  <string id="SettingsMenuItemStyleIcons">Pictogrammen</string>
-  <string id="SettingsMenuItemStyleText">Aanvullende tekst</string>
+  <string id="SettingsClearCache">Moet de toepassing de volgende keer de bestaande cache wissen?
+    begonnen?</string>
+  <string id="SettingsAppTimeout">Time-out in seconden. Sluit de applicatie na deze periode af
+    inactiviteit om de batterij van het apparaat te sparen.</string>
+  <string id="SettingsConfirmTimeout">Na deze tijd (in seconden) verschijnt er een bevestigingsvenster voor een
+    actie wordt automatisch gesloten en de actie wordt geannuleerd. Stel in op 0 om de time-out uit te schakelen.</string>
   <string id="SettingsTextAlign">Links (uit) of rechts (aan) Menu-uitlijning.</string>
   <string id="LeftToRight">Van links naar rechts</string>
   <string id="RightToLeft">Rechts naar links</string>
-  <string id="SettingsWidgetStart">(Alleen Widget) Start de applicatie automatisch vanuit de widget zonder te wachten op een tik.</string>
-  <string id="SettingsEnableBatteryLevel">Schakel de achtergrondservice in om het batterijniveau van de klok naar Home Assistant te sturen.</string>
-  <string id="SettingsBatteryLevelRefreshRate">De vernieuwingsfrequentie (in minuten) waarmee de achtergrondservice het batterijniveau opnieuw moet verzenden.</string>
-  <string id="WebhookId">(Alleen-lezen) De Webhook-ID die door het horloge is aangemaakt voor updates van het batterijniveau. Mogelijk hebt u dit nodig voor foutopsporing.</string>
+  <string id="SettingsWidgetStart">(Alleen Widget) Start de applicatie automatisch vanuit de widget
+    zonder te wachten op een tikje.</string>
+  <string id="SettingsEnableBatteryLevel">Schakel de achtergrondservice in om de klokbatterij te verzenden
+    niveau naar Home Assistant.</string>
+  <string id="SettingsBatteryLevelRefreshRate">De vernieuwingsfrequentie (in minuten) waarmee de achtergrond wordt weergegeven
+    service moet het batterijniveau opnieuw verzenden.</string>
+  <string id="WebhookId">(Alleen-lezen) De Webhook-ID die door het horloge is aangemaakt voor updates van het batterijniveau.
+    Mogelijk hebt u dit nodig voor foutopsporing.</string>
 </strings>

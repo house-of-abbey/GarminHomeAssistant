@@ -20,10 +20,6 @@
 
 <strings>
   <string id="AppName" scope="glance">HomeAssistant</string>
-  <string id="MenuItemOn">Pe</string>
-  <string id="MenuItemOff">Oprit</string>
-  <string id="MenuItemTap">Atingeți</string>
-  <string id="MenuItemMenu">Meniul</string>
   <string id="Confirm">Sigur?</string>
   <string id="Executed" scope="glance">Confirmat</string>
   <string id="NoPhone" scope="glance">Fără conexiune telefonică</string>
@@ -35,10 +31,11 @@
   <string id="ApiFlood">Apeluri API prea rapide. Vă rugăm să vă încetiniți solicitările.</string>
   <string id="ApiUrlNotFound">Adresa URL nu a fost găsită. Potențială eroare URL API în setări.</string>
   <string id="ConfigUrlNotFound">Adresa URL nu a fost găsită. Potențială eroare URL de configurare în setări.</string>
-  <string id="NoJson">Niciun JSON nu a fost returnat de la solicitarea HTTP.</string>
+  <string id="NoJson">Nu a fost returnat niciun JSON de la solicitarea HTTP.</string>
   <string id="UnhandledHttpErr">Solicitarea HTTP a returnat codul de eroare =</string>
   <string id="TrailingSlashErr">Adresa URL API nu trebuie să aibă o bară oblică „/”</string>
   <string id="WebhookFailed">Nu s-a putut înregistra Webhook</string>
+  <string id="TemplateError">Șablonul a eșuat</string>
   <string id="Available" scope="glance">Disponibil</string>
   <string id="Checking" scope="glance">Control...</string>
   <string id="Unavailable" scope="glance">Indisponibil</string>
@@ -52,17 +49,21 @@
   <string id="SettingsApiUrl">Adresa URL pentru API-ul HomeAssistant.</string>
   <string id="SettingsConfigUrl">URL pentru configurarea meniului (JSON).</string>
   <string id="SettingsCacheConfig">Ar trebui aplicația să memoreze în cache configurația meniului?</string>
-  <string id="SettingsClearCache">Ar trebui aplicația să golească memoria cache existentă data viitoare când este pornită?</string>
-  <string id="SettingsAppTimeout">Timeout în secunde. Ieșiți din aplicație după această perioadă de inactivitate pentru a economisi bateria dispozitivului.</string>
-  <string id="SettingsConfirmTimeout">După acest timp (în secunde), un dialog de confirmare pentru o acțiune este închis automat și acțiunea este anulată. Setați la 0 pentru a dezactiva timeout-ul.</string>
-  <string id="SettingsMenuItemStyle">Stilul elementului de meniu.</string>
-  <string id="SettingsMenuItemStyleIcons">icoane</string>
-  <string id="SettingsMenuItemStyleText">Text suplimentar</string>
+  <string id="SettingsClearCache">Dacă aplicația șterge memoria cache existentă data viitoare
+    început?</string>
+  <string id="SettingsAppTimeout">Timeout în secunde. Ieșiți din aplicație după această perioadă de
+    inactivitate pentru a economisi bateria dispozitivului.</string>
+  <string id="SettingsConfirmTimeout">După acest timp (în secunde), un dialog de confirmare pentru un
+    acțiunea este închisă automat și acțiunea este anulată. Setați la 0 pentru a dezactiva timeout-ul.</string>
   <string id="SettingsTextAlign">Alinierea meniului la stânga (dezactivată) sau la dreapta (activată).</string>
   <string id="LeftToRight">De la stânga la dreapta</string>
   <string id="RightToLeft">De la dreapta la stanga</string>
-  <string id="SettingsWidgetStart">(Numai widget) Porniți automat aplicația din widget fără a aștepta o atingere.</string>
-  <string id="SettingsEnableBatteryLevel">Activați serviciul de fundal pentru a trimite nivelul bateriei ceasului către Home Assistant.</string>
-  <string id="SettingsBatteryLevelRefreshRate">Rata de reîmprospătare (în minute) la care serviciul de fundal ar trebui să repete trimiterea nivelului bateriei.</string>
-  <string id="WebhookId">(Numai citire) ID-ul Webhook creat de ceas pentru actualizările nivelului bateriei. Este posibil să aveți nevoie de acest lucru pentru depanare.</string>
+  <string id="SettingsWidgetStart">(Numai widget) Porniți automat aplicația din widget
+    fără să aștepte o atingere.</string>
+  <string id="SettingsEnableBatteryLevel">Activați serviciul de fundal pentru a trimite bateria ceasului
+    nivel la Home Assistant.</string>
+  <string id="SettingsBatteryLevelRefreshRate">Rata de reîmprospătare (în minute) la care fundalul
+    serviciul ar trebui să repete trimiterea nivelului bateriei.</string>
+  <string id="WebhookId">(Numai citire) ID-ul Webhook creat de ceas pentru actualizările nivelului bateriei.
+    Este posibil să aveți nevoie de acest lucru pentru depanare.</string>
 </strings>

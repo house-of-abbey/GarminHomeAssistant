@@ -1,3 +1,26 @@
+//-----------------------------------------------------------------------------------
+//
+// Distributed under MIT Licence
+//   See https://github.com/house-of-abbey/GarminHomeAssistant/blob/main/LICENSE.
+//
+//-----------------------------------------------------------------------------------
+//
+// GarminHomeAssistant is a Garmin IQ application written in Monkey C and routinely
+// tested on a Venu 2 device. The source code is provided at:
+//            https://github.com/house-of-abbey/GarminHomeAssistant.
+//
+// P A Abbey & J D Abbey, 10 January 2024
+//
+//
+// Description:
+//
+// Home Assistant Webhook creation.
+//
+// Reference:
+//  * https://developers.home-assistant.io/docs/api/native-app-integration
+//
+//-----------------------------------------------------------------------------------
+
 using Toybox.Lang;
 using Toybox.Communications;
 using Toybox.System;

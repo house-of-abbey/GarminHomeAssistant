@@ -9,28 +9,33 @@
 // tested on a Venu 2 device. The source code is provided at:
 //            https://github.com/house-of-abbey/GarminHomeAssistant.
 //
-// P A Abbey & J D Abbey & Someone0nEarth, 31 October 2023
+// P A Abbey & J D Abbey & Someone0nEarth, 16 November 2023
 //
 //
 // Description:
 //
-// Menu button that opens a sub-menu.
+// Menu button with an icon that opens a sub-menu.
 //
 //-----------------------------------------------------------------------------------
 
 using Toybox.Lang;
 using Toybox.WatchUi;
 
-class HomeAssistantViewMenuItem extends WatchUi.MenuItem {
+class HomeAssistantViewMenuItem extends WatchUi.IconMenuItem {
     private var mMenu as HomeAssistantView;
 
-    function initialize(definition as Lang.Dictionary) {
-        // definitions.get(...) are Strings here as they have been checked by HomeAssistantView first
-        WatchUi.MenuItem.initialize(
-            definition.get("name") as Lang.String,
-            RezStrings.getMenuItemMenu(),
-            definition.get("entity") as Lang.String,
-            null
+    function initialize(definition as Lang.Dictionary, icon as WatchUi.Drawable, options as {
+            :alignment as WatchUi.MenuItem.Alignment
+        } or Null) {
+        var label = definition.get("name") as Lang.String;
+        var identifier = definition.get("entity") as Lang.String;
+
+        WatchUi.IconMenuItem.initialize(
+            label,
+            null,
+            identifier,
+            icon,
+            options
         );
 
         mMenu = new HomeAssistantView(definition, null);

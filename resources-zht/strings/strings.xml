@@ -20,10 +20,6 @@
 
 <strings>
   <string id="AppName" scope="glance">HomeAssistant</string>
-  <string id="MenuItemOn">在</string>
-  <string id="MenuItemOff">離開</string>
-  <string id="MenuItemTap">輕敲</string>
-  <string id="MenuItemMenu">選單</string>
   <string id="Confirm">當然？</string>
   <string id="Executed" scope="glance">確認的</string>
   <string id="NoPhone" scope="glance">沒有電話連接</string>
@@ -39,6 +35,7 @@
   <string id="UnhandledHttpErr">HTTP請求回傳錯誤碼=</string>
   <string id="TrailingSlashErr">API URL 不得有尾部斜線“/”</string>
   <string id="WebhookFailed">註冊Webhook失敗</string>
+  <string id="TemplateError">渲染模板失敗</string>
   <string id="Available" scope="glance">可用的</string>
   <string id="Checking" scope="glance">檢查...</string>
   <string id="Unavailable" scope="glance">不可用</string>
@@ -52,17 +49,21 @@
   <string id="SettingsApiUrl">HomeAssistant API 的 URL。</string>
   <string id="SettingsConfigUrl">選單配置的 URL (JSON)。</string>
   <string id="SettingsCacheConfig">應用程式是否應該快取選單配置？</string>
-  <string id="SettingsClearCache">應用程式是否應該在下次啟動時清除現有快取？</string>
-  <string id="SettingsAppTimeout">超時（以秒為單位）。閒置一段時間後退出應用程式以節省設備電池。</string>
-  <string id="SettingsConfirmTimeout">在此時間（以秒為單位）之後，操作的確認對話方塊將自動關閉並取消該操作。設定為 0 以停用逾時。</string>
-  <string id="SettingsMenuItemStyle">選單項目樣式。</string>
-  <string id="SettingsMenuItemStyleIcons">圖示</string>
-  <string id="SettingsMenuItemStyleText">附加文字</string>
+  <string id="SettingsClearCache">應用程式下次是否應該清除現有緩存
+    開始了？</string>
+  <string id="SettingsAppTimeout">超時（以秒為單位）。在此期限後退出應用程式
+    不活動以節省設備電池。</string>
+  <string id="SettingsConfirmTimeout">在此時間（以秒為單位）之後，將出現一個確認對話框
+    動作自動關閉並取消動作。設定為 0 以停用逾時。</string>
   <string id="SettingsTextAlign">左（關）或右（開）選單對齊。</string>
   <string id="LeftToRight">左至右</string>
   <string id="RightToLeft">右到左</string>
-  <string id="SettingsWidgetStart">（僅限小部件）從小部件自動啟動應用程序，無需等待點擊。</string>
-  <string id="SettingsEnableBatteryLevel">啟用後台服務將時鐘電池電量傳送到 Home Assistant。</string>
-  <string id="SettingsBatteryLevelRefreshRate">後台服務應重複發送電池電量的更新率（以分鐘為單位）。</string>
-  <string id="WebhookId">（唯讀）手錶創建的用於電池電量更新的 Webhook ID。您可能需要它來進行調試。</string>
+  <string id="SettingsWidgetStart">（僅限小工具）從小部件自動啟動應用程式
+    無需等待點擊。</string>
+  <string id="SettingsEnableBatteryLevel">啟用後台服務發送時鐘電池
+    級別為家庭助理。</string>
+  <string id="SettingsBatteryLevelRefreshRate">背景的刷新率（以分鐘為單位）
+    服務應重複發送電池電量。</string>
+  <string id="WebhookId">（唯讀）手錶創建的用於電池電量更新的 Webhook ID。
+    您可能需要它來進行調試。</string>
 </strings>

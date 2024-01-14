@@ -20,10 +20,6 @@
 
 <strings>
   <string id="AppName" scope="glance">HomeAssistant</string>
-  <string id="MenuItemOn">Sobre</string>
-  <string id="MenuItemOff">Desligado</string>
-  <string id="MenuItemTap">Tocar</string>
-  <string id="MenuItemMenu">Cardápio</string>
   <string id="Confirm">Claro?</string>
   <string id="Executed" scope="glance">Confirmado</string>
   <string id="NoPhone" scope="glance">Sem conexão telefônica</string>
@@ -39,6 +35,7 @@
   <string id="UnhandledHttpErr">Solicitação HTTP retornou código de erro =</string>
   <string id="TrailingSlashErr">O URL da API não deve ter uma barra final '/'</string>
   <string id="WebhookFailed">Falha ao registrar o Webhook</string>
+  <string id="TemplateError">Falha ao renderizar o modelo</string>
   <string id="Available" scope="glance">Disponível</string>
   <string id="Checking" scope="glance">Verificando...</string>
   <string id="Unavailable" scope="glance">Indisponível</string>
@@ -52,17 +49,21 @@
   <string id="SettingsApiUrl">URL para API HomeAssistant.</string>
   <string id="SettingsConfigUrl">URL para configuração do menu (JSON).</string>
   <string id="SettingsCacheConfig">O aplicativo deve armazenar em cache a configuração do menu?</string>
-  <string id="SettingsClearCache">O aplicativo deverá limpar o cache existente na próxima vez que for iniciado?</string>
-  <string id="SettingsAppTimeout">Tempo limite em segundos. Saia do aplicativo após esse período de inatividade para economizar bateria do aparelho.</string>
-  <string id="SettingsConfirmTimeout">Após esse tempo (em segundos), uma caixa de diálogo de confirmação de uma ação é automaticamente fechada e a ação é cancelada. Defina como 0 para desativar o tempo limite.</string>
-  <string id="SettingsMenuItemStyle">Estilo do item de menu.</string>
-  <string id="SettingsMenuItemStyleIcons">Ícones</string>
-  <string id="SettingsMenuItemStyleText">Texto Adicional</string>
+  <string id="SettingsClearCache">O aplicativo deve limpar o cache existente na próxima vez que for
+    iniciado?</string>
+  <string id="SettingsAppTimeout">Tempo limite em segundos. Saia do aplicativo após esse período de
+    inatividade para economizar bateria do dispositivo.</string>
+  <string id="SettingsConfirmTimeout">Após este tempo (em segundos), uma caixa de diálogo de confirmação para um
+    a ação é automaticamente fechada e a ação é cancelada. Defina como 0 para desativar o tempo limite.</string>
   <string id="SettingsTextAlign">Alinhamento do menu à esquerda (desligado) ou à direita (ligado).</string>
   <string id="LeftToRight">Da esquerda para direita</string>
   <string id="RightToLeft">Direita para esquerda</string>
-  <string id="SettingsWidgetStart">(Somente widget) Inicie automaticamente o aplicativo a partir do widget sem esperar por um toque.</string>
-  <string id="SettingsEnableBatteryLevel">Ative o serviço em segundo plano para enviar o nível da bateria do relógio ao Home Assistant.</string>
-  <string id="SettingsBatteryLevelRefreshRate">A taxa de atualização (em minutos) na qual o serviço em segundo plano deve repetir o envio do nível da bateria.</string>
-  <string id="WebhookId">(Somente leitura) O ID do Webhook criado pelo relógio para atualizações do nível da bateria. Você pode precisar disso para depuração.</string>
+  <string id="SettingsWidgetStart">(Somente widget) Iniciar automaticamente o aplicativo a partir do widget
+    sem esperar por um toque.</string>
+  <string id="SettingsEnableBatteryLevel">Habilite o serviço em segundo plano para enviar a bateria do relógio
+    nível para Home Assistant.</string>
+  <string id="SettingsBatteryLevelRefreshRate">A taxa de atualização (em minutos) na qual o plano de fundo
+    o serviço deve repetir o envio do nível da bateria.</string>
+  <string id="WebhookId">(Somente leitura) O ID do Webhook criado pelo relógio para atualizações do nível da bateria.
+    Você pode precisar disso para depuração.</string>
 </strings>

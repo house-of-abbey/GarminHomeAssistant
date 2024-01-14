@@ -25,9 +25,6 @@ using Toybox.System;
 using Toybox.WatchUi;
 
 class HomeAssistantView extends WatchUi.Menu2 {
-    // List of items that need to have their status updated periodically
-    private var mListToggleItems = [];
-    private var mListMenuItems   = [];
 
     function initialize(
         definition as Lang.Dictionary,
@@ -51,6 +48,7 @@ class HomeAssistantView extends WatchUi.Menu2 {
         for(var i = 0; i < items.size(); i++) {
             var type       = items[i].get("type")       as Lang.String     or Null;
             var name       = items[i].get("name")       as Lang.String     or Null;
+            var content    = items[i].get("content")    as Lang.String     or Null;
             var entity     = items[i].get("entity")     as Lang.String     or Null;
             var tap_action = items[i].get("tap_action") as Lang.Dictionary or Null;
             var service    = items[i].get("service")    as Lang.String     or Null;
@@ -62,34 +60,36 @@ class HomeAssistantView extends WatchUi.Menu2 {
                     confirm = false;
                 }
             }
-            if (type != null && name != null && entity != null) {
-                if (type.equals("toggle")) {
-                    var item = HomeAssistantMenuItemFactory.create().toggle(name, entity);
-                    addItem(item);
-                    mListToggleItems.add(item);
-                } else if (type.equals("tap") && service != null) {
+            if (type != null && name != null) {
+                if (type.equals("toggle") && entity != null) {
+                    addItem(HomeAssistantMenuItemFactory.create().toggle(name, entity));
+                } else if (type.equals("template") && content != null) {
+                    addItem(HomeAssistantMenuItemFactory.create().template(name, entity, content, service, confirm));
+                } else if (type.equals("tap") && entity != null && service != null) {
                     addItem(HomeAssistantMenuItemFactory.create().tap(name, entity, service, confirm));
                 } else if (type.equals("group")) {
-                    var item = HomeAssistantMenuItemFactory.create().group(items[i]);
-                    addItem(item);
-                    mListMenuItems.add(item);
+                    addItem(HomeAssistantMenuItemFactory.create().group(items[i]));
                 }
             }
         }
     }
 
-    function getItemsToUpdate() as Lang.Array<HomeAssistantToggleMenuItem> {
+    function getItemsToUpdate() as Lang.Array<HomeAssistantToggleMenuItem or HomeAssistantTemplateMenuItem> {
         var fullList = [];
 
-        var lmi = mListMenuItems as Lang.Array<WatchUi.MenuItem>;
-        for(var i = 0; i < mListMenuItems.size(); i++) {
+        var lmi = mItems as Lang.Array<WatchUi.MenuItem>;
+        for(var i = 0; i < mItems.size(); i++) {
             var item = lmi[i];
-            if (item instanceof HomeAssistantViewMenuItem || item instanceof HomeAssistantViewIconMenuItem) {
+            if (item instanceof HomeAssistantViewMenuItem) {
                 fullList.addAll(item.getMenuView().getItemsToUpdate());
+            } else if (item instanceof HomeAssistantToggleMenuItem) {
+                fullList.add(item);
+            } else if (item instanceof HomeAssistantTemplateMenuItem) {
+                fullList.add(item);
             }
         }
 
-        return fullList.addAll(mListToggleItems);
+        return fullList;
     }
 
     // Called when this View is brought to the foreground. Restore
@@ -149,20 +149,14 @@ class HomeAssistantViewDelegate extends WatchUi.Menu2InputDelegate {
                 System.println(haItem.getLabel() + " " + haItem.getId());
             }
             haItem.callService();
-        } else if (item instanceof HomeAssistantIconMenuItem) {
-            var haItem = item as HomeAssistantIconMenuItem;
+        } else if (item instanceof HomeAssistantTemplateMenuItem) {
+            var haItem = item as HomeAssistantTemplateMenuItem;
             if (Globals.scDebug) {
                 System.println(haItem.getLabel() + " " + haItem.getId());
             }
             haItem.callService();
         } else if (item instanceof HomeAssistantViewMenuItem) {
             var haMenuItem = item as HomeAssistantViewMenuItem;
-            if (Globals.scDebug) {
-                System.println("Menu: " + haMenuItem.getLabel() + " " + haMenuItem.getId());
-            }
-            WatchUi.pushView(haMenuItem.getMenuView(), new HomeAssistantViewDelegate(false), WatchUi.SLIDE_LEFT);
-        } else if (item instanceof HomeAssistantViewIconMenuItem) {
-            var haMenuItem = item as HomeAssistantViewIconMenuItem;
             if (Globals.scDebug) {
                 System.println("IconMenu: " + haMenuItem.getLabel() + " " + haMenuItem.getId());
             }

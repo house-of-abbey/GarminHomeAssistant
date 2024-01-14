@@ -52,11 +52,6 @@
   <property id="confirm_timeout" type="number">3</property>
 
   <!--
-    Lean UI with icons vs second level of menu text.
-  -->
-  <property id="menu_theme" type="number">0</property>
-
-  <!--
     Left to right or right to left text. Language dependent.
   -->
   <property id="menu_alignment" type="number">1</property>

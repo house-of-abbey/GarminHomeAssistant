@@ -20,10 +20,6 @@
 
 <strings>
   <string id="AppName" scope="glance">HomeAssistant</string>
-  <string id="MenuItemOn">SU</string>
-  <string id="MenuItemOff">Spento</string>
-  <string id="MenuItemTap">Rubinetto</string>
-  <string id="MenuItemMenu">Menù</string>
   <string id="Confirm">Sicuro?</string>
   <string id="Executed" scope="glance">Confermato</string>
   <string id="NoPhone" scope="glance">Nessuna connessione telefonica</string>
@@ -39,6 +35,7 @@
   <string id="UnhandledHttpErr">La richiesta HTTP ha restituito il codice di errore =</string>
   <string id="TrailingSlashErr">L'URL dell'API non deve avere una barra finale "/"</string>
   <string id="WebhookFailed">Impossibile registrare il Webhook</string>
+  <string id="TemplateError">Impossibile eseguire il rendering del modello</string>
   <string id="Available" scope="glance">Disponibile</string>
   <string id="Checking" scope="glance">Controllo...</string>
   <string id="Unavailable" scope="glance">Non disponibile</string>
@@ -52,17 +49,21 @@
   <string id="SettingsApiUrl">URL per l'API HomeAssistant.</string>
   <string id="SettingsConfigUrl">URL per la configurazione del menu (JSON).</string>
   <string id="SettingsCacheConfig">L'applicazione dovrebbe memorizzare nella cache la configurazione del menu?</string>
-  <string id="SettingsClearCache">L'applicazione dovrebbe svuotare la cache esistente al successivo avvio?</string>
-  <string id="SettingsAppTimeout">Timeout in secondi. Uscire dall'applicazione dopo questo periodo di inattività per risparmiare la batteria del dispositivo.</string>
-  <string id="SettingsConfirmTimeout">Trascorso questo tempo (in secondi), una finestra di dialogo di conferma per un'azione viene chiusa automaticamente e l'azione viene annullata. Impostare su 0 per disabilitare il timeout.</string>
-  <string id="SettingsMenuItemStyle">Stile della voce di menu.</string>
-  <string id="SettingsMenuItemStyleIcons">Icone</string>
-  <string id="SettingsMenuItemStyleText">Testo aggiuntivo</string>
+  <string id="SettingsClearCache">L'applicazione dovrebbe cancellare la cache esistente la prossima volta
+    iniziato?</string>
+  <string id="SettingsAppTimeout">Timeout in secondi. Uscire dall'applicazione dopo questo periodo di
+    inattività per risparmiare la batteria del dispositivo.</string>
+  <string id="SettingsConfirmTimeout">Trascorso questo tempo (in secondi), verrà visualizzata una finestra di dialogo di conferma per un
+    l'azione viene chiusa automaticamente e annullata. Impostare su 0 per disabilitare il timeout.</string>
   <string id="SettingsTextAlign">Allineamento del menu a sinistra (spento) o a destra (acceso).</string>
   <string id="LeftToRight">Da sinistra a destra</string>
   <string id="RightToLeft">Da destra a sinistra</string>
-  <string id="SettingsWidgetStart">(Solo widget) Avvia automaticamente l'applicazione dal widget senza attendere un tocco.</string>
-  <string id="SettingsEnableBatteryLevel">Abilita il servizio in background per inviare il livello della batteria dell'orologio a Home Assistant.</string>
-  <string id="SettingsBatteryLevelRefreshRate">La frequenza di aggiornamento (in minuti) alla quale il servizio in background deve ripetere l'invio del livello della batteria.</string>
-  <string id="WebhookId">(Sola lettura) L'ID webhook creato dall'orologio per gli aggiornamenti del livello della batteria. Potrebbe essere necessario per il debug.</string>
+  <string id="SettingsWidgetStart">(Solo widget) Avvia automaticamente l'applicazione dal widget
+    senza aspettare un tocco.</string>
+  <string id="SettingsEnableBatteryLevel">Abilita il servizio in background per inviare la batteria dell'orologio
+    livello su Home Assistant.</string>
+  <string id="SettingsBatteryLevelRefreshRate">La frequenza di aggiornamento (in minuti) alla quale viene visualizzato lo sfondo
+    il servizio dovrebbe ripetere l'invio del livello della batteria.</string>
+  <string id="WebhookId">(Sola lettura) L'ID webhook creato dall'orologio per gli aggiornamenti del livello della batteria.
+    Potrebbe essere necessario per il debug.</string>
 </strings>

@@ -20,10 +20,6 @@
 
 <strings>
   <string id="AppName" scope="glance">HomeAssistant</string>
-  <string id="MenuItemOn">Peal</string>
-  <string id="MenuItemOff">Väljas</string>
-  <string id="MenuItemTap">Puudutage</string>
-  <string id="MenuItemMenu">Menüü</string>
   <string id="Confirm">Muidugi?</string>
   <string id="Executed" scope="glance">Kinnitatud</string>
   <string id="NoPhone" scope="glance">Telefoniühendus puudub</string>
@@ -39,6 +35,7 @@
   <string id="UnhandledHttpErr">HTTP päring tagastas veakoodi =</string>
   <string id="TrailingSlashErr">API URL-i lõpus ei tohi olla kaldkriipsu „/”</string>
   <string id="WebhookFailed">Webhaoki registreerimine ebaõnnestus</string>
+  <string id="TemplateError">Malli renderdamine ebaõnnestus</string>
   <string id="Available" scope="glance">Saadaval</string>
   <string id="Checking" scope="glance">Kontrollimine...</string>
   <string id="Unavailable" scope="glance">Pole saadaval</string>
@@ -52,17 +49,21 @@
   <string id="SettingsApiUrl">HomeAssistant API URL.</string>
   <string id="SettingsConfigUrl">URL menüü konfigureerimiseks (JSON).</string>
   <string id="SettingsCacheConfig">Kas rakendus peaks menüü konfiguratsiooni vahemällu salvestama?</string>
-  <string id="SettingsClearCache">Kas rakendus peaks järgmisel käivitamisel olemasoleva vahemälu tühjendama?</string>
-  <string id="SettingsAppTimeout">Aegumine sekundites. Seadme aku säästmiseks sulgege rakendus pärast seda tegevusetusperioodi.</string>
-  <string id="SettingsConfirmTimeout">Pärast seda aega (sekundites) suletakse automaatselt toimingu kinnitusdialoog ja toiming tühistatakse. Ajalõpu keelamiseks määrake väärtusele 0.</string>
-  <string id="SettingsMenuItemStyle">Menüüelemendi stiil.</string>
-  <string id="SettingsMenuItemStyleIcons">Ikoonid</string>
-  <string id="SettingsMenuItemStyleText">Täiendav tekst</string>
+  <string id="SettingsClearCache">Kas rakendus peaks järgmisel korral olemasoleva vahemälu tühjendama
+    algas?</string>
+  <string id="SettingsAppTimeout">Aegumine sekundites. Väljuge rakendusest pärast seda perioodi
+    tegevusetus, et säästa seadme akut.</string>
+  <string id="SettingsConfirmTimeout">Pärast seda aega (sekundites) kuvatakse kinnitusdialoog an
+    toiming suletakse automaatselt ja toiming tühistatakse. Ajalõpu keelamiseks määrake väärtusele 0.</string>
   <string id="SettingsTextAlign">Vasak (väljas) või parem (sees) menüü joondamine.</string>
   <string id="LeftToRight">Vasakult paremale</string>
   <string id="RightToLeft">Paremalt vasakule</string>
-  <string id="SettingsWidgetStart">(Ainult vidin) Käivitage rakendus automaatselt vidinast ilma puudutust ootamata.</string>
-  <string id="SettingsEnableBatteryLevel">Lubage taustateenus, et saata Home Assistantile kella aku tase.</string>
-  <string id="SettingsBatteryLevelRefreshRate">Värskendussagedus (minutites), mille juures taustateenus peaks aku taseme saatmist kordama.</string>
-  <string id="WebhookId">(Ainult lugemiseks) Kella loodud veebihaagi ID aku taseme värskendamiseks. Võib-olla vajate seda silumiseks.</string>
+  <string id="SettingsWidgetStart">(Ainult vidin) Käivitage rakendus automaatselt vidinast
+    puudutust ootamata.</string>
+  <string id="SettingsEnableBatteryLevel">Kella aku saatmiseks lubage taustteenus
+    Koduassistendi tasemele.</string>
+  <string id="SettingsBatteryLevelRefreshRate">Värskendussagedus (minutites), mille juures taust
+    teenindus peaks aku taseme saatmist kordama.</string>
+  <string id="WebhookId">(Ainult lugemiseks) Kella loodud veebihaagi ID aku taseme värskendamiseks.
+    Võib-olla vajate seda silumiseks.</string>
 </strings>
