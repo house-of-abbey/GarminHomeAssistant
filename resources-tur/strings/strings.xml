@@ -37,13 +37,14 @@
   <string id="ConfigUrlNotFound">URL bulunamadı. Ayarlarda Olası Yapılandırma URL'si hatası.</string>
   <string id="NoJson">HTTP isteğinden JSON döndürülmedi.</string>
   <string id="UnhandledHttpErr">HTTP isteği hata kodunu döndürdü =</string>
-  <string id="TrailingSlashErr">API URL'sinin sonunda eğik çizgi '/' olmamalıdır</string>
+  <string id="TrailingSlashErr">API URL'sinin sonunda '/' eğik çizgi olmamalıdır</string>
   <string id="WebhookFailed">Webhook kaydedilemedi</string>
+  <string id="TemplateError">Şablon oluşturulamadı</string>
   <string id="Available" scope="glance">Mevcut</string>
   <string id="Checking" scope="glance">Kontrol etme...</string>
   <string id="Unavailable" scope="glance">Kullanım dışı</string>
   <string id="Unconfigured" scope="glance">Yapılandırılmamış</string>
-  <string id="Cached" scope="glance">Önbelleğe alındı</string>
+  <string id="Cached" scope="glance">Önbelleğe alınmış</string>
   <string id="GlanceMenu" scope="glance">Menü</string>
   <!-- Ayarlar GUI'si için -->
   <string id="SettingsSelect">Seçme...</string>

@@ -39,6 +39,7 @@
   <string id="UnhandledHttpErr">La richiesta HTTP ha restituito il codice di errore =</string>
   <string id="TrailingSlashErr">L'URL dell'API non deve avere una barra finale "/"</string>
   <string id="WebhookFailed">Impossibile registrare il Webhook</string>
+  <string id="TemplateError">Impossibile eseguire il rendering del modello</string>
   <string id="Available" scope="glance">Disponibile</string>
   <string id="Checking" scope="glance">Controllo...</string>
   <string id="Unavailable" scope="glance">Non disponibile</string>

@@ -39,6 +39,7 @@
   <string id="UnhandledHttpErr">HTTP-forespørsel returnerte feilkode =</string>
   <string id="TrailingSlashErr">API URL må ikke ha en etterfølgende skråstrek '/'</string>
   <string id="WebhookFailed">Kunne ikke registrere Webhook</string>
+  <string id="TemplateError">Kunne ikke gjengi malen</string>
   <string id="Available" scope="glance">Tilgjengelig</string>
   <string id="Checking" scope="glance">Sjekker...</string>
   <string id="Unavailable" scope="glance">Utilgjengelig</string>
@@ -63,6 +64,6 @@
   <string id="RightToLeft">Høyre til venstre</string>
   <string id="SettingsWidgetStart">(Kun widget) Start applikasjonen automatisk fra widgeten uten å vente på et trykk.</string>
   <string id="SettingsEnableBatteryLevel">Aktiver bakgrunnstjenesten for å sende klokkens batterinivå til Home Assistant.</string>
-  <string id="SettingsBatteryLevelRefreshRate">Oppdateringsfrekvensen (i minutter) som bakgrunnstjenesten skal gjenta sendingen av batterinivået med.</string>
+  <string id="SettingsBatteryLevelRefreshRate">Oppdateringshastigheten (i minutter) som bakgrunnstjenesten skal gjenta sendingen av batterinivået med.</string>
   <string id="WebhookId">(Skrivebeskyttet) Webhook-IDen opprettet av klokken for oppdateringer av batterinivå. Du kan kreve dette for feilsøking.</string>
 </strings>

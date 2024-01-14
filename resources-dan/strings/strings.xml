@@ -39,6 +39,7 @@
   <string id="UnhandledHttpErr">HTTP-anmodning returnerede fejlkode =</string>
   <string id="TrailingSlashErr">API URL må ikke have en efterfølgende skråstreg '/'</string>
   <string id="WebhookFailed">Kunne ikke registrere Webhook</string>
+  <string id="TemplateError">Skabelonen kunne ikke gengives</string>
   <string id="Available" scope="glance">Ledig</string>
   <string id="Checking" scope="glance">Tjekker...</string>
   <string id="Unavailable" scope="glance">Ikke tilgængelig</string>
@@ -58,11 +59,11 @@
   <string id="SettingsMenuItemStyle">Menupunkt stil.</string>
   <string id="SettingsMenuItemStyleIcons">Ikoner</string>
   <string id="SettingsMenuItemStyleText">Yderligere tekst</string>
-  <string id="SettingsTextAlign">Venstre (fra) eller højre (til) menujustering.</string>
+  <string id="SettingsTextAlign">Venstre (fra) eller Højre (til) menujustering.</string>
   <string id="LeftToRight">Venstre til højre</string>
   <string id="RightToLeft">Højre til venstre</string>
   <string id="SettingsWidgetStart">(Kun widget) Start automatisk applikationen fra widgetten uden at vente på et tryk.</string>
   <string id="SettingsEnableBatteryLevel">Aktiver baggrundstjenesten for at sende urets batteriniveau til Home Assistant.</string>
   <string id="SettingsBatteryLevelRefreshRate">Opdateringshastigheden (i minutter), hvormed baggrundstjenesten skal gentage afsendelsen af ​​batteriniveauet.</string>
-  <string id="WebhookId">(Skrivebeskyttet) Webhook-id'et oprettet af uret til opdateringer af batteriniveau. Du kan kræve dette til fejlfinding.</string>
+  <string id="WebhookId">(Skrivebeskyttet) Webhook-id'et oprettet af uret til opdateringer af batteriniveau. Du kan kræve dette til fejlretning.</string>
 </strings>

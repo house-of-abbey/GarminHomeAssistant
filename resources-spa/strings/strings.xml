@@ -39,6 +39,7 @@
   <string id="UnhandledHttpErr">La solicitud HTTP devolvió el código de error =</string>
   <string id="TrailingSlashErr">La URL de API no debe tener una barra diagonal '/'</string>
   <string id="WebhookFailed">No se pudo registrar el webhook</string>
+  <string id="TemplateError">No se pudo renderizar la plantilla</string>
   <string id="Available" scope="glance">Disponible</string>
   <string id="Checking" scope="glance">Comprobación...</string>
   <string id="Unavailable" scope="glance">Indisponible</string>

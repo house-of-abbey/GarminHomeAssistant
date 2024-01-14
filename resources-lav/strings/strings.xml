@@ -39,6 +39,7 @@
   <string id="UnhandledHttpErr">HTTP pieprasījums atgrieza kļūdas kodu =</string>
   <string id="TrailingSlashErr">API URL beigās nedrīkst būt slīpsvītra “/”</string>
   <string id="WebhookFailed">Neizdevās reģistrēt Web aizķeri</string>
+  <string id="TemplateError">Neizdevās renderēt veidni</string>
   <string id="Available" scope="glance">Pieejams</string>
   <string id="Checking" scope="glance">Notiek pārbaude...</string>
   <string id="Unavailable" scope="glance">Nav pieejams</string>
@@ -58,7 +59,7 @@
   <string id="SettingsMenuItemStyle">Izvēlnes vienuma stils.</string>
   <string id="SettingsMenuItemStyleIcons">Ikonas</string>
   <string id="SettingsMenuItemStyleText">Papildu teksts</string>
-  <string id="SettingsTextAlign">Kreisā (izslēgta) vai labā (ieslēgta) izvēlnes līdzināšana.</string>
+  <string id="SettingsTextAlign">Kreisā (izslēgta) vai labā (ieslēgta) izvēlnes izlīdzināšana.</string>
   <string id="LeftToRight">No kreisās uz labo</string>
   <string id="RightToLeft">No labās uz kreiso</string>
   <string id="SettingsWidgetStart">(tikai logrīkam) Automātiski startējiet lietojumprogrammu no logrīka, negaidot pieskārienu.</string>

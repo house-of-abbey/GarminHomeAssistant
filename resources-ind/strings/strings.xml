@@ -39,6 +39,7 @@
   <string id="UnhandledHttpErr">Permintaan HTTP mengembalikan kode kesalahan =</string>
   <string id="TrailingSlashErr">URL API tidak boleh memiliki garis miring '/'</string>
   <string id="WebhookFailed">Gagal mendaftarkan Webhook</string>
+  <string id="TemplateError">Gagal merender template</string>
   <string id="Available" scope="glance">Tersedia</string>
   <string id="Checking" scope="glance">Memeriksa...</string>
   <string id="Unavailable" scope="glance">Tidak tersedia</string>

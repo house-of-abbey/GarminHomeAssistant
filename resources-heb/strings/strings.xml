@@ -39,6 +39,7 @@
   <string id="UnhandledHttpErr">בקשת HTTP החזירה קוד שגיאה =</string>
   <string id="TrailingSlashErr">כתובת ה-API לא חייבת לכלול לוכסן אחורי '/'</string>
   <string id="WebhookFailed">רישום Webhook נכשל</string>
+  <string id="TemplateError">עיבוד התבנית נכשל</string>
   <string id="Available" scope="glance">זמין</string>
   <string id="Checking" scope="glance">בודק...</string>
   <string id="Unavailable" scope="glance">אינו זמין</string>
@@ -54,7 +55,7 @@
   <string id="SettingsCacheConfig">האם האפליקציה צריכה לשמור את תצורת התפריט במטמון?</string>
   <string id="SettingsClearCache">האם היישום צריך לנקות את המטמון הקיים בפעם הבאה שהוא יופעל?</string>
   <string id="SettingsAppTimeout">פסק זמן בשניות. צא מהאפליקציה לאחר תקופה זו של חוסר פעילות כדי לחסוך בסוללת המכשיר.</string>
-  <string id="SettingsConfirmTimeout">לאחר זמן זה (בשניות), תיבת דו-שיח לאישור פעולה נסגרת אוטומטית והפעולה מבוטלת. הגדר ל-0 כדי להשבית את הזמן הקצוב.</string>
+  <string id="SettingsConfirmTimeout">לאחר זמן זה (בשניות), תיבת דו-שיח לאישור פעולה נסגרת אוטומטית והפעולה מבוטלת. הגדר ל-0 כדי לבטל את הזמן הקצוב.</string>
   <string id="SettingsMenuItemStyle">סגנון פריט בתפריט.</string>
   <string id="SettingsMenuItemStyleIcons">אייקונים</string>
   <string id="SettingsMenuItemStyleText">טקסט נוסף</string>
@@ -64,5 +65,5 @@
   <string id="SettingsWidgetStart">(יישומון בלבד) הפעל אוטומטית את האפליקציה מהווידג'ט מבלי לחכות להקשה.</string>
   <string id="SettingsEnableBatteryLevel">אפשר את שירות הרקע כדי לשלוח את רמת הסוללה של השעון אל Home Assistant.</string>
   <string id="SettingsBatteryLevelRefreshRate">קצב הרענון (בדקות) שבו שירות הרקע אמור לחזור על שליחת רמת הסוללה.</string>
-  <string id="WebhookId">(לקריאה בלבד) מזהה ה-Webhook שנוצר על ידי השעון עבור עדכוני רמת הסוללה. ייתכן שתדרוש את זה בשביל איתור באגים.</string>
+  <string id="WebhookId">(לקריאה בלבד) מזהה ה-Webhook שנוצר על ידי השעון עבור עדכוני רמת הסוללה. ייתכן שתדרוש זאת לצורך איתור באגים.</string>
 </strings>

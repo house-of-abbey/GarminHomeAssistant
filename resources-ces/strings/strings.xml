@@ -39,6 +39,7 @@
   <string id="UnhandledHttpErr">Požadavek HTTP vrátil kód chyby =</string>
   <string id="TrailingSlashErr">Adresa URL rozhraní API nesmí mít koncové lomítko „/“</string>
   <string id="WebhookFailed">Registrace Webhooku se nezdařila</string>
+  <string id="TemplateError">Vykreslení šablony se nezdařilo</string>
   <string id="Available" scope="glance">Dostupný</string>
   <string id="Checking" scope="glance">Kontrola...</string>
   <string id="Unavailable" scope="glance">Není k dispozici</string>
@@ -62,7 +63,7 @@
   <string id="LeftToRight">Zleva do prava</string>
   <string id="RightToLeft">Zprava doleva</string>
   <string id="SettingsWidgetStart">(Pouze widget) Automaticky spusťte aplikaci z widgetu bez čekání na klepnutí.</string>
-  <string id="SettingsEnableBatteryLevel">Povolte službu na pozadí, aby se stav baterie hodin odeslal do Home Assistant.</string>
-  <string id="SettingsBatteryLevelRefreshRate">Obnovovací frekvence (v minutách), při které by služba na pozadí měla opakovat odesílání stavu baterie.</string>
+  <string id="SettingsEnableBatteryLevel">Povolte službu na pozadí, aby odeslala stav baterie hodin do Home Assistant.</string>
+  <string id="SettingsBatteryLevelRefreshRate">Obnovovací frekvence (v minutách), při které by služba na pozadí měla opakovat odesílání úrovně baterie.</string>
   <string id="WebhookId">(Pouze pro čtení) ID webhooku vytvořené hodinkami pro aktualizace úrovně baterie. Možná to budete potřebovat pro ladění.</string>
 </strings>

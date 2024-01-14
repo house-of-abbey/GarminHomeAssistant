@@ -39,6 +39,7 @@
   <string id="UnhandledHttpErr">Żądanie HTTP zwróciło kod błędu =</string>
   <string id="TrailingSlashErr">Adres URL interfejsu API nie może zawierać końcowego ukośnika „/”</string>
   <string id="WebhookFailed">Nie udało się zarejestrować webhooka</string>
+  <string id="TemplateError">Nie udało się wyrenderować szablonu</string>
   <string id="Available" scope="glance">Dostępny</string>
   <string id="Checking" scope="glance">Kontrola...</string>
   <string id="Unavailable" scope="glance">Niedostępne</string>

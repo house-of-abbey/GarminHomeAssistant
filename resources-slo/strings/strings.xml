@@ -39,6 +39,7 @@
   <string id="UnhandledHttpErr">Požiadavka HTTP vrátila kód chyby =</string>
   <string id="TrailingSlashErr">Adresa URL rozhrania API nesmie obsahovať koncovú lomku „/“</string>
   <string id="WebhookFailed">Registrácia Webhooku zlyhala</string>
+  <string id="TemplateError">Vykreslenie šablóny zlyhalo</string>
   <string id="Available" scope="glance">Dostupné</string>
   <string id="Checking" scope="glance">Prebieha kontrola...</string>
   <string id="Unavailable" scope="glance">nedostupné</string>

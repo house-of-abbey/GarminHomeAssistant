@@ -39,6 +39,7 @@
   <string id="UnhandledHttpErr">HTTP请求返回错误码=</string>
   <string id="TrailingSlashErr">API URL 不得有尾部斜杠“/”</string>
   <string id="WebhookFailed">注册Webhook失败</string>
+  <string id="TemplateError">渲染模板失败</string>
   <string id="Available" scope="glance">可用的</string>
   <string id="Checking" scope="glance">检查...</string>
   <string id="Unavailable" scope="glance">不可用</string>

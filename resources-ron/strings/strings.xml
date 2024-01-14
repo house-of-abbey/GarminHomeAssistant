@@ -39,6 +39,7 @@
   <string id="UnhandledHttpErr">Solicitarea HTTP a returnat codul de eroare =</string>
   <string id="TrailingSlashErr">Adresa URL API nu trebuie să aibă o bară oblică „/”</string>
   <string id="WebhookFailed">Nu s-a putut înregistra Webhook</string>
+  <string id="TemplateError">Șablonul a eșuat</string>
   <string id="Available" scope="glance">Disponibil</string>
   <string id="Checking" scope="glance">Control...</string>
   <string id="Unavailable" scope="glance">Indisponibil</string>
@@ -56,7 +57,7 @@
   <string id="SettingsAppTimeout">Timeout în secunde. Ieșiți din aplicație după această perioadă de inactivitate pentru a economisi bateria dispozitivului.</string>
   <string id="SettingsConfirmTimeout">După acest timp (în secunde), un dialog de confirmare pentru o acțiune este închis automat și acțiunea este anulată. Setați la 0 pentru a dezactiva timeout-ul.</string>
   <string id="SettingsMenuItemStyle">Stilul elementului de meniu.</string>
-  <string id="SettingsMenuItemStyleIcons">icoane</string>
+  <string id="SettingsMenuItemStyleIcons">Pictograme</string>
   <string id="SettingsMenuItemStyleText">Text suplimentar</string>
   <string id="SettingsTextAlign">Alinierea meniului la stânga (dezactivată) sau la dreapta (activată).</string>
   <string id="LeftToRight">De la stânga la dreapta</string>
