@@ -42,6 +42,7 @@
   <string id="Unconfigured" scope="glance">ไม่ได้กำหนดค่า</string>
   <string id="Cached" scope="glance">แคช</string>
   <string id="GlanceMenu" scope="glance">เมนู</string>
+  <string id="Memory" scope="glance">หน่วยความจำ</string>
   <!-- สำหรับการตั้งค่า GUI -->
   <string id="SettingsSelect">เลือก...</string>
   <string id="SettingsApiKey">คีย์ API สำหรับ HomeAssistant</string>

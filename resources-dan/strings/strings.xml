@@ -42,6 +42,7 @@
   <string id="Unconfigured" scope="glance">Ukonfigureret</string>
   <string id="Cached" scope="glance">Cachelagret</string>
   <string id="GlanceMenu" scope="glance">Menu</string>
+  <string id="Memory" scope="glance">Hukommelse</string>
   <!-- Til indstillingerne GUI -->
   <string id="SettingsSelect">Vælg...</string>
   <string id="SettingsApiKey">API-nøgle til HomeAssistant.</string>

@@ -33,7 +33,7 @@
   <string id="ConfigUrlNotFound">URL을 찾을 수 없습니다. 설정에 잠재적인 구성 URL 오류가 있습니다.</string>
   <string id="NoJson">HTTP 요청에서 JSON이 반환되지 않았습니다.</string>
   <string id="UnhandledHttpErr">HTTP 요청이 오류 코드를 반환했습니다 =</string>
-  <string id="TrailingSlashErr">API URL에는 후행 슬래시 '/'가 없어야 합니다.</string>
+  <string id="TrailingSlashErr">API URL에는 후행 슬래시 '/'가 있어서는 안 됩니다.</string>
   <string id="WebhookFailed">웹훅 등록 실패</string>
   <string id="TemplateError">템플릿을 렌더링하지 못했습니다.</string>
   <string id="Available" scope="glance">사용 가능</string>
@@ -42,6 +42,7 @@
   <string id="Unconfigured" scope="glance">구성되지 않음</string>
   <string id="Cached" scope="glance">캐시됨</string>
   <string id="GlanceMenu" scope="glance">메뉴</string>
+  <string id="Memory" scope="glance">메모리</string>
   <!-- 설정 GUI의 경우 -->
   <string id="SettingsSelect">선택하다...</string>
   <string id="SettingsApiKey">HomeAssistant용 API 키.</string>
@@ -52,7 +53,7 @@
   <string id="SettingsClearCache">다음 번에 애플리케이션이 기존 캐시를 지워야 할까요?
     시작됐나요?</string>
   <string id="SettingsAppTimeout">시간 초과(초)입니다. 이 기간이 지나면 응용 프로그램을 종료하십시오.
-    장치 배터리를 절약하기 위해 비활성 상태입니다.</string>
+    장치 배터리를 절약하기 위해 활동하지 않습니다.</string>
   <string id="SettingsConfirmTimeout">이 시간(초)이 지나면 확인 대화 상자가 나타납니다.
     작업이 자동으로 닫히고 작업이 취소됩니다. 시간 초과를 비활성화하려면 0으로 설정합니다.</string>
   <string id="SettingsTextAlign">왼쪽(끄기) 또는 오른쪽(켜기) 메뉴 정렬.</string>

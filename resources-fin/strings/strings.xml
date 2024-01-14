@@ -25,7 +25,7 @@
   <string id="NoPhone" scope="glance">Ei puhelinyhteyttä</string>
   <string id="NoInternet">Ei Internet-yhteyttä</string>
   <string id="NoResponse">Ei vastausta, tarkista Internet-yhteys</string>
-  <string id="NoAPIKey" scope="glance">Sovellusasetuksissa ei ole API-avainta</string>
+  <string id="NoAPIKey" scope="glance">Sovelluksen asetuksissa ei ole API-avainta</string>
   <string id="NoApiUrl" scope="glance">Sovellusasetuksissa ei ole API URL-osoitetta</string>
   <string id="NoConfigUrl" scope="glance">Sovelluksen asetuksissa ei ole konfigurointi-URL-osoitetta</string>
   <string id="ApiFlood">API-kutsut liian nopeita. Hidasta pyyntöjäsi.</string>
@@ -42,6 +42,7 @@
   <string id="Unconfigured" scope="glance">Määrittämätön</string>
   <string id="Cached" scope="glance">Välimuistissa</string>
   <string id="GlanceMenu" scope="glance">Valikko</string>
+  <string id="Memory" scope="glance">Muisti</string>
   <!-- GUI-asetusten osalta -->
   <string id="SettingsSelect">Valitse...</string>
   <string id="SettingsApiKey">API-avain HomeAssistantille.</string>
@@ -53,8 +54,8 @@
     alkanut?</string>
   <string id="SettingsAppTimeout">Aikakatkaisu sekunneissa. Poistu sovelluksesta tämän ajanjakson jälkeen
     käyttämättömyys säästääksesi laitteen akkua.</string>
-  <string id="SettingsConfirmTimeout">Tämän ajan kuluttua (sekunteina) vahvistusikkuna an
-    toiminto suljetaan automaattisesti ja toiminto peruutetaan. Aseta arvoksi 0 poistaaksesi aikakatkaisun käytöstä.</string>
+  <string id="SettingsConfirmTimeout">Tämän ajan kuluttua (sekunneissa) vahvistusikkuna an
+    toiminto suljetaan automaattisesti ja toiminto peruutetaan. Aseta arvoksi 0, jos haluat poistaa aikakatkaisun käytöstä.</string>
   <string id="SettingsTextAlign">Vasen (pois) tai oikea (päällä) valikon kohdistus.</string>
   <string id="LeftToRight">Vasemmalta oikealle</string>
   <string id="RightToLeft">Oikealta vasemmalle</string>
@@ -63,7 +64,7 @@
   <string id="SettingsEnableBatteryLevel">Ota taustapalvelu käyttöön kellon akun lähettämiseksi
     tasolle Home Assistant.</string>
   <string id="SettingsBatteryLevelRefreshRate">Päivitystaajuus (minuutteina), jolla tausta
-    palvelun tulee toistaa akun varaustason lähettäminen.</string>
+    palvelun pitäisi toistaa akun varaustason lähettäminen.</string>
   <string id="WebhookId">(Vain luku) Kellon luoma Webhook-tunnus akun varaustason päivityksiä varten.
     Saatat tarvita tätä virheenkorjaukseen.</string>
 </strings>

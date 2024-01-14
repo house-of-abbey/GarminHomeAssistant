@@ -42,6 +42,7 @@
   <string id="Unconfigured" scope="glance">Chưa được định cấu hình</string>
   <string id="Cached" scope="glance">Đã lưu vào bộ nhớ đệm</string>
   <string id="GlanceMenu" scope="glance">Thực đơn</string>
+  <string id="Memory" scope="glance">Ký ức</string>
   <!-- Đối với GUI cài đặt -->
   <string id="SettingsSelect">Lựa chọn...</string>
   <string id="SettingsApiKey">Khóa API cho HomeAssistant.</string>

@@ -42,6 +42,7 @@
   <string id="Unconfigured" scope="glance">Yapılandırılmamış</string>
   <string id="Cached" scope="glance">Önbelleğe alındı</string>
   <string id="GlanceMenu" scope="glance">Menü</string>
+  <string id="Memory" scope="glance">Hafıza</string>
   <!-- Ayarlar GUI'si için -->
   <string id="SettingsSelect">Seçme...</string>
   <string id="SettingsApiKey">HomeAssistant için API Anahtarı.</string>

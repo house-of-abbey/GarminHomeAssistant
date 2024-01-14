@@ -42,6 +42,7 @@
   <string id="Unconfigured" scope="glance">Unkonfiguriert</string>
   <string id="Cached" scope="glance">Zwischengespeichert</string>
   <string id="GlanceMenu" scope="glance">Speisekarte</string>
+  <string id="Memory" scope="glance">Erinnerung</string>
   <!-- Für die Einstellungs-GUI -->
   <string id="SettingsSelect">Wählen...</string>
   <string id="SettingsApiKey">API-Schlüssel für HomeAssistant.</string>

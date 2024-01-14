@@ -42,6 +42,7 @@
   <string id="Unconfigured" scope="glance">غير مهيأ</string>
   <string id="Cached" scope="glance">مخبأة</string>
   <string id="GlanceMenu" scope="glance">قائمة طعام</string>
+  <string id="Memory" scope="glance">ذاكرة</string>
   <!-- لإعدادات واجهة المستخدم الرسومية -->
   <string id="SettingsSelect">يختار...</string>
   <string id="SettingsApiKey">مفتاح API لـ HomeAssistant.</string>

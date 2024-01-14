@@ -29,7 +29,7 @@
   <string id="NoApiUrl" scope="glance">V nastavení aplikace není žádná adresa URL API</string>
   <string id="NoConfigUrl" scope="glance">V nastavení aplikace není žádná konfigurační URL</string>
   <string id="ApiFlood">Příliš rychlá volání API. Zpomalte prosím své požadavky.</string>
-  <string id="ApiUrlNotFound">Adresa URL nenalezena. Potenciální chyba URL API v nastavení.</string>
+  <string id="ApiUrlNotFound">Adresa URL nenalezena. Potenciální chyba adresy URL rozhraní API v nastavení.</string>
   <string id="ConfigUrlNotFound">Adresa URL nenalezena. Potenciální chyba konfigurační adresy URL v nastavení.</string>
   <string id="NoJson">Z požadavku HTTP se nevrátil žádný JSON.</string>
   <string id="UnhandledHttpErr">Požadavek HTTP vrátil kód chyby =</string>
@@ -42,6 +42,7 @@
   <string id="Unconfigured" scope="glance">Nenakonfigurováno</string>
   <string id="Cached" scope="glance">Uloženo do mezipaměti</string>
   <string id="GlanceMenu" scope="glance">Jídelní lístek</string>
+  <string id="Memory" scope="glance">Paměť</string>
   <!-- Pro nastavení GUI -->
   <string id="SettingsSelect">Vybrat...</string>
   <string id="SettingsApiKey">Klíč API pro HomeAssistant.</string>
@@ -53,7 +54,7 @@
     začal?</string>
   <string id="SettingsAppTimeout">Časový limit v sekundách. Po uplynutí této doby aplikaci ukončete
     nečinnosti, aby se šetřila baterie zařízení.</string>
-  <string id="SettingsConfirmTimeout">Po uplynutí této doby (v sekundách) se zobrazí potvrzovací dialog
+  <string id="SettingsConfirmTimeout">Po uplynutí této doby (v sekundách) se zobrazí potvrzovací dialog pro
     akce se automaticky zavře a akce se zruší. Nastavením na 0 deaktivujete časový limit.</string>
   <string id="SettingsTextAlign">Zarovnání nabídky vlevo (vypnuto) nebo vpravo (zapnuto).</string>
   <string id="LeftToRight">Zleva do prava</string>
