@@ -29,7 +29,7 @@ class HomeAssistantViewMenuItem extends WatchUi.IconMenuItem {
         } or Null) {
         var label = definition.get("name") as Lang.String;
         var identifier = definition.get("entity") as Lang.String;
-        
+
         WatchUi.IconMenuItem.initialize(
             label,
             null,
