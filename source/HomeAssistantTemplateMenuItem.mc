@@ -15,7 +15,7 @@
 // Description:
 //
 // Rendering a Home Assistant Template.
-// 
+//
 // Reference:
 //  * https://developers.home-assistant.io/docs/api/rest/
 //  * https://www.home-assistant.io/docs/configuration/templating
