@@ -51,6 +51,7 @@ class HomeAssistantView extends WatchUi.Menu2 {
         for(var i = 0; i < items.size(); i++) {
             var type       = items[i].get("type")       as Lang.String     or Null;
             var name       = items[i].get("name")       as Lang.String     or Null;
+            var content    = items[i].get("content")    as Lang.String     or Null;
             var entity     = items[i].get("entity")     as Lang.String     or Null;
             var tap_action = items[i].get("tap_action") as Lang.Dictionary or Null;
             var service    = items[i].get("service")    as Lang.String     or Null;
@@ -62,12 +63,16 @@ class HomeAssistantView extends WatchUi.Menu2 {
                     confirm = false;
                 }
             }
-            if (type != null && name != null && entity != null) {
-                if (type.equals("toggle")) {
+            if (type != null && name != null) {
+                if (type.equals("toggle") && entity != null) {
                     var item = HomeAssistantMenuItemFactory.create().toggle(name, entity);
                     addItem(item);
                     mListToggleItems.add(item);
-                } else if (type.equals("tap") && service != null) {
+                } else if (type.equals("template") && content != null) {
+                    var item = HomeAssistantMenuItemFactory.create().template(name, entity, content, service, confirm);
+                    addItem(item);
+                    mListToggleItems.add(item);
+                } else if (type.equals("tap") && entity != null && service != null) {
                     addItem(HomeAssistantMenuItemFactory.create().tap(name, entity, service, confirm));
                 } else if (type.equals("group")) {
                     var item = HomeAssistantMenuItemFactory.create().group(items[i]);
@@ -151,6 +156,12 @@ class HomeAssistantViewDelegate extends WatchUi.Menu2InputDelegate {
             haItem.callService();
         } else if (item instanceof HomeAssistantIconMenuItem) {
             var haItem = item as HomeAssistantIconMenuItem;
+            if (Globals.scDebug) {
+                System.println(haItem.getLabel() + " " + haItem.getId());
+            }
+            haItem.callService();
+        } else if (item instanceof HomeAssistantTemplateMenuItem) {
+            var haItem = item as HomeAssistantTemplateMenuItem;
             if (Globals.scDebug) {
                 System.println(haItem.getLabel() + " " + haItem.getId());
             }

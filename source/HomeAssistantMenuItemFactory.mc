@@ -46,6 +46,7 @@ class HomeAssistantMenuItemFactory {
             :locX  => WatchUi.LAYOUT_HALIGN_CENTER,
             :locY  => WatchUi.LAYOUT_VALIGN_CENTER
         });
+
         mHomeAssistantService = new HomeAssistantService();
     }
 
@@ -63,6 +64,24 @@ class HomeAssistantMenuItemFactory {
             identifier,
             false,
             mMenuItemOptions
+        );
+    }
+
+    function template(
+        label      as Lang.String or Lang.Symbol,
+        identifier as Lang.Object or Null,
+        template   as Lang.String or Null,
+        service    as Lang.String or Null,
+        confirm    as Lang.Boolean
+    ) as WatchUi.MenuItem {
+        return new HomeAssistantTemplateMenuItem(
+            label,
+            identifier,
+            template,
+            service,
+            confirm,
+            mMenuItemOptions,
+            mHomeAssistantService
         );
     }
 

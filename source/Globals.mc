@@ -24,7 +24,7 @@ using Toybox.Lang;
 class Globals {
     // Enable printing of messages to the debug console (don't make this a Property
     // as the messages can't be read from a watch!)
-    static const scDebug        = false;
+    static const scDebug        = true;
     static const scAlertTimeout = 2000; // ms
     static const scTapTimeout   = 1000; // ms
     // Time to let the existing HTTP responses get serviced after a

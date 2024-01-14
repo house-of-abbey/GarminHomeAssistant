@@ -25,15 +25,17 @@
     "template": {
       "type": "object",
       "properties": {
+        "entity": { "$ref": "#/$defs/entity" },
         "name": { "title": "Your familiar name", "type": "string" },
         "content": { "title": "What to display (template)", "type": "string" },
         "type": {
           "title": "Menu item type",
           "description": "One of 'tap', 'template', 'toggle' or 'group'.",
           "const": "template"
-        }
+        },
+        "tap_action": { "$ref": "#/$defs/action" }
       },
-      "required": ["name", "content", "type"],
+      "required": ["name", "entity", "content", "type"],
       "additionalProperties": false
     },
     "tap": {
@@ -80,9 +82,9 @@
       "type": "array",
       "items": {
         "oneOf": [
-          { "$ref": "#/$defs/tap" },
-          { "$ref": "#/$defs/template" },
           { "$ref": "#/$defs/toggle" },
+          { "$ref": "#/$defs/template" },
+          { "$ref": "#/$defs/tap" },
           { "$ref": "#/$defs/menu" }
         ]
       }
