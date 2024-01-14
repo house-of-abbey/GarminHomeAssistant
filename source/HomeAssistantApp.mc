@@ -32,7 +32,7 @@ class HomeAssistantApp extends Application.AppBase {
     private var mHaMenu              as HomeAssistantView or Null;
     private var mQuitTimer           as QuitTimer         or Null;
     private var mTimer               as Timer.Timer       or Null;
-    private var mItemsToUpdate       as Lang.Array<HomeAssistantToggleMenuItem> or Null; // Array initialised by onReturnFetchMenuConfig()
+    private var mItemsToUpdate       as Lang.Array<HomeAssistantToggleMenuItem or HomeAssistantTemplateMenuItem> or Null; // Array initialised by onReturnFetchMenuConfig()
     private var mNextItemToUpdate    as Lang.Number  = 0;                                // Index into the above array
     private var mIsGlance            as Lang.Boolean = false;
     private var mIsApp               as Lang.Boolean = false; // Or Widget
