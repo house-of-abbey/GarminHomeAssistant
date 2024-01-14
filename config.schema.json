@@ -8,10 +8,7 @@
     "items": {
       "$ref": "#/$defs/items"
     },
-    "required": [
-      "title",
-      "items"
-    ],
+    "required": ["title", "items"],
     "additionalProperties": false
   },
   "$defs": {
@@ -31,11 +28,7 @@
           "const": "toggle"
         }
       },
-      "required": [
-        "entity",
-        "name",
-        "type"
-      ],
+      "required": ["entity", "name", "type"],
       "additionalProperties": false
     },
     "template": {
@@ -61,12 +54,7 @@
           "$ref": "#/$defs/action"
         }
       },
-      "required": [
-        "name",
-        "entity",
-        "content",
-        "type"
-      ],
+      "required": ["name", "entity", "content", "type"],
       "additionalProperties": false
     },
     "tap": {
@@ -96,20 +84,10 @@
       },
       "oneOf": [
         {
-          "required": [
-            "entity",
-            "name",
-            "type",
-            "service"
-          ]
+          "required": ["entity", "name", "type", "service"]
         },
         {
-          "required": [
-            "entity",
-            "name",
-            "type",
-            "tap_action"
-          ]
+          "required": ["entity", "name", "type", "tap_action"]
         }
       ],
       "additionalProperties": false
@@ -136,13 +114,7 @@
           "$ref": "#/$defs/items"
         }
       },
-      "required": [
-        "entity",
-        "name",
-        "title",
-        "type",
-        "items"
-      ],
+      "required": ["entity", "name", "title", "type", "items"],
       "additionalProperties": false
     },
     "items": {
@@ -183,9 +155,7 @@
           "description": "Confirm the action before execution as a precaution."
         }
       },
-      "required": [
-        "service"
-      ]
+      "required": ["service"]
     }
   }
 }
