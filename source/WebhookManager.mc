@@ -15,7 +15,7 @@
 // Description:
 //
 // Home Assistant Webhook creation.
-// 
+//
 // Reference:
 //  * https://developers.home-assistant.io/docs/api/native-app-integration
 //
