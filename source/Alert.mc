@@ -29,12 +29,13 @@ using Toybox.Timer;
 
 class Alert extends WatchUi.View {
     private static const bRadius = 10;
-    private var mTimer   as Timer.Timer;
-    private var mTimeout as Lang.Number;
-    private var mText    as Lang.String;
-    private var mFont    as Graphics.FontType;
-    private var mFgcolor as Graphics.ColorType;
-    private var mBgcolor as Graphics.ColorType;
+    private var mTimer     as Timer.Timer;
+    private var mTimeout   as Lang.Number;
+    private var mText      as Lang.String;
+    private var mFont      as Graphics.FontType;
+    private var mFgcolor   as Graphics.ColorType;
+    private var mBgcolor   as Graphics.ColorType;
+    private var mAntiAlias as Lang.Boolean = false;
 
     function initialize(params as Lang.Dictionary) {
         View.initialize();
@@ -64,6 +65,10 @@ class Alert extends WatchUi.View {
             mTimeout = 2000;
         }
 
+        if (Graphics.Dc has :setAntiAlias) {
+            mAntiAlias = true;
+        }
+
         mTimer = new Timer.Timer();
     }
 
@@ -75,7 +80,7 @@ class Alert extends WatchUi.View {
         mTimer.stop();
     }
 
-    function onUpdate(dc) {
+    function onUpdate(dc as Graphics.Dc) {
         var tWidth  = dc.getTextWidthInPixels(mText, mFont);
         var tHeight = dc.getFontHeight(mFont);
         var bWidth  = tWidth  + 20;
@@ -83,7 +88,7 @@ class Alert extends WatchUi.View {
         var bX      = (dc.getWidth()  - bWidth)  / 2;
         var bY      = (dc.getHeight() - bHeight) / 2;
 
-        if (dc has :setAntiAlias) {
+        if (mAntiAlias) {
             dc.setAntiAlias(true);
         }
 

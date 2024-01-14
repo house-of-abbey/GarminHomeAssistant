@@ -24,6 +24,17 @@ using Toybox.Graphics;
 using Toybox.Application.Properties;
 
 class HomeAssistantService {
+    private var mHasToast   as Lang.Boolean = false;
+    private var mHasVibrate as Lang.Boolean = false;
+
+    function initialise() {
+        if (WatchUi has :showToast) {
+            mHasToast = true;
+        }
+        if (Attention has :vibrate) {
+            mHasVibrate = true;
+        }
+    }
 
     // Callback function after completing the POST request to call a service.
     //
@@ -88,7 +99,7 @@ class HomeAssistantService {
                         toast = (d[i].get("attributes") as Lang.Dictionary).get("friendly_name") as Lang.String;
                     }
                 }
-                if (WatchUi has :showToast) {
+                if (mHasToast) {
                     WatchUi.showToast(toast, null);
                 } else {
                     new Alert({
@@ -143,7 +154,7 @@ class HomeAssistantService {
                 },
                 method(:onReturnCall)
             );
-            if (Attention has :vibrate) {
+            if (mHasVibrate) {
                 Attention.vibrate([
                     new Attention.VibeProfile(50, 100), // On  for 100ms
                     new Attention.VibeProfile( 0, 100), // Off for 100ms

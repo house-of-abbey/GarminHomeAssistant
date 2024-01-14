@@ -21,6 +21,7 @@
 using Toybox.Graphics;
 using Toybox.Lang;
 using Toybox.WatchUi;
+using Toybox.System;
 
 class RootView extends ScalableView {
 
@@ -44,10 +45,16 @@ class RootView extends ScalableView {
     private var mApiStatus  as WatchUi.Text or Null;
     private var mMenuText   as WatchUi.Text or Null;
     private var mMenuStatus as WatchUi.Text or Null;
+    private var mMemText    as WatchUi.Text or Null;
+    private var mMemStatus  as WatchUi.Text or Null;
+    private var mAntiAlias  as Lang.Boolean = false;
 
     function initialize(app as HomeAssistantApp) {
         ScalableView.initialize();
         mApp = app;
+        if (Graphics.Dc has :setAntiAlias) {
+            mAntiAlias = true;
+        }
     }
 
     function onLayout(dc as Graphics.Dc) as Void {
@@ -84,9 +91,25 @@ class RootView extends ScalableView {
             :font          => Graphics.FONT_XTINY,
             :justification => Graphics.TEXT_JUSTIFY_RIGHT | Graphics.TEXT_JUSTIFY_VCENTER,
             :locX          => w/2 - scMidSep/2,
-            :locY          => pixelsForScreen(70.0)
+            :locY          => pixelsForScreen(60.0)
         });
         mMenuStatus = new WatchUi.Text({
+            :text          => RezStrings.getChecking(),
+            :color         => Graphics.COLOR_WHITE,
+            :font          => Graphics.FONT_XTINY,
+            :justification => Graphics.TEXT_JUSTIFY_LEFT | Graphics.TEXT_JUSTIFY_VCENTER,
+            :locX          => w/2 + scMidSep/2,
+            :locY          => pixelsForScreen(60.0)
+        });
+        mMemText = new WatchUi.Text({
+            :text          => RezStrings.getMemory() + ":",
+            :color         => Graphics.COLOR_WHITE,
+            :font          => Graphics.FONT_XTINY,
+            :justification => Graphics.TEXT_JUSTIFY_RIGHT | Graphics.TEXT_JUSTIFY_VCENTER,
+            :locX          => w/2 - scMidSep/2,
+            :locY          => pixelsForScreen(70.0)
+        });
+        mMemStatus = new WatchUi.Text({
             :text          => RezStrings.getChecking(),
             :color         => Graphics.COLOR_WHITE,
             :font          => Graphics.FONT_XTINY,
@@ -97,7 +120,7 @@ class RootView extends ScalableView {
     }
 
     function onUpdate(dc as Graphics.Dc) as Void {
-        if (dc has :setAntiAlias) {
+        if (mAntiAlias) {
             dc.setAntiAlias(true);
         }
         dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_BLACK);
@@ -114,6 +137,16 @@ class RootView extends ScalableView {
         mMenuText.draw(dc);
         mMenuStatus.setText(mApp.getMenuStatus());
         mMenuStatus.draw(dc);
+        mMemText.draw(dc);
+        var stats = System.getSystemStats();
+        var memUsed = (100 * stats.usedMemory) / stats.totalMemory;
+        mMemStatus.setText(memUsed.format("%.1f") + "%");
+        if (stats.usedMemory > Globals.scLowMem * stats.totalMemory) {
+            mMemStatus.setColor(Graphics.COLOR_RED);
+        } else {
+            mMemStatus.setColor(Graphics.COLOR_WHITE);
+        }
+        mMemStatus.draw(dc);
     }
 
     function onShow() as Void {

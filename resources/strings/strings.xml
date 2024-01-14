@@ -36,6 +36,7 @@
   <string id="Unconfigured" scope="glance">Unconfigured</string>
   <string id="Cached" scope="glance">Cached</string>
   <string id="GlanceMenu" scope="glance">Menu</string>
+  <string id="Memory" scope="glance">Memory</string>
 
   <!-- For the settings GUI -->
   <string id="SettingsSelect">Select...</string>

@@ -32,10 +32,14 @@ class HomeAssistantGlanceView extends WatchUi.GlanceView {
     private var mApiStatus  as WatchUi.Text or Null;
     private var mMenuText   as WatchUi.Text or Null;
     private var mMenuStatus as WatchUi.Text or Null;
+    private var mAntiAlias  as Lang.Boolean = false;
 
     function initialize(app as HomeAssistantApp) {
         GlanceView.initialize();
         mApp = app;
+        if (Graphics.Dc has :setAntiAlias) {
+            mAntiAlias = true;
+        }
     }
 
     function onLayout(dc as Graphics.Dc) as Void {
@@ -85,9 +89,9 @@ class HomeAssistantGlanceView extends WatchUi.GlanceView {
         });
     }
 
-    function onUpdate(dc) as Void {
+    function onUpdate(dc as Graphics.Dc) as Void {
         GlanceView.onUpdate(dc);
-        if(dc has :setAntiAlias) {
+        if(mAntiAlias) {
             dc.setAntiAlias(true);
         }
         dc.setColor(

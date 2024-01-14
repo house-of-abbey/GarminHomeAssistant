@@ -276,8 +276,6 @@ The `id` attribute values are taken from the same names used in [`strings.xml`](
 
 ## Battery Level Reporting
 
-We've had [a report](https://github.com/house-of-abbey/GarminHomeAssistant/issues/39) that this feature does not work without **administrator priviledges**. We've reviewed possible fixes and come up short. We are unable to fix this at present but invite those skilled in the art of Home Assistant to suggest a solution to us!
-
 The application and widget both now include a background service to report your watch's battery level and charging status. This requires some [setup](BatteryReporting.md) via YAML in Home Assistant to display the transmitted value. We offer this [trouble shooting](Troubleshooting.md#watch-battery-level-reporting) guide.
 
 ## Version History
@@ -296,6 +294,7 @@ The application and widget both now include a background service to report your 
 |   2.1   | Deployment of an idea to provide Home Assistant with access to the watch battery level. Using this requires [significant setup](BatteryReporting.md) on the Home Assistant configuration and hence is detailed separately. Due to this, the default state for this battery option is _off_. Changed the application settings user interface to be more intuitive, and hence amended the way settings are managed in the background. |
 |   2.2   | Adds a feature to cache the menu configuration and save the time taken for an HTTP request to fetch it. You as the user are responsible for managing the cache by clearing it when you update your configuration. Improvement to widget root display updates. Bug fix for battery level reporting when in the glance carousel. Fixed an uninternationalised string, "Execute". Unfixed issue with battery level updates when the user is not an administrator. |
 |   2.3   | Fix for battery level updates where previously the function only worked for administrator accounts. The new solution is based on Webhooks and is simpler to implement on Home Assistant. Language support fix where an automatic translation produced an inappropriate word, possibly in more than one language. |
+|   2.4   | Sensor status reporting via Home Assistant 'templates'. This provides a generalised way of viewing the status of any entity as long as the result can be rendered as text, e.g. 'uncovered', 'open', '76%', '21 °C'. |
 
 ## Known Issues
 
