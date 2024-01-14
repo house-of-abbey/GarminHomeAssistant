@@ -12,15 +12,14 @@ It is important to note that your Home Assistant instance will need to be access
 
 **If you are struggling with getting the application to work, please consult the [trouble shooting](Troubleshooting.md#menu-configuration-url) guide first.**
 
-
 ## Widget or Application?
 
 As of version 2.0, there are now two installable versions. For older devices before applications supported 'glances', there is a now widget version. These two version must be downloaded separately due to the way the Connect IQ App Store requires them to have separate application IDs. Therefore you need to choose which you want up front. Here how they compare.
 
-| Version                | Explanation |
-|------------------------|-------------|
+| Version                | Explanation                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | Application (original) | For newer devices that allow glance views in their applications (e.g. Venu2), the GarminHomeAssistant application can be started either from a glance (with only the application name presently, no status) or from the list of applications and activities. Head over to the [GarminHomeAssistant](https://apps.garmin.com/en-US/apps/61c91d28-ec5e-438d-9f83-39e9f45b199d) application page on the [Connect IQ application store](https://apps.garmin.com/en-US/) to download the application. The application can be started two different ways, either from the glance in the carousel, or as an application from the list of applications & activities. With the latter, it is worth marking the application as a favourite.<hr><br/><img src="images/Venu2_app_start.png" width="200" title="Venu 2" style="margin:5px"/><img src="images/Vivoactive3_app_start.jpg" width="200" title="Venu 2" style="margin:5px"/><br/>If you place the application on your list of favourites, and rearrange it to appear near the top, then the item is just one button press away from the watch face. This second picture here shows the application menu on a Vivoactive 3 watch.<br/><img src="images/Venu2_glance_start.png" width="200" title="Venu 2" style="margin:5px"/><br/>On newer watches, you can also start the application from the glance carousel. The glance view here typically displays some trackable status, so ours provides some early indication of availability. Older watches will still allow you to start this application from the list of applications and activities. |
-| Widget                 | For older devices that use widgets (e.g. Venu1) as opposed to applications with "glances", the GarminHomeAssistant application can instead be started from the widget carousel. This is a separate item in the Connect IQ AppStore and with this installation, the application will no longer appear in the list of applications and activities. Head over to the [GarminHomeAssistant](https://apps.garmin.com/en-US/apps/) widget page on the [Connect IQ application store](https://apps.garmin.com/en-US/) to download the widget.<hr><br/><img src="images/Venu_Widget_sim.png" width="200" title="Venu 2" style="margin:5px"/><br/>Typically the widget view implements something similar to the glance view, e.g. status, and exists in a widget carousel to allow you to select an application to launch. |
+| Widget                 | For older devices that use widgets (e.g. Venu1) as opposed to applications with "glances", the GarminHomeAssistant application can instead be started from the widget carousel. This is a separate item in the Connect IQ AppStore and with this installation, the application will no longer appear in the list of applications and activities. Head over to the [GarminHomeAssistant](https://apps.garmin.com/en-US/apps/) widget page on the [Connect IQ application store](https://apps.garmin.com/en-US/) to download the widget.<hr><br/><img src="images/Venu_Widget_sim.png" width="200" title="Venu 2" style="margin:5px"/><br/>Typically the widget view implements something similar to the glance view, e.g. status, and exists in a widget carousel to allow you to select an application to launch.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
 
 As the source code base for both is the same, the version numbers of each will be kept in step. that means that the widget version starts version numbering at 2.0 too.
 
@@ -119,21 +118,21 @@ NB. Entity names are not real in case anyone's a hacker.
 
 The example above illustrates how to configure:
 
-* Light or switch toggles
-* Automation enable toggles
-* Script invocation (tap)
-* Service invocation, e.g. Scene setting, (tap)
-* A sub-menu to open (tap)
+- Light or switch toggles
+- Automation enable toggles
+- Script invocation (tap)
+- Service invocation, e.g. Scene setting, (tap)
+- A sub-menu to open (tap)
 
 The example JSON shows an example usage of each of these Home Assistance entity types. Presently, an automation is the only one that can be either a 'tap' or a 'toggle'.
 
 | HA Type    | Tap | Toggle |
-|------------|:---:|:------:|
-| Switch     |  ❌ |   ✅  |
-| Light      |  ❌ |   ✅  |
-| Automation |  ✅ |   ✅  |
-| Script     |  ✅ |   ❌  |
-| Scene      |  ✅ |   ❌  |
+| ---------- | :-: | :----: |
+| Switch     | ❌  |   ✅   |
+| Light      | ❌  |   ✅   |
+| Automation | ✅  |   ✅   |
+| Script     | ✅  |   ❌   |
+| Scene      | ✅  |   ❌   |
 
 NB. All 'tap' items must specify a 'service' tag.
 
@@ -146,25 +145,25 @@ The [schema](https://raw.githubusercontent.com/house-of-abbey/GarminHomeAssistan
 Version 1.5 brought in a change to the JSON schema so the follow old format remains useable but is no longer favoured. The schema now marks it as 'deprecated' to nudge people over.
 
 ```json
-    {
-      "entity": "scene.tv_light",
-      "name": "TV Lights Scene",
-      "type": "tap",
-      "service": "scene.turn_on"
-    }
+{
+  "entity": "scene.tv_light",
+  "name": "TV Lights Scene",
+  "type": "tap",
+  "service": "scene.turn_on"
+}
 ```
 
 The above should be replaced by the following:
 
 ```json
-    {
-      "entity": "scene.tv_light",
-      "name": "TV Lights Scene",
-      "type": "tap",
-      "tap_action": {
-        "service": "scene.turn_on"
-      }
-    }
+{
+  "entity": "scene.tv_light",
+  "name": "TV Lights Scene",
+  "type": "tap",
+  "tap_action": {
+    "service": "scene.turn_on"
+  }
+}
 ```
 
 This allows the `confirm` field to be accommodated in the `tap_action` along side the `service` tag, and follows the Home Assistant YAML format more closely.
@@ -172,6 +171,7 @@ This allows the `confirm` field to be accommodated in the `tap_action` along sid
 ## Editing the JSON file
 
 You have options. The first is what we use.
+
 1. **Best!** Use the [Studio Code Server](https://community.home-assistant.io/t/home-assistant-community-add-on-visual-studio-code/107863) addon for Home Assistant. You can then edit your JSON file in place.
 2. Locally installed VSCode, or if not installed,
 3. try the on-line version at https://vscode.dev/.
@@ -238,7 +238,7 @@ The application will display a 'toast' showing Home Assistant's friendly name of
 
 Home Assistant will inevitably change the state of devices you are also controlling via your Garmin. The Garmin application does not maintain a web socket to listen for changes. Instead it must poll the Home Assistant API with your key. Therefore the application is not that responsive to changes. Instead there will be a delay of multiples of 100 ms per item whose status needs to be checked and amended.
 
-The per toggle item delay is caused by a queue of responses to web requests filling up a queue and giving a [`Communications.BLE_QUEUE_FULL`](https://developer.garmin.com/connect-iq/api-docs/Toybox/Communications.html). response code.  For a Venu 2 Garmin watch an API call delay of 600 ms was found to be sustainable (500 ms was still too fast). The code now chains a sequence of updates, so as one finishes it invokes the next item's update. The more items requiring a status update that you pack into your dashboard, the slower each individual item will be updated!
+The per toggle item delay is caused by a queue of responses to web requests filling up a queue and giving a [`Communications.BLE_QUEUE_FULL`](https://developer.garmin.com/connect-iq/api-docs/Toybox/Communications.html). response code. For a Venu 2 Garmin watch an API call delay of 600 ms was found to be sustainable (500 ms was still too fast). The code now chains a sequence of updates, so as one finishes it invokes the next item's update. The more items requiring a status update that you pack into your dashboard, the slower each individual item will be updated!
 
 The thinking here is that the watch application will only ever be open briefly not persistently, so the delay in picking up state changes won't be observed often for any race condition between two controllers.
 
@@ -264,8 +264,8 @@ In order to submit a language correction please create an XML file called `corre
 
 The `id` attribute values are taken from the same names used in [`strings.xml`](https://github.com/house-of-abbey/GarminHomeAssistant/blob/main/resources-fre/strings/strings.xml). Not all `id` values need to be specified as missing `id`s will then use automatic translations. If the existing convention is followed then:
 
-* The Python script will use the corrections in preference to translating, and
-* Your pull request will be honoured without comment as we will take your corrections on trust.
+- The Python script will use the corrections in preference to translating, and
+- Your pull request will be honoured without comment as we will take your corrections on trust.
 
 ## Battery Level Reporting
 
@@ -273,21 +273,21 @@ The application and widget both now include a background service to report your 
 
 ## Version History
 
-| Version | Comment |
-|:-------:|---------|
-|   1.0   | Initial release for 26 devices. |
-|   1.1   | Updated for 54 more devices, 80 in total. Scene support. Added vibrate acknowledgement for tap-based menu items. Falls back to a custom visual confirmation in the absence of 'toast' and vibrate support. Bug fix for large menus needing status updates. |
-|   1.2   | Do not crash on zero items to update. Report unreachable URLs. Verify API URL does not have a trailing slash '/'. Increased HTTP response diagnosis. Reduced minimum API Level required from 3.3.0 to 3.1.0 to allow more device "part numbers" to be satisfied. |
-|   1.3   | Tap for scripts was working in emulation but not on some phones. Decision is to make the 'service' field in the JSON compulsory for 'tap' menu items. This is a breaking change, but for many might be a fix for something not working correctly. Improve language support, we can now accept language corrections and prevent the automated translation of strings from clobbering manually refined entries. Thank you to two new contributors. |
-|   1.4   | New lean user Interface with thanks to [Someone0nEarth](https://github.com/Someone0nEarth) for their contribution which is now the default. If you prefer the old style you can still select it in the settings. The provision of a 'service' tag is now not just heavily suggested by the JSON schema, it is enforced in code. With apologies to anyone suffering a breakage as a result. |
+| Version | Comment                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| :-----: | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+|   1.0   | Initial release for 26 devices.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+|   1.1   | Updated for 54 more devices, 80 in total. Scene support. Added vibrate acknowledgement for tap-based menu items. Falls back to a custom visual confirmation in the absence of 'toast' and vibrate support. Bug fix for large menus needing status updates.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+|   1.2   | Do not crash on zero items to update. Report unreachable URLs. Verify API URL does not have a trailing slash '/'. Increased HTTP response diagnosis. Reduced minimum API Level required from 3.3.0 to 3.1.0 to allow more device "part numbers" to be satisfied.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+|   1.3   | Tap for scripts was working in emulation but not on some phones. Decision is to make the 'service' field in the JSON compulsory for 'tap' menu items. This is a breaking change, but for many might be a fix for something not working correctly. Improve language support, we can now accept language corrections and prevent the automated translation of strings from clobbering manually refined entries. Thank you to two new contributors.                                                                                                                                                                                                                                                                                                                                                                                                 |
+|   1.4   | New lean user Interface with thanks to [Someone0nEarth](https://github.com/Someone0nEarth) for their contribution which is now the default. If you prefer the old style you can still select it in the settings. The provision of a 'service' tag is now not just heavily suggested by the JSON schema, it is enforced in code. With apologies to anyone suffering a breakage as a result.                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 |   1.5   | <img src="images/confirmation_view.png" width="200" title="Confirmation View"/><br/>Added an optional confirmation dialogue view to prevent accidental execution of actions on mistaken tap. This also brings a change in the JSON schema to allow an optional field to specify that the confirmation should be used for a menu item. As we are now maturing and adding features we have decided to mitigate breaking changes to the JSON schema by being more careful to adopt the Home Assistant schema (noting there is a 1:1 mapping between YAML and JSON). This change does deprecate the top level `service` tag in favour of `tag_action` containing multiple fields including `service` & `confirm`. Users should migrate to the new format for the new functionality, but the timescale for actual deprecation are long and undecided. |
-|   1.6   | Added a user configurable 'timeout' in seconds so that when no action is taken the application automatically closes, stopping the continuous polling for changes of status and hence saving the drain on the battery. This can be disabled with timeout=0. |
-|   1.7   | Added timeout to confirmation views so that when used for security devices it does not linger when left unconfirmed. Thanks to [Jan Schneider](https://github.com/j-a-n) for the contribution. Known bug for devices not supporting [`WatchUi.getCurrentView()`](https://developer.garmin.com/connect-iq/api-docs/Toybox/WatchUi.html#getCurrentView-instance_function) API call which is only available on API Level 3.4.0, e.g. Vivoactive 4S. |
-|   2.0   | A significant code base change to enable both a 'widget' version for older devices, e.g. Venu (1), and an application with a glance, e.g. Venu2. These two versions must now be distributed under separate application IDs, but they have the same code base. A further 20 more devices are now supported, the settings have been internationalised, and there's a bug fix for older devices when trying to display a helpful error message but instead the application crashed. This version has come from a significant collaboration with [Someone0nEarth](https://github.com/Someone0nEarth). |
-|   2.1   | Deployment of an idea to provide Home Assistant with access to the watch battery level. Using this requires [significant setup](BatteryReporting.md) on the Home Assistant configuration and hence is detailed separately. Due to this, the default state for this battery option is _off_. Changed the application settings user interface to be more intuitive, and hence amended the way settings are managed in the background. |
-|   2.2   | Adds a feature to cache the menu configuration and save the time taken for an HTTP request to fetch it. You as the user are responsible for managing the cache by clearing it when you update your configuration. Improvement to widget root display updates. Bug fix for battery level reporting when in the glance carousel. Fixed an uninternationalised string, "Execute". Unfixed issue with battery level updates when the user is not an administrator. |
-|   2.3   | Fix for battery level updates where previously the function only worked for administrator accounts. The new solution is based on Webhooks and is simpler to implement on Home Assistant. Language support fix where an automatic translation produced an inappropriate word, possibly in more than one language. |
-|   2.4   | Sensor status reporting via Home Assistant 'templates'. This provides a generalised way of viewing the status of any entity as long as the result can be rendered as text, e.g. 'uncovered', 'open', '76%', '21 °C'. Removal of the menu style option. The original style was kept after the introduction of the icon style solely to keep the code for a possible re-use for sensor statuses. This version delivers that new feature, hence the style option has been removed. The new JSON configuration file format allows for the old style to be replicated if you are desperate! |
+|   1.6   | Added a user configurable 'timeout' in seconds so that when no action is taken the application automatically closes, stopping the continuous polling for changes of status and hence saving the drain on the battery. This can be disabled with timeout=0.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+|   1.7   | Added timeout to confirmation views so that when used for security devices it does not linger when left unconfirmed. Thanks to [Jan Schneider](https://github.com/j-a-n) for the contribution. Known bug for devices not supporting [`WatchUi.getCurrentView()`](https://developer.garmin.com/connect-iq/api-docs/Toybox/WatchUi.html#getCurrentView-instance_function) API call which is only available on API Level 3.4.0, e.g. Vivoactive 4S.                                                                                                                                                                                                                                                                                                                                                                                                 |
+|   2.0   | A significant code base change to enable both a 'widget' version for older devices, e.g. Venu (1), and an application with a glance, e.g. Venu2. These two versions must now be distributed under separate application IDs, but they have the same code base. A further 20 more devices are now supported, the settings have been internationalised, and there's a bug fix for older devices when trying to display a helpful error message but instead the application crashed. This version has come from a significant collaboration with [Someone0nEarth](https://github.com/Someone0nEarth).                                                                                                                                                                                                                                                |
+|   2.1   | Deployment of an idea to provide Home Assistant with access to the watch battery level. Using this requires [significant setup](BatteryReporting.md) on the Home Assistant configuration and hence is detailed separately. Due to this, the default state for this battery option is _off_. Changed the application settings user interface to be more intuitive, and hence amended the way settings are managed in the background.                                                                                                                                                                                                                                                                                                                                                                                                              |
+|   2.2   | Adds a feature to cache the menu configuration and save the time taken for an HTTP request to fetch it. You as the user are responsible for managing the cache by clearing it when you update your configuration. Improvement to widget root display updates. Bug fix for battery level reporting when in the glance carousel. Fixed an uninternationalised string, "Execute". Unfixed issue with battery level updates when the user is not an administrator.                                                                                                                                                                                                                                                                                                                                                                                   |
+|   2.3   | Fix for battery level updates where previously the function only worked for administrator accounts. The new solution is based on Webhooks and is simpler to implement on Home Assistant. Language support fix where an automatic translation produced an inappropriate word, possibly in more than one language.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+|   2.4   | Sensor status reporting via Home Assistant 'templates'. This provides a generalised way of viewing the status of any entity as long as the result can be rendered as text, e.g. 'uncovered', 'open', '76%', '21 °C'. Removal of the menu style option. The original style was kept after the introduction of the icon style solely to keep the code for a possible re-use for sensor statuses. This version delivers that new feature, hence the style option has been removed. The new JSON configuration file format allows for the old style to be replicated if you are desperate!                                                                                                                                                                                                                                                           |
 
 ## Known Issues
 
