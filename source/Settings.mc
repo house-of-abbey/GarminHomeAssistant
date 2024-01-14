@@ -28,9 +28,6 @@ using Toybox.Time;
 
 (:glance, :background)
 class Settings {
-    public static const MENU_STYLE_ICONS = 0;
-    public static const MENU_STYLE_TEXT  = 1;
-
     private static var mApiKey                as Lang.String  = "";
     private static var mWebhookId             as Lang.String  = "";
     private static var mApiUrl                as Lang.String  = "";
@@ -39,7 +36,6 @@ class Settings {
     private static var mClearCache            as Lang.Boolean = false;
     private static var mAppTimeout            as Lang.Number  = 0;  // seconds
     private static var mConfirmTimeout        as Lang.Number  = 3;  // seconds
-    private static var mMenuStyle             as Lang.Number  = MENU_STYLE_ICONS;
     private static var mMenuAlignment         as Lang.Number  = WatchUi.MenuItem.MENU_ITEM_LABEL_ALIGN_LEFT;
     private static var mIsWidgetStartNoTap    as Lang.Boolean = false;
     private static var mIsBatteryLevelEnabled as Lang.Boolean = false;
@@ -60,7 +56,6 @@ class Settings {
         mClearCache            = Properties.getValue("clear_cache");
         mAppTimeout            = Properties.getValue("app_timeout");
         mConfirmTimeout        = Properties.getValue("confirm_timeout");
-        mMenuStyle             = Properties.getValue("menu_theme");
         mMenuAlignment         = Properties.getValue("menu_alignment");
         mIsWidgetStartNoTap    = Properties.getValue("widget_start_no_tap");
         mIsBatteryLevelEnabled = Properties.getValue("enable_battery_level");
@@ -141,10 +136,6 @@ class Settings {
 
     static function getConfirmTimeout() as Lang.Number {
         return mConfirmTimeout * 1000; // Convert to milliseconds
-    }
-
-    static function getMenuStyle() as Lang.Number {
-        return mMenuStyle; // Either MENU_STYLE_ICONS or MENU_STYLE_TEXT
     }
 
     static function getMenuAlignment() as Lang.Number {

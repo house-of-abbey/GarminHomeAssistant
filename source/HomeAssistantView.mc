@@ -89,7 +89,7 @@ class HomeAssistantView extends WatchUi.Menu2 {
         var lmi = mListMenuItems as Lang.Array<WatchUi.MenuItem>;
         for(var i = 0; i < mListMenuItems.size(); i++) {
             var item = lmi[i];
-            if (item instanceof HomeAssistantViewMenuItem || item instanceof HomeAssistantViewIconMenuItem) {
+            if (item instanceof HomeAssistantViewMenuItem) {
                 fullList.addAll(item.getMenuView().getItemsToUpdate());
             }
         }
@@ -154,12 +154,6 @@ class HomeAssistantViewDelegate extends WatchUi.Menu2InputDelegate {
                 System.println(haItem.getLabel() + " " + haItem.getId());
             }
             haItem.callService();
-        } else if (item instanceof HomeAssistantIconMenuItem) {
-            var haItem = item as HomeAssistantIconMenuItem;
-            if (Globals.scDebug) {
-                System.println(haItem.getLabel() + " " + haItem.getId());
-            }
-            haItem.callService();
         } else if (item instanceof HomeAssistantTemplateMenuItem) {
             var haItem = item as HomeAssistantTemplateMenuItem;
             if (Globals.scDebug) {
@@ -168,12 +162,6 @@ class HomeAssistantViewDelegate extends WatchUi.Menu2InputDelegate {
             haItem.callService();
         } else if (item instanceof HomeAssistantViewMenuItem) {
             var haMenuItem = item as HomeAssistantViewMenuItem;
-            if (Globals.scDebug) {
-                System.println("Menu: " + haMenuItem.getLabel() + " " + haMenuItem.getId());
-            }
-            WatchUi.pushView(haMenuItem.getMenuView(), new HomeAssistantViewDelegate(false), WatchUi.SLIDE_LEFT);
-        } else if (item instanceof HomeAssistantViewIconMenuItem) {
-            var haMenuItem = item as HomeAssistantViewIconMenuItem;
             if (Globals.scDebug) {
                 System.println("IconMenu: " + haMenuItem.getLabel() + " " + haMenuItem.getId());
             }

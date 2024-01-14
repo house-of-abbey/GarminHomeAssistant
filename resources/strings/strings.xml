@@ -13,52 +13,52 @@
 -->
 
 <strings>
-    <string id="AppName" scope="glance">HomeAssistant</string>
-    <string id="MenuItemOn">On</string>
-    <string id="MenuItemOff">Off</string>
-    <string id="MenuItemTap">Tap</string>
-    <string id="MenuItemMenu">Menu</string>
-    <string id="Confirm">Sure?</string>
-    <string id="Executed" scope="glance">Confirmed</string>
-    <string id="NoPhone" scope="glance">No Phone connection</string>
-    <string id="NoInternet">No Internet connection</string>
-    <string id="NoResponse">No Response, check Internet connection</string>
-    <string id="NoAPIKey" scope="glance">No API key in the application settings</string>
-    <string id="NoApiUrl" scope="glance">No API URL in the application settings</string>
-    <string id="NoConfigUrl" scope="glance">No configuration URL in the application settings</string>
-    <string id="ApiFlood">API calls too rapid. Please slow down your requests.</string>
-    <string id="ApiUrlNotFound">URL not found. Potential API URL error in settings.</string>
-    <string id="ConfigUrlNotFound">URL not found. Potential Configuration URL error in settings.</string>
-    <string id="NoJson">No JSON returned from HTTP request.</string>
-    <string id="UnhandledHttpErr">HTTP request returned error code = </string>
-    <string id="TrailingSlashErr">API URL must not have a trailing slash '/'</string>
-    <string id="WebhookFailed">Failed to register Webhook</string>
-    <string id="TemplateError">Failed to render template</string>
-    <string id="Available" scope="glance">Available</string>
-    <string id="Checking" scope="glance">Checking...</string>
-    <string id="Unavailable" scope="glance">Unavailable</string>
-    <string id="Unconfigured" scope="glance">Unconfigured</string>
-    <string id="Cached" scope="glance">Cached</string>
-    <string id="GlanceMenu" scope="glance">Menu</string>
+  <string id="AppName" scope="glance">HomeAssistant</string>
+  <string id="Confirm">Sure?</string>
+  <string id="Executed" scope="glance">Confirmed</string>
+  <string id="NoPhone" scope="glance">No Phone connection</string>
+  <string id="NoInternet">No Internet connection</string>
+  <string id="NoResponse">No Response, check Internet connection</string>
+  <string id="NoAPIKey" scope="glance">No API key in the application settings</string>
+  <string id="NoApiUrl" scope="glance">No API URL in the application settings</string>
+  <string id="NoConfigUrl" scope="glance">No configuration URL in the application settings</string>
+  <string id="ApiFlood">API calls too rapid. Please slow down your requests.</string>
+  <string id="ApiUrlNotFound">URL not found. Potential API URL error in settings.</string>
+  <string id="ConfigUrlNotFound">URL not found. Potential Configuration URL error in settings.</string>
+  <string id="NoJson">No JSON returned from HTTP request.</string>
+  <string id="UnhandledHttpErr">HTTP request returned error code = </string>
+  <string id="TrailingSlashErr">API URL must not have a trailing slash '/'</string>
+  <string id="WebhookFailed">Failed to register Webhook</string>
+  <string id="TemplateError">Failed to render template</string>
+  <string id="Available" scope="glance">Available</string>
+  <string id="Checking" scope="glance">Checking...</string>
+  <string id="Unavailable" scope="glance">Unavailable</string>
+  <string id="Unconfigured" scope="glance">Unconfigured</string>
+  <string id="Cached" scope="glance">Cached</string>
+  <string id="GlanceMenu" scope="glance">Menu</string>
 
-    <!-- For the settings GUI -->
-    <string id="SettingsSelect">Select...</string>
-    <string id="SettingsApiKey">API Key for HomeAssistant.</string>
-    <string id="SettingsApiKeyPrompt">Long-Lived Access Token.</string>
-    <string id="SettingsApiUrl">URL for HomeAssistant API.</string>
-    <string id="SettingsConfigUrl">URL for menu configuration (JSON).</string>
-    <string id="SettingsCacheConfig">Should the application cache the menu configuration?</string>
-    <string id="SettingsClearCache">Should the application clear the existing cache next time it is started?</string>
-    <string id="SettingsAppTimeout">Timeout in seconds. Exit the application after this period of inactivity to save the device battery.</string>
-    <string id="SettingsConfirmTimeout">After this time (in seconds), a confirmation dialog for an action is automatically closed and the action is cancelled. Set to 0 to disable the timeout.</string>
-    <string id="SettingsMenuItemStyle">Menu item style.</string>
-    <string id="SettingsMenuItemStyleIcons">Icons</string>
-    <string id="SettingsMenuItemStyleText">Additional Text</string>
-    <string id="SettingsTextAlign">Left (off) or Right (on) Menu Alignment.</string>
-    <string id="LeftToRight">Left to right</string>
-    <string id="RightToLeft">Right to Left</string>
-    <string id="SettingsWidgetStart">(Widget only) Automatically start the application from the widget without waiting for a tap.</string>
-    <string id="SettingsEnableBatteryLevel">Enable the background service to send the clock battery level to Home Assistant.</string>
-    <string id="SettingsBatteryLevelRefreshRate">The refresh rate (in minutes) at which the background service should repeat sending the battery level.</string>
-    <string id="WebhookId">(Read only) The Webhook ID created by the watch for battery level updates. You might require this for debugging.</string>
+  <!-- For the settings GUI -->
+  <string id="SettingsSelect">Select...</string>
+  <string id="SettingsApiKey">API Key for HomeAssistant.</string>
+  <string id="SettingsApiKeyPrompt">Long-Lived Access Token.</string>
+  <string id="SettingsApiUrl">URL for HomeAssistant API.</string>
+  <string id="SettingsConfigUrl">URL for menu configuration (JSON).</string>
+  <string id="SettingsCacheConfig">Should the application cache the menu configuration?</string>
+  <string id="SettingsClearCache">Should the application clear the existing cache next time it is
+    started?</string>
+  <string id="SettingsAppTimeout">Timeout in seconds. Exit the application after this period of
+    inactivity to save the device battery.</string>
+  <string id="SettingsConfirmTimeout">After this time (in seconds), a confirmation dialog for an
+    action is automatically closed and the action is cancelled. Set to 0 to disable the timeout.</string>
+  <string id="SettingsTextAlign">Left (off) or Right (on) Menu Alignment.</string>
+  <string id="LeftToRight">Left to right</string>
+  <string id="RightToLeft">Right to Left</string>
+  <string id="SettingsWidgetStart">(Widget only) Automatically start the application from the widget
+    without waiting for a tap.</string>
+  <string id="SettingsEnableBatteryLevel">Enable the background service to send the clock battery
+    level to Home Assistant.</string>
+  <string id="SettingsBatteryLevelRefreshRate">The refresh rate (in minutes) at which the background
+    service should repeat sending the battery level.</string>
+  <string id="WebhookId">(Read only) The Webhook ID created by the watch for battery level updates.
+    You might require this for debugging.</string>
 </strings>

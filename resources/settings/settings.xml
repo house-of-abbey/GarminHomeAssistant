@@ -66,17 +66,6 @@
   </setting>
 
   <setting
-    propertyKey="@Properties.menu_theme"
-    title="@Strings.SettingsMenuItemStyle"
-    prompt="@Strings.SettingsSelect"
-  >
-    <settingConfig type="list">
-      <listEntry value="0">@Strings.SettingsMenuItemStyleIcons</listEntry>
-      <listEntry value="1">@Strings.SettingsMenuItemStyleText</listEntry>
-    </settingConfig>
-  </setting>
-
-  <setting
     propertyKey="@Properties.menu_alignment"
     title="@Strings.SettingsTextAlign"
   >

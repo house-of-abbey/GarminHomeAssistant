@@ -27,8 +27,6 @@ class RezStrings {
 
     (:glance)
     private static var strAppName           as Lang.String     or Null;
-    private static var strMenuItemTap       as Lang.String     or Null;
-    private static var strMenuItemMenu      as Lang.String     or Null;
     private static var strConfirm           as Lang.String     or Null;
     private static var strExecuted          as Lang.String     or Null;
     (:glance)
@@ -61,7 +59,6 @@ class RezStrings {
     private static var strCached            as Lang.String     or Null;
     (:glance)
     private static var strGlanceMenu        as Lang.String     or Null;
-    private static var strLabelToggle       as Lang.Dictionary or Null;
 
     // Can't initialise a constant directly, have to be initialised via a function
     // for 'WatchUi.loadResource' to be available.
@@ -84,8 +81,6 @@ class RezStrings {
     // for 'WatchUi.loadResource' to be available.
     static function update() {
         strAppName           = WatchUi.loadResource($.Rez.Strings.AppName);
-        strMenuItemTap       = WatchUi.loadResource($.Rez.Strings.MenuItemTap);
-        strMenuItemMenu      = WatchUi.loadResource($.Rez.Strings.MenuItemMenu);
         strConfirm           = WatchUi.loadResource($.Rez.Strings.Confirm);
         strExecuted          = WatchUi.loadResource($.Rez.Strings.Executed);
         strNoPhone           = WatchUi.loadResource($.Rez.Strings.NoPhone);
@@ -108,22 +103,10 @@ class RezStrings {
         strUnconfigured      = WatchUi.loadResource($.Rez.Strings.Unconfigured);
         strCached            = WatchUi.loadResource($.Rez.Strings.Cached);
         strGlanceMenu        = WatchUi.loadResource($.Rez.Strings.GlanceMenu);
-        strLabelToggle       = {
-            :enabled  => WatchUi.loadResource($.Rez.Strings.MenuItemOn)  as Lang.String,
-            :disabled => WatchUi.loadResource($.Rez.Strings.MenuItemOff) as Lang.String
-        };
     }
 
     static function getAppName() as Lang.String {
         return strAppName;
-    }
-
-    static function getMenuItemTap() as Lang.String {
-        return strMenuItemTap;
-    }
-
-    static function getMenuItemMenu() as Lang.String {
-        return strMenuItemMenu;
     }
 
     static function getConfirm() as Lang.String {
@@ -212,10 +195,6 @@ class RezStrings {
 
     static function getGlanceMenu() as Lang.String {
         return strGlanceMenu;
-    }
-
-    static function getLabelToggle() as Lang.Dictionary {
-        return strLabelToggle;
     }
 
 }

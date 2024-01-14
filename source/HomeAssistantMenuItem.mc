@@ -22,7 +22,7 @@ using Toybox.Lang;
 using Toybox.WatchUi;
 using Toybox.Graphics;
 
-class HomeAssistantMenuItem extends WatchUi.MenuItem {
+class HomeAssistantMenuItem extends WatchUi.IconMenuItem {
     private var mHomeAssistantService as HomeAssistantService;
     private var mService              as Lang.String;
     private var mConfirm              as Lang.Boolean;
@@ -33,20 +33,22 @@ class HomeAssistantMenuItem extends WatchUi.MenuItem {
         identifier as Lang.Object or Null,
         service    as Lang.String or Null,
         confirm    as Lang.Boolean,
+        icon       as Graphics.BitmapType or WatchUi.Drawable,
         options    as {
-            :alignment as WatchUi.MenuItem.Alignment,
-            :icon      as Graphics.BitmapType or WatchUi.Drawable or Lang.Symbol
+            :alignment as WatchUi.MenuItem.Alignment
         } or Null,
         haService  as HomeAssistantService
     ) {
-        WatchUi.MenuItem.initialize(
+        WatchUi.IconMenuItem.initialize(
             label,
             subLabel,
             identifier,
+            icon,
             options
         );
 
         mHomeAssistantService = haService;
+        mIdentifier           = identifier;
         mService              = service;
         mConfirm              = confirm;
     }

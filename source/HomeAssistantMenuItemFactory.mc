@@ -60,7 +60,7 @@ class HomeAssistantMenuItemFactory {
     function toggle(label as Lang.String or Lang.Symbol, identifier as Lang.Object or Null) as WatchUi.MenuItem {
         return new HomeAssistantToggleMenuItem(
             label,
-            Settings.getMenuStyle() == Settings.MENU_STYLE_TEXT ? RezStrings.getLabelToggle() : null,
+            null,
             identifier,
             false,
             mMenuItemOptions
@@ -91,35 +91,19 @@ class HomeAssistantMenuItemFactory {
         service    as Lang.String or Null,
         confirm    as Lang.Boolean
     ) as WatchUi.MenuItem {
-        if (Settings.getMenuStyle() == Settings.MENU_STYLE_TEXT) {
-            return new HomeAssistantMenuItem(
-                label,
-                RezStrings.getMenuItemTap(),
-                identifier,
-                service,
-                confirm,
-                mMenuItemOptions,
-                mHomeAssistantService
-            );
-        } else {
-            return new HomeAssistantIconMenuItem(
-                label,
-                null,
-                identifier,
-                service,
-                confirm,
-                mTapTypeIcon,
-                mMenuItemOptions,
-                mHomeAssistantService
-            );
-        }
+        return new HomeAssistantMenuItem(
+            label,
+            null,
+            identifier,
+            service,
+            confirm,
+            mTapTypeIcon,
+            mMenuItemOptions,
+            mHomeAssistantService
+        );
     }
 
     function group(definition as Lang.Dictionary) as WatchUi.MenuItem {
-        if (Settings.getMenuStyle() == Settings.MENU_STYLE_TEXT) {
-            return new HomeAssistantViewMenuItem(definition);
-        } else {
-            return new HomeAssistantViewIconMenuItem(definition, mGroupTypeIcon, mMenuItemOptions);
-        }
+        return new HomeAssistantViewMenuItem(definition, mGroupTypeIcon, mMenuItemOptions);
     }
 }
