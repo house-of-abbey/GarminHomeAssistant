@@ -42,24 +42,25 @@
   <string id="Unconfigured" scope="glance">Nesukonfigūruotas</string>
   <string id="Cached" scope="glance">Talpykloje</string>
   <string id="GlanceMenu" scope="glance">Meniu</string>
+  <string id="Memory" scope="glance">Atmintis</string>
   <!-- Dėl nustatymų GUI -->
   <string id="SettingsSelect">Pasirinkite...</string>
-  <string id="SettingsApiKey">API raktas, skirtas HomeAssistant.</string>
+  <string id="SettingsApiKey">API raktas, skirtas „HomeAssistant“.</string>
   <string id="SettingsApiKeyPrompt">Ilgalaikis prieigos raktas.</string>
   <string id="SettingsApiUrl">„HomeAssistant“ API URL.</string>
   <string id="SettingsConfigUrl">Meniu konfigūravimo URL (JSON).</string>
-  <string id="SettingsCacheConfig">Ar programa turėtų išsaugoti meniu konfigūraciją talpykloje?</string>
+  <string id="SettingsCacheConfig">Ar programa turėtų talpykloje išsaugoti meniu konfigūraciją?</string>
   <string id="SettingsClearCache">Ar programa kitą kartą išvalys esamą talpyklą
     prasidėjo?</string>
   <string id="SettingsAppTimeout">Skirtasis laikas sekundėmis. Išeikite iš programos pasibaigus šiam laikotarpiui
-    neaktyvumas, kad būtų taupoma įrenginio baterija.</string>
+    neaktyvumas, kad taupytų įrenginio akumuliatorių.</string>
   <string id="SettingsConfirmTimeout">Po šio laiko (sekundėmis) atsiras patvirtinimo dialogo langas
     veiksmas automatiškai uždaromas ir veiksmas atšaukiamas. Nustatykite 0, kad išjungtumėte skirtąjį laiką.</string>
   <string id="SettingsTextAlign">Kairysis (išjungtas) arba dešinysis (įjungtas) meniu lygiavimas.</string>
   <string id="LeftToRight">Iš kairės į dešinę</string>
   <string id="RightToLeft">Iš dešinės į kairę</string>
   <string id="SettingsWidgetStart">(Tik valdiklis) Automatiškai paleiskite programą iš valdiklio
-    nelaukdamas čiaupo.</string>
+    nelaukdamas bakstelėjimo.</string>
   <string id="SettingsEnableBatteryLevel">Įgalinkite foninę paslaugą, kad išsiųstumėte laikrodžio bateriją
     lygiu iki namų asistento.</string>
   <string id="SettingsBatteryLevelRefreshRate">Fono atnaujinimo dažnis (minutėmis).

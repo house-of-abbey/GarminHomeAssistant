@@ -42,6 +42,7 @@
   <string id="Unconfigured" scope="glance">Nekonfigurirano</string>
   <string id="Cached" scope="glance">Spremljeno u predmemoriju</string>
   <string id="GlanceMenu" scope="glance">Jelovnik</string>
+  <string id="Memory" scope="glance">Memorija</string>
   <!-- Za GUI postavki -->
   <string id="SettingsSelect">Izaberi...</string>
   <string id="SettingsApiKey">API ključ za HomeAssistant.</string>
@@ -52,7 +53,7 @@
   <string id="SettingsClearCache">Treba li aplikacija sljedeći put izbrisati postojeću predmemoriju
     počeo?</string>
   <string id="SettingsAppTimeout">Istek u sekundama. Izađite iz aplikacije nakon tog razdoblja od
-    neaktivnost radi uštede baterije uređaja.</string>
+    neaktivnosti radi uštede baterije uređaja.</string>
   <string id="SettingsConfirmTimeout">Nakon tog vremena (u sekundama), dijaloški okvir potvrde za an
     radnja se automatski zatvara i akcija se poništava. Postavite na 0 da onemogućite vremensko ograničenje.</string>
   <string id="SettingsTextAlign">Lijevo (isključeno) ili desno (uključeno) poravnanje izbornika.</string>
@@ -64,6 +65,6 @@
     razinu do kućnog pomoćnika.</string>
   <string id="SettingsBatteryLevelRefreshRate">Brzina osvježavanja (u minutama) pri kojoj pozadina
     servis bi trebao ponoviti slanje razine baterije.</string>
-  <string id="WebhookId">(Samo za čitanje) Webhook ID koji je izradio sat za ažuriranje razine baterije.
+  <string id="WebhookId">(Samo za čitanje) Webhook ID koji je kreirao sat za ažuriranje razine baterije.
     Ovo vam može trebati za otklanjanje pogrešaka.</string>
 </strings>

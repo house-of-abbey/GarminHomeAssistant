@@ -42,19 +42,20 @@
   <string id="Unconfigured" scope="glance">Nincs konfigurálva</string>
   <string id="Cached" scope="glance">Gyorsítótárban</string>
   <string id="GlanceMenu" scope="glance">Menü</string>
+  <string id="Memory" scope="glance">memória</string>
   <!-- A beállítások GUI-hoz -->
   <string id="SettingsSelect">Válasszon...</string>
   <string id="SettingsApiKey">API-kulcs a HomeAssistant számára.</string>
   <string id="SettingsApiKeyPrompt">Hosszú életű hozzáférési token.</string>
   <string id="SettingsApiUrl">A HomeAssistant API URL-je.</string>
   <string id="SettingsConfigUrl">URL a menükonfigurációhoz (JSON).</string>
-  <string id="SettingsCacheConfig">Az alkalmazásnak gyorsítótárba kell helyeznie a menükonfigurációt?</string>
+  <string id="SettingsCacheConfig">Az alkalmazásnak gyorsítótárba kell helyeznie a menü konfigurációját?</string>
   <string id="SettingsClearCache">Ha az alkalmazás legközelebb törli a meglévő gyorsítótárat
     elkezdődött?</string>
   <string id="SettingsAppTimeout">Időtúllépés másodpercben. Lépjen ki az alkalmazásból ezen időszak után
     tétlenség, hogy kímélje a készülék akkumulátorát.</string>
-  <string id="SettingsConfirmTimeout">Ezen idő elteltével (másodpercben), egy megerősítő párbeszédpanel egy
-    A művelet automatikusan bezárul, és a művelet megszakad. Állítsa 0-ra az időtúllépés letiltásához.</string>
+  <string id="SettingsConfirmTimeout">Ezen idő letelte után (másodpercben) megjelenik egy megerősítő párbeszédpanel az an
+    A művelet automatikusan lezárul, és a művelet megszakad. Állítsa 0-ra az időtúllépés letiltásához.</string>
   <string id="SettingsTextAlign">Balra (ki) vagy Jobbra (be) Menüigazítás.</string>
   <string id="LeftToRight">Balról jobbra</string>
   <string id="RightToLeft">Jobbról balra</string>

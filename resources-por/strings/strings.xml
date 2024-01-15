@@ -42,6 +42,7 @@
   <string id="Unconfigured" scope="glance">Não configurado</string>
   <string id="Cached" scope="glance">Em cache</string>
   <string id="GlanceMenu" scope="glance">Cardápio</string>
+  <string id="Memory" scope="glance">Memória</string>
   <!-- Para a GUI de configurações -->
   <string id="SettingsSelect">Selecione...</string>
   <string id="SettingsApiKey">Chave de API para HomeAssistant.</string>

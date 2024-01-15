@@ -42,6 +42,7 @@
   <string id="Unconfigured" scope="glance">Nav konfigurēts</string>
   <string id="Cached" scope="glance">Kešatmiņā saglabāts</string>
   <string id="GlanceMenu" scope="glance">Izvēlne</string>
+  <string id="Memory" scope="glance">Atmiņa</string>
   <!-- Iestatījumu GUI -->
   <string id="SettingsSelect">Izvēlieties...</string>
   <string id="SettingsApiKey">API atslēga Home Assistant.</string>
@@ -49,13 +50,13 @@
   <string id="SettingsApiUrl">HomeAssistant API URL.</string>
   <string id="SettingsConfigUrl">URL izvēlnes konfigurācijai (JSON).</string>
   <string id="SettingsCacheConfig">Vai lietojumprogrammai vajadzētu saglabāt izvēlnes konfigurāciju kešatmiņā?</string>
-  <string id="SettingsClearCache">Vai lietojumprogrammai nākamreiz vajadzētu notīrīt esošo kešatmiņu
+  <string id="SettingsClearCache">Ja lietojumprogramma nākamreiz notīra esošo kešatmiņu
     sākās?</string>
   <string id="SettingsAppTimeout">Taimauts sekundēs. Izejiet no lietojumprogrammas pēc šī perioda
     neaktivitāte, lai taupītu ierīces akumulatoru.</string>
   <string id="SettingsConfirmTimeout">Pēc šī laika (sekundēs) tiek parādīts apstiprinājuma dialoglodziņš
     darbība tiek automātiski aizvērta un darbība tiek atcelta. Iestatiet uz 0, lai atspējotu taimautu.</string>
-  <string id="SettingsTextAlign">Kreisā (izslēgta) vai labā (ieslēgta) izvēlnes līdzināšana.</string>
+  <string id="SettingsTextAlign">Kreisā (izslēgta) vai labā (ieslēgta) izvēlnes izlīdzināšana.</string>
   <string id="LeftToRight">No kreisās uz labo</string>
   <string id="RightToLeft">No labās uz kreiso</string>
   <string id="SettingsWidgetStart">(tikai logrīkam) Automātiski startējiet lietojumprogrammu no logrīka

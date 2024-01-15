@@ -42,6 +42,7 @@
   <string id="Unconfigured" scope="glance">Неконфигуриран</string>
   <string id="Cached" scope="glance">Кеширано</string>
   <string id="GlanceMenu" scope="glance">Меню</string>
+  <string id="Memory" scope="glance">памет</string>
   <!-- За GUI за настройки -->
   <string id="SettingsSelect">Изберете...</string>
   <string id="SettingsApiKey">API ключ за HomeAssistant.</string>
@@ -58,7 +59,7 @@
   <string id="SettingsTextAlign">Ляво (изключено) или дясно (включено) подравняване на менюто.</string>
   <string id="LeftToRight">Отляво надясно</string>
   <string id="RightToLeft">От дясно на ляво</string>
-  <string id="SettingsWidgetStart">(Само за притурка) Автоматично стартирайте приложението от притурката
+  <string id="SettingsWidgetStart">(Само за притурка) Автоматично стартиране на приложението от приспособлението
     без да чакате кран.</string>
   <string id="SettingsEnableBatteryLevel">Активирайте фоновата услуга, за да изпратите батерията на часовника
     ниво до домашен асистент.</string>

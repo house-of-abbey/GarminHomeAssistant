@@ -42,11 +42,12 @@
   <string id="Unconfigured" scope="glance">Nekonfigurirano</string>
   <string id="Cached" scope="glance">Predpomnjeno</string>
   <string id="GlanceMenu" scope="glance">meni</string>
+  <string id="Memory" scope="glance">Spomin</string>
   <!-- Za nastavitve GUI -->
   <string id="SettingsSelect">Izberite ...</string>
   <string id="SettingsApiKey">API ključ za HomeAssistant.</string>
   <string id="SettingsApiKeyPrompt">Dolgoživ dostopni žeton.</string>
-  <string id="SettingsApiUrl">URL za HomeAssistant API.</string>
+  <string id="SettingsApiUrl">URL za API HomeAssistant.</string>
   <string id="SettingsConfigUrl">URL za konfiguracijo menija (JSON).</string>
   <string id="SettingsCacheConfig">Ali naj aplikacija predpomni konfiguracijo menija?</string>
   <string id="SettingsClearCache">Ali naj aplikacija naslednjič počisti obstoječi predpomnilnik

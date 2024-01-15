@@ -41,6 +41,7 @@ class Settings {
     private static var mIsBatteryLevelEnabled as Lang.Boolean = false;
     private static var mBatteryRefreshRate    as Lang.Number  = 15; // minutes
     private static var mIsApp                 as Lang.Boolean = false;
+    private static var mHasService            as Lang.Boolean = false;
 
     // Must keep the object so it doesn't get garbage collected.
     private static var mWebhookManager        as WebhookManager or Null;
@@ -61,6 +62,10 @@ class Settings {
         mIsBatteryLevelEnabled = Properties.getValue("enable_battery_level");
         mBatteryRefreshRate    = Properties.getValue("battery_level_refresh_rate");
 
+        if (System has :ServiceDelegate) {
+            mHasService = true;
+        }
+
         // Manage this inside the application or widget only (not a glance or background service process)
         if (mIsApp) {
             if (mIsBatteryLevelEnabled) {
@@ -68,14 +73,14 @@ class Settings {
                     mWebhookManager = new WebhookManager();
                     mWebhookManager.requestWebhookId();
                 } else if (
-                    (System has :ServiceDelegate) and
+                    mHasService and
                     ((Background.getTemporalEventRegisteredTime() == null) or
                     (Background.getTemporalEventRegisteredTime() != (mBatteryRefreshRate * 60)))) {
                     Background.registerForTemporalEvent(new Time.Duration(mBatteryRefreshRate * 60)); // Convert to seconds
                 }
             } else {
                 // Explicitly disable the background event which persists when the application closes.
-                if ((System has :ServiceDelegate) and (Background.getTemporalEventRegisteredTime() != null)) {
+                if (mHasService and (Background.getTemporalEventRegisteredTime() != null)) {
                     Background.deleteTemporalEvent();
                 }
                 unsetWebhookId();
@@ -149,7 +154,7 @@ class Settings {
     static function unsetIsBatteryLevelEnabled() {
         mIsBatteryLevelEnabled = false;
         Properties.setValue("enable_battery_level", mIsBatteryLevelEnabled);
-        if ((System has :ServiceDelegate) and (Background.getTemporalEventRegisteredTime() != null)) {
+        if (mHasService and (Background.getTemporalEventRegisteredTime() != null)) {
             Background.deleteTemporalEvent();
         }
     }

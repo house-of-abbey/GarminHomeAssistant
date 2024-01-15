@@ -44,7 +44,8 @@ class ErrorView extends ScalableView {
     // Vertical spacing between the top of the face and the error icon
     private var mErrorIconMargin as Lang.Number;
     private var mErrorIcon;
-    private var mTextArea;
+    private var mTextArea        as WatchUi.TextArea or Null;
+    private var mAntiAlias       as Lang.Boolean = false;
 
     private static var instance;
     private static var mShown as Lang.Boolean = false;
@@ -55,6 +56,9 @@ class ErrorView extends ScalableView {
         // Convert the settings from % of screen size to pixels
         mErrorIconMargin = pixelsForScreen(cSettings.get(:errorIconMargin) as Lang.Float);
         mErrorIcon       = Application.loadResource(Rez.Drawables.ErrorIcon) as Graphics.BitmapResource;
+        if (Graphics.Dc has :setAntiAlias) {
+            mAntiAlias = true;
+        }
     }
 
     // Load your resources here
@@ -76,7 +80,7 @@ class ErrorView extends ScalableView {
     // Update the view
     function onUpdate(dc as Graphics.Dc) as Void {
         var w = dc.getWidth();
-        if(dc has :setAntiAlias) {
+        if (mAntiAlias) {
             dc.setAntiAlias(true);
         }
         dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_BLUE);

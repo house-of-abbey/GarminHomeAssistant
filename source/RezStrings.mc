@@ -59,6 +59,7 @@ class RezStrings {
     private static var strCached            as Lang.String     or Null;
     (:glance)
     private static var strGlanceMenu        as Lang.String     or Null;
+    private static var strMemory            as Lang.String     or Null;
 
     // Can't initialise a constant directly, have to be initialised via a function
     // for 'WatchUi.loadResource' to be available.
@@ -103,6 +104,7 @@ class RezStrings {
         strUnconfigured      = WatchUi.loadResource($.Rez.Strings.Unconfigured);
         strCached            = WatchUi.loadResource($.Rez.Strings.Cached);
         strGlanceMenu        = WatchUi.loadResource($.Rez.Strings.GlanceMenu);
+        strMemory            = WatchUi.loadResource($.Rez.Strings.Memory);
     }
 
     static function getAppName() as Lang.String {
@@ -195,6 +197,10 @@ class RezStrings {
 
     static function getGlanceMenu() as Lang.String {
         return strGlanceMenu;
+    }
+
+    static function getMemory() as Lang.String {
+        return strMemory;
     }
 
 }

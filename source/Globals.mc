@@ -33,4 +33,6 @@ class Globals {
     // Needs to be long enough to enable a "double ESC" to quit the application from
     // an ErrorView.
     static const scApiResume    = 200;  // ms
+    // Warn the user after fetching the menu if their watch is low on memory before the device crashes.
+    static const scLowMem       = 0.95; // percent as a fraction.
 }

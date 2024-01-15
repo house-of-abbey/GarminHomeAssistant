@@ -42,6 +42,7 @@
   <string id="Unconfigured" scope="glance">Μη διαμορφωμένο</string>
   <string id="Cached" scope="glance">Αποθηκευμένο στην κρυφή μνήμη</string>
   <string id="GlanceMenu" scope="glance">Μενού</string>
+  <string id="Memory" scope="glance">Μνήμη</string>
   <!-- Για τις ρυθμίσεις GUI -->
   <string id="SettingsSelect">Επιλέγω...</string>
   <string id="SettingsApiKey">Κλειδί API για το HomeAssistant.</string>

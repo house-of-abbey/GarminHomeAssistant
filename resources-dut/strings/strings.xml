@@ -42,7 +42,8 @@
   <string id="Unconfigured" scope="glance">Niet geconfigureerd</string>
   <string id="Cached" scope="glance">In cache opgeslagen</string>
   <string id="GlanceMenu" scope="glance">Menu</string>
-  <!-- Voor de instellingen-GUI -->
+  <string id="Memory" scope="glance">Geheugen</string>
+  <!-- Voor de instellingen GUI -->
   <string id="SettingsSelect">Selecteer...</string>
   <string id="SettingsApiKey">API-sleutel voor HomeAssistant.</string>
   <string id="SettingsApiKeyPrompt">Toegangstoken met lange levensduur.</string>

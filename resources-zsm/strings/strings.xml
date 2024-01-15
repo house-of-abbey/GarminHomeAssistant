@@ -42,6 +42,7 @@
   <string id="Unconfigured" scope="glance">Tidak dikonfigurasikan</string>
   <string id="Cached" scope="glance">Dicache</string>
   <string id="GlanceMenu" scope="glance">Menu</string>
+  <string id="Memory" scope="glance">Ingatan</string>
   <!-- Untuk GUI tetapan -->
   <string id="SettingsSelect">Pilih...</string>
   <string id="SettingsApiKey">Kunci API untuk HomeAssistant.</string>

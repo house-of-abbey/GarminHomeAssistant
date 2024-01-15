@@ -42,6 +42,7 @@
   <string id="Unconfigured" scope="glance">Non configuré</string>
   <string id="Cached" scope="glance">En cache</string>
   <string id="GlanceMenu" scope="glance">Menu</string>
+  <string id="Memory" scope="glance">Mémoire</string>
   <!-- Pour l'interface graphique des paramètres -->
   <string id="SettingsSelect">Sélectionner...</string>
   <string id="SettingsApiKey">Clé API pour HomeAssistant.</string>
@@ -51,7 +52,7 @@
   <string id="SettingsCacheConfig">L'application doit-elle mettre en cache la configuration du menu ?</string>
   <string id="SettingsClearCache">L'application devrait-elle vider le cache existant la prochaine fois
     commencé?</string>
-  <string id="SettingsAppTimeout">Délai d'expiration en secondes. Quittez l'application après cette période de
+  <string id="SettingsAppTimeout">Délai d'attente en secondes. Quittez l'application après cette période de
     inactivité pour économiser la batterie de l'appareil.</string>
   <string id="SettingsConfirmTimeout">Passé ce délai (en secondes), une boîte de dialogue de confirmation pour un
     l'action est automatiquement clôturée et l'action est annulée. Réglez sur 0 pour désactiver le délai d'attente.</string>

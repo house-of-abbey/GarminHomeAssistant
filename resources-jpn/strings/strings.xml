@@ -42,6 +42,7 @@
   <string id="Unconfigured" scope="glance">未構成</string>
   <string id="Cached" scope="glance">キャッシュされた</string>
   <string id="GlanceMenu" scope="glance">メニュー</string>
+  <string id="Memory" scope="glance">メモリ</string>
   <!-- 設定GUIの場合 -->
   <string id="SettingsSelect">選択する...</string>
   <string id="SettingsApiKey">ホームアシスタントの API キー。</string>
@@ -49,7 +50,7 @@
   <string id="SettingsApiUrl">ホームアシスタント API の URL。</string>
   <string id="SettingsConfigUrl">メニュー構成の URL (JSON)。</string>
   <string id="SettingsCacheConfig">アプリケーションはメニュー構成をキャッシュする必要がありますか?</string>
-  <string id="SettingsClearCache">アプリケーションは次回キャッシュを削除する必要がありますか?
+  <string id="SettingsClearCache">次回アプリケーションが既存のキャッシュをクリアする必要があるかどうか
     始めましたか？</string>
   <string id="SettingsAppTimeout">秒単位のタイムアウト。この期間が経過したらアプリケーションを終了してください
     デバイスのバッテリーを節約するために非アクティブにします。</string>

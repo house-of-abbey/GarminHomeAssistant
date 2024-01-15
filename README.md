@@ -220,13 +220,6 @@ You may choose to cache your menu definition on your device in order to reduce t
 
 The application timeout prevents the app running on your watch when you have forgotten to close it. It prevents the refreshing of the menu statuses and therefore excessive wear on your battery level. There is a second timeout value for confirmation views. This is intended for use with more sensitive toggles so that the confirmation view is not left open and forgotten and then confirmed accidentally without you noticing. **We cannot advise you this is safe, be careful what you toggle with the watch application!**
 
-The menu style option selects between two menu presentations as follows:
-
-| Menu Type       | Image                                                                  | Description |
-|-----------------|------------------------------------------------------------------------|-------------|
-| Icons (default) | <img src="images/Venu2_LeanUI.png" width="200" title="Venu 2"/> | "Lean User Interface" version removing the second row of text in favour of icons. Tap icons are blue with a pointing finger, menu items has three dots as favours by many graphical user interfaces. |
-| Labels          | <img src="images/Venu2_Original.png" width="200" title="Venu 2"/>  | Initial version that had a second row of text. This extra text has yet to add much value. Menu and Tap actions are distinguished by text, and the toggle status is duplicated by text. A future version could possibly offer the means to customise the toggle menu item text, hence this option has not been deprecated yet. |
-
 There is a toggle setting for "text alignment" and provides finer adjustment for right-to-left languages. Perhaps this could be made automatic based on device language?
 
 Another toggle setting for the **Widget version only** allows the user to select a non-standard user interface behaviour. As soon as the menu is retrieved the widget view is replaced by the menu without waiting for a user selection. This has been included as requested by a user, but defaults to off which retains the expected user interactions.
@@ -276,8 +269,6 @@ The `id` attribute values are taken from the same names used in [`strings.xml`](
 
 ## Battery Level Reporting
 
-We've had [a report](https://github.com/house-of-abbey/GarminHomeAssistant/issues/39) that this feature does not work without **administrator priviledges**. We've reviewed possible fixes and come up short. We are unable to fix this at present but invite those skilled in the art of Home Assistant to suggest a solution to us!
-
 The application and widget both now include a background service to report your watch's battery level and charging status. This requires some [setup](BatteryReporting.md) via YAML in Home Assistant to display the transmitted value. We offer this [trouble shooting](Troubleshooting.md#watch-battery-level-reporting) guide.
 
 ## Version History
@@ -296,7 +287,10 @@ The application and widget both now include a background service to report your 
 |   2.1   | Deployment of an idea to provide Home Assistant with access to the watch battery level. Using this requires [significant setup](BatteryReporting.md) on the Home Assistant configuration and hence is detailed separately. Due to this, the default state for this battery option is _off_. Changed the application settings user interface to be more intuitive, and hence amended the way settings are managed in the background. |
 |   2.2   | Adds a feature to cache the menu configuration and save the time taken for an HTTP request to fetch it. You as the user are responsible for managing the cache by clearing it when you update your configuration. Improvement to widget root display updates. Bug fix for battery level reporting when in the glance carousel. Fixed an uninternationalised string, "Execute". Unfixed issue with battery level updates when the user is not an administrator. |
 |   2.3   | Fix for battery level updates where previously the function only worked for administrator accounts. The new solution is based on Webhooks and is simpler to implement on Home Assistant. Language support fix where an automatic translation produced an inappropriate word, possibly in more than one language. |
+|   2.4   | Sensor status reporting via Home Assistant 'templates'. This provides a generalised way of viewing the status of any entity as long as the result can be rendered as text, e.g. 'uncovered', 'open', '76%', '21 °C'. Removal of the menu style option. The original style was kept after the introduction of the icon style solely to keep the code for a possible re-use for sensor statuses. This version delivers that new feature, hence the style option has been removed. The new JSON configuration file format allows for the old style to be replicated if you are desperate! |
 
 ## Known Issues
 
 1. On some (old) devices (e.g. Vivoactive 3, Fenix 5s & Edge 520+), the menu does not update correctly to reflect changes in state effected by an external Home Assistant control. E.g. when the phone application changes the toggle status of a switch, the Garmin application does not reflect that change until the menu is touched or scrolled a little. This is a [known issue](https://forums.garmin.com/developer/connect-iq/i/bug-reports/menu2-doesn-t-allow-live-updates) already reported without a suggested software fix.
+
+2. Widgets have less memory than applications. With the new template based sensor display, widgets are more likely to run out of memory. E.g. a Vivoactive 3 device has a memory limit of 60 kB runtime memory for widgets (compare with 124 kB for applications) and is likely to be ~90% used. This makes it very likely that a larger menu will crash the application. We cannot predict what will take the application "over the edge", but we can provide this feedback to users to raise awareness.
