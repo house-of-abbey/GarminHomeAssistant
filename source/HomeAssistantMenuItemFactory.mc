@@ -26,6 +26,7 @@ class HomeAssistantMenuItemFactory {
     private var mMenuItemOptions      as Lang.Dictionary;
     private var mTapTypeIcon          as WatchUi.Bitmap;
     private var mGroupTypeIcon        as WatchUi.Bitmap;
+    private var mInfoTypeIcon         as WatchUi.Bitmap;
     private var mHomeAssistantService as HomeAssistantService;
 
     private static var instance;
@@ -43,6 +44,12 @@ class HomeAssistantMenuItemFactory {
 
         mGroupTypeIcon = new WatchUi.Bitmap({
             :rezId => $.Rez.Drawables.GroupTypeIcon,
+            :locX  => WatchUi.LAYOUT_HALIGN_CENTER,
+            :locY  => WatchUi.LAYOUT_VALIGN_CENTER
+        });
+
+        mInfoTypeIcon = new WatchUi.Bitmap({
+            :rezId => $.Rez.Drawables.InfoTypeIcon,
             :locX  => WatchUi.LAYOUT_HALIGN_CENTER,
             :locY  => WatchUi.LAYOUT_VALIGN_CENTER
         });
@@ -67,12 +74,13 @@ class HomeAssistantMenuItemFactory {
         );
     }
 
-    function template(
+    function template_tap(
         label      as Lang.String or Lang.Symbol,
         identifier as Lang.Object or Null,
         template   as Lang.String or Null,
         service    as Lang.String or Null,
-        confirm    as Lang.Boolean
+        confirm    as Lang.Boolean,
+        data       as Lang.Dictionary or Null
     ) as WatchUi.MenuItem {
         return new HomeAssistantTemplateMenuItem(
             label,
@@ -80,6 +88,29 @@ class HomeAssistantMenuItemFactory {
             template,
             service,
             confirm,
+            data,
+            mTapTypeIcon,
+            mMenuItemOptions,
+            mHomeAssistantService
+        );
+    }
+
+    function template_notap(
+        label      as Lang.String or Lang.Symbol,
+        identifier as Lang.Object or Null,
+        template   as Lang.String or Null,
+        service    as Lang.String or Null,
+        confirm    as Lang.Boolean,
+        data       as Lang.Dictionary or Null
+    ) as WatchUi.MenuItem {
+        return new HomeAssistantTemplateMenuItem(
+            label,
+            identifier,
+            template,
+            service,
+            confirm,
+            data,
+            mInfoTypeIcon,
             mMenuItemOptions,
             mHomeAssistantService
         );
@@ -89,7 +120,8 @@ class HomeAssistantMenuItemFactory {
         label      as Lang.String or Lang.Symbol,
         identifier as Lang.Object or Null,
         service    as Lang.String or Null,
-        confirm    as Lang.Boolean
+        confirm    as Lang.Boolean,
+        data       as Lang.Dictionary or Null
     ) as WatchUi.MenuItem {
         return new HomeAssistantMenuItem(
             label,
@@ -97,6 +129,7 @@ class HomeAssistantMenuItemFactory {
             identifier,
             service,
             confirm,
+            data,
             mTapTypeIcon,
             mMenuItemOptions,
             mHomeAssistantService

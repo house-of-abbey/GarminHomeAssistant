@@ -27,7 +27,7 @@ class HomeAssistantService {
     private var mHasToast   as Lang.Boolean = false;
     private var mHasVibrate as Lang.Boolean = false;
 
-    function initialise() {
+    function initialize() {
         if (WatchUi has :showToast) {
             mHasToast = true;
         }
@@ -38,7 +38,11 @@ class HomeAssistantService {
 
     // Callback function after completing the POST request to call a service.
     //
-    function onReturnCall(responseCode as Lang.Number, data as Null or Lang.Dictionary or Lang.String, context as Lang.Object) as Void {
+    function onReturnCall(
+        responseCode as Lang.Number,
+        data         as Null or Lang.Dictionary or Lang.String,
+        context      as Lang.Object
+    ) as Void {
         var identifier = context as Lang.String;
         if (Globals.scDebug) {
             System.println("HomeAssistantService onReturnCall() Response Code: " + responseCode);
@@ -120,7 +124,11 @@ class HomeAssistantService {
         }
     }
 
-    function call(identifier as Lang.String, service as Lang.String) as Void {
+    function call(
+        identifier as Lang.String,
+        service    as Lang.String,
+        data       as Lang.Dictionary or Null
+    ) as Void {
         if (! System.getDeviceSettings().phoneConnected) {
             if (Globals.scDebug) {
                 System.println("HomeAssistantService call(): No Phone connection, skipping API call.");
@@ -140,9 +148,7 @@ class HomeAssistantService {
             }
             Communications.makeWebRequest(
                 url,
-                {
-                    "entity_id" => identifier
-                },
+                data, // Includes {"entity_id": identifier}
                 {
                     :method       => Communications.HTTP_REQUEST_METHOD_POST,
                     :headers      => {

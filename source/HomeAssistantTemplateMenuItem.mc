@@ -26,11 +26,12 @@ using Toybox.Lang;
 using Toybox.WatchUi;
 using Toybox.Graphics;
 
-class HomeAssistantTemplateMenuItem extends WatchUi.MenuItem {
+class HomeAssistantTemplateMenuItem extends WatchUi.IconMenuItem {
     private var mHomeAssistantService as HomeAssistantService;
     private var mTemplate             as Lang.String;
     private var mService              as Lang.String or Null;
     private var mConfirm              as Lang.Boolean;
+    private var mData                 as Lang.Dictionary or Null;
 
     function initialize(
         label      as Lang.String or Lang.Symbol,
@@ -38,16 +39,18 @@ class HomeAssistantTemplateMenuItem extends WatchUi.MenuItem {
         template   as Lang.String,
         service    as Lang.String or Null,
         confirm    as Lang.Boolean,
+        data       as Lang.Dictionary or Null,
+        icon       as Graphics.BitmapType or WatchUi.Drawable,
         options    as {
             :alignment as WatchUi.MenuItem.Alignment,
-            :icon      as Graphics.BitmapType or WatchUi.Drawable or Lang.Symbol
         } or Null,
         haService  as HomeAssistantService
     ) {
-        WatchUi.MenuItem.initialize(
+        WatchUi.IconMenuItem.initialize(
             label,
             null,
             identifier,
+            icon,
             options
         );
 
@@ -55,6 +58,12 @@ class HomeAssistantTemplateMenuItem extends WatchUi.MenuItem {
         mTemplate             = template;
         mService              = service;
         mConfirm              = confirm;
+        mData                 = data;
+        if (mData == null) {
+            mData = {"entity_id" => identifier};
+        } else {
+            mData.put("entity_id", identifier);
+        }
     }
 
     function callService() as Void {
@@ -71,7 +80,7 @@ class HomeAssistantTemplateMenuItem extends WatchUi.MenuItem {
 
     function onConfirm() as Void {
         if (mService != null) {
-            mHomeAssistantService.call(mIdentifier as Lang.String, mService);
+            mHomeAssistantService.call(mIdentifier as Lang.String, mService, mData);
         }
     }
 

@@ -19,4 +19,5 @@
     <bitmap id="ErrorIcon" filename="error.svg"/>
     <bitmap id="GroupTypeIcon" filename="group_type.svg"/>
     <bitmap id="TapTypeIcon" filename="tap_type.svg"/>
+    <bitmap id="InfoTypeIcon" filename="info_type.svg"/>
 </drawables>

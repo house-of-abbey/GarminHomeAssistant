@@ -51,11 +51,13 @@ class HomeAssistantView extends WatchUi.Menu2 {
             var content    = items[i].get("content")    as Lang.String     or Null;
             var entity     = items[i].get("entity")     as Lang.String     or Null;
             var tap_action = items[i].get("tap_action") as Lang.Dictionary or Null;
-            var service    = items[i].get("service")    as Lang.String     or Null;
-            var confirm    = false                      as Lang.Boolean;
+            var service    = items[i].get("service")    as Lang.String     or Null; // Deprecated schema
+            var confirm    = false                      as Lang.Boolean    or Null;
+            var data       = null                       as Lang.Dictionary or Null;
             if (tap_action != null) {
                 service = tap_action.get("service");
-                confirm = tap_action.get("confirm");
+                confirm = tap_action.get("confirm"); // Optional
+                data    = tap_action.get("data");    // Optional
                 if (confirm == null) {
                     confirm = false;
                 }
@@ -64,9 +66,14 @@ class HomeAssistantView extends WatchUi.Menu2 {
                 if (type.equals("toggle") && entity != null) {
                     addItem(HomeAssistantMenuItemFactory.create().toggle(name, entity));
                 } else if (type.equals("template") && content != null) {
-                    addItem(HomeAssistantMenuItemFactory.create().template(name, entity, content, service, confirm));
+                    if (tap_action == null) {
+                        addItem(HomeAssistantMenuItemFactory.create().template_notap(name, entity, content, service, confirm, data));
+                    } else {
+                        addItem(HomeAssistantMenuItemFactory.create().template_tap(name, entity, content, service, confirm, data));
+                    }
+                    
                 } else if (type.equals("tap") && entity != null && service != null) {
-                    addItem(HomeAssistantMenuItemFactory.create().tap(name, entity, service, confirm));
+                    addItem(HomeAssistantMenuItemFactory.create().tap(name, entity, service, confirm, data));
                 } else if (type.equals("group")) {
                     addItem(HomeAssistantMenuItemFactory.create().group(items[i]));
                 }
