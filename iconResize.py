@@ -91,7 +91,7 @@ for screen_size, icon_sizes in lookup.items():
           svg.attrs["width"]  = lookup[screen_size][Half]
           svg.attrs["height"] = lookup[screen_size][Half]
         with open(output_dir + "/" + entry, "wb") as o:
-          o.write(svg.encode("utf-8"))
+          o.write(svg.encode("utf-8") + b"\n")
     elif entry.endswith(".xml"):
       print("Create file:       ", entry.ljust(40) + " XML - Copy file")
       shutil.copyfile(input_dir + "/" + entry, output_dir + "/" + entry)
