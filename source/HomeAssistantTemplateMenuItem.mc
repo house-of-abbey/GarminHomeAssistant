@@ -154,7 +154,6 @@ class HomeAssistantTemplateMenuItem extends WatchUi.IconMenuItem {
                 status = RezStrings.getAvailable();
                 setSubLabel(data);
                 requestUpdate();
-                ErrorView.unShow();
                 // Now this feels very "closely coupled" to the application, but it is the most reliable method instead of using a timer.
                 getApp().updateNextMenuItem();
                 break;

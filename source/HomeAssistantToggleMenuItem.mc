@@ -143,7 +143,6 @@ class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
                     setLabel((data.get("attributes") as Lang.Dictionary).get("friendly_name") as Lang.String);
                 }
                 setUiToggle(state);
-                ErrorView.unShow();
                 // Now this feels very "closely coupled" to the application, but it is the most reliable method instead of using a timer.
                 getApp().updateNextMenuItem();
                 break;
