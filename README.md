@@ -127,17 +127,17 @@ The example above illustrates how to configure:
 
 The example JSON shows an example usage of each of these Home Assistance entity types. Presently, an automation is the only one that can be either a 'tap' or a 'toggle'.
 
-| HA Type    | Tap | Toggle |
-|------------|:---:|:------:|
-| Switch     |  ❌ |   ✅  |
-| Light      |  ❌ |   ✅  |
-| Automation |  ✅ |   ✅  |
-| Script     |  ✅ |   ❌  |
-| Scene      |  ✅ |   ❌  |
+| HA Type    | Tap | Toggle | Template (custom status text)                        |
+|------------|:---:|:------:|:----------------------------------------------------:|
+| Switch     |  ❌  |   ✅  |   ✅<br>Separate on and off, or anything in between |
+| Light      |  ❌  |   ✅  |   ✅<br>Separate on and off, or anything in between |
+| Automation |  ✅  |   ✅  |   ✅                                                |
+| Script     |  ✅  |   ❌  |   ✅                                                |
+| Scene      |  ✅  |   ❌  |   ✅                                                |
 
 NB. All 'tap' items must specify a 'service' tag.
 
-Possible future extensions might include specifying the alternative texts to use instead of "On" and "Off", e.g. "Locked" and "Unlocked" (but wouldn't having locks operated from your watch be a security concern ;-))
+You can now specify alternative texts to use instead of "On" and "Off", e.g. "Locked" and "Unlocked" or "Open" and "Closed" through the use of a template menu item (but wouldn't having locks operated from your watch be a security concern ;-) ?)
 
 The [schema](https://raw.githubusercontent.com/house-of-abbey/GarminHomeAssistant/main/config.schema.json) is checked by using a URL directly back to this GitHub source repository, so you do not need to install that file. You can just copy & paste your entity names from the YAML configuration files used to configure Home Assistant. With a submenu, there's a difference between "title" and "name". The "name" goes on the menu item, and the "title" at the head of the submenu. If your dashboard definition fails to meet the schema, the application will simply drop items with the wrong field names without warning.
 
@@ -296,5 +296,7 @@ The application and widget both now include a background service to report your 
 2. Widgets have less memory than applications. With the new template based sensor display, widgets are more likely to run out of memory. E.g. a Vivoactive 3 device has a memory limit of 60 kB runtime memory for widgets (compare with 124 kB for applications) and is likely to be ~90% used. This makes it very likely that a larger menu will crash the application. We cannot predict what will take the application "over the edge", but we can provide this feedback to users to raise awareness, hence the widget displays menu usage as a reminder.
 
 3. Templates can require significant definition for highly customised text. Just remember, you have the ability to crash the application by creating an excessively long menu definition. Older devices running as a widget can be limited in memory such that the JSON definition causes an "Out of Memory" error. Don't be silly. **Please don't give the application a poor review for an excessive menu definition!**
+
+<img src="images/Venu_Widget_sim.png" width="200" title="Venu 2" style="margin:5px"/>
 
 4. Parameters to tap menu items cannot have their parameter usage verified. If you get this wrong and crash the application, that's your fault not the application's. In this case, start by removing the parameters for the menu item causing the crash, and add them back one at a time until you find your fault. **Please don't give the application a poor review for your bad parameter definition!**
