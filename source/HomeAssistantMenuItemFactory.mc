@@ -26,6 +26,7 @@ class HomeAssistantMenuItemFactory {
     private var mMenuItemOptions      as Lang.Dictionary;
     private var mTapTypeIcon          as WatchUi.Bitmap;
     private var mGroupTypeIcon        as WatchUi.Bitmap;
+    private var mInfoTypeIcon         as WatchUi.Bitmap;
     private var mHomeAssistantService as HomeAssistantService;
 
     private static var instance;
@@ -47,6 +48,12 @@ class HomeAssistantMenuItemFactory {
             :locY  => WatchUi.LAYOUT_VALIGN_CENTER
         });
 
+        mInfoTypeIcon = new WatchUi.Bitmap({
+            :rezId => $.Rez.Drawables.InfoTypeIcon,
+            :locX  => WatchUi.LAYOUT_HALIGN_CENTER,
+            :locY  => WatchUi.LAYOUT_VALIGN_CENTER
+        });
+
         mHomeAssistantService = new HomeAssistantService();
     }
 
@@ -57,29 +64,52 @@ class HomeAssistantMenuItemFactory {
         return instance;
     }
 
-    function toggle(label as Lang.String or Lang.Symbol, identifier as Lang.Object or Null) as WatchUi.MenuItem {
+    function toggle(label as Lang.String or Lang.Symbol, entity_id as Lang.String or Null) as WatchUi.MenuItem {
         return new HomeAssistantToggleMenuItem(
             label,
-            null,
-            identifier,
-            false,
+            { "entity_id" => entity_id },
             mMenuItemOptions
         );
     }
 
-    function template(
+    function template_tap(
         label      as Lang.String or Lang.Symbol,
-        identifier as Lang.Object or Null,
+        entity     as Lang.String or Null,
         template   as Lang.String or Null,
         service    as Lang.String or Null,
-        confirm    as Lang.Boolean
+        confirm    as Lang.Boolean,
+        data       as Lang.Dictionary or Null
     ) as WatchUi.MenuItem {
+        if (entity != null) {
+            if (data == null) {
+                data = { "entity_id" => entity };
+            } else {
+                data.put("entity_id", entity);
+            }
+        }
         return new HomeAssistantTemplateMenuItem(
             label,
-            identifier,
             template,
             service,
             confirm,
+            data,
+            mTapTypeIcon,
+            mMenuItemOptions,
+            mHomeAssistantService
+        );
+    }
+
+    function template_notap(
+        label    as Lang.String or Lang.Symbol,
+        template as Lang.String or Null
+    ) as WatchUi.MenuItem {
+        return new HomeAssistantTemplateMenuItem(
+            label,
+            template,
+            null,
+            false,
+            null,
+            mInfoTypeIcon,
             mMenuItemOptions,
             mHomeAssistantService
         );
@@ -87,16 +117,23 @@ class HomeAssistantMenuItemFactory {
 
     function tap(
         label      as Lang.String or Lang.Symbol,
-        identifier as Lang.Object or Null,
+        entity     as Lang.String or Null,
         service    as Lang.String or Null,
-        confirm    as Lang.Boolean
+        confirm    as Lang.Boolean,
+        data       as Lang.Dictionary or Null
     ) as WatchUi.MenuItem {
-        return new HomeAssistantMenuItem(
+        if (entity != null) {
+            if (data == null) {
+                data = { "entity_id" => entity };
+            } else {
+                data.put("entity_id", entity);
+            }
+        }
+        return new HomeAssistantTapMenuItem(
             label,
-            null,
-            identifier,
             service,
             confirm,
+            data,
             mTapTypeIcon,
             mMenuItemOptions,
             mHomeAssistantService
@@ -104,6 +141,6 @@ class HomeAssistantMenuItemFactory {
     }
 
     function group(definition as Lang.Dictionary) as WatchUi.MenuItem {
-        return new HomeAssistantViewMenuItem(definition, mGroupTypeIcon, mMenuItemOptions);
+        return new HomeAssistantGroupMenuItem(definition, mGroupTypeIcon, mMenuItemOptions);
     }
 }

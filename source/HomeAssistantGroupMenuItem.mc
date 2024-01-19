@@ -14,26 +14,27 @@
 //
 // Description:
 //
-// Menu button with an icon that opens a sub-menu.
+// Menu button with an icon that opens a sub-menu, i.e. group.
 //
 //-----------------------------------------------------------------------------------
 
 using Toybox.Lang;
 using Toybox.WatchUi;
 
-class HomeAssistantViewMenuItem extends WatchUi.IconMenuItem {
+class HomeAssistantGroupMenuItem extends WatchUi.IconMenuItem {
     private var mMenu as HomeAssistantView;
 
-    function initialize(definition as Lang.Dictionary, icon as WatchUi.Drawable, options as {
+    function initialize(
+        definition as Lang.Dictionary,
+        icon       as WatchUi.Drawable,
+        options    as {
             :alignment as WatchUi.MenuItem.Alignment
         } or Null) {
-        var label = definition.get("name") as Lang.String;
-        var identifier = definition.get("entity") as Lang.String;
 
         WatchUi.IconMenuItem.initialize(
-            label,
+            definition.get("name") as Lang.String,
             null,
-            identifier,
+            null,
             icon,
             options
         );
