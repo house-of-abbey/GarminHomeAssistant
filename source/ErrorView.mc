@@ -36,16 +36,14 @@ using Toybox.Communications;
 using Toybox.Timer;
 
 class ErrorView extends ScalableView {
-    private var mText            as Lang.String = "";
+    private static const scErrorIconMargin as Lang.Float = 7f;
+    private var mText            as Lang.String          = "";
     private var mDelegate        as ErrorDelegate;
-    private const cSettings      as Lang.Dictionary = {
-        :errorIconMargin => 7f
-    };
     // Vertical spacing between the top of the face and the error icon
     private var mErrorIconMargin as Lang.Number;
     private var mErrorIcon;
     private var mTextArea        as WatchUi.TextArea or Null;
-    private var mAntiAlias       as Lang.Boolean = false;
+    private var mAntiAlias       as Lang.Boolean         = false;
 
     private static var instance;
     private static var mShown as Lang.Boolean = false;
@@ -54,7 +52,7 @@ class ErrorView extends ScalableView {
         ScalableView.initialize();
         mDelegate = new ErrorDelegate(self);
         // Convert the settings from % of screen size to pixels
-        mErrorIconMargin = pixelsForScreen(cSettings.get(:errorIconMargin) as Lang.Float);
+        mErrorIconMargin = pixelsForScreen(scErrorIconMargin);
         mErrorIcon       = Application.loadResource(Rez.Drawables.ErrorIcon) as Graphics.BitmapResource;
         if (Graphics.Dc has :setAntiAlias) {
             mAntiAlias = true;

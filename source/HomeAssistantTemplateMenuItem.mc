@@ -14,7 +14,7 @@
 //
 // Description:
 //
-// Rendering a Home Assistant Template.
+// Menu button that renders a Home Assistant Template, and optionally triggers a service.
 //
 // Reference:
 //  * https://developers.home-assistant.io/docs/api/rest/
@@ -26,28 +26,30 @@ using Toybox.Lang;
 using Toybox.WatchUi;
 using Toybox.Graphics;
 
-class HomeAssistantTemplateMenuItem extends WatchUi.MenuItem {
+class HomeAssistantTemplateMenuItem extends WatchUi.IconMenuItem {
     private var mHomeAssistantService as HomeAssistantService;
     private var mTemplate             as Lang.String;
     private var mService              as Lang.String or Null;
     private var mConfirm              as Lang.Boolean;
+    private var mData                 as Lang.Dictionary or Null;
 
     function initialize(
         label      as Lang.String or Lang.Symbol,
-        identifier as Lang.Object or Null,
         template   as Lang.String,
         service    as Lang.String or Null,
         confirm    as Lang.Boolean,
+        data       as Lang.Dictionary or Null,
+        icon       as Graphics.BitmapType or WatchUi.Drawable,
         options    as {
-            :alignment as WatchUi.MenuItem.Alignment,
-            :icon      as Graphics.BitmapType or WatchUi.Drawable or Lang.Symbol
+            :alignment as WatchUi.MenuItem.Alignment
         } or Null,
         haService  as HomeAssistantService
     ) {
-        WatchUi.MenuItem.initialize(
+        WatchUi.IconMenuItem.initialize(
             label,
             null,
-            identifier,
+            null,
+            icon,
             options
         );
 
@@ -55,23 +57,25 @@ class HomeAssistantTemplateMenuItem extends WatchUi.MenuItem {
         mTemplate             = template;
         mService              = service;
         mConfirm              = confirm;
+        mData                 = data;
     }
 
     function callService() as Void {
         if (mConfirm) {
             WatchUi.pushView(
                 new HomeAssistantConfirmation(),
-                new HomeAssistantConfirmationDelegate(method(:onConfirm)),
+                new HomeAssistantConfirmationDelegate(method(:onConfirm), false),
                 WatchUi.SLIDE_IMMEDIATE
             );
         } else {
-            onConfirm();
+            onConfirm(false);
         }
     }
 
-    function onConfirm() as Void {
+    // NB. Parameter 'b' is ignored
+    function onConfirm(b as Lang.Boolean) as Void {
         if (mService != null) {
-            mHomeAssistantService.call(mIdentifier as Lang.String, mService);
+            mHomeAssistantService.call(mService, mData);
         }
     }
 
@@ -145,7 +149,6 @@ class HomeAssistantTemplateMenuItem extends WatchUi.MenuItem {
                 status = RezStrings.getAvailable();
                 setSubLabel(data);
                 requestUpdate();
-                ErrorView.unShow();
                 // Now this feels very "closely coupled" to the application, but it is the most reliable method instead of using a timer.
                 getApp().updateNextMenuItem();
                 break;
@@ -179,9 +182,7 @@ class HomeAssistantTemplateMenuItem extends WatchUi.MenuItem {
             }
             Communications.makeWebRequest(
                 url,
-                {
-                    "template" => mTemplate
-                },
+                { "template" => mTemplate },
                 {
                     :method  => Communications.HTTP_REQUEST_METHOD_POST,
                     :headers => {

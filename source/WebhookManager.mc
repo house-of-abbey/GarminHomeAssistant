@@ -27,6 +27,7 @@ using Toybox.System;
 
 // Can use push view so must never be run in a glance context
 class WebhookManager {
+
     function onReturnRequestWebhookId(responseCode as Lang.Number, data as Null or Lang.Dictionary or Lang.String) as Void {
         switch (responseCode) {
             case Communications.BLE_HOST_TIMEOUT:
@@ -236,11 +237,12 @@ class WebhookManager {
             {
                 :method       => Communications.HTTP_REQUEST_METHOD_POST,
                 :headers      => {
-                    "Content-Type"  => Communications.REQUEST_CONTENT_TYPE_JSON
+                    "Content-Type" => Communications.REQUEST_CONTENT_TYPE_JSON
                 },
                 :responseType => Communications.HTTP_RESPONSE_CONTENT_TYPE_JSON
             },
             method(:onReturnRegisterWebhookSensor)
         );
     }
+
 }

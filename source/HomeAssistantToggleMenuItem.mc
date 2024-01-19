@@ -25,21 +25,21 @@ using Toybox.Application.Properties;
 using Toybox.Timer;
 
 class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
+    private var mConfirm as Lang.Boolean;
+    private var mData    as Lang.Dictionary;
 
     function initialize(
-        label     as Lang.String or Lang.Symbol,
-        subLabel  as Lang.String or Lang.Symbol or {
-            :enabled  as Lang.String or Lang.Symbol or Null,
-            :disabled as Lang.String or Lang.Symbol or Null
-        } or Null,
-        identifier,
-        enabled   as Lang.Boolean,
-        options   as {
+        label   as Lang.String or Lang.Symbol,
+        confirm as Lang.Boolean,
+        data    as Lang.Dictionary or Null,
+        options as {
             :alignment as WatchUi.MenuItem.Alignment,
             :icon      as Graphics.BitmapType or WatchUi.Drawable or Lang.Symbol
         } or Null
     ) {
-        WatchUi.ToggleMenuItem.initialize(label, subLabel, identifier, enabled, options);
+        WatchUi.ToggleMenuItem.initialize(label, null, null, false, options);
+        mConfirm = confirm;
+        mData    = data;
     }
 
     private function setUiToggle(state as Null or Lang.String) as Void {
@@ -114,9 +114,9 @@ class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
                 if (msg != null) {
                     // Should be an HTTP 404 according to curl queries
                     if (Globals.scDebug) {
-                        System.println("HomeAssistantToggleMenuItem onReturnGetState() Response Code: 404. " + mIdentifier + " " + msg);
+                        System.println("HomeAssistantToggleMenuItem onReturnGetState() Response Code: 404. " + mData.get("entity_id") + " " + msg);
                     }
-                    ErrorView.show("HTTP 404, " + mIdentifier + ". " + data.get("message"));
+                    ErrorView.show("HTTP 404, " + mData.get("entity_id") + ". " + data.get("message"));
                 } else {
                     if (Globals.scDebug) {
                         System.println("HomeAssistantToggleMenuItem onReturnGetState() Response Code: 404, page not found. Check API URL setting.");
@@ -127,9 +127,9 @@ class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
 
             case 405:
                 if (Globals.scDebug) {
-                    System.println("HomeAssistantToggleMenuItem onReturnGetState() Response Code: 405. " + mIdentifier + " " + data.get("message"));
+                    System.println("HomeAssistantToggleMenuItem onReturnGetState() Response Code: 405. " + mData.get("entity_id") + " " + data.get("message"));
                 }
-                ErrorView.show("HTTP 405, " + mIdentifier + ". " + data.get("message"));
+                ErrorView.show("HTTP 405, " + mData.get("entity_id") + ". " + data.get("message"));
 
                 break;
 
@@ -143,7 +143,6 @@ class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
                     setLabel((data.get("attributes") as Lang.Dictionary).get("friendly_name") as Lang.String);
                 }
                 setUiToggle(state);
-                ErrorView.unShow();
                 // Now this feels very "closely coupled" to the application, but it is the most reliable method instead of using a timer.
                 getApp().updateNextMenuItem();
                 break;
@@ -171,7 +170,7 @@ class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
             ErrorView.show(RezStrings.getNoInternet() + ".");
             getApp().setApiStatus(RezStrings.getUnavailable());
         } else {
-            var url = Settings.getApiUrl() + "/states/" + mIdentifier;
+            var url = Settings.getApiUrl() + "/states/" + mData.get("entity_id");
             if (Globals.scDebug) {
                 System.println("HomeAssistantToggleMenuItem getState() URL=" + url);
             }
@@ -240,7 +239,7 @@ class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
                 var state;
                 var d = data as Lang.Array;
                 for(var i = 0; i < d.size(); i++) {
-                    if ((d[i].get("entity_id") as Lang.String).equals(mIdentifier)) {
+                    if ((d[i].get("entity_id") as Lang.String).equals(mData.get("entity_id"))) {
                         state = d[i].get("state") as Lang.String;
                         if (Globals.scDebug) {
                             System.println((d[i].get("attributes") as Lang.Dictionary).get("friendly_name") + " State=" + state);
@@ -278,7 +277,7 @@ class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
         } else {
             // Updated SDK and got a new error
             // ERROR: venu: Cannot find symbol ':substring' on type 'PolyType<Null or $.Toybox.Lang.Object>'.
-            var id  = mIdentifier as Lang.String;
+            var id  = mData.get("entity_id") as Lang.String;
             var url = Settings.getApiUrl() + "/services/";
             if (s) {
                 url = url + id.substring(0, id.find(".")) + "/turn_on";
@@ -286,14 +285,12 @@ class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
                 url = url + id.substring(0, id.find(".")) + "/turn_off";
             }
             if (Globals.scDebug) {
-                System.println("HomeAssistantToggleMenuItem setState() URL=" + url);
-                System.println("HomeAssistantToggleMenuItem setState() mIdentifier=" + mIdentifier);
+                System.println("HomeAssistantToggleMenuItem setState() URL       = " + url);
+                System.println("HomeAssistantToggleMenuItem setState() entity_id = " + id);
             }
             Communications.makeWebRequest(
                 url,
-                {
-                    "entity_id" => mIdentifier
-                },
+                mData,
                 {
                     :method  => Communications.HTTP_REQUEST_METHOD_POST,
                     :headers => {
@@ -305,6 +302,22 @@ class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
                 method(:onReturnSetState)
             );
         }
+    }
+
+    function callService(b as Lang.Boolean) as Void {
+        if (mConfirm) {
+            WatchUi.pushView(
+                new HomeAssistantConfirmation(),
+                new HomeAssistantConfirmationDelegate(method(:onConfirm), b),
+                WatchUi.SLIDE_IMMEDIATE
+            );
+        } else {
+            setState(b);
+        }
+    }
+
+    function onConfirm(b as Lang.Boolean) as Void {
+        setState(b);
     }
 
 }
