@@ -64,27 +64,31 @@ class HomeAssistantMenuItemFactory {
         return instance;
     }
 
-    function toggle(label as Lang.String or Lang.Symbol, identifier as Lang.Object or Null) as WatchUi.MenuItem {
+    function toggle(label as Lang.String or Lang.Symbol, entity_id as Lang.String or Null) as WatchUi.MenuItem {
         return new HomeAssistantToggleMenuItem(
             label,
-            null,
-            identifier,
-            false,
+            { "entity_id" => entity_id },
             mMenuItemOptions
         );
     }
 
     function template_tap(
         label      as Lang.String or Lang.Symbol,
-        identifier as Lang.Object or Null,
+        entity     as Lang.String or Null,
         template   as Lang.String or Null,
         service    as Lang.String or Null,
         confirm    as Lang.Boolean,
         data       as Lang.Dictionary or Null
     ) as WatchUi.MenuItem {
+        if (entity != null) {
+            if (data == null) {
+                data = { "entity_id" => entity };
+            } else {
+                data.put("entity_id", entity);
+            }
+        }
         return new HomeAssistantTemplateMenuItem(
             label,
-            identifier,
             template,
             service,
             confirm,
@@ -96,20 +100,15 @@ class HomeAssistantMenuItemFactory {
     }
 
     function template_notap(
-        label      as Lang.String or Lang.Symbol,
-        identifier as Lang.Object or Null,
-        template   as Lang.String or Null,
-        service    as Lang.String or Null,
-        confirm    as Lang.Boolean,
-        data       as Lang.Dictionary or Null
+        label    as Lang.String or Lang.Symbol,
+        template as Lang.String or Null
     ) as WatchUi.MenuItem {
         return new HomeAssistantTemplateMenuItem(
             label,
-            identifier,
             template,
-            service,
-            confirm,
-            data,
+            null,
+            false,
+            null,
             mInfoTypeIcon,
             mMenuItemOptions,
             mHomeAssistantService
@@ -118,15 +117,20 @@ class HomeAssistantMenuItemFactory {
 
     function tap(
         label      as Lang.String or Lang.Symbol,
-        identifier as Lang.Object or Null,
+        entity     as Lang.String or Null,
         service    as Lang.String or Null,
         confirm    as Lang.Boolean,
         data       as Lang.Dictionary or Null
     ) as WatchUi.MenuItem {
+        if (entity != null) {
+            if (data == null) {
+                data = { "entity_id" => entity };
+            } else {
+                data.put("entity_id", entity);
+            }
+        }
         return new HomeAssistantTapMenuItem(
             label,
-            null,
-            identifier,
             service,
             confirm,
             data,

@@ -66,13 +66,13 @@ class HomeAssistantView extends WatchUi.Menu2 {
                 if (type.equals("toggle") && entity != null) {
                     addItem(HomeAssistantMenuItemFactory.create().toggle(name, entity));
                 } else if (type.equals("template") && content != null) {
-                    if (tap_action == null) {
-                        addItem(HomeAssistantMenuItemFactory.create().template_notap(name, entity, content, service, confirm, data));
+                    if (service == null) {
+                        addItem(HomeAssistantMenuItemFactory.create().template_notap(name, content));
                     } else {
                         addItem(HomeAssistantMenuItemFactory.create().template_tap(name, entity, content, service, confirm, data));
                     }
 
-                } else if (type.equals("tap") && entity != null && service != null) {
+                } else if (type.equals("tap") && service != null) {
                     addItem(HomeAssistantMenuItemFactory.create().tap(name, entity, service, confirm, data));
                 } else if (type.equals("group")) {
                     addItem(HomeAssistantMenuItemFactory.create().group(items[i]));

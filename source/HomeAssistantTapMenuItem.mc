@@ -30,8 +30,6 @@ class HomeAssistantTapMenuItem extends WatchUi.IconMenuItem {
 
     function initialize(
         label      as Lang.String or Lang.Symbol,
-        subLabel   as Lang.String or Lang.Symbol or Null,
-        identifier as Lang.Object or Null,
         service    as Lang.String or Null,
         confirm    as Lang.Boolean,
         data       as Lang.Dictionary or Null,
@@ -43,8 +41,8 @@ class HomeAssistantTapMenuItem extends WatchUi.IconMenuItem {
     ) {
         WatchUi.IconMenuItem.initialize(
             label,
-            subLabel,
-            identifier,
+            null,
+            null,
             icon,
             options
         );
@@ -53,11 +51,6 @@ class HomeAssistantTapMenuItem extends WatchUi.IconMenuItem {
         mService              = service;
         mConfirm              = confirm;
         mData                 = data;
-        if (mData == null) {
-            mData = {"entity_id" => identifier};
-        } else {
-            mData.put("entity_id", identifier);
-        }
     }
 
     function callService() as Void {
@@ -73,7 +66,7 @@ class HomeAssistantTapMenuItem extends WatchUi.IconMenuItem {
     }
 
     function onConfirm() as Void {
-        mHomeAssistantService.call(mIdentifier as Lang.String, mService, mData);
+        mHomeAssistantService.call(mService, mData);
     }
 
 }

@@ -43,7 +43,7 @@ class HomeAssistantService {
         data         as Null or Lang.Dictionary or Lang.String,
         context      as Lang.Object
     ) as Void {
-        var identifier = context as Lang.String;
+        var entity_id = context as Lang.String or Null;
         if (Globals.scDebug) {
             System.println("HomeAssistantService onReturnCall() Response Code: " + responseCode);
             System.println("HomeAssistantService onReturnCall() Response Data: " + data);
@@ -99,7 +99,7 @@ class HomeAssistantService {
                 var d     = data as Lang.Array;
                 var toast = RezStrings.getExecuted();
                 for(var i = 0; i < d.size(); i++) {
-                    if ((d[i].get("entity_id") as Lang.String).equals(identifier)) {
+                    if ((d[i].get("entity_id") as Lang.String).equals(entity_id)) {
                         toast = (d[i].get("attributes") as Lang.Dictionary).get("friendly_name") as Lang.String;
                     }
                 }
@@ -125,9 +125,8 @@ class HomeAssistantService {
     }
 
     function call(
-        identifier as Lang.String,
-        service    as Lang.String,
-        data       as Lang.Dictionary or Null
+        service as Lang.String,
+        data    as Lang.Dictionary or Null
     ) as Void {
         if (! System.getDeviceSettings().phoneConnected) {
             if (Globals.scDebug) {
@@ -146,9 +145,15 @@ class HomeAssistantService {
                 System.println("HomeAssistantService call() URL=" + url);
                 System.println("HomeAssistantService call() service=" + service);
             }
+
+            var entity_id = data.get("entity_id");
+            if (entity_id == null) {
+                entity_id = "";
+            }
+
             Communications.makeWebRequest(
                 url,
-                data, // Includes {"entity_id": identifier}
+                data, // Includes {"entity_id": xxxx}
                 {
                     :method       => Communications.HTTP_REQUEST_METHOD_POST,
                     :headers      => {
@@ -156,7 +161,7 @@ class HomeAssistantService {
                         "Authorization" => "Bearer " + Settings.getApiKey()
                     },
                     :responseType => Communications.HTTP_RESPONSE_CONTENT_TYPE_JSON,
-                    :context      => identifier
+                    :context      => entity_id
                 },
                 method(:onReturnCall)
             );

@@ -31,13 +31,10 @@ class HomeAssistantGroupMenuItem extends WatchUi.IconMenuItem {
             :alignment as WatchUi.MenuItem.Alignment
         } or Null) {
 
-        var label      = definition.get("name")   as Lang.String;
-        var identifier = definition.get("entity") as Lang.String;
-
         WatchUi.IconMenuItem.initialize(
-            label,
+            definition.get("name") as Lang.String,
             null,
-            identifier,
+            null,
             icon,
             options
         );
