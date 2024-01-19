@@ -64,3 +64,71 @@ Here we generate a bar graph of the battery level. We use the following steps to
   "content": "{{ states('sensor.<device>_battery_level') }}%{% if is_state('binary_sensor.<device>_is_charging', 'on') %}+{% endif %} {{ '#' * (((states('sensor.<device>_battery_level') | int) / 100 * <width>) | int) }}{{ '_' * (<width> - (((states('sensor.<device>_battery_level') | int) / 100 * <width>) | int)) }}"
 }
 ```
+
+An example of a dimmer light with 4 brightness settings 0..3. Here our light worked on a percentage, so that had to be converted to the range 0..3.
+
+```json
+{
+  "$schema": "./schema.json",
+  "title": "Home",
+  "items": [
+    {
+      "entity": "light.green_house",
+      "name": "LEDs",
+      "type": "template",
+      "content": "{% if not (is_state('light.green_house', 'off') or is_state('light.green_house', 'unavailable')) %}{{ ((state_attr('light.green_house', 'brightness') | float) / 255 * 100) | int }}%{% else %}Off{% endif %}"
+    },
+    {
+      "entity": "light.green_house",
+      "name": "LEDs 0",
+      "type": "template",
+      "content": "{% if not (is_state('light.green_house', 'off') or is_state('light.green_house', 'unavailable')) %}{{ ((state_attr('light.green_house', 'brightness') | float) / 255 * 100) | int }}%{% else %}Off{% endif %}",
+      "tap_action": {
+        "service": "light.turn_on",
+        "data": {
+          "brightness_pct": 12
+        }
+      }
+    },
+    {
+      "entity": "light.green_house",
+      "name": "LEDs 1",
+      "type": "tap",
+      "tap_action": {
+        "service": "light.turn_on",
+        "data": {
+          "brightness_pct": 37
+        }
+      }
+    },
+    {
+      "entity": "light.green_house",
+      "name": "LEDs 2",
+      "type": "template",
+      "content": "{% if not (is_state('light.green_house', 'off') or is_state('light.green_house', 'unavailable')) %}{{ ((state_attr('light.green_house', 'brightness') | float) / 255 * 100) | int }}%{% else %}Off{% endif %}",
+      "tap_action": {
+        "service": "light.turn_on",
+        "data": {
+          "brightness_pct": 62
+        }
+      }
+    },
+    {
+      "entity": "light.green_house",
+      "name": "LEDs 3",
+      "type": "template",
+      "content": "{% if not (is_state('light.green_house', 'off') or is_state('light.green_house', 'unavailable')) %}{{ ((state_attr('light.green_house', 'brightness') | float) / 255 * 100) | int }}%{% else %}Off{% endif %}",
+      "tap_action": {
+        "service": "light.turn_on",
+        "data": {
+          "brightness_pct": 87
+        }
+      }
+    }
+  ]
+}
+```
+
+## Warnings
+
+Just remember, you have the ability to crash the application by creating an excessive menu definition. Older devices running as a widget can be limited in memory such that the JSON definition causes an "Out of Memory" error. Templates can require significant definition for highly customised text. Don't be silly.
