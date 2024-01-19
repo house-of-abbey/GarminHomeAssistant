@@ -34,12 +34,14 @@ class HomeAssistantConfirmation extends WatchUi.Confirmation {
 }
 
 class HomeAssistantConfirmationDelegate extends WatchUi.ConfirmationDelegate {
-    private var mConfirmMethod;
-    private var mTimer;
+    private var mConfirmMethod as Method(state as Lang.Boolean) as Void;
+    private var mTimer         as Timer.Timer or Null;
+    private var mState         as Lang.Boolean;
 
-    function initialize(callback as Method() as Void) {
+    function initialize(callback as Method(state as Lang.Boolean) as Void, state as Lang.Boolean) {
         WatchUi.ConfirmationDelegate.initialize();
         mConfirmMethod = callback;
+        mState         = state;
         var timeout = Settings.getConfirmTimeout(); // ms
         if (timeout > 0) {
             mTimer = new Timer.Timer();
@@ -49,11 +51,11 @@ class HomeAssistantConfirmationDelegate extends WatchUi.ConfirmationDelegate {
 
     function onResponse(response) as Lang.Boolean {
         getApp().getQuitTimer().reset();
-        if (mTimer) {
+        if (mTimer != null) {
             mTimer.stop();
         }
         if (response == WatchUi.CONFIRM_YES) {
-            mConfirmMethod.invoke();
+            mConfirmMethod.invoke(mState);
         }
         return true;
     }

@@ -25,18 +25,21 @@ using Toybox.Application.Properties;
 using Toybox.Timer;
 
 class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
-    private var mData as Lang.Dictionary;
+    private var mConfirm as Lang.Boolean;
+    private var mData    as Lang.Dictionary;
 
     function initialize(
-        label     as Lang.String or Lang.Symbol,
-        data      as Lang.Dictionary or Null,
-        options   as {
+        label   as Lang.String or Lang.Symbol,
+        confirm as Lang.Boolean,
+        data    as Lang.Dictionary or Null,
+        options as {
             :alignment as WatchUi.MenuItem.Alignment,
             :icon      as Graphics.BitmapType or WatchUi.Drawable or Lang.Symbol
         } or Null
     ) {
         WatchUi.ToggleMenuItem.initialize(label, null, null, false, options);
-        mData = data;
+        mConfirm = confirm;
+        mData    = data;
     }
 
     private function setUiToggle(state as Null or Lang.String) as Void {
@@ -299,6 +302,22 @@ class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
                 method(:onReturnSetState)
             );
         }
+    }
+
+    function callService(b as Lang.Boolean) as Void {
+        if (mConfirm) {
+            WatchUi.pushView(
+                new HomeAssistantConfirmation(),
+                new HomeAssistantConfirmationDelegate(method(:onConfirm), b),
+                WatchUi.SLIDE_IMMEDIATE
+            );
+        } else {
+            setState(b);
+        }
+    }
+
+    function onConfirm(b as Lang.Boolean) as Void {
+        setState(b);
     }
 
 }

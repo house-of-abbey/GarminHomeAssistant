@@ -64,7 +64,7 @@ class HomeAssistantView extends WatchUi.Menu2 {
             }
             if (type != null && name != null) {
                 if (type.equals("toggle") && entity != null) {
-                    addItem(HomeAssistantMenuItemFactory.create().toggle(name, entity));
+                    addItem(HomeAssistantMenuItemFactory.create().toggle(name, entity, confirm));
                 } else if (type.equals("template") && content != null) {
                     if (service == null) {
                         addItem(HomeAssistantMenuItemFactory.create().template_notap(name, content));
@@ -149,7 +149,7 @@ class HomeAssistantViewDelegate extends WatchUi.Menu2InputDelegate {
             if (Globals.scDebug) {
                 System.println(haToggleItem.getLabel() + " " + haToggleItem.getId() + " " + haToggleItem.isEnabled());
             }
-            haToggleItem.setState(haToggleItem.isEnabled());
+            haToggleItem.callService(haToggleItem.isEnabled());
         } else if (item instanceof HomeAssistantTapMenuItem) {
             var haItem = item as HomeAssistantTapMenuItem;
             if (Globals.scDebug) {
