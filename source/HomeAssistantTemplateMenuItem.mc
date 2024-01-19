@@ -14,7 +14,7 @@
 //
 // Description:
 //
-// Rendering a Home Assistant Template.
+// Menu button that renders a Home Assistant Template, and optionally triggers a service.
 //
 // Reference:
 //  * https://developers.home-assistant.io/docs/api/rest/

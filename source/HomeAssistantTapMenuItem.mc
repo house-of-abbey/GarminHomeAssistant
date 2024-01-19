@@ -22,7 +22,7 @@ using Toybox.Lang;
 using Toybox.WatchUi;
 using Toybox.Graphics;
 
-class HomeAssistantMenuItem extends WatchUi.IconMenuItem {
+class HomeAssistantTapMenuItem extends WatchUi.IconMenuItem {
     private var mHomeAssistantService as HomeAssistantService;
     private var mService              as Lang.String;
     private var mConfirm              as Lang.Boolean;

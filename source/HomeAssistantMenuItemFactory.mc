@@ -123,7 +123,7 @@ class HomeAssistantMenuItemFactory {
         confirm    as Lang.Boolean,
         data       as Lang.Dictionary or Null
     ) as WatchUi.MenuItem {
-        return new HomeAssistantMenuItem(
+        return new HomeAssistantTapMenuItem(
             label,
             null,
             identifier,
@@ -137,6 +137,6 @@ class HomeAssistantMenuItemFactory {
     }
 
     function group(definition as Lang.Dictionary) as WatchUi.MenuItem {
-        return new HomeAssistantViewMenuItem(definition, mGroupTypeIcon, mMenuItemOptions);
+        return new HomeAssistantGroupMenuItem(definition, mGroupTypeIcon, mMenuItemOptions);
     }
 }
