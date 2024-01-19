@@ -2,17 +2,29 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "type": "object",
   "properties": {
-    "title": { "type": "string" },
-    "items": { "$ref": "#/$defs/items" },
-    "required": ["title", "items"],
+    "title": {
+      "type": "string"
+    },
+    "items": {
+      "$ref": "#/$defs/items"
+    },
+    "required": [
+      "title",
+      "items"
+    ],
     "additionalProperties": false
   },
   "$defs": {
     "toggle": {
       "type": "object",
       "properties": {
-        "entity": { "$ref": "#/$defs/entity" },
-        "name": { "title": "Your familiar name", "type": "string" },
+        "entity": {
+          "$ref": "#/$defs/entity"
+        },
+        "name": {
+          "title": "Your familiar name",
+          "type": "string"
+        },
         "type": {
           "title": "Menu item type",
           "description": "One of 'tap', 'template', 'toggle' or 'group'.",
@@ -21,35 +33,60 @@
         "tap_action": {
           "type": "object",
           "properties": {
-            "confirm": { "$ref": "#/$defs/confirm" }
+            "confirm": {
+              "$ref": "#/$defs/confirm"
+            }
           },
           "additionalProperties": false
         }
       },
-      "required": ["entity", "name", "type"],
+      "required": [
+        "entity",
+        "name",
+        "type"
+      ],
       "additionalProperties": false
     },
     "template": {
       "type": "object",
       "properties": {
-        "entity": { "$ref": "#/$defs/entity" },
-        "name": { "title": "Your familiar name", "type": "string" },
-        "content": { "title": "What to display (template)", "type": "string" },
+        "entity": {
+          "$ref": "#/$defs/entity"
+        },
+        "name": {
+          "title": "Your familiar name",
+          "type": "string"
+        },
+        "content": {
+          "title": "What to display (template)",
+          "type": "string"
+        },
         "type": {
           "title": "Menu item type",
           "description": "One of 'tap', 'template', 'toggle' or 'group'.",
           "const": "template"
         },
-        "tap_action": { "$ref": "#/$defs/tap_action" }
+        "tap_action": {
+          "$ref": "#/$defs/tap_action"
+        }
       },
-      "required": ["name", "content", "type"],
+      "required": [
+        "name",
+        "content",
+        "type"
+      ],
       "additionalProperties": false
     },
     "tap": {
       "type": "object",
       "properties": {
-        "entity": { "$ref": "#/$defs/entity" },
-        "name": { "title": "Your familiar name", "type": "string" },
+        "entity": {
+          "$ref": "#/$defs/entity"
+        },
+        "name": {
+          "title": "Your familiar name",
+          "type": "string"
+        },
         "type": {
           "title": "Menu item type",
           "description": "One of 'tap', 'template', 'toggle' or 'group'.",
@@ -61,11 +98,25 @@
           "title": "Schema change:",
           "description": "Use 'tap_action' instead to mirror Home Assistant."
         },
-        "tap_action": { "$ref": "#/$defs/tap_action" }
+        "tap_action": {
+          "$ref": "#/$defs/tap_action"
+        }
       },
       "oneOf": [
-        { "required": ["name", "type", "service"] },
-        { "required": ["name", "type", "tap_action"] }
+        {
+          "required": [
+            "name",
+            "type",
+            "service"
+          ]
+        },
+        {
+          "required": [
+            "name",
+            "type",
+            "tap_action"
+          ]
+        }
       ],
       "additionalProperties": false
     },
@@ -78,26 +129,46 @@
           "title": "Schema change:",
           "description": "'entity' is no longer necessary and should be removed."
         },
-        "name": { "title": "Your familiar name", "type": "string" },
-        "title": { "type": "string" },
+        "name": {
+          "title": "Your familiar name",
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
         "type": {
           "title": "Menu item type",
           "description": "One of 'tap', 'template', 'toggle' or 'group'.",
           "const": "group"
         },
-        "items": { "$ref": "#/$defs/items" }
+        "items": {
+          "$ref": "#/$defs/items"
+        }
       },
-      "required": ["name", "title", "type", "items"],
+      "required": [
+        "name",
+        "title",
+        "type",
+        "items"
+      ],
       "additionalProperties": false
     },
     "items": {
       "type": "array",
       "items": {
         "oneOf": [
-          { "$ref": "#/$defs/toggle" },
-          { "$ref": "#/$defs/template" },
-          { "$ref": "#/$defs/tap" },
-          { "$ref": "#/$defs/group" }
+          {
+            "$ref": "#/$defs/toggle"
+          },
+          {
+            "$ref": "#/$defs/template"
+          },
+          {
+            "$ref": "#/$defs/tap"
+          },
+          {
+            "$ref": "#/$defs/group"
+          }
         ]
       }
     },
@@ -111,14 +182,20 @@
       "description": "'confirm' field is optional.",
       "type": "object",
       "properties": {
-        "service": { "$ref": "#/$defs/entity" },
-        "confirm": { "$ref": "#/$defs/confirm" },
+        "service": {
+          "$ref": "#/$defs/entity"
+        },
+        "confirm": {
+          "$ref": "#/$defs/confirm"
+        },
         "data": {
           "type": "object",
           "description": "The object containing the parameters and their values to be passed to the entity. No schema checking can be done here, you are on your own! On application crash, remove the parameters."
         }
       },
-      "required": ["service"]
+      "required": [
+        "service"
+      ]
     },
     "confirm": {
       "type": "boolean",
