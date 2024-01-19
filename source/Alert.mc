@@ -28,14 +28,13 @@ using Toybox.WatchUi;
 using Toybox.Timer;
 
 class Alert extends WatchUi.View {
-    private static const bRadius = 10;
-    private var mTimer     as Timer.Timer;
-    private var mTimeout   as Lang.Number;
-    private var mText      as Lang.String;
-    private var mFont      as Graphics.FontType;
-    private var mFgcolor   as Graphics.ColorType;
-    private var mBgcolor   as Graphics.ColorType;
-    private var mAntiAlias as Lang.Boolean = false;
+    private static const scRadius = 10;
+    private var mTimer   as Timer.Timer;
+    private var mTimeout as Lang.Number;
+    private var mText    as Lang.String;
+    private var mFont    as Graphics.FontType;
+    private var mFgcolor as Graphics.ColorType;
+    private var mBgcolor as Graphics.ColorType;
 
     function initialize(params as Lang.Dictionary) {
         View.initialize();
@@ -65,10 +64,6 @@ class Alert extends WatchUi.View {
             mTimeout = 2000;
         }
 
-        if (Graphics.Dc has :setAntiAlias) {
-            mAntiAlias = true;
-        }
-
         mTimer = new Timer.Timer();
     }
 
@@ -88,7 +83,7 @@ class Alert extends WatchUi.View {
         var bX      = (dc.getWidth()  - bWidth)  / 2;
         var bY      = (dc.getHeight() - bHeight) / 2;
 
-        if (mAntiAlias) {
+        if (Graphics.Dc has :setAntiAlias) {
             dc.setAntiAlias(true);
         }
 
@@ -98,7 +93,7 @@ class Alert extends WatchUi.View {
         );
         dc.clear();
         dc.setColor(mBgcolor, mBgcolor);
-        dc.fillRoundedRectangle(bX, bY, bWidth, bHeight, bRadius);
+        dc.fillRoundedRectangle(bX, bY, bWidth, bHeight, scRadius);
 
         dc.setColor(mFgcolor, mBgcolor);
         for (var i = 0; i < 3; ++i) {
@@ -106,7 +101,7 @@ class Alert extends WatchUi.View {
             bY      += i;
             bWidth  -= (2 * i);
             bHeight -= (2 * i);
-            dc.drawRoundedRectangle(bX, bY, bWidth, bHeight, bRadius);
+            dc.drawRoundedRectangle(bX, bY, bWidth, bHeight, scRadius);
         }
 
         var tX = dc.getWidth() / 2;

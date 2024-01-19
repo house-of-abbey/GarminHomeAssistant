@@ -57,15 +57,16 @@ class HomeAssistantTapMenuItem extends WatchUi.IconMenuItem {
         if (mConfirm) {
             WatchUi.pushView(
                 new HomeAssistantConfirmation(),
-                new HomeAssistantConfirmationDelegate(method(:onConfirm)),
+                new HomeAssistantConfirmationDelegate(method(:onConfirm), false),
                 WatchUi.SLIDE_IMMEDIATE
             );
         } else {
-            onConfirm();
+            mHomeAssistantService.call(mService, mData);
         }
     }
 
-    function onConfirm() as Void {
+    // NB. Parameter 'b' is ignored
+    function onConfirm(b as Lang.Boolean) as Void {
         mHomeAssistantService.call(mService, mData);
     }
 

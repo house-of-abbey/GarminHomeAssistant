@@ -26,6 +26,15 @@
           "title": "Menu item type",
           "description": "One of 'tap', 'template', 'toggle' or 'group'.",
           "const": "toggle"
+        },
+        "tap_action": {
+          "type": "object",
+          "properties": {
+            "confirm": {
+              "$ref": "#/$defs/confirm"
+            }
+          },
+          "additionalProperties": false
         }
       },
       "required": ["entity", "name", "type"],
@@ -51,10 +60,10 @@
           "const": "template"
         },
         "tap_action": {
-          "$ref": "#/$defs/action"
+          "$ref": "#/$defs/tap_action"
         }
       },
-      "required": ["name", "entity", "content", "type"],
+      "required": ["name", "content", "type"],
       "additionalProperties": false
     },
     "tap": {
@@ -79,24 +88,27 @@
           "description": "Use 'tap_action' instead to mirror Home Assistant."
         },
         "tap_action": {
-          "$ref": "#/$defs/action"
+          "$ref": "#/$defs/tap_action"
         }
       },
       "oneOf": [
         {
-          "required": ["entity", "name", "type", "service"]
+          "required": ["name", "type", "service"]
         },
         {
-          "required": ["entity", "name", "type", "tap_action"]
+          "required": ["name", "type", "tap_action"]
         }
       ],
       "additionalProperties": false
     },
-    "menu": {
+    "group": {
       "type": "object",
       "properties": {
         "entity": {
-          "$ref": "#/$defs/entity"
+          "$ref": "#/$defs/entity",
+          "deprecated": true,
+          "title": "Schema change:",
+          "description": "'entity' is no longer necessary and should be removed."
         },
         "name": {
           "title": "Your familiar name",
@@ -114,7 +126,7 @@
           "$ref": "#/$defs/items"
         }
       },
-      "required": ["entity", "name", "title", "type", "items"],
+      "required": ["name", "title", "type", "items"],
       "additionalProperties": false
     },
     "items": {
@@ -131,7 +143,7 @@
             "$ref": "#/$defs/tap"
           },
           {
-            "$ref": "#/$defs/menu"
+            "$ref": "#/$defs/group"
           }
         ]
       }
@@ -141,7 +153,7 @@
       "type": "string",
       "pattern": "^[^.]+\\.[^.]+$"
     },
-    "action": {
+    "tap_action": {
       "title": "Action",
       "description": "'confirm' field is optional.",
       "type": "object",
@@ -150,12 +162,19 @@
           "$ref": "#/$defs/entity"
         },
         "confirm": {
-          "type": "boolean",
-          "default": false,
-          "description": "Confirm the action before execution as a precaution."
+          "$ref": "#/$defs/confirm"
+        },
+        "data": {
+          "type": "object",
+          "description": "The object containing the parameters and their values to be passed to the entity. No schema checking can be done here, you are on your own! On application crash, remove the parameters."
         }
       },
       "required": ["service"]
+    },
+    "confirm": {
+      "type": "boolean",
+      "default": false,
+      "description": "Confirm the action before execution as a precaution."
     }
   }
 }

@@ -64,15 +64,16 @@ class HomeAssistantTemplateMenuItem extends WatchUi.IconMenuItem {
         if (mConfirm) {
             WatchUi.pushView(
                 new HomeAssistantConfirmation(),
-                new HomeAssistantConfirmationDelegate(method(:onConfirm)),
+                new HomeAssistantConfirmationDelegate(method(:onConfirm), false),
                 WatchUi.SLIDE_IMMEDIATE
             );
         } else {
-            onConfirm();
+            onConfirm(false);
         }
     }
 
-    function onConfirm() as Void {
+    // NB. Parameter 'b' is ignored
+    function onConfirm(b as Lang.Boolean) as Void {
         if (mService != null) {
             mHomeAssistantService.call(mService, mData);
         }
@@ -181,9 +182,7 @@ class HomeAssistantTemplateMenuItem extends WatchUi.IconMenuItem {
             }
             Communications.makeWebRequest(
                 url,
-                {
-                    "template" => mTemplate
-                },
+                { "template" => mTemplate },
                 {
                     :method  => Communications.HTTP_REQUEST_METHOD_POST,
                     :headers => {

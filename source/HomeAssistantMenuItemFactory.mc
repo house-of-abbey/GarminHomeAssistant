@@ -64,21 +64,26 @@ class HomeAssistantMenuItemFactory {
         return instance;
     }
 
-    function toggle(label as Lang.String or Lang.Symbol, entity_id as Lang.String or Null) as WatchUi.MenuItem {
+    function toggle(
+        label     as Lang.String or Lang.Symbol,
+        entity_id as Lang.String or Null,
+        confirm   as Lang.Boolean
+    ) as WatchUi.MenuItem {
         return new HomeAssistantToggleMenuItem(
             label,
+            confirm,
             { "entity_id" => entity_id },
             mMenuItemOptions
         );
     }
 
     function template_tap(
-        label      as Lang.String or Lang.Symbol,
-        entity     as Lang.String or Null,
-        template   as Lang.String or Null,
-        service    as Lang.String or Null,
-        confirm    as Lang.Boolean,
-        data       as Lang.Dictionary or Null
+        label    as Lang.String or Lang.Symbol,
+        entity   as Lang.String or Null,
+        template as Lang.String or Null,
+        service  as Lang.String or Null,
+        confirm  as Lang.Boolean,
+        data     as Lang.Dictionary or Null
     ) as WatchUi.MenuItem {
         if (entity != null) {
             if (data == null) {
@@ -116,11 +121,11 @@ class HomeAssistantMenuItemFactory {
     }
 
     function tap(
-        label      as Lang.String or Lang.Symbol,
-        entity     as Lang.String or Null,
-        service    as Lang.String or Null,
-        confirm    as Lang.Boolean,
-        data       as Lang.Dictionary or Null
+        label   as Lang.String or Lang.Symbol,
+        entity  as Lang.String or Null,
+        service as Lang.String or Null,
+        confirm as Lang.Boolean,
+        data    as Lang.Dictionary or Null
     ) as WatchUi.MenuItem {
         if (entity != null) {
             if (data == null) {

@@ -86,8 +86,8 @@ class HomeAssistantApp extends Application.AppBase {
 
     // Return the initial view of your application here
     function getInitialView() as Lang.Array<WatchUi.Views or WatchUi.InputDelegates>? {
-        mIsApp               = true;
-        mQuitTimer           = new QuitTimer();
+        mIsApp      = true;
+        mQuitTimer  = new QuitTimer();
         RezStrings.update();
         mApiStatus  = RezStrings.getChecking();
         mMenuStatus = RezStrings.getChecking();
