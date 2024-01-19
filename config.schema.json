@@ -7,10 +7,10 @@
     },
     "items": {
       "$ref": "#/$defs/items"
-    },
-    "required": ["title", "items"],
-    "additionalProperties": false
+    }
   },
+  "required": ["title", "items"],
+  "additionalProperties": false,
   "$defs": {
     "toggle": {
       "type": "object",
