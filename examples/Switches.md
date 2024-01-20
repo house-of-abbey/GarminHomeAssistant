@@ -1,3 +1,5 @@
+[Home](../README.md) | Switches | [Actions](Actions.md) | [Templates](Templates.md) | [Battery Reporting](../BatteryReporting.md) | [Trouble Shooting](../TroubleShooting.md) | [Versions](../Versions.md)
+
 # Switches
 
 In order to facilitate custom switches at this time, you must create a template switch in HomeAssistant.
@@ -31,7 +33,7 @@ Then you can use the following in your config:
 }
 ```
 
-## Example (covers)
+## Example - Covers
 
 ```yaml
 switch:
@@ -49,6 +51,8 @@ switch:
           data:
             entity_id: cover.cover
 ```
+
+Then you can use the following in your config:
 
 ```json
 {

@@ -1,3 +1,5 @@
+[Home](README.md) | [Switches](examples/Switches.md) | [Actions](examples/Actions.md) | [Templates](examples/Templates.md) | [Battery Reporting](BatteryReporting.md) | Trouble Shooting | [Versions](Versions.md)
+
 # Troubleshooting Guides
 
 ## Watch Menu and API

@@ -1,3 +1,5 @@
+[Home](../README.md) | [Switches](Switches.md) | Actions | [Templates](Templates.md) | [Battery Reporting](../BatteryReporting.md) | [Trouble Shooting](../TroubleShooting.md) | [Versions](../Versions.md)
+
 # Actions
 
 A simple example using a scene as a `tap`` menu item.
@@ -20,6 +22,8 @@ Any menu item with an action (`tap`, `template`, or `toggle`), may have a confir
     "confirm": true
   }
 ```
+
+<img src="../images/confirmation_view.png" width="200" title="Confirmation View"/>
 
 For example:
 

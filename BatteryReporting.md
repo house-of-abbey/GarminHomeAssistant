@@ -1,3 +1,5 @@
+[Home](README.md) | [Switches](examples/Switches.md) | [Actions](examples/Actions.md) | [Templates](examples/Templates.md) | Battery Reporting | [Trouble Shooting](TroubleShooting.md) | [Versions](Versions.md)
+
 # Battery Reporting
 
 From version 2.1 the application includes a background service to report the current device battery level and charging status back to Home Assistant. This is a feature that Garmin omitted to include with the Bluetooth connection.

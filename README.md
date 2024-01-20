@@ -1,3 +1,5 @@
+Home | [Switches](examples/Switches.md) | [Actions](examples/Actions.md) | [Templates](examples/Templates.md) | [Battery Reporting](BatteryReporting.md) | [Trouble Shooting](TroubleShooting.md) | [Versions](Versions.md)
+
 # GarminHomeAssistant
 
 <img src="images/Actual_Venu2_Theme.jpg" width="200" title="Venu 2"/>
@@ -10,7 +12,7 @@ The intended audience for this application are those comfortable with configurin
 
 It is important to note that your Home Assistant instance will need to be accessible via HTTPS with public SSL or all requests from the Garmin will not work. This cannot be a self-signed certificate, it must be a public certificate. You can get one for free from [Let's Encrypt](https://letsencrypt.org/) or you can pay for [Home Assistant cloud](https://www.nabucasa.com/).
 
-**If you are struggling with getting the application to work, please consult the [trouble shooting](Troubleshooting.md#menu-configuration-url) guide first.**
+**If you are struggling with getting the application to work, please consult the [trouble shooting](TroubleShooting.md#menu-configuration-url) guide first.**
 
 
 ## Widget or Application?
@@ -63,7 +65,6 @@ Example schema as shown in the images:
       "type": "toggle"
     },
     {
-      "entity": "menu.each_lounge_light",
       "name": "Each Lounge Light",
       "title": "Lounge",
       "type": "group",
@@ -169,6 +170,12 @@ The above should be replaced by the following:
 
 This allows the `confirm` field to be accommodated in the `tap_action` along side the `service` tag, and follows the Home Assistant YAML format more closely.
 
+### More Examples
+
+- [Switches](examples/Switches.md)
+- [Actions](examples/Actions.md)
+- [Templates](examples/Templates.md)
+
 ## Editing the JSON file
 
 You have options. The first is what we use.
@@ -262,38 +269,22 @@ In order to submit a language correction please create an XML file called `corre
 </strings>
 ```
 
-The `id` attribute values are taken from the same names used in [`strings.xml`](https://github.com/house-of-abbey/GarminHomeAssistant/blob/main/resources-fre/strings/strings.xml). Not all `id` values need to be specified as missing `id`s will then use automatic translations. If the existing convention is followed then:
+The `id` attribute values are taken from the same names used in [`strings.xml`](https://github.com/house-of-abbey/GarminHomeAssistant/blob/main/resources-fre/strings/strings.xml). **Not all `id` values need to be specified as missing `id`s will then use automatic translations.** If the existing convention is followed then:
 
 * The Python script will use the corrections in preference to translating, and
 * Your pull request will be honoured without comment as we will take your corrections on trust.
 
 ## Battery Level Reporting
 
-The application and widget both now include a background service to report your watch's battery level and charging status. This requires some [setup](BatteryReporting.md) via YAML in Home Assistant to display the transmitted value. We offer this [trouble shooting](Troubleshooting.md#watch-battery-level-reporting) guide.
-
-## Version History
-
-| Version | Comment |
-|:-------:|---------|
-|   1.0   | Initial release for 26 devices. |
-|   1.1   | Updated for 54 more devices, 80 in total. Scene support. Added vibrate acknowledgement for tap-based menu items. Falls back to a custom visual confirmation in the absence of 'toast' and vibrate support. Bug fix for large menus needing status updates. |
-|   1.2   | Do not crash on zero items to update. Report unreachable URLs. Verify API URL does not have a trailing slash '/'. Increased HTTP response diagnosis. Reduced minimum API Level required from 3.3.0 to 3.1.0 to allow more device "part numbers" to be satisfied. |
-|   1.3   | Tap for scripts was working in emulation but not on some phones. Decision is to make the 'service' field in the JSON compulsory for 'tap' menu items. This is a breaking change, but for many might be a fix for something not working correctly. Improve language support, we can now accept language corrections and prevent the automated translation of strings from clobbering manually refined entries. Thank you to two new contributors. |
-|   1.4   | New lean user Interface with thanks to [Someone0nEarth](https://github.com/Someone0nEarth) for their contribution which is now the default. If you prefer the old style you can still select it in the settings. The provision of a 'service' tag is now not just heavily suggested by the JSON schema, it is enforced in code. With apologies to anyone suffering a breakage as a result. |
-|   1.5   | <img src="images/confirmation_view.png" width="200" title="Confirmation View"/><br/>Added an optional confirmation dialogue view to prevent accidental execution of actions on mistaken tap. This also brings a change in the JSON schema to allow an optional field to specify that the confirmation should be used for a menu item. As we are now maturing and adding features we have decided to mitigate breaking changes to the JSON schema by being more careful to adopt the Home Assistant schema (noting there is a 1:1 mapping between YAML and JSON). This change does deprecate the top level `service` tag in favour of `tag_action` containing multiple fields including `service` & `confirm`. Users should migrate to the new format for the new functionality, but the timescale for actual deprecation are long and undecided. |
-|   1.6   | Added a user configurable 'timeout' in seconds so that when no action is taken the application automatically closes, stopping the continuous polling for changes of status and hence saving the drain on the battery. This can be disabled with timeout=0. |
-|   1.7   | Added timeout to confirmation views so that when used for security devices it does not linger when left unconfirmed. Thanks to [Jan Schneider](https://github.com/j-a-n) for the contribution. Known bug for devices not supporting [`WatchUi.getCurrentView()`](https://developer.garmin.com/connect-iq/api-docs/Toybox/WatchUi.html#getCurrentView-instance_function) API call which is only available on API Level 3.4.0, e.g. Vivoactive 4S. |
-|   2.0   | A significant code base change to enable both a 'widget' version for older devices, e.g. Venu (1), and an application with a glance, e.g. Venu2. These two versions must now be distributed under separate application IDs, but they have the same code base. A further 20 more devices are now supported, the settings have been internationalised, and there's a bug fix for older devices when trying to display a helpful error message but instead the application crashed. This version has come from a significant collaboration with [Someone0nEarth](https://github.com/Someone0nEarth). |
-|   2.1   | Deployment of an idea to provide Home Assistant with access to the watch battery level. Using this requires [significant setup](BatteryReporting.md) on the Home Assistant configuration and hence is detailed separately. Due to this, the default state for this battery option is _off_. Changed the application settings user interface to be more intuitive, and hence amended the way settings are managed in the background. |
-|   2.2   | Adds a feature to cache the menu configuration and save the time taken for an HTTP request to fetch it. You as the user are responsible for managing the cache by clearing it when you update your configuration. Improvement to widget root display updates. Bug fix for battery level reporting when in the glance carousel. Fixed an uninternationalised string, "Execute". Unfixed issue with battery level updates when the user is not an administrator. |
-|   2.3   | Fix for battery level updates where previously the function only worked for administrator accounts. The new solution is based on Webhooks and is simpler to implement on Home Assistant. Language support fix where an automatic translation produced an inappropriate word, possibly in more than one language. |
-|   2.4   | Sensor status reporting via Home Assistant 'templates'. This provides a generalised way of viewing the status of any entity as long as the result can be rendered as text, e.g. 'uncovered', 'open', '76%', '21 °C'. Removal of the menu style option. The original style was kept after the introduction of the icon style solely to keep the code for a possible re-use for sensor statuses. This version delivers that new feature, hence the style option has been removed. The new JSON configuration file format allows for the old style to be replicated if you are desperate! Added a feature to provide parameters to actions (`tap` or `template`). Added a feature to confirm `toggle` menu items. |
+The application and widget both now include a background service to report your watch's battery level and charging status. This requires some [setup](BatteryReporting.md) via YAML in Home Assistant to display the transmitted value. We offer this [trouble shooting](TroubleShooting.md#watch-battery-level-reporting) guide.
 
 ## Known Issues
 
 1. On some (old) devices (e.g. Vivoactive 3, Fenix 5s & Edge 520+), the menu does not update correctly to reflect changes in state effected by an external Home Assistant control. E.g. when the phone application changes the toggle status of a switch, the Garmin application does not reflect that change until the menu is touched or scrolled a little. This is a [known issue](https://forums.garmin.com/developer/connect-iq/i/bug-reports/menu2-doesn-t-allow-live-updates) already reported without a suggested software fix.
 
 2. Widgets have less memory than applications. With the new template based sensor display, widgets are more likely to run out of memory. E.g. a Vivoactive 3 device has a memory limit of 60 kB runtime memory for widgets (compare with 124 kB for applications) and is likely to be ~90% used. This makes it very likely that a larger menu will crash the application. We cannot predict what will take the application "over the edge", but we can provide this feedback to users to raise awareness, hence the widget displays menu usage as a reminder. If the widget is crashing but the application variant is not, then your menu configuration is too big for the widget.
+
+<img src="images/app_crash.png" width="200" title="Venu 2" style="margin:5px;border: 2px solid black;"/>
 
 3. Templates can require significant definition for highly customised text. Just remember, you have the ability to crash the application by creating an excessively long menu definition. Older devices running as a widget can be limited in memory such that the JSON definition causes an "Out of Memory" error. Don't be silly. **Please don't give the application a poor review for an excessive menu definition!**
 
