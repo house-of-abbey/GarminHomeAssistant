@@ -7,6 +7,9 @@
     },
     "items": {
       "$ref": "#/$defs/items"
+    },
+    "$schema": {
+      "type": "string"
     }
   },
   "required": ["title", "items"],
