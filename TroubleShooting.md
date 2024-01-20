@@ -1,4 +1,4 @@
-[Home](README.md) | [Switches](examples/Switches.md) | [Actions](examples/Actions.md) | [Templates](examples/Templates.md) | [Battery Reporting](BatteryReporting.md) | Trouble Shooting | [Versions](Versions.md)
+[Home](README.md) | [Switches](examples/Switches.md) | [Actions](examples/Actions.md) | [Templates](examples/Templates.md) | [Battery Reporting](BatteryReporting.md) | Trouble Shooting | [Version History](HISTORY.md)
 
 # Troubleshooting Guides
 
@@ -28,7 +28,7 @@ Now you have to manage:
 - Dynamic DNS
 - Public access via router port forwarding
 - Security via HTTPS and URL forwarding
-- Certificates for HTTPS via say [Let's Encrypt](https://letsencrypt.org/) (Nginx web server helps here)
+- Certificates for HTTPS via say [Let's Encrypt](https://letsencrypt.org/) (an Nginx proxy web server helps here)
 - Proxy allow list in `configuration.yaml` as follows:
 
 ```yaml
@@ -36,10 +36,10 @@ http:
   use_x_forwarded_for: true
   trusted_proxies:
     - 127.0.0.1
-    - 192.168.xx.xx # Server IP - AMEND THIS
+    - 192.168.xx.xx  # Server IP - AMEND THIS
     - 172.30.32.0/23 # Docker IPs for NGINX
     - 172.30.33.0/24 # SSL proxy server
-    - 172.16.0.0/12 #
+    - 172.16.0.0/12  #
 ```
 
 ### Menu Configuration URL

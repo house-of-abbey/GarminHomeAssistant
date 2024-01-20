@@ -1,8 +1,18 @@
-[Home](../README.md) | Switches | [Actions](Actions.md) | [Templates](Templates.md) | [Battery Reporting](../BatteryReporting.md) | [Trouble Shooting](../TroubleShooting.md) | [Versions](../Versions.md)
+[Home](../README.md) | Switches | [Actions](Actions.md) | [Templates](Templates.md) | [Battery Reporting](../BatteryReporting.md) | [Trouble Shooting](../TroubleShooting.md) | [Version History](../HISTORY.md)
 
 # Switches
 
-In order to facilitate custom switches at this time, you must create a template switch in HomeAssistant.
+This is the simplest form:
+
+```json
+ {
+   "entity": "light.bedside_light_switch",
+   "name": "Bedroom Light",
+   "type": "toggle"
+ },
+```
+
+To support a non-standard light, switch, or automation as a toggle menu item you may like to define a custom switch. In order to facilitate custom switches at this time, you must create a template switch in HomeAssistant.
 
 ```yaml
 switch:

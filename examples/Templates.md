@@ -1,12 +1,11 @@
-[Home](../README.md) | [Switches](Switches.md) | [Actions](Actions.md) | Templates | [Battery Reporting](../BatteryReporting.md) | [Trouble Shooting](../TroubleShooting.md) | [Versions](../Versions.md)
+[Home](../README.md) | [Switches](Switches.md) | [Actions](Actions.md) | Templates | [Battery Reporting](../BatteryReporting.md) | [Trouble Shooting](../TroubleShooting.md) | [Version History](../HISTORY.md)
 
 # Templates
 
-In order to provide the most functionality possible the content of the card is a user-defined template (i.e. you generate your own text). This allows you to do some pretty cool things. It also makes the config a bit more complicated. This page will help you understand how to use templates.
+In order to provide the most functionality possible the content of the menu item comes from a user-defined template (i.e. you generate your own text). This allows you to do some pretty cool things. It also makes the config a bit more complicated. This page will help you understand how to use templates.
 
-In this file anything between `<` and `>` is a placeholder. Replace it with the appropriate value.
-
-Anything between `{{` and `}}` is a template. Templates are used to dynamically insert values into the content. For more info see [the docs](https://www.home-assistant.io/docs/configuration/templating/).
+- In this file anything between `<` and `>` is a placeholder. Replace it with the appropriate value.
+- Anything between `{{` and `}}` is a template. Templates are used to dynamically insert values into the content. For more info see [the docs](https://www.home-assistant.io/docs/configuration/templating/).
 
 ## States
 
@@ -18,6 +17,31 @@ In this example we get the battery level of the device and add the percent sign.
   "name": "Phone",
   "type": "template",
   "content": "{{ states('sensor.<device>_battery_level') }}%"
+}
+```
+
+### Examples
+
+The first two keep to the simple proposal above. The last combines them into a single menu item. Now you can start to see the utility of this menu item, composing your own formatted text.
+
+```json
+{
+  "entity": "sensor.hallway_temperature",
+  "name": "Hall Temp",
+  "type": "template",
+  "content": "{{ states('sensor.hallway_temperature') }}°C"
+},
+{
+  "entity": "sensor.hallway_humidity",
+  "name": "Hall Humidity",
+  "type": "template",
+  "content": "{{ states('sensor.hallway_humidity') }}%"
+},
+{
+  "entity": "sensor.hallway_temperature",
+  "name": "Hallway",
+  "type": "template",
+  "content": "{{ states('sensor.hallway_temperature') }}°C {{ states('sensor.hallway_humidity') }}%"
 }
 ```
 
@@ -133,6 +157,7 @@ An example of a dimmer light with 4 brightness settings 0..3. Here our light wor
 
 ## Warnings
 
-Just remember, you have the ability to crash the application by creating an excessive menu definition. Older devices running as a widget can be limited in memory such that the JSON definition causes an "Out of Memory" error. Widgets have less memory than applications. Templates can require significant definition for highly customised text. Don't be silly. With the new template based sensor display, widgets are more likely to run out of memory. E.g. a Vivoactive 3 device has a memory limit of 60 kB runtime memory for widgets (compare with 124 kB for applications) and is likely to be ~90% used. This makes it very likely that a larger menu will crash the application. We cannot predict what will take the application "over the edge", but we can provide this feedback to users to raise awareness, hence the widget displays menu usage as a reminder. If the widget is crashing but the application variant is not, then your menu configuration is too big for the widget.
+Just remember, **you have the ability to crash the application by creating an excessive menu definition**. Older devices running as a widget can be limited in memory such that the JSON definition causes an "Out of Memory" error. Widgets have less memory than applications. Templates can require significant definition for highly customised text. Don't be silly. With the new template based sensor display, widgets are more likely to run out of memory. E.g. a Vivoactive 3 device has a memory limit of 60 kB runtime memory for widgets (compared with 124 kB for applications) and is likely to be ~90% used. This makes it very likely that a larger menu will crash the application. We cannot predict what will take the application "over the edge", but we can provide this feedback to users to raise awareness, hence the widget displays menu usage as a reminder. If the widget is crashing but the application variant is not, then your menu configuration is too big for the widget.
 
+<img src="../images/Venu_Widget_sim.png" width="200" title="Venu 2" style="margin:5px"/>
 <img src="../images/app_crash.png" width="200" title="Venu 2" style="margin:5px;border: 2px solid black;"/>
