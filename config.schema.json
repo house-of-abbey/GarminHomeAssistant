@@ -12,10 +12,7 @@
       "type": "string"
     }
   },
-  "required": [
-    "title",
-    "items"
-  ],
+  "required": ["title", "items"],
   "additionalProperties": false,
   "$defs": {
     "toggle": {
@@ -43,11 +40,7 @@
           "additionalProperties": false
         }
       },
-      "required": [
-        "entity",
-        "name",
-        "type"
-      ],
+      "required": ["entity", "name", "type"],
       "additionalProperties": false
     },
     "template": {
@@ -73,11 +66,7 @@
           "$ref": "#/$defs/tap_action"
         }
       },
-      "required": [
-        "name",
-        "content",
-        "type"
-      ],
+      "required": ["name", "content", "type"],
       "additionalProperties": false
     },
     "tap": {
@@ -107,18 +96,10 @@
       },
       "oneOf": [
         {
-          "required": [
-            "name",
-            "type",
-            "service"
-          ]
+          "required": ["name", "type", "service"]
         },
         {
-          "required": [
-            "name",
-            "type",
-            "tap_action"
-          ]
+          "required": ["name", "type", "tap_action"]
         }
       ],
       "additionalProperties": false
@@ -151,12 +132,7 @@
           "$ref": "#/$defs/items"
         }
       },
-      "required": [
-        "name",
-        "title",
-        "type",
-        "items"
-      ],
+      "required": ["name", "title", "type", "items"],
       "additionalProperties": false
     },
     "items": {
@@ -205,9 +181,7 @@
           "description": "The object containing the parameters and their values to be passed to the entity. No schema checking can be done here, you are on your own! On application crash, remove the parameters."
         }
       },
-      "required": [
-        "service"
-      ]
+      "required": ["service"]
     },
     "confirm": {
       "type": "boolean",
