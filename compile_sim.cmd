@@ -27,9 +27,15 @@ set /p SDK_PATH=<"%USERPROFILE%\AppData\Roaming\Garmin\ConnectIQ\current-sdk.cfg
 set SDK_PATH=%SDK_PATH:~0,-1%\bin
 rem Assume we can create and use this directory
 set DEST=export
+
 rem Device for simulation
 rem set DEVICE=venu2
 set DEVICE=vivoactive3
+
+rem Application
+rem set JUNGLE=monkey.jungle
+rem Or Widget
+set JUNGLE=monkey-widget.jungle
 
 rem C:\>java -jar %SDK_PATH%\monkeybrains.jar -h
 rem usage: monkeyc [-a <arg>] [-b <arg>] [--build-stats <arg>] [-c <arg>] [-d <arg>]
@@ -98,7 +104,7 @@ rem Compile PRG for a single device for side loading
   -Dapple.awt.UIElement=true ^
   -jar %SDK_PATH%\monkeybrains.jar ^
   --output %SRC%\bin\HomeAssistant.prg ^
-  --jungles %SRC%\monkey.jungle ^
+  --jungles %SRC%\monkey-widget.jungle ^
   --private-key %SRC%\..\developer_key ^
   --device %DEVICE%_sim ^
   --warn ^

@@ -1,3 +1,5 @@
+[Home](README.md) | [Switches](examples/Switches.md) | [Actions](examples/Actions.md) | [Templates](examples/Templates.md) | Battery Reporting | [Trouble Shooting](TroubleShooting.md) | [Version History](HISTORY.md)
+
 # Battery Reporting
 
 From version 2.1 the application includes a background service to report the current device battery level and charging status back to Home Assistant. This is a feature that Garmin omitted to include with the Bluetooth connection.
@@ -6,7 +8,7 @@ From version 2.1 the application includes a background service to report the cur
 
 The main drawback of this solution is that the Garmin application must be run once with the feature enabled in the settings before reporting will start. Reporting continues after you have exited the application. This is a limit we cannot code around.
 
-It should be as simple as that, there should be a new device in the mobile app integration called `Garmin Watch` with the battery level and charging status.
+It should be as simple as starting the application (or widget). There should be a new device in the mobile app integration called `Garmin Watch` with the battery level and charging status.
 
 [![Open your Home Assistant instance and show an integration.](https://my.home-assistant.io/badges/integration.svg)](https://my.home-assistant.io/redirect/integration/?domain=mobile_app)
 
@@ -14,9 +16,7 @@ If this is not the case, head over to the [troubleshooting page](Troubleshooting
 
 ## Stop Reporting
 
-To stop the reporting, the option must be turned off in the settings and then the application run once. Running the application then removes the background service.
-
-In both cases, the enable and repeat time settings can be changed whilst the application is running (i.e. live) and the background service will be amended.
+To stop the reporting, the option must be turned off in the settings and then the application run once. Running the application then removes the background service. Both the enable and repeat time settings can be changed whilst the application is running (i.e. live) and the background service will be amended.
 
 ## Renaming the device
 
@@ -32,7 +32,7 @@ Select the device called `Garmin Watch` and then click on the edit icon in the t
 
 ## Fixing the icon
 
-In configuration.yaml:
+In `configuration.yaml`:
 
 ```yaml
 template:
@@ -116,7 +116,7 @@ N.B. `sensor.<device>_battery_level` will likely need to be changed to `sensor.<
 
 ## Migrating
 
-You should remove your old template sensors before migrating to the new integration. You can do this by removing the `sensor.<device>_battery_level` and `binary_sensor.<device>_battery_is_charging` entities from `configuration.yaml` and then restarting Home Assistant or reloading the yaml.
+You should remove your old template sensors before migrating to the new integration. You can do this by removing the `sensor.<device>_battery_level` and `binary_sensor.<device>_battery_is_charging` entities from `configuration.yaml` and then restarting Home Assistant or reloading the YAML.
 
 [Here is the old configuration method for reference.](https://github.com/house-of-abbey/GarminHomeAssistant/blob/b51e2aa2a4afbc58ad466f3b81667d1cd252d091/BatteryReporting.md)
 

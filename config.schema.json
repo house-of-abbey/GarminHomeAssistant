@@ -109,15 +109,18 @@
       "properties": {
         "entity": {
           "$ref": "#/$defs/entity",
+          "type": "string",
+          "pattern": "^[^.]+\\.[^.]+$",
           "deprecated": true,
           "title": "Schema change:",
-          "description": "'entity' is no longer necessary and should be removed."
+          "description": "'entity' is no longer necessary and should now be removed."
         },
         "name": {
-          "title": "Your familiar name",
+          "title": "Menu item's familiar name.",
           "type": "string"
         },
         "title": {
+          "title": "Sub menu's title once displayed.",
           "type": "string"
         },
         "type": {
@@ -152,23 +155,29 @@
       }
     },
     "entity": {
-      "title": "Home Assistant entity name",
       "type": "string",
+      "title": "Home Assistant entity name",
+      "pattern": "^[^.]+\\.[^.]+$"
+    },
+    "service": {
+      "type": "string",
+      "title": "Home Assistant service name",
       "pattern": "^[^.]+\\.[^.]+$"
     },
     "tap_action": {
+      "type": "object",
       "title": "Action",
       "description": "'confirm' field is optional.",
-      "type": "object",
       "properties": {
         "service": {
-          "$ref": "#/$defs/entity"
+          "$ref": "#/$defs/service"
         },
         "confirm": {
           "$ref": "#/$defs/confirm"
         },
         "data": {
           "type": "object",
+          "title": "Your services's parameters",
           "description": "The object containing the parameters and their values to be passed to the entity. No schema checking can be done here, you are on your own! On application crash, remove the parameters."
         }
       },
@@ -177,7 +186,8 @@
     "confirm": {
       "type": "boolean",
       "default": false,
-      "description": "Confirm the action before execution as a precaution."
+      "title": "Confirmation",
+      "description": "Optional confirmation of the action before execution as a precaution."
     }
   }
 }
