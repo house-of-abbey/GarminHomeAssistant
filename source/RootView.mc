@@ -139,7 +139,7 @@ class RootView extends ScalableView {
         mMenuStatus.draw(dc);
         mMemText.draw(dc);
         var stats = System.getSystemStats();
-        var memUsed = (100 * stats.usedMemory) / stats.totalMemory;
+        var memUsed = (100f * stats.usedMemory) / stats.totalMemory;
         mMemStatus.setText(memUsed.format("%.1f") + "%");
         if (stats.usedMemory > Globals.scLowMem * stats.totalMemory) {
             mMemStatus.setColor(Graphics.COLOR_RED);
