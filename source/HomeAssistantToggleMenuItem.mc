@@ -67,22 +67,22 @@ class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
             case Communications.BLE_HOST_TIMEOUT:
             case Communications.BLE_CONNECTION_UNAVAILABLE:
                 // System.println("HomeAssistantToggleMenuItem onReturnGetState() Response Code: BLE_HOST_TIMEOUT or BLE_CONNECTION_UNAVAILABLE, Bluetooth connection severed.");
-                ErrorView.show(WatchUi.loadResource($.Rez.Strings.NoPhone) + ".");
+                ErrorView.show(WatchUi.loadResource($.Rez.Strings.NoPhone) as Lang.String + ".");
                 break;
 
             case Communications.BLE_QUEUE_FULL:
                 // System.println("HomeAssistantToggleMenuItem onReturnGetState() Response Code: BLE_QUEUE_FULL, API calls too rapid.");
-                ErrorView.show(WatchUi.loadResource($.Rez.Strings.ApiFlood));
+                ErrorView.show(WatchUi.loadResource($.Rez.Strings.ApiFlood) as Lang.String);
                 break;
 
             case Communications.NETWORK_REQUEST_TIMED_OUT:
                 // System.println("HomeAssistantToggleMenuItem onReturnGetState() Response Code: NETWORK_REQUEST_TIMED_OUT, check Internet connection.");
-                ErrorView.show(WatchUi.loadResource($.Rez.Strings.NoResponse));
+                ErrorView.show(WatchUi.loadResource($.Rez.Strings.NoResponse) as Lang.String);
                 break;
 
             case Communications.INVALID_HTTP_BODY_IN_NETWORK_RESPONSE:
                 // System.println("HomeAssistantToggleMenuItem onReturnGetState() Response Code: INVALID_HTTP_BODY_IN_NETWORK_RESPONSE, check JSON is returned.");
-                ErrorView.show(WatchUi.loadResource($.Rez.Strings.NoJson));
+                ErrorView.show(WatchUi.loadResource($.Rez.Strings.NoJson) as Lang.String);
                 break;
 
             case Communications.NETWORK_RESPONSE_OUT_OF_MEMORY:
@@ -105,7 +105,7 @@ class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
                     ErrorView.show("HTTP 404, " + mData.get("entity_id") + ". " + data.get("message"));
                 } else {
                     // System.println("HomeAssistantToggleMenuItem onReturnGetState() Response Code: 404, page not found. Check API URL setting.");
-                    ErrorView.show(WatchUi.loadResource($.Rez.Strings.ApiUrlNotFound));
+                    ErrorView.show(WatchUi.loadResource($.Rez.Strings.ApiUrlNotFound) as Lang.String);
                 }
                 break;
 
@@ -129,7 +129,7 @@ class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
 
             default:
                 // System.println("HomeAssistantToggleMenuItem onReturnGetState(): Unhandled HTTP response code = " + responseCode);
-                ErrorView.show(WatchUi.loadResource($.Rez.Strings.UnhandledHttpErr) + responseCode);
+                ErrorView.show(WatchUi.loadResource($.Rez.Strings.UnhandledHttpErr) as Lang.String + responseCode);
         }
         getApp().setApiStatus(status);
     }
@@ -137,12 +137,12 @@ class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
     function getState() as Void {
         if (! System.getDeviceSettings().phoneConnected) {
             // System.println("HomeAssistantToggleMenuItem getState(): No Phone connection, skipping API call.");
-            ErrorView.show(WatchUi.loadResource($.Rez.Strings.NoPhone) + ".");
-            getApp().setApiStatus(WatchUi.loadResource($.Rez.Strings.Unavailable));
+            ErrorView.show(WatchUi.loadResource($.Rez.Strings.NoPhone) as Lang.String + ".");
+            getApp().setApiStatus(WatchUi.loadResource($.Rez.Strings.Unavailable) as Lang.String);
         } else if (! System.getDeviceSettings().connectionAvailable) {
             // System.println("HomeAssistantToggleMenuItem getState(): No Internet connection, skipping API call.");
-            ErrorView.show(WatchUi.loadResource($.Rez.Strings.NoInternet) + ".");
-            getApp().setApiStatus(WatchUi.loadResource($.Rez.Strings.Unavailable));
+            ErrorView.show(WatchUi.loadResource($.Rez.Strings.NoInternet) as Lang.String + ".");
+            getApp().setApiStatus(WatchUi.loadResource($.Rez.Strings.Unavailable) as Lang.String);
         } else {
             var url = Settings.getApiUrl() + "/states/" + mData.get("entity_id");
             // System.println("HomeAssistantToggleMenuItem getState() URL=" + url);
@@ -172,27 +172,27 @@ class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
             case Communications.BLE_HOST_TIMEOUT:
             case Communications.BLE_CONNECTION_UNAVAILABLE:
                 // System.println("HomeAssistantToggleMenuItem onReturnSetState() Response Code: BLE_HOST_TIMEOUT or BLE_CONNECTION_UNAVAILABLE, Bluetooth connection severed.");
-                ErrorView.show(WatchUi.loadResource($.Rez.Strings.NoPhone) + ".");
+                ErrorView.show(WatchUi.loadResource($.Rez.Strings.NoPhone) as Lang.String + ".");
                 break;
 
             case Communications.BLE_QUEUE_FULL:
                 // System.println("HomeAssistantToggleMenuItem onReturnSetState() Response Code: BLE_QUEUE_FULL, API calls too rapid.");
-                ErrorView.show(WatchUi.loadResource($.Rez.Strings.ApiFlood));
+                ErrorView.show(WatchUi.loadResource($.Rez.Strings.ApiFlood) as Lang.String);
                 break;
 
             case Communications.NETWORK_REQUEST_TIMED_OUT:
                 // System.println("HomeAssistantToggleMenuItem onReturnSetState() Response Code: NETWORK_REQUEST_TIMED_OUT, check Internet connection.");
-                ErrorView.show(WatchUi.loadResource($.Rez.Strings.NoResponse));
+                ErrorView.show(WatchUi.loadResource($.Rez.Strings.NoResponse) as Lang.String);
                 break;
 
             case Communications.INVALID_HTTP_BODY_IN_NETWORK_RESPONSE:
                 // System.println("HomeAssistantToggleMenuItem onReturnSetState() Response Code: INVALID_HTTP_BODY_IN_NETWORK_RESPONSE, check JSON is returned.");
-                ErrorView.show(WatchUi.loadResource($.Rez.Strings.NoJson));
+                ErrorView.show(WatchUi.loadResource($.Rez.Strings.NoJson) as Lang.String);
                 break;
 
             case 404:
                 // System.println("HomeAssistantToggleMenuItem onReturnSetState() Response Code: 404, page not found. Check API URL setting.");
-                ErrorView.show(WatchUi.loadResource($.Rez.Strings.ApiUrlNotFound));
+                ErrorView.show(WatchUi.loadResource($.Rez.Strings.ApiUrlNotFound) as Lang.String);
                 break;
 
             case 200:
@@ -210,7 +210,7 @@ class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
 
             default:
                 // System.println("HomeAssistantToggleMenuItem onReturnSetState(): Unhandled HTTP response code = " + responseCode);
-                ErrorView.show(WatchUi.loadResource($.Rez.Strings.UnhandledHttpErr) + responseCode);
+                ErrorView.show(WatchUi.loadResource($.Rez.Strings.UnhandledHttpErr) as Lang.String + responseCode);
         }
         getApp().setApiStatus(status);
     }
@@ -220,12 +220,12 @@ class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
             // System.println("HomeAssistantToggleMenuItem getState(): No Phone connection, skipping API call.");
             // Toggle the UI back
             setEnabled(!isEnabled());
-            ErrorView.show(WatchUi.loadResource($.Rez.Strings.NoPhone) + ".");
+            ErrorView.show(WatchUi.loadResource($.Rez.Strings.NoPhone) as Lang.String + ".");
         } else if (! System.getDeviceSettings().connectionAvailable) {
             // System.println("HomeAssistantToggleMenuItem getState(): No Internet connection, skipping API call.");
             // Toggle the UI back
             setEnabled(!isEnabled());
-            ErrorView.show(WatchUi.loadResource($.Rez.Strings.NoInternet) + ".");
+            ErrorView.show(WatchUi.loadResource($.Rez.Strings.NoInternet) as Lang.String + ".");
         } else {
             // Updated SDK and got a new error
             // ERROR: venu: Cannot find symbol ':substring' on type 'PolyType<Null or $.Toybox.Lang.Object>'.

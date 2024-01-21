@@ -89,30 +89,33 @@ class HomeAssistantApp extends Application.AppBase {
     function getInitialView() as Lang.Array<WatchUi.Views or WatchUi.InputDelegates>? {
         mIsApp      = true;
         mQuitTimer  = new QuitTimer();
-        RezStrings.update();
-        mApiStatus  = RezStrings.getChecking();
-        mMenuStatus = RezStrings.getChecking();
+        // RezStrings.update();
+        mApiStatus  = WatchUi.loadResource($.Rez.Strings.Checking) as Lang.String;
+        mMenuStatus = WatchUi.loadResource($.Rez.Strings.Checking) as Lang.String;
         Settings.update();
 
         if (Settings.getApiKey().length() == 0) {
             // System.println("HomeAssistantApp getInitialView(): No API key in the application Settings.");
-            return ErrorView.create(RezStrings.getNoApiKey() + ".");
+            return ErrorView.create(WatchUi.loadResource($.Rez.Strings.NoAPIKey) as Lang.String + ".");
         } else if (Settings.getApiUrl().length() == 0) {
             // System.println("HomeAssistantApp getInitialView(): No API URL in the application Settings.");
-            return ErrorView.create(RezStrings.getNoApiUrl() + ".");
+            return ErrorView.create(WatchUi.loadResource($.Rez.Strings.NoApiUrl) as Lang.String + ".");
         } else if (Settings.getApiUrl().substring(-1, Settings.getApiUrl().length()).equals("/")) {
             // System.println("HomeAssistantApp getInitialView(): API URL must not have a trailing slash '/'.");
-            return ErrorView.create(RezStrings.getTrailingSlashErr() + ".");
+            return ErrorView.create(WatchUi.loadResource($.Rez.Strings.TrailingSlashErr) as Lang.String + ".");
         } else if (Settings.getConfigUrl().length() == 0) {
             // System.println("HomeAssistantApp getInitialView(): No configuration URL in the application settings.");
-            return ErrorView.create(RezStrings.getNoConfigUrl() + ".");
+            return ErrorView.create(WatchUi.loadResource($.Rez.Strings.NoConfigUrl) as Lang.String + ".");
         } else if (! System.getDeviceSettings().phoneConnected) {
             // System.println("HomeAssistantApp fetchMenuConfig(): No Phone connection, skipping API call.");
-            return ErrorView.create(RezStrings.getNoPhone() + ".");
+            return ErrorView.create(WatchUi.loadResource($.Rez.Strings.NoPhone) as Lang.String + ".");
         } else if (! System.getDeviceSettings().connectionAvailable) {
             // System.println("HomeAssistantApp fetchMenuConfig(): No Internet connection, skipping API call.");
-            return ErrorView.create(RezStrings.getNoInternet() + ".");
+            return ErrorView.create(WatchUi.loadResource($.Rez.Strings.NoInternet) as Lang.String + ".");
         } else {
+            var stats = System.getSystemStats();
+            var memUsed = (100f * stats.usedMemory) / stats.totalMemory;
+            System.println("Before menu fetch: used = " + stats.usedMemory + ", total = " + stats.totalMemory + ", " + memUsed + "%");
             var isCached = fetchMenuConfig();
             fetchApiStatus();
             if (WidgetApp.isWidget) {
@@ -134,50 +137,50 @@ class HomeAssistantApp extends Application.AppBase {
         // System.println("HomeAssistantApp onReturnFetchMenuConfig() Response Code: " + responseCode);
         // System.println("HomeAssistantApp onReturnFetchMenuConfig() Response Data: " + data);
 
-        mMenuStatus = RezStrings.getUnavailable();
+        mMenuStatus = WatchUi.loadResource($.Rez.Strings.Unavailable) as Lang.String;
         switch (responseCode) {
             case Communications.BLE_HOST_TIMEOUT:
             case Communications.BLE_CONNECTION_UNAVAILABLE:
                 // System.println("HomeAssistantApp onReturnFetchMenuConfig() Response Code: BLE_HOST_TIMEOUT or BLE_CONNECTION_UNAVAILABLE, Bluetooth connection severed.");
                 if (!mIsGlance) {
-                    ErrorView.show(RezStrings.getNoPhone() + ".");
+                    ErrorView.show(WatchUi.loadResource($.Rez.Strings.NoPhone) as Lang.String + ".");
                 }
                 break;
 
             case Communications.BLE_QUEUE_FULL:
                 // System.println("HomeAssistantApp onReturnFetchMenuConfig() Response Code: BLE_QUEUE_FULL, API calls too rapid.");
                 if (!mIsGlance) {
-                    ErrorView.show(RezStrings.getApiFlood());
+                    ErrorView.show(WatchUi.loadResource($.Rez.Strings.ApiFlood) as Lang.String);
                 }
                 break;
 
             case Communications.NETWORK_REQUEST_TIMED_OUT:
                 // System.println("HomeAssistantApp onReturnFetchMenuConfig() Response Code: NETWORK_REQUEST_TIMED_OUT, check Internet connection.");
                 if (!mIsGlance) {
-                    ErrorView.show(RezStrings.getNoResponse());
+                    ErrorView.show(WatchUi.loadResource($.Rez.Strings.NoResponse) as Lang.String);
                 }
                 break;
 
             case Communications.INVALID_HTTP_BODY_IN_NETWORK_RESPONSE:
                 // System.println("HomeAssistantApp onReturnFetchMenuConfig() Response Code: INVALID_HTTP_BODY_IN_NETWORK_RESPONSE, check JSON is returned.");
                 if (!mIsGlance) {
-                    ErrorView.show(RezStrings.getNoJson());
+                    ErrorView.show(WatchUi.loadResource($.Rez.Strings.NoJson) as Lang.String);
                 }
                 break;
 
             case 404:
                 // System.println("HomeAssistantApp onReturnFetchMenuConfig() Response Code: 404, page not found. Check Configuration URL setting.");
                 if (!mIsGlance) {
-                    ErrorView.show(RezStrings.getConfigUrlNotFound());
+                    ErrorView.show(WatchUi.loadResource($.Rez.Strings.ConfigUrlNotFound) as Lang.String);
                 }
                 break;
 
             case 200:
                 if (Settings.getCacheConfig()) {
                     Storage.setValue("menu", data as Lang.Dictionary);
-                    mMenuStatus = RezStrings.getCached();
+                    mMenuStatus = WatchUi.loadResource($.Rez.Strings.Cached) as Lang.String;
                 } else {
-                    mMenuStatus = RezStrings.getAvailable();
+                    mMenuStatus = WatchUi.loadResource($.Rez.Strings.Available) as Lang.String;
                 }
                 if (!mIsGlance) {
                     buildMenu(data);
@@ -190,7 +193,7 @@ class HomeAssistantApp extends Application.AppBase {
             default:
                 // System.println("HomeAssistantApp onReturnFetchMenuConfig(): Unhandled HTTP response code = " + responseCode);
                 if (!mIsGlance) {
-                    ErrorView.show(RezStrings.getUnhandledHttpErr() + responseCode);
+                    ErrorView.show(WatchUi.loadResource($.Rez.Strings.UnhandledHttpErr) as Lang.String + responseCode);
                 }
                 break;
         }
@@ -202,7 +205,7 @@ class HomeAssistantApp extends Application.AppBase {
     (:glance)
     function fetchMenuConfig() as Lang.Boolean {
         if (Settings.getConfigUrl().equals("")) {
-            mMenuStatus = RezStrings.getUnconfigured();
+            mMenuStatus = WatchUi.loadResource($.Rez.Strings.Unconfigured) as Lang.String;
             WatchUi.requestUpdate();
         } else {
             var menu = Storage.getValue("menu") as Lang.Dictionary;
@@ -217,17 +220,17 @@ class HomeAssistantApp extends Application.AppBase {
                     if (mIsGlance) {
                         WatchUi.requestUpdate();
                     } else {
-                        ErrorView.show(RezStrings.getNoPhone() + ".");
+                        ErrorView.show(WatchUi.loadResource($.Rez.Strings.NoPhone) as Lang.String + ".");
                     }
-                    mMenuStatus = RezStrings.getUnavailable();
+                    mMenuStatus = WatchUi.loadResource($.Rez.Strings.Unavailable) as Lang.String;
                 } else if (! System.getDeviceSettings().connectionAvailable) {
                     // System.println("HomeAssistantToggleMenuItem getState(): No Internet connection, skipping API call.");
                     if (mIsGlance) {
                         WatchUi.requestUpdate();
                     } else {
-                        ErrorView.show(RezStrings.getNoInternet() + ".");
+                        ErrorView.show(WatchUi.loadResource($.Rez.Strings.NoInternet) as Lang.String + ".");
                     }
-                    mMenuStatus = RezStrings.getUnavailable();
+                    mMenuStatus = WatchUi.loadResource($.Rez.Strings.Unavailable) as Lang.String;
                 } else {
                     Communications.makeWebRequest(
                         Settings.getConfigUrl(),
@@ -240,7 +243,7 @@ class HomeAssistantApp extends Application.AppBase {
                     );
                 }
             } else {
-                mMenuStatus = RezStrings.getCached();
+                mMenuStatus = WatchUi.loadResource($.Rez.Strings.Cached) as Lang.String;
                 WatchUi.requestUpdate();
                 if (!mIsGlance) {
                     buildMenu(menu);
@@ -252,7 +255,16 @@ class HomeAssistantApp extends Application.AppBase {
     }
 
     private function buildMenu(menu as Lang.Dictionary) {
+        var stats = System.getSystemStats();
+        var memUsed = (100f * stats.usedMemory) / stats.totalMemory;
+        System.println("Before menu construction: used = " + stats.usedMemory + ", total = " + stats.totalMemory + ", " + memUsed + "%");
+
         mHaMenu = new HomeAssistantView(menu, null);
+
+        stats = System.getSystemStats();
+        memUsed = (100f * stats.usedMemory) / stats.totalMemory;
+        System.println("After menu construction: used = " + stats.usedMemory + ", total = " + stats.totalMemory + ", " + memUsed + "%");
+
         mQuitTimer.begin();
         if (Settings.getIsWidgetStartNoTap()) {
             // As soon as the menu has been fetched start show the menu of items.
@@ -275,41 +287,41 @@ class HomeAssistantApp extends Application.AppBase {
         // System.println("HomeAssistantApp onReturnFetchApiStatus() Response Code: " + responseCode);
         // System.println("HomeAssistantApp onReturnFetchApiStatus() Response Data: " + data);
 
-        mApiStatus = RezStrings.getUnavailable();
+        mApiStatus = WatchUi.loadResource($.Rez.Strings.Unavailable) as Lang.String;
         switch (responseCode) {
             case Communications.BLE_HOST_TIMEOUT:
             case Communications.BLE_CONNECTION_UNAVAILABLE:
                 // System.println("HomeAssistantApp onReturnFetchApiStatus() Response Code: BLE_HOST_TIMEOUT or BLE_CONNECTION_UNAVAILABLE, Bluetooth connection severed.");
                 if (!mIsGlance) {
-                    ErrorView.show(RezStrings.getNoPhone() + ".");
+                    ErrorView.show(WatchUi.loadResource($.Rez.Strings.NoPhone) as Lang.String + ".");
                 }
                 break;
 
             case Communications.BLE_QUEUE_FULL:
                 // System.println("HomeAssistantApp onReturnFetchApiStatus() Response Code: BLE_QUEUE_FULL, API calls too rapid.");
                 if (!mIsGlance) {
-                    ErrorView.show(RezStrings.getApiFlood());
+                    ErrorView.show(WatchUi.loadResource($.Rez.Strings.ApiFlood) as Lang.String);
                 }
                 break;
 
             case Communications.NETWORK_REQUEST_TIMED_OUT:
                 // System.println("HomeAssistantApp onReturnFetchApiStatus() Response Code: NETWORK_REQUEST_TIMED_OUT, check Internet connection.");
                 if (!mIsGlance) {
-                    ErrorView.show(RezStrings.getNoResponse());
+                    ErrorView.show(WatchUi.loadResource($.Rez.Strings.NoResponse) as Lang.String);
                 }
                 break;
 
             case Communications.INVALID_HTTP_BODY_IN_NETWORK_RESPONSE:
                 // System.println("HomeAssistantApp onReturnFetchApiStatus() Response Code: INVALID_HTTP_BODY_IN_NETWORK_RESPONSE, check JSON is returned.");
                 if (!mIsGlance) {
-                    ErrorView.show(RezStrings.getNoJson());
+                    ErrorView.show(WatchUi.loadResource($.Rez.Strings.NoJson) as Lang.String);
                 }
                 break;
 
             case 404:
                 // System.println("HomeAssistantApp onReturnFetchApiStatus() Response Code: 404, page not found. Check Configuration URL setting.");
                 if (!mIsGlance) {
-                    ErrorView.show(RezStrings.getConfigUrlNotFound());
+                    ErrorView.show(WatchUi.loadResource($.Rez.Strings.ConfigUrlNotFound) as Lang.String);
                 }
                 break;
 
@@ -319,7 +331,7 @@ class HomeAssistantApp extends Application.AppBase {
                     msg = data.get("message");
                 }
                 if (msg.equals("API running.")) {
-                    mApiStatus = RezStrings.getAvailable();
+                    mApiStatus = WatchUi.loadResource($.Rez.Strings.Available) as Lang.String;
                 } else {
                     if (!mIsGlance) {
                         ErrorView.show("API " + mApiStatus + ".");
@@ -330,7 +342,7 @@ class HomeAssistantApp extends Application.AppBase {
             default:
                 // System.println("HomeAssistantApp onReturnFetchApiStatus(): Unhandled HTTP response code = " + responseCode);
                 if (!mIsGlance) {
-                    ErrorView.show(RezStrings.getUnhandledHttpErr() + responseCode);
+                    ErrorView.show(WatchUi.loadResource($.Rez.Strings.UnhandledHttpErr) as Lang.String + responseCode);
                 }
         }
         WatchUi.requestUpdate();
@@ -339,24 +351,24 @@ class HomeAssistantApp extends Application.AppBase {
     (:glance)
     function fetchApiStatus() as Void {
         if (Settings.getApiUrl().equals("")) {
-            mApiStatus = RezStrings.getUnconfigured();
+            mApiStatus = WatchUi.loadResource($.Rez.Strings.Unconfigured) as Lang.String;
             WatchUi.requestUpdate();
         } else {
             if (! System.getDeviceSettings().phoneConnected) {
                 // System.println("HomeAssistantToggleMenuItem getState(): No Phone connection, skipping API call.");
-                mApiStatus = RezStrings.getUnavailable();
+                mApiStatus = WatchUi.loadResource($.Rez.Strings.Unavailable) as Lang.String;
                 if (mIsGlance) {
                     WatchUi.requestUpdate();
                 } else {
-                    ErrorView.show(RezStrings.getNoPhone() + ".");
+                    ErrorView.show(WatchUi.loadResource($.Rez.Strings.NoPhone) as Lang.String + ".");
                 }
             } else if (! System.getDeviceSettings().connectionAvailable) {
                 // System.println("HomeAssistantToggleMenuItem getState(): No Internet connection, skipping API call.");
-                mApiStatus = RezStrings.getUnavailable();
+                mApiStatus = WatchUi.loadResource($.Rez.Strings.Unavailable) as Lang.String;
                 if (mIsGlance) {
                     WatchUi.requestUpdate();
                 } else {
-                    ErrorView.show(RezStrings.getNoInternet() + ".");
+                    ErrorView.show(WatchUi.loadResource($.Rez.Strings.NoInternet) as Lang.String + ".");
                 }
             } else {
                 Communications.makeWebRequest(
@@ -404,7 +416,7 @@ class HomeAssistantApp extends Application.AppBase {
         if (itu == null) {
             // System.println("HomeAssistantApp updateNextMenuItem(): No menu items to update");
             if (!mIsGlance) {
-                ErrorView.show(RezStrings.getConfigUrlNotFound());
+                ErrorView.show(WatchUi.loadResource($.Rez.Strings.ConfigUrlNotFound) as Lang.String);
             }
         } else {
             itu[mNextItemToUpdate].getState();
@@ -418,9 +430,9 @@ class HomeAssistantApp extends Application.AppBase {
 
     function getGlanceView() as Lang.Array<WatchUi.GlanceView or WatchUi.GlanceViewDelegate> or Null {
         mIsGlance = true;
-        RezStrings.update_glance();
-        mApiStatus  = RezStrings.getChecking();
-        mMenuStatus = RezStrings.getChecking();
+        // RezStrings.update_glance();
+        mApiStatus  = WatchUi.loadResource($.Rez.Strings.Checking) as Lang.String;
+        mMenuStatus = WatchUi.loadResource($.Rez.Strings.Checking) as Lang.String;
         updateStatus();
         Settings.update();
         mTimer = new Timer.Timer();

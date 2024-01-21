@@ -44,10 +44,10 @@ class HomeAssistantGlanceView extends WatchUi.GlanceView {
 
     function onLayout(dc as Graphics.Dc) as Void {
         var h  = dc.getHeight();
-        var tw = dc.getTextWidthInPixels(WatchUi.loadResource($.Rez.Strings.GlanceMenu), Graphics.FONT_XTINY);
+        var tw = dc.getTextWidthInPixels(WatchUi.loadResource($.Rez.Strings.GlanceMenu) as Lang.String, Graphics.FONT_XTINY);
 
         mTitle = new WatchUi.Text({
-            :text          => WatchUi.loadResource($.Rez.Strings.AppName),
+            :text          => WatchUi.loadResource($.Rez.Strings.AppName) as Lang.String,
             :color         => Graphics.COLOR_WHITE,
             :font          => Graphics.FONT_TINY,
             :justification => Graphics.TEXT_JUSTIFY_LEFT | Graphics.TEXT_JUSTIFY_VCENTER,
@@ -64,7 +64,7 @@ class HomeAssistantGlanceView extends WatchUi.GlanceView {
             :locY          => 3 * h / 6
         });
         mApiStatus = new WatchUi.Text({
-            :text          => WatchUi.loadResource($.Rez.Strings.Checking),
+            :text          => WatchUi.loadResource($.Rez.Strings.Checking) as Lang.String,
             :color         => Graphics.COLOR_WHITE,
             :font          => Graphics.FONT_XTINY,
             :justification => Graphics.TEXT_JUSTIFY_LEFT | Graphics.TEXT_JUSTIFY_VCENTER,
@@ -72,7 +72,7 @@ class HomeAssistantGlanceView extends WatchUi.GlanceView {
             :locY          => 3 * h / 6
         });
         mMenuText = new WatchUi.Text({
-            :text          => WatchUi.loadResource($.Rez.Strings.GlanceMenu) + ":",
+            :text          => WatchUi.loadResource($.Rez.Strings.GlanceMenu) as Lang.String + ":",
             :color         => Graphics.COLOR_WHITE,
             :font          => Graphics.FONT_XTINY,
             :justification => Graphics.TEXT_JUSTIFY_LEFT | Graphics.TEXT_JUSTIFY_VCENTER,
@@ -80,7 +80,7 @@ class HomeAssistantGlanceView extends WatchUi.GlanceView {
             :locY          => 5 * h / 6
         });
         mMenuStatus = new WatchUi.Text({
-            :text          => WatchUi.loadResource($.Rez.Strings.Checking),
+            :text          => WatchUi.loadResource($.Rez.Strings.Checking) as Lang.String,
             :color         => Graphics.COLOR_WHITE,
             :font          => Graphics.FONT_XTINY,
             :justification => Graphics.TEXT_JUSTIFY_LEFT | Graphics.TEXT_JUSTIFY_VCENTER,
