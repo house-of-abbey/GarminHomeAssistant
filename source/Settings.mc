@@ -75,7 +75,8 @@ class Settings {
                 } else if (
                     mHasService and
                     ((Background.getTemporalEventRegisteredTime() == null) or
-                    (Background.getTemporalEventRegisteredTime() != (mBatteryRefreshRate * 60)))) {
+                     (Background.getTemporalEventRegisteredTime() != (mBatteryRefreshRate * 60)))
+                ) {
                     Background.registerForTemporalEvent(new Time.Duration(mBatteryRefreshRate * 60)); // Convert to seconds
                 }
             } else {
