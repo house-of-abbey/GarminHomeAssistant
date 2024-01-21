@@ -137,6 +137,7 @@
     },
     "items": {
       "type": "array",
+      "maxItems": 16,
       "items": {
         "oneOf": [
           {
