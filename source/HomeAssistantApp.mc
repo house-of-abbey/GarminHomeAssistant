@@ -113,9 +113,6 @@ class HomeAssistantApp extends Application.AppBase {
             // System.println("HomeAssistantApp fetchMenuConfig(): No Internet connection, skipping API call.");
             return ErrorView.create(WatchUi.loadResource($.Rez.Strings.NoInternet) as Lang.String + ".");
         } else {
-            var stats = System.getSystemStats();
-            var memUsed = (100f * stats.usedMemory) / stats.totalMemory;
-            System.println("Before menu fetch: used = " + stats.usedMemory + ", total = " + stats.totalMemory + ", " + memUsed + "%");
             var isCached = fetchMenuConfig();
             fetchApiStatus();
             if (WidgetApp.isWidget) {
@@ -255,16 +252,7 @@ class HomeAssistantApp extends Application.AppBase {
     }
 
     private function buildMenu(menu as Lang.Dictionary) {
-        var stats = System.getSystemStats();
-        var memUsed = (100f * stats.usedMemory) / stats.totalMemory;
-        System.println("Before menu construction: used = " + stats.usedMemory + ", total = " + stats.totalMemory + ", " + memUsed + "%");
-
         mHaMenu = new HomeAssistantView(menu, null);
-
-        stats = System.getSystemStats();
-        memUsed = (100f * stats.usedMemory) / stats.totalMemory;
-        System.println("After menu construction: used = " + stats.usedMemory + ", total = " + stats.totalMemory + ", " + memUsed + "%");
-
         mQuitTimer.begin();
         if (Settings.getIsWidgetStartNoTap()) {
             // As soon as the menu has been fetched start show the menu of items.
