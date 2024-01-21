@@ -34,7 +34,6 @@ class HomeAssistantView extends WatchUi.Menu2 {
             :theme as WatchUi.MenuTheme or Null
         } or Null
     ) {
-
         if (options == null) {
             options = {
                 :title => definition.get("title") as Lang.String
@@ -160,8 +159,8 @@ class HomeAssistantViewDelegate extends WatchUi.Menu2InputDelegate {
             var haMenuItem = item as HomeAssistantGroupMenuItem;
             // System.println("IconMenu: " + haMenuItem.getLabel() + " " + haMenuItem.getId());
             WatchUi.pushView(haMenuItem.getMenuView(), new HomeAssistantViewDelegate(false), WatchUi.SLIDE_LEFT);
-        } else {
-            // System.println(item.getLabel() + " " + item.getId());
+        // } else {
+        //     System.println(item.getLabel() + " " + item.getId());
         }
     }
 
