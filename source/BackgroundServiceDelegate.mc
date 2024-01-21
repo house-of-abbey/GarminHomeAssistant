@@ -32,22 +32,16 @@ class BackgroundServiceDelegate extends System.ServiceDelegate {
     }
 
     function onReturnBatteryUpdate(responseCode as Lang.Number, data as Null or Lang.Dictionary or Lang.String) as Void {
-        if (Globals.scDebug) {
-            System.println("BackgroundServiceDelegate onReturnBatteryUpdate() Response Code: " + responseCode);
-            System.println("BackgroundServiceDelegate onReturnBatteryUpdate() Response Data: " + data);
-        }
+        // System.println("BackgroundServiceDelegate onReturnBatteryUpdate() Response Code: " + responseCode);
+        // System.println("BackgroundServiceDelegate onReturnBatteryUpdate() Response Data: " + data);
         Background.exit(null);
     }
 
     function onTemporalEvent() as Void {
         if (! System.getDeviceSettings().phoneConnected) {
-            if (Globals.scDebug) {
-                System.println("BackgroundServiceDelegate onTemporalEvent(): No Phone connection, skipping API call.");
-            }
+            // System.println("BackgroundServiceDelegate onTemporalEvent(): No Phone connection, skipping API call.");
         } else if (! System.getDeviceSettings().connectionAvailable) {
-            if (Globals.scDebug) {
-                System.println("BackgroundServiceDelegate onTemporalEvent(): No Internet connection, skipping API call.");
-            }
+            // System.println("BackgroundServiceDelegate onTemporalEvent(): No Internet connection, skipping API call.");
         } else {
             // Don't use Settings.* here as the object lasts < 30 secs and is recreated each time the background service is run
             Communications.makeWebRequest(

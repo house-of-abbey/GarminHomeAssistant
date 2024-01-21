@@ -32,8 +32,9 @@ class HomeAssistantApp extends Application.AppBase {
     private var mHaMenu              as HomeAssistantView or Null;
     private var mQuitTimer           as QuitTimer         or Null;
     private var mTimer               as Timer.Timer       or Null;
-    private var mItemsToUpdate       as Lang.Array<HomeAssistantToggleMenuItem or HomeAssistantTemplateMenuItem> or Null; // Array initialised by onReturnFetchMenuConfig()
-    private var mNextItemToUpdate    as Lang.Number  = 0;                                // Index into the above array
+    // Array initialised by onReturnFetchMenuConfig()
+    private var mItemsToUpdate       as Lang.Array<HomeAssistantToggleMenuItem or HomeAssistantTemplateMenuItem> or Null;
+    private var mNextItemToUpdate    as Lang.Number  = 0;     // Index into the above array
     private var mIsGlance            as Lang.Boolean = false;
     private var mIsApp               as Lang.Boolean = false; // Or Widget
 
@@ -94,34 +95,22 @@ class HomeAssistantApp extends Application.AppBase {
         Settings.update();
 
         if (Settings.getApiKey().length() == 0) {
-            if (Globals.scDebug) {
-                System.println("HomeAssistantApp getInitialView(): No API key in the application Settings.");
-            }
+            // System.println("HomeAssistantApp getInitialView(): No API key in the application Settings.");
             return ErrorView.create(RezStrings.getNoApiKey() + ".");
         } else if (Settings.getApiUrl().length() == 0) {
-            if (Globals.scDebug) {
-                System.println("HomeAssistantApp getInitialView(): No API URL in the application Settings.");
-            }
+            // System.println("HomeAssistantApp getInitialView(): No API URL in the application Settings.");
             return ErrorView.create(RezStrings.getNoApiUrl() + ".");
         } else if (Settings.getApiUrl().substring(-1, Settings.getApiUrl().length()).equals("/")) {
-            if (Globals.scDebug) {
-                System.println("HomeAssistantApp getInitialView(): API URL must not have a trailing slash '/'.");
-            }
+            // System.println("HomeAssistantApp getInitialView(): API URL must not have a trailing slash '/'.");
             return ErrorView.create(RezStrings.getTrailingSlashErr() + ".");
         } else if (Settings.getConfigUrl().length() == 0) {
-            if (Globals.scDebug) {
-                System.println("HomeAssistantApp getInitialView(): No configuration URL in the application settings.");
-            }
+            // System.println("HomeAssistantApp getInitialView(): No configuration URL in the application settings.");
             return ErrorView.create(RezStrings.getNoConfigUrl() + ".");
         } else if (! System.getDeviceSettings().phoneConnected) {
-            if (Globals.scDebug) {
-                System.println("HomeAssistantApp fetchMenuConfig(): No Phone connection, skipping API call.");
-            }
+            // System.println("HomeAssistantApp fetchMenuConfig(): No Phone connection, skipping API call.");
             return ErrorView.create(RezStrings.getNoPhone() + ".");
         } else if (! System.getDeviceSettings().connectionAvailable) {
-            if (Globals.scDebug) {
-                System.println("HomeAssistantApp fetchMenuConfig(): No Internet connection, skipping API call.");
-            }
+            // System.println("HomeAssistantApp fetchMenuConfig(): No Internet connection, skipping API call.");
             return ErrorView.create(RezStrings.getNoInternet() + ".");
         } else {
             var isCached = fetchMenuConfig();
@@ -142,54 +131,42 @@ class HomeAssistantApp extends Application.AppBase {
     //
     (:glance)
     function onReturnFetchMenuConfig(responseCode as Lang.Number, data as Null or Lang.Dictionary or Lang.String) as Void {
-        if (Globals.scDebug) {
-            System.println("HomeAssistantApp onReturnFetchMenuConfig() Response Code: " + responseCode);
-            System.println("HomeAssistantApp onReturnFetchMenuConfig() Response Data: " + data);
-        }
+        // System.println("HomeAssistantApp onReturnFetchMenuConfig() Response Code: " + responseCode);
+        // System.println("HomeAssistantApp onReturnFetchMenuConfig() Response Data: " + data);
 
         mMenuStatus = RezStrings.getUnavailable();
         switch (responseCode) {
             case Communications.BLE_HOST_TIMEOUT:
             case Communications.BLE_CONNECTION_UNAVAILABLE:
-                if (Globals.scDebug) {
-                    System.println("HomeAssistantApp onReturnFetchMenuConfig() Response Code: BLE_HOST_TIMEOUT or BLE_CONNECTION_UNAVAILABLE, Bluetooth connection severed.");
-                }
+                // System.println("HomeAssistantApp onReturnFetchMenuConfig() Response Code: BLE_HOST_TIMEOUT or BLE_CONNECTION_UNAVAILABLE, Bluetooth connection severed.");
                 if (!mIsGlance) {
                     ErrorView.show(RezStrings.getNoPhone() + ".");
                 }
                 break;
 
             case Communications.BLE_QUEUE_FULL:
-                if (Globals.scDebug) {
-                    System.println("HomeAssistantApp onReturnFetchMenuConfig() Response Code: BLE_QUEUE_FULL, API calls too rapid.");
-                }
+                // System.println("HomeAssistantApp onReturnFetchMenuConfig() Response Code: BLE_QUEUE_FULL, API calls too rapid.");
                 if (!mIsGlance) {
                     ErrorView.show(RezStrings.getApiFlood());
                 }
                 break;
 
             case Communications.NETWORK_REQUEST_TIMED_OUT:
-                if (Globals.scDebug) {
-                    System.println("HomeAssistantApp onReturnFetchMenuConfig() Response Code: NETWORK_REQUEST_TIMED_OUT, check Internet connection.");
-                }
+                // System.println("HomeAssistantApp onReturnFetchMenuConfig() Response Code: NETWORK_REQUEST_TIMED_OUT, check Internet connection.");
                 if (!mIsGlance) {
                     ErrorView.show(RezStrings.getNoResponse());
                 }
                 break;
 
             case Communications.INVALID_HTTP_BODY_IN_NETWORK_RESPONSE:
-                if (Globals.scDebug) {
-                    System.println("HomeAssistantApp onReturnFetchMenuConfig() Response Code: INVALID_HTTP_BODY_IN_NETWORK_RESPONSE, check JSON is returned.");
-                }
+                // System.println("HomeAssistantApp onReturnFetchMenuConfig() Response Code: INVALID_HTTP_BODY_IN_NETWORK_RESPONSE, check JSON is returned.");
                 if (!mIsGlance) {
                     ErrorView.show(RezStrings.getNoJson());
                 }
                 break;
 
             case 404:
-                if (Globals.scDebug) {
-                    System.println("HomeAssistantApp onReturnFetchMenuConfig() Response Code: 404, page not found. Check Configuration URL setting.");
-                }
+                // System.println("HomeAssistantApp onReturnFetchMenuConfig() Response Code: 404, page not found. Check Configuration URL setting.");
                 if (!mIsGlance) {
                     ErrorView.show(RezStrings.getConfigUrlNotFound());
                 }
@@ -211,9 +188,7 @@ class HomeAssistantApp extends Application.AppBase {
                 break;
 
             default:
-                if (Globals.scDebug) {
-                    System.println("HomeAssistantApp onReturnFetchMenuConfig(): Unhandled HTTP response code = " + responseCode);
-                }
+                // System.println("HomeAssistantApp onReturnFetchMenuConfig(): Unhandled HTTP response code = " + responseCode);
                 if (!mIsGlance) {
                     ErrorView.show(RezStrings.getUnhandledHttpErr() + responseCode);
                 }
@@ -238,9 +213,7 @@ class HomeAssistantApp extends Application.AppBase {
             }
             if (menu == null) {
                 if (! System.getDeviceSettings().phoneConnected) {
-                    if (Globals.scDebug) {
-                        System.println("HomeAssistantToggleMenuItem getState(): No Phone connection, skipping API call.");
-                    }
+                    // System.println("HomeAssistantToggleMenuItem getState(): No Phone connection, skipping API call.");
                     if (mIsGlance) {
                         WatchUi.requestUpdate();
                     } else {
@@ -248,9 +221,7 @@ class HomeAssistantApp extends Application.AppBase {
                     }
                     mMenuStatus = RezStrings.getUnavailable();
                 } else if (! System.getDeviceSettings().connectionAvailable) {
-                    if (Globals.scDebug) {
-                        System.println("HomeAssistantToggleMenuItem getState(): No Internet connection, skipping API call.");
-                    }
+                    // System.println("HomeAssistantToggleMenuItem getState(): No Internet connection, skipping API call.");
                     if (mIsGlance) {
                         WatchUi.requestUpdate();
                     } else {
@@ -301,54 +272,42 @@ class HomeAssistantApp extends Application.AppBase {
     //
     (:glance)
     function onReturnFetchApiStatus(responseCode as Lang.Number, data as Null or Lang.Dictionary or Lang.String) as Void {
-        if (Globals.scDebug) {
-            System.println("HomeAssistantApp onReturnFetchApiStatus() Response Code: " + responseCode);
-            System.println("HomeAssistantApp onReturnFetchApiStatus() Response Data: " + data);
-        }
+        // System.println("HomeAssistantApp onReturnFetchApiStatus() Response Code: " + responseCode);
+        // System.println("HomeAssistantApp onReturnFetchApiStatus() Response Data: " + data);
 
         mApiStatus = RezStrings.getUnavailable();
         switch (responseCode) {
             case Communications.BLE_HOST_TIMEOUT:
             case Communications.BLE_CONNECTION_UNAVAILABLE:
-                if (Globals.scDebug) {
-                    System.println("HomeAssistantApp onReturnFetchApiStatus() Response Code: BLE_HOST_TIMEOUT or BLE_CONNECTION_UNAVAILABLE, Bluetooth connection severed.");
-                }
+                // System.println("HomeAssistantApp onReturnFetchApiStatus() Response Code: BLE_HOST_TIMEOUT or BLE_CONNECTION_UNAVAILABLE, Bluetooth connection severed.");
                 if (!mIsGlance) {
                     ErrorView.show(RezStrings.getNoPhone() + ".");
                 }
                 break;
 
             case Communications.BLE_QUEUE_FULL:
-                if (Globals.scDebug) {
-                    System.println("HomeAssistantApp onReturnFetchApiStatus() Response Code: BLE_QUEUE_FULL, API calls too rapid.");
-                }
+                // System.println("HomeAssistantApp onReturnFetchApiStatus() Response Code: BLE_QUEUE_FULL, API calls too rapid.");
                 if (!mIsGlance) {
                     ErrorView.show(RezStrings.getApiFlood());
                 }
                 break;
 
             case Communications.NETWORK_REQUEST_TIMED_OUT:
-                if (Globals.scDebug) {
-                    System.println("HomeAssistantApp onReturnFetchApiStatus() Response Code: NETWORK_REQUEST_TIMED_OUT, check Internet connection.");
-                }
+                // System.println("HomeAssistantApp onReturnFetchApiStatus() Response Code: NETWORK_REQUEST_TIMED_OUT, check Internet connection.");
                 if (!mIsGlance) {
                     ErrorView.show(RezStrings.getNoResponse());
                 }
                 break;
 
             case Communications.INVALID_HTTP_BODY_IN_NETWORK_RESPONSE:
-                if (Globals.scDebug) {
-                    System.println("HomeAssistantApp onReturnFetchApiStatus() Response Code: INVALID_HTTP_BODY_IN_NETWORK_RESPONSE, check JSON is returned.");
-                }
+                // System.println("HomeAssistantApp onReturnFetchApiStatus() Response Code: INVALID_HTTP_BODY_IN_NETWORK_RESPONSE, check JSON is returned.");
                 if (!mIsGlance) {
                     ErrorView.show(RezStrings.getNoJson());
                 }
                 break;
 
             case 404:
-                if (Globals.scDebug) {
-                    System.println("HomeAssistantApp onReturnFetchApiStatus() Response Code: 404, page not found. Check Configuration URL setting.");
-                }
+                // System.println("HomeAssistantApp onReturnFetchApiStatus() Response Code: 404, page not found. Check Configuration URL setting.");
                 if (!mIsGlance) {
                     ErrorView.show(RezStrings.getConfigUrlNotFound());
                 }
@@ -369,9 +328,7 @@ class HomeAssistantApp extends Application.AppBase {
                 break;
 
             default:
-                if (Globals.scDebug) {
-                    System.println("HomeAssistantApp onReturnFetchApiStatus(): Unhandled HTTP response code = " + responseCode);
-                }
+                // System.println("HomeAssistantApp onReturnFetchApiStatus(): Unhandled HTTP response code = " + responseCode);
                 if (!mIsGlance) {
                     ErrorView.show(RezStrings.getUnhandledHttpErr() + responseCode);
                 }
@@ -386,9 +343,7 @@ class HomeAssistantApp extends Application.AppBase {
             WatchUi.requestUpdate();
         } else {
             if (! System.getDeviceSettings().phoneConnected) {
-                if (Globals.scDebug) {
-                    System.println("HomeAssistantToggleMenuItem getState(): No Phone connection, skipping API call.");
-                }
+                // System.println("HomeAssistantToggleMenuItem getState(): No Phone connection, skipping API call.");
                 mApiStatus = RezStrings.getUnavailable();
                 if (mIsGlance) {
                     WatchUi.requestUpdate();
@@ -396,9 +351,7 @@ class HomeAssistantApp extends Application.AppBase {
                     ErrorView.show(RezStrings.getNoPhone() + ".");
                 }
             } else if (! System.getDeviceSettings().connectionAvailable) {
-                if (Globals.scDebug) {
-                    System.println("HomeAssistantToggleMenuItem getState(): No Internet connection, skipping API call.");
-                }
+                // System.println("HomeAssistantToggleMenuItem getState(): No Internet connection, skipping API call.");
                 mApiStatus = RezStrings.getUnavailable();
                 if (mIsGlance) {
                     WatchUi.requestUpdate();
@@ -449,9 +402,7 @@ class HomeAssistantApp extends Application.AppBase {
     function updateNextMenuItem() as Void {
         var itu = mItemsToUpdate as Lang.Array<HomeAssistantToggleMenuItem>;
         if (itu == null) {
-            if (Globals.scDebug) {
-                System.println("HomeAssistantApp updateNextMenuItem(): No menu items to update");
-            }
+            // System.println("HomeAssistantApp updateNextMenuItem(): No menu items to update");
             if (!mIsGlance) {
                 ErrorView.show(RezStrings.getConfigUrlNotFound());
             }
@@ -486,9 +437,7 @@ class HomeAssistantApp extends Application.AppBase {
     // Replace this functionality with a more central settings class as proposed in
     // https://github.com/house-of-abbey/GarminHomeAssistant/pull/17.
     function onSettingsChanged() as Void {
-        if (Globals.scDebug) {
-            System.println("HomeAssistantApp onSettingsChanged()");
-        }
+        // System.println("HomeAssistantApp onSettingsChanged()");
         Settings.update();
     }
 

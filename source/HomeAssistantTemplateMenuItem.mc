@@ -84,46 +84,34 @@ class HomeAssistantTemplateMenuItem extends WatchUi.IconMenuItem {
     // error. The ErrorView cancellation will resume the call chain.
     //
     function onReturnGetState(responseCode as Lang.Number, data as Lang.String) as Void {
-        if (Globals.scDebug) {
-            System.println("HomeAssistantTemplateMenuItem onReturnGetState() Response Code: " + responseCode);
-            System.println("HomeAssistantTemplateMenuItem onReturnGetState() Response Data: " + data);
-        }
+        // System.println("HomeAssistantTemplateMenuItem onReturnGetState() Response Code: " + responseCode);
+        // System.println("HomeAssistantTemplateMenuItem onReturnGetState() Response Data: " + data);
 
         var status = RezStrings.getUnavailable();
         switch (responseCode) {
             case Communications.BLE_HOST_TIMEOUT:
             case Communications.BLE_CONNECTION_UNAVAILABLE:
-                if (Globals.scDebug) {
-                    System.println("HomeAssistantTemplateMenuItem onReturnGetState() Response Code: BLE_HOST_TIMEOUT or BLE_CONNECTION_UNAVAILABLE, Bluetooth connection severed.");
-                }
+                // System.println("HomeAssistantTemplateMenuItem onReturnGetState() Response Code: BLE_HOST_TIMEOUT or BLE_CONNECTION_UNAVAILABLE, Bluetooth connection severed.");
                 ErrorView.show(RezStrings.getNoPhone() + ".");
                 break;
 
             case Communications.BLE_QUEUE_FULL:
-                if (Globals.scDebug) {
-                    System.println("HomeAssistantTemplateMenuItem onReturnGetState() Response Code: BLE_QUEUE_FULL, API calls too rapid.");
-                }
+                // System.println("HomeAssistantTemplateMenuItem onReturnGetState() Response Code: BLE_QUEUE_FULL, API calls too rapid.");
                 ErrorView.show(RezStrings.getApiFlood());
                 break;
 
             case Communications.NETWORK_REQUEST_TIMED_OUT:
-                if (Globals.scDebug) {
-                    System.println("HomeAssistantTemplateMenuItem onReturnGetState() Response Code: NETWORK_REQUEST_TIMED_OUT, check Internet connection.");
-                }
+                // System.println("HomeAssistantTemplateMenuItem onReturnGetState() Response Code: NETWORK_REQUEST_TIMED_OUT, check Internet connection.");
                 ErrorView.show(RezStrings.getNoResponse());
                 break;
 
             case Communications.INVALID_HTTP_BODY_IN_NETWORK_RESPONSE:
-                if (Globals.scDebug) {
-                    System.println("HomeAssistantTemplateMenuItem onReturnGetState() Response Code: INVALID_HTTP_BODY_IN_NETWORK_RESPONSE, check JSON is returned.");
-                }
+                // System.println("HomeAssistantTemplateMenuItem onReturnGetState() Response Code: INVALID_HTTP_BODY_IN_NETWORK_RESPONSE, check JSON is returned.");
                 ErrorView.show(RezStrings.getNoJson());
                 break;
 
             case Communications.NETWORK_RESPONSE_OUT_OF_MEMORY:
-                if (Globals.scDebug) {
-                    System.println("HomeAssistantTemplateMenuItem onReturnGetState() Response Code: NETWORK_RESPONSE_OUT_OF_MEMORY, are we going too fast?");
-                }
+                // System.println("HomeAssistantTemplateMenuItem onReturnGetState() Response Code: NETWORK_RESPONSE_OUT_OF_MEMORY, are we going too fast?");
                 var myTimer = new Timer.Timer();
                 // Now this feels very "closely coupled" to the application, but it is the most reliable method instead of using a timer.
                 myTimer.start(getApp().method(:updateNextMenuItem), Globals.scApiBackoff, false);
@@ -132,16 +120,12 @@ class HomeAssistantTemplateMenuItem extends WatchUi.IconMenuItem {
                 break;
 
             case 404:
-                if (Globals.scDebug) {
-                    System.println("HomeAssistantTemplateMenuItem onReturnGetState() Response Code: 404, page not found. Check API URL setting.");
-                }
+                // System.println("HomeAssistantTemplateMenuItem onReturnGetState() Response Code: 404, page not found. Check API URL setting.");
                 ErrorView.show(RezStrings.getApiUrlNotFound());
                 break;
 
             case 400:
-                if (Globals.scDebug) {
-                    System.println("HomeAssistantTemplateMenuItem onReturnGetState() Response Code: 400, bad request. Template error.");
-                }
+                // System.println("HomeAssistantTemplateMenuItem onReturnGetState() Response Code: 400, bad request. Template error.");
                 ErrorView.show(RezStrings.getTemplateError());
                 break;
 
@@ -154,9 +138,7 @@ class HomeAssistantTemplateMenuItem extends WatchUi.IconMenuItem {
                 break;
 
             default:
-                if (Globals.scDebug) {
-                    System.println("HomeAssistantTemplateMenuItem onReturnGetState(): Unhandled HTTP response code = " + responseCode);
-                }
+                // System.println("HomeAssistantTemplateMenuItem onReturnGetState(): Unhandled HTTP response code = " + responseCode);
                 ErrorView.show(RezStrings.getUnhandledHttpErr() + responseCode);
         }
         getApp().setApiStatus(status);
@@ -164,22 +146,16 @@ class HomeAssistantTemplateMenuItem extends WatchUi.IconMenuItem {
 
     function getState() as Void {
         if (! System.getDeviceSettings().phoneConnected) {
-            if (Globals.scDebug) {
-                System.println("HomeAssistantTemplateMenuItem getState(): No Phone connection, skipping API call.");
-            }
+            // System.println("HomeAssistantTemplateMenuItem getState(): No Phone connection, skipping API call.");
             ErrorView.show(RezStrings.getNoPhone() + ".");
             getApp().setApiStatus(RezStrings.getUnavailable());
         } else if (! System.getDeviceSettings().connectionAvailable) {
-            if (Globals.scDebug) {
-                System.println("HomeAssistantTemplateMenuItem getState(): No Internet connection, skipping API call.");
-            }
+            // System.println("HomeAssistantTemplateMenuItem getState(): No Internet connection, skipping API call.");
             ErrorView.show(RezStrings.getNoInternet() + ".");
             getApp().setApiStatus(RezStrings.getUnavailable());
         } else {
             var url = Settings.getApiUrl() + "/template";
-            if (Globals.scDebug) {
-                System.println("HomeAssistantTemplateMenuItem getState() URL=" + url + ", Template='" + mTemplate + "'");
-            }
+            // System.println("HomeAssistantTemplateMenuItem getState() URL=" + url + ", Template='" + mTemplate + "'");
             Communications.makeWebRequest(
                 url,
                 { "template" => mTemplate },

@@ -86,14 +86,12 @@ class Settings {
                 unsetWebhookId();
             }
         }
-        if (Globals.scDebug) {
-            System.println("Settings update(): getTemporalEventRegisteredTime() = " + Background.getTemporalEventRegisteredTime());
-            if (Background.getTemporalEventRegisteredTime() != null) {
-                System.println("Settings update(): getTemporalEventRegisteredTime().value() = " + Background.getTemporalEventRegisteredTime().value().format("%d") + " seconds");
-            } else {
-                System.println("Settings update(): getTemporalEventRegisteredTime() = null");
-            }
-        }
+        // System.println("Settings update(): getTemporalEventRegisteredTime() = " + Background.getTemporalEventRegisteredTime());
+        // if (Background.getTemporalEventRegisteredTime() != null) {
+        //     System.println("Settings update(): getTemporalEventRegisteredTime().value() = " + Background.getTemporalEventRegisteredTime().value().format("%d") + " seconds");
+        // } else {
+        //     System.println("Settings update(): getTemporalEventRegisteredTime() = null");
+        // }
     }
 
     static function getApiKey() as Lang.String {

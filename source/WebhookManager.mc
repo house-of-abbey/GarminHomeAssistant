@@ -32,44 +32,32 @@ class WebhookManager {
         switch (responseCode) {
             case Communications.BLE_HOST_TIMEOUT:
             case Communications.BLE_CONNECTION_UNAVAILABLE:
-                if (Globals.scDebug) {
-                    System.println("WebhookManager onReturnRequestWebhookId() Response Code: BLE_HOST_TIMEOUT or BLE_CONNECTION_UNAVAILABLE, Bluetooth connection severed.");
-                }
+                // System.println("WebhookManager onReturnRequestWebhookId() Response Code: BLE_HOST_TIMEOUT or BLE_CONNECTION_UNAVAILABLE, Bluetooth connection severed.");
                 ErrorView.show(RezStrings.getWebhookFailed() + "\n" + RezStrings.getNoPhone() + ".");
                 break;
 
             case Communications.BLE_QUEUE_FULL:
-                if (Globals.scDebug) {
-                    System.println("WebhookManager onReturnRequestWebhookId() Response Code: BLE_QUEUE_FULL, API calls too rapid.");
-                }
+                // System.println("WebhookManager onReturnRequestWebhookId() Response Code: BLE_QUEUE_FULL, API calls too rapid.");
                 ErrorView.show(RezStrings.getWebhookFailed() + "\n" + RezStrings.getApiFlood());
                 break;
 
             case Communications.NETWORK_REQUEST_TIMED_OUT:
-                if (Globals.scDebug) {
-                    System.println("WebhookManager onReturnRequestWebhookId() Response Code: NETWORK_REQUEST_TIMED_OUT, check Internet connection.");
-                }
+                // System.println("WebhookManager onReturnRequestWebhookId() Response Code: NETWORK_REQUEST_TIMED_OUT, check Internet connection.");
                 ErrorView.show(RezStrings.getWebhookFailed() + "\n" + RezStrings.getNoResponse());
                 break;
 
             case Communications.NETWORK_RESPONSE_OUT_OF_MEMORY:
-                if (Globals.scDebug) {
-                    System.println("WebhookManager onReturnRequestWebhookId() Response Code: NETWORK_RESPONSE_OUT_OF_MEMORY, are we going too fast?");
-                }
+                // System.println("WebhookManager onReturnRequestWebhookId() Response Code: NETWORK_RESPONSE_OUT_OF_MEMORY, are we going too fast?");
                 // Ignore and see if we can carry on
                 break;
             case Communications.INVALID_HTTP_BODY_IN_NETWORK_RESPONSE:
-                if (Globals.scDebug) {
-                    System.println("WebhookManager onReturnRequestWebhookId() Response Code: INVALID_HTTP_BODY_IN_NETWORK_RESPONSE, check JSON is returned.");
-                }
+                // System.println("WebhookManager onReturnRequestWebhookId() Response Code: INVALID_HTTP_BODY_IN_NETWORK_RESPONSE, check JSON is returned.");
                 Settings.unsetIsBatteryLevelEnabled();
                 ErrorView.show(RezStrings.getWebhookFailed() + "\n" + RezStrings.getNoJson());
                 break;
 
             case 404:
-                if (Globals.scDebug) {
-                    System.println("WebhookManager onReturnRequestWebhookId() Response Code: 404, page not found. Check API URL setting.");
-                }
+                // System.println("WebhookManager onReturnRequestWebhookId() Response Code: 404, page not found. Check API URL setting.");
                 Settings.unsetIsBatteryLevelEnabled();
                 ErrorView.show(RezStrings.getWebhookFailed() + "\n" + RezStrings.getApiUrlNotFound());
                 break;
@@ -99,27 +87,21 @@ class WebhookManager {
                         "disabled"        => false
                     });
                 } else {
-                    if (Globals.scDebug) {
-                        System.println("WebhookManager onReturnRequestWebhookId(): No webhook id in response data.");
-                    }
+                    // System.println("WebhookManager onReturnRequestWebhookId(): No webhook id in response data.");
                     Settings.unsetIsBatteryLevelEnabled();
                     ErrorView.show(RezStrings.getWebhookFailed());
                 }
                 break;
 
             default:
-                if (Globals.scDebug) {
-                    System.println("WebhookManager onReturnRequestWebhookId(): Unhandled HTTP response code = " + responseCode);
-                }
+                // System.println("WebhookManager onReturnRequestWebhookId(): Unhandled HTTP response code = " + responseCode);
                 Settings.unsetIsBatteryLevelEnabled();
                 ErrorView.show(RezStrings.getWebhookFailed() + "\n" + RezStrings.getUnhandledHttpErr() + responseCode);
         }
     }
 
     function requestWebhookId() {
-        if (Globals.scDebug) {
-            System.println("WebhookManager requestWebhookId(): Requesting webhook id");
-        }
+        // System.println("WebhookManager requestWebhookId(): Requesting webhook id");
         Communications.makeWebRequest(
             Settings.getApiUrl() + "/mobile_app/registrations",
             {
@@ -151,63 +133,48 @@ class WebhookManager {
         switch (responseCode) {
             case Communications.BLE_HOST_TIMEOUT:
             case Communications.BLE_CONNECTION_UNAVAILABLE:
-                if (Globals.scDebug) {
-                    System.println("WebhookManager onReturnRegisterWebhookSensor() Response Code: BLE_HOST_TIMEOUT or BLE_CONNECTION_UNAVAILABLE, Bluetooth connection severed.");
-                }
+                // System.println("WebhookManager onReturnRegisterWebhookSensor() Response Code: BLE_HOST_TIMEOUT or BLE_CONNECTION_UNAVAILABLE, Bluetooth connection severed.");
                 Settings.unsetWebhookId();
                 ErrorView.show(RezStrings.getWebhookFailed() + "\n" + RezStrings.getNoPhone() + ".");
                 break;
 
             case Communications.BLE_QUEUE_FULL:
-                if (Globals.scDebug) {
-                    System.println("WebhookManager onReturnRegisterWebhookSensor() Response Code: BLE_QUEUE_FULL, API calls too rapid.");
-                }
+                // System.println("WebhookManager onReturnRegisterWebhookSensor() Response Code: BLE_QUEUE_FULL, API calls too rapid.");
                 Settings.unsetWebhookId();
                 ErrorView.show(RezStrings.getWebhookFailed() + "\n" + RezStrings.getApiFlood());
                 break;
 
             case Communications.NETWORK_REQUEST_TIMED_OUT:
-                if (Globals.scDebug) {
-                    System.println("WebhookManager onReturnRegisterWebhookSensor() Response Code: NETWORK_REQUEST_TIMED_OUT, check Internet connection.");
-                }
+                // System.println("WebhookManager onReturnRegisterWebhookSensor() Response Code: NETWORK_REQUEST_TIMED_OUT, check Internet connection.");
                 Settings.unsetWebhookId();
                 ErrorView.show(RezStrings.getWebhookFailed() + "\n" + RezStrings.getNoResponse());
                 break;
 
             case Communications.NETWORK_RESPONSE_OUT_OF_MEMORY:
-                if (Globals.scDebug) {
-                    System.println("WebhookManager onReturnRegisterWebhookSensor() Response Code: NETWORK_RESPONSE_OUT_OF_MEMORY, are we going too fast?");
-                }
+                // System.println("WebhookManager onReturnRegisterWebhookSensor() Response Code: NETWORK_RESPONSE_OUT_OF_MEMORY, are we going too fast?");
                 Settings.unsetWebhookId();
                 // Ignore and see if we can carry on
                 break;
             case Communications.INVALID_HTTP_BODY_IN_NETWORK_RESPONSE:
-                if (Globals.scDebug) {
-                    System.println("WebhookManager onReturnRegisterWebhookSensor() Response Code: INVALID_HTTP_BODY_IN_NETWORK_RESPONSE, check JSON is returned.");
-                }
+                // System.println("WebhookManager onReturnRegisterWebhookSensor() Response Code: INVALID_HTTP_BODY_IN_NETWORK_RESPONSE, check JSON is returned.");
                 Settings.unsetWebhookId();
                 Settings.unsetIsBatteryLevelEnabled();
                 ErrorView.show(RezStrings.getWebhookFailed() + "\n" + RezStrings.getNoJson());
                 break;
 
             case 404:
-                if (Globals.scDebug) {
-                    System.println("WebhookManager onReturnRequestWebhookId() Response Code: 404, page not found. Check API URL setting.");
-                }
+                // System.println("WebhookManager onReturnRequestWebhookId() Response Code: 404, page not found. Check API URL setting.");
                 Settings.unsetWebhookId();
                 Settings.unsetIsBatteryLevelEnabled();
                 ErrorView.show(RezStrings.getWebhookFailed() + "\n" + RezStrings.getApiUrlNotFound());
                 break;
 
             case 201:
-                if ((data.get("success") as Lang.Boolean or Null) == true) {
-                    if (Globals.scDebug) {
-                        System.println("WebhookManager onReturnRegisterWebhookSensor(): Success");
-                    }
-                } else {
-                    if (Globals.scDebug) {
-                        System.println("WebhookManager onReturnRegisterWebhookSensor(): Failure");
-                    }
+                if ((data.get("success") as Lang.Boolean or Null) != true) {
+                // When uncommenting, invert the condition above.
+                //     System.println("WebhookManager onReturnRegisterWebhookSensor(): Success");
+                // } else {
+                //     System.println("WebhookManager onReturnRegisterWebhookSensor(): Failure");
                     Settings.unsetWebhookId();
                     Settings.unsetIsBatteryLevelEnabled();
                     ErrorView.show(RezStrings.getWebhookFailed());
@@ -215,9 +182,7 @@ class WebhookManager {
                 break;
 
             default:
-                if (Globals.scDebug) {
-                    System.println("WebhookManager onReturnRequestWebhookId(): Unhandled HTTP response code = " + responseCode);
-                }
+                // System.println("WebhookManager onReturnRequestWebhookId(): Unhandled HTTP response code = " + responseCode);
                 Settings.unsetWebhookId();
                 Settings.unsetIsBatteryLevelEnabled();
                 ErrorView.show(RezStrings.getWebhookFailed() + "\n" + RezStrings.getUnhandledHttpErr() + responseCode);
@@ -225,9 +190,7 @@ class WebhookManager {
     }
 
     function registerWebhookSensor(sensor as Lang.Object) {
-        if (Globals.scDebug) {
-            System.println("WebhookManager registerWebhookSensor(): Registering webhook sensor: " + sensor.toString());
-        }
+        // System.println("WebhookManager registerWebhookSensor(): Registering webhook sensor: " + sensor.toString());
         Communications.makeWebRequest(
             Settings.getApiUrl() + "/webhook/" + Settings.getWebhookId(),
             {

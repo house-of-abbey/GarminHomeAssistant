@@ -26,50 +26,42 @@ using Toybox.WatchUi;
 class RezStrings {
 
     (:glance)
-    private static var strAppName           as Lang.String     or Null;
-    private static var strConfirm           as Lang.String     or Null;
-    private static var strExecuted          as Lang.String     or Null;
+    private static var strAppName           as Lang.String or Null;
+    private static var strConfirm           as Lang.String or Null;
+    private static var strExecuted          as Lang.String or Null;
+    private static var strNoPhone           as Lang.String or Null;
+    private static var strNoInternet        as Lang.String or Null;
+    private static var strNoResponse        as Lang.String or Null;
+    private static var strNoApiKey          as Lang.String or Null;
+    private static var strNoApiUrl          as Lang.String or Null;
+    private static var strNoConfigUrl       as Lang.String or Null;
+    private static var strApiFlood          as Lang.String or Null;
+    private static var strApiUrlNotFound    as Lang.String or Null;
+    private static var strConfigUrlNotFound as Lang.String or Null;
+    private static var strNoJson            as Lang.String or Null;
+    private static var strUnhandledHttpErr  as Lang.String or Null;
+    private static var strTrailingSlashErr  as Lang.String or Null;
+    private static var strWebhookFailed     as Lang.String or Null;
+    private static var strTemplateError     as Lang.String or Null;
     (:glance)
-    private static var strNoPhone           as Lang.String     or Null;
-    private static var strNoInternet        as Lang.String     or Null;
-    private static var strNoResponse        as Lang.String     or Null;
+    private static var strAvailable         as Lang.String or Null;
     (:glance)
-    private static var strNoApiKey          as Lang.String     or Null;
+    private static var strChecking          as Lang.String or Null;
     (:glance)
-    private static var strNoApiUrl          as Lang.String     or Null;
+    private static var strUnavailable       as Lang.String or Null;
     (:glance)
-    private static var strNoConfigUrl       as Lang.String     or Null;
-    private static var strApiFlood          as Lang.String     or Null;
-    private static var strApiUrlNotFound    as Lang.String     or Null;
-    private static var strConfigUrlNotFound as Lang.String     or Null;
-    private static var strNoJson            as Lang.String     or Null;
-    private static var strUnhandledHttpErr  as Lang.String     or Null;
-    private static var strTrailingSlashErr  as Lang.String     or Null;
-    private static var strWebhookFailed     as Lang.String     or Null;
-    private static var strTemplateError     as Lang.String     or Null;
+    private static var strUnconfigured      as Lang.String or Null;
     (:glance)
-    private static var strAvailable         as Lang.String     or Null;
+    private static var strCached            as Lang.String or Null;
     (:glance)
-    private static var strChecking          as Lang.String     or Null;
-    (:glance)
-    private static var strUnavailable       as Lang.String     or Null;
-    (:glance)
-    private static var strUnconfigured      as Lang.String     or Null;
-    (:glance)
-    private static var strCached            as Lang.String     or Null;
-    (:glance)
-    private static var strGlanceMenu        as Lang.String     or Null;
-    private static var strMemory            as Lang.String     or Null;
+    private static var strGlanceMenu        as Lang.String or Null;
+    private static var strMemory            as Lang.String or Null;
 
     // Can't initialise a constant directly, have to be initialised via a function
     // for 'WatchUi.loadResource' to be available.
     (:glance)
     static function update_glance() {
         strAppName      = WatchUi.loadResource($.Rez.Strings.AppName);
-        strNoPhone      = WatchUi.loadResource($.Rez.Strings.NoPhone);
-        strNoApiKey     = WatchUi.loadResource($.Rez.Strings.NoAPIKey);
-        strNoApiUrl     = WatchUi.loadResource($.Rez.Strings.NoApiUrl);
-        strNoConfigUrl  = WatchUi.loadResource($.Rez.Strings.NoConfigUrl);
         strAvailable    = WatchUi.loadResource($.Rez.Strings.Available);
         strChecking     = WatchUi.loadResource($.Rez.Strings.Checking);
         strUnavailable  = WatchUi.loadResource($.Rez.Strings.Unavailable);
@@ -81,7 +73,7 @@ class RezStrings {
     // Can't initialise a constant directly, have to be initialised via a function
     // for 'WatchUi.loadResource' to be available.
     static function update() {
-        strAppName           = WatchUi.loadResource($.Rez.Strings.AppName);
+        update_glance();
         strConfirm           = WatchUi.loadResource($.Rez.Strings.Confirm);
         strExecuted          = WatchUi.loadResource($.Rez.Strings.Executed);
         strNoPhone           = WatchUi.loadResource($.Rez.Strings.NoPhone);
@@ -98,15 +90,10 @@ class RezStrings {
         strTrailingSlashErr  = WatchUi.loadResource($.Rez.Strings.TrailingSlashErr);
         strWebhookFailed     = WatchUi.loadResource($.Rez.Strings.WebhookFailed);
         strTemplateError     = WatchUi.loadResource($.Rez.Strings.TemplateError);
-        strAvailable         = WatchUi.loadResource($.Rez.Strings.Available);
-        strChecking          = WatchUi.loadResource($.Rez.Strings.Checking);
-        strUnavailable       = WatchUi.loadResource($.Rez.Strings.Unavailable);
-        strUnconfigured      = WatchUi.loadResource($.Rez.Strings.Unconfigured);
-        strCached            = WatchUi.loadResource($.Rez.Strings.Cached);
-        strGlanceMenu        = WatchUi.loadResource($.Rez.Strings.GlanceMenu);
         strMemory            = WatchUi.loadResource($.Rez.Strings.Memory);
     }
 
+    (:glance)
     static function getAppName() as Lang.String {
         return strAppName;
     }
@@ -175,26 +162,32 @@ class RezStrings {
         return strTemplateError;
     }
 
+    (:glance)
     static function getAvailable() as Lang.String {
         return strAvailable;
     }
 
+    (:glance)
     static function getChecking() as Lang.String {
         return strChecking;
     }
 
+    (:glance)
     static function getUnavailable() as Lang.String {
         return strUnavailable;
     }
 
+    (:glance)
     static function getUnconfigured() as Lang.String {
         return strUnconfigured;
     }
 
+    (:glance)
     static function getCached() as Lang.String {
         return strCached;
     }
 
+    (:glance)
     static function getGlanceMenu() as Lang.String {
         return strGlanceMenu;
     }

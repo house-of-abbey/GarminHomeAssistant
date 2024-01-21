@@ -30,9 +30,7 @@ class QuitTimer extends Timer.Timer {
     }
 
     function exitApp() as Void {
-        if (Globals.scDebug) {
-            System.println("QuitTimer exitApp(): Exiting");
-        }
+        // System.println("QuitTimer exitApp(): Exiting");
          // This will exit the system cleanly from any point within an app.
         System.exit();
     }
@@ -45,9 +43,7 @@ class QuitTimer extends Timer.Timer {
     }
 
     function reset() {
-        if (Globals.scDebug) {
-            System.println("QuitTimer reset(): Restarted quit timer");
-        }
+        // System.println("QuitTimer reset(): Restarted quit timer");
         stop();
         begin();
     }
