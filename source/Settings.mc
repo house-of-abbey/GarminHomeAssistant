@@ -42,7 +42,6 @@ class Settings {
     private static var mBatteryRefreshRate    as Lang.Number  = 15; // minutes
     private static var mIsApp                 as Lang.Boolean = false;
     private static var mHasService            as Lang.Boolean = false;
-
     // Must keep the object so it doesn't get garbage collected.
     private static var mWebhookManager        as WebhookManager or Null;
 
