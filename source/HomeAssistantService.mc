@@ -51,17 +51,17 @@ class HomeAssistantService {
             case Communications.BLE_HOST_TIMEOUT:
             case Communications.BLE_CONNECTION_UNAVAILABLE:
                 // System.println("HomeAssistantService onReturnCall() Response Code: BLE_HOST_TIMEOUT or BLE_CONNECTION_UNAVAILABLE, Bluetooth connection severed.");
-                ErrorView.show(RezStrings.getNoPhone() + ".");
+                ErrorView.show(WatchUi.loadResource($.Rez.Strings.NoPhone) + ".");
                 break;
 
             case Communications.BLE_QUEUE_FULL:
                 // System.println("HomeAssistantService onReturnCall() Response Code: BLE_QUEUE_FULL, API calls too rapid.");
-                ErrorView.show(RezStrings.getApiFlood());
+                ErrorView.show(WatchUi.loadResource($.Rez.Strings.ApiFlood));
                 break;
 
             case Communications.NETWORK_REQUEST_TIMED_OUT:
                 // System.println("HomeAssistantService onReturnCall() Response Code: NETWORK_REQUEST_TIMED_OUT, check Internet connection.");
-                ErrorView.show(RezStrings.getNoResponse());
+                ErrorView.show(WatchUi.loadResource($.Rez.Strings.NoResponse));
                 break;
 
             case Communications.NETWORK_RESPONSE_OUT_OF_MEMORY:
@@ -70,18 +70,18 @@ class HomeAssistantService {
                 break;
             case Communications.INVALID_HTTP_BODY_IN_NETWORK_RESPONSE:
                 // System.println("HomeAssistantService onReturnCall() Response Code: INVALID_HTTP_BODY_IN_NETWORK_RESPONSE, check JSON is returned.");
-                ErrorView.show(RezStrings.getNoJson());
+                ErrorView.show(WatchUi.loadResource($.Rez.Strings.NoJson));
                 break;
 
             case 404:
                 // System.println("HomeAssistantService onReturnCall() Response Code: 404, page not found. Check API URL setting.");
-                ErrorView.show(RezStrings.getApiUrlNotFound());
+                ErrorView.show(WatchUi.loadResource($.Rez.Strings.ApiUrlNotFound));
                 break;
 
             case 200:
                 // System.println("HomeAssistantService onReturnCall(): Service executed.");
                 var d     = data as Lang.Array;
-                var toast = RezStrings.getExecuted();
+                var toast = WatchUi.loadResource($.Rez.Strings.Executed) as Lang.String;
                 for(var i = 0; i < d.size(); i++) {
                     if ((d[i].get("entity_id") as Lang.String).equals(entity_id)) {
                         toast = (d[i].get("attributes") as Lang.Dictionary).get("friendly_name") as Lang.String;
@@ -102,7 +102,7 @@ class HomeAssistantService {
 
             default:
                 // System.println("HomeAssistantService onReturnCall(): Unhandled HTTP response code = " + responseCode);
-                ErrorView.show(RezStrings.getUnhandledHttpErr() + responseCode);
+                ErrorView.show(WatchUi.loadResource($.Rez.Strings.UnhandledHttpErr) + responseCode);
         }
     }
 
@@ -112,10 +112,10 @@ class HomeAssistantService {
     ) as Void {
         if (! System.getDeviceSettings().phoneConnected) {
             // System.println("HomeAssistantService call(): No Phone connection, skipping API call.");
-            ErrorView.show(RezStrings.getNoPhone() + ".");
+            ErrorView.show(WatchUi.loadResource($.Rez.Strings.NoPhone) + ".");
         } else if (! System.getDeviceSettings().connectionAvailable) {
             // System.println("HomeAssistantService call(): No Internet connection, skipping API call.");
-            ErrorView.show(RezStrings.getNoInternet() + ".");
+            ErrorView.show(WatchUi.loadResource($.Rez.Strings.NoInternet) + ".");
         } else {
             // Can't use null for substring() parameters due to API version level.
             var url = Settings.getApiUrl() + "/services/" + service.substring(0, service.find(".")) + "/" + service.substring(service.find(".")+1, service.length());

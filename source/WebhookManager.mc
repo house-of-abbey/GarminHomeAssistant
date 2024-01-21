@@ -33,17 +33,17 @@ class WebhookManager {
             case Communications.BLE_HOST_TIMEOUT:
             case Communications.BLE_CONNECTION_UNAVAILABLE:
                 // System.println("WebhookManager onReturnRequestWebhookId() Response Code: BLE_HOST_TIMEOUT or BLE_CONNECTION_UNAVAILABLE, Bluetooth connection severed.");
-                ErrorView.show(RezStrings.getWebhookFailed() + "\n" + RezStrings.getNoPhone() + ".");
+                ErrorView.show(WatchUi.loadResource($.Rez.Strings.WebhookFailed) + "\n" + WatchUi.loadResource($.Rez.Strings.NoPhone) + ".");
                 break;
 
             case Communications.BLE_QUEUE_FULL:
                 // System.println("WebhookManager onReturnRequestWebhookId() Response Code: BLE_QUEUE_FULL, API calls too rapid.");
-                ErrorView.show(RezStrings.getWebhookFailed() + "\n" + RezStrings.getApiFlood());
+                ErrorView.show(WatchUi.loadResource($.Rez.Strings.WebhookFailed) + "\n" + WatchUi.loadResource($.Rez.Strings.ApiFlood));
                 break;
 
             case Communications.NETWORK_REQUEST_TIMED_OUT:
                 // System.println("WebhookManager onReturnRequestWebhookId() Response Code: NETWORK_REQUEST_TIMED_OUT, check Internet connection.");
-                ErrorView.show(RezStrings.getWebhookFailed() + "\n" + RezStrings.getNoResponse());
+                ErrorView.show(WatchUi.loadResource($.Rez.Strings.WebhookFailed) + "\n" + WatchUi.loadResource($.Rez.Strings.NoResponse));
                 break;
 
             case Communications.NETWORK_RESPONSE_OUT_OF_MEMORY:
@@ -53,13 +53,13 @@ class WebhookManager {
             case Communications.INVALID_HTTP_BODY_IN_NETWORK_RESPONSE:
                 // System.println("WebhookManager onReturnRequestWebhookId() Response Code: INVALID_HTTP_BODY_IN_NETWORK_RESPONSE, check JSON is returned.");
                 Settings.unsetIsBatteryLevelEnabled();
-                ErrorView.show(RezStrings.getWebhookFailed() + "\n" + RezStrings.getNoJson());
+                ErrorView.show(WatchUi.loadResource($.Rez.Strings.WebhookFailed) + "\n" + WatchUi.loadResource($.Rez.Strings.NoJson));
                 break;
 
             case 404:
                 // System.println("WebhookManager onReturnRequestWebhookId() Response Code: 404, page not found. Check API URL setting.");
                 Settings.unsetIsBatteryLevelEnabled();
-                ErrorView.show(RezStrings.getWebhookFailed() + "\n" + RezStrings.getApiUrlNotFound());
+                ErrorView.show(WatchUi.loadResource($.Rez.Strings.WebhookFailed) + "\n" + WatchUi.loadResource($.Rez.Strings.ApiUrlNotFound));
                 break;
 
             case 201:
@@ -89,14 +89,14 @@ class WebhookManager {
                 } else {
                     // System.println("WebhookManager onReturnRequestWebhookId(): No webhook id in response data.");
                     Settings.unsetIsBatteryLevelEnabled();
-                    ErrorView.show(RezStrings.getWebhookFailed());
+                    ErrorView.show(WatchUi.loadResource($.Rez.Strings.WebhookFailed));
                 }
                 break;
 
             default:
                 // System.println("WebhookManager onReturnRequestWebhookId(): Unhandled HTTP response code = " + responseCode);
                 Settings.unsetIsBatteryLevelEnabled();
-                ErrorView.show(RezStrings.getWebhookFailed() + "\n" + RezStrings.getUnhandledHttpErr() + responseCode);
+                ErrorView.show(WatchUi.loadResource($.Rez.Strings.WebhookFailed) + "\n" + WatchUi.loadResource($.Rez.Strings.UnhandledHttpErr) + responseCode);
         }
     }
 
@@ -107,7 +107,7 @@ class WebhookManager {
             {
                 "device_id"           => System.getDeviceSettings().uniqueIdentifier,
                 "app_id"              => "garmin_home_assistant",
-                "app_name"            => RezStrings.getAppName(),
+                "app_name"            => WatchUi.loadResource($.Rez.Strings.AppName),
                 "app_version"         => "",
                 "device_name"         => "Garmin Watch",
                 "manufacturer"        => "Garmin",
@@ -135,19 +135,19 @@ class WebhookManager {
             case Communications.BLE_CONNECTION_UNAVAILABLE:
                 // System.println("WebhookManager onReturnRegisterWebhookSensor() Response Code: BLE_HOST_TIMEOUT or BLE_CONNECTION_UNAVAILABLE, Bluetooth connection severed.");
                 Settings.unsetWebhookId();
-                ErrorView.show(RezStrings.getWebhookFailed() + "\n" + RezStrings.getNoPhone() + ".");
+                ErrorView.show(WatchUi.loadResource($.Rez.Strings.WebhookFailed) + "\n" + WatchUi.loadResource($.Rez.Strings.NoPhone) + ".");
                 break;
 
             case Communications.BLE_QUEUE_FULL:
                 // System.println("WebhookManager onReturnRegisterWebhookSensor() Response Code: BLE_QUEUE_FULL, API calls too rapid.");
                 Settings.unsetWebhookId();
-                ErrorView.show(RezStrings.getWebhookFailed() + "\n" + RezStrings.getApiFlood());
+                ErrorView.show(WatchUi.loadResource($.Rez.Strings.WebhookFailed) + "\n" + WatchUi.loadResource($.Rez.Strings.ApiFlood));
                 break;
 
             case Communications.NETWORK_REQUEST_TIMED_OUT:
                 // System.println("WebhookManager onReturnRegisterWebhookSensor() Response Code: NETWORK_REQUEST_TIMED_OUT, check Internet connection.");
                 Settings.unsetWebhookId();
-                ErrorView.show(RezStrings.getWebhookFailed() + "\n" + RezStrings.getNoResponse());
+                ErrorView.show(WatchUi.loadResource($.Rez.Strings.WebhookFailed) + "\n" + WatchUi.loadResource($.Rez.Strings.NoResponse));
                 break;
 
             case Communications.NETWORK_RESPONSE_OUT_OF_MEMORY:
@@ -159,14 +159,14 @@ class WebhookManager {
                 // System.println("WebhookManager onReturnRegisterWebhookSensor() Response Code: INVALID_HTTP_BODY_IN_NETWORK_RESPONSE, check JSON is returned.");
                 Settings.unsetWebhookId();
                 Settings.unsetIsBatteryLevelEnabled();
-                ErrorView.show(RezStrings.getWebhookFailed() + "\n" + RezStrings.getNoJson());
+                ErrorView.show(WatchUi.loadResource($.Rez.Strings.WebhookFailed) + "\n" + WatchUi.loadResource($.Rez.Strings.NoJson));
                 break;
 
             case 404:
                 // System.println("WebhookManager onReturnRequestWebhookId() Response Code: 404, page not found. Check API URL setting.");
                 Settings.unsetWebhookId();
                 Settings.unsetIsBatteryLevelEnabled();
-                ErrorView.show(RezStrings.getWebhookFailed() + "\n" + RezStrings.getApiUrlNotFound());
+                ErrorView.show(WatchUi.loadResource($.Rez.Strings.WebhookFailed) + "\n" + WatchUi.loadResource($.Rez.Strings.ApiUrlNotFound));
                 break;
 
             case 201:
@@ -177,7 +177,7 @@ class WebhookManager {
                 //     System.println("WebhookManager onReturnRegisterWebhookSensor(): Failure");
                     Settings.unsetWebhookId();
                     Settings.unsetIsBatteryLevelEnabled();
-                    ErrorView.show(RezStrings.getWebhookFailed());
+                    ErrorView.show(WatchUi.loadResource($.Rez.Strings.WebhookFailed));
                 }
                 break;
 
@@ -185,7 +185,7 @@ class WebhookManager {
                 // System.println("WebhookManager onReturnRequestWebhookId(): Unhandled HTTP response code = " + responseCode);
                 Settings.unsetWebhookId();
                 Settings.unsetIsBatteryLevelEnabled();
-                ErrorView.show(RezStrings.getWebhookFailed() + "\n" + RezStrings.getUnhandledHttpErr() + responseCode);
+                ErrorView.show(WatchUi.loadResource($.Rez.Strings.WebhookFailed) + "\n" + WatchUi.loadResource($.Rez.Strings.UnhandledHttpErr) + responseCode);
         }
     }
 

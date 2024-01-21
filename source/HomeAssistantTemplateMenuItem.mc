@@ -87,27 +87,27 @@ class HomeAssistantTemplateMenuItem extends WatchUi.IconMenuItem {
         // System.println("HomeAssistantTemplateMenuItem onReturnGetState() Response Code: " + responseCode);
         // System.println("HomeAssistantTemplateMenuItem onReturnGetState() Response Data: " + data);
 
-        var status = RezStrings.getUnavailable();
+        var status = WatchUi.loadResource($.Rez.Strings.Unavailable) as Lang.String;
         switch (responseCode) {
             case Communications.BLE_HOST_TIMEOUT:
             case Communications.BLE_CONNECTION_UNAVAILABLE:
                 // System.println("HomeAssistantTemplateMenuItem onReturnGetState() Response Code: BLE_HOST_TIMEOUT or BLE_CONNECTION_UNAVAILABLE, Bluetooth connection severed.");
-                ErrorView.show(RezStrings.getNoPhone() + ".");
+                ErrorView.show(WatchUi.loadResource($.Rez.Strings.NoPhone) + ".");
                 break;
 
             case Communications.BLE_QUEUE_FULL:
                 // System.println("HomeAssistantTemplateMenuItem onReturnGetState() Response Code: BLE_QUEUE_FULL, API calls too rapid.");
-                ErrorView.show(RezStrings.getApiFlood());
+                ErrorView.show(WatchUi.loadResource($.Rez.Strings.ApiFlood));
                 break;
 
             case Communications.NETWORK_REQUEST_TIMED_OUT:
                 // System.println("HomeAssistantTemplateMenuItem onReturnGetState() Response Code: NETWORK_REQUEST_TIMED_OUT, check Internet connection.");
-                ErrorView.show(RezStrings.getNoResponse());
+                ErrorView.show(WatchUi.loadResource($.Rez.Strings.NoResponse));
                 break;
 
             case Communications.INVALID_HTTP_BODY_IN_NETWORK_RESPONSE:
                 // System.println("HomeAssistantTemplateMenuItem onReturnGetState() Response Code: INVALID_HTTP_BODY_IN_NETWORK_RESPONSE, check JSON is returned.");
-                ErrorView.show(RezStrings.getNoJson());
+                ErrorView.show(WatchUi.loadResource($.Rez.Strings.NoJson));
                 break;
 
             case Communications.NETWORK_RESPONSE_OUT_OF_MEMORY:
@@ -121,16 +121,16 @@ class HomeAssistantTemplateMenuItem extends WatchUi.IconMenuItem {
 
             case 404:
                 // System.println("HomeAssistantTemplateMenuItem onReturnGetState() Response Code: 404, page not found. Check API URL setting.");
-                ErrorView.show(RezStrings.getApiUrlNotFound());
+                ErrorView.show(WatchUi.loadResource($.Rez.Strings.ApiUrlNotFound));
                 break;
 
             case 400:
                 // System.println("HomeAssistantTemplateMenuItem onReturnGetState() Response Code: 400, bad request. Template error.");
-                ErrorView.show(RezStrings.getTemplateError());
+                ErrorView.show(WatchUi.loadResource($.Rez.Strings.TemplateError));
                 break;
 
             case 200:
-                status = RezStrings.getAvailable();
+                status = WatchUi.loadResource($.Rez.Strings.Available) as Lang.String;
                 setSubLabel(data);
                 requestUpdate();
                 // Now this feels very "closely coupled" to the application, but it is the most reliable method instead of using a timer.
@@ -139,7 +139,7 @@ class HomeAssistantTemplateMenuItem extends WatchUi.IconMenuItem {
 
             default:
                 // System.println("HomeAssistantTemplateMenuItem onReturnGetState(): Unhandled HTTP response code = " + responseCode);
-                ErrorView.show(RezStrings.getUnhandledHttpErr() + responseCode);
+                ErrorView.show(WatchUi.loadResource($.Rez.Strings.UnhandledHttpErr) + responseCode);
         }
         getApp().setApiStatus(status);
     }
@@ -147,12 +147,12 @@ class HomeAssistantTemplateMenuItem extends WatchUi.IconMenuItem {
     function getState() as Void {
         if (! System.getDeviceSettings().phoneConnected) {
             // System.println("HomeAssistantTemplateMenuItem getState(): No Phone connection, skipping API call.");
-            ErrorView.show(RezStrings.getNoPhone() + ".");
-            getApp().setApiStatus(RezStrings.getUnavailable());
+            ErrorView.show(WatchUi.loadResource($.Rez.Strings.NoPhone) + ".");
+            getApp().setApiStatus(WatchUi.loadResource($.Rez.Strings.Unavailable));
         } else if (! System.getDeviceSettings().connectionAvailable) {
             // System.println("HomeAssistantTemplateMenuItem getState(): No Internet connection, skipping API call.");
-            ErrorView.show(RezStrings.getNoInternet() + ".");
-            getApp().setApiStatus(RezStrings.getUnavailable());
+            ErrorView.show(WatchUi.loadResource($.Rez.Strings.NoInternet) + ".");
+            getApp().setApiStatus(WatchUi.loadResource($.Rez.Strings.Unavailable));
         } else {
             var url = Settings.getApiUrl() + "/template";
             // System.println("HomeAssistantTemplateMenuItem getState() URL=" + url + ", Template='" + mTemplate + "'");

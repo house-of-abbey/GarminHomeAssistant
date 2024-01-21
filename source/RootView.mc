@@ -61,7 +61,7 @@ class RootView extends ScalableView {
         var w = dc.getWidth();
 
         mTitle = new WatchUi.Text({
-            :text          => RezStrings.getAppName(),
+            :text          => WatchUi.loadResource($.Rez.Strings.AppName),
             :color         => Graphics.COLOR_WHITE,
             :font          => Graphics.FONT_TINY,
             :justification => Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER,
@@ -78,7 +78,7 @@ class RootView extends ScalableView {
             :locY          => pixelsForScreen(50.0)
         });
         mApiStatus = new WatchUi.Text({
-            :text          => RezStrings.getChecking(),
+            :text          => WatchUi.loadResource($.Rez.Strings.Checking),
             :color         => Graphics.COLOR_WHITE,
             :font          => Graphics.FONT_XTINY,
             :justification => Graphics.TEXT_JUSTIFY_LEFT | Graphics.TEXT_JUSTIFY_VCENTER,
@@ -86,7 +86,7 @@ class RootView extends ScalableView {
             :locY          => pixelsForScreen(50.0)
         });
         mMenuText = new WatchUi.Text({
-            :text          => RezStrings.getGlanceMenu() + ":",
+            :text          => WatchUi.loadResource($.Rez.Strings.GlanceMenu) + ":",
             :color         => Graphics.COLOR_WHITE,
             :font          => Graphics.FONT_XTINY,
             :justification => Graphics.TEXT_JUSTIFY_RIGHT | Graphics.TEXT_JUSTIFY_VCENTER,
@@ -94,7 +94,7 @@ class RootView extends ScalableView {
             :locY          => pixelsForScreen(60.0)
         });
         mMenuStatus = new WatchUi.Text({
-            :text          => RezStrings.getChecking(),
+            :text          => WatchUi.loadResource($.Rez.Strings.Checking),
             :color         => Graphics.COLOR_WHITE,
             :font          => Graphics.FONT_XTINY,
             :justification => Graphics.TEXT_JUSTIFY_LEFT | Graphics.TEXT_JUSTIFY_VCENTER,
@@ -102,7 +102,7 @@ class RootView extends ScalableView {
             :locY          => pixelsForScreen(60.0)
         });
         mMemText = new WatchUi.Text({
-            :text          => RezStrings.getMemory() + ":",
+            :text          => WatchUi.loadResource($.Rez.Strings.Memory) + ":",
             :color         => Graphics.COLOR_WHITE,
             :font          => Graphics.FONT_XTINY,
             :justification => Graphics.TEXT_JUSTIFY_RIGHT | Graphics.TEXT_JUSTIFY_VCENTER,
@@ -110,7 +110,7 @@ class RootView extends ScalableView {
             :locY          => pixelsForScreen(70.0)
         });
         mMemStatus = new WatchUi.Text({
-            :text          => RezStrings.getChecking(),
+            :text          => WatchUi.loadResource($.Rez.Strings.Checking),
             :color         => Graphics.COLOR_WHITE,
             :font          => Graphics.FONT_XTINY,
             :justification => Graphics.TEXT_JUSTIFY_LEFT | Graphics.TEXT_JUSTIFY_VCENTER,
