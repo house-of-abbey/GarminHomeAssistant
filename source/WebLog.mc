@@ -20,7 +20,7 @@
 // larger submissions in order to prevent overflow of the blue tooth stack.
 //
 //-----------------------------------------------------------------------------------
-// 
+//
 // Usage:
 //   wl = new WebLog();
 //   wl.clear();
@@ -28,7 +28,7 @@
 //   wl.flush();
 //
 // https://domain.name/path/log.php
-// 
+//
 // <?php
 //   $myfile = fopen("log", "a");
 //   $queries = array();
@@ -36,11 +36,11 @@
 //   fwrite($myfile, $queries['log']);
 //   print "Success";
 // ?>
-// 
+//
 // Logs published to: https://domain.name/path/log
 //
 // https://domain.name/path/log_clear.php
-// 
+//
 // <?php
 //   $myfile = fopen("log", "w");
 //   fwrite($myfile, "");
