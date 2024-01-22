@@ -50,13 +50,13 @@ class BackgroundServiceDelegate extends System.ServiceDelegate {
                     "type" => "update_sensor_states",
                     "data" => [
                         {
-                            "state" => System.getSystemStats().battery,
-                            "type" => "sensor",
+                            "state"     => System.getSystemStats().battery,
+                            "type"      => "sensor",
                             "unique_id" => "battery_level"
                         },
                         {
-                            "state" => System.getSystemStats().charging,
-                            "type" => "binary_sensor",
+                            "state"     => System.getSystemStats().charging,
+                            "type"      => "binary_sensor",
                             "unique_id" => "battery_is_charging"
                         }
                     ]
@@ -64,7 +64,7 @@ class BackgroundServiceDelegate extends System.ServiceDelegate {
                 {
                     :method       => Communications.HTTP_REQUEST_METHOD_POST,
                     :headers      => {
-                        "Content-Type"  => Communications.REQUEST_CONTENT_TYPE_JSON
+                        "Content-Type" => Communications.REQUEST_CONTENT_TYPE_JSON
                     },
                     :responseType => Communications.HTTP_RESPONSE_CONTENT_TYPE_JSON
                 },

@@ -108,9 +108,7 @@ class WebLog {
         // System.println(buffer);
         Communications.makeWebRequest(
             ClientId.webLogUrl,
-            {
-                "log" => buffer
-            },
+            { "log" => buffer },
             {
                 :method  => Communications.HTTP_REQUEST_METHOD_GET,
                 :headers => {
