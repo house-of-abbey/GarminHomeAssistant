@@ -34,11 +34,8 @@ class HomeAssistantView extends WatchUi.Menu2 {
             :theme as WatchUi.MenuTheme or Null
         } or Null
     ) {
-
         if (options == null) {
-            options = {
-                :title => definition.get("title") as Lang.String
-            };
+            options = { :title => definition.get("title") as Lang.String };
         } else {
             options.put(:title, definition.get("title") as Lang.String);
         }
@@ -146,32 +143,22 @@ class HomeAssistantViewDelegate extends WatchUi.Menu2InputDelegate {
         mTimer.reset();
         if (item instanceof HomeAssistantToggleMenuItem) {
             var haToggleItem = item as HomeAssistantToggleMenuItem;
-            if (Globals.scDebug) {
-                System.println(haToggleItem.getLabel() + " " + haToggleItem.getId() + " " + haToggleItem.isEnabled());
-            }
+            // System.println(haToggleItem.getLabel() + " " + haToggleItem.getId() + " " + haToggleItem.isEnabled());
             haToggleItem.callService(haToggleItem.isEnabled());
         } else if (item instanceof HomeAssistantTapMenuItem) {
             var haItem = item as HomeAssistantTapMenuItem;
-            if (Globals.scDebug) {
-                System.println(haItem.getLabel() + " " + haItem.getId());
-            }
+            // System.println(haItem.getLabel() + " " + haItem.getId());
             haItem.callService();
         } else if (item instanceof HomeAssistantTemplateMenuItem) {
             var haItem = item as HomeAssistantTemplateMenuItem;
-            if (Globals.scDebug) {
-                System.println(haItem.getLabel() + " " + haItem.getId());
-            }
+            // System.println(haItem.getLabel() + " " + haItem.getId());
             haItem.callService();
         } else if (item instanceof HomeAssistantGroupMenuItem) {
             var haMenuItem = item as HomeAssistantGroupMenuItem;
-            if (Globals.scDebug) {
-                System.println("IconMenu: " + haMenuItem.getLabel() + " " + haMenuItem.getId());
-            }
+            // System.println("IconMenu: " + haMenuItem.getLabel() + " " + haMenuItem.getId());
             WatchUi.pushView(haMenuItem.getMenuView(), new HomeAssistantViewDelegate(false), WatchUi.SLIDE_LEFT);
-        } else {
-            if (Globals.scDebug) {
-                System.println(item.getLabel() + " " + item.getId());
-            }
+        // } else {
+        //     System.println(item.getLabel() + " " + item.getId());
         }
     }
 

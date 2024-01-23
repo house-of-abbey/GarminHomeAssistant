@@ -22,9 +22,6 @@ using Toybox.Lang;
 
 (:glance)
 class Globals {
-    // Enable printing of messages to the debug console (don't make this a Property
-    // as the messages can't be read from a watch!)
-    static const scDebug        = false;
     static const scAlertTimeout = 2000; // ms
     static const scTapTimeout   = 1000; // ms
     // Time to let the existing HTTP responses get serviced after a
@@ -34,5 +31,5 @@ class Globals {
     // an ErrorView.
     static const scApiResume    = 200;  // ms
     // Warn the user after fetching the menu if their watch is low on memory before the device crashes.
-    static const scLowMem       = 0.95; // percent as a fraction.
+    static const scLowMem       = 0.90; // percent as a fraction.
 }

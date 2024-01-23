@@ -20,7 +20,7 @@
 // larger submissions in order to prevent overflow of the blue tooth stack.
 //
 //-----------------------------------------------------------------------------------
-// 
+//
 // Usage:
 //   wl = new WebLog();
 //   wl.clear();
@@ -28,7 +28,7 @@
 //   wl.flush();
 //
 // https://domain.name/path/log.php
-// 
+//
 // <?php
 //   $myfile = fopen("log", "a");
 //   $queries = array();
@@ -36,11 +36,11 @@
 //   fwrite($myfile, $queries['log']);
 //   print "Success";
 // ?>
-// 
+//
 // Logs published to: https://domain.name/path/log
 //
 // https://domain.name/path/log_clear.php
-// 
+//
 // <?php
 //   $myfile = fopen("log", "w");
 //   fwrite($myfile, "");
@@ -78,9 +78,7 @@ class WebLog {
         var myTime = System.getClockTime();
         buffer += myTime.hour.format("%02d") + ":" + myTime.min.format("%02d") + ":" + myTime.sec.format("%02d") + " " + str;
         numCalls++;
-        if (Globals.scDebug) {
-            System.println("WebLog print() str      = " + str);
-        }
+        // System.println("WebLog print() str      = " + str);
         if (numCalls >= callsbuffer) {
             doPrint();
         }
@@ -97,9 +95,7 @@ class WebLog {
     // submission level set by 'callsbuffer'.
     //
     function flush() {
-        if (Globals.scDebug) {
-            System.println("WebLog flush()");
-        }
+        // System.println("WebLog flush()");
         if (numCalls > 0) {
             doPrint();
         }
@@ -108,15 +104,11 @@ class WebLog {
     // Perform the submission to the online logger.
     //
     function doPrint() {
-        if (Globals.scDebug) {
-            System.println("WebLog doPrint()");
-            System.println(buffer);
-        }
+        // System.println("WebLog doPrint()");
+        // System.println(buffer);
         Communications.makeWebRequest(
             ClientId.webLogUrl,
-            {
-                "log" => buffer
-            },
+            { "log" => buffer },
             {
                 :method  => Communications.HTTP_REQUEST_METHOD_GET,
                 :headers => {
@@ -134,9 +126,7 @@ class WebLog {
     // execution.
     //
     function clear() {
-        if (Globals.scDebug) {
-            System.println("WebLog clear()");
-        }
+        // System.println("WebLog clear()");
         Communications.makeWebRequest(
             ClientId.webLogClearUrl,
             {},
@@ -156,24 +146,20 @@ class WebLog {
     // Callback function to print the outcome of a doPrint() method.
     //
     function onLog(responseCode as Lang.Number, data as Null or Lang.Dictionary or Lang.String) as Void {
-        if (Globals.scDebug) {
-            if (responseCode != 200) {
-                System.println("WebLog onLog() Failed");
-                System.println("WebLog onLog() Response Code: " + responseCode);
-                System.println("WebLog onLog() Response Data: " + data);
-            }
-        }
+        // if (responseCode != 200) {
+        //     System.println("WebLog onLog() Failed");
+        //     System.println("WebLog onLog() Response Code: " + responseCode);
+        //     System.println("WebLog onLog() Response Data: " + data);
+        // }
     }
 
     // Callback function to print the outcome of a clear() method.
     //
     function onClear(responseCode as Lang.Number, data as Null or Lang.Dictionary or Lang.String) as Void {
-        if (Globals.scDebug) {
-            if (responseCode != 200) {
-                System.println("WebLog onClear() Failed");
-                System.println("WebLog onClear() Response Code: " + responseCode);
-                System.println("WebLog onClear() Response Data: " + data);
-            }
-        }
+        // if (responseCode != 200) {
+        //     System.println("WebLog onClear() Failed");
+        //     System.println("WebLog onClear() Response Code: " + responseCode);
+        //     System.println("WebLog onClear() Response Data: " + data);
+        // }
     }
 }

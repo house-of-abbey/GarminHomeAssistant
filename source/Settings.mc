@@ -42,7 +42,6 @@ class Settings {
     private static var mBatteryRefreshRate    as Lang.Number  = 15; // minutes
     private static var mIsApp                 as Lang.Boolean = false;
     private static var mHasService            as Lang.Boolean = false;
-
     // Must keep the object so it doesn't get garbage collected.
     private static var mWebhookManager        as WebhookManager or Null;
 
@@ -75,7 +74,8 @@ class Settings {
                 } else if (
                     mHasService and
                     ((Background.getTemporalEventRegisteredTime() == null) or
-                    (Background.getTemporalEventRegisteredTime() != (mBatteryRefreshRate * 60)))) {
+                     (Background.getTemporalEventRegisteredTime() != (mBatteryRefreshRate * 60)))
+                ) {
                     Background.registerForTemporalEvent(new Time.Duration(mBatteryRefreshRate * 60)); // Convert to seconds
                 }
             } else {
@@ -86,14 +86,12 @@ class Settings {
                 unsetWebhookId();
             }
         }
-        if (Globals.scDebug) {
-            System.println("Settings update(): getTemporalEventRegisteredTime() = " + Background.getTemporalEventRegisteredTime());
-            if (Background.getTemporalEventRegisteredTime() != null) {
-                System.println("Settings update(): getTemporalEventRegisteredTime().value() = " + Background.getTemporalEventRegisteredTime().value().format("%d") + " seconds");
-            } else {
-                System.println("Settings update(): getTemporalEventRegisteredTime() = null");
-            }
-        }
+        // System.println("Settings update(): getTemporalEventRegisteredTime() = " + Background.getTemporalEventRegisteredTime());
+        // if (Background.getTemporalEventRegisteredTime() != null) {
+        //     System.println("Settings update(): getTemporalEventRegisteredTime().value() = " + Background.getTemporalEventRegisteredTime().value().format("%d") + " seconds");
+        // } else {
+        //     System.println("Settings update(): getTemporalEventRegisteredTime() = null");
+        // }
     }
 
     static function getApiKey() as Lang.String {

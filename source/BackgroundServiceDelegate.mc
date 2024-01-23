@@ -32,22 +32,16 @@ class BackgroundServiceDelegate extends System.ServiceDelegate {
     }
 
     function onReturnBatteryUpdate(responseCode as Lang.Number, data as Null or Lang.Dictionary or Lang.String) as Void {
-        if (Globals.scDebug) {
-            System.println("BackgroundServiceDelegate onReturnBatteryUpdate() Response Code: " + responseCode);
-            System.println("BackgroundServiceDelegate onReturnBatteryUpdate() Response Data: " + data);
-        }
+        // System.println("BackgroundServiceDelegate onReturnBatteryUpdate() Response Code: " + responseCode);
+        // System.println("BackgroundServiceDelegate onReturnBatteryUpdate() Response Data: " + data);
         Background.exit(null);
     }
 
     function onTemporalEvent() as Void {
         if (! System.getDeviceSettings().phoneConnected) {
-            if (Globals.scDebug) {
-                System.println("BackgroundServiceDelegate onTemporalEvent(): No Phone connection, skipping API call.");
-            }
+            // System.println("BackgroundServiceDelegate onTemporalEvent(): No Phone connection, skipping API call.");
         } else if (! System.getDeviceSettings().connectionAvailable) {
-            if (Globals.scDebug) {
-                System.println("BackgroundServiceDelegate onTemporalEvent(): No Internet connection, skipping API call.");
-            }
+            // System.println("BackgroundServiceDelegate onTemporalEvent(): No Internet connection, skipping API call.");
         } else {
             // Don't use Settings.* here as the object lasts < 30 secs and is recreated each time the background service is run
             Communications.makeWebRequest(
@@ -56,13 +50,13 @@ class BackgroundServiceDelegate extends System.ServiceDelegate {
                     "type" => "update_sensor_states",
                     "data" => [
                         {
-                            "state" => System.getSystemStats().battery,
-                            "type" => "sensor",
+                            "state"     => System.getSystemStats().battery,
+                            "type"      => "sensor",
                             "unique_id" => "battery_level"
                         },
                         {
-                            "state" => System.getSystemStats().charging,
-                            "type" => "binary_sensor",
+                            "state"     => System.getSystemStats().charging,
+                            "type"      => "binary_sensor",
                             "unique_id" => "battery_is_charging"
                         }
                     ]
@@ -70,7 +64,7 @@ class BackgroundServiceDelegate extends System.ServiceDelegate {
                 {
                     :method       => Communications.HTTP_REQUEST_METHOD_POST,
                     :headers      => {
-                        "Content-Type"  => Communications.REQUEST_CONTENT_TYPE_JSON
+                        "Content-Type" => Communications.REQUEST_CONTENT_TYPE_JSON
                     },
                     :responseType => Communications.HTTP_RESPONSE_CONTENT_TYPE_JSON
                 },
