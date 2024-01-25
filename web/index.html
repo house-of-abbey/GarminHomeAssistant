@@ -233,7 +233,12 @@
         name="menu_url"
         id="menu_url"
         pattern="https://.*\.json" />
-      <button class="icon" icon="download" id="download" type="button"></button>
+      <button
+        title="Download content of menu url and put it in the editor"
+        class="icon"
+        icon="download"
+        id="download"
+        type="button"></button>
       <input
         required
         autocomplete="new-password"
@@ -252,6 +257,7 @@
         <div class="row">
           <h2>GarminHomeAssistant Troubleshooting</h2>
           <button
+            title="Close"
             class="icon"
             icon="close"
             onclick="this.parentElement.parentElement.parentElement.close()"
@@ -265,11 +271,21 @@
 
         <div class="row">
           <div id="test-api-response">Check now!</div>
-          <button id="test-api" type="button">Test API</button>
+          <button
+            title="Check the status of the API"
+            id="test-api"
+            type="button">
+            Test API
+          </button>
         </div>
         <div class="row">
           <div id="test-menu-response">Check now!</div>
-          <button id="test-menu" type="button">Test menu</button>
+          <button
+            title="Check the availability of the menu configuration"
+            id="test-menu"
+            type="button">
+            Test menu
+          </button>
         </div>
       </div>
     </dialog>
