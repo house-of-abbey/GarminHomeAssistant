@@ -1,0 +1,298 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GarminHomeAssistant</title>
+
+    <link
+      rel="stylesheet"
+      data-name="vs/editor/editor.main"
+      href="https://unpkg.com/monaco-editor@0.45.0/min/vs/editor/editor.main.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://unpkg.com/toastify-js@1.12.0/src/toastify.css" />
+    <style>
+      @import url('https://unpkg.com/@catppuccin/palette/css/catppuccin.css');
+
+      html,
+      body,
+      #container {
+        height: 100%;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color: var(--ctp-mocha-base);
+      }
+
+      .tap {
+        background-image: url(../resources-icons-48/tap_type.svg);
+        background-size: contain;
+        margin-left: 0.5em;
+        filter: grayscale() invert();
+      }
+      .template {
+        background-image: url(../resources-icons-48/info_type.svg);
+        background-size: contain;
+        margin-left: 0.5em;
+        filter: grayscale() invert();
+      }
+      .toggle_on {
+        background-image: url(https://fonts.gstatic.com/s/i/short-term/release/materialsymbolsoutlined/toggle_on/default/48px.svg);
+        background-size: contain;
+        margin-left: 0.5em;
+        filter: grayscale() invert();
+        rotate: -90deg;
+      }
+      .toggle_off {
+        background-image: url(https://fonts.gstatic.com/s/i/short-term/release/materialsymbolsoutlined/toggle_off/default/48px.svg);
+        background-size: contain;
+        margin-left: 0.5em;
+        filter: grayscale() invert();
+        rotate: -90deg;
+      }
+      .group {
+        background-image: url(../resources-icons-48/group_type.svg);
+        background-size: contain;
+        margin-left: 0.5em;
+        filter: grayscale() invert();
+      }
+
+      :root {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      #settings {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        padding: 0.4em;
+        gap: 0.25em;
+        background-color: var(--ctp-mocha-mantle);
+        color: var(--ctp-mocha-text);
+      }
+
+      dialog {
+        background-color: var(--ctp-mocha-base);
+        color: var(--ctp-mocha-text);
+        border: 1px solid var(--ctp-mocha-surface1);
+        border-radius: 0.25em;
+        padding: 0.5em;
+        user-select: none;
+
+        &:focus-within,
+        &:focus-visible {
+          outline: none;
+          border: 1px solid var(--ctp-mocha-teal);
+        }
+
+        &::backdrop {
+          background-color: black;
+          opacity: 0.5;
+        }
+
+        & h2 {
+          margin: 0;
+          padding: 0;
+        }
+      }
+
+      .row {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 0.4em;
+        gap: 0.25em;
+      }
+
+      #settings:has(.invalid, :invalid) + #container {
+        opacity: 0.5;
+        pointer-events: none;
+      }
+
+      #settings,
+      dialog {
+        & input {
+          background-color: var(--ctp-mocha-surface1);
+          color: var(--ctp-mocha-text);
+          border: 1px solid var(--ctp-mocha-surface1);
+          border-radius: 0.25em;
+          padding: 0.25em;
+
+          &::placeholder {
+            color: var(--ctp-mocha-text);
+            opacity: 0.4;
+          }
+
+          &:focus-visible {
+            outline: none;
+            border: 1px solid var(--ctp-mocha-teal);
+          }
+
+          &.outofsync {
+            border: 1px solid var(--ctp-mocha-yellow);
+          }
+
+          &.invalid,
+          &:invalid {
+            border: 1px solid var(--ctp-mocha-red);
+          }
+
+          flex-grow: 1;
+          &#api_token {
+            flex-grow: 0;
+          }
+        }
+
+        button {
+          background-color: var(--ctp-mocha-surface1);
+          color: var(--ctp-mocha-text);
+          border: 1px solid var(--ctp-mocha-surface1);
+          border-radius: 0.25em;
+          padding-inline: 0.5em;
+          padding-block: 0.25em;
+          user-select: none;
+
+          &:focus-visible {
+            outline: none;
+            border: 1px solid var(--ctp-mocha-teal);
+          }
+
+          &:hover {
+            cursor: pointer;
+            background-color: var(--ctp-mocha-surface0);
+          }
+        }
+
+        .row {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+        }
+
+        button.icon {
+          border: none;
+          padding: 0.1em;
+          margin: 0;
+          width: 1.8em;
+          height: 1.8em;
+          background-color: var(--ctp-mocha-surface1);
+
+          &:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+          }
+
+          &:hover {
+            background-color: var(--ctp-mocha-overlay1);
+          }
+
+          &::before {
+            display: block;
+            content: '';
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            filter: grayscale() invert();
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+          }
+          &[icon='close'] {
+            &:hover {
+              background-color: var(--ctp-mocha-red);
+            }
+            &::before {
+              background-image: url(https://fonts.gstatic.com/s/i/short-term/release/materialsymbolsoutlined/close/default/48px.svg);
+            }
+          }
+          &[icon='download']::before {
+            background-image: url(https://fonts.gstatic.com/s/i/short-term/release/materialsymbolsoutlined/download/default/48px.svg);
+          }
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="settings">
+      <input
+        required
+        placeholder="https://<home-assistant>/api"
+        title="Home Assistant API URL `https://<home-assistant>/api`"
+        type="url"
+        name="api_url"
+        id="api_url"
+        pattern="https://.*/api" />
+      <input
+        placeholder="https://<home-assistant>/local/garmin/menu.json"
+        title="Menu JSON URL `https://<home-assistant>/local/garmin/menu.json`"
+        type="url"
+        name="menu_url"
+        id="menu_url"
+        pattern="https://.*\.json" />
+      <button
+        title="Download content of menu url and put it in the editor"
+        class="icon"
+        icon="download"
+        id="download"
+        type="button"></button>
+      <input
+        required
+        autocomplete="new-password"
+        placeholder="API Token"
+        title="Home Assistant Long-lived Access Token"
+        type="password"
+        name="api_token"
+        id="api_token" />
+      <button id="troubleshooting" type="button">Troubleshooting</button>
+    </div>
+
+    <div id="container"></div>
+
+    <dialog id="troubleshooting-dialog">
+      <div>
+        <div class="row">
+          <h2>GarminHomeAssistant Troubleshooting</h2>
+          <button
+            title="Close"
+            class="icon"
+            icon="close"
+            onclick="this.parentElement.parentElement.parentElement.close()"
+            type="button"></button>
+        </div>
+
+        <p>
+          This is a troubleshooting tool for the GarminHomeAssistant watch app.
+          It allows you to test your Home Assistant API connection.
+        </p>
+
+        <div class="row">
+          <div id="test-api-response">Check now!</div>
+          <button
+            title="Check the status of the API"
+            id="test-api"
+            type="button">
+            Test API
+          </button>
+        </div>
+        <div class="row">
+          <div id="test-menu-response">Check now!</div>
+          <button
+            title="Check the availability of the menu configuration"
+            id="test-menu"
+            type="button">
+            Test menu
+          </button>
+        </div>
+      </div>
+    </dialog>
+
+    <script src="https://unpkg.com/monaco-editor@0.45.0/min/vs/loader.js"></script>
+    <script src="https://unpkg.com/json-ast-comments@1.1.1/lib/json.js"></script>
+    <script src="https://unpkg.com/toastify-js@1.12.0/src/toastify.js"></script>
+    <script type="module" src="./main.js"></script>
+  </body>
+</html>

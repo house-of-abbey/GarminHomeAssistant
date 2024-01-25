@@ -1,2 +1,3 @@
 exclude:
-  - "**/*.md"
+  - '**/*.md'
+  - '**/pnpm-lock.yaml'

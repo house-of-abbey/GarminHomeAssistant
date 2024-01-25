@@ -1,0 +1,19 @@
+{
+  "name": "web",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "serve .."
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/toastify-js": "^1.12.3",
+    "@vscode/webview-ui-toolkit": "1.4.0",
+    "json-ast-comments": "1.1.1",
+    "monaco-editor": "0.45.0",
+    "serve": "^14.2.1"
+  }
+}
