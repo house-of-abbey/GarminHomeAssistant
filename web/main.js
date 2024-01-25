@@ -85,7 +85,9 @@ async function get_areas() {
 
 /**
  * Get all services in HomeAssistant.
- * @returns {Promise<[string, { name: string; description: string; fields: Record<string, { name: string; description: string; example: string; selector: unknown; required?: boolean }> }][]>} [id, data]
+ * @returns {Promise<[string, { name: string; description: string; fields:
+ *     Record<string, { name: string; description: string; example: string;
+ *     selector: unknown; required?: boolean }> }][]>} [id, data]
  */
 async function get_services() {
   try {
@@ -132,7 +134,9 @@ async function get_schema() {
  * @param {Record<string, string>} entities
  * @param {Record<string, string>} devices
  * @param {Record<string, string>} areas
- * @param {[string, { name: string; description: string; fields: Record<string, { name: string; description: string; example: string; selector: unknown; required?: boolean }> }][]} services
+ * @param {[string, { name: string; description: string; fields:
+ *     Record<string, { name: string; description: string; example: string;
+ *     selector: unknown; required?: boolean }> }][]} services
  * @param {{}} schema
  * @returns {Promise<{}>}
  */
@@ -952,7 +956,8 @@ require(['vs/editor/editor.main'], async () => {
       }
       const templates = [];
       /**
-       * @param {import('json-ast-comments').JsonAst | import('json-ast-comments').JsonProperty} node
+       * @param {import('json-ast-comments').JsonAst |
+       *     import('json-ast-comments').JsonProperty} node
        * @param {string[]} path
        */
       function recurse(node, path) {
@@ -1047,7 +1052,8 @@ require(['vs/editor/editor.main'], async () => {
         const ast = json.parse(model.getValue());
         const data = JSON.parse(model.getValue());
         /**
-         * @param {import('json-ast-comments').JsonAst | import('json-ast-comments').JsonProperty} node
+         * @param {import('json-ast-comments').JsonAst |
+         *     import('json-ast-comments').JsonProperty} node
          * @param {string[]} path
          */
         function recurse(node, path) {
