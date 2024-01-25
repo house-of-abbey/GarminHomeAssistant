@@ -44,30 +44,60 @@
       "additionalProperties": false
     },
     "template": {
-      "type": "object",
-      "properties": {
-        "entity": {
-          "$ref": "#/$defs/entity"
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "entity": {
+              "$ref": "#/$defs/entity",
+              "deprecated": true,
+              "title": "Schema change:",
+              "description": "Use 'tap_action' instead to mirror Home Assistant."
+            },
+            "name": {
+              "title": "Your familiar name",
+              "type": "string"
+            },
+            "content": {
+              "title": "What to display (template)",
+              "type": "string"
+            },
+            "type": {
+              "title": "Menu item type",
+              "description": "One of 'tap', 'template', 'toggle' or 'group'.",
+              "const": "template"
+            }
+          },
+          "required": ["name", "content", "type"],
+          "additionalProperties": false
         },
-        "name": {
-          "title": "Your familiar name",
-          "type": "string"
-        },
-        "content": {
-          "title": "What to display (template)",
-          "type": "string"
-        },
-        "type": {
-          "title": "Menu item type",
-          "description": "One of 'tap', 'template', 'toggle' or 'group'.",
-          "const": "template"
-        },
-        "tap_action": {
-          "$ref": "#/$defs/tap_action"
+        {
+          "type": "object",
+          "properties": {
+            "entity": {
+              "$ref": "#/$defs/entity"
+            },
+            "name": {
+              "title": "Your familiar name",
+              "type": "string"
+            },
+            "content": {
+              "title": "What to display (template)",
+              "type": "string"
+            },
+            "type": {
+              "title": "Menu item type",
+              "description": "One of 'tap', 'template', 'toggle' or 'group'.",
+              "const": "template"
+            },
+            "tap_action": {
+              "$ref": "#/$defs/tap_action"
+            }
+          },
+          "required": ["name", "content", "type", "tap_action"],
+          "additionalProperties": false
         }
-      },
-      "required": ["name", "content", "type"],
-      "additionalProperties": false
+      ]
     },
     "tap": {
       "type": "object",
@@ -110,7 +140,6 @@
         "entity": {
           "$ref": "#/$defs/entity",
           "type": "string",
-          "pattern": "^[^.]+\\.[^.]+$",
           "deprecated": true,
           "title": "Schema change:",
           "description": "'entity' is no longer necessary and should now be removed."
