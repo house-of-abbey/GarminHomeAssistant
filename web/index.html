@@ -221,12 +221,14 @@
       <input
         required
         placeholder="https://<home-assistant>/api"
+        title="Home Assistant API URL `https://<home-assistant>/api`"
         type="url"
         name="api_url"
         id="api_url"
         pattern="https://.*/api" />
       <input
         placeholder="https://<home-assistant>/local/garmin/menu.json"
+        title="Menu JSON URL `https://<home-assistant>/local/garmin/menu.json`"
         type="url"
         name="menu_url"
         id="menu_url"
@@ -235,7 +237,8 @@
       <input
         required
         autocomplete="new-password"
-        placeholder="token"
+        placeholder="API Token"
+        title="Home Assistant Long-lived Access Token"
         type="password"
         name="api_token"
         id="api_token" />
