@@ -1,91 +1,119 @@
+let api_url = localStorage.getItem('api_url') ?? '';
+let menu_url = localStorage.getItem('menu_url') ?? '';
+let api_token = localStorage.getItem('api_token') ?? '';
+
 /**
  * Get all entities in HomeAssistant.
- * @param {string} api_url
- * @param {string} api_token
  * @returns {Promise<Record<string, string>>} [id, name]
  */
-async function get_entities(api_url, api_token) {
-  const res = await fetch(api_url + '/template', {
-    method: 'POST',
-    headers: {
-      Authorization: `Bearer ${api_token}`,
-    },
-    mode: 'cors',
-    body: `{"template":"[{% for entity in states %}[\\"{{ entity.entity_id }}\\",\\"{{ entity.name }}\\"]{% if not loop.last %},{% endif %}{% endfor %}]"}`,
-  });
-  if (res.status == 401 || res.status == 403) {
-    document.querySelector('#api_token').classList.add('invalid');
+async function get_entities() {
+  try {
+    const res = await fetch(api_url + '/template', {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${api_token}`,
+      },
+      mode: 'cors',
+      body: `{"template":"[{% for entity in states %}[\\"{{ entity.entity_id }}\\",\\"{{ entity.name }}\\"]{% if not loop.last %},{% endif %}{% endfor %}]"}`,
+    });
+    if (res.status == 401 || res.status == 403) {
+      document.querySelector('#api_token').classList.add('invalid');
+      return {};
+    }
+    document.querySelector('#api_url').classList.remove('invalid');
+    document.querySelector('#api_token').classList.remove('invalid');
+    return Object.fromEntries(await res.json());
+  } catch {
+    document.querySelector('#api_url').classList.add('invalid');
+    return {};
   }
-  return Object.fromEntries(await res.json());
 }
 
 /**
  * Get all devices in HomeAssistant.
- * @param {string} api_url
- * @param {string} api_token
  * @returns {Promise<Record<string, string>>} [id, name]
  */
-async function get_devices(api_url, api_token) {
-  const res = await fetch(api_url + '/template', {
-    method: 'POST',
-    headers: {
-      Authorization: `Bearer ${api_token}`,
-    },
-    mode: 'cors',
-    body: `{"template":"{% set devices = states | map(attribute='entity_id') | map('device_id') | unique | reject('eq', None) | list %}[{% for device in devices %}[\\"{{ device }}\\",\\"{{ device_attr(device, 'name') }}\\"]{% if not loop.last %},{% endif %}{% endfor %}]"}`,
-  });
-  if (res.status == 401 || res.status == 403) {
-    document.querySelector('#api_token').classList.add('invalid');
+async function get_devices() {
+  try {
+    const res = await fetch(api_url + '/template', {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${api_token}`,
+      },
+      mode: 'cors',
+      body: `{"template":"{% set devices = states | map(attribute='entity_id') | map('device_id') | unique | reject('eq', None) | list %}[{% for device in devices %}[\\"{{ device }}\\",\\"{{ device_attr(device, 'name') }}\\"]{% if not loop.last %},{% endif %}{% endfor %}]"}`,
+    });
+    if (res.status == 401 || res.status == 403) {
+      document.querySelector('#api_token').classList.add('invalid');
+      return {};
+    }
+    document.querySelector('#api_url').classList.remove('invalid');
+    document.querySelector('#api_token').classList.remove('invalid');
+    return Object.fromEntries(await res.json());
+  } catch {
+    document.querySelector('#api_url').classList.add('invalid');
+    return {};
   }
-  return Object.fromEntries(await res.json());
 }
 
 /**
  * Get all areas in HomeAssistant.
- * @param {string} api_url
- * @param {string} api_token
  * @returns {Promise<Record<string, string>>} [id, name]
  */
-async function get_areas(api_url, api_token) {
-  const res = await fetch(api_url + '/template', {
-    method: 'POST',
-    headers: {
-      Authorization: `Bearer ${api_token}`,
-    },
-    mode: 'cors',
-    body: `{"template":"[{% for area in areas() %}[\\"{{ area }}\\",\\"{{ area_name(area) }}\\"]{% if not loop.last %},{% endif %}{% endfor %}]"}`,
-  });
-  if (res.status == 401 || res.status == 403) {
-    document.querySelector('#api_token').classList.add('invalid');
+async function get_areas() {
+  try {
+    const res = await fetch(api_url + '/template', {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${api_token}`,
+      },
+      mode: 'cors',
+      body: `{"template":"[{% for area in areas() %}[\\"{{ area }}\\",\\"{{ area_name(area) }}\\"]{% if not loop.last %},{% endif %}{% endfor %}]"}`,
+    });
+    if (res.status == 401 || res.status == 403) {
+      document.querySelector('#api_token').classList.add('invalid');
+      return {};
+    }
+    document.querySelector('#api_url').classList.remove('invalid');
+    document.querySelector('#api_token').classList.remove('invalid');
+    return Object.fromEntries(await res.json());
+  } catch {
+    document.querySelector('#api_url').classList.add('invalid');
+    return {};
   }
-  return Object.fromEntries(await res.json());
 }
 
 /**
  * Get all services in HomeAssistant.
- * @param {string} api_url
- * @param {string} api_token
  * @returns {Promise<[string, { name: string; description: string; fields: Record<string, { name: string; description: string; example: string; selector: unknown; required?: boolean }> }][]>} [id, data]
  */
-async function get_services(api_url, api_token) {
-  const res = await fetch(api_url + '/services', {
-    method: 'GET',
-    headers: {
-      Authorization: `Bearer ${api_token}`,
-    },
-    mode: 'cors',
-  });
-  if (res.status == 401 || res.status == 403) {
-    document.querySelector('#api_token').classList.add('invalid');
-  }
-  const data = await res.json();
-  const services = [];
-  for (const d of data) {
-    for (const service in d.services) {
-      services.push([`${d.domain}.${service}`, d.services[service]]);
+async function get_services() {
+  try {
+    const res = await fetch(api_url + '/services', {
+      method: 'GET',
+      headers: {
+        Authorization: `Bearer ${api_token}`,
+      },
+      mode: 'cors',
+    });
+    if (res.status == 401 || res.status == 403) {
+      document.querySelector('#api_token').classList.add('invalid');
+      return {};
     }
+    document.querySelector('#api_url').classList.remove('invalid');
+    document.querySelector('#api_token').classList.remove('invalid');
+    const data = await res.json();
+    const services = [];
+    for (const d of data) {
+      for (const service in d.services) {
+        services.push([`${d.domain}.${service}`, d.services[service]]);
+      }
+    }
+    return services;
+  } catch {
+    document.querySelector('#api_url').classList.add('invalid');
+    return [];
   }
-  return services;
 }
 
 /**
@@ -343,69 +371,6 @@ async function generate_schema(entities, devices, areas, services, schema) {
   return schema;
 }
 
-let api_url = localStorage.getItem('api_url') ?? '';
-let menu_url = localStorage.getItem('menu_url') ?? '';
-let api_token = localStorage.getItem('api_token') ?? '';
-document.querySelector('#api_url').value = api_url;
-document.querySelector('#menu_url').value = menu_url;
-document.querySelector('#api_token').value = api_token;
-
-document.querySelector('#troubleshooting').addEventListener('click', (e) => {
-  document.querySelector('#troubleshooting-dialog').showModal();
-});
-
-document.querySelector('#test-api').addEventListener('click', async (e) => {
-  try {
-    document.querySelector('#test-api-response').innerText = 'Testing...';
-    const res = await fetch(api_url + '/', {
-      headers: {
-        Authorization: `Bearer ${api_token}`,
-      },
-      cache: 'no-cache',
-      mode: 'cors',
-    });
-    const text = await res.text();
-    if (res.status == 200) {
-      document.querySelector('#test-api-response').innerText =
-        JSON.parse(text).message;
-    } else if (res.status == 400) {
-      try {
-        document.querySelector('#test-api-response').innerText =
-          JSON.parse(text).message;
-      } catch {
-        document.querySelector('#test-api-response').innerText = text;
-      }
-    } else if (res.status == 401 || res.status == 403) {
-      document.querySelector('#api_token').classList.add('invalid');
-      document.querySelector('#test-api-response').innerText = 'Invalid token.';
-    } else {
-      document.querySelector('#test-api-response').innerText = text;
-    }
-  } catch (e) {
-    document.querySelector('#test-api-response').innerText = e.message;
-  }
-});
-document.querySelector('#test-menu').addEventListener('click', async (e) => {
-  try {
-    document.querySelector('#test-menu-response').innerText = 'Testing...';
-    const res = await fetch(menu_url, {
-      cache: 'no-cache',
-      mode: 'cors',
-    });
-    if (res.status == 200) {
-      document.querySelector('#test-menu-response').innerText = 'Available';
-    } else if (res.status == 400) {
-      document.querySelector('#test-menu-response').innerText =
-        await res.text();
-    } else {
-      document.querySelector('#test-menu-response').innerText =
-        await res.text();
-    }
-  } catch (e) {
-    document.querySelector('#test-menu-response').innerText = e.message;
-  }
-});
-
 function get(d, p) {
   for (let i = 0; i < p.length; i++) {
     d = d[p[i]];
@@ -432,6 +397,38 @@ function toast({ text, color }) {
   return t;
 }
 
+let entities, devices, areas, services, schema;
+async function loadSchema() {
+  [entities, devices, areas, services, schema] = await Promise.all([
+    get_entities(),
+    get_devices(),
+    get_areas(),
+    get_services(),
+    get_schema(),
+  ]);
+  if (window.makeMarkers) {
+    window.makeMarkers();
+  }
+  try {
+    schema = await generate_schema(entities, devices, areas, services, schema);
+  } catch {}
+  console.log(schema);
+  if (window.m && window.modelUri) {
+    // configure the JSON language support with schemas and schema associations
+    window.m.languages.json.jsonDefaults.setDiagnosticsOptions({
+      validate: true,
+      schemas: [
+        {
+          uri: 'https://raw.githubusercontent.com/house-of-abbey/GarminHomeAssistant/main/config.schema.json',
+          fileMatch: [window.modelUri.toString()],
+          schema,
+        },
+      ],
+    });
+  }
+}
+loadSchema();
+
 // require is provided by loader.min.js.
 require.config({
   paths: {
@@ -439,26 +436,11 @@ require.config({
   },
 });
 require(['vs/editor/editor.main'], async () => {
-  let entities, devices, areas, services, schema;
-  async function loadSchema() {
-    [entities, devices, areas, services, schema] = await Promise.all([
-      get_entities(api_url, api_token),
-      get_devices(api_url, api_token),
-      get_areas(api_url, api_token),
-      get_services(api_url, api_token),
-      get_schema(),
-    ]);
-    makeMarkers();
-    try {
-      schema = await generate_schema(
-        entities,
-        devices,
-        areas,
-        services,
-        schema
-      );
-    } catch {}
-    console.log(schema);
+  window.m = monaco;
+  var modelUri = monaco.Uri.parse('/config/www/garmin/menu.json'); // a made up unique URI for our model
+  window.modelUri = modelUri;
+
+  if (schema) {
     // configure the JSON language support with schemas and schema associations
     monaco.languages.json.jsonDefaults.setDiagnosticsOptions({
       validate: true,
@@ -471,6 +453,110 @@ require(['vs/editor/editor.main'], async () => {
       ],
     });
   }
+
+  document.querySelector('#api_url').value = api_url;
+  document.querySelector('#menu_url').value = menu_url;
+  document.querySelector('#api_token').value = api_token;
+
+  document.querySelector('#troubleshooting').addEventListener('click', (e) => {
+    document.querySelector('#troubleshooting-dialog').showModal();
+  });
+
+  document.querySelector('#test-api').addEventListener('click', async (e) => {
+    try {
+      document.querySelector('#test-api-response').innerText = 'Testing...';
+      const res = await fetch(api_url + '/', {
+        headers: {
+          Authorization: `Bearer ${api_token}`,
+        },
+        cache: 'no-cache',
+        mode: 'cors',
+      });
+      const text = await res.text();
+      if (res.status == 200) {
+        document.querySelector('#test-api-response').innerText =
+          JSON.parse(text).message;
+        document.querySelector('#api_token').classList.remove('invalid');
+        document.querySelector('#api_url').classList.remove('invalid');
+      } else if (res.status == 400) {
+        document.querySelector('#api_url').classList.add('invalid');
+        try {
+          document.querySelector('#test-api-response').innerText =
+            JSON.parse(text).message;
+        } catch {
+          document.querySelector('#test-api-response').innerText = text;
+        }
+      } else if (res.status == 401 || res.status == 403) {
+        document.querySelector('#api_token').classList.add('invalid');
+        document.querySelector('#test-api-response').innerText =
+          'Invalid token.';
+      } else {
+        document.querySelector('#test-api-response').innerText = text;
+      }
+    } catch (e) {
+      document.querySelector('#test-api-response').innerText =
+        'Check CORS settings on HomeAssistant server.';
+      document.querySelector('#api_token').classList.add('invalid');
+    }
+  });
+  document.querySelector('#test-menu').addEventListener('click', async (e) => {
+    try {
+      document.querySelector('#test-menu-response').innerText = 'Testing...';
+      const res = await fetch(menu_url, {
+        cache: 'no-cache',
+        mode: 'cors',
+      });
+      if (res.status == 200) {
+        document.querySelector('#menu_url').classList.remove('invalid');
+        document.querySelector('#test-menu-response').innerText = 'Available';
+      } else if (res.status == 400) {
+        document.querySelector('#menu_url').classList.add('invalid');
+        document.querySelector('#test-menu-response').innerText =
+          await res.text();
+      } else {
+        document.querySelector('#menu_url').classList.add('invalid');
+        document.querySelector('#test-menu-response').innerText =
+          await res.text();
+      }
+    } catch (e) {
+      document.querySelector('#menu_url').classList.add('invalid');
+      document.querySelector('#test-menu-response').innerText =
+        'Check CORS settings on HomeAssistant server.';
+    }
+  });
+  document.querySelector('#download').addEventListener('click', async (e) => {
+    try {
+      const t = toast({
+        text: 'Downloading...',
+      });
+      const res = await fetch(menu_url, {
+        cache: 'no-cache',
+        mode: 'cors',
+      });
+      t.hideToast();
+      if (res.status == 200) {
+        document.querySelector('#menu_url').classList.remove('invalid');
+        const text = await res.text();
+        model.setValue(text);
+        toast({
+          text: 'Downloaded!',
+          color: 'var(--ctp-mocha-green)',
+        });
+      } else {
+        document.querySelector('#menu_url').classList.add('invalid');
+        toast({
+          text: await res.text(),
+          color: 'var(--ctp-mocha-red)',
+        });
+      }
+    } catch (e) {
+      toast({
+        text: 'Check CORS settings on HomeAssistant server.',
+        color: 'var(--ctp-mocha-red)',
+      });
+      document.querySelector('#menu_url').classList.add('invalid');
+    }
+  });
 
   document.querySelector('#api_url').addEventListener('change', (e) => {
     api_url = e.target.value;
@@ -491,32 +577,40 @@ require(['vs/editor/editor.main'], async () => {
     document.querySelector('#test-api-response').innerText = 'Check now!';
     loadSchema();
   });
-  loadSchema();
   checkRemoteMenu();
 
   async function checkRemoteMenu() {
     if (menu_url != '') {
-      const remote = await fetch(menu_url, {
-        cache: 'no-cache',
-        mode: 'cors',
-      });
-      if (remote.status == 200) {
-        document.querySelector('#menu_url').classList.remove('invalid');
-        const text = await remote.text();
-        if (model.getValue() === text) {
-          document.querySelector('#menu_url').classList.remove('outofsync');
+      try {
+        const remote = await fetch(menu_url, {
+          cache: 'no-cache',
+          mode: 'cors',
+        });
+        if (remote.status == 200) {
+          document.querySelector('#menu_url').classList.remove('invalid');
+          document.querySelector('#download').disabled = false;
+          const text = await remote.text();
+          if (model.getValue() === text) {
+            document.querySelector('#menu_url').classList.remove('outofsync');
+          } else {
+            document.querySelector('#menu_url').classList.add('outofsync');
+          }
         } else {
-          document.querySelector('#menu_url').classList.add('outofsync');
+          document.querySelector('#menu_url').classList.add('invalid');
+          document.querySelector('#download').disabled = true;
         }
-      } else {
+      } catch {
         document.querySelector('#menu_url').classList.add('invalid');
+        document.querySelector('#download').disabled = true;
       }
+    } else {
+      document.querySelector('#menu_url').classList.remove('invalid');
+      document.querySelector('#download').disabled = true;
     }
   }
 
-  // Configures two JSON schemas, with references.
+  setInterval(checkRemoteMenu, 30000);
 
-  var modelUri = monaco.Uri.parse('/config/www/garmin/menu.json'); // a made up unique URI for our model
   var model = monaco.editor.createModel(
     localStorage.getItem('json') ?? '{}',
     'json',
@@ -556,32 +650,41 @@ require(['vs/editor/editor.main'], async () => {
       const t = toast({
         text: 'Rendering template...',
       });
-      const res = await fetch(api_url + '/template', {
-        method: 'POST',
-        headers: {
-          Authorization: `Bearer ${api_token}`,
-        },
-        mode: 'cors',
-        body: `{"template":"${template}"}`,
-      });
-      t.hideToast();
-      if (res.status == 200) {
-        toast({
-          text: await res.text(),
-          color: 'var(--ctp-mocha-green)',
+      try {
+        const res = await fetch(api_url + '/template', {
+          method: 'POST',
+          headers: {
+            Authorization: `Bearer ${api_token}`,
+          },
+          mode: 'cors',
+          body: `{"template":"${template}"}`,
         });
-      } else if (res.status == 400) {
+        t.hideToast();
+        if (res.status == 200) {
+          toast({
+            text: await res.text(),
+            color: 'var(--ctp-mocha-green)',
+          });
+        } else if (res.status == 400) {
+          toast({
+            text: (await res.json()).message,
+            color: 'var(--ctp-mocha-red)',
+          });
+        } else if (res.status == 401 || res.status == 403) {
+          document.querySelector('#api_token').classList.add('invalid');
+        } else {
+          toast({
+            text: await res.text(),
+            color: 'var(--ctp-mocha-red)',
+          });
+        }
+      } catch (e) {
+        t.hideToast();
         toast({
-          text: (await res.json()).message,
+          text: 'Check CORS settings on HomeAssistant server.',
           color: 'var(--ctp-mocha-red)',
         });
-      } else if (res.status == 401 || res.status == 403) {
-        document.querySelector('#api_token').classList.add('invalid');
-      } else {
-        toast({
-          text: await res.text(),
-          color: 'var(--ctp-mocha-red)',
-        });
+        document.querySelector('#api_url').classList.add('invalid');
       }
     },
     ''
@@ -602,45 +705,54 @@ require(['vs/editor/editor.main'], async () => {
       const t = toast({
         text: 'Running action...',
       });
-      const res = await fetch(
-        api_url + '/services/' + service[0] + '/' + service[1],
-        {
-          method: 'POST',
-          headers: {
-            Authorization: `Bearer ${api_token}`,
-          },
-          mode: 'cors',
-          body: JSON.stringify(data),
-        }
-      );
-      t.hideToast();
-      if (res.status == 200) {
-        toast({
-          text: 'Success',
-          color: 'var(--ctp-mocha-green)',
-        });
-      } else if (res.status == 400) {
-        const text = await res.text();
-        try {
+      try {
+        const res = await fetch(
+          api_url + '/services/' + service[0] + '/' + service[1],
+          {
+            method: 'POST',
+            headers: {
+              Authorization: `Bearer ${api_token}`,
+            },
+            mode: 'cors',
+            body: JSON.stringify(data),
+          }
+        );
+        t.hideToast();
+        if (res.status == 200) {
           toast({
-            text: JSON.parse(text).message,
+            text: 'Success',
+            color: 'var(--ctp-mocha-green)',
+          });
+        } else if (res.status == 400) {
+          const text = await res.text();
+          try {
+            toast({
+              text: JSON.parse(text).message,
+              color: 'var(--ctp-mocha-red)',
+            });
+          } catch {
+            toast({
+              text: text,
+              color: 'var(--ctp-mocha-red)',
+            });
+          }
+        } else if (res.status == 401 || res.status == 403) {
+          document.querySelector('#api_token').classList.add('invalid');
+        } else {
+          toast({
+            text: await res.text(),
             color: 'var(--ctp-mocha-red)',
           });
-        } catch {
-          toast({
-            text: text,
-            color: 'var(--ctp-mocha-red)',
-          });
         }
-      } else if (res.status == 401 || res.status == 403) {
-        document.querySelector('#api_token').classList.add('invalid');
-      } else {
+        makeMarkers();
+      } catch (e) {
+        t.hideToast();
         toast({
-          text: await res.text(),
+          text: 'Check CORS settings on HomeAssistant server.',
           color: 'var(--ctp-mocha-red)',
         });
+        document.querySelector('#api_url').classList.add('invalid');
       }
-      makeMarkers();
     },
     ''
   );
@@ -652,44 +764,56 @@ require(['vs/editor/editor.main'], async () => {
       const t = toast({
         text: 'Toggling...',
       });
-      const res = await fetch(api_url + '/services/' + entity[0] + '/toggle', {
-        method: 'POST',
-        headers: {
-          Authorization: `Bearer ${api_token}`,
-        },
-        mode: 'cors',
-        body: JSON.stringify({
-          entity_id: item.entity,
-        }),
-      });
-      t.hideToast();
-      if (res.status == 200) {
-        toast({
-          text: 'Success',
-          color: 'var(--ctp-mocha-green)',
-        });
-      } else if (res.status == 400) {
-        const text = await res.text();
-        try {
+      try {
+        const res = await fetch(
+          api_url + '/services/' + entity[0] + '/toggle',
+          {
+            method: 'POST',
+            headers: {
+              Authorization: `Bearer ${api_token}`,
+            },
+            mode: 'cors',
+            body: JSON.stringify({
+              entity_id: item.entity,
+            }),
+          }
+        );
+        t.hideToast();
+        if (res.status == 200) {
           toast({
-            text: JSON.parse(text).message,
-            color: 'var(--ctp-mocha-red)',
+            text: 'Success',
+            color: 'var(--ctp-mocha-green)',
           });
-        } catch {
+        } else if (res.status == 400) {
+          const text = await res.text();
+          try {
+            toast({
+              text: JSON.parse(text).message,
+              color: 'var(--ctp-mocha-red)',
+            });
+          } catch {
+            toast({
+              text: text,
+              color: 'var(--ctp-mocha-red)',
+            });
+          }
+        } else if (res.status == 401 || res.status == 403) {
+          document.querySelector('#api_token').classList.add('invalid');
+        } else {
           toast({
-            text: text,
+            text: await res.text(),
             color: 'var(--ctp-mocha-red)',
           });
         }
-      } else if (res.status == 401 || res.status == 403) {
-        document.querySelector('#api_token').classList.add('invalid');
-      } else {
+        makeMarkers();
+      } catch (e) {
+        t.hideToast();
         toast({
-          text: await res.text(),
+          text: 'Check CORS settings on HomeAssistant server.',
           color: 'var(--ctp-mocha-red)',
         });
+        document.querySelector('#api_url').classList.add('invalid');
       }
-      makeMarkers();
     },
     ''
   );
@@ -854,6 +978,7 @@ require(['vs/editor/editor.main'], async () => {
       monaco.editor.setModelMarkers(model, 'template', markers);
     } catch {}
   }
+  window.makeMarkers = makeMarkers;
   makeMarkers();
 
   model.onDidChangeContent(async function () {

@@ -121,6 +121,11 @@
           border-radius: 0.25em;
           padding: 0.25em;
 
+          &::placeholder {
+            color: var(--ctp-mocha-text);
+            opacity: 0.4;
+          }
+
           &:focus-visible {
             outline: none;
             border: 1px solid var(--ctp-mocha-teal);
@@ -169,14 +174,19 @@
 
         button.icon {
           border: none;
-          padding: 0;
+          padding: 0.1em;
           margin: 0;
-          width: 1.5em;
-          height: 1.5em;
-          background-color: transparent;
+          width: 1.8em;
+          height: 1.8em;
+          background-color: var(--ctp-mocha-surface1);
+
+          &:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+          }
 
           &:hover {
-            background-color: var(--ctp-mocha-red);
+            background-color: var(--ctp-mocha-overlay1);
           }
 
           &::before {
@@ -191,8 +201,16 @@
             margin: 0;
             padding: 0;
           }
-          &[icon='close']::before {
-            background-image: url(https://fonts.gstatic.com/s/i/short-term/release/materialsymbolsoutlined/close/default/48px.svg);
+          &[icon='close'] {
+            &:hover {
+              background-color: var(--ctp-mocha-red);
+            }
+            &::before {
+              background-image: url(https://fonts.gstatic.com/s/i/short-term/release/materialsymbolsoutlined/close/default/48px.svg);
+            }
+          }
+          &[icon='download']::before {
+            background-image: url(https://fonts.gstatic.com/s/i/short-term/release/materialsymbolsoutlined/download/default/48px.svg);
           }
         }
       }
@@ -212,7 +230,8 @@
         type="url"
         name="menu_url"
         id="menu_url"
-        pattern="https://.*" />
+        pattern="https://.*\.json" />
+      <button class="icon" icon="download" id="download" type="button"></button>
       <input
         required
         autocomplete="new-password"
