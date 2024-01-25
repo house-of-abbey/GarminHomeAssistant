@@ -397,7 +397,15 @@ function toast({ text, color }) {
   return t;
 }
 
-let entities, devices, areas, services, schema;
+/** @type {Awaited<ReturnType<typeof get_entities>>} */
+let entities;
+/** @type {Awaited<ReturnType<typeof get_devices>>} */
+let devices;
+/** @type {Awaited<ReturnType<typeof get_areas>>} */
+let areas;
+/** @type {Awaited<ReturnType<typeof get_services>>} */
+let services;
+let schema;
 async function loadSchema() {
   [entities, devices, areas, services, schema] = await Promise.all([
     get_entities(),
@@ -623,6 +631,52 @@ require(['vs/editor/editor.main'], async () => {
       'https://josephabbey.github.io/catppuccin-monaco/mocha.json'
     ).then((r) => r.json())
   );
+
+  monaco.languages.registerCompletionItemProvider('json', {
+    triggerCharacters: ['.'],
+    provideCompletionItems: function (model, position) {
+      // find out if we are completing a property in the 'dependencies' object.
+      var textUntilPosition = model.getValueInRange({
+        startLineNumber: 1,
+        startColumn: 1,
+        endLineNumber: position.lineNumber,
+        endColumn: position.column,
+      });
+      var match = /"content"\s*:\s*"[^"]*[^\w]?\w+\.[^.\s{}()[\]'"]*$/.test(
+        textUntilPosition
+      );
+      if (!match) {
+        return { suggestions: [] };
+      }
+      var word = model.getWordUntilPosition(position);
+      let i = word.word.length - 1;
+      while (word.word[i] != '.') {
+        i--;
+      }
+      do {
+        i--;
+      } while (
+        i >= 0 &&
+        word.word[i].toUpperCase() != word.word[i].toLowerCase()
+      );
+      i++;
+      var range = {
+        startLineNumber: position.lineNumber,
+        endLineNumber: position.lineNumber,
+        startColumn: word.startColumn + i,
+        endColumn: word.endColumn,
+      };
+      return {
+        suggestions: Object.entries(entities).map(([entity, name]) => ({
+          label: entity,
+          kind: monaco.languages.CompletionItemKind.Variable,
+          documentation: name,
+          insertText: entity,
+          range,
+        })),
+      };
+    },
+  });
 
   const editor = monaco.editor.create(document.getElementById('container'), {
     model: model,
