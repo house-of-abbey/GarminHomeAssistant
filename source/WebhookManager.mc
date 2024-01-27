@@ -182,14 +182,16 @@ class WebhookManager {
                             break;
                         case 1:
                             // System.println("WebhookManager onReturnRegisterWebhookSensor(): Registering next sensor: Activity");
-                            registerWebhookSensor({
-                                "name"                => "Activity",
-                                "state"               => Activity.getProfileInfo().name,
-                                "type"                => "sensor",
-                                "unique_id"           => "activity",
-                                "disabled"            => false
-                            }, 2);
-                            break;
+                            if (Activity has :getProfileInfo) {
+                                registerWebhookSensor({
+                                    "name"                => "Activity",
+                                    "state"               => Activity.getProfileInfo().name,
+                                    "type"                => "sensor",
+                                    "unique_id"           => "activity",
+                                    "disabled"            => false
+                                }, 2);
+                                break;
+                            }
                         default:
                     }
                 } else {

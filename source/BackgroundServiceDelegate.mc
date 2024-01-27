@@ -75,27 +75,30 @@ class BackgroundServiceDelegate extends System.ServiceDelegate {
                 },
                 method(:onReturnBatteryUpdate)
             );
+            var data = [
+                {
+                    "state"     => System.getSystemStats().battery,
+                    "type"      => "sensor",
+                    "unique_id" => "battery_level"
+                },
+                {
+                    "state"     => System.getSystemStats().charging,
+                    "type"      => "binary_sensor",
+                    "unique_id" => "battery_is_charging"
+                }
+            ];
+            if (Activity has :getProfileInfo) {
+                data.add({
+                    "state"     => Activity.getProfileInfo().name,
+                    "type"      => "sensor",
+                    "unique_id" => "activity"
+                });
+            }
             Communications.makeWebRequest(
                 (Properties.getValue("api_url") as Lang.String) + "/webhook/" + (Properties.getValue("webhook_id") as Lang.String),
                 {
                     "type" => "update_sensor_states",
-                    "data" => [
-                        {
-                            "state"     => System.getSystemStats().battery,
-                            "type"      => "sensor",
-                            "unique_id" => "battery_level"
-                        },
-                        {
-                            "state"     => System.getSystemStats().charging,
-                            "type"      => "binary_sensor",
-                            "unique_id" => "battery_is_charging"
-                        },
-                        {
-                            "state"     => Activity.getProfileInfo().name,
-                            "type"      => "sensor",
-                            "unique_id" => "activity"
-                        }
-                    ]
+                    "data" => data
                 },
                 {
                     :method       => Communications.HTTP_REQUEST_METHOD_POST,
