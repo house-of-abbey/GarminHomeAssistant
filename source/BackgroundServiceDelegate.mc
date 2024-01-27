@@ -38,12 +38,43 @@ class BackgroundServiceDelegate extends System.ServiceDelegate {
     }
 
     function onTemporalEvent() as Void {
-        if (! System.getDeviceSettings().phoneConnected) {
+        if (!System.getDeviceSettings().phoneConnected) {
             // System.println("BackgroundServiceDelegate onTemporalEvent(): No Phone connection, skipping API call.");
-        } else if (! System.getDeviceSettings().connectionAvailable) {
+        } else if (!System.getDeviceSettings().connectionAvailable) {
             // System.println("BackgroundServiceDelegate onTemporalEvent(): No Internet connection, skipping API call.");
         } else {
+            // System.println("BackgroundServiceDelegate onTemporalEvent(): Making API call.");
+            var position = Position.getInfo();
+            // System.println("BackgroundServiceDelegate onTemporalEvent(): gps: " + position.position.toDegrees());
+            // System.println("BackgroundServiceDelegate onTemporalEvent(): speed: " + position.speed);
+            // System.println("BackgroundServiceDelegate onTemporalEvent(): course: " + position.heading + "rad (" + (position.heading * 180 / Math.PI) + "°)");
+            // System.println("BackgroundServiceDelegate onTemporalEvent(): altitude: " + position.altitude);
+            // System.println("BackgroundServiceDelegate onTemporalEvent(): battery: " + System.getSystemStats().battery);
+            // System.println("BackgroundServiceDelegate onTemporalEvent(): charging: " + System.getSystemStats().charging);
+            // System.println("BackgroundServiceDelegate onTemporalEvent(): activity: " + Activity.getProfileInfo().name);
+
             // Don't use Settings.* here as the object lasts < 30 secs and is recreated each time the background service is run
+            Communications.makeWebRequest(
+                (Properties.getValue("api_url") as Lang.String) + "/webhook/" + (Properties.getValue("webhook_id") as Lang.String),
+                {
+                    "type" => "update_location",
+                    "data" => {
+                        "gps" => position.position.toDegrees(),
+                        "gps_accuracy" => 10,
+                        "speed" => Math.round(position.speed),
+                        "course" => Math.round(position.heading * 180 / Math.PI),
+                        "altitude" => Math.round(position.altitude),
+                    }
+                },
+                {
+                    :method       => Communications.HTTP_REQUEST_METHOD_POST,
+                    :headers      => {
+                        "Content-Type" => Communications.REQUEST_CONTENT_TYPE_JSON
+                    },
+                    :responseType => Communications.HTTP_RESPONSE_CONTENT_TYPE_JSON
+                },
+                method(:onReturnBatteryUpdate)
+            );
             Communications.makeWebRequest(
                 (Properties.getValue("api_url") as Lang.String) + "/webhook/" + (Properties.getValue("webhook_id") as Lang.String),
                 {
@@ -58,6 +89,11 @@ class BackgroundServiceDelegate extends System.ServiceDelegate {
                             "state"     => System.getSystemStats().charging,
                             "type"      => "binary_sensor",
                             "unique_id" => "battery_is_charging"
+                        },
+                        {
+                            "state"     => Activity.getProfileInfo().name,
+                            "type"      => "sensor",
+                            "unique_id" => "activity"
                         }
                     ]
                 },

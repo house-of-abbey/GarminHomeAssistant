@@ -62,10 +62,12 @@ class WebhookManager {
                 ErrorView.show(WatchUi.loadResource($.Rez.Strings.WebhookFailed) as Lang.String + "\n" + WatchUi.loadResource($.Rez.Strings.ApiUrlNotFound) as Lang.String);
                 break;
 
+            case 200:
             case 201:
                 var id = data.get("webhook_id") as Lang.String or Null;
                 if (id != null) {
                     Settings.setWebhookId(id);
+                    // System.println("WebhookManager onReturnRegisterWebhookSensor(): Registering first sensor: Battery Level");
                     registerWebhookSensor({
                         "device_class"        => "battery",
                         "name"                => "Battery Level",
@@ -76,16 +78,7 @@ class WebhookManager {
                         "state_class"         => "measurement",
                         "entity_category"     => "diagnostic",
                         "disabled"            => false
-                    });
-                    registerWebhookSensor({
-                        "device_class"    => "battery_charging",
-                        "name"            => "Battery is Charging",
-                        "state"           => System.getSystemStats().charging,
-                        "type"            => "binary_sensor",
-                        "unique_id"       => "battery_is_charging",
-                        "entity_category" => "diagnostic",
-                        "disabled"        => false
-                    });
+                    }, 0);
                 } else {
                     // System.println("WebhookManager onReturnRequestWebhookId(): No webhook id in response data.");
                     Settings.unsetIsBatteryLevelEnabled();
@@ -129,7 +122,7 @@ class WebhookManager {
         );
     }
 
-    function onReturnRegisterWebhookSensor(responseCode as Lang.Number, data as Null or Lang.Dictionary or Lang.String) as Void {
+    function onReturnRegisterWebhookSensor(responseCode as Lang.Number, data as Null or Lang.Dictionary or Lang.String, step as Lang.Number) as Void {
         switch (responseCode) {
             case Communications.BLE_HOST_TIMEOUT:
             case Communications.BLE_CONNECTION_UNAVAILABLE:
@@ -155,6 +148,7 @@ class WebhookManager {
                 Settings.unsetWebhookId();
                 // Ignore and see if we can carry on
                 break;
+
             case Communications.INVALID_HTTP_BODY_IN_NETWORK_RESPONSE:
                 // System.println("WebhookManager onReturnRegisterWebhookSensor() Response Code: INVALID_HTTP_BODY_IN_NETWORK_RESPONSE, check JSON is returned.");
                 Settings.unsetWebhookId();
@@ -169,12 +163,37 @@ class WebhookManager {
                 ErrorView.show(WatchUi.loadResource($.Rez.Strings.WebhookFailed) as Lang.String + "\n" + WatchUi.loadResource($.Rez.Strings.ApiUrlNotFound) as Lang.String);
                 break;
 
+            case 200:
             case 201:
-                if ((data.get("success") as Lang.Boolean or Null) != true) {
-                // When uncommenting, invert the condition above.
-                //     System.println("WebhookManager onReturnRegisterWebhookSensor(): Success");
-                // } else {
-                //     System.println("WebhookManager onReturnRegisterWebhookSensor(): Failure");
+                if ((data.get("success") as Lang.Boolean or Null) != false) {
+                    // System.println("WebhookManager onReturnRegisterWebhookSensor(): Success");
+                    switch (step) {
+                        case 0:
+                            // System.println("WebhookManager onReturnRegisterWebhookSensor(): Registering next sensor: Battery is Charging");
+                            registerWebhookSensor({
+                                "device_class"    => "battery_charging",
+                                "name"            => "Battery is Charging",
+                                "state"           => System.getSystemStats().charging,
+                                "type"            => "binary_sensor",
+                                "unique_id"       => "battery_is_charging",
+                                "entity_category" => "diagnostic",
+                                "disabled"        => false
+                            }, 1);
+                            break;
+                        case 1:
+                            // System.println("WebhookManager onReturnRegisterWebhookSensor(): Registering next sensor: Activity");
+                            registerWebhookSensor({
+                                "name"                => "Activity",
+                                "state"               => Activity.getProfileInfo().name,
+                                "type"                => "sensor",
+                                "unique_id"           => "activity",
+                                "disabled"            => false
+                            }, 2);
+                            break;
+                        default:
+                    }
+                } else {
+                    // System.println("WebhookManager onReturnRegisterWebhookSensor(): Failure");
                     Settings.unsetWebhookId();
                     Settings.unsetIsBatteryLevelEnabled();
                     ErrorView.show(WatchUi.loadResource($.Rez.Strings.WebhookFailed) as Lang.String);
@@ -189,7 +208,7 @@ class WebhookManager {
         }
     }
 
-    function registerWebhookSensor(sensor as Lang.Object) {
+    function registerWebhookSensor(sensor as Lang.Object, step as Lang.Number) {
         // System.println("WebhookManager registerWebhookSensor(): Registering webhook sensor: " + sensor.toString());
         Communications.makeWebRequest(
             Settings.getApiUrl() + "/webhook/" + Settings.getWebhookId(),
@@ -202,7 +221,8 @@ class WebhookManager {
                 :headers      => {
                     "Content-Type" => Communications.REQUEST_CONTENT_TYPE_JSON
                 },
-                :responseType => Communications.HTTP_RESPONSE_CONTENT_TYPE_JSON
+                :responseType => Communications.HTTP_RESPONSE_CONTENT_TYPE_JSON,
+                :context      => step
             },
             method(:onReturnRegisterWebhookSensor)
         );
