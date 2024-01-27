@@ -52,9 +52,9 @@ class BackgroundServiceDelegate extends System.ServiceDelegate {
             // System.println("BackgroundServiceDelegate onTemporalEvent(): battery: " + System.getSystemStats().battery);
             // System.println("BackgroundServiceDelegate onTemporalEvent(): charging: " + System.getSystemStats().charging);
             // System.println("BackgroundServiceDelegate onTemporalEvent(): activity: " + Activity.getProfileInfo().name);
-            
+
             // Don't use Settings.* here as the object lasts < 30 secs and is recreated each time the background service is run
-            
+
             if (position.accuracy != Position.QUALITY_NOT_AVAILABLE && position.accuracy != Position.QUALITY_LAST_KNOWN) {
                 var accuracy = 0;
                 switch (position.accuracy) {
