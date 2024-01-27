@@ -184,9 +184,10 @@ This allows the `confirm` field to be accommodated in the `tap_action` along sid
 ## Editing the JSON file
 
 You have options. The first is what we use.
-1. **Best!** Use the [Studio Code Server](https://community.home-assistant.io/t/home-assistant-community-add-on-visual-studio-code/107863) addon for Home Assistant. You can then edit your JSON file in place.
-2. Locally installed VSCode, or if not installed,
-3. try the on-line version at https://vscode.dev/, which works really well.
+1. **Best!**  Use the GarminHomeAssistant [Web-based Editor](https://house-of-abbey.github.io/GarminHomeAssistant/web/) which includes `entity` and `service` name completion and validation by fetching data from your own Home Assistant instance. _Pretty  nifty eh?_ The other method listed below do not add this convenience and checking.
+2. Use the [Studio Code Server](https://community.home-assistant.io/t/home-assistant-community-add-on-visual-studio-code/107863) addon for Home Assistant. You can then edit your JSON file in place.
+3. Locally installed VSCode, or if not installed, try
+4. The on-line version at https://vscode.dev/, which works really well.
 
 Paste in your JSON (and change the file type to JSON if not saving), it will then verify your file format and schema for you, highlighting any errors for you to fix.
 
