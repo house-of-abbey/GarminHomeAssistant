@@ -1,3 +1,5 @@
 exclude:
   - '**/*.md'
   - '**/pnpm-lock.yaml'
+  - 'manifest.xml'
+  - 'manifest-widget.xml'
