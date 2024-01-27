@@ -1,4 +1,4 @@
-[Home](../README.md) | [Switches](Switches.md) | [Actions](Actions.md) | Templates | [Battery Reporting](../BatteryReporting.md) | [Trouble Shooting](../TroubleShooting.md) | [Version History](../HISTORY.md)
+[Home](../README.md) | [Switches](Switches.md) | [Actions](Actions.md) | Templates | [Background Service](../BackgroundService.md) | [Trouble Shooting](../TroubleShooting.md) | [Version History](../HISTORY.md)
 
 # Templates
 

@@ -1,5 +1,11 @@
 [Home](README.md) | [Switches](examples/Switches.md) | [Actions](examples/Actions.md) | [Templates](examples/Templates.md) | Battery Reporting | [Trouble Shooting](TroubleShooting.md) | [Version History](HISTORY.md)
 
+The background service can report the following statuses from your watch to your Home Assistant:
+
+- Battery Level with charging status.
+- Location and location accuracy.
+- Activity information, but only if your watch supports API level 3.2.0. If your watch does not support this API level, this information is simply omitted.
+
 # Battery Reporting
 
 From version 2.1 the application includes a background service to report the current device battery level and charging status back to Home Assistant. This is a feature that Garmin omitted to include with the Bluetooth connection.

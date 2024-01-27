@@ -1,4 +1,4 @@
-[Home](README.md) | [Switches](examples/Switches.md) | [Actions](examples/Actions.md) | [Templates](examples/Templates.md) | [Battery Reporting](BatteryReporting.md) | Trouble Shooting | [Version History](HISTORY.md)
+[Home](README.md) | [Switches](examples/Switches.md) | [Actions](examples/Actions.md) | [Templates](examples/Templates.md) | [Background Service](BackgroundService.md) | Trouble Shooting | [Version History](HISTORY.md)
 
 # Troubleshooting Guides
 

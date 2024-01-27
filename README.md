@@ -1,4 +1,4 @@
-Home | [Switches](examples/Switches.md) | [Actions](examples/Actions.md) | [Templates](examples/Templates.md) | [Battery Reporting](BatteryReporting.md) | [Trouble Shooting](TroubleShooting.md) | [Version History](HISTORY.md)
+Home | [Switches](examples/Switches.md) | [Actions](examples/Actions.md) | [Templates](examples/Templates.md) | [Background Service](BackgroundService.md) | [Trouble Shooting](TroubleShooting.md) | [Version History](HISTORY.md)
 
 # GarminHomeAssistant
 
