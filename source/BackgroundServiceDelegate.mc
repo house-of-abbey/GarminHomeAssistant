@@ -52,29 +52,44 @@ class BackgroundServiceDelegate extends System.ServiceDelegate {
             // System.println("BackgroundServiceDelegate onTemporalEvent(): battery: " + System.getSystemStats().battery);
             // System.println("BackgroundServiceDelegate onTemporalEvent(): charging: " + System.getSystemStats().charging);
             // System.println("BackgroundServiceDelegate onTemporalEvent(): activity: " + Activity.getProfileInfo().name);
-
+            
             // Don't use Settings.* here as the object lasts < 30 secs and is recreated each time the background service is run
-            Communications.makeWebRequest(
-                (Properties.getValue("api_url") as Lang.String) + "/webhook/" + (Properties.getValue("webhook_id") as Lang.String),
-                {
-                    "type" => "update_location",
-                    "data" => {
-                        "gps"          => position.position.toDegrees(),
-                        "gps_accuracy" => 10,
-                        "speed"        => Math.round(position.speed),
-                        "course"       => Math.round(position.heading * 180 / Math.PI),
-                        "altitude"     => Math.round(position.altitude),
-                    }
-                },
-                {
-                    :method       => Communications.HTTP_REQUEST_METHOD_POST,
-                    :headers      => {
-                        "Content-Type" => Communications.REQUEST_CONTENT_TYPE_JSON
+            
+            if (position.accuracy != Position.QUALITY_NOT_AVAILABLE && position.accuracy != Position.QUALITY_LAST_KNOWN) {
+                var accuracy = 0;
+                switch (position.accuracy) {
+                    case Position.QUALITY_POOR:
+                        accuracy = 500;
+                        break;
+                    case Position.QUALITY_USABLE:
+                        accuracy = 100;
+                        break;
+                    case Position.QUALITY_GOOD:
+                        accuracy = 10;
+                        break;
+                }
+                Communications.makeWebRequest(
+                    (Properties.getValue("api_url") as Lang.String) + "/webhook/" + (Properties.getValue("webhook_id") as Lang.String),
+                    {
+                        "type" => "update_location",
+                        "data" => {
+                            "gps"          => position.position.toDegrees(),
+                            "gps_accuracy" => accuracy,
+                            "speed"        => Math.round(position.speed),
+                            "course"       => Math.round(position.heading * 180 / Math.PI),
+                            "altitude"     => Math.round(position.altitude),
+                        }
                     },
-                    :responseType => Communications.HTTP_RESPONSE_CONTENT_TYPE_JSON
-                },
-                method(:onReturnBatteryUpdate)
-            );
+                    {
+                        :method       => Communications.HTTP_REQUEST_METHOD_POST,
+                        :headers      => {
+                            "Content-Type" => Communications.REQUEST_CONTENT_TYPE_JSON
+                        },
+                        :responseType => Communications.HTTP_RESPONSE_CONTENT_TYPE_JSON
+                    },
+                    method(:onReturnBatteryUpdate)
+                );
+            }
             var data = [
                 {
                     "state"     => System.getSystemStats().battery,
@@ -89,9 +104,14 @@ class BackgroundServiceDelegate extends System.ServiceDelegate {
             ];
             if (Activity has :getProfileInfo) {
                 data.add({
-                    "state"     => Activity.getProfileInfo().name,
+                    "state"     => Activity.getProfileInfo().sport,
                     "type"      => "sensor",
                     "unique_id" => "activity"
+                });
+                data.add({
+                    "state"     => Activity.getProfileInfo().subSport,
+                    "type"      => "sensor",
+                    "unique_id" => "sub_activity"
                 });
             }
             Communications.makeWebRequest(

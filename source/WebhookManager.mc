@@ -185,11 +185,23 @@ class WebhookManager {
                             if (Activity has :getProfileInfo) {
                                 registerWebhookSensor({
                                     "name"      => "Activity",
-                                    "state"     => Activity.getProfileInfo().name,
+                                    "state"     => Activity.getProfileInfo().sport,
                                     "type"      => "sensor",
                                     "unique_id" => "activity",
                                     "disabled"  => false
                                 }, 2);
+                                break;
+                            }
+                        case 2:
+                            // System.println("WebhookManager onReturnRegisterWebhookSensor(): Registering next sensor: Activity");
+                            if (Activity has :getProfileInfo) {
+                                registerWebhookSensor({
+                                    "name"      => "Sub-activity",
+                                    "state"     => Activity.getProfileInfo().subSport,
+                                    "type"      => "sensor",
+                                    "unique_id" => "sub_activity",
+                                    "disabled"  => false
+                                }, 3);
                                 break;
                             }
                         default:
