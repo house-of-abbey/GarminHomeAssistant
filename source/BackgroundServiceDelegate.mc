@@ -59,11 +59,11 @@ class BackgroundServiceDelegate extends System.ServiceDelegate {
                 {
                     "type" => "update_location",
                     "data" => {
-                        "gps" => position.position.toDegrees(),
+                        "gps"          => position.position.toDegrees(),
                         "gps_accuracy" => 10,
-                        "speed" => Math.round(position.speed),
-                        "course" => Math.round(position.heading * 180 / Math.PI),
-                        "altitude" => Math.round(position.altitude),
+                        "speed"        => Math.round(position.speed),
+                        "course"       => Math.round(position.heading * 180 / Math.PI),
+                        "altitude"     => Math.round(position.altitude),
                     }
                 },
                 {
