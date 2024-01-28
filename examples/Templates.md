@@ -45,6 +45,16 @@ The first two keep to the simple proposal above. The last combines them into a s
 }
 ```
 
+In order to keep the formatting of floating point numbers under control, you might also like to include a format string as follows. `states()` seems to return a `string` that needs converting to a `float` before the `format()` call can manage the conversion to the required number fo decimal places.
+
+```json
+{
+  "name": "Hallway",
+  "type": "template",
+  "content": "T:{{ '%.1f'|format(states('sensor.hallway_temperature')|float) }}°C, H:{{ '%.1f'|format(states('sensor.hallway_humidity')|float) }}%"
+},
+```
+
 ## Conditionals
 
 Anything between `{%` and `%}` is a directive (`if`, `else`, `elif`, `endif`, etc.). Conditionals are used to dynamically change the content based on the state of the entity.
