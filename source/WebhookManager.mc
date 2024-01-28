@@ -95,18 +95,20 @@ class WebhookManager {
 
     function requestWebhookId() {
         // System.println("WebhookManager requestWebhookId(): Requesting webhook id");
+        var deviceSettings = System.getDeviceSettings();
         Communications.makeWebRequest(
             Settings.getApiUrl() + "/mobile_app/registrations",
             {
-                "device_id"           => System.getDeviceSettings().uniqueIdentifier,
+                "device_id"           => deviceSettings.uniqueIdentifier,
                 "app_id"              => "garmin_home_assistant",
                 "app_name"            => WatchUi.loadResource($.Rez.Strings.AppName) as Lang.String,
                 "app_version"         => "",
-                "device_name"         => "Garmin Watch",
+                "device_name"         => "Garmin Device",
                 "manufacturer"        => "Garmin",
-                "model"               => "",
+                // An unhelpful part number that can be translated to a familiar model name.
+                "model"               => deviceSettings.partNumber,
                 "os_name"             => "",
-                "os_version"          => Lang.format("$1$.$2$", System.getDeviceSettings().firmwareVersion),
+                "os_version"          => Lang.format("$1$.$2$", deviceSettings.firmwareVersion),
                 "supports_encryption" => false,
                 "app_data"            => {}
             },
@@ -184,9 +186,14 @@ class WebhookManager {
                             // System.println("WebhookManager onReturnRegisterWebhookSensor(): Registering next sensor: Activity");
                             if (Activity has :getProfileInfo) {
                                 var activity = Activity.getProfileInfo().sport;
+                                if (!System.getDeviceSettings().activityTrackingOn) {
+                                    // Indicate no activity with -1, not part of Garmin's activity codes.
+                                    // https://developer.garmin.com/connect-iq/api-docs/Toybox/Activity.html#Sport-module
+                                    activity     = -1;
+                                }
                                 registerWebhookSensor({
                                     "name"      => "Activity",
-                                    "state"     => activity != null ? activity : -1,
+                                    "state"     => activity,
                                     "type"      => "sensor",
                                     "unique_id" => "activity",
                                     "disabled"  => false
@@ -197,9 +204,14 @@ class WebhookManager {
                             // System.println("WebhookManager onReturnRegisterWebhookSensor(): Registering next sensor: Activity");
                             if (Activity has :getProfileInfo) {
                                 var sub_activity = Activity.getProfileInfo().subSport;
+                                if (!System.getDeviceSettings().activityTrackingOn) {
+                                    // Indicate no activity with -1, not part of Garmin's activity codes.
+                                    // https://developer.garmin.com/connect-iq/api-docs/Toybox/Activity.html#Sport-module
+                                    sub_activity = -1;
+                                }
                                 registerWebhookSensor({
                                     "name"      => "Sub-activity",
-                                    "state"     => sub_activity != null ? sub_activity : -1,
+                                    "state"     => sub_activity,
                                     "type"      => "sensor",
                                     "unique_id" => "sub_activity",
                                     "disabled"  => false
