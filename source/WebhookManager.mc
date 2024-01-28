@@ -186,7 +186,7 @@ class WebhookManager {
                                 var activity = Activity.getProfileInfo().sport;
                                 registerWebhookSensor({
                                     "name"      => "Activity",
-                                    "state"     => activity ? activity : -1,
+                                    "state"     => activity != null ? activity : -1,
                                     "type"      => "sensor",
                                     "unique_id" => "activity",
                                     "disabled"  => false
@@ -199,7 +199,7 @@ class WebhookManager {
                                 var sub_activity = Activity.getProfileInfo().subSport;
                                 registerWebhookSensor({
                                     "name"      => "Sub-activity",
-                                    "state"     => sub_activity ? sub_activity : -1,
+                                    "state"     => sub_activity != null ? sub_activity : -1,
                                     "type"      => "sensor",
                                     "unique_id" => "sub_activity",
                                     "disabled"  => false
