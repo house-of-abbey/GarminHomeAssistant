@@ -103,13 +103,15 @@ class BackgroundServiceDelegate extends System.ServiceDelegate {
                 }
             ];
             if (Activity has :getProfileInfo) {
+                var activity = Activity.getProfileInfo().sport;
+                var sub_activity = Activity.getProfileInfo().subSport;
                 data.add({
-                    "state"     => Activity.getProfileInfo().sport,
+                    "state"     => activity ? activity : -1,
                     "type"      => "sensor",
                     "unique_id" => "activity"
                 });
                 data.add({
-                    "state"     => Activity.getProfileInfo().subSport,
+                    "state"     => sub_activity ? sub_activity : -1,
                     "type"      => "sensor",
                     "unique_id" => "sub_activity"
                 });
