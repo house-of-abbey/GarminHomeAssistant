@@ -102,16 +102,24 @@ class BackgroundServiceDelegate extends System.ServiceDelegate {
                     "unique_id" => "battery_is_charging"
                 }
             ];
-            if (Activity has :getProfileInfo) {
-                var activity = Activity.getProfileInfo().sport;
+            if ((Activity has :getActivityInfo) and (Activity has :getProfileInfo)) {
+                var activity     = Activity.getProfileInfo().sport;
                 var sub_activity = Activity.getProfileInfo().subSport;
+                // We need to check if we are actually tracking any activity
+                if (Activity.getActivityInfo().elapsedTime == 0) {
+                    // Indicate no activity with -1, not part of Garmin's activity codes.
+                    // https://developer.garmin.com/connect-iq/api-docs/Toybox/Activity.html#Sport-module
+                    activity     = -1;
+                    sub_activity = -1;
+                }
+                System.println("activity = " + activity);
                 data.add({
-                    "state"     => activity != null ? activity : -1,
+                    "state"     => activity,
                     "type"      => "sensor",
                     "unique_id" => "activity"
                 });
                 data.add({
-                    "state"     => sub_activity != null ? sub_activity : -1,
+                    "state"     => sub_activity,
                     "type"      => "sensor",
                     "unique_id" => "sub_activity"
                 });
