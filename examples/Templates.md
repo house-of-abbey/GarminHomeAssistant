@@ -6,7 +6,6 @@ In order to provide the most functionality possible the content of the menu item
 
 - In this file anything between `<` and `>` is a placeholder. Replace it with the appropriate value.
 - [Jinga2](https://palletsprojects.com/p/jinja/) syntax is used by Home Assistant [Templates](https://www.home-assistant.io/docs/configuration/templating/). Templates are used to dynamically insert values into the content. The syntax includes:
-
   - `{%` ... `%}` for Statements
   - `{{` ... `}}` for Expressions to print to the template output
   - `{#` ... `#}` for Comments not included in the template output
