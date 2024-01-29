@@ -36,7 +36,7 @@
   <string id="SettingsClearCache">Soll die Anwendung beim nächsten Start den vorhandenen Cache löschen?</string>
   <string id="SettingsAppTimeout">Die App wird nach Ablauf der Zeit (in Sekunden) bei Inaktivität beendet, um den Akku
   des Geräts zu schonen.</string>
-  <string id="SettingsConfirmTimeout">Nach dieser Zeit (in Sekunden) wird der Bestätigungsdialog einer Aktion geschlossen und die 
+  <string id="SettingsConfirmTimeout">Nach dieser Zeit (in Sekunden) wird der Bestätigungsdialog einer Aktion geschlossen und die
     Aktion abgebrochen. Auf 0 setzen, um den Timeout zu deaktivieren.</string>
   <string id="SettingsWidgetStart">(Nur Widget) Anwendung automatisch über das Widget starten ohne drauftippen zu müssen.</string>
   <string id="SettingsEnableBatteryLevel">Hintergrunddienst aktivieren, um den Ladezustand der Batterie an HomeAssistant zu senden.</string>
