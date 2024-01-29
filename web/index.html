@@ -15,6 +15,11 @@
     <style>
       @import url('https://unpkg.com/@catppuccin/palette/css/catppuccin.css');
 
+      body {
+        display: flex;
+        flex-direction: column;
+      }
+
       html,
       body,
       #container {
@@ -212,6 +217,9 @@
           &[icon='download']::before {
             background-image: url(https://fonts.gstatic.com/s/i/short-term/release/materialsymbolsoutlined/download/default/48px.svg);
           }
+          &[icon='copy']::before {
+            background-image: url(https://fonts.gstatic.com/s/i/short-term/release/materialsymbolsoutlined/content_copy/default/48px.svg);
+          }
         }
       }
     </style>
@@ -238,6 +246,12 @@
         class="icon"
         icon="download"
         id="download"
+        type="button"></button>
+      <button
+        title="Copy the content of the editor to the clipboard"
+        class="icon"
+        icon="copy"
+        id="copy"
         type="button"></button>
       <input
         required

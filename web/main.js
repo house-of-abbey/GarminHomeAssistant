@@ -569,6 +569,13 @@ require(['vs/editor/editor.main'], async () => {
       document.querySelector('#menu_url').classList.add('invalid');
     }
   });
+  document.querySelector('#copy').addEventListener('click', async (e) => {
+    navigator.clipboard.writeText(model.getValue());
+    toast({
+      text: 'Copied!',
+      color: 'var(--ctp-mocha-green)',
+    });
+  });
 
   document.querySelector('#api_url').addEventListener('change', (e) => {
     api_url = e.target.value;
@@ -661,7 +668,8 @@ require(['vs/editor/editor.main'], async () => {
         i--;
       } while (
         i >= 0 &&
-        word.word[i].toUpperCase() != word.word[i].toLowerCase()
+        (word.word[i] == '_' ||
+          word.word[i].toUpperCase() != word.word[i].toLowerCase())
       );
       i++;
       var range = {
