@@ -25,6 +25,7 @@
   <string id="TemplateError">Template konnte nicht gerendert werden</string>
   <string id="Available" scope="glance">OK</string>
   <string id="Checking" scope="glance">prüfe...</string>
+  <string id="Unconfigured" scope="glance">Nicht konfiguriert</string>
   <string id="Cached" scope="glance">gecacht</string>
   <string id="GlanceMenu" scope="glance">Menü</string>
   <string id="Memory" scope="glance">Speicher</string>
