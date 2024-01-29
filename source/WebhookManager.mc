@@ -186,10 +186,12 @@ class WebhookManager {
                             // System.println("WebhookManager onReturnRegisterWebhookSensor(): Registering next sensor: Activity");
                             if (Activity has :getProfileInfo) {
                                 var activity = Activity.getProfileInfo().sport;
-                                if (!System.getDeviceSettings().activityTrackingOn) {
+                                if ((Activity.getActivityInfo() != null) and
+                                    ((Activity.getActivityInfo().elapsedTime == null) or
+                                     (Activity.getActivityInfo().elapsedTime == 0))) {
                                     // Indicate no activity with -1, not part of Garmin's activity codes.
                                     // https://developer.garmin.com/connect-iq/api-docs/Toybox/Activity.html#Sport-module
-                                    activity     = -1;
+                                    activity = -1;
                                 }
                                 registerWebhookSensor({
                                     "name"      => "Activity",
@@ -204,7 +206,9 @@ class WebhookManager {
                             // System.println("WebhookManager onReturnRegisterWebhookSensor(): Registering next sensor: Activity");
                             if (Activity has :getProfileInfo) {
                                 var sub_activity = Activity.getProfileInfo().subSport;
-                                if (!System.getDeviceSettings().activityTrackingOn) {
+                                if ((Activity.getActivityInfo() != null) and
+                                    ((Activity.getActivityInfo().elapsedTime == null) or
+                                     (Activity.getActivityInfo().elapsedTime == 0))) {
                                     // Indicate no activity with -1, not part of Garmin's activity codes.
                                     // https://developer.garmin.com/connect-iq/api-docs/Toybox/Activity.html#Sport-module
                                     sub_activity = -1;

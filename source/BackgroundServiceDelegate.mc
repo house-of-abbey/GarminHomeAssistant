@@ -106,14 +106,14 @@ class BackgroundServiceDelegate extends System.ServiceDelegate {
                 var activity     = Activity.getProfileInfo().sport;
                 var sub_activity = Activity.getProfileInfo().subSport;
                 // We need to check if we are actually tracking any activity as the enumerated type does not include "No Sport".
-                System.println("activityTrackingOn = " + System.getDeviceSettings().activityTrackingOn);
-                if (!System.getDeviceSettings().activityTrackingOn) {
+                if ((Activity.getActivityInfo() != null) and
+                    ((Activity.getActivityInfo().elapsedTime == null) or
+                     (Activity.getActivityInfo().elapsedTime == 0))) {
                     // Indicate no activity with -1, not part of Garmin's activity codes.
                     // https://developer.garmin.com/connect-iq/api-docs/Toybox/Activity.html#Sport-module
                     activity     = -1;
                     sub_activity = -1;
                 }
-                System.println("activity = " + activity);
                 data.add({
                     "state"     => activity,
                     "type"      => "sensor",
