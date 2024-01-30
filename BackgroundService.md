@@ -1,8 +1,51 @@
 [Home](README.md) | [Switches](examples/Switches.md) | [Actions](examples/Actions.md) | [Templates](examples/Templates.md) | Battery Reporting | [Trouble Shooting](TroubleShooting.md) | [Version History](HISTORY.md)
 
-# Battery Reporting
+# Background Service
+
+The background service can report the following statuses from your device to your Home Assistant:
+
+- Battery Level with charging status.
+- Location and location accuracy.
+- Activity information, but only if your device supports API level 3.2.0. If your device does not support this API level, this information is simply omitted. How do you know? Easiest way is to see if the data is reported.
+
+## Limits
+
+The values are merely samples of your device's current status. They are sent by a single background service at the repetition frequency you chose in the settings. The samples are sent at that one rate only, they _do not vary_ for example on in activity, on charge, time of day. You get one refresh interval and that is it. If you want to change the refresh interval, you change your settings. We do appreciate that may not be what you would ideally like to trigger actions on Home Assistant. Messing with the repeat interval of the background service requires more code, more settings and more complexity. That means older devices using widgets would have to be taken out of support to achieve it.
+
+**Please do not ask for these to be made 'events'.** Garmin's [Connect IQ background service](https://developer.garmin.com/connect-iq/api-docs/Toybox/System/ServiceDelegate.html) is limited in that while it does provide an `onActivityCompleted()` method, it does not provide an `onActivityStarted()` method, so you would not have the complete activity life cycle anyway. So we're keeping this implementation simple, you just get a sampling at one refresh rate. This probably limits you to updating a status on a Home Assistant Dashboard only.
+
+## Battery Reporting
 
 From version 2.1 the application includes a background service to report the current device battery level and charging status back to Home Assistant. This is a feature that Garmin omitted to include with the Bluetooth connection.
+
+## Location Reporting
+
+From version 2.6 the application includes reporting your location. The location data reported includes:
+
+- Location (latitude and longitude)
+- Location accuracy
+- Speed
+- Direction
+- Altitude
+
+You get whatever your device provides at the moment, i.e. at the accuracy the device currently provides. If your watch is not calibrated you get poor data. It might mean that you get more accurate location data when you are in a location tracking activity (i.e. not swimming pool lengths). The device [indicates an accuracy](https://developer.garmin.com/connect-iq/api-docs/Toybox/Position.html#Quality-module) in units of:
+
+- `Position.QUALITY_NOT_AVAILABLE` - No update provided
+- `Position.QUALITY_LAST_KNOWN` - No update provided
+- `Position.QUALITY_POOR` - We translate that to 500 m arbitrarily
+- `Position.QUALITY_USABLE` - We translate that to 100 m arbitrarily
+- `Position.QUALITY_GOOD` - We translate that to 10 m arbitrarily
+
+**You cannot rely on the radius of the circle of accuracy in any resulting maps as any meaningful indication of error.**
+
+## Activity Reporting
+
+From version 2.6 the application includes reporting your activity. The activity data includes:
+
+- Activity - This is an integer as defined by [Toybox.Activity `SPORT`](https://developer.garmin.com/connect-iq/api-docs/Toybox/Activity.html#Sport-module)
+- Sub-activity - This is an integer as defined by [Toybox.Activity `SUB_SPORT`](https://developer.garmin.com/connect-iq/api-docs/Toybox/Activity.html#SubSport-module)
+
+The application only provides the integers without translation. When using the values in Home Assistant, you will need to provide you own mapping from the `Activity` enumerated type to the human readable text. As developers of the application we are pushing this translation to the server to keep the Garmin application code 'lean'. You will also need to add to both the list of activities (sports) and sub-activities (sub-sports) an interpretation of integer `-1` for no activity/sub-activity at present.
 
 ## Start Reporting
 

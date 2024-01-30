@@ -1,11 +1,14 @@
-[Home](../README.md) | [Switches](Switches.md) | [Actions](Actions.md) | Templates | [Battery Reporting](../BatteryReporting.md) | [Trouble Shooting](../TroubleShooting.md) | [Version History](../HISTORY.md)
+[Home](../README.md) | [Switches](Switches.md) | [Actions](Actions.md) | Templates | [Background Service](../BackgroundService.md) | [Trouble Shooting](../TroubleShooting.md) | [Version History](../HISTORY.md)
 
 # Templates
 
-In order to provide the most functionality possible the content of the menu item comes from a user-defined template (i.e. you generate your own text). This allows you to do some pretty cool things. It also makes the config a bit more complicated. This page will help you understand how to use templates.
+In order to provide the most functionality possible the content of the menu item comes from a user-defined template (i.e. you generate your own text). This allows you to do some pretty cool things. It also makes the configuration a bit more complicated. This page will help you understand how to use templates.
 
 - In this file anything between `<` and `>` is a placeholder. Replace it with the appropriate value.
-- Anything between `{{` and `}}` is a template. Templates are used to dynamically insert values into the content. For more info see [the docs](https://www.home-assistant.io/docs/configuration/templating/).
+- [Jinga2](https://palletsprojects.com/p/jinja/) syntax is used by Home Assistant [Templates](https://www.home-assistant.io/docs/configuration/templating/). Templates are used to dynamically insert values into the content. The syntax includes:
+  - `{%` ... `%}` for Statements
+  - `{{` ... `}}` for Expressions to print to the template output
+  - `{#` ... `#}` for Comments not included in the template output
 
 ## States
 
@@ -43,6 +46,16 @@ The first two keep to the simple proposal above. The last combines them into a s
   "type": "template",
   "content": "{{ states('sensor.hallway_temperature') }}°C {{ states('sensor.hallway_humidity') }}%"
 }
+```
+
+In order to keep the formatting of floating point numbers under control, you might also like to include a format string as follows. `states()` seems to return a `string` that needs converting to a `float` before the `format()` call can manage the conversion to the required number fo decimal places.
+
+```json
+{
+  "name": "Hallway",
+  "type": "template",
+  "content": "T:{{ '%.1f'|format(states('sensor.hallway_temperature')|float) }}°C, H:{{ '%.1f'|format(states('sensor.hallway_humidity')|float) }}%"
+},
 ```
 
 ## Conditionals

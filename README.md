@@ -1,4 +1,4 @@
-Home | [Switches](examples/Switches.md) | [Actions](examples/Actions.md) | [Templates](examples/Templates.md) | [Battery Reporting](BatteryReporting.md) | [Trouble Shooting](TroubleShooting.md) | [Version History](HISTORY.md)
+Home | [Switches](examples/Switches.md) | [Actions](examples/Actions.md) | [Templates](examples/Templates.md) | [Background Service](BackgroundService.md) | [Trouble Shooting](TroubleShooting.md) | [Version History](HISTORY.md)
 
 # GarminHomeAssistant
 
@@ -249,7 +249,9 @@ Home Assistant will inevitably change the state of devices you are also controll
 
 The per toggle item delay is caused by a queue of responses to web requests. The responses fill up a buffer and in early testing we observed [`Communications.BLE_QUEUE_FULL`](https://developer.garmin.com/connect-iq/api-docs/Toybox/Communications.html) response codes.  For a Venu 2 Garmin watch an API call delay of 600 ms was found to be sustainable (500 ms was still too fast). The code now chains a sequence of updates, so as one finishes it invokes the next item's update. **The more items requiring a status update that you pack into your dashboard, the slower each individual item will be updated!**
 
-The thinking here is that the watch application will only ever be open briefly not persistently, so the delay in picking up state changes won't be observed often for any race condition between two controllers. As a consequence of this update mechanism, if you request changes too quickly you will be notified that your device cannot keep up with the rate of API responses and you will have to dismiss the error in order to continue. The is a _feature not a bug_!
+The thinking here is that the watch application will only ever be open briefly not persistently, so the delay in picking up state changes won't be observed often for any race condition between two controllers. As a consequence of this update mechanism, if you request changes too quickly you will be notified that your device cannot keep up with the rate of API responses and you will have to dismiss the error in order to continue. This is a _feature not a bug_! If the application reduces the rate of "round robin" status update requests it becomes less responsive to external changes.
+
+To prevent excessive battery usage, set the application timeout in the settings. This will prevent you from leaving the application open and forgotten when not being used, and the polling mechanism will then cease, saving battery life. Again, the thinking here is that the watch application will only ever be open briefly not persistently, and hence not be a constant source of battery usage unless the [background service](BackgroundService.md) for sending any watch status is used aggressively fast.
 
 ## Changes to the (JSON) Dashboard Definition
 
