@@ -30,41 +30,38 @@
   <string id="NoConfigUrl" scope="glance">Keine Konfigurations-URL in den Anwendungseinstellungen</string>
   <string id="ApiFlood">API-Aufrufe zu schnell. Bitte verlangsamen Sie Ihre Anfragen.</string>
   <string id="ApiUrlNotFound">URL nicht gefunden. Möglicher API-URL-Fehler in den Einstellungen.</string>
-  <string id="ConfigUrlNotFound">URL nicht gefunden. Möglicher Konfigurations-URL-Fehler in den Einstellungen.</string>
+  <string id="ConfigUrlNotFound">URL nicht gefunden. Möglicherweise falsche Konfigurations-URL in den Einstellungen.</string>
   <string id="NoJson">Von der HTTP-Anfrage wurde kein JSON zurückgegeben.</string>
   <string id="UnhandledHttpErr">Die HTTP-Anfrage gab folgenden Fehlercode zurück = </string>
   <string id="TrailingSlashErr">Die API-URL darf keinen abschließenden Schrägstrich „/“ enthalten.</string>
   <string id="WebhookFailed">Webhook konnte nicht registriert werden</string>
-  <string id="TemplateError">Vorlage konnte nicht gerendert werden</string>
-  <string id="Available" scope="glance">Verfügbar</string>
-  <string id="Checking" scope="glance">Überprüfung...</string>
+  <string id="TemplateError">Template konnte nicht gerendert werden</string>
+  <string id="Available" scope="glance">OK</string>
+  <string id="Checking" scope="glance">Prüfe...</string>
   <string id="Unavailable" scope="glance">Nicht verfügbar</string>
-  <string id="Unconfigured" scope="glance">Unkonfiguriert</string>
-  <string id="Cached" scope="glance">Zwischengespeichert</string>
-  <string id="GlanceMenu" scope="glance">Speisekarte</string>
-  <string id="Memory" scope="glance">Erinnerung</string>
+  <string id="Unconfigured" scope="glance">Nicht konfiguriert</string>
+  <string id="Cached" scope="glance">gecacht</string>
+  <string id="GlanceMenu" scope="glance">Menü</string>
+  <string id="Memory" scope="glance">Speicher</string>
   <!-- Für die Einstellungs-GUI -->
   <string id="SettingsSelect">Wählen...</string>
   <string id="SettingsApiKey">API-Schlüssel für HomeAssistant.</string>
   <string id="SettingsApiKeyPrompt">Langlebiges Zugriffstoken.</string>
-  <string id="SettingsApiUrl">URL für die HomeAssistant-API.</string>
-  <string id="SettingsConfigUrl">URL zur Menükonfiguration (JSON).</string>
-  <string id="SettingsCacheConfig">Soll die Anwendung die Menükonfiguration zwischenspeichern?</string>
-  <string id="SettingsClearCache">Sollte die Anwendung beim nächsten Mal den vorhandenen Cache löschen?
-    gestartet?</string>
-  <string id="SettingsAppTimeout">Timeout in Sekunden. Beenden Sie die Anwendung nach Ablauf dieser Frist
-    Inaktivität, um den Akku des Geräts zu schonen.</string>
-  <string id="SettingsConfirmTimeout">Nach dieser Zeit (in Sekunden) erscheint ein Bestätigungsdialog für eine
-    Die Aktion wird automatisch geschlossen und die Aktion abgebrochen. Auf 0 setzen, um das Timeout zu deaktivieren.</string>
+  <string id="SettingsApiUrl">URL der HomeAssistant-API.</string>
+  <string id="SettingsConfigUrl">URL der Menükonfiguration (JSON).</string>
+  <string id="SettingsCacheConfig">Soll die Anwendung die Menükonfiguration cachen?</string>
+  <string id="SettingsClearCache">Soll die Anwendung beim nächsten Start den vorhandenen Cache löschen?</string>
+  <string id="SettingsAppTimeout">Die App wird nach Ablauf der Zeit (in Sekunden) bei Inaktivität beendet, um den Akku
+  des Geräts zu schonen.</string>
+  <string id="SettingsConfirmTimeout">Nach dieser Zeit (in Sekunden) wird der Bestätigungsdialog einer Aktion geschlossen und die
+    Aktion abgebrochen. Auf 0 setzen, um den Timeout zu deaktivieren.</string>
   <string id="SettingsTextAlign">Menüausrichtung links (aus) oder rechts (ein).</string>
   <string id="LeftToRight">Links nach rechts</string>
   <string id="RightToLeft">Rechts nach links</string>
-  <string id="SettingsWidgetStart">(Nur Widget) Starten Sie die Anwendung automatisch über das Widget
-    ohne auf einen Fingertipp warten zu müssen.</string>
-  <string id="SettingsEnableBatteryLevel">Aktivieren Sie den Hintergrunddienst, um die Uhrbatterie zu senden
-    Ebene zum Home Assistant.</string>
-  <string id="SettingsBatteryLevelRefreshRate">Die Aktualisierungsrate (in Minuten), mit der der Hintergrund angezeigt wird
-    Der Service sollte das Senden des Batteriestands wiederholen.</string>
-  <string id="WebhookId">(Schreibgeschützt) Die von der Uhr erstellte Webhook-ID für Aktualisierungen des Batteriestands.
-    Möglicherweise benötigen Sie dies zum Debuggen.</string>
+  <string id="SettingsWidgetStart">(Nur Widget) Anwendung automatisch über das Widget starten ohne drauftippen zu müssen.</string>
+  <string id="SettingsEnableBatteryLevel">Hintergrunddienst aktivieren, um den Ladezustand der Batterie an HomeAssistant zu senden.</string>
+  <string id="SettingsBatteryLevelRefreshRate">Die Aktualisierungsrate (in Minuten) mit der der Ladezustand der Batterie
+    an HomeAssistant gesendet wird.</string>
+  <string id="WebhookId">(Schreibgeschützt) Die von der Uhr erstellte Webhook-ID für Aktualisierungen des Ladezustands der Batterie.
+    Möglicherweise wird dies zum Debuggen benötigt.</string>
 </strings>

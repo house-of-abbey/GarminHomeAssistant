@@ -50,21 +50,14 @@
   <string id="SettingsApiUrl">URL untuk API HomeAssistant.</string>
   <string id="SettingsConfigUrl">URL untuk konfigurasi menu (JSON).</string>
   <string id="SettingsCacheConfig">Sekiranya aplikasi cache konfigurasi menu?</string>
-  <string id="SettingsClearCache">Sekiranya aplikasi mengosongkan cache sedia ada pada masa akan datang
-    bermula?</string>
-  <string id="SettingsAppTimeout">Tamat masa dalam beberapa saat. Keluar dari permohonan selepas tempoh ini
-    tidak aktif untuk menjimatkan bateri peranti.</string>
-  <string id="SettingsConfirmTimeout">Selepas masa ini (dalam saat), dialog pengesahan untuk a
-    tindakan ditutup secara automatik dan tindakan itu dibatalkan. Tetapkan kepada 0 untuk melumpuhkan tamat masa.</string>
+  <string id="SettingsClearCache">Patutkah aplikasi mengosongkan cache sedia ada pada kali seterusnya ia dimulakan?</string>
+  <string id="SettingsAppTimeout">Tamat masa dalam beberapa saat. Keluar dari aplikasi selepas tempoh tidak aktif ini untuk menjimatkan bateri peranti.</string>
+  <string id="SettingsConfirmTimeout">Selepas masa ini (dalam beberapa saat), dialog pengesahan untuk tindakan ditutup secara automatik dan tindakan itu dibatalkan. Tetapkan kepada 0 untuk melumpuhkan tamat masa.</string>
   <string id="SettingsTextAlign">Penjajaran Menu Kiri (mati) atau Kanan (hidup).</string>
   <string id="LeftToRight">Kiri ke kanan</string>
   <string id="RightToLeft">Kanan ke kiri</string>
-  <string id="SettingsWidgetStart">(Widget sahaja) Mulakan aplikasi secara automatik daripada widget
-    tanpa menunggu ketuk.</string>
-  <string id="SettingsEnableBatteryLevel">Dayakan perkhidmatan latar belakang untuk menghantar bateri jam
-    tahap kepada Pembantu Rumah.</string>
-  <string id="SettingsBatteryLevelRefreshRate">Kadar muat semula (dalam minit) di mana latar belakang
-    perkhidmatan harus berulang menghantar paras bateri.</string>
-  <string id="WebhookId">(Baca sahaja) ID Webhook yang dibuat oleh jam tangan untuk kemas kini tahap bateri.
-    Anda mungkin memerlukan ini untuk penyahpepijatan.</string>
+  <string id="SettingsWidgetStart">(Widget sahaja) Mulakan aplikasi secara automatik daripada widget tanpa menunggu satu ketikan.</string>
+  <string id="SettingsEnableBatteryLevel">Dayakan perkhidmatan latar belakang untuk menghantar data paras bateri peranti, lokasi dan (jika disokong) kepada Home Assistant.</string>
+  <string id="SettingsBatteryLevelRefreshRate">Kadar penyegaran semula (dalam minit) di mana perkhidmatan latar belakang harus mengulangi penghantaran data.</string>
+  <string id="WebhookId">(Baca sahaja) ID Webhook yang dibuat oleh peranti untuk kemas kini perkhidmatan latar belakang. Anda mungkin memerlukan ini untuk penyahpepijatan.</string>
 </strings>

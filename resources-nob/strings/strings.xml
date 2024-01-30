@@ -50,21 +50,14 @@
   <string id="SettingsApiUrl">URL for HomeAssistant API.</string>
   <string id="SettingsConfigUrl">URL for menykonfigurasjon (JSON).</string>
   <string id="SettingsCacheConfig">Skal applikasjonen bufre menykonfigurasjonen?</string>
-  <string id="SettingsClearCache">Skal applikasjonen tømme den eksisterende cachen neste gang den er det
-    startet?</string>
-  <string id="SettingsAppTimeout">Tidsavbrudd i sekunder. Avslutt søknaden etter denne perioden på
-    inaktivitet for å spare enhetens batteri.</string>
-  <string id="SettingsConfirmTimeout">Etter denne tiden (i sekunder), vises en bekreftelsesdialog for en
-    handlingen lukkes automatisk og handlingen avbrytes. Sett til 0 for å deaktivere tidsavbruddet.</string>
+  <string id="SettingsClearCache">Bør applikasjonen tømme den eksisterende cachen neste gang den startes?</string>
+  <string id="SettingsAppTimeout">Tidsavbrudd i sekunder. Avslutt applikasjonen etter denne perioden med inaktivitet for å spare enhetens batteri.</string>
+  <string id="SettingsConfirmTimeout">Etter denne tiden (i sekunder), lukkes en bekreftelsesdialog for en handling automatisk og handlingen avbrytes. Sett til 0 for å deaktivere tidsavbruddet.</string>
   <string id="SettingsTextAlign">Venstre (av) eller Høyre (på) Menyjustering.</string>
   <string id="LeftToRight">Venstre til høyre</string>
   <string id="RightToLeft">Høyre til venstre</string>
-  <string id="SettingsWidgetStart">(Kun widget) Start applikasjonen automatisk fra widgeten
-    uten å vente på et trykk.</string>
-  <string id="SettingsEnableBatteryLevel">Aktiver bakgrunnstjenesten for å sende klokkebatteriet
-    nivå til Home Assistant.</string>
-  <string id="SettingsBatteryLevelRefreshRate">Oppdateringshastigheten (i minutter) som bakgrunnen
-    tjenesten skal gjenta sendingen av batterinivået.</string>
-  <string id="WebhookId">(Skrivebeskyttet) Webhook-IDen opprettet av klokken for oppdateringer av batterinivå.
-    Du kan kreve dette for feilsøking.</string>
+  <string id="SettingsWidgetStart">(Kun widget) Start applikasjonen automatisk fra widgeten uten å vente på et trykk.</string>
+  <string id="SettingsEnableBatteryLevel">Aktiver bakgrunnstjenesten for å sende enhetens batterinivå, plassering og (hvis støttet) aktivitetsdata til Home Assistant.</string>
+  <string id="SettingsBatteryLevelRefreshRate">Oppdateringshastigheten (i minutter) som bakgrunnstjenesten skal gjenta sending av data med.</string>
+  <string id="WebhookId">(Skrivebeskyttet) Webhook-IDen opprettet av enheten for bakgrunnstjenesteoppdateringer. Du kan kreve dette for feilsøking.</string>
 </strings>

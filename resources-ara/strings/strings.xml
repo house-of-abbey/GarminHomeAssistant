@@ -50,21 +50,14 @@
   <string id="SettingsApiUrl">عنوان URL لواجهة برمجة تطبيقات HomeAssistant.</string>
   <string id="SettingsConfigUrl">عنوان URL لتكوين القائمة (JSON).</string>
   <string id="SettingsCacheConfig">هل يجب على التطبيق تخزين تكوين القائمة مؤقتًا؟</string>
-  <string id="SettingsClearCache">يجب أن يقوم التطبيق بمسح ذاكرة التخزين المؤقت الموجودة في المرة القادمة
-    بدأت؟</string>
-  <string id="SettingsAppTimeout">المهلة بالثواني. الخروج من التطبيق بعد هذه الفترة
-    عدم النشاط لحفظ بطارية الجهاز.</string>
-  <string id="SettingsConfirmTimeout">بعد هذا الوقت (بالثواني)، يظهر مربع حوار تأكيد لـ
-    يتم إغلاق الإجراء تلقائيًا ويتم إلغاء الإجراء. اضبط على 0 لتعطيل المهلة.</string>
+  <string id="SettingsClearCache">هل يجب على التطبيق مسح ذاكرة التخزين المؤقت الموجودة في المرة القادمة التي يتم فيها تشغيله؟</string>
+  <string id="SettingsAppTimeout">المهلة بالثواني. قم بالخروج من التطبيق بعد هذه الفترة من عدم النشاط لحفظ بطارية الجهاز.</string>
+  <string id="SettingsConfirmTimeout">بعد هذا الوقت (بالثواني)، يتم إغلاق مربع حوار تأكيد الإجراء تلقائيًا ويتم إلغاء الإجراء. اضبط على 0 لتعطيل المهلة.</string>
   <string id="SettingsTextAlign">محاذاة القائمة لليسار (إيقاف) أو لليمين (تشغيل).</string>
   <string id="LeftToRight">من اليسار إلى اليمين</string>
   <string id="RightToLeft">من اليمين الى اليسار</string>
-  <string id="SettingsWidgetStart">(القطعة فقط) ابدأ تشغيل التطبيق تلقائيًا من الأداة
-    دون انتظار الصنبور.</string>
-  <string id="SettingsEnableBatteryLevel">تمكين خدمة الخلفية لإرسال بطارية الساعة
-    المستوى إلى مساعد المنزل.</string>
-  <string id="SettingsBatteryLevelRefreshRate">معدل التحديث (بالدقائق) الذي الخلفية
-    يجب أن تكرر الخدمة إرسال مستوى البطارية.</string>
-  <string id="WebhookId">(للقراءة فقط) معرف Webhook الذي أنشأته الساعة لتحديثات مستوى البطارية.
-    قد تحتاج إلى هذا لتصحيح الأخطاء.</string>
+  <string id="SettingsWidgetStart">(القطعة فقط) قم بتشغيل التطبيق تلقائيًا من الأداة دون انتظار نقرة واحدة.</string>
+  <string id="SettingsEnableBatteryLevel">قم بتمكين خدمة الخلفية لإرسال مستوى بطارية الجهاز والموقع وبيانات النشاط (إذا كانت مدعومة) إلى Home Assistant.</string>
+  <string id="SettingsBatteryLevelRefreshRate">معدل التحديث (بالدقائق) الذي يجب أن تكرر فيه خدمة الخلفية إرسال البيانات.</string>
+  <string id="WebhookId">(للقراءة فقط) معرف Webhook الذي أنشأه الجهاز لتحديثات الخدمة في الخلفية. قد تحتاج إلى هذا لتصحيح الأخطاء.</string>
 </strings>

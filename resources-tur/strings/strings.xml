@@ -33,14 +33,14 @@
   <string id="ConfigUrlNotFound">URL bulunamadı. Ayarlarda Olası Yapılandırma URL'si hatası.</string>
   <string id="NoJson">HTTP isteğinden JSON döndürülmedi.</string>
   <string id="UnhandledHttpErr">HTTP isteği hata kodunu döndürdü =</string>
-  <string id="TrailingSlashErr">API URL'sinin sonunda eğik çizgi '/' olmamalıdır</string>
+  <string id="TrailingSlashErr">API URL'sinin sonunda '/' eğik çizgi olmamalıdır</string>
   <string id="WebhookFailed">Webhook kaydedilemedi</string>
   <string id="TemplateError">Şablon oluşturulamadı</string>
   <string id="Available" scope="glance">Mevcut</string>
   <string id="Checking" scope="glance">Kontrol etme...</string>
   <string id="Unavailable" scope="glance">Kullanım dışı</string>
   <string id="Unconfigured" scope="glance">Yapılandırılmamış</string>
-  <string id="Cached" scope="glance">Önbelleğe alındı</string>
+  <string id="Cached" scope="glance">Önbelleğe alınmış</string>
   <string id="GlanceMenu" scope="glance">Menü</string>
   <string id="Memory" scope="glance">Hafıza</string>
   <!-- Ayarlar GUI'si için -->
@@ -50,21 +50,14 @@
   <string id="SettingsApiUrl">HomeAssistant API'sinin URL'si.</string>
   <string id="SettingsConfigUrl">Menü yapılandırmasının URL'si (JSON).</string>
   <string id="SettingsCacheConfig">Uygulama menü yapılandırmasını önbelleğe almalı mı?</string>
-  <string id="SettingsClearCache">Uygulamanın bir dahaki sefere mevcut önbelleği temizlemesi gerekir mi?
-    başladı mı?</string>
-  <string id="SettingsAppTimeout">Saniye cinsinden zaman aşımı. Bu süre sonunda uygulamadan çıkın
-    cihazın pilinden tasarruf etmek için hareketsizlik.</string>
-  <string id="SettingsConfirmTimeout">Bu sürenin sonunda (saniye cinsinden), bir onay iletişim kutusu
-    işlem otomatik olarak kapatılır ve işlem iptal edilir. Zaman aşımını devre dışı bırakmak için 0'a ayarlayın.</string>
+  <string id="SettingsClearCache">Uygulama bir sonraki başlatılışında mevcut önbelleği temizlemeli mi?</string>
+  <string id="SettingsAppTimeout">Saniye cinsinden zaman aşımı. Cihazın pilinden tasarruf etmek için bu süre boyunca işlem yapılmadığında uygulamadan çıkın.</string>
+  <string id="SettingsConfirmTimeout">Bu sürenin sonunda (saniye olarak), bir eyleme ilişkin onay iletişim kutusu otomatik olarak kapatılır ve eylem iptal edilir. Zaman aşımını devre dışı bırakmak için 0'a ayarlayın.</string>
   <string id="SettingsTextAlign">Sol (kapalı) veya Sağ (açık) Menü Hizalaması.</string>
   <string id="LeftToRight">Soldan sağa</string>
   <string id="RightToLeft">Sağdan sola</string>
-  <string id="SettingsWidgetStart">(Yalnızca Widget) Uygulamayı widget'tan otomatik olarak başlat
-    bir dokunuş beklemeden.</string>
-  <string id="SettingsEnableBatteryLevel">Saat pilini göndermek için arka plan hizmetini etkinleştirin
-    seviyesini Ev Asistanı'na getirin.</string>
-  <string id="SettingsBatteryLevelRefreshRate">Arka planın yenileme hızı (dakika cinsinden)
-    Servis pil seviyesini göndermeyi tekrarlamalıdır.</string>
-  <string id="WebhookId">(Salt okunur) Saatin pil seviyesi güncellemeleri için oluşturduğu Webhook Kimliği.
-    Hata ayıklama için buna ihtiyacınız olabilir.</string>
+  <string id="SettingsWidgetStart">(Yalnızca Widget) Dokunmayı beklemeden uygulamayı widget'tan otomatik olarak başlatın.</string>
+  <string id="SettingsEnableBatteryLevel">Cihazın pil seviyesini, konumunu ve (destekleniyorsa) etkinlik verilerini Home Assistant'a göndermek için arka plan hizmetini etkinleştirin.</string>
+  <string id="SettingsBatteryLevelRefreshRate">Arka plan hizmetinin veri göndermeyi tekrarlaması gereken yenileme hızı (dakika cinsinden).</string>
+  <string id="WebhookId">(Salt okunur) Arka plan hizmet güncellemeleri için cihaz tarafından oluşturulan Web Kancası Kimliği. Hata ayıklama için buna ihtiyacınız olabilir.</string>
 </strings>

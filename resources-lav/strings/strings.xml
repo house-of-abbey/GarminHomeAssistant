@@ -50,21 +50,14 @@
   <string id="SettingsApiUrl">HomeAssistant API URL.</string>
   <string id="SettingsConfigUrl">URL izvēlnes konfigurācijai (JSON).</string>
   <string id="SettingsCacheConfig">Vai lietojumprogrammai vajadzētu saglabāt izvēlnes konfigurāciju kešatmiņā?</string>
-  <string id="SettingsClearCache">Ja lietojumprogramma nākamreiz notīra esošo kešatmiņu
-    sākās?</string>
-  <string id="SettingsAppTimeout">Taimauts sekundēs. Izejiet no lietojumprogrammas pēc šī perioda
-    neaktivitāte, lai taupītu ierīces akumulatoru.</string>
-  <string id="SettingsConfirmTimeout">Pēc šī laika (sekundēs) tiek parādīts apstiprinājuma dialoglodziņš
-    darbība tiek automātiski aizvērta un darbība tiek atcelta. Iestatiet uz 0, lai atspējotu taimautu.</string>
+  <string id="SettingsClearCache">Vai lietojumprogrammai nākamajā startēšanas reizē vajadzētu notīrīt esošo kešatmiņu?</string>
+  <string id="SettingsAppTimeout">Taimauts sekundēs. Pēc šī neaktivitātes perioda izejiet no lietojumprogrammas, lai taupītu ierīces akumulatoru.</string>
+  <string id="SettingsConfirmTimeout">Pēc šī laika (sekundēs) tiek automātiski aizvērts darbības apstiprinājuma dialoglodziņš un darbība tiek atcelta. Iestatiet uz 0, lai atspējotu taimautu.</string>
   <string id="SettingsTextAlign">Kreisā (izslēgta) vai labā (ieslēgta) izvēlnes izlīdzināšana.</string>
   <string id="LeftToRight">No kreisās uz labo</string>
   <string id="RightToLeft">No labās uz kreiso</string>
-  <string id="SettingsWidgetStart">(tikai logrīkam) Automātiski startējiet lietojumprogrammu no logrīka
-    negaidot pieskārienu.</string>
-  <string id="SettingsEnableBatteryLevel">Iespējojiet fona pakalpojumu, lai nosūtītu pulksteņa akumulatoru
-    Mājas palīga līmenī.</string>
-  <string id="SettingsBatteryLevelRefreshRate">Atsvaidzes intensitāte (minūtēs), ar kādu fons
-    pakalpojumam ir jāatkārto akumulatora līmeņa nosūtīšana.</string>
-  <string id="WebhookId">(Tikai lasāms) Web aizķeres ID, ko pulkstenis izveidojis akumulatora uzlādes līmeņa atjauninājumiem.
-    Tas var būt nepieciešams atkļūdošanai.</string>
+  <string id="SettingsWidgetStart">(tikai logrīkam) Automātiski startējiet lietojumprogrammu no logrīka, negaidot pieskārienu.</string>
+  <string id="SettingsEnableBatteryLevel">Iespējojiet fona pakalpojumu, lai Home Assistant nosūtītu ierīces akumulatora uzlādes līmeni, atrašanās vietu un (ja tiek atbalstīts) darbības datus.</string>
+  <string id="SettingsBatteryLevelRefreshRate">Atsvaidzes biežums (minūtēs), ar kādu fona pakalpojumam ir jāatkārto datu sūtīšana.</string>
+  <string id="WebhookId">(Tikai lasāms) Web aizķeres ID, ko ierīce izveidojusi fona pakalpojumu atjauninājumiem. Tas var būt nepieciešams atkļūdošanai.</string>
 </strings>

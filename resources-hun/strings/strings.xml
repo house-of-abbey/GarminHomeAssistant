@@ -44,27 +44,20 @@
   <string id="GlanceMenu" scope="glance">Menü</string>
   <string id="Memory" scope="glance">memória</string>
   <!-- A beállítások GUI-hoz -->
-  <string id="SettingsSelect">Válasszon...</string>
+  <string id="SettingsSelect">Válassz...</string>
   <string id="SettingsApiKey">API-kulcs a HomeAssistant számára.</string>
   <string id="SettingsApiKeyPrompt">Hosszú életű hozzáférési token.</string>
   <string id="SettingsApiUrl">A HomeAssistant API URL-je.</string>
   <string id="SettingsConfigUrl">URL a menükonfigurációhoz (JSON).</string>
   <string id="SettingsCacheConfig">Az alkalmazásnak gyorsítótárba kell helyeznie a menü konfigurációját?</string>
-  <string id="SettingsClearCache">Ha az alkalmazás legközelebb törli a meglévő gyorsítótárat
-    elkezdődött?</string>
-  <string id="SettingsAppTimeout">Időtúllépés másodpercben. Lépjen ki az alkalmazásból ezen időszak után
-    tétlenség, hogy kímélje a készülék akkumulátorát.</string>
-  <string id="SettingsConfirmTimeout">Ezen idő letelte után (másodpercben) megjelenik egy megerősítő párbeszédpanel az an
-    A művelet automatikusan lezárul, és a művelet megszakad. Állítsa 0-ra az időtúllépés letiltásához.</string>
+  <string id="SettingsClearCache">Törölje az alkalmazásnak a meglévő gyorsítótárat a következő indításakor?</string>
+  <string id="SettingsAppTimeout">Időtúllépés másodpercben. Az eszköz akkumulátorának kímélése érdekében lépjen ki az alkalmazásból ezen inaktivitási időszak után.</string>
+  <string id="SettingsConfirmTimeout">Ezen idő elteltével (másodpercben) egy művelet megerősítő párbeszédpanele automatikusan bezárul, és a művelet megszakad. Állítsa 0-ra az időtúllépés letiltásához.</string>
   <string id="SettingsTextAlign">Balra (ki) vagy Jobbra (be) Menüigazítás.</string>
   <string id="LeftToRight">Balról jobbra</string>
   <string id="RightToLeft">Jobbról balra</string>
-  <string id="SettingsWidgetStart">(Csak widget) Az alkalmazás automatikus indítása a widgetről
-    csapásra várva.</string>
-  <string id="SettingsEnableBatteryLevel">Engedélyezze a háttérszolgáltatást az óra akkumulátorának küldéséhez
-    szinten az Otthoni asszisztensre.</string>
-  <string id="SettingsBatteryLevelRefreshRate">Az a frissítési gyakoriság (percben), amelynél a háttér
-    a szerviznek meg kell ismételnie az akkumulátor töltöttségi szintjének küldését.</string>
-  <string id="WebhookId">(Csak olvasható) Az óra által az akkumulátor töltöttségi szintjének frissítéséhez létrehozott Webhook azonosító.
-    Erre szükség lehet a hibakereséshez.</string>
+  <string id="SettingsWidgetStart">(Csak Widget) Az alkalmazás automatikus indítása a widgetről anélkül, hogy egy érintésre várna.</string>
+  <string id="SettingsEnableBatteryLevel">Engedélyezze a háttérszolgáltatást, hogy elküldje az eszköz akkumulátorának töltöttségi szintjét, helyét és (ha támogatott) tevékenységi adatait a Home Assistantnek.</string>
+  <string id="SettingsBatteryLevelRefreshRate">Az a frissítési gyakoriság (percben), amellyel a háttérszolgáltatásnak meg kell ismételnie az adatok küldését.</string>
+  <string id="WebhookId">(Csak olvasható) Az eszköz által a háttérszolgáltatás frissítéséhez létrehozott Webhook-azonosító. Erre szükség lehet a hibakereséshez.</string>
 </strings>
