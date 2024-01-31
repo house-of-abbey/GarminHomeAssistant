@@ -185,6 +185,15 @@
           font-size: 0.8em;
         }
 
+        a {
+          color: var(--ctp-mocha-teal);
+          text-decoration: none;
+
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+
         button {
           background-color: var(--ctp-mocha-surface1);
           color: var(--ctp-mocha-text);
@@ -419,6 +428,15 @@ http:
           The third button will open the troubleshooting dialog, this will allow
           you to test your HomeAssistant API connection. The fourth button will
           open this dialog.
+        </p>
+
+        <p>
+          For directions on how to write your menu.json file, please see the
+          <a
+            href="https://github.com/house-of-abbey/GarminHomeAssistant#dashboard-definition"
+            >README</a
+          >
+          in the GitHub repo.
         </p>
       </div>
     </dialog>
