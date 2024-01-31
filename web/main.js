@@ -1,3 +1,10 @@
+import { configureMonacoYaml } from 'https://cdn.jsdelivr.net/npm/monaco-yaml@5.1.1/+esm';
+
+if (!localStorage.getItem('info_shown')) {
+  document.querySelector('#info-dialog').showModal();
+  localStorage.setItem('info_shown', 'true');
+}
+
 let api_url = localStorage.getItem('api_url') ?? '';
 let menu_url = localStorage.getItem('menu_url') ?? '';
 let api_token = localStorage.getItem('api_token') ?? '';
@@ -466,12 +473,17 @@ require(['vs/editor/editor.main'], async () => {
     });
   }
 
+  configureMonacoYaml(monaco);
+
   document.querySelector('#api_url').value = api_url;
   document.querySelector('#menu_url').value = menu_url;
   document.querySelector('#api_token').value = api_token;
 
   document.querySelector('#troubleshooting').addEventListener('click', (e) => {
     document.querySelector('#troubleshooting-dialog').showModal();
+  });
+  document.querySelector('#info').addEventListener('click', (e) => {
+    document.querySelector('#info-dialog').showModal();
   });
 
   document.querySelector('#test-api').addEventListener('click', async (e) => {
@@ -642,6 +654,10 @@ require(['vs/editor/editor.main'], async () => {
       'https://josephabbey.github.io/catppuccin-monaco/mocha.json'
     ).then((r) => r.json())
   );
+
+  monaco.editor.colorizeElement(document.querySelector('#cors-settings'), {
+    theme: 'mocha',
+  });
 
   monaco.languages.registerCompletionItemProvider('json', {
     triggerCharacters: ['.'],
