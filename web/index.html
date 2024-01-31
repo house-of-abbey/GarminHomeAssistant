@@ -85,7 +85,19 @@
         border: 1px solid var(--ctp-mocha-surface1);
         border-radius: 0.25em;
         padding: 0.5em;
-        user-select: none;
+        max-width: min(900px, calc(100% - 10em));
+        max-height: 500px;
+
+        & > div {
+          margin-bottom: 0.5em;
+
+          & > p {
+            margin-inline: 0.5em;
+          }
+          & > code {
+            margin: 0.5em;
+          }
+        }
 
         &:focus-within,
         &:focus-visible {
@@ -149,6 +161,28 @@
           &#api_token {
             flex-grow: 0;
           }
+        }
+
+        code {
+          display: block;
+          background-color: var(--ctp-mocha-surface1);
+          border-radius: 0.5em;
+          padding: 1em;
+          font-family: 'Courier New', Courier, monospace;
+
+          & pre {
+            margin: 0;
+            padding: 0;
+            font-size: 1.2em;
+          }
+        }
+
+        kbd {
+          background-color: var(--ctp-mocha-surface1);
+          border-radius: 0.25em;
+          padding: 0.25em;
+          font-family: 'Courier New', Courier, monospace;
+          font-size: 0.8em;
         }
 
         button {
@@ -220,7 +254,26 @@
           &[icon='copy']::before {
             background-image: url(https://fonts.gstatic.com/s/i/short-term/release/materialsymbolsoutlined/content_copy/default/48px.svg);
           }
+          &[icon='info']::before {
+            background-image: url(https://fonts.gstatic.com/s/i/short-term/release/materialsymbolsoutlined/info/default/48px.svg);
+          }
         }
+      }
+
+      ::-webkit-scrollbar {
+        width: 0.6em;
+      }
+
+      ::-webkit-scrollbar-track-piece {
+        background-color: var(--ctp-mocha-mantle);
+      }
+
+      ::-webkit-scrollbar-thumb {
+        background-color: var(--ctp-mocha-surface1);
+      }
+
+      ::-webkit-scrollbar-thumb:hover {
+        background-color: var(--ctp-mocha-overlay1);
       }
     </style>
   </head>
@@ -262,6 +315,12 @@
         name="api_token"
         id="api_token" />
       <button id="troubleshooting" type="button">Troubleshooting</button>
+      <button
+        title="How to use the editor"
+        class="icon"
+        icon="info"
+        id="info"
+        type="button"></button>
     </div>
 
     <div id="container"></div>
@@ -301,6 +360,66 @@
             Test menu
           </button>
         </div>
+      </div>
+    </dialog>
+
+    <dialog id="info-dialog">
+      <div>
+        <div class="row">
+          <h2>GarminHomeAssistant Web Editor</h2>
+          <button
+            title="Close"
+            class="icon"
+            icon="close"
+            onclick="this.parentElement.parentElement.parentElement.close()"
+            type="button"></button>
+        </div>
+
+        <p>
+          This is the web editor for the GarminHomeAssistant watch app, it
+          offers enhanced schema checking and validation over the original JSON
+          schema by using the HomeAssistant API to create a schema based on your
+          HomeAssistant configuration.
+        </p>
+
+        <p>
+          This editor makes use of the same credentials as the watch app (these
+          can be pasted in the top bar of this page). However in order for this
+          editor to work, you will need to amend the CORS settings of your
+          HomeAssistant instance. Add this to your configuration.yaml file:
+        </p>
+
+        <code>
+          <pre id="cors-settings" data-lang="yaml">
+http:
+  cors_allowed_origins:
+    - https://house-of-abbey.github.io</pre
+          >
+        </code>
+
+        <p>
+          Once you have added this to your configuration.yaml file, you will
+          need to restart HomeAssistant. After HomeAssistant is restarted,
+          reload this page.
+        </p>
+
+        <p>
+          Now you should have validation and autocompletion, anywhere in the
+          editor, press <kbd>Ctrl</kbd> + <kbd>Space</kbd> to see the available
+          options. You will also see red lines under syntax errors and yellow
+          lines under validation errors. Hover over these lines to see the
+          message. You can also click on the `Run Action` and `Toggle` buttons
+          to test your actions.
+        </p>
+
+        <p>
+          In the top bar there are 4 buttons, the first button will download the
+          online version of your menu.json file and put it in the editor. The
+          second button will copy the content of the editor to the clipboard.
+          The third button will open the troubleshooting dialog, this will allow
+          you to test your HomeAssistant API connection. The fourth button will
+          open this dialog.
+        </p>
       </div>
     </dialog>
 
