@@ -288,3 +288,5 @@ The `id` attribute values are taken from the same names used in [`strings.xml`](
 3. Templates can require significant definition for highly customised text. Just remember, you have the ability to crash the application by creating an excessively long menu definition. Don't be silly.
 
 4. Parameters to tap menu items cannot have their parameter usage verified. If you get this wrong and crash the application, that's your fault not the application's. In this case, start by removing the parameters for the menu item causing the crash, and add them back one at a time until you find your fault. **Please don't give the application a poor review for your bad parameter definition!**
+
+5. We are unable to support Edge 540 and Edge 840 devices at this time. The simulation of both these devices has two unexpected errors when toggling or executing taps. We get both `Communications.NETWORK_RESPONSE_OUT_OF_MEMORY` and `Communications.BLE_QUEUE_FULL` even though the memory usage is about 6% of the available RAM. We would appreciate any leads others may have on how to solve this issue.
