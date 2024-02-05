@@ -8,6 +8,8 @@ The background service can report the following statuses from your device to you
 - Location and location accuracy.
 - Activity information, but only if your device supports API level 3.2.0. If your device does not support this API level, this information is simply omitted. How do you know? Easiest way is to see if the data is reported.
 
+If your device does not support the background service, the application will clear this setting after you have enabled it. This tells you that you are unable to take advantage of the background reporting service for the functions below.
+
 ## Limits
 
 The values are merely samples of your device's current status. They are sent by a single background service at the repetition frequency you chose in the settings. The samples are sent at that one rate only, they _do not vary_ for example on in activity, on charge, time of day. You get one refresh interval and that is it. If you want to change the refresh interval, you change your settings. We do appreciate that may not be what you would ideally like to trigger actions on Home Assistant. Messing with the repeat interval of the background service requires more code, more settings and more complexity. That means older devices using widgets would have to be taken out of support to achieve it.
