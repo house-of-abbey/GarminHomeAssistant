@@ -115,13 +115,13 @@ An example of a dimmer light with 4 brightness settings 0..3. Here our light wor
       "entity": "light.green_house",
       "name": "LEDs",
       "type": "template",
-      "content": "{% if not (is_state('light.green_house', 'off') or is_state('light.green_house', 'unavailable')) %}{{ ((state_attr('light.green_house', 'brightness') | float) / 255 * 100) | int }}%{% else %}Off{% endif %}"
+      "content": "{% if not (is_state('light.green_house', 'off') or is_state('light.green_house', 'unavailable')) %}{{ (((state_attr('light.green_house', 'brightness') | float) / 255 * 100)|round(0) ) | int }}%{% else %}Off{% endif %}"
     },
     {
       "entity": "light.green_house",
       "name": "LEDs 0",
       "type": "template",
-      "content": "{% if not (is_state('light.green_house', 'off') or is_state('light.green_house', 'unavailable')) %}{{ ((state_attr('light.green_house', 'brightness') | float) / 255 * 100) | int }}%{% else %}Off{% endif %}",
+      "content": "{% if not (is_state('light.green_house', 'off') or is_state('light.green_house', 'unavailable')) %}{{ (((state_attr('light.green_house', 'brightness') | float) / 255 * 100)|round(0) ) | int }}%{% else %}Off{% endif %}",
       "tap_action": {
         "service": "light.turn_on",
         "data": {
@@ -144,7 +144,7 @@ An example of a dimmer light with 4 brightness settings 0..3. Here our light wor
       "entity": "light.green_house",
       "name": "LEDs 2",
       "type": "template",
-      "content": "{% if not (is_state('light.green_house', 'off') or is_state('light.green_house', 'unavailable')) %}{{ ((state_attr('light.green_house', 'brightness') | float) / 255 * 100) | int }}%{% else %}Off{% endif %}",
+      "content": "{% if not (is_state('light.green_house', 'off') or is_state('light.green_house', 'unavailable')) %}{{ (((state_attr('light.green_house', 'brightness') | float) / 255 * 100)|round(0) ) | int }}%{% else %}Off{% endif %}",
       "tap_action": {
         "service": "light.turn_on",
         "data": {
@@ -156,7 +156,7 @@ An example of a dimmer light with 4 brightness settings 0..3. Here our light wor
       "entity": "light.green_house",
       "name": "LEDs 3",
       "type": "template",
-      "content": "{% if not (is_state('light.green_house', 'off') or is_state('light.green_house', 'unavailable')) %}{{ ((state_attr('light.green_house', 'brightness') | float) / 255 * 100) | int }}%{% else %}Off{% endif %}",
+      "content": "{% if not (is_state('light.green_house', 'off') or is_state('light.green_house', 'unavailable')) %}{{ (((state_attr('light.green_house', 'brightness') | float) / 255 * 100) |round(0) )| int }}%{% else %}Off{% endif %}",
       "tap_action": {
         "service": "light.turn_on",
         "data": {
