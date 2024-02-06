@@ -13,6 +13,8 @@ Before [raising an issue](https://github.com/house-of-abbey/GarminHomeAssistant/
 
 A failure to get the file format right tends to mean that the response to the application errors with `INVALID_HTTP_BODY_IN_NETWORK_RESPONSE` (code of -400). This means the response did not contain JSON, it was probably an error message in plain text that could not be parsed by the Connect IQ API call. See [Toybox.Communications](https://developer.garmin.com/connect-iq/api-docs/Toybox/Communications.html) for the list of error code you might be presented with on your device.
 
+There are some cases where the file format may be valid JSON, but invalid against the schema, and the failure to catch this error could cause the application to crash. Whilst we have taken care to manage many issues, there may still be cases that are uncaught.
+
 Make sure you can browse to the URL of your JSON file in a standard web browser to make sure it is accessible.
 
 ## Watch Menu and API

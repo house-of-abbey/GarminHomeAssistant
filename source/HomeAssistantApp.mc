@@ -173,16 +173,24 @@ class HomeAssistantApp extends Application.AppBase {
                 break;
 
             case 200:
-                if (Settings.getCacheConfig()) {
-                    Storage.setValue("menu", data as Lang.Dictionary);
-                    mMenuStatus = WatchUi.loadResource($.Rez.Strings.Cached) as Lang.String;
+                if (data == null) {
+                    mMenuStatus = WatchUi.loadResource($.Rez.Strings.Unavailable) as Lang.String;
                 } else {
-                    mMenuStatus = WatchUi.loadResource($.Rez.Strings.Available) as Lang.String;
+                    if (Settings.getCacheConfig()) {
+                        Storage.setValue("menu", data as Lang.Dictionary);
+                        mMenuStatus = WatchUi.loadResource($.Rez.Strings.Cached) as Lang.String;
+                    } else {
+                        mMenuStatus = WatchUi.loadResource($.Rez.Strings.Available) as Lang.String;
+                    }
                 }
                 if (!mIsGlance) {
-                    buildMenu(data);
-                    if (!WidgetApp.isWidget) {
-                        WatchUi.switchToView(mHaMenu, new HomeAssistantViewDelegate(false), WatchUi.SLIDE_IMMEDIATE);
+                    if (data == null) {
+                        ErrorView.show(WatchUi.loadResource($.Rez.Strings.NoJson) as Lang.String);
+                    } else {
+                        buildMenu(data);
+                        if (!WidgetApp.isWidget) {
+                            WatchUi.switchToView(mHaMenu, new HomeAssistantViewDelegate(false), WatchUi.SLIDE_IMMEDIATE);
+                        }
                     }
                 }
                 break;
@@ -401,14 +409,11 @@ class HomeAssistantApp extends Application.AppBase {
     // (-101) error. This function is called by a timer every Globals.menuItemUpdateInterval ms.
     function updateNextMenuItem() as Void {
         var itu = mItemsToUpdate as Lang.Array<HomeAssistantToggleMenuItem>;
-        if (itu == null) {
-            // System.println("HomeAssistantApp updateNextMenuItem(): No menu items to update");
-            if (!mIsGlance) {
-                ErrorView.show(WatchUi.loadResource($.Rez.Strings.ConfigUrlNotFound) as Lang.String);
-            }
-        } else {
+        if (itu != null) {
             itu[mNextItemToUpdate].getState();
             mNextItemToUpdate = (mNextItemToUpdate + 1) % itu.size();
+        // } else {
+        //     System.println("HomeAssistantApp updateNextMenuItem(): No menu items to update");
         }
     }
 
@@ -417,8 +422,7 @@ class HomeAssistantApp extends Application.AppBase {
     }
 
     function getGlanceView() as Lang.Array<WatchUi.GlanceView or WatchUi.GlanceViewDelegate> or Null {
-        mIsGlance = true;
-        // RezStrings.update_glance();
+        mIsGlance   = true;
         mApiStatus  = WatchUi.loadResource($.Rez.Strings.Checking) as Lang.String;
         mMenuStatus = WatchUi.loadResource($.Rez.Strings.Checking) as Lang.String;
         updateStatus();

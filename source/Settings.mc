@@ -67,22 +67,19 @@ class Settings {
 
         // Manage this inside the application or widget only (not a glance or background service process)
         if (mIsApp) {
-            if (mIsBatteryLevelEnabled) {
+            if (mIsBatteryLevelEnabled and mHasService) {
                 if (getWebhookId().equals("")) {
                     mWebhookManager = new WebhookManager();
                     mWebhookManager.requestWebhookId();
-                } else if (
-                    mHasService and
-                    ((Background.getTemporalEventRegisteredTime() == null) or
-                     (Background.getTemporalEventRegisteredTime() != (mBatteryRefreshRate * 60)))
-                ) {
+                }
+                if ((Background.getTemporalEventRegisteredTime() == null) or
+                    (Background.getTemporalEventRegisteredTime() != (mBatteryRefreshRate * 60))) {
                     Background.registerForTemporalEvent(new Time.Duration(mBatteryRefreshRate * 60)); // Convert to seconds
                 }
             } else {
                 // Explicitly disable the background event which persists when the application closes.
-                if (mHasService and (Background.getTemporalEventRegisteredTime() != null)) {
-                    Background.deleteTemporalEvent();
-                }
+                // If !mHasService disable the Settings option as user feedback
+                unsetIsBatteryLevelEnabled();
                 unsetWebhookId();
             }
         }

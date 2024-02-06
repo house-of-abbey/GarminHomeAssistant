@@ -193,6 +193,8 @@ Paste in your JSON (and change the file type to JSON if not saving), it will the
 
 A failure to get the file format right tends to mean that the response to the application errors with `INVALID_HTTP_BODY_IN_NETWORK_RESPONSE` (code of -400). This means the response did not contain JSON, it was probably an error message in plain text that could not be parsed by the Connect IQ API call. See [Toybox.Communications](https://developer.garmin.com/connect-iq/api-docs/Toybox/Communications.html) for the list of error code you might be presented with on your device.
 
+There are some cases where the file format may be valid JSON, but invalid against the schema, and the failure to catch this error could cause the application to crash. Whilst we have taken care to manage many issues, there may still be cases that are uncaught.
+
 Make sure you can browse to the URL of your JSON file in a standard web browser to make sure it is accessible.
 
 ## API Key Creation
@@ -278,15 +280,17 @@ The `id` attribute values are taken from the same names used in [`strings.xml`](
 
 ## Known Issues
 
-1. On some (old) devices (e.g. Vivoactive 3, Fenix 5s & Edge 520+), the menu does not update correctly to reflect changes in state effected by an external Home Assistant control. E.g. when the phone application changes the toggle status of a switch, the Garmin application does not reflect that change until the menu is touched or scrolled a little. This is a [known issue](https://forums.garmin.com/developer/connect-iq/i/bug-reports/menu2-doesn-t-allow-live-updates) already reported without a suggested software fix.
+1. There are some cases where the file format may be valid JSON, but invalid against the schema, and the failure to catch this error could cause the application to crash. Whilst we have taken care to manage many issues, there may still be cases that are uncaught. Please verify your JSON schema, see the [trouble shooting guide](TroubleShooting.md).
 
-2. Widgets have less memory than applications. With the new template based sensor display, widgets are more likely to run out of memory. E.g. a Vivoactive 3 device has a memory limit of 60 kB runtime memory for widgets (compared with 124 kB for applications) and memory is likely to be ~90% used. This makes it very likely that a larger menu will crash the application. We cannot predict what will take the application "over the edge", but we can provide this feedback to users to raise awareness, hence the widget displays menu usage as a reminder. If the widget is crashing but the application variant is not, then your menu configuration is too big for the widget. **Please don't give the application a poor review for crashing on your excessive menu definition!**
+2. On some (old) devices (e.g. Vivoactive 3, Fenix 5s & Edge 520+), the menu does not update correctly to reflect changes in state effected by an external Home Assistant control. E.g. when the phone application changes the toggle status of a switch, the Garmin application does not reflect that change until the menu is touched or scrolled a little. This is a [known issue](https://forums.garmin.com/developer/connect-iq/i/bug-reports/menu2-doesn-t-allow-live-updates) already reported without a suggested software fix.
+
+3. Widgets have less memory than applications. With the new template based sensor display, widgets are more likely to run out of memory. E.g. a Vivoactive 3 device has a memory limit of 60 kB runtime memory for widgets (compared with 124 kB for applications) and memory is likely to be ~90% used. This makes it very likely that a larger menu will crash the application. We cannot predict what will take the application "over the edge", but we can provide this feedback to users to raise awareness, hence the widget displays menu usage as a reminder. If the widget is crashing but the application variant is not, then your menu configuration is too big for the widget. **Please don't give the application a poor review for crashing on your excessive menu definition!**
 
 <img src="images/Venu_Widget_sim.png" width="200" title="Venu 2" style="margin:5px"/>
 <img src="images/app_crash.png" width="200" title="Venu 2" style="margin:5px;border: 2px solid black;"/>
 
-3. Templates can require significant definition for highly customised text. Just remember, you have the ability to crash the application by creating an excessively long menu definition. Don't be silly.
+4. Templates can require significant definition for highly customised text. Just remember, you have the ability to crash the application by creating an excessively long menu definition. Don't be silly.
 
-4. Parameters to tap menu items cannot have their parameter usage verified. If you get this wrong and crash the application, that's your fault not the application's. In this case, start by removing the parameters for the menu item causing the crash, and add them back one at a time until you find your fault. **Please don't give the application a poor review for your bad parameter definition!**
+5. Parameters to tap menu items cannot have their parameter usage verified. If you get this wrong and crash the application, that's your fault not the application's. In this case, start by removing the parameters for the menu item causing the crash, and add them back one at a time until you find your fault. **Please don't give the application a poor review for your bad parameter definition!**
 
-5. We are unable to support Edge 540 and Edge 840 devices at this time. The simulation of both these devices has two unexpected errors when toggling or executing taps. We get both `Communications.NETWORK_RESPONSE_OUT_OF_MEMORY` and `Communications.BLE_QUEUE_FULL` even though the memory usage is about 6% of the available RAM. We would appreciate any leads others may have on how to solve this issue.
+6. We are unable to support Edge 540 and Edge 840 devices at this time. The simulation of both these devices has two unexpected errors when toggling or executing taps. We get both `Communications.NETWORK_RESPONSE_OUT_OF_MEMORY` and `Communications.BLE_QUEUE_FULL` even though the memory usage is about 6% of the available RAM. We would appreciate any leads others may have on how to solve this issue.
