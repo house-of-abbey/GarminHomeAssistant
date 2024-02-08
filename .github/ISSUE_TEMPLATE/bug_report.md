@@ -17,6 +17,8 @@ I have:
 - [ ] Checked that my JSON Syntax is correct ([options 2, 3, or 4](https://github.com/house-of-abbey/GarminHomeAssistant#editing-the-json-file) or otherwise)
 - [ ] Checked that my JSON follows the schema ([options 2, 3, or 4](https://github.com/house-of-abbey/GarminHomeAssistant#editing-the-json-file))
 - [ ] Used the online editor to check my JSON against HomeAssistant ([option 1](https://github.com/house-of-abbey/GarminHomeAssistant#editing-the-json-file))
+- [ ] Checked the [Docs](https://github.com/house-of-abbey/GarminHomeAssistant)
+- [ ] Checked the [Troubleshooting Guide](https://github.com/house-of-abbey/GarminHomeAssistant/blob/main/TroubleShooting.md)
 
 **To Reproduce**
 Steps to reproduce the behavior:
