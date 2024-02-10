@@ -19,15 +19,15 @@
 -->
 
 <strings>
-  <string id="AppName" scope="glance">HomeAssistant</string>
+  <string id="AppName">HomeAssistant</string>
   <string id="Confirm">Protams?</string>
-  <string id="Executed" scope="glance">Apstiprināts</string>
-  <string id="NoPhone" scope="glance">Nav tālruņa savienojuma</string>
+  <string id="Executed">Apstiprināts</string>
+  <string id="NoPhone">Nav tālruņa savienojuma</string>
   <string id="NoInternet">Nav interneta savienojuma</string>
   <string id="NoResponse">Nav atbildes, pārbaudiet interneta savienojumu</string>
-  <string id="NoAPIKey" scope="glance">Lietojumprogrammas iestatījumos nav API atslēgas</string>
-  <string id="NoApiUrl" scope="glance">Lietojumprogrammas iestatījumos nav API URL</string>
-  <string id="NoConfigUrl" scope="glance">Lietojumprogrammas iestatījumos nav konfigurācijas URL</string>
+  <string id="NoAPIKey">Lietojumprogrammas iestatījumos nav API atslēgas</string>
+  <string id="NoApiUrl">Lietojumprogrammas iestatījumos nav API URL</string>
+  <string id="NoConfigUrl">Lietojumprogrammas iestatījumos nav konfigurācijas URL</string>
   <string id="ApiFlood">API izsaukumi ir pārāk ātri. Lūdzu, palēniniet pieprasījumu izpildi.</string>
   <string id="ApiUrlNotFound">URL nav atrasts. Iespējama API URL kļūda iestatījumos.</string>
   <string id="ConfigUrlNotFound">URL nav atrasts. Iespējama konfigurācijas URL kļūda iestatījumos.</string>
@@ -36,13 +36,13 @@
   <string id="TrailingSlashErr">API URL beigās nedrīkst būt slīpsvītra “/”</string>
   <string id="WebhookFailed">Neizdevās reģistrēt Web aizķeri</string>
   <string id="TemplateError">Neizdevās renderēt veidni</string>
-  <string id="Available" scope="glance">Pieejams</string>
-  <string id="Checking" scope="glance">Notiek pārbaude...</string>
-  <string id="Unavailable" scope="glance">Nav pieejams</string>
-  <string id="Unconfigured" scope="glance">Nav konfigurēts</string>
-  <string id="Cached" scope="glance">Kešatmiņā saglabāts</string>
-  <string id="GlanceMenu" scope="glance">Izvēlne</string>
-  <string id="Memory" scope="glance">Atmiņa</string>
+  <string id="Available">Pieejams</string>
+  <string id="Checking">Notiek pārbaude...</string>
+  <string id="Unavailable">Nav pieejams</string>
+  <string id="Unconfigured">Nav konfigurēts</string>
+  <string id="Cached">Kešatmiņā saglabāts</string>
+  <string id="Menu">Izvēlne</string>
+  <string id="Memory">Atmiņa</string>
   <!-- Iestatījumu GUI -->
   <string id="SettingsSelect">Izvēlieties...</string>
   <string id="SettingsApiKey">API atslēga Home Assistant.</string>

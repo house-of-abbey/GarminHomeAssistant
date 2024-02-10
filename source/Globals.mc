@@ -20,7 +20,6 @@
 
 using Toybox.Lang;
 
-(:glance)
 class Globals {
     static const scAlertTimeout = 2000; // ms
     static const scTapTimeout   = 1000; // ms

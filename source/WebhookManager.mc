@@ -25,7 +25,6 @@ using Toybox.Lang;
 using Toybox.Communications;
 using Toybox.System;
 
-// Can use push view so must never be run in a glance context
 class WebhookManager {
 
     function onReturnRequestWebhookId(responseCode as Lang.Number, data as Null or Lang.Dictionary or Lang.String) as Void {

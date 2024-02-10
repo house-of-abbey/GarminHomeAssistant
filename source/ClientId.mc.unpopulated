@@ -20,7 +20,6 @@
 //
 //-----------------------------------------------------------------------------------
 
-(:glance)
 class ClientId {
    static const webLogUrl      = "https://...";
    static const webLogClearUrl = "https://..._clear.php";

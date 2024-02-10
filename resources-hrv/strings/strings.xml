@@ -19,15 +19,15 @@
 -->
 
 <strings>
-  <string id="AppName" scope="glance">HomeAssistant</string>
+  <string id="AppName">HomeAssistant</string>
   <string id="Confirm">Naravno?</string>
-  <string id="Executed" scope="glance">Potvrđeno</string>
-  <string id="NoPhone" scope="glance">Nema telefonske veze</string>
+  <string id="Executed">Potvrđeno</string>
+  <string id="NoPhone">Nema telefonske veze</string>
   <string id="NoInternet">Nema internetske veze</string>
   <string id="NoResponse">Nema odgovora, provjerite internetsku vezu</string>
-  <string id="NoAPIKey" scope="glance">Nema API ključa u postavkama aplikacije</string>
-  <string id="NoApiUrl" scope="glance">Nema API URL-a u postavkama aplikacije</string>
-  <string id="NoConfigUrl" scope="glance">Nema konfiguracijskog URL-a u postavkama aplikacije</string>
+  <string id="NoAPIKey">Nema API ključa u postavkama aplikacije</string>
+  <string id="NoApiUrl">Nema API URL-a u postavkama aplikacije</string>
+  <string id="NoConfigUrl">Nema konfiguracijskog URL-a u postavkama aplikacije</string>
   <string id="ApiFlood">API pozivi su prebrzi. Molimo usporite svoje zahtjeve.</string>
   <string id="ApiUrlNotFound">URL nije pronađen. Potencijalna pogreška API URL-a u postavkama.</string>
   <string id="ConfigUrlNotFound">URL nije pronađen. Potencijalna pogreška URL-a konfiguracije u postavkama.</string>
@@ -36,13 +36,13 @@
   <string id="TrailingSlashErr">API URL ne smije imati kosu crtu na kraju '/'</string>
   <string id="WebhookFailed">Registracija Webhooka nije uspjela</string>
   <string id="TemplateError">Nije uspjelo generiranje predloška</string>
-  <string id="Available" scope="glance">Dostupno</string>
-  <string id="Checking" scope="glance">Provjera...</string>
-  <string id="Unavailable" scope="glance">Nedostupan</string>
-  <string id="Unconfigured" scope="glance">Nekonfigurirano</string>
-  <string id="Cached" scope="glance">Spremljeno u predmemoriju</string>
-  <string id="GlanceMenu" scope="glance">Jelovnik</string>
-  <string id="Memory" scope="glance">Memorija</string>
+  <string id="Available">Dostupno</string>
+  <string id="Checking">Provjera...</string>
+  <string id="Unavailable">Nedostupan</string>
+  <string id="Unconfigured">Nekonfigurirano</string>
+  <string id="Cached">Spremljeno u predmemoriju</string>
+  <string id="Menu">Jelovnik</string>
+  <string id="Memory">Memorija</string>
   <!-- Za GUI postavki -->
   <string id="SettingsSelect">Izaberi...</string>
   <string id="SettingsApiKey">API ključ za HomeAssistant.</string>

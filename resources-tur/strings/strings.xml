@@ -19,15 +19,15 @@
 -->
 
 <strings>
-  <string id="AppName" scope="glance">HomeAssistant</string>
+  <string id="AppName">HomeAssistant</string>
   <string id="Confirm">Elbette?</string>
-  <string id="Executed" scope="glance">Onaylanmış</string>
-  <string id="NoPhone" scope="glance">Telefon bağlantısı yok</string>
+  <string id="Executed">Onaylanmış</string>
+  <string id="NoPhone">Telefon bağlantısı yok</string>
   <string id="NoInternet">İnternet bağlantısı yok</string>
   <string id="NoResponse">Yanıt Yok, İnternet bağlantısını kontrol edin</string>
-  <string id="NoAPIKey" scope="glance">Uygulama ayarlarında API anahtarı yok</string>
-  <string id="NoApiUrl" scope="glance">Uygulama ayarlarında API URL'si yok</string>
-  <string id="NoConfigUrl" scope="glance">Uygulama ayarlarında yapılandırma URL'si yok</string>
+  <string id="NoAPIKey">Uygulama ayarlarında API anahtarı yok</string>
+  <string id="NoApiUrl">Uygulama ayarlarında API URL'si yok</string>
+  <string id="NoConfigUrl">Uygulama ayarlarında yapılandırma URL'si yok</string>
   <string id="ApiFlood">API çağrıları çok hızlı. Lütfen isteklerinizi yavaşlatın.</string>
   <string id="ApiUrlNotFound">URL bulunamadı. Ayarlarda olası API URL hatası.</string>
   <string id="ConfigUrlNotFound">URL bulunamadı. Ayarlarda Olası Yapılandırma URL'si hatası.</string>
@@ -36,13 +36,13 @@
   <string id="TrailingSlashErr">API URL'sinin sonunda '/' eğik çizgi olmamalıdır</string>
   <string id="WebhookFailed">Webhook kaydedilemedi</string>
   <string id="TemplateError">Şablon oluşturulamadı</string>
-  <string id="Available" scope="glance">Mevcut</string>
-  <string id="Checking" scope="glance">Kontrol etme...</string>
-  <string id="Unavailable" scope="glance">Kullanım dışı</string>
-  <string id="Unconfigured" scope="glance">Yapılandırılmamış</string>
-  <string id="Cached" scope="glance">Önbelleğe alınmış</string>
-  <string id="GlanceMenu" scope="glance">Menü</string>
-  <string id="Memory" scope="glance">Hafıza</string>
+  <string id="Available">Mevcut</string>
+  <string id="Checking">Kontrol etme...</string>
+  <string id="Unavailable">Kullanım dışı</string>
+  <string id="Unconfigured">Yapılandırılmamış</string>
+  <string id="Cached">Önbelleğe alınmış</string>
+  <string id="Menu">Menü</string>
+  <string id="Memory">Hafıza</string>
   <!-- Ayarlar GUI'si için -->
   <string id="SettingsSelect">Seçme...</string>
   <string id="SettingsApiKey">HomeAssistant için API Anahtarı.</string>

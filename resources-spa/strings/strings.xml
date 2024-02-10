@@ -19,15 +19,15 @@
 -->
 
 <strings>
-  <string id="AppName" scope="glance">HomeAssistant</string>
+  <string id="AppName">HomeAssistant</string>
   <string id="Confirm">¿Seguro?</string>
-  <string id="Executed" scope="glance">Confirmado</string>
-  <string id="NoPhone" scope="glance">Sin conexión telefónica</string>
+  <string id="Executed">Confirmado</string>
+  <string id="NoPhone">Sin conexión telefónica</string>
   <string id="NoInternet">Sin conexión a Internet</string>
   <string id="NoResponse">No hay respuesta, verifique la conexión a Internet</string>
-  <string id="NoAPIKey" scope="glance">Sin clave API en la configuración de la aplicación</string>
-  <string id="NoApiUrl" scope="glance">No hay URL de API en la configuración de la aplicación</string>
-  <string id="NoConfigUrl" scope="glance">No hay URL de configuración en la configuración de la aplicación.</string>
+  <string id="NoAPIKey">Sin clave API en la configuración de la aplicación</string>
+  <string id="NoApiUrl">No hay URL de API en la configuración de la aplicación</string>
+  <string id="NoConfigUrl">No hay URL de configuración en la configuración de la aplicación.</string>
   <string id="ApiFlood">Llamadas API demasiado rápidas. Por favor, ralentice sus solicitudes.</string>
   <string id="ApiUrlNotFound">URL no encontrada. Posible error de URL de API en la configuración.</string>
   <string id="ConfigUrlNotFound">URL no encontrada. Posible error de URL de configuración en la configuración.</string>
@@ -36,13 +36,13 @@
   <string id="TrailingSlashErr">La URL de API no debe tener una barra diagonal '/'</string>
   <string id="WebhookFailed">No se pudo registrar el webhook</string>
   <string id="TemplateError">No se pudo renderizar la plantilla</string>
-  <string id="Available" scope="glance">Disponible</string>
-  <string id="Checking" scope="glance">Comprobación...</string>
-  <string id="Unavailable" scope="glance">Indisponible</string>
-  <string id="Unconfigured" scope="glance">Desconfigurado</string>
-  <string id="Cached" scope="glance">En caché</string>
-  <string id="GlanceMenu" scope="glance">Menú</string>
-  <string id="Memory" scope="glance">Memoria</string>
+  <string id="Available">Disponible</string>
+  <string id="Checking">Comprobación...</string>
+  <string id="Unavailable">Indisponible</string>
+  <string id="Unconfigured">Desconfigurado</string>
+  <string id="Cached">En caché</string>
+  <string id="Menu">Menú</string>
+  <string id="Memory">Memoria</string>
   <!-- Para la configuración GUI -->
   <string id="SettingsSelect">Seleccionar...</string>
   <string id="SettingsApiKey">Clave API para HomeAssistant.</string>

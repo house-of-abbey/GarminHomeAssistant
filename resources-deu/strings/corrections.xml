@@ -23,12 +23,12 @@
 
   <string id="ConfigUrlNotFound">URL nicht gefunden. Möglicherweise falsche Konfigurations-URL in den Einstellungen.</string>
   <string id="TemplateError">Template konnte nicht gerendert werden</string>
-  <string id="Available" scope="glance">OK</string>
-  <string id="Checking" scope="glance">Prüfe...</string>
-  <string id="Unconfigured" scope="glance">Nicht konfiguriert</string>
-  <string id="Cached" scope="glance">gecacht</string>
-  <string id="GlanceMenu" scope="glance">Menü</string>
-  <string id="Memory" scope="glance">Speicher</string>
+  <string id="Available">OK</string>
+  <string id="Checking">Prüfe...</string>
+  <string id="Unconfigured">Nicht konfiguriert</string>
+  <string id="Cached">gecacht</string>
+  <string id="Menu">Menü</string>
+  <string id="Memory">Speicher</string>
 
   <!-- Für die Einstellungs-GUI -->
   <string id="SettingsApiUrl">URL der HomeAssistant-API.</string>

@@ -20,5 +20,5 @@
 
 <strings>
   <string id="Confirm">Potvrďte</string>
-  <string id="Executed" scope="glance">Spustený</string>
+  <string id="Executed">Spustený</string>
 </strings>

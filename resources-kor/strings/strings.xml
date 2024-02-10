@@ -19,15 +19,15 @@
 -->
 
 <strings>
-  <string id="AppName" scope="glance">HomeAssistant</string>
+  <string id="AppName">HomeAssistant</string>
   <string id="Confirm">확신하는?</string>
-  <string id="Executed" scope="glance">확인됨</string>
-  <string id="NoPhone" scope="glance">전화 연결 없음</string>
+  <string id="Executed">확인됨</string>
+  <string id="NoPhone">전화 연결 없음</string>
   <string id="NoInternet">인터넷에 연결되지 않음</string>
   <string id="NoResponse">응답이 없습니다. 인터넷 연결을 확인하세요.</string>
-  <string id="NoAPIKey" scope="glance">애플리케이션 설정에 API 키가 없습니다.</string>
-  <string id="NoApiUrl" scope="glance">애플리케이션 설정에 API URL이 없습니다.</string>
-  <string id="NoConfigUrl" scope="glance">애플리케이션 설정에 구성 URL이 없습니다.</string>
+  <string id="NoAPIKey">애플리케이션 설정에 API 키가 없습니다.</string>
+  <string id="NoApiUrl">애플리케이션 설정에 API URL이 없습니다.</string>
+  <string id="NoConfigUrl">애플리케이션 설정에 구성 URL이 없습니다.</string>
   <string id="ApiFlood">API 호출이 너무 빠릅니다. 요청 속도를 늦추시기 바랍니다.</string>
   <string id="ApiUrlNotFound">URL을 찾을 수 없습니다. 설정에 잠재적인 API URL 오류가 있습니다.</string>
   <string id="ConfigUrlNotFound">URL을 찾을 수 없습니다. 설정에 잠재적인 구성 URL 오류가 있습니다.</string>
@@ -36,13 +36,13 @@
   <string id="TrailingSlashErr">API URL에는 후행 슬래시 '/'가 있어서는 안 됩니다.</string>
   <string id="WebhookFailed">웹훅 등록 실패</string>
   <string id="TemplateError">템플릿을 렌더링하지 못했습니다.</string>
-  <string id="Available" scope="glance">사용 가능</string>
-  <string id="Checking" scope="glance">확인 중...</string>
-  <string id="Unavailable" scope="glance">없는</string>
-  <string id="Unconfigured" scope="glance">구성되지 않음</string>
-  <string id="Cached" scope="glance">캐시됨</string>
-  <string id="GlanceMenu" scope="glance">메뉴</string>
-  <string id="Memory" scope="glance">메모리</string>
+  <string id="Available">사용 가능</string>
+  <string id="Checking">확인 중...</string>
+  <string id="Unavailable">없는</string>
+  <string id="Unconfigured">구성되지 않음</string>
+  <string id="Cached">캐시됨</string>
+  <string id="Menu">메뉴</string>
+  <string id="Memory">메모리</string>
   <!-- 설정 GUI의 경우 -->
   <string id="SettingsSelect">선택하다...</string>
   <string id="SettingsApiKey">HomeAssistant용 API 키.</string>

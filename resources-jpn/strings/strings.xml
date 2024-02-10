@@ -19,15 +19,15 @@
 -->
 
 <strings>
-  <string id="AppName" scope="glance">HomeAssistant</string>
+  <string id="AppName">HomeAssistant</string>
   <string id="Confirm">もちろん？</string>
-  <string id="Executed" scope="glance">確認済み</string>
-  <string id="NoPhone" scope="glance">電話が接続されていません</string>
+  <string id="Executed">確認済み</string>
+  <string id="NoPhone">電話が接続されていません</string>
   <string id="NoInternet">インターネット接続なし</string>
   <string id="NoResponse">応答がありません。インターネット接続を確認してください</string>
-  <string id="NoAPIKey" scope="glance">アプリケーション設定に API キーがありません</string>
-  <string id="NoApiUrl" scope="glance">アプリケーション設定に API URL がありません</string>
-  <string id="NoConfigUrl" scope="glance">アプリケーション設定に構成 URL がありません</string>
+  <string id="NoAPIKey">アプリケーション設定に API キーがありません</string>
+  <string id="NoApiUrl">アプリケーション設定に API URL がありません</string>
+  <string id="NoConfigUrl">アプリケーション設定に構成 URL がありません</string>
   <string id="ApiFlood">API 呼び出しが速すぎます。リクエストは遅くしてください。</string>
   <string id="ApiUrlNotFound">URLが見つかりません。設定における API URL エラーの可能性があります。</string>
   <string id="ConfigUrlNotFound">URLが見つかりません。設定内の構成 URL エラーの可能性があります。</string>
@@ -36,13 +36,13 @@
   <string id="TrailingSlashErr">API URL の末尾にスラッシュ「/」を含めることはできません</string>
   <string id="WebhookFailed">Webhookの登録に失敗しました</string>
   <string id="TemplateError">テンプレートのレンダリングに失敗しました</string>
-  <string id="Available" scope="glance">利用可能</string>
-  <string id="Checking" scope="glance">チェック中...</string>
-  <string id="Unavailable" scope="glance">利用不可</string>
-  <string id="Unconfigured" scope="glance">未構成</string>
-  <string id="Cached" scope="glance">キャッシュされた</string>
-  <string id="GlanceMenu" scope="glance">メニュー</string>
-  <string id="Memory" scope="glance">メモリ</string>
+  <string id="Available">利用可能</string>
+  <string id="Checking">チェック中...</string>
+  <string id="Unavailable">利用不可</string>
+  <string id="Unconfigured">未構成</string>
+  <string id="Cached">キャッシュされた</string>
+  <string id="Menu">メニュー</string>
+  <string id="Memory">メモリ</string>
   <!-- 設定GUIの場合 -->
   <string id="SettingsSelect">選択する...</string>
   <string id="SettingsApiKey">ホームアシスタントの API キー。</string>

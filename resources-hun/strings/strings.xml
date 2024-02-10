@@ -19,15 +19,15 @@
 -->
 
 <strings>
-  <string id="AppName" scope="glance">HomeAssistant</string>
+  <string id="AppName">HomeAssistant</string>
   <string id="Confirm">Biztos?</string>
-  <string id="Executed" scope="glance">Megerősített</string>
-  <string id="NoPhone" scope="glance">Nincs telefonkapcsolat</string>
+  <string id="Executed">Megerősített</string>
+  <string id="NoPhone">Nincs telefonkapcsolat</string>
   <string id="NoInternet">Nincs internetkapcsolat</string>
   <string id="NoResponse">Nincs válasz, ellenőrizze az internetkapcsolatot</string>
-  <string id="NoAPIKey" scope="glance">Nincs API kulcs az alkalmazás beállításaiban</string>
-  <string id="NoApiUrl" scope="glance">Nincs API URL az alkalmazás beállításai között</string>
-  <string id="NoConfigUrl" scope="glance">Nincs konfigurációs URL az alkalmazás beállításai között</string>
+  <string id="NoAPIKey">Nincs API kulcs az alkalmazás beállításaiban</string>
+  <string id="NoApiUrl">Nincs API URL az alkalmazás beállításai között</string>
+  <string id="NoConfigUrl">Nincs konfigurációs URL az alkalmazás beállításai között</string>
   <string id="ApiFlood">Az API-hívások túl gyorsak. Kérjük, lassítsa a kérések teljesítését.</string>
   <string id="ApiUrlNotFound">Az URL nem található. Lehetséges API URL hiba a beállításokban.</string>
   <string id="ConfigUrlNotFound">Az URL nem található. Lehetséges konfigurációs URL hiba a beállításokban.</string>
@@ -36,13 +36,13 @@
   <string id="TrailingSlashErr">Az API URL-ben nem lehet perjel a „/”</string>
   <string id="WebhookFailed">Nem sikerült regisztrálni a Webhook-ot</string>
   <string id="TemplateError">Nem sikerült megjeleníteni a sablont</string>
-  <string id="Available" scope="glance">Elérhető</string>
-  <string id="Checking" scope="glance">Ellenőrzés...</string>
-  <string id="Unavailable" scope="glance">Nem érhető el</string>
-  <string id="Unconfigured" scope="glance">Nincs konfigurálva</string>
-  <string id="Cached" scope="glance">Gyorsítótárban</string>
-  <string id="GlanceMenu" scope="glance">Menü</string>
-  <string id="Memory" scope="glance">memória</string>
+  <string id="Available">Elérhető</string>
+  <string id="Checking">Ellenőrzés...</string>
+  <string id="Unavailable">Nem érhető el</string>
+  <string id="Unconfigured">Nincs konfigurálva</string>
+  <string id="Cached">Gyorsítótárban</string>
+  <string id="Menu">Menü</string>
+  <string id="Memory">memória</string>
   <!-- A beállítások GUI-hoz -->
   <string id="SettingsSelect">Válassz...</string>
   <string id="SettingsApiKey">API-kulcs a HomeAssistant számára.</string>

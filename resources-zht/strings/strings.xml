@@ -19,15 +19,15 @@
 -->
 
 <strings>
-  <string id="AppName" scope="glance">HomeAssistant</string>
+  <string id="AppName">HomeAssistant</string>
   <string id="Confirm">當然？</string>
-  <string id="Executed" scope="glance">確認的</string>
-  <string id="NoPhone" scope="glance">沒有電話連接</string>
+  <string id="Executed">確認的</string>
+  <string id="NoPhone">沒有電話連接</string>
   <string id="NoInternet">沒有網路連線</string>
   <string id="NoResponse">無響應，請檢查互聯網連接</string>
-  <string id="NoAPIKey" scope="glance">應用程式設定中沒有 API 金鑰</string>
-  <string id="NoApiUrl" scope="glance">應用程式設定中沒有 API URL</string>
-  <string id="NoConfigUrl" scope="glance">應用程式設定中沒有配置 URL</string>
+  <string id="NoAPIKey">應用程式設定中沒有 API 金鑰</string>
+  <string id="NoApiUrl">應用程式設定中沒有 API URL</string>
+  <string id="NoConfigUrl">應用程式設定中沒有配置 URL</string>
   <string id="ApiFlood">API 呼叫速度太快。請放慢您的請求。</string>
   <string id="ApiUrlNotFound">找不到網址。設定中可能存在 API URL 錯誤。</string>
   <string id="ConfigUrlNotFound">找不到網址。設定中可能存在配置 URL 錯誤。</string>
@@ -36,13 +36,13 @@
   <string id="TrailingSlashErr">API URL 不得有尾部斜線“/”</string>
   <string id="WebhookFailed">註冊Webhook失敗</string>
   <string id="TemplateError">渲染模板失敗</string>
-  <string id="Available" scope="glance">可用的</string>
-  <string id="Checking" scope="glance">檢查...</string>
-  <string id="Unavailable" scope="glance">不可用</string>
-  <string id="Unconfigured" scope="glance">未配置</string>
-  <string id="Cached" scope="glance">快取</string>
-  <string id="GlanceMenu" scope="glance">選單</string>
-  <string id="Memory" scope="glance">記憶</string>
+  <string id="Available">可用的</string>
+  <string id="Checking">檢查...</string>
+  <string id="Unavailable">不可用</string>
+  <string id="Unconfigured">未配置</string>
+  <string id="Cached">快取</string>
+  <string id="Menu">選單</string>
+  <string id="Memory">記憶</string>
   <!-- 對於設定 GUI -->
   <string id="SettingsSelect">選擇...</string>
   <string id="SettingsApiKey">HomeAssistant 的 API 金鑰。</string>

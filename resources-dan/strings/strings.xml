@@ -19,15 +19,15 @@
 -->
 
 <strings>
-  <string id="AppName" scope="glance">HomeAssistant</string>
+  <string id="AppName">HomeAssistant</string>
   <string id="Confirm">Jo da?</string>
-  <string id="Executed" scope="glance">Bekræftet</string>
-  <string id="NoPhone" scope="glance">Ingen telefonforbindelse</string>
+  <string id="Executed">Bekræftet</string>
+  <string id="NoPhone">Ingen telefonforbindelse</string>
   <string id="NoInternet">Ingen internetforbindelse</string>
   <string id="NoResponse">Intet svar, tjek internetforbindelse</string>
-  <string id="NoAPIKey" scope="glance">Ingen API-nøgle i applikationsindstillingerne</string>
-  <string id="NoApiUrl" scope="glance">Ingen API-URL i applikationsindstillingerne</string>
-  <string id="NoConfigUrl" scope="glance">Ingen konfigurations-URL i applikationsindstillingerne</string>
+  <string id="NoAPIKey">Ingen API-nøgle i applikationsindstillingerne</string>
+  <string id="NoApiUrl">Ingen API-URL i applikationsindstillingerne</string>
+  <string id="NoConfigUrl">Ingen konfigurations-URL i applikationsindstillingerne</string>
   <string id="ApiFlood">API-kald for hurtigt. Sænk venligst dine anmodninger.</string>
   <string id="ApiUrlNotFound">URL ikke fundet. Potentiel API URL-fejl i indstillinger.</string>
   <string id="ConfigUrlNotFound">URL ikke fundet. Potentiel konfigurations-URL-fejl i indstillinger.</string>
@@ -36,13 +36,13 @@
   <string id="TrailingSlashErr">API URL må ikke have en efterfølgende skråstreg '/'</string>
   <string id="WebhookFailed">Kunne ikke registrere Webhook</string>
   <string id="TemplateError">Skabelonen kunne ikke gengives</string>
-  <string id="Available" scope="glance">Ledig</string>
-  <string id="Checking" scope="glance">Tjekker...</string>
-  <string id="Unavailable" scope="glance">Ikke tilgængelig</string>
-  <string id="Unconfigured" scope="glance">Ukonfigureret</string>
-  <string id="Cached" scope="glance">Cachelagret</string>
-  <string id="GlanceMenu" scope="glance">Menu</string>
-  <string id="Memory" scope="glance">Hukommelse</string>
+  <string id="Available">Ledig</string>
+  <string id="Checking">Tjekker...</string>
+  <string id="Unavailable">Ikke tilgængelig</string>
+  <string id="Unconfigured">Ukonfigureret</string>
+  <string id="Cached">Cachelagret</string>
+  <string id="Menu">Menu</string>
+  <string id="Memory">Hukommelse</string>
   <!-- Til indstillingerne GUI -->
   <string id="SettingsSelect">Vælg...</string>
   <string id="SettingsApiKey">API-nøgle til HomeAssistant.</string>

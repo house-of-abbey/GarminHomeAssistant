@@ -109,24 +109,15 @@ class HomeAssistantView extends WatchUi.Menu2 {
 // Reference: https://developer.garmin.com/connect-iq/core-topics/input-handling/
 //
 class HomeAssistantViewDelegate extends WatchUi.Menu2InputDelegate {
-    private var mIsRootMenuView as Lang.Boolean = false;
     private var mTimer          as QuitTimer;
 
-    function initialize(isRootMenuView as Lang.Boolean) {
+    function initialize() {
         Menu2InputDelegate.initialize();
-        mIsRootMenuView = isRootMenuView;
         mTimer          = getApp().getQuitTimer();
     }
 
     function onBack() {
         mTimer.reset();
-
-        if (mIsRootMenuView) {
-            // If its started from glance or as an activity, directly exit the widget/app
-            // (on widgets without glance, this exit() won't do anything,
-            // so the base view will be shown instead, through the popView below this "if body")
-            System.exit();
-        }
 
         WatchUi.popView(WatchUi.SLIDE_RIGHT);
     }
@@ -158,7 +149,7 @@ class HomeAssistantViewDelegate extends WatchUi.Menu2InputDelegate {
         } else if (item instanceof HomeAssistantGroupMenuItem) {
             var haMenuItem = item as HomeAssistantGroupMenuItem;
             // System.println("IconMenu: " + haMenuItem.getLabel() + " " + haMenuItem.getId());
-            WatchUi.pushView(haMenuItem.getMenuView(), new HomeAssistantViewDelegate(false), WatchUi.SLIDE_LEFT);
+            WatchUi.pushView(haMenuItem.getMenuView(), new HomeAssistantViewDelegate(), WatchUi.SLIDE_LEFT);
         // } else {
         //     System.println(item.getLabel() + " " + item.getId());
         }

@@ -19,15 +19,15 @@
 -->
 
 <strings>
-  <string id="AppName" scope="glance">HomeAssistant</string>
+  <string id="AppName">HomeAssistant</string>
   <string id="Confirm">แน่นอน?</string>
-  <string id="Executed" scope="glance">ยืนยันแล้ว</string>
-  <string id="NoPhone" scope="glance">ไม่มีการเชื่อมต่อโทรศัพท์</string>
+  <string id="Executed">ยืนยันแล้ว</string>
+  <string id="NoPhone">ไม่มีการเชื่อมต่อโทรศัพท์</string>
   <string id="NoInternet">ไม่มีการเชื่อมต่ออินเทอร์เน็ต</string>
   <string id="NoResponse">ไม่มีการตอบสนอง ตรวจสอบการเชื่อมต่ออินเทอร์เน็ต</string>
-  <string id="NoAPIKey" scope="glance">ไม่มีคีย์ API ในการตั้งค่าแอปพลิเคชัน</string>
-  <string id="NoApiUrl" scope="glance">ไม่มี URL API ในการตั้งค่าแอปพลิเคชัน</string>
-  <string id="NoConfigUrl" scope="glance">ไม่มี URL การกำหนดค่าในการตั้งค่าแอปพลิเคชัน</string>
+  <string id="NoAPIKey">ไม่มีคีย์ API ในการตั้งค่าแอปพลิเคชัน</string>
+  <string id="NoApiUrl">ไม่มี URL API ในการตั้งค่าแอปพลิเคชัน</string>
+  <string id="NoConfigUrl">ไม่มี URL การกำหนดค่าในการตั้งค่าแอปพลิเคชัน</string>
   <string id="ApiFlood">การเรียก API เร็วเกินไป กรุณาชะลอคำขอของคุณ</string>
   <string id="ApiUrlNotFound">ไม่พบ URL ข้อผิดพลาด URL API ที่อาจเกิดขึ้นในการตั้งค่า</string>
   <string id="ConfigUrlNotFound">ไม่พบ URL ข้อผิดพลาด URL การกำหนดค่าที่อาจเกิดขึ้นในการตั้งค่า</string>
@@ -36,13 +36,13 @@
   <string id="TrailingSlashErr">URL ของ API ต้องไม่มีเครื่องหมายทับต่อท้าย '/'</string>
   <string id="WebhookFailed">ลงทะเบียน Webhook.dll ไม่สำเร็จ</string>
   <string id="TemplateError">ไม่สามารถแสดงเทมเพลตได้</string>
-  <string id="Available" scope="glance">มีอยู่</string>
-  <string id="Checking" scope="glance">กำลังตรวจสอบ...</string>
-  <string id="Unavailable" scope="glance">ไม่พร้อมใช้งาน</string>
-  <string id="Unconfigured" scope="glance">ไม่ได้กำหนดค่า</string>
-  <string id="Cached" scope="glance">แคช</string>
-  <string id="GlanceMenu" scope="glance">เมนู</string>
-  <string id="Memory" scope="glance">หน่วยความจำ</string>
+  <string id="Available">มีอยู่</string>
+  <string id="Checking">กำลังตรวจสอบ...</string>
+  <string id="Unavailable">ไม่พร้อมใช้งาน</string>
+  <string id="Unconfigured">ไม่ได้กำหนดค่า</string>
+  <string id="Cached">แคช</string>
+  <string id="Menu">เมนู</string>
+  <string id="Memory">หน่วยความจำ</string>
   <!-- สำหรับการตั้งค่า GUI -->
   <string id="SettingsSelect">เลือก...</string>
   <string id="SettingsApiKey">คีย์ API สำหรับ HomeAssistant</string>

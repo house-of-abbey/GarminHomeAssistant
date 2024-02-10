@@ -19,15 +19,15 @@
 -->
 
 <strings>
-  <string id="AppName" scope="glance">HomeAssistant</string>
+  <string id="AppName">HomeAssistant</string>
   <string id="Confirm">Зрозуміло?</string>
-  <string id="Executed" scope="glance">Підтверджено</string>
-  <string id="NoPhone" scope="glance">Немає телефонного зв'язку</string>
+  <string id="Executed">Підтверджено</string>
+  <string id="NoPhone">Немає телефонного зв'язку</string>
   <string id="NoInternet">Немає підключення до Інтернету</string>
   <string id="NoResponse">Немає відповіді, перевірте підключення до Інтернету</string>
-  <string id="NoAPIKey" scope="glance">У налаштуваннях програми немає ключа API</string>
-  <string id="NoApiUrl" scope="glance">У налаштуваннях програми немає URL-адреси API</string>
-  <string id="NoConfigUrl" scope="glance">У налаштуваннях програми немає URL-адреси конфігурації</string>
+  <string id="NoAPIKey">У налаштуваннях програми немає ключа API</string>
+  <string id="NoApiUrl">У налаштуваннях програми немає URL-адреси API</string>
+  <string id="NoConfigUrl">У налаштуваннях програми немає URL-адреси конфігурації</string>
   <string id="ApiFlood">Надто швидкі виклики API. Будь ласка, сповільніть свої запити.</string>
   <string id="ApiUrlNotFound">URL не знайдено. Потенційна помилка URL-адреси API в налаштуваннях.</string>
   <string id="ConfigUrlNotFound">URL не знайдено. Потенційна помилка URL-адреси конфігурації в налаштуваннях.</string>
@@ -36,13 +36,13 @@
   <string id="TrailingSlashErr">URL-адреса API не повинна містити косу риску '/'</string>
   <string id="WebhookFailed">Не вдалося зареєструвати Webhook</string>
   <string id="TemplateError">Не вдалося відобразити шаблон</string>
-  <string id="Available" scope="glance">в наявності</string>
-  <string id="Checking" scope="glance">Перевірка...</string>
-  <string id="Unavailable" scope="glance">Недоступний</string>
-  <string id="Unconfigured" scope="glance">Неналаштований</string>
-  <string id="Cached" scope="glance">Кешовано</string>
-  <string id="GlanceMenu" scope="glance">Меню</string>
-  <string id="Memory" scope="glance">Пам'ять</string>
+  <string id="Available">в наявності</string>
+  <string id="Checking">Перевірка...</string>
+  <string id="Unavailable">Недоступний</string>
+  <string id="Unconfigured">Неналаштований</string>
+  <string id="Cached">Кешовано</string>
+  <string id="Menu">Меню</string>
+  <string id="Memory">Пам'ять</string>
   <!-- Для налаштування GUI -->
   <string id="SettingsSelect">Виберіть...</string>
   <string id="SettingsApiKey">Ключ API для HomeAssistant.</string>

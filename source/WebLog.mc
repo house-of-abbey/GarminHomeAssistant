@@ -51,7 +51,7 @@ using Toybox.Communications;
 using Toybox.Lang;
 using Toybox.System;
 
-(:glance, :background)
+(:background)
 class WebLog {
     private var callsbuffer =  4 as Lang.Number;
     private var numCalls    =  0 as Lang.Number;

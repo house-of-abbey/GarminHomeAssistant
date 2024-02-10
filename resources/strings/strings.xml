@@ -13,15 +13,15 @@
 -->
 
 <strings>
-  <string id="AppName" scope="glance">HomeAssistant</string>
+  <string id="AppName">HomeAssistant</string>
   <string id="Confirm">Sure?</string>
-  <string id="Executed" scope="glance">Confirmed</string>
-  <string id="NoPhone" scope="glance">No Phone connection</string>
+  <string id="Executed">Confirmed</string>
+  <string id="NoPhone">No Phone connection</string>
   <string id="NoInternet">No Internet connection</string>
   <string id="NoResponse">No Response, check Internet connection</string>
-  <string id="NoAPIKey" scope="glance">No API key in the application settings</string>
-  <string id="NoApiUrl" scope="glance">No API URL in the application settings</string>
-  <string id="NoConfigUrl" scope="glance">No configuration URL in the application settings</string>
+  <string id="NoAPIKey">No API key in the application settings</string>
+  <string id="NoApiUrl">No API URL in the application settings</string>
+  <string id="NoConfigUrl">No configuration URL in the application settings</string>
   <string id="ApiFlood">API calls too rapid. Please slow down your requests.</string>
   <string id="ApiUrlNotFound">URL not found. Potential API URL error in settings.</string>
   <string id="ConfigUrlNotFound">URL not found. Potential Configuration URL error in settings.</string>
@@ -30,13 +30,13 @@
   <string id="TrailingSlashErr">API URL must not have a trailing slash '/'</string>
   <string id="WebhookFailed">Failed to register Webhook</string>
   <string id="TemplateError">Failed to render template</string>
-  <string id="Available" scope="glance">Available</string>
-  <string id="Checking" scope="glance">Checking...</string>
-  <string id="Unavailable" scope="glance">Unavailable</string>
-  <string id="Unconfigured" scope="glance">Unconfigured</string>
-  <string id="Cached" scope="glance">Cached</string>
-  <string id="GlanceMenu" scope="glance">Menu</string>
-  <string id="Memory" scope="glance">Memory</string>
+  <string id="Available">Available</string>
+  <string id="Checking">Checking...</string>
+  <string id="Unavailable">Unavailable</string>
+  <string id="Unconfigured">Unconfigured</string>
+  <string id="Cached">Cached</string>
+  <string id="Menu">Menu</string>
+  <string id="Memory">Memory</string>
 
   <!-- For the settings GUI -->
   <string id="SettingsSelect">Select...</string>

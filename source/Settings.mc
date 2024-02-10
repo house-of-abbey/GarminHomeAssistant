@@ -26,7 +26,7 @@ using Toybox.System;
 using Toybox.Background;
 using Toybox.Time;
 
-(:glance, :background)
+(:background)
 class Settings {
     private static var mApiKey                as Lang.String  = "";
     private static var mWebhookId             as Lang.String  = "";
@@ -40,14 +40,12 @@ class Settings {
     private static var mIsWidgetStartNoTap    as Lang.Boolean = false;
     private static var mIsBatteryLevelEnabled as Lang.Boolean = false;
     private static var mBatteryRefreshRate    as Lang.Number  = 15; // minutes
-    private static var mIsApp                 as Lang.Boolean = false;
     private static var mHasService            as Lang.Boolean = false;
     // Must keep the object so it doesn't get garbage collected.
     private static var mWebhookManager        as WebhookManager or Null;
 
     // Called on application start and then whenever the settings are changed.
     static function update() {
-        mIsApp                 = getApp().getIsApp();
         mApiKey                = Properties.getValue("api_key");
         mWebhookId             = Properties.getValue("webhook_id");
         mApiUrl                = Properties.getValue("api_url");
@@ -65,24 +63,22 @@ class Settings {
             mHasService = true;
         }
 
-        // Manage this inside the application or widget only (not a glance or background service process)
-        if (mIsApp) {
-            if (mIsBatteryLevelEnabled and mHasService) {
-                if (getWebhookId().equals("")) {
-                    mWebhookManager = new WebhookManager();
-                    mWebhookManager.requestWebhookId();
-                }
-                if ((Background.getTemporalEventRegisteredTime() == null) or
-                    (Background.getTemporalEventRegisteredTime() != (mBatteryRefreshRate * 60))) {
-                    Background.registerForTemporalEvent(new Time.Duration(mBatteryRefreshRate * 60)); // Convert to seconds
-                }
-            } else {
-                // Explicitly disable the background event which persists when the application closes.
-                // If !mHasService disable the Settings option as user feedback
-                unsetIsBatteryLevelEnabled();
-                unsetWebhookId();
+        if (mIsBatteryLevelEnabled and mHasService) {
+            if (getWebhookId().equals("")) {
+                mWebhookManager = new WebhookManager();
+                mWebhookManager.requestWebhookId();
             }
+            if ((Background.getTemporalEventRegisteredTime() == null) or
+                (Background.getTemporalEventRegisteredTime() != (mBatteryRefreshRate * 60))) {
+                Background.registerForTemporalEvent(new Time.Duration(mBatteryRefreshRate * 60)); // Convert to seconds
+            }
+        } else {
+            // Explicitly disable the background event which persists when the application closes.
+            // If !mHasService disable the Settings option as user feedback
+            unsetIsBatteryLevelEnabled();
+            unsetWebhookId();
         }
+
         // System.println("Settings update(): getTemporalEventRegisteredTime() = " + Background.getTemporalEventRegisteredTime());
         // if (Background.getTemporalEventRegisteredTime() != null) {
         //     System.println("Settings update(): getTemporalEventRegisteredTime().value() = " + Background.getTemporalEventRegisteredTime().value().format("%d") + " seconds");
