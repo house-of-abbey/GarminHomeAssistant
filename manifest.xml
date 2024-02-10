@@ -15,8 +15,9 @@
   * https://developer.garmin.com/connect-iq/compatible-devices/
   * https://developer.garmin.com/connect-iq/reference-guides/devices-reference/
 
-  philipabbey's Test App    id="98c36259-498a-4458-9cef-74a273ad2bc3" type="watch-app"
-  Live Application          id="40131e87-31ff-454b-a8e2-92276ee399d6" type="watch-app"
+  Someone0nEarth's Test Widget id="bf69be91-5833-4d96-92ea-c5f1a9db5dcc" type="widget"
+  philipabbey's Test Widget    id="4901cdfb-b4a2-4f33-96c7-f5be5992809e" type="widget"
+  Live Widget                  id="585af26f-6ff7-44e8-80dc-b3670e5b8648" type="widget"
 
 -->
 <iq:manifest version="3" xmlns:iq="http://www.garmin.com/xml/connectiq">
@@ -24,14 +25,7 @@
     Use "Monkey C: Edit Application" from the Visual Studio Code command palette
     to update the application attributes.
   -->
-  <!--
-    Testing in VSCode requires monkey.jungle, so for convenience, swap between
-    watch-app and widget by changing which of the next two lines are commented out
-  -->
-  <iq:application id="98c36259-498a-4458-9cef-74a273ad2bc3" type="watch-app" name="@Strings.AppName" entry="HomeAssistantApp" launcherIcon="@Drawables.LauncherIcon" minApiLevel="3.1.0">
-  <!-- 
   <iq:application id="4901cdfb-b4a2-4f33-96c7-f5be5992809e" type="widget" name="@Strings.AppName" entry="HomeAssistantApp" launcherIcon="@Drawables.LauncherIcon" minApiLevel="3.1.0">
-  -->
     <!--
       Use the following from the Visual Studio Code comand palette to edit
       the build targets:

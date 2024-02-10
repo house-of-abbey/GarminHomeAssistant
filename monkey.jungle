@@ -18,10 +18,7 @@
 
 project.manifest = manifest.xml
 
-# Testing in VSCode requires monkey.jungle, so for convenience, swap between
-# watch-app and widget by changing which of the next two lines are commented out
-base.sourcePath = source;include/app
-#base.sourcePath = source;include/widget
+base.sourcePath = source
 
 # Device References
 # * https://developer.garmin.com/connect-iq/compatible-devices/

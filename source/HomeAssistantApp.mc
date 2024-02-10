@@ -113,17 +113,9 @@ class HomeAssistantApp extends Application.AppBase {
             // System.println("HomeAssistantApp fetchMenuConfig(): No Internet connection, skipping API call.");
             return ErrorView.create(WatchUi.loadResource($.Rez.Strings.NoInternet) as Lang.String + ".");
         } else {
-            var isCached = fetchMenuConfig();
+            fetchMenuConfig();
             fetchApiStatus();
-            if (WidgetApp.isWidget) {
-                return [new RootView(self), new RootViewDelegate(self)] as Lang.Array<WatchUi.Views or WatchUi.InputDelegates>;
-            } else {
-                if (isCached) {
-                    return [mHaMenu, new HomeAssistantViewDelegate(true)] as Lang.Array<WatchUi.Views or WatchUi.InputDelegates>;
-                } else {
-                    return [new WatchUi.View(), new WatchUi.BehaviorDelegate()] as Lang.Array<WatchUi.Views or WatchUi.InputDelegates>;
-                }
-            }
+            return [new RootView(self), new RootViewDelegate(self)] as Lang.Array<WatchUi.Views or WatchUi.InputDelegates>;
         }
     }
 
@@ -188,9 +180,6 @@ class HomeAssistantApp extends Application.AppBase {
                         ErrorView.show(WatchUi.loadResource($.Rez.Strings.NoJson) as Lang.String);
                     } else {
                         buildMenu(data);
-                        if (!WidgetApp.isWidget) {
-                            WatchUi.switchToView(mHaMenu, new HomeAssistantViewDelegate(false), WatchUi.SLIDE_IMMEDIATE);
-                        }
                     }
                 }
                 break;
@@ -205,10 +194,8 @@ class HomeAssistantApp extends Application.AppBase {
         WatchUi.requestUpdate();
     }
 
-    // Return true if the menu came from the cache, otherwise false. This is because fetching the menu when not in the cache is
-    // asynchronous and affects how the views are managed.
     (:glance)
-    function fetchMenuConfig() as Lang.Boolean {
+    function fetchMenuConfig(){
         if (Settings.getConfigUrl().equals("")) {
             mMenuStatus = WatchUi.loadResource($.Rez.Strings.Unconfigured) as Lang.String;
             WatchUi.requestUpdate();
@@ -253,10 +240,8 @@ class HomeAssistantApp extends Application.AppBase {
                 if (!mIsGlance) {
                     buildMenu(menu);
                 }
-                return true;
             }
         }
-        return false;
     }
 
     private function buildMenu(menu as Lang.Dictionary) {
