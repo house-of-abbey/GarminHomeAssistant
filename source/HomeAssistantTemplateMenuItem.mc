@@ -1,13 +1,12 @@
 //-----------------------------------------------------------------------------------
 //
 // Distributed under MIT Licence
-//   See https://github.com/house-of-abbey/GarminHomeAssistant/blob/main/LICENSE.
+//   See https://github.com/house-of-abbey/GarminHomeAssistantWidget/blob/main/LICENSE.
 //
 //-----------------------------------------------------------------------------------
 //
-// GarminHomeAssistant is a Garmin IQ application written in Monkey C and routinely
-// tested on a Venu 2 device. The source code is provided at:
-//            https://github.com/house-of-abbey/GarminHomeAssistant.
+// GarminHomeAssistantWidget is a Garmin IQ widget written in Monkey C. The source code is provided at:
+//            https://github.com/house-of-abbey/GarminHomeAssistantWidget.
 //
 // P A Abbey & J D Abbey, 12 January 2024
 //

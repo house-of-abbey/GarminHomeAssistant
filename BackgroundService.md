@@ -163,7 +163,7 @@ N.B. `sensor.<device>_battery_level` will likely need to be changed to `sensor.<
 
 You should remove your old template sensors before migrating to the new integration. You can do this by removing the `sensor.<device>_battery_level` and `binary_sensor.<device>_battery_is_charging` entities from `configuration.yaml` and then restarting Home Assistant or reloading the YAML.
 
-[Here is the old configuration method for reference.](https://github.com/house-of-abbey/GarminHomeAssistant/blob/b51e2aa2a4afbc58ad466f3b81667d1cd252d091/BatteryReporting.md)
+[Here is the old configuration method for reference.](https://github.com/house-of-abbey/GarminHomeAssistantWidget/blob/b51e2aa2a4afbc58ad466f3b81667d1cd252d091/BatteryReporting.md)
 
 ## Deletion
 
