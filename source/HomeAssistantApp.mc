@@ -115,14 +115,10 @@ class HomeAssistantApp extends Application.AppBase {
         } else {
             var isCached = fetchMenuConfig();
             fetchApiStatus();
-            if (WidgetApp.isWidget) {
-                return [new RootView(self), new RootViewDelegate(self)] as Lang.Array<WatchUi.Views or WatchUi.InputDelegates>;
+            if (isCached) {
+                return [mHaMenu, new HomeAssistantViewDelegate(true)] as Lang.Array<WatchUi.Views or WatchUi.InputDelegates>;
             } else {
-                if (isCached) {
-                    return [mHaMenu, new HomeAssistantViewDelegate(true)] as Lang.Array<WatchUi.Views or WatchUi.InputDelegates>;
-                } else {
-                    return [new WatchUi.View(), new WatchUi.BehaviorDelegate()] as Lang.Array<WatchUi.Views or WatchUi.InputDelegates>;
-                }
+                return [new WatchUi.View(), new WatchUi.BehaviorDelegate()] as Lang.Array<WatchUi.Views or WatchUi.InputDelegates>;
             }
         }
     }
@@ -188,9 +184,7 @@ class HomeAssistantApp extends Application.AppBase {
                         ErrorView.show(WatchUi.loadResource($.Rez.Strings.NoJson) as Lang.String);
                     } else {
                         buildMenu(data);
-                        if (!WidgetApp.isWidget) {
-                            WatchUi.switchToView(mHaMenu, new HomeAssistantViewDelegate(false), WatchUi.SLIDE_IMMEDIATE);
-                        }
+                        WatchUi.switchToView(mHaMenu, new HomeAssistantViewDelegate(false), WatchUi.SLIDE_IMMEDIATE);
                     }
                 }
                 break;

@@ -28,7 +28,7 @@
     Testing in VSCode requires monkey.jungle, so for convenience, swap between
     watch-app and widget by changing which of the next two lines are commented out
   -->
-  <iq:application id="98c36259-498a-4458-9cef-74a273ad2bc3" type="watch-app" name="@Strings.AppName" entry="HomeAssistantApp" launcherIcon="@Drawables.LauncherIcon" minApiLevel="3.1.0">
+  <iq:application id="40131e87-31ff-454b-a8e2-92276ee399d6" type="watch-app" name="@Strings.AppName" entry="HomeAssistantApp" launcherIcon="@Drawables.LauncherIcon" minApiLevel="3.1.0">
   <!-- 
   <iq:application id="4901cdfb-b4a2-4f33-96c7-f5be5992809e" type="widget" name="@Strings.AppName" entry="HomeAssistantApp" launcherIcon="@Drawables.LauncherIcon" minApiLevel="3.1.0">
   -->
