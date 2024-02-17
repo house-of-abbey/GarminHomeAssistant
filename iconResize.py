@@ -30,9 +30,10 @@
 #
 ####################################################################################
 
-from bs4 import BeautifulSoup, Comment
 import os
 import shutil
+
+from bs4 import BeautifulSoup, Comment
 
 output_dir_prefix = "resources-icons-"
 input_dir = output_dir_prefix + "48"
