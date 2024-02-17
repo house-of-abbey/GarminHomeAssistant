@@ -35,9 +35,9 @@ from bs4 import BeautifulSoup, Comment
 import os
 import shutil
 
-output_dir_prefix = 'resources-launcher-'
+output_dir_prefix = "resources-launcher-"
 # Original icons for 416x416 screen size with 70x70 icons
-input_dir = output_dir_prefix + '70-70'
+input_dir = output_dir_prefix + "70-70"
 
 # Convert icons to different screen sizes by these parameters
 lookup = [26, 30, 33, 35, 36, 40, 54, 60, 61, 62, 65, 80]

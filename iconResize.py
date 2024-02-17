@@ -34,8 +34,8 @@ from bs4 import BeautifulSoup, Comment
 import os
 import shutil
 
-output_dir_prefix = 'resources-icons-'
-input_dir = output_dir_prefix + '48'
+output_dir_prefix = "resources-icons-"
+input_dir = output_dir_prefix + "48"
 
 Doub = 0
 Sing = 1
@@ -59,7 +59,7 @@ lookup = {
     218: (50, 26, 13),
     208: (48, 24, 12),
     176: (42, 21, 11),
-    156: (36, 18,  9)
+    156: (36, 18, 9),
 }
 
 # Delete all but the original 48x48 icon directories
@@ -81,13 +81,13 @@ for screen_size, icon_sizes in lookup.items():
                 soup = BeautifulSoup(f.read(), features="xml")
                 svg: BeautifulSoup = list(soup.children)[0]
                 h = int(svg.attrs["height"])
-                if (h == original[Doub]):
+                if h == original[Doub]:
                     svg.attrs["width"] = lookup[screen_size][Doub]
                     svg.attrs["height"] = lookup[screen_size][Doub]
-                elif (h == original[Sing]):
+                elif h == original[Sing]:
                     svg.attrs["width"] = lookup[screen_size][Sing]
                     svg.attrs["height"] = lookup[screen_size][Sing]
-                elif (h == original[Half]):
+                elif h == original[Half]:
                     svg.attrs["width"] = lookup[screen_size][Half]
                     svg.attrs["height"] = lookup[screen_size][Half]
                 with open(output_dir + "/" + entry, "wb") as o:
