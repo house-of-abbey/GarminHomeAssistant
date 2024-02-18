@@ -33,7 +33,8 @@
 import os
 import shutil
 
-from bs4 import BeautifulSoup, Comment
+from bs4 import BeautifulSoup
+from bs4 import Comment
 
 output_dir_prefix = "resources-launcher-"
 # Original icons for 416x416 screen size with 70x70 icons
