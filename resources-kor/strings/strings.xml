@@ -18,7 +18,7 @@
 -->
 
 <strings>
-  <string id="AppName">HomeAssistant Widget</string>
+  <string id="AppName">HomeAssistant</string>
   <string id="Confirm">확신하는?</string>
   <string id="Executed">확인됨</string>
   <string id="NoPhone">전화 연결 없음</string>

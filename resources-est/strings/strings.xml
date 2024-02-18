@@ -18,7 +18,7 @@
 -->
 
 <strings>
-  <string id="AppName">HomeAssistant Widget</string>
+  <string id="AppName">HomeAssistant</string>
   <string id="Confirm">Muidugi?</string>
   <string id="Executed">Kinnitatud</string>
   <string id="NoPhone">Telefoniühendus puudub</string>

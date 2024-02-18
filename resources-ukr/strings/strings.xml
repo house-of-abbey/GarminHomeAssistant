@@ -18,7 +18,7 @@
 -->
 
 <strings>
-  <string id="AppName">HomeAssistant Widget</string>
+  <string id="AppName">HomeAssistant</string>
   <string id="Confirm">Зрозуміло?</string>
   <string id="Executed">Підтверджено</string>
   <string id="NoPhone">Немає телефонного зв'язку</string>

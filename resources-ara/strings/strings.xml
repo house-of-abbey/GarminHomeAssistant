@@ -18,7 +18,7 @@
 -->
 
 <strings>
-  <string id="AppName">HomeAssistant Widget</string>
+  <string id="AppName">HomeAssistant</string>
   <string id="Confirm">بالتأكيد؟</string>
   <string id="Executed">مؤكد</string>
   <string id="NoPhone">لا يوجد اتصال الهاتف</string>

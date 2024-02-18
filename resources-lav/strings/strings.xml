@@ -18,7 +18,7 @@
 -->
 
 <strings>
-  <string id="AppName">HomeAssistant Widget</string>
+  <string id="AppName">HomeAssistant</string>
   <string id="Confirm">Protams?</string>
   <string id="Executed">Apstiprināts</string>
   <string id="NoPhone">Nav tālruņa savienojuma</string>

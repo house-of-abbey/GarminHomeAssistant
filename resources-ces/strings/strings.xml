@@ -18,7 +18,7 @@
 -->
 
 <strings>
-  <string id="AppName">HomeAssistant Widget</string>
+  <string id="AppName">HomeAssistant</string>
   <string id="Confirm">Tak určitě?</string>
   <string id="Executed">Potvrzeno</string>
   <string id="NoPhone">Žádné telefonní spojení</string>

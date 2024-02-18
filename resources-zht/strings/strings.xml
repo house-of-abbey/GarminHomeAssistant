@@ -18,7 +18,7 @@
 -->
 
 <strings>
-  <string id="AppName">HomeAssistant Widget</string>
+  <string id="AppName">HomeAssistant</string>
   <string id="Confirm">當然？</string>
   <string id="Executed">確認的</string>
   <string id="NoPhone">沒有電話連接</string>
