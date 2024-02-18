@@ -12,7 +12,7 @@ rem             https://github.com/house-of-abbey/GarminHomeAssistant.
 rem
 rem  J D Abbey & P A Abbey, 28 December 2022
 rem
-rem  For use when VS Code is misbehaving and failing to recompile before starting a simulation.
+rem  Export both the Application and the Widget IQ files for upload to Garmin's App Store.
 rem
 rem  Reference:
 rem   * Using Monkey C from the Command Line
@@ -27,11 +27,7 @@ set /p SDK_PATH=<"%USERPROFILE%\AppData\Roaming\Garmin\ConnectIQ\current-sdk.cfg
 set SDK_PATH=%SDK_PATH:~0,-1%\bin
 rem Assume we can create and use this directory
 set DEST=export
-
-rem Device for simulation
-rem set DEVICE=venu
-set DEVICE=vivoactive3
-set JUNGLE=monkey.jungle
+set IQ=HomeAssistant-widget.iq
 
 rem C:\>java -jar %SDK_PATH%\monkeybrains.jar -h
 rem usage: monkeyc [-a <arg>] [-b <arg>] [--build-stats <arg>] [-c <arg>] [-d <arg>]
@@ -77,38 +73,37 @@ rem Batch file's directory where the source code is
 set SRC=%~dp0
 rem drop last character '\'
 set SRC=%SRC:~0,-1%
+set DEST=%SRC%\%DEST%
+set IQ=%DEST%\%IQ%
 
 if not exist %DEST% (
+  echo Creating %DEST%
   md %DEST%
 )
 
-if exist %SRC%\export\HomeAssistant*.iq (
-  del /f /q %SRC%\export\HomeAssistant*.iq
+if exist %IQ% (
+  echo Deleting old %IQ%
+  del /f /q %IQ%
 )
 
-echo.
-echo Starting compilation for simulation on %DEVICE%.
+echo Starting export of HomeAssistant Widget to %IQ%
 echo.
 
-rem call %SDK_PATH%\connectiq.bat
-start "Simulator" "%SDK_PATH%\simulator.exe"
-
-rem Compile PRG for a single device for side loading
 "%JAVA_PATH%\java.exe" ^
   -Xms1g ^
   -Dfile.encoding=UTF-8 ^
   -Dapple.awt.UIElement=true ^
   -jar %SDK_PATH%\monkeybrains.jar ^
-  --output %SRC%\bin\HomeAssistant.prg ^
-  --jungles %SRC%\%JUNGLE% ^
+  --api-level 3.1.0 ^
+  --output %IQ% ^
+  --jungles %SRC%\monkey.jungle ^
   --private-key %SRC%\..\developer_key ^
-  --device %DEVICE%_sim ^
-  --warn ^
+  --package-app ^
   --release
+rem  --warn
 
-if %ERRORLEVEL% equ 0 (
-  %SDK_PATH%\monkeydo.bat %SRC%\bin\HomeAssistant.prg %DEVICE%
-) else (
-  rem Wait to see errors
-  pause
-)
+echo.
+echo Finished exporting HomeAssistant
+dir %IQ%
+
+pause
