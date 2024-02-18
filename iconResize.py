@@ -77,7 +77,8 @@ for screen_size, icon_sizes in lookup.items():
     os.makedirs(output_dir)
     for entry in os.listdir(input_dir):
         if entry.endswith(".svg"):
-            print("Create file:       ", entry.ljust(40) + " SVG - Change file")
+            print("Create file:       ",
+                  entry.ljust(40) + " SVG - Change file")
             with open(input_dir + "/" + entry, "r") as f:
                 soup = BeautifulSoup(f.read(), features="xml")
                 svg: BeautifulSoup = list(soup.children)[0]
