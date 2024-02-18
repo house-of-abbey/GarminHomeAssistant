@@ -27,6 +27,7 @@ set /p SDK_PATH=<"%USERPROFILE%\AppData\Roaming\Garmin\ConnectIQ\current-sdk.cfg
 set SDK_PATH=%SDK_PATH:~0,-1%\bin
 rem Assume we can create and use this directory
 set DEST=export
+set IQ=HomeAssistant-app.iq
 
 rem C:\>java -jar %SDK_PATH%\monkeybrains.jar -h
 rem usage: monkeyc [-a <arg>] [-b <arg>] [--build-stats <arg>] [-c <arg>] [-d <arg>]
@@ -72,17 +73,20 @@ rem Batch file's directory where the source code is
 set SRC=%~dp0
 rem drop last character '\'
 set SRC=%SRC:~0,-1%
+set DEST=%SRC%\%DEST%
+set IQ=%DEST%\%IQ%
 
 if not exist %DEST% (
+  echo Creating %DEST%
   md %DEST%
 )
 
-if exist %SRC%\export\HomeAssistant*.iq (
-  del /f /q %SRC%\export\HomeAssistant*.iq
+if exist %IQ% (
+  echo Deleting old %IQ%
+  del /f /q %IQ%
 )
 
-echo.
-echo Starting export of HomeAssistant Application
+echo Starting export of HomeAssistant Application to %IQ%
 echo.
 
 "%JAVA_PATH%\java.exe" ^
@@ -91,7 +95,7 @@ echo.
   -Dapple.awt.UIElement=true ^
   -jar %SDK_PATH%\monkeybrains.jar ^
   --api-level 3.1.0 ^
-  --output %SRC%\export\HomeAssistant-app.iq ^
+  --output %IQ% ^
   --jungles %SRC%\monkey.jungle ^
   --private-key %SRC%\..\developer_key ^
   --package-app ^
@@ -100,6 +104,6 @@ rem  --warn
 
 echo.
 echo Finished exporting HomeAssistant
-dir %SRC%\export\HomeAssistant*.iq
+dir %IQ%
 
 pause

@@ -432,8 +432,6 @@ class HomeAssistantApp extends Application.AppBase {
         fetchApiStatus();
     }
 
-    // Replace this functionality with a more central settings class as proposed in
-    // https://github.com/house-of-abbey/GarminHomeAssistant/pull/17.
     function onSettingsChanged() as Void {
         // System.println("HomeAssistantApp onSettingsChanged()");
         Settings.update();
