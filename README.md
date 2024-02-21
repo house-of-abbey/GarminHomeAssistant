@@ -1,30 +1,35 @@
 Home | [Switches](examples/Switches.md) | [Actions](examples/Actions.md) | [Templates](examples/Templates.md) | [Background Service](BackgroundService.md) | [Trouble Shooting](TroubleShooting.md) | [Version History](HISTORY.md)
 
-# GarminHomeAssistant
+# GarminHomeAssistantWidget
+
+> [!IMPORTANT]  
+> This widget version of [GarminHomeAssistant](https://github.com/house-of-abbey/GarminHomeAssistant) is set to maintenance-only mode. That means, there will be only bug fixing for it and new features will be less likey. New features etc. will be mainly added to the [app/glance version](https://github.com/house-of-abbey/GarminHomeAssistant). The reason for this is described in the "The Why of Maintenance-Only Mode For the Widget" section in this README.
 
 <img src="images/Actual_Venu2_Theme.jpg" width="200" title="Venu 2"/>
 
-A Garmin application to provide a "dashboard" to control your devices via [Home Assistant](https://www.home-assistant.io/). The application will never be as fully fledged as a Home Assistant dashboard, so it is designed to be good enough for the simple and essential things. Those things that can be activated via an on/off toggle or a tap. That should cover lights, switches, and anything requiring a single press such as an automation. For anything more complicated, e.g. thermostat, it would always be quicker and simpler to reach for your phone or tablet... or the device's own remote control!
+A Garmin widget to provide a "dashboard" to control your devices via [Home Assistant](https://www.home-assistant.io/). The widget will never be as fully fledged as a Home Assistant dashboard, so it is designed to be good enough for the simple and essential things. Those things that can be activated via an on/off toggle or a tap. That should cover lights, switches, and anything requiring a single press such as an automation. For anything more complicated, e.g. thermostat, it would always be quicker and simpler to reach for your phone or tablet... or the device's own remote control!
 
-The application is designed around a simple scrollable menu where menu items have been extended to interface with the [Home Assistant API](https://developers.home-assistant.io/docs/api/rest/), e.g. to get the status of switches or lights for display on the toggle menu item, or a text status for an entity (template item). It is possible to nest menus, so there is a menu item to open a sub-menu. This can be arbitrarily deep and nested in the format of a tree of items, although you need to consider if reaching for your phone becomes quicker to select the device what you want to control.
+The widget is designed around a simple scrollable menu where menu items have been extended to interface with the [Home Assistant API](https://developers.home-assistant.io/docs/api/rest/), e.g. to get the status of switches or lights for display on the toggle menu item, or a text status for an entity (template item). It is possible to nest menus, so there is a menu item to open a sub-menu. This can be arbitrarily deep and nested in the format of a tree of items, although you need to consider if reaching for your phone becomes quicker to select the device what you want to control.
 
-**The intended audience for this application are those comfortable with configuring a Home Assistant** (e.g. editing the YAML configuration files) and debugging why URLs don't work. It does not require programming skills, but the menu is configured via JSON which feels like "coding". If you are not comfortable with this relatively low level of configuration, you may like to try other Garmin applications instead.
+**The intended audience for this widget are those comfortable with configuring a Home Assistant** (e.g. editing the YAML configuration files) and debugging why URLs don't work. It does not require programming skills, but the menu is configured via JSON which feels like "coding". If you are not comfortable with this relatively low level of configuration, you may like to try other Garmin applications instead.
 
 It is important to note that your Home Assistant instance will need to be accessible via HTTPS with public SSL or all requests from the Garmin will not work. This cannot be a self-signed certificate, it must be a public certificate. You can get one for free from [Let's Encrypt](https://letsencrypt.org/) or you can pay for [Home Assistant cloud](https://www.nabucasa.com/). (You can install a local [Nginx proxy server](https://my.home-assistant.io/redirect/supervisor_addon/?addon=a0d7b954_nginxproxymanager) to manage Let's Encrypt certificates.)
 
-**If you are struggling with getting the application to work, please consult the [trouble shooting](TroubleShooting.md#menu-configuration-url) guide first.**
+**If you are struggling with getting the widget to work, please consult the [trouble shooting](TroubleShooting.md#menu-configuration-url) guide first.**
 
 
 ## Widget or Application?
 
-As of version 2.0, there are now two installable versions. For older devices before applications supported 'glances', there is a now widget version. These two version must be downloaded separately due to the way the Connect IQ App Store requires them to have separate application IDs. Therefore you need to choose which you want up front. Here's how they compare.
+As of version 2.0, there are now two installable versions. For older devices before applications supported 'glances' (minimum API Level 3.3.x and less), there is a now widget version. These two version must be downloaded separately due to the way the Connect IQ App Store requires them to have separate application IDs. Therefore you need to choose which you want up front. Here's how they compare.
 
 | Version                | Explanation |
 |------------------------|-------------|
-| Application (original) | For newer devices that allow glance views in their applications, e.g. Venu 2, the GarminHomeAssistant application can be started either from a glance or from the list of applications and activities. Head over to the [GarminHomeAssistant](https://apps.garmin.com/en-US/apps/61c91d28-ec5e-438d-9f83-39e9f45b199d) application page on the [Connect IQ application store](https://apps.garmin.com/en-US/) to download the application. The application can be started two different ways, either from the glance in the carousel, or as an application from the list of applications & activities. With the latter, it is worth marking the application as a favourite.<br/><img src="images/Venu2_app_start.png" width="200" title="Venu 2" style="margin:5px"/><img src="images/Vivoactive3_app_start.jpg" width="200" title="Venu 2" style="margin:5px"/><br/>If you place the application on your list of favourites, and rearrange it to appear near the top, then the item is just one button press away from the watch face. This second picture here shows the application menu on a Vivoactive 3 watch.<br/><img src="images/Venu2_glance_start.png" width="200" title="Venu 2" style="margin:5px"/><br/>On newer watches, you can also start the application from the glance carousel. The glance view here typically displays some trackable status, so ours provides some early indication of availability. Older watches will still allow you to start this application from the list of applications and activities. |
-| Widget                 | For older devices that use widgets, e.g. Venu (1) as opposed to applications with "glances", the GarminHomeAssistant application can instead be started from the widget carousel. This is a separate item in the Connect IQ AppStore and with this installation, the application will no longer appear in the list of applications and activities. Head over to the [GarminHomeAssistant](https://apps.garmin.com/en-US/apps/) widget page on the [Connect IQ application store](https://apps.garmin.com/en-US/) to download the widget.<br/><img src="images/Venu_Widget_sim.png" width="200" title="Venu 2" style="margin:5px"/><br/>Typically the widget view implements something similar to the glance view, e.g. status, and exists in a widget carousel to allow you to select an application to launch.<br>**Please note that memory in widgets is more limited than applications. This means a large menu definition can crash the widget without the code catching the error.** |
+| Application (original) | For newer devices that allow glance views in their applications (min API level 3.4.0 and higher), e.g. Venu 2, the GarminHomeAssistant application can be started either from a glance or from the list of applications and activities. Head over to the [GarminHomeAssistant](https://apps.garmin.com/en-US/apps/61c91d28-ec5e-438d-9f83-39e9f45b199d) application page on the [Connect IQ application store](https://apps.garmin.com/en-US/) to download the application. The application can be started two different ways, either from the glance in the carousel, or as an application from the list of applications & activities. With the latter, it is worth marking the application as a favourite.<br/><img src="images/Venu2_app_start.png" width="200" title="Venu 2" style="margin:5px"/><img src="images/Vivoactive3_app_start.jpg" width="200" title="Venu 2" style="margin:5px"/><br/>If you place the application on your list of favourites, and rearrange it to appear near the top, then the item is just one button press away from the watch face. This second picture here shows the application menu on a Vivoactive 3 watch.<br/><img src="images/Venu2_glance_start.png" width="200" title="Venu 2" style="margin:5px"/><br/>On newer watches, you can also start the application from the glance carousel. The glance view here typically displays some trackable status, so ours provides some early indication of availability. Older watches will still allow you to start this application from the list of applications and activities. |
+| Widget                 | For older devices that use widgets, e.g. Venu (1) as opposed to applications with "glances", the GarminHomeAssistantWidget widget can instead be started from the widget carousel. This is a separate item in the Connect IQ AppStore and with this installation, the application will no longer appear in the list of applications and activities. Head over to the [GarminHomeAssistantWidget](https://apps.garmin.com/en-US/apps/559f5174-177f-4f46-b170-f31c7e74dea3) widget page on the [Connect IQ application store](https://apps.garmin.com/en-US/) to download the widget.<br/><img src="images/Venu_Widget_sim.png" width="200" title="Venu 2" style="margin:5px"/><br/>Typically the widget view implements something similar to the glance view, e.g. status, and exists in a widget carousel to allow you to select an application to launch.<br>**Please note that memory in widgets is more limited than applications. This means a large menu definition can crash the widget without the code catching the error.**|
 
-As the source code base for both is the same, the version numbers of each will be kept in step. That means that the widget version starts version numbering at 2.0.
+### The Why of Maintenance-Only Mode For the Widget
+
+Initially, the source code base for both versions was the same. But finally, it was separated into two repositories. The reason was, that the classical widget is not longer an official app type for newer devices (widgets can still be used on newer ones, but glances are the way to go for them). And supporting both, widget and glances, on the same code base led to unnecessary inflating of the app size. This empede the development of new features, due to the app memory size restrictions of the Garmin devices. So the decision was, to have two code bases and setting the widget one to maintanence-only mode (only bug fixing, new features are less likely).
 
 ## Dashboard Definition
 
@@ -42,7 +47,7 @@ Example schema:
 
 ```json
 {
-  "$schema": "https://raw.githubusercontent.com/house-of-abbey/GarminHomeAssistant/main/config.schema.json",
+  "$schema": "https://raw.githubusercontent.com/house-of-abbey/GarminHomeAssistantWidget/main/config.schema.json",
   "title": "Home",
   "items": [
     {
@@ -145,7 +150,7 @@ Templates need separate HTTP requests to update their status and send an action.
 
 You can now specify alternative texts to use instead of "On" and "Off", e.g. "Locked" and "Unlocked" or "Open" and "Closed" through the use of a [template menu item](examples/Templates.md). But wouldn't having locks operated from your watch be a security concern ;-) ?
 
-The [schema](https://raw.githubusercontent.com/house-of-abbey/GarminHomeAssistant/main/config.schema.json) is checked by using a URL directly back to this GitHub source repository, so you do not need to install that file. You can just copy & paste your entity names from the YAML configuration files used to configure Home Assistant. With a submenu, there's a difference between "title" and "name". The "name" goes on the menu item, and the "title" at the head of the submenu. If your dashboard definition fails to meet the schema, the application will simply drop items with the wrong field names without warning to protect itself.
+The [schema](https://raw.githubusercontent.com/house-of-abbey/GarminHomeAssistantWidget/main/config.schema.json) is checked by using a URL directly back to this GitHub source repository, so you do not need to install that file. You can just copy & paste your entity names from the YAML configuration files used to configure Home Assistant. With a submenu, there's a difference between "title" and "name". The "name" goes on the menu item, and the "title" at the head of the submenu. If your dashboard definition fails to meet the schema, the application will simply drop items with the wrong field names without warning to protect itself.
 
 ### Old deprecated format
 
@@ -184,7 +189,7 @@ This allows the `confirm` field to be accommodated in the `tap_action` along sid
 ## Editing the JSON file
 
 You have options. The first is what we use.
-1. **Best!**  Use the GarminHomeAssistant [Web-based Editor](https://house-of-abbey.github.io/GarminHomeAssistant/web/) which includes `entity` and `service` name completion and validation by fetching data from your own Home Assistant instance. _Pretty  nifty eh?_ The other method listed below do not add this convenience and checking.
+1. **Best!**  Use the GarminHomeAssistantWidget [Web-based Editor](https://house-of-abbey.github.io/GarminHomeAssistantWidget/web/) which includes `entity` and `service` name completion and validation by fetching data from your own Home Assistant instance. _Pretty  nifty eh?_ The other method listed below do not add this convenience and checking.
 2. Use the [Studio Code Server](https://community.home-assistant.io/t/home-assistant-community-add-on-visual-studio-code/107863) addon for Home Assistant. You can then edit your JSON file in place.
 3. Locally installed VSCode, or if not installed, try
 4. The on-line version at https://vscode.dev/, which works really well.
@@ -261,9 +266,9 @@ When you change the JSON file defining your dashboard, you must exit the applica
 
 ## Submitting Corrections for Translations
 
-Initially all text has been created in English, and a [Python script](https://github.com/house-of-abbey/GarminHomeAssistant/blob/main/translate.py) (Google Translate under the hood) has been used to create the first version of all translations. We have been pleased to accept better translations from native language speakers, *thank you*. If you would like to submit improved translations, our preference is you do so via a [Git pull request](https://github.com/house-of-abbey/GarminHomeAssistant/pulls). If you are not comfortable doing this, then just raise an issue and someone will eventually pick the request up.
+Initially all text has been created in English, and a [Python script](https://github.com/house-of-abbey/GarminHomeAssistantWidget/blob/main/translate.py) (Google Translate under the hood) has been used to create the first version of all translations. We have been pleased to accept better translations from native language speakers, *thank you*. If you would like to submit improved translations, our preference is you do so via a [Git pull request](https://github.com/house-of-abbey/GarminHomeAssistantWidget/pulls). If you are not comfortable doing this, then just raise an issue and someone will eventually pick the request up.
 
-In order to submit a language correction please create an XML file called `corrections.xml` in the same directory as your language containing the corrected text. The format of the XML file follows that of `strings.xml`. As an example here are some corrected French translations found in directory [`resources-fre/strings/corrections.xml`](https://github.com/house-of-abbey/GarminHomeAssistant/tree/main/resources-fre/strings/corrections.xml):
+In order to submit a language correction please create an XML file called `corrections.xml` in the same directory as your language containing the corrected text. The format of the XML file follows that of `strings.xml`. As an example here are some corrected French translations found in directory [`resources-fre/strings/corrections.xml`](https://github.com/house-of-abbey/GarminHomeAssistantWidget/tree/main/resources-fre/strings/corrections.xml):
 
 ```xml
 <strings>
@@ -273,7 +278,7 @@ In order to submit a language correction please create an XML file called `corre
 </strings>
 ```
 
-The `id` attribute values are taken from the same names used in [`strings.xml`](https://github.com/house-of-abbey/GarminHomeAssistant/blob/main/resources-fre/strings/strings.xml). **Not all `id` values need to be specified as missing `id`s will then use automatic translations.** If the existing convention is followed then:
+The `id` attribute values are taken from the same names used in [`strings.xml`](https://github.com/house-of-abbey/GarminHomeAssistantWidget/blob/main/resources-fre/strings/strings.xml). **Not all `id` values need to be specified as missing `id`s will then use automatic translations.** If the existing convention is followed then:
 
 * The Python script will use the corrections in preference to translating, and
 * Your pull request will be honoured without comment as we will take your corrections on trust.

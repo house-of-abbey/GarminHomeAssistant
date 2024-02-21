@@ -2,12 +2,11 @@
 <!--
 
    Distributed under MIT Licence
-     See https://github.com/house-of-abbey/GarminHomeAssistant/blob/main/LICENSE.
+     See https://github.com/house-of-abbey/GarminHomeAssistantWidget/blob/main/LICENSE.
 
 
-   GarminHomeAssistant is a Garmin IQ application written in Monkey C and routinely
-   tested on a Venu 2 device. The source code is provided at:
-              https://github.com/house-of-abbey/GarminHomeAssistant.
+   GarminHomeAssistantWidget is a Garmin IQ widget written in Monkey C. The source code is provided at:
+              https://github.com/house-of-abbey/GarminHomeAssistantWidget.
 
    P A Abbey & J D Abbey & Someone0nEarth, 31 October 2023
 
@@ -19,15 +18,15 @@
 -->
 
 <strings>
-  <string id="AppName" scope="glance">HomeAssistant</string>
+  <string id="AppName">HomeAssistant</string>
   <string id="Confirm">pasti?</string>
-  <string id="Executed" scope="glance">Disahkan</string>
-  <string id="NoPhone" scope="glance">Tiada sambungan Telefon</string>
+  <string id="Executed">Disahkan</string>
+  <string id="NoPhone">Tiada sambungan Telefon</string>
   <string id="NoInternet">Tiada sambungan internet</string>
   <string id="NoResponse">Tiada Respons, semak sambungan Internet</string>
-  <string id="NoAPIKey" scope="glance">Tiada kunci API dalam tetapan aplikasi</string>
-  <string id="NoApiUrl" scope="glance">Tiada URL API dalam tetapan aplikasi</string>
-  <string id="NoConfigUrl" scope="glance">Tiada URL konfigurasi dalam tetapan aplikasi</string>
+  <string id="NoAPIKey">Tiada kunci API dalam tetapan aplikasi</string>
+  <string id="NoApiUrl">Tiada URL API dalam tetapan aplikasi</string>
+  <string id="NoConfigUrl">Tiada URL konfigurasi dalam tetapan aplikasi</string>
   <string id="ApiFlood">Panggilan API terlalu pantas. Sila perlahankan permintaan anda.</string>
   <string id="ApiUrlNotFound">URL tidak ditemui. Ralat URL API yang berpotensi dalam tetapan.</string>
   <string id="ConfigUrlNotFound">URL tidak ditemui. Ralat URL Konfigurasi Potensi dalam tetapan.</string>
@@ -36,13 +35,13 @@
   <string id="TrailingSlashErr">URL API tidak boleh mempunyai garis miring '/'</string>
   <string id="WebhookFailed">Gagal mendaftar Webhook</string>
   <string id="TemplateError">Gagal untuk memaparkan templat</string>
-  <string id="Available" scope="glance">Tersedia</string>
-  <string id="Checking" scope="glance">Menyemak...</string>
-  <string id="Unavailable" scope="glance">Tidak ada</string>
-  <string id="Unconfigured" scope="glance">Tidak dikonfigurasikan</string>
-  <string id="Cached" scope="glance">Dicache</string>
-  <string id="GlanceMenu" scope="glance">Menu</string>
-  <string id="Memory" scope="glance">Ingatan</string>
+  <string id="Available">Tersedia</string>
+  <string id="Checking">Menyemak...</string>
+  <string id="Unavailable">Tidak ada</string>
+  <string id="Unconfigured">Tidak dikonfigurasikan</string>
+  <string id="Cached">Dicache</string>
+  <string id="Menu">Menu</string>
+  <string id="Memory">Ingatan</string>
   <!-- Untuk GUI tetapan -->
   <string id="SettingsSelect">Pilih...</string>
   <string id="SettingsApiKey">Kunci API untuk HomeAssistant.</string>

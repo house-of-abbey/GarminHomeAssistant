@@ -2,12 +2,11 @@
 <!--
 
    Distributed under MIT Licence
-     See https://github.com/house-of-abbey/GarminHomeAssistant/blob/main/LICENSE.
+     See https://github.com/house-of-abbey/GarminHomeAssistantWidget/blob/main/LICENSE.
 
 
-   GarminHomeAssistant is a Garmin IQ application written in Monkey C and routinely
-   tested on a Venu 2 device. The source code is provided at:
-              https://github.com/house-of-abbey/GarminHomeAssistant.
+   GarminHomeAssistantWidget is a Garmin IQ widget written in Monkey C. The source code is provided at:
+              https://github.com/house-of-abbey/GarminHomeAssistantWidget.
 
    P A Abbey & J D Abbey & Someone0nEarth, 31 October 2023
 
@@ -19,15 +18,15 @@
 -->
 
 <strings>
-  <string id="AppName" scope="glance">HomeAssistant</string>
+  <string id="AppName">HomeAssistant</string>
   <string id="Confirm">Bien sûr?</string>
-  <string id="Executed" scope="glance">Confirmé</string>
-  <string id="NoPhone" scope="glance">Pas de connexion téléphonique</string>
+  <string id="Executed">Confirmé</string>
+  <string id="NoPhone">Pas de connexion téléphonique</string>
   <string id="NoInternet">Pas de connexion Internet</string>
   <string id="NoResponse">Pas de réponse, vérifiez la connexion Internet</string>
-  <string id="NoAPIKey" scope="glance">Pas de clé API dans les paramètres de l'application</string>
-  <string id="NoApiUrl" scope="glance">Aucune URL API dans les paramètres de l'application</string>
-  <string id="NoConfigUrl" scope="glance">Aucune URL de configuration dans les paramètres de l'application</string>
+  <string id="NoAPIKey">Pas de clé API dans les paramètres de l'application</string>
+  <string id="NoApiUrl">Aucune URL API dans les paramètres de l'application</string>
+  <string id="NoConfigUrl">Aucune URL de configuration dans les paramètres de l'application</string>
   <string id="ApiFlood">Appels API trop rapide. Veuillez signaler cette erreur avec les détails de l'appareil.</string>
   <string id="ApiUrlNotFound">URL introuvable. Erreur potentielle d'URL d'API dans les paramètres.</string>
   <string id="ConfigUrlNotFound">URL introuvable. Erreur potentielle d'URL de configuration dans les paramètres.</string>
@@ -36,13 +35,13 @@
   <string id="TrailingSlashErr">L'URL de l'API ne doit pas comporter de barre oblique finale '/'</string>
   <string id="WebhookFailed">Échec de l'enregistrement du Webhook</string>
   <string id="TemplateError">Échec du rendu du modèle</string>
-  <string id="Available" scope="glance">Disponible</string>
-  <string id="Checking" scope="glance">Vérification...</string>
-  <string id="Unavailable" scope="glance">Indisponible</string>
-  <string id="Unconfigured" scope="glance">Non configuré</string>
-  <string id="Cached" scope="glance">En cache</string>
-  <string id="GlanceMenu" scope="glance">Menu</string>
-  <string id="Memory" scope="glance">Mémoire</string>
+  <string id="Available">Disponible</string>
+  <string id="Checking">Vérification...</string>
+  <string id="Unavailable">Indisponible</string>
+  <string id="Unconfigured">Non configuré</string>
+  <string id="Cached">En cache</string>
+  <string id="Menu">Menu</string>
+  <string id="Memory">Mémoire</string>
   <!-- Pour l'interface graphique des paramètres -->
   <string id="SettingsSelect">Sélectionner...</string>
   <string id="SettingsApiKey">Clé API pour HomeAssistant.</string>

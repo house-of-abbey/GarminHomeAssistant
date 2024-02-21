@@ -2,12 +2,11 @@
 <!--
 
    Distributed under MIT Licence
-     See https://github.com/house-of-abbey/GarminHomeAssistant/blob/main/LICENSE.
+     See https://github.com/house-of-abbey/GarminHomeAssistantWidget/blob/main/LICENSE.
 
 
-   GarminHomeAssistant is a Garmin IQ application written in Monkey C and routinely
-   tested on a Venu 2 device. The source code is provided at:
-              https://github.com/house-of-abbey/GarminHomeAssistant.
+   GarminHomeAssistantWidget is a Garmin IQ widget written in Monkey C. The source code is provided at:
+              https://github.com/house-of-abbey/GarminHomeAssistantWidget.
 
    P A Abbey & J D Abbey & Someone0nEarth, 31 October 2023
 
@@ -19,15 +18,15 @@
 -->
 
 <strings>
-  <string id="AppName" scope="glance">HomeAssistant</string>
+  <string id="AppName">HomeAssistant</string>
   <string id="Confirm">Seveda?</string>
-  <string id="Executed" scope="glance">Potrjeno</string>
-  <string id="NoPhone" scope="glance">Ni telefonske povezave</string>
+  <string id="Executed">Potrjeno</string>
+  <string id="NoPhone">Ni telefonske povezave</string>
   <string id="NoInternet">Ni internetne povezave</string>
   <string id="NoResponse">Ni odgovora, preverite internetno povezavo</string>
-  <string id="NoAPIKey" scope="glance">V nastavitvah aplikacije ni ključa API</string>
-  <string id="NoApiUrl" scope="glance">V nastavitvah aplikacije ni URL-ja API-ja</string>
-  <string id="NoConfigUrl" scope="glance">V nastavitvah aplikacije ni konfiguracijskega URL-ja</string>
+  <string id="NoAPIKey">V nastavitvah aplikacije ni ključa API</string>
+  <string id="NoApiUrl">V nastavitvah aplikacije ni URL-ja API-ja</string>
+  <string id="NoConfigUrl">V nastavitvah aplikacije ni konfiguracijskega URL-ja</string>
   <string id="ApiFlood">API klici so prehitri. Prosim, upočasnite svoje zahteve.</string>
   <string id="ApiUrlNotFound">URL-ja ni bilo mogoče najti. Morebitna napaka URL-ja API-ja v nastavitvah.</string>
   <string id="ConfigUrlNotFound">URL-ja ni bilo mogoče najti. Morebitna napaka URL-ja konfiguracije v nastavitvah.</string>
@@ -36,13 +35,13 @@
   <string id="TrailingSlashErr">URL API-ja ne sme imeti končne poševnice '/'</string>
   <string id="WebhookFailed">Webhooka ni bilo mogoče registrirati</string>
   <string id="TemplateError">Upodabljanje predloge ni uspelo</string>
-  <string id="Available" scope="glance">Na voljo</string>
-  <string id="Checking" scope="glance">Preverjanje ...</string>
-  <string id="Unavailable" scope="glance">Ni na voljo</string>
-  <string id="Unconfigured" scope="glance">Nekonfigurirano</string>
-  <string id="Cached" scope="glance">Predpomnjeno</string>
-  <string id="GlanceMenu" scope="glance">meni</string>
-  <string id="Memory" scope="glance">Spomin</string>
+  <string id="Available">Na voljo</string>
+  <string id="Checking">Preverjanje ...</string>
+  <string id="Unavailable">Ni na voljo</string>
+  <string id="Unconfigured">Nekonfigurirano</string>
+  <string id="Cached">Predpomnjeno</string>
+  <string id="Menu">meni</string>
+  <string id="Memory">Spomin</string>
   <!-- Za nastavitve GUI -->
   <string id="SettingsSelect">Izberite ...</string>
   <string id="SettingsApiKey">API ključ za HomeAssistant.</string>

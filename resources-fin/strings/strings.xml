@@ -2,12 +2,11 @@
 <!--
 
    Distributed under MIT Licence
-     See https://github.com/house-of-abbey/GarminHomeAssistant/blob/main/LICENSE.
+     See https://github.com/house-of-abbey/GarminHomeAssistantWidget/blob/main/LICENSE.
 
 
-   GarminHomeAssistant is a Garmin IQ application written in Monkey C and routinely
-   tested on a Venu 2 device. The source code is provided at:
-              https://github.com/house-of-abbey/GarminHomeAssistant.
+   GarminHomeAssistantWidget is a Garmin IQ widget written in Monkey C. The source code is provided at:
+              https://github.com/house-of-abbey/GarminHomeAssistantWidget.
 
    P A Abbey & J D Abbey & Someone0nEarth, 31 October 2023
 
@@ -19,15 +18,15 @@
 -->
 
 <strings>
-  <string id="AppName" scope="glance">HomeAssistant</string>
+  <string id="AppName">HomeAssistant</string>
   <string id="Confirm">Varma?</string>
-  <string id="Executed" scope="glance">Vahvistettu</string>
-  <string id="NoPhone" scope="glance">Ei puhelinyhteyttä</string>
+  <string id="Executed">Vahvistettu</string>
+  <string id="NoPhone">Ei puhelinyhteyttä</string>
   <string id="NoInternet">Ei Internet-yhteyttä</string>
   <string id="NoResponse">Ei vastausta, tarkista Internet-yhteys</string>
-  <string id="NoAPIKey" scope="glance">Sovellusasetuksissa ei ole API-avainta</string>
-  <string id="NoApiUrl" scope="glance">Sovellusasetuksissa ei ole API URL-osoitetta</string>
-  <string id="NoConfigUrl" scope="glance">Sovelluksen asetuksissa ei ole konfigurointi-URL-osoitetta</string>
+  <string id="NoAPIKey">Sovellusasetuksissa ei ole API-avainta</string>
+  <string id="NoApiUrl">Sovellusasetuksissa ei ole API URL-osoitetta</string>
+  <string id="NoConfigUrl">Sovelluksen asetuksissa ei ole konfigurointi-URL-osoitetta</string>
   <string id="ApiFlood">API-kutsut liian nopeita. Hidasta pyyntöjäsi.</string>
   <string id="ApiUrlNotFound">URL-osoitetta ei löydy. Mahdollinen API URL -virhe asetuksissa.</string>
   <string id="ConfigUrlNotFound">URL-osoitetta ei löydy. Mahdollinen konfigurointi-URL-virhe asetuksissa.</string>
@@ -36,13 +35,13 @@
   <string id="TrailingSlashErr">API-URL-osoitteessa ei saa olla perässä olevaa kauttaviivaa '/'</string>
   <string id="WebhookFailed">Webhookin rekisteröinti epäonnistui</string>
   <string id="TemplateError">Mallin renderöinti epäonnistui</string>
-  <string id="Available" scope="glance">Saatavilla</string>
-  <string id="Checking" scope="glance">Tarkistetaan...</string>
-  <string id="Unavailable" scope="glance">Ei saatavilla</string>
-  <string id="Unconfigured" scope="glance">Määrittämätön</string>
-  <string id="Cached" scope="glance">Välimuistissa</string>
-  <string id="GlanceMenu" scope="glance">Valikko</string>
-  <string id="Memory" scope="glance">Muisti</string>
+  <string id="Available">Saatavilla</string>
+  <string id="Checking">Tarkistetaan...</string>
+  <string id="Unavailable">Ei saatavilla</string>
+  <string id="Unconfigured">Määrittämätön</string>
+  <string id="Cached">Välimuistissa</string>
+  <string id="Menu">Valikko</string>
+  <string id="Memory">Muisti</string>
   <!-- GUI-asetusten osalta -->
   <string id="SettingsSelect">Valitse...</string>
   <string id="SettingsApiKey">API-avain HomeAssistantille.</string>

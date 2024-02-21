@@ -1,13 +1,13 @@
 #-----------------------------------------------------------------------------------
 #
 # Distributed under MIT Licence
-#   See https://github.com/house-of-abbey/GarminHomeAssistant/blob/main/LICENSE.
+#   See https://github.com/house-of-abbey/GarminHomeAssistantWidget/blob/main/LICENSE.
 #
 #-----------------------------------------------------------------------------------
 #
-# GarminHomeAssistant is a Garmin IQ application written in Monkey C and routinely
-# tested on a Venu 2 device. The source code is provided at:
-#            https://github.com/house-of-abbey/GarminHomeAssistant.
+# GarminHomeAssistantWidget is a Garmin IQ widget written in Monkey C.
+# The source code is provided at:
+#            https://github.com/house-of-abbey/GarminHomeAssistantWidget.
 #
 # J D Abbey & P A Abbey, 28 December 2022
 #
@@ -18,10 +18,7 @@
 
 project.manifest = manifest.xml
 
-# Testing in VSCode requires monkey.jungle, so for convenience, swap between
-# watch-app and widget by changing which of the next two lines are commented out
-base.sourcePath = source;include/app
-#base.sourcePath = source;include/widget
+base.sourcePath = source
 
 # Device References
 # * https://developer.garmin.com/connect-iq/compatible-devices/

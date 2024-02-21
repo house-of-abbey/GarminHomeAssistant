@@ -2,12 +2,11 @@
 <!--
 
    Distributed under MIT Licence
-     See https://github.com/house-of-abbey/GarminHomeAssistant/blob/main/LICENSE.
+     See https://github.com/house-of-abbey/GarminHomeAssistantWidget/blob/main/LICENSE.
 
 
-   GarminHomeAssistant is a Garmin IQ application written in Monkey C and routinely
-   tested on a Venu 2 device. The source code is provided at:
-              https://github.com/house-of-abbey/GarminHomeAssistant.
+   GarminHomeAssistantWidget is a Garmin IQ widget written in Monkey C. The source code is provided at:
+              https://github.com/house-of-abbey/GarminHomeAssistantWidget.
 
    P A Abbey & J D Abbey & Someone0nEarth, 31 October 2023
 
@@ -19,15 +18,15 @@
 -->
 
 <strings>
-  <string id="AppName" scope="glance">HomeAssistant</string>
+  <string id="AppName">HomeAssistant</string>
   <string id="Confirm">Σίγουρος?</string>
-  <string id="Executed" scope="glance">Επιβεβαιωμένος</string>
-  <string id="NoPhone" scope="glance">Δεν υπάρχει σύνδεση τηλεφώνου</string>
+  <string id="Executed">Επιβεβαιωμένος</string>
+  <string id="NoPhone">Δεν υπάρχει σύνδεση τηλεφώνου</string>
   <string id="NoInternet">Δεν υπάρχει σύνδεση στο διαδίκτυο</string>
   <string id="NoResponse">Καμία απάντηση, ελέγξτε τη σύνδεση στο Διαδίκτυο</string>
-  <string id="NoAPIKey" scope="glance">Δεν υπάρχει κλειδί API στις ρυθμίσεις της εφαρμογής</string>
-  <string id="NoApiUrl" scope="glance">Δεν υπάρχει URL API στις ρυθμίσεις της εφαρμογής</string>
-  <string id="NoConfigUrl" scope="glance">Δεν υπάρχει διεύθυνση URL διαμόρφωσης στις ρυθμίσεις της εφαρμογής</string>
+  <string id="NoAPIKey">Δεν υπάρχει κλειδί API στις ρυθμίσεις της εφαρμογής</string>
+  <string id="NoApiUrl">Δεν υπάρχει URL API στις ρυθμίσεις της εφαρμογής</string>
+  <string id="NoConfigUrl">Δεν υπάρχει διεύθυνση URL διαμόρφωσης στις ρυθμίσεις της εφαρμογής</string>
   <string id="ApiFlood">Κλήσεις API πολύ γρήγορες. Παρακαλώ επιβραδύνετε τα αιτήματά σας.</string>
   <string id="ApiUrlNotFound">Η διεύθυνση URL δεν βρέθηκε. Πιθανό σφάλμα διεύθυνσης URL API στις ρυθμίσεις.</string>
   <string id="ConfigUrlNotFound">Η διεύθυνση URL δεν βρέθηκε. Πιθανό σφάλμα διεύθυνσης URL διαμόρφωσης στις ρυθμίσεις.</string>
@@ -36,13 +35,13 @@
   <string id="TrailingSlashErr">Η διεύθυνση URL του API δεν πρέπει να έχει τελική κάθετο "/"</string>
   <string id="WebhookFailed">Η εγγραφή του Webhook απέτυχε</string>
   <string id="TemplateError">Απέτυχε η απόδοση του προτύπου</string>
-  <string id="Available" scope="glance">Διαθέσιμος</string>
-  <string id="Checking" scope="glance">Ελεγχος...</string>
-  <string id="Unavailable" scope="glance">Μη διαθέσιμο</string>
-  <string id="Unconfigured" scope="glance">Μη διαμορφωμένο</string>
-  <string id="Cached" scope="glance">Αποθηκευμένο στην κρυφή μνήμη</string>
-  <string id="GlanceMenu" scope="glance">Μενού</string>
-  <string id="Memory" scope="glance">Μνήμη</string>
+  <string id="Available">Διαθέσιμος</string>
+  <string id="Checking">Ελεγχος...</string>
+  <string id="Unavailable">Μη διαθέσιμο</string>
+  <string id="Unconfigured">Μη διαμορφωμένο</string>
+  <string id="Cached">Αποθηκευμένο στην κρυφή μνήμη</string>
+  <string id="Menu">Μενού</string>
+  <string id="Memory">Μνήμη</string>
   <!-- Για τις ρυθμίσεις GUI -->
   <string id="SettingsSelect">Επιλέγω...</string>
   <string id="SettingsApiKey">Κλειδί API για το HomeAssistant.</string>

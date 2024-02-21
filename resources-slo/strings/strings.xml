@@ -2,12 +2,11 @@
 <!--
 
    Distributed under MIT Licence
-     See https://github.com/house-of-abbey/GarminHomeAssistant/blob/main/LICENSE.
+     See https://github.com/house-of-abbey/GarminHomeAssistantWidget/blob/main/LICENSE.
 
 
-   GarminHomeAssistant is a Garmin IQ application written in Monkey C and routinely
-   tested on a Venu 2 device. The source code is provided at:
-              https://github.com/house-of-abbey/GarminHomeAssistant.
+   GarminHomeAssistantWidget is a Garmin IQ widget written in Monkey C. The source code is provided at:
+              https://github.com/house-of-abbey/GarminHomeAssistantWidget.
 
    P A Abbey & J D Abbey & Someone0nEarth, 31 October 2023
 
@@ -19,15 +18,15 @@
 -->
 
 <strings>
-  <string id="AppName" scope="glance">HomeAssistant</string>
+  <string id="AppName">HomeAssistant</string>
   <string id="Confirm">Potvrďte</string>
-  <string id="Executed" scope="glance">Spustený</string>
-  <string id="NoPhone" scope="glance">Žiadne telefónne spojenie</string>
+  <string id="Executed">Spustený</string>
+  <string id="NoPhone">Žiadne telefónne spojenie</string>
   <string id="NoInternet">Žiadne internetové pripojenie</string>
   <string id="NoResponse">Žiadna odpoveď, skontrolujte internetové pripojenie</string>
-  <string id="NoAPIKey" scope="glance">V nastaveniach aplikácie nie je žiadny kľúč API</string>
-  <string id="NoApiUrl" scope="glance">V nastaveniach aplikácie nie je žiadna adresa URL rozhrania API</string>
-  <string id="NoConfigUrl" scope="glance">V nastaveniach aplikácie nie je žiadna konfiguračná URL</string>
+  <string id="NoAPIKey">V nastaveniach aplikácie nie je žiadny kľúč API</string>
+  <string id="NoApiUrl">V nastaveniach aplikácie nie je žiadna adresa URL rozhrania API</string>
+  <string id="NoConfigUrl">V nastaveniach aplikácie nie je žiadna konfiguračná URL</string>
   <string id="ApiFlood">Volania API sú príliš rýchle. Spomaľte svoje požiadavky.</string>
   <string id="ApiUrlNotFound">Adresa URL sa nenašla. Potenciálna chyba webovej adresy rozhrania API v nastaveniach.</string>
   <string id="ConfigUrlNotFound">Adresa URL sa nenašla. Potenciálna chyba konfiguračnej adresy URL v nastaveniach.</string>
@@ -36,13 +35,13 @@
   <string id="TrailingSlashErr">Adresa URL rozhrania API nesmie obsahovať koncovú lomku „/“</string>
   <string id="WebhookFailed">Registrácia Webhooku zlyhala</string>
   <string id="TemplateError">Vykreslenie šablóny zlyhalo</string>
-  <string id="Available" scope="glance">Dostupné</string>
-  <string id="Checking" scope="glance">Prebieha kontrola...</string>
-  <string id="Unavailable" scope="glance">nedostupné</string>
-  <string id="Unconfigured" scope="glance">Nekonfigurované</string>
-  <string id="Cached" scope="glance">Vo vyrovnávacej pamäti</string>
-  <string id="GlanceMenu" scope="glance">Ponuka</string>
-  <string id="Memory" scope="glance">Pamäť</string>
+  <string id="Available">Dostupné</string>
+  <string id="Checking">Prebieha kontrola...</string>
+  <string id="Unavailable">nedostupné</string>
+  <string id="Unconfigured">Nekonfigurované</string>
+  <string id="Cached">Vo vyrovnávacej pamäti</string>
+  <string id="Menu">Ponuka</string>
+  <string id="Memory">Pamäť</string>
   <!-- Pre nastavenia GUI -->
   <string id="SettingsSelect">Vybrať...</string>
   <string id="SettingsApiKey">Kľúč API pre HomeAssistant.</string>

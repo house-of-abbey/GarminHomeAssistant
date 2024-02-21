@@ -2,12 +2,11 @@
 <!--
 
    Distributed under MIT Licence
-     See https://github.com/house-of-abbey/GarminHomeAssistant/blob/main/LICENSE.
+     See https://github.com/house-of-abbey/GarminHomeAssistantWidget/blob/main/LICENSE.
 
 
-   GarminHomeAssistant is a Garmin IQ application written in Monkey C and routinely
-   tested on a Venu 2 device. The source code is provided at:
-              https://github.com/house-of-abbey/GarminHomeAssistant.
+   GarminHomeAssistantWidget is a Garmin IQ widget written in Monkey C. The source code is provided at:
+              https://github.com/house-of-abbey/GarminHomeAssistantWidget.
 
    P A Abbey & J D Abbey & Someone0nEarth, 31 October 2023
 
@@ -19,15 +18,15 @@
 -->
 
 <strings>
-  <string id="AppName" scope="glance">HomeAssistant</string>
+  <string id="AppName">HomeAssistant</string>
   <string id="Confirm">بالتأكيد؟</string>
-  <string id="Executed" scope="glance">مؤكد</string>
-  <string id="NoPhone" scope="glance">لا يوجد اتصال الهاتف</string>
+  <string id="Executed">مؤكد</string>
+  <string id="NoPhone">لا يوجد اتصال الهاتف</string>
   <string id="NoInternet">لا يوجد اتصال بالإنترنت</string>
   <string id="NoResponse">لا توجد استجابة، تحقق من الاتصال بالإنترنت</string>
-  <string id="NoAPIKey" scope="glance">لا يوجد مفتاح API في إعدادات التطبيق</string>
-  <string id="NoApiUrl" scope="glance">لا يوجد عنوان URL لواجهة برمجة التطبيقات في إعدادات التطبيق</string>
-  <string id="NoConfigUrl" scope="glance">لا يوجد عنوان URL للتكوين في إعدادات التطبيق</string>
+  <string id="NoAPIKey">لا يوجد مفتاح API في إعدادات التطبيق</string>
+  <string id="NoApiUrl">لا يوجد عنوان URL لواجهة برمجة التطبيقات في إعدادات التطبيق</string>
+  <string id="NoConfigUrl">لا يوجد عنوان URL للتكوين في إعدادات التطبيق</string>
   <string id="ApiFlood">مكالمات API سريعة جدًا. يرجى إبطاء طلباتك.</string>
   <string id="ApiUrlNotFound">لم يتم العثور على عنوان URL. خطأ محتمل في عنوان URL لواجهة برمجة التطبيقات في الإعدادات.</string>
   <string id="ConfigUrlNotFound">لم يتم العثور على عنوان URL. خطأ محتمل في عنوان URL للتكوين في الإعدادات.</string>
@@ -36,13 +35,13 @@
   <string id="TrailingSlashErr">يجب ألا يحتوي عنوان URL لواجهة برمجة التطبيقات على شرطة مائلة لاحقة '/'</string>
   <string id="WebhookFailed">فشل تسجيل Webhook</string>
   <string id="TemplateError">فشل في تقديم القالب</string>
-  <string id="Available" scope="glance">متاح</string>
-  <string id="Checking" scope="glance">تدقيق...</string>
-  <string id="Unavailable" scope="glance">غير متوفره</string>
-  <string id="Unconfigured" scope="glance">غير مهيأ</string>
-  <string id="Cached" scope="glance">مخبأة</string>
-  <string id="GlanceMenu" scope="glance">قائمة طعام</string>
-  <string id="Memory" scope="glance">ذاكرة</string>
+  <string id="Available">متاح</string>
+  <string id="Checking">تدقيق...</string>
+  <string id="Unavailable">غير متوفره</string>
+  <string id="Unconfigured">غير مهيأ</string>
+  <string id="Cached">مخبأة</string>
+  <string id="Menu">قائمة طعام</string>
+  <string id="Memory">ذاكرة</string>
   <!-- لإعدادات واجهة المستخدم الرسومية -->
   <string id="SettingsSelect">يختار...</string>
   <string id="SettingsApiKey">مفتاح API لـ HomeAssistant.</string>

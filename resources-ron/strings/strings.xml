@@ -2,12 +2,11 @@
 <!--
 
    Distributed under MIT Licence
-     See https://github.com/house-of-abbey/GarminHomeAssistant/blob/main/LICENSE.
+     See https://github.com/house-of-abbey/GarminHomeAssistantWidget/blob/main/LICENSE.
 
 
-   GarminHomeAssistant is a Garmin IQ application written in Monkey C and routinely
-   tested on a Venu 2 device. The source code is provided at:
-              https://github.com/house-of-abbey/GarminHomeAssistant.
+   GarminHomeAssistantWidget is a Garmin IQ widget written in Monkey C. The source code is provided at:
+              https://github.com/house-of-abbey/GarminHomeAssistantWidget.
 
    P A Abbey & J D Abbey & Someone0nEarth, 31 October 2023
 
@@ -19,15 +18,15 @@
 -->
 
 <strings>
-  <string id="AppName" scope="glance">HomeAssistant</string>
+  <string id="AppName">HomeAssistant</string>
   <string id="Confirm">Sigur?</string>
-  <string id="Executed" scope="glance">Confirmat</string>
-  <string id="NoPhone" scope="glance">Fără conexiune telefonică</string>
+  <string id="Executed">Confirmat</string>
+  <string id="NoPhone">Fără conexiune telefonică</string>
   <string id="NoInternet">Fără conexiune internet</string>
   <string id="NoResponse">Niciun răspuns, verificați conexiunea la internet</string>
-  <string id="NoAPIKey" scope="glance">Nicio cheie API în setările aplicației</string>
-  <string id="NoApiUrl" scope="glance">Nicio adresă URL API în setările aplicației</string>
-  <string id="NoConfigUrl" scope="glance">Nicio adresă URL de configurare în setările aplicației</string>
+  <string id="NoAPIKey">Nicio cheie API în setările aplicației</string>
+  <string id="NoApiUrl">Nicio adresă URL API în setările aplicației</string>
+  <string id="NoConfigUrl">Nicio adresă URL de configurare în setările aplicației</string>
   <string id="ApiFlood">Apeluri API prea rapide. Vă rugăm să încetiniți cererile dvs.</string>
   <string id="ApiUrlNotFound">Adresa URL nu a fost găsită. Potențială eroare URL API în setări.</string>
   <string id="ConfigUrlNotFound">Adresa URL nu a fost găsită. Potențială eroare URL de configurare în setări.</string>
@@ -36,13 +35,13 @@
   <string id="TrailingSlashErr">Adresa URL API nu trebuie să aibă o bară oblică „/”</string>
   <string id="WebhookFailed">Nu s-a putut înregistra Webhook</string>
   <string id="TemplateError">Șablonul a eșuat</string>
-  <string id="Available" scope="glance">Disponibil</string>
-  <string id="Checking" scope="glance">Control...</string>
-  <string id="Unavailable" scope="glance">Indisponibil</string>
-  <string id="Unconfigured" scope="glance">Neconfigurat</string>
-  <string id="Cached" scope="glance">În cache</string>
-  <string id="GlanceMenu" scope="glance">Meniul</string>
-  <string id="Memory" scope="glance">Memorie</string>
+  <string id="Available">Disponibil</string>
+  <string id="Checking">Control...</string>
+  <string id="Unavailable">Indisponibil</string>
+  <string id="Unconfigured">Neconfigurat</string>
+  <string id="Cached">În cache</string>
+  <string id="Menu">Meniul</string>
+  <string id="Memory">Memorie</string>
   <!-- Pentru GUI de setări -->
   <string id="SettingsSelect">Selectați...</string>
   <string id="SettingsApiKey">Cheie API pentru HomeAssistant.</string>

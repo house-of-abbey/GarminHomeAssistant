@@ -131,7 +131,7 @@ async function get_services() {
  */
 async function get_schema() {
   const res = await fetch(
-    'https://raw.githubusercontent.com/house-of-abbey/GarminHomeAssistant/main/config.schema.json'
+    'https://raw.githubusercontent.com/house-of-abbey/GarminHomeAssistantWidget/main/config.schema.json'
   );
   return res.json();
 }
@@ -438,7 +438,7 @@ async function loadSchema() {
       validate: true,
       schemas: [
         {
-          uri: 'https://raw.githubusercontent.com/house-of-abbey/GarminHomeAssistant/main/config.schema.json',
+          uri: 'https://raw.githubusercontent.com/house-of-abbey/GarminHomeAssistantWidget/main/config.schema.json',
           fileMatch: [window.modelUri.toString()],
           schema,
         },
@@ -465,7 +465,7 @@ require(['vs/editor/editor.main'], async () => {
       validate: true,
       schemas: [
         {
-          uri: 'https://raw.githubusercontent.com/house-of-abbey/GarminHomeAssistant/main/config.schema.json',
+          uri: 'https://raw.githubusercontent.com/house-of-abbey/GarminHomeAssistantWidget/main/config.schema.json',
           fileMatch: [modelUri.toString()],
           schema,
         },

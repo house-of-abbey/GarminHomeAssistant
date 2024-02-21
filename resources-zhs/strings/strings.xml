@@ -2,12 +2,11 @@
 <!--
 
    Distributed under MIT Licence
-     See https://github.com/house-of-abbey/GarminHomeAssistant/blob/main/LICENSE.
+     See https://github.com/house-of-abbey/GarminHomeAssistantWidget/blob/main/LICENSE.
 
 
-   GarminHomeAssistant is a Garmin IQ application written in Monkey C and routinely
-   tested on a Venu 2 device. The source code is provided at:
-              https://github.com/house-of-abbey/GarminHomeAssistant.
+   GarminHomeAssistantWidget is a Garmin IQ widget written in Monkey C. The source code is provided at:
+              https://github.com/house-of-abbey/GarminHomeAssistantWidget.
 
    P A Abbey & J D Abbey & Someone0nEarth, 31 October 2023
 
@@ -19,15 +18,15 @@
 -->
 
 <strings>
-  <string id="AppName" scope="glance">HomeAssistant</string>
+  <string id="AppName">HomeAssistant</string>
   <string id="Confirm">当然？</string>
-  <string id="Executed" scope="glance">确认的</string>
-  <string id="NoPhone" scope="glance">没有电话连接</string>
+  <string id="Executed">确认的</string>
+  <string id="NoPhone">没有电话连接</string>
   <string id="NoInternet">没有网络连接</string>
   <string id="NoResponse">无响应，请检查互联网连接</string>
-  <string id="NoAPIKey" scope="glance">应用程序设置中没有 API 密钥</string>
-  <string id="NoApiUrl" scope="glance">应用程序设置中没有 API URL</string>
-  <string id="NoConfigUrl" scope="glance">应用程序设置中没有配置 URL</string>
+  <string id="NoAPIKey">应用程序设置中没有 API 密钥</string>
+  <string id="NoApiUrl">应用程序设置中没有 API URL</string>
+  <string id="NoConfigUrl">应用程序设置中没有配置 URL</string>
   <string id="ApiFlood">API 调用速度太快。请放慢您的请求。</string>
   <string id="ApiUrlNotFound">找不到网址。设置中可能存在 API URL 错误。</string>
   <string id="ConfigUrlNotFound">找不到网址。设置中可能存在配置 URL 错误。</string>
@@ -36,13 +35,13 @@
   <string id="TrailingSlashErr">API URL 不得有尾部斜杠“/”</string>
   <string id="WebhookFailed">注册Webhook失败</string>
   <string id="TemplateError">渲染模板失败</string>
-  <string id="Available" scope="glance">可用的</string>
-  <string id="Checking" scope="glance">检查...</string>
-  <string id="Unavailable" scope="glance">不可用</string>
-  <string id="Unconfigured" scope="glance">未配置</string>
-  <string id="Cached" scope="glance">缓存</string>
-  <string id="GlanceMenu" scope="glance">菜单</string>
-  <string id="Memory" scope="glance">记忆</string>
+  <string id="Available">可用的</string>
+  <string id="Checking">检查...</string>
+  <string id="Unavailable">不可用</string>
+  <string id="Unconfigured">未配置</string>
+  <string id="Cached">缓存</string>
+  <string id="Menu">菜单</string>
+  <string id="Memory">记忆</string>
   <!-- 对于设置 GUI -->
   <string id="SettingsSelect">选择...</string>
   <string id="SettingsApiKey">HomeAssistant 的 API 密钥。</string>

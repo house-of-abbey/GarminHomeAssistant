@@ -2,12 +2,11 @@
 <!--
 
    Distributed under MIT Licence
-     See https://github.com/house-of-abbey/GarminHomeAssistant/blob/main/LICENSE.
+     See https://github.com/house-of-abbey/GarminHomeAssistantWidget/blob/main/LICENSE.
 
 
-   GarminHomeAssistant is a Garmin IQ application written in Monkey C and routinely
-   tested on a Venu 2 device. The source code is provided at:
-              https://github.com/house-of-abbey/GarminHomeAssistant.
+   GarminHomeAssistantWidget is a Garmin IQ widget written in Monkey C. The source code is provided at:
+              https://github.com/house-of-abbey/GarminHomeAssistantWidget.
 
    P A Abbey & J D Abbey & Someone0nEarth, 31 October 2023
 
@@ -19,15 +18,15 @@
 -->
 
 <strings>
-  <string id="AppName" scope="glance">HomeAssistant</string>
+  <string id="AppName">HomeAssistant</string>
   <string id="Confirm">Zeker?</string>
-  <string id="Executed" scope="glance">Bevestigd</string>
-  <string id="NoPhone" scope="glance">Geen telefoonverbinding</string>
+  <string id="Executed">Bevestigd</string>
+  <string id="NoPhone">Geen telefoonverbinding</string>
   <string id="NoInternet">Geen internet verbinding</string>
   <string id="NoResponse">Geen reactie, controleer de internetverbinding</string>
-  <string id="NoAPIKey" scope="glance">Geen API-sleutel in de applicatie-instellingen</string>
-  <string id="NoApiUrl" scope="glance">Geen API-URL in de applicatie-instellingen</string>
-  <string id="NoConfigUrl" scope="glance">Geen configuratie-URL in de applicatie-instellingen</string>
+  <string id="NoAPIKey">Geen API-sleutel in de applicatie-instellingen</string>
+  <string id="NoApiUrl">Geen API-URL in de applicatie-instellingen</string>
+  <string id="NoConfigUrl">Geen configuratie-URL in de applicatie-instellingen</string>
   <string id="ApiFlood">API-aanroepen te snel. Vertraag uw verzoeken.</string>
   <string id="ApiUrlNotFound">URL niet gevonden. Mogelijke API-URL-fout in instellingen.</string>
   <string id="ConfigUrlNotFound">URL niet gevonden. Mogelijke configuratie-URL-fout in de instellingen.</string>
@@ -36,13 +35,13 @@
   <string id="TrailingSlashErr">API-URL mag geen afsluitende slash '/' bevatten</string>
   <string id="WebhookFailed">Registreren van Webhook is mislukt</string>
   <string id="TemplateError">Kan de sjabloon niet weergeven</string>
-  <string id="Available" scope="glance">Beschikbaar</string>
-  <string id="Checking" scope="glance">Controleren...</string>
-  <string id="Unavailable" scope="glance">Niet beschikbaar</string>
-  <string id="Unconfigured" scope="glance">Niet geconfigureerd</string>
-  <string id="Cached" scope="glance">In cache opgeslagen</string>
-  <string id="GlanceMenu" scope="glance">Menu</string>
-  <string id="Memory" scope="glance">Geheugen</string>
+  <string id="Available">Beschikbaar</string>
+  <string id="Checking">Controleren...</string>
+  <string id="Unavailable">Niet beschikbaar</string>
+  <string id="Unconfigured">Niet geconfigureerd</string>
+  <string id="Cached">In cache opgeslagen</string>
+  <string id="Menu">Menu</string>
+  <string id="Memory">Geheugen</string>
   <!-- Voor de instellingen-GUI -->
   <string id="SettingsSelect">Selecteer...</string>
   <string id="SettingsApiKey">API-sleutel voor HomeAssistant.</string>

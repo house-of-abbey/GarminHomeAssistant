@@ -29,13 +29,9 @@ rem Assume we can create and use this directory
 set DEST=export
 
 rem Device for simulation
-rem set DEVICE=venu2
+rem set DEVICE=venu
 set DEVICE=vivoactive3
-
-rem Application
-rem set JUNGLE=monkey.jungle
-rem Or Widget
-set JUNGLE=monkey-widget.jungle
+set JUNGLE=monkey.jungle
 
 rem C:\>java -jar %SDK_PATH%\monkeybrains.jar -h
 rem usage: monkeyc [-a <arg>] [-b <arg>] [--build-stats <arg>] [-c <arg>] [-d <arg>]
@@ -104,7 +100,7 @@ rem Compile PRG for a single device for side loading
   -Dapple.awt.UIElement=true ^
   -jar %SDK_PATH%\monkeybrains.jar ^
   --output %SRC%\bin\HomeAssistant.prg ^
-  --jungles %SRC%\monkey-widget.jungle ^
+  --jungles %SRC%\%JUNGLE% ^
   --private-key %SRC%\..\developer_key ^
   --device %DEVICE%_sim ^
   --warn ^

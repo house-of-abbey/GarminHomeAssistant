@@ -4,9 +4,9 @@
 
 ## Check your JSON Schema
 
-Before [raising an issue](https://github.com/house-of-abbey/GarminHomeAssistant/issues) about a possible bug, _please, please_ check your JSON is compliant with both the JSON format and our schema. To do this you have options. The first is what we use.
+Before [raising an issue](https://github.com/house-of-abbey/GarminHomeAssistantWidget/issues) about a possible bug, _please, please_ check your JSON is compliant with both the JSON format and our schema. To do this you have options. The first is what we use.
 
-1. **Best!**  Use the GarminHomeAssistant [Web-based Editor](https://house-of-abbey.github.io/GarminHomeAssistant/web/) which includes `entity` and `service` name completion and validation by fetching data from your own Home Assistant instance. _Pretty  nifty eh?_ The other methods listed below do not add this convenience and checking.
+1. **Best!**  Use the GarminHomeAssistantWidget [Web-based Editor](https://house-of-abbey.github.io/GarminHomeAssistantWidget/web/) which includes `entity` and `service` name completion and validation by fetching data from your own Home Assistant instance. _Pretty  nifty eh?_ The other method listed below do not add this convenience and checking.
 2. Use the [Studio Code Server](https://community.home-assistant.io/t/home-assistant-community-add-on-visual-studio-code/107863) addon for Home Assistant. You can then edit your JSON file in place.
 3. Locally installed VSCode, or if not installed, try
 4. The on-line version at https://vscode.dev/, which works really well. Paste in your JSON (and change the file type to JSON if not saving), it will then verify your file format and schema for you, highlighting any errors for you to fix.
@@ -19,7 +19,7 @@ Make sure you can browse to the URL of your JSON file in a standard web browser 
 
 ## Watch Menu and API
 
-With either of the following setups, there are inevitably some problems along the way. GarminHomeAssistant is careful to rely only on having working URLs. Getting them working is the user's responsibility. However, we have developed some fault finding tools.
+With either of the following setups, there are inevitably some problems along the way. GarminHomeAssistantWidget is careful to rely only on having working URLs. Getting them working is the user's responsibility. However, we have developed some fault finding tools.
 
 ### Nabu Casa Setup
 

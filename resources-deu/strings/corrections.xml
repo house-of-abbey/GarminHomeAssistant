@@ -2,12 +2,11 @@
 <!--
 
    Distributed under MIT Licence
-     See https://github.com/house-of-abbey/GarminHomeAssistant/blob/main/LICENSE.
+     See https://github.com/house-of-abbey/GarminHomeAssistantWidget/blob/main/LICENSE.
 
 
-   GarminHomeAssistant is a Garmin IQ application written in Monkey C and routinely
-   tested on a Venu 2 device. The source code is provided at:
-              https://github.com/house-of-abbey/GarminHomeAssistant.
+   GarminHomeAssistantWidget is a Garmin IQ widget written in Monkey C. The source code is provided at:
+              https://github.com/house-of-abbey/GarminHomeAssistantWidget.
 
    P A Abbey & J D Abbey & Someone0nEarth, 14 November 2023
 
@@ -23,12 +22,12 @@
 
   <string id="ConfigUrlNotFound">URL nicht gefunden. Möglicherweise falsche Konfigurations-URL in den Einstellungen.</string>
   <string id="TemplateError">Template konnte nicht gerendert werden</string>
-  <string id="Available" scope="glance">OK</string>
-  <string id="Checking" scope="glance">Prüfe...</string>
-  <string id="Unconfigured" scope="glance">Nicht konfiguriert</string>
-  <string id="Cached" scope="glance">gecacht</string>
-  <string id="GlanceMenu" scope="glance">Menü</string>
-  <string id="Memory" scope="glance">Speicher</string>
+  <string id="Available">OK</string>
+  <string id="Checking">Prüfe...</string>
+  <string id="Unconfigured">Nicht konfiguriert</string>
+  <string id="Cached">gecacht</string>
+  <string id="Menu">Menü</string>
+  <string id="Memory">Speicher</string>
 
   <!-- Für die Einstellungs-GUI -->
   <string id="SettingsApiUrl">URL der HomeAssistant-API.</string>

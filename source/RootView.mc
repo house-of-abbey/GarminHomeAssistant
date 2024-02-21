@@ -1,20 +1,19 @@
 //-----------------------------------------------------------------------------------
 //
 // Distributed under MIT Licence
-//   See https://github.com/house-of-abbey/GarminHomeAssistant/blob/main/LICENSE.
+//   See https://github.com/house-of-abbey/GarminHomeAssistantWidget/blob/main/LICENSE.
 //
 //-----------------------------------------------------------------------------------
 //
-// GarminHomeAssistant is a Garmin IQ application written in Monkey C and routinely
-// tested on a Venu 2 device. The source code is provided at:
-//            https://github.com/house-of-abbey/GarminHomeAssistant.
+// GarminHomeAssistantWidget is a Garmin IQ widget written in Monkey C. The source code is provided at:
+//            https://github.com/house-of-abbey/GarminHomeAssistantWidget.
 //
 // P A Abbey & J D Abbey & Someone0nEarth, 5 December 2023
 //
 //
 // Description:
 //
-// Application root view for GarminHomeAssistant
+// Application root view for GarminHomeAssistantWidget
 //
 //-----------------------------------------------------------------------------------
 
@@ -25,8 +24,7 @@ using Toybox.System;
 
 class RootView extends ScalableView {
 
-    // ATTENTION when the app is running as a "widget" (that means, it runs on devices
-    // without glance view support), the input events in this view are limited, as
+    // ATTENTION the app is running as a "widget", the input events in this view are limited, as
     // described under "Base View and the Widget Carousel" on:
     //
     // https://developer.garmin.com/connect-iq/connect-iq-basics/app-types/
@@ -86,7 +84,7 @@ class RootView extends ScalableView {
             :locY          => pixelsForScreen(50.0)
         });
         mMenuText = new WatchUi.Text({
-            :text          => WatchUi.loadResource($.Rez.Strings.GlanceMenu) as Lang.String + ":",
+            :text          => WatchUi.loadResource($.Rez.Strings.Menu) as Lang.String + ":",
             :color         => Graphics.COLOR_WHITE,
             :font          => Graphics.FONT_XTINY,
             :justification => Graphics.TEXT_JUSTIFY_RIGHT | Graphics.TEXT_JUSTIFY_VCENTER,
