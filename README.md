@@ -2,7 +2,7 @@ Home | [Switches](examples/Switches.md) | [Actions](examples/Actions.md) | [Temp
 
 # GarminHomeAssistantWidget
 
-> [!IMPORTANT]  
+> [!IMPORTANT]
 > This widget version of [GarminHomeAssistant](https://github.com/house-of-abbey/GarminHomeAssistant) is set to maintenance-only mode. That means, there will be only bug fixing for it and new features will be less likey. New features etc. will be mainly added to the [app/glance version](https://github.com/house-of-abbey/GarminHomeAssistant). The reason for this is described in the "The Why of Maintenance-Only Mode For the Widget" section in this README.
 
 <img src="images/Actual_Venu2_Theme.jpg" width="200" title="Venu 2"/>
@@ -13,7 +13,8 @@ The widget is designed around a simple scrollable menu where menu items have bee
 
 **The intended audience for this widget are those comfortable with configuring a Home Assistant** (e.g. editing the YAML configuration files) and debugging why URLs don't work. It does not require programming skills, but the menu is configured via JSON which feels like "coding". If you are not comfortable with this relatively low level of configuration, you may like to try other Garmin applications instead.
 
-It is important to note that your Home Assistant instance will need to be accessible via HTTPS with public SSL or all requests from the Garmin will not work. This cannot be a self-signed certificate, it must be a public certificate. You can get one for free from [Let's Encrypt](https://letsencrypt.org/) or you can pay for [Home Assistant cloud](https://www.nabucasa.com/). (You can install a local [Nginx proxy server](https://my.home-assistant.io/redirect/supervisor_addon/?addon=a0d7b954_nginxproxymanager) to manage Let's Encrypt certificates.)
+> [!IMPORTANT]
+> It is important to note that your Home Assistant instance will need to be accessible via HTTPS with public SSL or all requests from the Garmin will not work. This cannot be a self-signed certificate, it must be a public certificate. You can get one for free from [Let's Encrypt](https://letsencrypt.org/) or you can pay for [Home Assistant cloud](https://www.nabucasa.com/). (You can install a local [Nginx proxy server](https://my.home-assistant.io/redirect/supervisor_addon/?addon=a0d7b954_nginxproxymanager) to manage Let's Encrypt certificates.)
 
 **If you are struggling with getting the widget to work, please consult the [trouble shooting](TroubleShooting.md#menu-configuration-url) guide first.**
 
