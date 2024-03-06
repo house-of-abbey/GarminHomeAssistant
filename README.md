@@ -10,7 +10,8 @@ The application is designed around a simple scrollable menu where menu items hav
 
 **The intended audience for this application are those comfortable with configuring a Home Assistant** (e.g. editing the YAML configuration files) and debugging why URLs don't work. It does not require programming skills, but the menu is configured via JSON which feels like "coding". If you are not comfortable with this relatively low level of configuration, you may like to try other Garmin applications instead.
 
-It is important to note that your Home Assistant instance will need to be accessible via HTTPS with public SSL or all requests from the Garmin will not work. This cannot be a self-signed certificate, it must be a public certificate. You can get one for free from [Let's Encrypt](https://letsencrypt.org/) or you can pay for [Home Assistant cloud](https://www.nabucasa.com/). (You can install a local [Nginx proxy server](https://my.home-assistant.io/redirect/supervisor_addon/?addon=a0d7b954_nginxproxymanager) to manage Let's Encrypt certificates.)
+> [!IMPORTANT]
+> It is important to note that your Home Assistant instance will need to be accessible via HTTPS with public SSL or all requests from the Garmin will not work. This cannot be a self-signed certificate, it must be a public certificate. You can get one for free from [Let's Encrypt](https://letsencrypt.org/) or you can pay for [Home Assistant cloud](https://www.nabucasa.com/). (You can install a local [Nginx proxy server](https://my.home-assistant.io/redirect/supervisor_addon/?addon=a0d7b954_nginxproxymanager) to manage Let's Encrypt certificates.)
 
 **If you are struggling with getting the application to work, please consult the [trouble shooting](TroubleShooting.md#menu-configuration-url) guide first.**
 
