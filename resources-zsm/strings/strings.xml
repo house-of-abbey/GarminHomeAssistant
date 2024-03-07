@@ -55,7 +55,7 @@
   <string id="SettingsTextAlign">Penjajaran Menu Kiri (mati) atau Kanan (hidup).</string>
   <string id="LeftToRight">Kiri ke kanan</string>
   <string id="RightToLeft">Kanan ke kiri</string>
-  <string id="SettingsWidgetStart">(Widget sahaja) Mulakan aplikasi secara automatik daripada widget tanpa menunggu satu ketikan.</string>
+  <string id="SettingsWidgetStart">Mulakan aplikasi secara automatik dari widget tanpa menunggu ketik.</string>
   <string id="SettingsEnableBatteryLevel">Dayakan perkhidmatan latar belakang untuk menghantar data paras bateri peranti, lokasi dan (jika disokong) kepada Home Assistant.</string>
   <string id="SettingsBatteryLevelRefreshRate">Kadar penyegaran semula (dalam minit) di mana perkhidmatan latar belakang harus mengulangi penghantaran data.</string>
   <string id="WebhookId">(Baca sahaja) ID Webhook yang dibuat oleh peranti untuk kemas kini perkhidmatan latar belakang. Anda mungkin memerlukan ini untuk penyahpepijatan.</string>

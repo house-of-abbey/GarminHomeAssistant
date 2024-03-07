@@ -55,7 +55,7 @@
   <string id="SettingsTextAlign">การจัดตำแหน่งเมนูซ้าย (ปิด) หรือขวา (เปิด)</string>
   <string id="LeftToRight">จากซ้ายไปขวา</string>
   <string id="RightToLeft">จากขวาไปซ้าย</string>
-  <string id="SettingsWidgetStart">(วิดเจ็ตเท่านั้น) เริ่มแอปพลิเคชันโดยอัตโนมัติจากวิดเจ็ตโดยไม่ต้องรอการแตะ</string>
+  <string id="SettingsWidgetStart">เริ่มแอปพลิเคชันโดยอัตโนมัติจากวิดเจ็ตโดยไม่ต้องรอการแตะ</string>
   <string id="SettingsEnableBatteryLevel">เปิดใช้บริการพื้นหลังเพื่อส่งข้อมูลระดับแบตเตอรี่ ตำแหน่ง และข้อมูลกิจกรรม (หากรองรับ) ของอุปกรณ์ไปยัง Home Assistant</string>
   <string id="SettingsBatteryLevelRefreshRate">อัตรารีเฟรช (เป็นนาที) ที่บริการเบื้องหลังควรส่งข้อมูลซ้ำ</string>
   <string id="WebhookId">(อ่านอย่างเดียว) Webhook ID ที่สร้างโดยอุปกรณ์สำหรับการอัปเดตบริการในเบื้องหลัง คุณอาจต้องการสิ่งนี้สำหรับการดีบัก</string>

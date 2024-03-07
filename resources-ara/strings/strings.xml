@@ -55,7 +55,7 @@
   <string id="SettingsTextAlign">محاذاة القائمة لليسار (إيقاف) أو لليمين (تشغيل).</string>
   <string id="LeftToRight">من اليسار إلى اليمين</string>
   <string id="RightToLeft">من اليمين الى اليسار</string>
-  <string id="SettingsWidgetStart">(القطعة فقط) قم بتشغيل التطبيق تلقائيًا من الأداة دون انتظار نقرة واحدة.</string>
+  <string id="SettingsWidgetStart">قم بتشغيل التطبيق تلقائيًا من الأداة دون انتظار نقرة واحدة.</string>
   <string id="SettingsEnableBatteryLevel">قم بتمكين خدمة الخلفية لإرسال مستوى بطارية الجهاز والموقع وبيانات النشاط (إذا كانت مدعومة) إلى Home Assistant.</string>
   <string id="SettingsBatteryLevelRefreshRate">معدل التحديث (بالدقائق) الذي يجب أن تكرر فيه خدمة الخلفية إرسال البيانات.</string>
   <string id="WebhookId">(للقراءة فقط) معرف Webhook الذي أنشأه الجهاز لتحديثات الخدمة في الخلفية. قد تحتاج إلى هذا لتصحيح الأخطاء.</string>

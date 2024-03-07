@@ -55,8 +55,8 @@
   <string id="SettingsTextAlign">יישור תפריט שמאלה (כבוי) או ימינה (מופעל).</string>
   <string id="LeftToRight">משמאל לימין</string>
   <string id="RightToLeft">מימין לשמאל</string>
-  <string id="SettingsWidgetStart">(יישומון בלבד) הפעל אוטומטית את האפליקציה מהווידג'ט מבלי לחכות להקשה.</string>
-  <string id="SettingsEnableBatteryLevel">אפשר את שירות הרקע כדי לשלוח את נתוני רמת הסוללה של המכשיר, המיקום (אם נתמכים) ל-Home Assistant.</string>
+  <string id="SettingsWidgetStart">הפעל את האפליקציה באופן אוטומטי מהווידג'ט מבלי לחכות להקשה.</string>
+  <string id="SettingsEnableBatteryLevel">אפשר את שירות הרקע כדי לשלוח את נתוני רמת הסוללה של המכשיר, מיקום (אם נתמכים) נתוני פעילות אל Home Assistant.</string>
   <string id="SettingsBatteryLevelRefreshRate">קצב הרענון (בדקות) שבו שירות הרקע צריך לחזור על שליחת נתונים.</string>
   <string id="WebhookId">(לקריאה בלבד) מזהה ה-Webhook שנוצר על ידי המכשיר עבור עדכוני שירות ברקע. ייתכן שתדרוש זאת לצורך איתור באגים.</string>
 </strings>

@@ -55,8 +55,8 @@
   <string id="SettingsTextAlign">左（關）或右（開）選單對齊。</string>
   <string id="LeftToRight">左至右</string>
   <string id="RightToLeft">右到左</string>
-  <string id="SettingsWidgetStart">（僅限小部件）從小部件自動啟動應用程序，無需等待點擊。</string>
-  <string id="SettingsEnableBatteryLevel">啟用後台服務將裝置電池電量、位置和（如果支援）活動資料傳送至 Home Assistant。</string>
+  <string id="SettingsWidgetStart">從小部件自動啟動應用程序，無需等待點擊。</string>
+  <string id="SettingsEnableBatteryLevel">啟用後台服務將裝置電池電量、位置和（如果支援）活動資料傳送到 Home Assistant。</string>
   <string id="SettingsBatteryLevelRefreshRate">後台服務應重複傳送資料的更新率（以分鐘為單位）。</string>
   <string id="WebhookId">（唯讀）裝置為後台服務更新所建立的 Webhook ID。您可能需要它來進行調試。</string>
 </strings>

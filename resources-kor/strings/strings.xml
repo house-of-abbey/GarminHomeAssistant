@@ -55,7 +55,7 @@
   <string id="SettingsTextAlign">왼쪽(끄기) 또는 오른쪽(켜기) 메뉴 정렬.</string>
   <string id="LeftToRight">왼쪽에서 오른쪽으로</string>
   <string id="RightToLeft">오른쪽에서 왼쪽으로</string>
-  <string id="SettingsWidgetStart">(위젯만 해당) 탭을 기다리지 않고 위젯에서 자동으로 애플리케이션을 시작합니다.</string>
+  <string id="SettingsWidgetStart">탭을 기다리지 않고 위젯에서 자동으로 애플리케이션을 시작합니다.</string>
   <string id="SettingsEnableBatteryLevel">장치 배터리 수준, 위치 및 (지원되는 경우) 활동 데이터를 홈어시스턴트로 보내려면 백그라운드 서비스를 활성화하세요.</string>
   <string id="SettingsBatteryLevelRefreshRate">백그라운드 서비스가 데이터 전송을 반복해야 하는 새로 고침 빈도(분)입니다.</string>
   <string id="WebhookId">(읽기 전용) 백그라운드 서비스 업데이트를 위해 장치에서 생성한 Webhook ID입니다. 디버깅을 위해 이 정보가 필요할 수 있습니다.</string>

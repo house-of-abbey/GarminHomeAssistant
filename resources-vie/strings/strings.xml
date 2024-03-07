@@ -55,7 +55,7 @@
   <string id="SettingsTextAlign">Căn chỉnh menu Trái (tắt) hoặc Phải (bật).</string>
   <string id="LeftToRight">Trái sang phải</string>
   <string id="RightToLeft">Phải sang trái</string>
-  <string id="SettingsWidgetStart">(Chỉ tiện ích) Tự động khởi động ứng dụng từ tiện ích mà không cần chờ nhấn.</string>
+  <string id="SettingsWidgetStart">Tự động khởi động ứng dụng từ tiện ích mà không cần chờ nhấn.</string>
   <string id="SettingsEnableBatteryLevel">Bật dịch vụ nền để gửi dữ liệu về mức pin, vị trí và hoạt động (nếu được hỗ trợ) của thiết bị tới Home Assistant.</string>
   <string id="SettingsBatteryLevelRefreshRate">Tốc độ làm mới (tính bằng phút) mà dịch vụ nền sẽ lặp lại việc gửi dữ liệu.</string>
   <string id="WebhookId">(Chỉ đọc) ID Webhook do thiết bị tạo để cập nhật dịch vụ nền. Bạn có thể yêu cầu điều này để gỡ lỗi.</string>

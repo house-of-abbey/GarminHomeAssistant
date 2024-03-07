@@ -55,8 +55,8 @@
   <string id="SettingsTextAlign">Zarovnání nabídky vlevo (vypnuto) nebo vpravo (zapnuto).</string>
   <string id="LeftToRight">Zleva do prava</string>
   <string id="RightToLeft">Zprava doleva</string>
-  <string id="SettingsWidgetStart">(Pouze widget) Automaticky spusťte aplikaci z widgetu bez čekání na klepnutí.</string>
-  <string id="SettingsEnableBatteryLevel">Povolte službu na pozadí pro odesílání údajů o stavu baterie, poloze a (pokud je podporováno) o aktivitě zařízení Home Assistant.</string>
+  <string id="SettingsWidgetStart">Automaticky spusťte aplikaci z widgetu bez čekání na klepnutí.</string>
+  <string id="SettingsEnableBatteryLevel">Povolte službu na pozadí, aby odeslala údaje o stavu baterie, poloze a (pokud je podporována) aktivitě zařízení Home Assistant.</string>
   <string id="SettingsBatteryLevelRefreshRate">Obnovovací frekvence (v minutách), při které by služba na pozadí měla opakovat odesílání dat.</string>
   <string id="WebhookId">(Pouze pro čtení) ID Webhooku vytvořené zařízením pro aktualizace služby na pozadí. Možná to budete potřebovat pro ladění.</string>
 </strings>

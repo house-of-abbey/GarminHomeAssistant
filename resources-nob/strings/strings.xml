@@ -55,7 +55,7 @@
   <string id="SettingsTextAlign">Venstre (av) eller Høyre (på) Menyjustering.</string>
   <string id="LeftToRight">Venstre til høyre</string>
   <string id="RightToLeft">Høyre til venstre</string>
-  <string id="SettingsWidgetStart">(Kun widget) Start applikasjonen automatisk fra widgeten uten å vente på et trykk.</string>
+  <string id="SettingsWidgetStart">Start applikasjonen automatisk fra widgeten uten å vente på et trykk.</string>
   <string id="SettingsEnableBatteryLevel">Aktiver bakgrunnstjenesten for å sende enhetens batterinivå, plassering og (hvis støttet) aktivitetsdata til Home Assistant.</string>
   <string id="SettingsBatteryLevelRefreshRate">Oppdateringshastigheten (i minutter) som bakgrunnstjenesten skal gjenta sending av data med.</string>
   <string id="WebhookId">(Skrivebeskyttet) Webhook-IDen opprettet av enheten for bakgrunnstjenesteoppdateringer. Du kan kreve dette for feilsøking.</string>
