@@ -83,13 +83,6 @@
   </setting>
 
   <setting
-    propertyKey="@Properties.widget_start_no_tap"
-    title="@Strings.SettingsWidgetStart"
-  >
-    <settingConfig type="boolean" />
-  </setting>
-
-  <setting
     propertyKey="@Properties.enable_battery_level"
     title="@Strings.SettingsEnableBatteryLevel"
   >

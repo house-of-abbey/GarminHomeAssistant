@@ -62,14 +62,6 @@
   <property id="menu_alignment" type="number">1</property>
 
   <!--
-    Widget specific setting:
-    As soon as the menu has been fetched start show the menu of items.
-    This behaviour is inconsistent with the standard Garmin User Interface,
-    but has been requested by users so has been made the non-default option.
-  -->
-  <property id="widget_start_no_tap" type="boolean">false</property>
-
-  <!--
     Enable the background service to send the clock battery level to Home Assistant.
   -->
   <property id="enable_battery_level" type="boolean">false</property>

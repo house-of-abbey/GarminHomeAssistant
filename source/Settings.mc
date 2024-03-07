@@ -38,7 +38,6 @@ class Settings {
     private static var mAppTimeout            as Lang.Number  = 0;  // seconds
     private static var mConfirmTimeout        as Lang.Number  = 3;  // seconds
     private static var mMenuAlignment         as Lang.Number  = WatchUi.MenuItem.MENU_ITEM_LABEL_ALIGN_LEFT;
-    private static var mIsWidgetStartNoTap    as Lang.Boolean = false;
     private static var mIsBatteryLevelEnabled as Lang.Boolean = false;
     private static var mBatteryRefreshRate    as Lang.Number  = 15; // minutes
     private static var mIsApp                 as Lang.Boolean = false;
@@ -59,7 +58,6 @@ class Settings {
         mAppTimeout            = Properties.getValue("app_timeout");
         mConfirmTimeout        = Properties.getValue("confirm_timeout");
         mMenuAlignment         = Properties.getValue("menu_alignment");
-        mIsWidgetStartNoTap    = Properties.getValue("widget_start_no_tap");
         mIsBatteryLevelEnabled = Properties.getValue("enable_battery_level");
         mBatteryRefreshRate    = Properties.getValue("battery_level_refresh_rate");
 
@@ -146,10 +144,6 @@ class Settings {
 
     static function getMenuAlignment() as Lang.Number {
         return mMenuAlignment; // Either WatchUi.MenuItem.MENU_ITEM_LABEL_ALIGN_RIGHT or WatchUi.MenuItem.MENU_ITEM_LABEL_ALIGN_LEFT
-    }
-
-    static function getIsWidgetStartNoTap() as Lang.Boolean {
-        return mIsWidgetStartNoTap;
     }
 
     static function unsetIsBatteryLevelEnabled() {
