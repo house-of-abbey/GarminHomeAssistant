@@ -37,6 +37,11 @@
   <property id="clear_cache" type="boolean">false</property>
 
   <!--
+    Enable notification via vibrations, typically for confirmation of actions
+  -->
+  <property id="enable_vibration" type="boolean">true</property>
+
+  <!--
     Application timeout in seconds, except 0 for no
     timeout (default). After this amount of elapsed
     time with no activity, exit the application.

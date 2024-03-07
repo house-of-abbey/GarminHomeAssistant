@@ -34,6 +34,7 @@ class Settings {
     private static var mConfigUrl             as Lang.String  = "";
     private static var mCacheConfig           as Lang.Boolean = false;
     private static var mClearCache            as Lang.Boolean = false;
+    private static var mVibrate               as Lang.Boolean = false;
     private static var mAppTimeout            as Lang.Number  = 0;  // seconds
     private static var mConfirmTimeout        as Lang.Number  = 3;  // seconds
     private static var mMenuAlignment         as Lang.Number  = WatchUi.MenuItem.MENU_ITEM_LABEL_ALIGN_LEFT;
@@ -54,6 +55,7 @@ class Settings {
         mConfigUrl             = Properties.getValue("config_url");
         mCacheConfig           = Properties.getValue("cache_config");
         mClearCache            = Properties.getValue("clear_cache");
+        mVibrate               = Properties.getValue("enable_vibration");
         mAppTimeout            = Properties.getValue("app_timeout");
         mConfirmTimeout        = Properties.getValue("confirm_timeout");
         mMenuAlignment         = Properties.getValue("menu_alignment");
@@ -128,6 +130,10 @@ class Settings {
     static function unsetClearCache() {
         mClearCache = false;
         Properties.setValue("clear_cache", mClearCache);
+    }
+
+    static function getVibrate() as Lang.Boolean {
+        return mVibrate;
     }
 
     static function getAppTimeout() as Lang.Number {

@@ -52,6 +52,13 @@
   </setting>
 
   <setting
+    propertyKey="@Properties.enable_vibration"
+    title="@Strings.SettingsVibration"
+  >
+    <settingConfig type="boolean" />
+  </setting>
+
+  <setting
     propertyKey="@Properties.app_timeout"
     title="@Strings.SettingsAppTimeout"
   >
