@@ -121,9 +121,12 @@ class HomeAssistantService {
             // System.println("HomeAssistantService call() URL=" + url);
             // System.println("HomeAssistantService call() service=" + service);
 
-            var entity_id = data.get("entity_id");
-            if (entity_id == null) {
-                entity_id = "";
+            var entity_id = "";
+            if (data != null) {
+                entity_id = data.get("entity_id");
+                if (entity_id == null) {
+                    entity_id = "";
+                }
             }
 
             Communications.makeWebRequest(
