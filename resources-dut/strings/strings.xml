@@ -47,10 +47,11 @@
   <string id="SettingsSelect">Selecteer...</string>
   <string id="SettingsApiKey">API-sleutel voor HomeAssistant.</string>
   <string id="SettingsApiKeyPrompt">Toegangstoken met lange levensduur.</string>
-  <string id="SettingsApiUrl">URL voor HomeAssistant API.</string>
+  <string id="SettingsApiUrl">URL voor HomeAssistant-API.</string>
   <string id="SettingsConfigUrl">URL voor menuconfiguratie (JSON).</string>
   <string id="SettingsCacheConfig">Moet de applicatie de menuconfiguratie in de cache opslaan?</string>
   <string id="SettingsClearCache">Moet de applicatie de volgende keer dat deze wordt gestart de bestaande cache wissen?</string>
+  <string id="SettingsVibration">Moet de applicatie feedback geven via trillingen?</string>
   <string id="SettingsAppTimeout">Time-out in seconden. Sluit de applicatie af na deze periode van inactiviteit om de batterij van het apparaat te sparen.</string>
   <string id="SettingsConfirmTimeout">Na deze tijd (in seconden) wordt automatisch een bevestigingsvenster voor een actie gesloten en wordt de actie geannuleerd. Stel in op 0 om de time-out uit te schakelen.</string>
   <string id="SettingsTextAlign">Links (uit) of rechts (aan) Menu-uitlijning.</string>

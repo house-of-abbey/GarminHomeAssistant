@@ -51,6 +51,7 @@
   <string id="SettingsConfigUrl">عنوان URL لتكوين القائمة (JSON).</string>
   <string id="SettingsCacheConfig">هل يجب على التطبيق تخزين تكوين القائمة مؤقتًا؟</string>
   <string id="SettingsClearCache">هل يجب على التطبيق مسح ذاكرة التخزين المؤقت الموجودة في المرة القادمة التي يتم فيها تشغيله؟</string>
+  <string id="SettingsVibration">هل يجب أن يقدم التطبيق تعليقات عبر الاهتزازات؟</string>
   <string id="SettingsAppTimeout">المهلة بالثواني. قم بالخروج من التطبيق بعد هذه الفترة من عدم النشاط لحفظ بطارية الجهاز.</string>
   <string id="SettingsConfirmTimeout">بعد هذا الوقت (بالثواني)، يتم إغلاق مربع حوار تأكيد الإجراء تلقائيًا ويتم إلغاء الإجراء. اضبط على 0 لتعطيل المهلة.</string>
   <string id="SettingsTextAlign">محاذاة القائمة لليسار (إيقاف) أو لليمين (تشغيل).</string>

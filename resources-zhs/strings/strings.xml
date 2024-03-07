@@ -51,6 +51,7 @@
   <string id="SettingsConfigUrl">菜单配置的 URL (JSON)。</string>
   <string id="SettingsCacheConfig">应用程序是否应该缓存菜单配置？</string>
   <string id="SettingsClearCache">应用程序是否应该在下次启动时清除现有缓存？</string>
+  <string id="SettingsVibration">应用程序是否应该通过振动提供反馈？</string>
   <string id="SettingsAppTimeout">超时（以秒为单位）。闲置一段时间后退出应用程序以节省设备电池。</string>
   <string id="SettingsConfirmTimeout">在此时间（以秒为单位）之后，操作的确认对话框将自动关闭并取消该操作。设置为 0 以禁用超时。</string>
   <string id="SettingsTextAlign">左（关）或右（开）菜单对齐。</string>
