@@ -55,7 +55,7 @@
   <string id="SettingsTextAlign">Alignement du menu à gauche (désactivé) ou à droite (activé).</string>
   <string id="LeftToRight">De gauche à droite</string>
   <string id="RightToLeft">De droite à gauche</string>
-  <string id="SettingsWidgetStart">(Widget uniquement) Démarrez automatiquement l'application à partir du widget sans attendre un clic.</string>
+  <string id="SettingsWidgetStart">Démarrez automatiquement l'application à partir du widget sans attendre un clic.</string>
   <string id="SettingsEnableBatteryLevel">Activez le service en arrière-plan pour envoyer les données de niveau de batterie, d'emplacement et (si pris en charge) d'activité de l'appareil à Home Assistant.</string>
   <string id="SettingsBatteryLevelRefreshRate">Fréquence de rafraîchissement (en minutes) à laquelle le service en arrière-plan doit répéter l'envoi des données.</string>
   <string id="WebhookId">(Lecture seule) ID Webhook créé par l'appareil pour les mises à jour du service en arrière-plan. Vous pourriez en avoir besoin pour le débogage.</string>

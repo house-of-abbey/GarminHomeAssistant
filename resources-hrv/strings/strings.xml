@@ -55,7 +55,7 @@
   <string id="SettingsTextAlign">Lijevo (isključeno) ili desno (uključeno) poravnanje izbornika.</string>
   <string id="LeftToRight">S lijeva nadesno</string>
   <string id="RightToLeft">S desna na lijevo</string>
-  <string id="SettingsWidgetStart">(Samo widget) Automatski pokrenite aplikaciju iz widgeta bez čekanja na dodir.</string>
+  <string id="SettingsWidgetStart">Automatski pokrenite aplikaciju iz widgeta bez čekanja na dodir.</string>
   <string id="SettingsEnableBatteryLevel">Omogućite pozadinsku uslugu za slanje podataka o razini baterije uređaja, lokaciji i (ako je podržano) aktivnostima kućnom pomoćniku.</string>
   <string id="SettingsBatteryLevelRefreshRate">Brzina osvježavanja (u minutama) kojom bi pozadinska usluga trebala ponoviti slanje podataka.</string>
   <string id="WebhookId">(Samo za čitanje) Webhook ID koji je izradio uređaj za pozadinska ažuriranja usluge. Ovo vam može trebati za otklanjanje pogrešaka.</string>

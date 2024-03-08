@@ -44,18 +44,18 @@
   <string id="Memory">Atmintis</string>
   <!-- Dėl nustatymų GUI -->
   <string id="SettingsSelect">Pasirinkite...</string>
-  <string id="SettingsApiKey">API raktas, skirtas „HomeAssistant“.</string>
+  <string id="SettingsApiKey">API raktas, skirtas HomeAssistant.</string>
   <string id="SettingsApiKeyPrompt">Ilgalaikis prieigos raktas.</string>
   <string id="SettingsApiUrl">„HomeAssistant“ API URL.</string>
   <string id="SettingsConfigUrl">Meniu konfigūravimo URL (JSON).</string>
-  <string id="SettingsCacheConfig">Ar programa turėtų talpykloje išsaugoti meniu konfigūraciją?</string>
+  <string id="SettingsCacheConfig">Ar programa turėtų išsaugoti meniu konfigūraciją talpykloje?</string>
   <string id="SettingsClearCache">Ar programa turėtų išvalyti esamą talpyklą kitą kartą paleidus?</string>
   <string id="SettingsAppTimeout">Skirtasis laikas sekundėmis. Po šio neveiklumo laikotarpio išeikite iš programos, kad taupytumėte įrenginio akumuliatorių.</string>
   <string id="SettingsConfirmTimeout">Praėjus šiam laikui (sekundėmis), veiksmo patvirtinimo dialogo langas automatiškai uždaromas ir veiksmas atšaukiamas. Nustatykite 0, kad išjungtumėte skirtąjį laiką.</string>
   <string id="SettingsTextAlign">Kairysis (išjungtas) arba dešinysis (įjungtas) meniu lygiavimas.</string>
   <string id="LeftToRight">Iš kairės į dešinę</string>
   <string id="RightToLeft">Iš dešinės į kairę</string>
-  <string id="SettingsWidgetStart">(Tik valdikliui) Automatiškai paleiskite programą iš valdiklio, nelaukdami, kol bus palietus.</string>
+  <string id="SettingsWidgetStart">Automatiškai paleiskite programą iš valdiklio nelaukdami bakstelėjimo.</string>
   <string id="SettingsEnableBatteryLevel">Įgalinkite foninę paslaugą, kad į „Home Assistant“ būtų išsiųsti įrenginio akumuliatoriaus lygio, vietos ir (jei palaikoma) veiklos duomenys.</string>
   <string id="SettingsBatteryLevelRefreshRate">Atnaujinimo dažnis (minutėmis), kuriuo foninė paslauga turėtų pakartoti duomenų siuntimą.</string>
   <string id="WebhookId">(Tik skaitoma) Įrenginio sukurtas „Webhook“ ID, skirtas foninėms paslaugoms atnaujinti. Jums gali prireikti derinimo.</string>

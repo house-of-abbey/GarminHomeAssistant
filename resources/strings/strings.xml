@@ -50,7 +50,7 @@
   <string id="SettingsTextAlign">Left (off) or Right (on) Menu Alignment.</string>
   <string id="LeftToRight">Left to right</string>
   <string id="RightToLeft">Right to Left</string>
-  <string id="SettingsWidgetStart">(Widget only) Automatically start the application from the widget without waiting for a tap.</string>
+  <string id="SettingsWidgetStart">Automatically start the application from the widget without waiting for a tap.</string>
   <string id="SettingsEnableBatteryLevel">Enable the background service to send the device battery level, location and (if supported) activity data to Home Assistant.</string>
   <string id="SettingsBatteryLevelRefreshRate">The refresh rate (in minutes) at which the background service should repeat sending data.</string>
   <string id="WebhookId">(Read only) The Webhook ID created by the device for background service updates. You might require this for debugging.</string>

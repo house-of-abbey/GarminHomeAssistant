@@ -39,7 +39,7 @@
   <string id="Checking">Kontrol etme...</string>
   <string id="Unavailable">Kullanım dışı</string>
   <string id="Unconfigured">Yapılandırılmamış</string>
-  <string id="Cached">Önbelleğe alınmış</string>
+  <string id="Cached">Önbelleğe alındı</string>
   <string id="Menu">Menü</string>
   <string id="Memory">Hafıza</string>
   <!-- Ayarlar GUI'si için -->
@@ -55,7 +55,7 @@
   <string id="SettingsTextAlign">Sol (kapalı) veya Sağ (açık) Menü Hizalaması.</string>
   <string id="LeftToRight">Soldan sağa</string>
   <string id="RightToLeft">Sağdan sola</string>
-  <string id="SettingsWidgetStart">(Yalnızca Widget) Dokunmayı beklemeden uygulamayı widget'tan otomatik olarak başlatın.</string>
+  <string id="SettingsWidgetStart">Bir dokunuş beklemeden uygulamayı widget'tan otomatik olarak başlatın.</string>
   <string id="SettingsEnableBatteryLevel">Cihazın pil seviyesini, konumunu ve (destekleniyorsa) etkinlik verilerini Home Assistant'a göndermek için arka plan hizmetini etkinleştirin.</string>
   <string id="SettingsBatteryLevelRefreshRate">Arka plan hizmetinin veri göndermeyi tekrarlaması gereken yenileme hızı (dakika cinsinden).</string>
   <string id="WebhookId">(Salt okunur) Arka plan hizmet güncellemeleri için cihaz tarafından oluşturulan Web Kancası Kimliği. Hata ayıklama için buna ihtiyacınız olabilir.</string>

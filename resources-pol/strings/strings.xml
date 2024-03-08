@@ -55,8 +55,8 @@
   <string id="SettingsTextAlign">Wyrównanie menu do lewej (wyłączone) lub do prawej (włączone).</string>
   <string id="LeftToRight">Od lewej do prawej</string>
   <string id="RightToLeft">Od prawej do lewej</string>
-  <string id="SettingsWidgetStart">(Tylko widget) Automatycznie uruchamiaj aplikację z widgetu, bez czekania na dotknięcie.</string>
+  <string id="SettingsWidgetStart">Automatycznie uruchamiaj aplikację z widżetu, bez czekania na dotknięcie.</string>
   <string id="SettingsEnableBatteryLevel">Włącz usługę działającą w tle, aby wysyłać dane dotyczące poziomu naładowania baterii urządzenia, lokalizacji i (jeśli są obsługiwane) do Home Assistant.</string>
   <string id="SettingsBatteryLevelRefreshRate">Częstotliwość odświeżania (w minutach), z jaką usługa działająca w tle powinna powtarzać wysyłanie danych.</string>
-  <string id="WebhookId">(Tylko do odczytu) Identyfikator webhook utworzony przez urządzenie na potrzeby aktualizacji usług w tle. Możesz tego potrzebować do debugowania.</string>
+  <string id="WebhookId">(Tylko do odczytu) Identyfikator webhooka utworzony przez urządzenie na potrzeby aktualizacji usług w tle. Możesz tego potrzebować do debugowania.</string>
 </strings>

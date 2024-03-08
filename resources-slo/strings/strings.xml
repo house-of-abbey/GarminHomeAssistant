@@ -35,7 +35,7 @@
   <string id="TrailingSlashErr">Adresa URL rozhrania API nesmie obsahovať koncovú lomku „/“</string>
   <string id="WebhookFailed">Registrácia Webhooku zlyhala</string>
   <string id="TemplateError">Vykreslenie šablóny zlyhalo</string>
-  <string id="Available">Dostupné</string>
+  <string id="Available">K dispozícii</string>
   <string id="Checking">Prebieha kontrola...</string>
   <string id="Unavailable">nedostupné</string>
   <string id="Unconfigured">Nekonfigurované</string>
@@ -45,7 +45,7 @@
   <!-- Pre nastavenia GUI -->
   <string id="SettingsSelect">Vybrať...</string>
   <string id="SettingsApiKey">Kľúč API pre HomeAssistant.</string>
-  <string id="SettingsApiKeyPrompt">Dlhotrvajúci prístupový token.</string>
+  <string id="SettingsApiKeyPrompt">Prístupový token s dlhou životnosťou.</string>
   <string id="SettingsApiUrl">URL pre HomeAssistant API.</string>
   <string id="SettingsConfigUrl">Webová adresa pre konfiguráciu ponuky (JSON).</string>
   <string id="SettingsCacheConfig">Má aplikácia uložiť do vyrovnávacej pamäte konfiguráciu ponuky?</string>
@@ -55,8 +55,8 @@
   <string id="SettingsTextAlign">Zarovnanie ponuky vľavo (vypnuté) alebo vpravo (zapnuté).</string>
   <string id="LeftToRight">Zľava doprava</string>
   <string id="RightToLeft">Zprava doľava</string>
-  <string id="SettingsWidgetStart">(Len miniaplikácia) Automaticky spustite aplikáciu z miniaplikácie bez čakania na klepnutie.</string>
-  <string id="SettingsEnableBatteryLevel">Povoľte službu na pozadí na odosielanie údajov o stave batérie zariadenia, polohe a (ak sú podporované) o aktivite domácemu asistentovi.</string>
+  <string id="SettingsWidgetStart">Automaticky spustite aplikáciu z miniaplikácie bez čakania na ťuknutie.</string>
+  <string id="SettingsEnableBatteryLevel">Povoľte službu na pozadí na odosielanie údajov o stave batérie zariadenia, polohe a (ak je podporované) o aktivite domácemu asistentovi.</string>
   <string id="SettingsBatteryLevelRefreshRate">Obnovovacia frekvencia (v minútach), pri ktorej by služba na pozadí mala opakovať odosielanie údajov.</string>
   <string id="WebhookId">(Len na čítanie) Webhook ID vytvorené zariadením pre aktualizácie služby na pozadí. Možno to budete potrebovať na ladenie.</string>
 </strings>
