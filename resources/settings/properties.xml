@@ -37,6 +37,11 @@
   <property id="clear_cache" type="boolean">false</property>
 
   <!--
+    Enable notification via vibrations, typically for confirmation of actions
+  -->
+  <property id="enable_vibration" type="boolean">true</property>
+
+  <!--
     Application timeout in seconds, except 0 for no
     timeout (default). After this amount of elapsed
     time with no activity, exit the application.
@@ -55,14 +60,6 @@
     Left to right or right to left text. Language dependent.
   -->
   <property id="menu_alignment" type="number">1</property>
-
-  <!--
-    Widget specific setting:
-    As soon as the menu has been fetched start show the menu of items.
-    This behaviour is inconsistent with the standard Garmin User Interface,
-    but has been requested by users so has been made the non-default option.
-  -->
-  <property id="widget_start_no_tap" type="boolean">false</property>
 
   <!--
     Enable the background service to send the clock battery level to Home Assistant.

@@ -238,11 +238,11 @@ You should now have a working application on your watch and be able to operate y
 
 You may choose to cache your menu definition on your device in order to reduce the delay in showing the menu (as it saves waiting for an HTTP GET request). If you use this option you are responsible for managing the cache when the menu is updated at source. The toggle option below the cache option allows you to choose to refresh the cache the next time the application starts. Once the cache has been cleared, the application will reset this toggle for you, so you do not need to return to the settings to amend it.
 
+The application uses vibration to confirm the action has been requested, as opposed to the 'toast' appears to show the action has been successfully executed. This is enabled by default but may be turned off if you do not desire this behaviour.
+
 The application timeout prevents the app running on your watch when you have forgotten to close it. It prevents the refreshing of the menu statuses and therefore excessive wear on your battery level. There is a second timeout value for confirmation views. This is intended for use with more sensitive toggles so that the confirmation view is not left open and forgotten and then confirmed accidentally without you noticing. **We cannot advise you this is safe, be careful what you toggle with the watch application!**
 
 There is a toggle setting for "text alignment" that provides finer adjustment for right-to-left languages. Perhaps this could be made automatic based on device language?
-
-Another toggle setting for the **Widget version only** allows the user to select a non-standard user interface behaviour. As soon as the menu is retrieved the widget view is replaced by the menu without waiting for a user selection. This has been included as requested by a user, but defaults to off which retains the expected user interactions.
 
 The application and widget both include a background service to report your watch's battery level and charging status. You may enable a background service to report the battery level to your Home Assistant. This is not available over your Bluetooth connection like with other Bluetooth devices as Garmin did not implement it. This no longer requires any setup, and we offer this [trouble shooting](TroubleShooting.md#watch-battery-level-reporting) guide. The last field here is readonly and allows the user to copy & paste the Webhook ID setup by the application when required for this trouble shooting guide.
 
