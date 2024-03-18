@@ -170,7 +170,4 @@ An example of a dimmer light with 4 brightness settings 0..3. Here our light wor
 
 ## Warnings
 
-Just remember, **you have the ability to crash the application by creating an excessive menu definition**. Older devices running as a widget can be limited in memory such that the JSON definition causes an "Out of Memory" error. Widgets have less memory than applications. Templates can require significant definition for highly customised text. Don't be silly. With the new template based sensor display, widgets are more likely to run out of memory. E.g. a Vivoactive 3 device has a memory limit of 60 kB runtime memory for widgets (compared with 124 kB for applications) and is likely to be ~90% used. This makes it very likely that a larger menu will crash the application. We cannot predict what will take the application "over the edge", but we can provide this feedback to users to raise awareness, hence the widget displays menu usage as a reminder. If the widget is crashing but the application variant is not, then your menu configuration is too big for the widget.
-
-<img src="../images/Venu_Widget_sim.png" width="200" title="Venu 2" style="margin:5px"/>
-<img src="../images/app_crash.png" width="200" title="Venu 2" style="margin:5px;border: 2px solid black;"/>
+Just remember, **you have the ability to crash the application by creating an excessive menu definition**. Templates can require significant definition for highly customised text. Don't be silly.
