@@ -46,19 +46,20 @@
   <!-- Pre nastavenia GUI -->
   <string id="SettingsSelect">Vybrať...</string>
   <string id="SettingsApiKey">Kľúč API pre HomeAssistant.</string>
-  <string id="SettingsApiKeyPrompt">Prístupový token s dlhou životnosťou.</string>
+  <string id="SettingsApiKeyPrompt">Dlhotrvajúci prístupový token.</string>
   <string id="SettingsApiUrl">URL pre HomeAssistant API.</string>
   <string id="SettingsConfigUrl">Webová adresa pre konfiguráciu ponuky (JSON).</string>
   <string id="SettingsCacheConfig">Má aplikácia uložiť do vyrovnávacej pamäte konfiguráciu ponuky?</string>
   <string id="SettingsClearCache">Mala by aplikácia pri ďalšom spustení vymazať existujúcu vyrovnávaciu pamäť?</string>
   <string id="SettingsVibration">Mala by aplikácia poskytovať spätnú väzbu prostredníctvom vibrácií?</string>
   <string id="SettingsAppTimeout">Časový limit v sekundách. Po tejto dobe nečinnosti ukončite aplikáciu, aby ste šetrili batériu zariadenia.</string>
+  <string id="SettingsPollDelay">Dodatočné oneskorenie hlasovania (v milisekundách). Pridáva oneskorenie medzi aktualizáciou stavu položiek ponuky.</string>
   <string id="SettingsConfirmTimeout">Po tomto čase (v sekundách) sa dialógové okno s potvrdením akcie automaticky zatvorí a akcia sa zruší. Ak chcete časový limit deaktivovať, nastavte na 0.</string>
   <string id="SettingsTextAlign">Zarovnanie ponuky vľavo (vypnuté) alebo vpravo (zapnuté).</string>
   <string id="LeftToRight">Zľava doprava</string>
   <string id="RightToLeft">Zprava doľava</string>
   <string id="SettingsWidgetStart">(Len miniaplikácia) Automaticky spustite aplikáciu z miniaplikácie bez čakania na klepnutie.</string>
-  <string id="SettingsEnableBatteryLevel">Povoľte službu na pozadí na odosielanie údajov o stave batérie zariadenia, polohe a (ak je podporované) o aktivite domácemu asistentovi.</string>
+  <string id="SettingsEnableBatteryLevel">Povoľte službu na pozadí na odosielanie údajov o stave batérie zariadenia, polohe a (ak sú podporované) o aktivite domácemu asistentovi.</string>
   <string id="SettingsBatteryLevelRefreshRate">Obnovovacia frekvencia (v minútach), pri ktorej by služba na pozadí mala opakovať odosielanie údajov.</string>
   <string id="WebhookId">(Len na čítanie) Webhook ID vytvorené zariadením pre aktualizácie služby na pozadí. Možno to budete potrebovať na ladenie.</string>
 </strings>

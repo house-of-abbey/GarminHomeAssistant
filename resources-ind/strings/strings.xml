@@ -27,7 +27,7 @@
   <string id="NoResponse">Tidak Ada Respon, periksa koneksi Internet</string>
   <string id="NoAPIKey" scope="glance">Tidak ada kunci API di pengaturan aplikasi</string>
   <string id="NoApiUrl" scope="glance">Tidak ada URL API di pengaturan aplikasi</string>
-  <string id="NoConfigUrl" scope="glance">Tidak ada URL konfigurasi di pengaturan aplikasi</string>
+  <string id="NoConfigUrl" scope="glance">Tidak ada URL konfigurasi dalam pengaturan aplikasi</string>
   <string id="ApiFlood">Panggilan API terlalu cepat. Harap memperlambat permintaan Anda.</string>
   <string id="ApiUrlNotFound">URL tidak ditemukan. Potensi kesalahan URL API dalam pengaturan.</string>
   <string id="ConfigUrlNotFound">URL tidak ditemukan. Potensi kesalahan URL Konfigurasi dalam pengaturan.</string>
@@ -53,6 +53,7 @@
   <string id="SettingsClearCache">Haruskah aplikasi menghapus cache yang ada saat dijalankan lagi?</string>
   <string id="SettingsVibration">Haruskah aplikasi memberikan umpan balik melalui getaran?</string>
   <string id="SettingsAppTimeout">Batas waktu dalam hitungan detik. Keluar dari aplikasi setelah periode tidak aktif ini untuk menghemat baterai perangkat.</string>
+  <string id="SettingsPollDelay">Penundaan jajak pendapat tambahan (dalam milidetik). Menambahkan penundaan antara pembaruan status item menu.</string>
   <string id="SettingsConfirmTimeout">Setelah waktu ini (dalam detik), dialog konfirmasi untuk suatu tindakan secara otomatis ditutup dan tindakan tersebut dibatalkan. Setel ke 0 untuk menonaktifkan batas waktu.</string>
   <string id="SettingsTextAlign">Penyelarasan Menu Kiri (mati) atau Kanan (hidup).</string>
   <string id="LeftToRight">Kiri ke kanan</string>

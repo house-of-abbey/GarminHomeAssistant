@@ -47,12 +47,13 @@
   <string id="SettingsSelect">Izberite ...</string>
   <string id="SettingsApiKey">API ključ za HomeAssistant.</string>
   <string id="SettingsApiKeyPrompt">Dolgoživ dostopni žeton.</string>
-  <string id="SettingsApiUrl">URL za HomeAssistant API.</string>
+  <string id="SettingsApiUrl">URL za API HomeAssistant.</string>
   <string id="SettingsConfigUrl">URL za konfiguracijo menija (JSON).</string>
   <string id="SettingsCacheConfig">Ali naj aplikacija predpomni konfiguracijo menija?</string>
   <string id="SettingsClearCache">Ali naj aplikacija ob naslednjem zagonu počisti obstoječi predpomnilnik?</string>
   <string id="SettingsVibration">Ali naj aplikacija posreduje povratne informacije prek vibriranja?</string>
   <string id="SettingsAppTimeout">Časovna omejitev v sekundah. Po tem obdobju nedejavnosti zaprite aplikacijo, da prihranite baterijo naprave.</string>
+  <string id="SettingsPollDelay">Dodatna zakasnitev ankete (v milisekundah). Doda zakasnitev med posodobitvijo stanja elementov menija.</string>
   <string id="SettingsConfirmTimeout">Po tem času (v sekundah) se potrditveno pogovorno okno za dejanje samodejno zapre in dejanje je preklicano. Nastavite na 0, da onemogočite časovno omejitev.</string>
   <string id="SettingsTextAlign">Leva (izklopljena) ali desna (vklopljena) poravnava menija.</string>
   <string id="LeftToRight">Od leve proti desni</string>

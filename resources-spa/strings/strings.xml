@@ -53,6 +53,7 @@
   <string id="SettingsClearCache">¿La aplicación debería borrar el caché existente la próxima vez que se inicie?</string>
   <string id="SettingsVibration">¿La aplicación debería proporcionar retroalimentación mediante vibraciones?</string>
   <string id="SettingsAppTimeout">Tiempo de espera en segundos. Salga de la aplicación después de este período de inactividad para ahorrar batería del dispositivo.</string>
+  <string id="SettingsPollDelay">Retraso de encuesta adicional (en milisegundos). Agrega un retraso entre la actualización del estado de los elementos del menú.</string>
   <string id="SettingsConfirmTimeout">Después de este tiempo (en segundos), se cierra automáticamente un cuadro de diálogo de confirmación de una acción y se cancela la acción. Establezca en 0 para desactivar el tiempo de espera.</string>
   <string id="SettingsTextAlign">Alineación del menú izquierda (desactivada) o derecha (activada).</string>
   <string id="LeftToRight">De izquierda a derecha</string>

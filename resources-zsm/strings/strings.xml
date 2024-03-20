@@ -53,6 +53,7 @@
   <string id="SettingsClearCache">Patutkah aplikasi mengosongkan cache sedia ada pada kali seterusnya ia dimulakan?</string>
   <string id="SettingsVibration">Patutkah aplikasi memberikan maklum balas melalui getaran?</string>
   <string id="SettingsAppTimeout">Tamat masa dalam beberapa saat. Keluar dari aplikasi selepas tempoh tidak aktif ini untuk menjimatkan bateri peranti.</string>
+  <string id="SettingsPollDelay">Kelewatan tinjauan pendapat tambahan (dalam milisaat). Menambah kelewatan antara kemas kini status item menu.</string>
   <string id="SettingsConfirmTimeout">Selepas masa ini (dalam beberapa saat), dialog pengesahan untuk tindakan ditutup secara automatik dan tindakan itu dibatalkan. Tetapkan kepada 0 untuk melumpuhkan tamat masa.</string>
   <string id="SettingsTextAlign">Penjajaran Menu Kiri (mati) atau Kanan (hidup).</string>
   <string id="LeftToRight">Kiri ke kanan</string>

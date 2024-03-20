@@ -53,6 +53,7 @@
   <string id="SettingsClearCache">アプリケーションは次回起動時に既存のキャッシュをクリアする必要がありますか?</string>
   <string id="SettingsVibration">アプリケーションは振動を介してフィードバックを提供する必要がありますか?</string>
   <string id="SettingsAppTimeout">秒単位のタイムアウト。デバイスのバッテリーを節約するために、この期間非アクティブになった後はアプリケーションを終了してください。</string>
+  <string id="SettingsPollDelay">追加のポーリング遅延 (ミリ秒単位)。メニュー項目のステータス更新の間に遅延を追加します。</string>
   <string id="SettingsConfirmTimeout">この時間 (秒単位) が経過すると、アクションの確認ダイアログが自動的に閉じられ、アクションがキャンセルされます。タイムアウトを無効にするには、0 に設定します。</string>
   <string id="SettingsTextAlign">左 (オフ) または右 (オン) メニューの配置。</string>
   <string id="LeftToRight">左から右へ</string>

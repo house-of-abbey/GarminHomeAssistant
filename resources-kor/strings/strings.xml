@@ -53,6 +53,7 @@
   <string id="SettingsClearCache">애플리케이션이 다음에 시작될 때 기존 캐시를 지워야 합니까?</string>
   <string id="SettingsVibration">애플리케이션이 진동을 통해 피드백을 제공해야 합니까?</string>
   <string id="SettingsAppTimeout">시간 초과(초)입니다. 장치 배터리를 절약하려면 이 비활성 기간 후에 애플리케이션을 종료하십시오.</string>
+  <string id="SettingsPollDelay">추가 폴링 지연(밀리초)입니다. 메뉴 항목의 상태 업데이트 사이에 지연을 추가합니다.</string>
   <string id="SettingsConfirmTimeout">이 시간(초)이 지나면 작업에 대한 확인 대화 상자가 자동으로 닫히고 작업이 취소됩니다. 시간 초과를 비활성화하려면 0으로 설정합니다.</string>
   <string id="SettingsTextAlign">왼쪽(끄기) 또는 오른쪽(켜기) 메뉴 정렬.</string>
   <string id="LeftToRight">왼쪽에서 오른쪽으로</string>

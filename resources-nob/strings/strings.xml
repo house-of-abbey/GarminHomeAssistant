@@ -53,6 +53,7 @@
   <string id="SettingsClearCache">Bør applikasjonen tømme den eksisterende cachen neste gang den startes?</string>
   <string id="SettingsVibration">Skal applikasjonen gi tilbakemelding via vibrasjoner?</string>
   <string id="SettingsAppTimeout">Tidsavbrudd i sekunder. Avslutt applikasjonen etter denne perioden med inaktivitet for å spare enhetens batteri.</string>
+  <string id="SettingsPollDelay">Ytterligere avstemningsforsinkelse (i millisekunder). Legger til en forsinkelse mellom statusoppdatering av menyelementer.</string>
   <string id="SettingsConfirmTimeout">Etter denne tiden (i sekunder), lukkes en bekreftelsesdialog for en handling automatisk og handlingen avbrytes. Sett til 0 for å deaktivere tidsavbruddet.</string>
   <string id="SettingsTextAlign">Venstre (av) eller Høyre (på) Menyjustering.</string>
   <string id="LeftToRight">Venstre til høyre</string>
