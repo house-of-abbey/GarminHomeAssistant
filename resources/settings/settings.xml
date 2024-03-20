@@ -66,6 +66,13 @@
   </setting>
 
   <setting
+    propertyKey="@Properties.poll_delay"
+    title="@Strings.SettingsPollDelay"
+  >
+    <settingConfig type="numeric" min="0" />
+  </setting>
+
+  <setting
     propertyKey="@Properties.confirm_timeout"
     title="@Strings.SettingsConfirmTimeout"
   >
