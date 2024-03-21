@@ -50,12 +50,11 @@
   <property id="app_timeout" type="number">0</property>
 
   <!--
-    Poll delay adds a user configurable delay (in milliseconds) to the status
-    updates of each item in the watch menu that might be amended externally
-    from the watch. A user has requested that it is possible to add this delay
-    for an "always open" mode of operation, which then drains the watch battery
-    from the additional API access activity. A Timer must have a minimum 50 ms
-    value specified, so any value < 50 will be forced to 0.
+    Poll delay adds a user configurable delay (in seconds) to each round of
+    status updates of all item in the device's menu that might be amended
+    externally from the watch. A user has requested that it is possible to add
+    this delayfor an "always open" mode of operation, which then drains the
+    watch battery from the additional API access activity.
   -->
   <property id="poll_delay" type="number">0</property>
 

@@ -261,7 +261,7 @@ class HomeAssistantApp extends Application.AppBase {
         // Start the continuous update process that continues for as long as the application is running.
         // The chain of functions from 'updateNextMenuItem()' calls 'updateNextMenuItem()' on completion.
         if (mItemsToUpdate.size() > 0) {
-            updateNextMenuItem();
+            updateNextMenuItemInt();
         }
     }
 
@@ -396,7 +396,7 @@ class HomeAssistantApp extends Application.AppBase {
 
     function updateNextMenuItem() as Void {
         var delay = Settings.getPollDelay();
-        if (delay >= 50) { // Minimum 50 ms delay for Timers
+        if ((delay > 0) and (mNextItemToUpdate == 0)) {
             mUpdateTimer.start(method(:updateNextMenuItemInt), delay, false);
         } else {
             updateNextMenuItemInt();

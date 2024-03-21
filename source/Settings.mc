@@ -63,12 +63,6 @@ class Settings {
         mIsBatteryLevelEnabled = Properties.getValue("enable_battery_level");
         mBatteryRefreshRate    = Properties.getValue("battery_level_refresh_rate");
 
-        // There's a minimum of 50 ms on Timer.Timers, so reset to 0 if too small.
-        if (mPollDelay < 50) { // milliseconds
-            mPollDelay = 0;
-            Properties.setValue("poll_delay", mPollDelay);
-        }
-
         if (System has :ServiceDelegate) {
             mHasService = true;
         }
@@ -147,7 +141,7 @@ class Settings {
     }
 
     static function getPollDelay() as Lang.Number {
-        return mPollDelay;
+        return mPollDelay * 1000; // Convert to milliseconds
     }
 
     static function getConfirmTimeout() as Lang.Number {
