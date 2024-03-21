@@ -54,6 +54,10 @@ descentg1.resourcePath = $(descentg1.resourcePath);resources-launcher-62-62;reso
 descentmk2.resourcePath = $(descentmk2.resourcePath);resources-launcher-40-40;resources-icons-32
 # Screen Size 240x240 launcher icon size 40x40
 descentmk2s.resourcePath = $(descentmk2s.resourcePath);resources-launcher-40-40;resources-icons-28
+# Screen Size 390 x 390 launcher icon size 60x60
+descentmk343mm.resourcePath = $(descentmk2s.resourcePath);resources-launcher-60-60;resources-icons-46
+# Screen Size 454 x 454 launcher icon size 60x60
+descentmk351mm.resourcePath = $(descentmk2s.resourcePath);resources-launcher-60-60;resources-icons-53
 # Screen Size 282x470 launcher icon size 36x36
 edge1030.resourcePath = $(descentmk2s.resourcePath);resources-launcher-36-36;resources-icons-32
 edge1030bontrager.resourcePath = $(edge1030bontrager.resourcePath);resources-launcher-36-36;resources-icons-32
@@ -113,6 +117,10 @@ fenix7x.resourcePath = $(fenix7x.resourcePath);resources-launcher-40-40;resource
 # Screen Size 280x280 launcher icon size 40x40
 fenix7xpro.resourcePath = $(fenix7xpro.resourcePath);resources-launcher-40-40;resources-icons-32
 fenix7xpronowifi.resourcePath = $(fenix7xpronowifi.resourcePath);resources-launcher-40-40;resources-icons-32
+# Screen Size 390 x 390 launcher icon size 54x54
+fr165.resourcePath = $(descentmk2s.resourcePath);resources-launcher-54-54;resources-icons-46
+# Screen Size 390 x 390 launcher icon size 54x54
+fr165m.resourcePath = $(descentmk2s.resourcePath);resources-launcher-54-54;resources-icons-46
 # Screen Size 240x240 launcher icon size 40x40
 fr245.resourcePath = $(fr245.resourcePath);resources-launcher-40-40;resources-icons-28
 fr245m.resourcePath = $(fr245m.resourcePath);resources-launcher-40-40;resources-icons-28

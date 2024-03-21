@@ -48,6 +48,8 @@
       <iq:product id="descentg1" />
       <iq:product id="descentmk2" />
       <iq:product id="descentmk2s" />
+      <iq:product id="descentmk343mm"/>
+      <iq:product id="descentmk351mm"/>
       <iq:product id="edge1030" />
       <iq:product id="edge1030bontrager" />
       <iq:product id="edge1030plus" />
@@ -83,6 +85,8 @@
       <iq:product id="fenix7xpro" />
       <iq:product id="fenix7xpronowifi" />
       <iq:product id="fenixchronos" />
+      <iq:product id="fr165"/>
+      <iq:product id="fr165m"/>
       <iq:product id="fr245" />
       <iq:product id="fr245m" />
       <iq:product id="fr255" />
