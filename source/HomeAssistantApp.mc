@@ -261,7 +261,7 @@ class HomeAssistantApp extends Application.AppBase {
         // Start the continuous update process that continues for as long as the application is running.
         // The chain of functions from 'updateNextMenuItem()' calls 'updateNextMenuItem()' on completion.
         if (mItemsToUpdate.size() > 0) {
-            updateNextMenuItemInt();
+            updateNextMenuItemInternal();
         }
     }
 
@@ -397,21 +397,21 @@ class HomeAssistantApp extends Application.AppBase {
     function updateNextMenuItem() as Void {
         var delay = Settings.getPollDelay();
         if ((delay > 0) and (mNextItemToUpdate == 0)) {
-            mUpdateTimer.start(method(:updateNextMenuItemInt), delay, false);
+            mUpdateTimer.start(method(:updateNextMenuItemInternal), delay, false);
         } else {
-            updateNextMenuItemInt();
+            updateNextMenuItemInternal();
         }
     }
 
     // We need to spread out the API calls so as not to overload the results queue and cause Communications.BLE_QUEUE_FULL
     // (-101) error. This function is called by a timer every Globals.menuItemUpdateInterval ms.
-    function updateNextMenuItemInt() as Void {
+    function updateNextMenuItemInternal() as Void {
         var itu = mItemsToUpdate as Lang.Array<HomeAssistantToggleMenuItem>;
         if (itu != null) {
             itu[mNextItemToUpdate].getState();
             mNextItemToUpdate = (mNextItemToUpdate + 1) % itu.size();
         // } else {
-        //     System.println("HomeAssistantApp updateNextMenuItemInt(): No menu items to update");
+        //     System.println("HomeAssistantApp updateNextMenuItemInternal(): No menu items to update");
         }
     }
 
