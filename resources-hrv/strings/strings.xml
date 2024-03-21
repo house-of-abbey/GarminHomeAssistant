@@ -53,6 +53,7 @@
   <string id="SettingsClearCache">Treba li aplikacija prilikom sljedećeg pokretanja očistiti postojeću predmemoriju?</string>
   <string id="SettingsVibration">Treba li aplikacija dati povratnu informaciju putem vibracija?</string>
   <string id="SettingsAppTimeout">Istek u sekundama. Izađite iz aplikacije nakon ovog razdoblja neaktivnosti kako biste uštedjeli bateriju uređaja.</string>
+  <string id="SettingsPollDelay">Dodatna odgoda ankete (u sekundama). Dodaje odgodu između ažuriranja statusa svih stavki izbornika.</string>
   <string id="SettingsConfirmTimeout">Nakon tog vremena (u sekundama), dijaloški okvir za potvrdu radnje automatski se zatvara i radnja se poništava. Postavite na 0 da onemogućite vremensko ograničenje.</string>
   <string id="SettingsTextAlign">Lijevo (isključeno) ili desno (uključeno) poravnanje izbornika.</string>
   <string id="LeftToRight">S lijeva nadesno</string>

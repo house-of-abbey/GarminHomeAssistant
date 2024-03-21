@@ -36,6 +36,7 @@ class Settings {
     private static var mClearCache            as Lang.Boolean = false;
     private static var mVibrate               as Lang.Boolean = false;
     private static var mAppTimeout            as Lang.Number  = 0;  // seconds
+    private static var mPollDelay             as Lang.Number  = 0;  // seconds
     private static var mConfirmTimeout        as Lang.Number  = 3;  // seconds
     private static var mMenuAlignment         as Lang.Number  = WatchUi.MenuItem.MENU_ITEM_LABEL_ALIGN_LEFT;
     private static var mIsBatteryLevelEnabled as Lang.Boolean = false;
@@ -56,6 +57,7 @@ class Settings {
         mClearCache            = Properties.getValue("clear_cache");
         mVibrate               = Properties.getValue("enable_vibration");
         mAppTimeout            = Properties.getValue("app_timeout");
+        mPollDelay             = Properties.getValue("poll_delay");
         mConfirmTimeout        = Properties.getValue("confirm_timeout");
         mMenuAlignment         = Properties.getValue("menu_alignment");
         mIsBatteryLevelEnabled = Properties.getValue("enable_battery_level");
@@ -138,6 +140,10 @@ class Settings {
         return mAppTimeout * 1000; // Convert to milliseconds
     }
 
+    static function getPollDelay() as Lang.Number {
+        return mPollDelay * 1000; // Convert to milliseconds
+    }
+
     static function getConfirmTimeout() as Lang.Number {
         return mConfirmTimeout * 1000; // Convert to milliseconds
     }
@@ -153,4 +159,5 @@ class Settings {
             Background.deleteTemporalEvent();
         }
     }
+
 }

@@ -31,7 +31,8 @@ class HomeAssistantApp extends Application.AppBase {
     private var mMenuStatus          as Lang.String       or Null;
     private var mHaMenu              as HomeAssistantView or Null;
     private var mQuitTimer           as QuitTimer         or Null;
-    private var mTimer               as Timer.Timer       or Null;
+    private var mGlanceTimer         as Timer.Timer       or Null;
+    private var mUpdateTimer         as Timer.Timer       or Null;
     // Array initialised by onReturnFetchMenuConfig()
     private var mItemsToUpdate       as Lang.Array<HomeAssistantToggleMenuItem or HomeAssistantTemplateMenuItem> or Null;
     private var mNextItemToUpdate    as Lang.Number  = 0;     // Index into the above array
@@ -87,11 +88,11 @@ class HomeAssistantApp extends Application.AppBase {
 
     // Return the initial view of your application here
     function getInitialView() as Lang.Array<WatchUi.Views or WatchUi.InputDelegates>? {
-        mIsApp      = true;
-        mQuitTimer  = new QuitTimer();
-        // RezStrings.update();
-        mApiStatus  = WatchUi.loadResource($.Rez.Strings.Checking) as Lang.String;
-        mMenuStatus = WatchUi.loadResource($.Rez.Strings.Checking) as Lang.String;
+        mIsApp       = true;
+        mQuitTimer   = new QuitTimer();
+        mUpdateTimer = new Timer.Timer();
+        mApiStatus   = WatchUi.loadResource($.Rez.Strings.Checking) as Lang.String;
+        mMenuStatus  = WatchUi.loadResource($.Rez.Strings.Checking) as Lang.String;
         Settings.update();
 
         if (Settings.getApiKey().length() == 0) {
@@ -260,7 +261,7 @@ class HomeAssistantApp extends Application.AppBase {
         // Start the continuous update process that continues for as long as the application is running.
         // The chain of functions from 'updateNextMenuItem()' calls 'updateNextMenuItem()' on completion.
         if (mItemsToUpdate.size() > 0) {
-            updateNextMenuItem();
+            updateNextMenuItemInternal();
         }
     }
 
@@ -393,15 +394,24 @@ class HomeAssistantApp extends Application.AppBase {
         WatchUi.pushView(mHaMenu, new HomeAssistantViewDelegate(true), WatchUi.SLIDE_IMMEDIATE);
     }
 
+    function updateNextMenuItem() as Void {
+        var delay = Settings.getPollDelay();
+        if ((delay > 0) and (mNextItemToUpdate == 0)) {
+            mUpdateTimer.start(method(:updateNextMenuItemInternal), delay, false);
+        } else {
+            updateNextMenuItemInternal();
+        }
+    }
+
     // We need to spread out the API calls so as not to overload the results queue and cause Communications.BLE_QUEUE_FULL
     // (-101) error. This function is called by a timer every Globals.menuItemUpdateInterval ms.
-    function updateNextMenuItem() as Void {
+    function updateNextMenuItemInternal() as Void {
         var itu = mItemsToUpdate as Lang.Array<HomeAssistantToggleMenuItem>;
         if (itu != null) {
             itu[mNextItemToUpdate].getState();
             mNextItemToUpdate = (mNextItemToUpdate + 1) % itu.size();
         // } else {
-        //     System.println("HomeAssistantApp updateNextMenuItem(): No menu items to update");
+        //     System.println("HomeAssistantApp updateNextMenuItemInternal(): No menu items to update");
         }
     }
 
@@ -415,13 +425,14 @@ class HomeAssistantApp extends Application.AppBase {
         mMenuStatus = WatchUi.loadResource($.Rez.Strings.Checking) as Lang.String;
         updateStatus();
         Settings.update();
-        mTimer = new Timer.Timer();
-        mTimer.start(method(:updateStatus), Globals.scApiBackoff, true);
+        mGlanceTimer = new Timer.Timer();
+        mGlanceTimer.start(method(:updateStatus), Globals.scApiBackoff, true);
         return [new HomeAssistantGlanceView(self)];
     }
 
     // Required for the Glance update timer.
     function updateStatus() as Void {
+        mGlanceTimer = null;
         fetchMenuConfig();
         fetchApiStatus();
     }

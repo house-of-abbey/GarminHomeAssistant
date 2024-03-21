@@ -53,6 +53,7 @@
   <string id="SettingsClearCache">Ứng dụng có nên xóa bộ nhớ đệm hiện có vào lần khởi động tiếp theo không?</string>
   <string id="SettingsVibration">Ứng dụng có nên cung cấp phản hồi thông qua rung động không?</string>
   <string id="SettingsAppTimeout">Thời gian chờ tính bằng giây. Thoát khỏi ứng dụng sau khoảng thời gian không hoạt động này để tiết kiệm pin cho thiết bị.</string>
+  <string id="SettingsPollDelay">Độ trễ thăm dò bổ sung (tính bằng giây). Thêm độ trễ giữa việc cập nhật trạng thái của tất cả các mục menu.</string>
   <string id="SettingsConfirmTimeout">Sau thời gian này (tính bằng giây), hộp thoại xác nhận cho một hành động sẽ tự động đóng và hành động đó sẽ bị hủy. Đặt thành 0 để tắt thời gian chờ.</string>
   <string id="SettingsTextAlign">Căn chỉnh menu Trái (tắt) hoặc Phải (bật).</string>
   <string id="LeftToRight">Trái sang phải</string>

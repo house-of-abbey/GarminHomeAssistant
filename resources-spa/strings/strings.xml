@@ -53,6 +53,7 @@
   <string id="SettingsClearCache">¿La aplicación debería borrar el caché existente la próxima vez que se inicie?</string>
   <string id="SettingsVibration">¿La aplicación debería proporcionar retroalimentación mediante vibraciones?</string>
   <string id="SettingsAppTimeout">Tiempo de espera en segundos. Salga de la aplicación después de este período de inactividad para ahorrar batería del dispositivo.</string>
+  <string id="SettingsPollDelay">Retraso adicional en la encuesta (en segundos). Agrega un retraso entre la actualización del estado de todos los elementos del menú.</string>
   <string id="SettingsConfirmTimeout">Después de este tiempo (en segundos), se cierra automáticamente un cuadro de diálogo de confirmación de una acción y se cancela la acción. Establezca en 0 para desactivar el tiempo de espera.</string>
   <string id="SettingsTextAlign">Alineación del menú izquierda (desactivada) o derecha (activada).</string>
   <string id="LeftToRight">De izquierda a derecha</string>
@@ -60,5 +61,5 @@
   <string id="SettingsWidgetStart">(Solo widget) Inicia automáticamente la aplicación desde el widget sin esperar un toque.</string>
   <string id="SettingsEnableBatteryLevel">Habilite el servicio en segundo plano para enviar el nivel de batería del dispositivo, la ubicación y (si es compatible) datos de actividad a Home Assistant.</string>
   <string id="SettingsBatteryLevelRefreshRate">La frecuencia de actualización (en minutos) a la que el servicio en segundo plano debe repetir el envío de datos.</string>
-  <string id="WebhookId">(Solo lectura) El ID de Webhook creado por el dispositivo para actualizaciones del servicio en segundo plano. Es posible que necesite esto para la depuración.</string>
+  <string id="WebhookId">(Solo lectura) El ID del Webhook creado por el dispositivo para actualizaciones del servicio en segundo plano. Es posible que necesite esto para la depuración.</string>
 </strings>

@@ -53,6 +53,7 @@
   <string id="SettingsClearCache">Ska programmet rensa den befintliga cachen nästa gång den startas?</string>
   <string id="SettingsVibration">Ska applikationen ge feedback via vibrationer?</string>
   <string id="SettingsAppTimeout">Timeout på sekunder. Avsluta programmet efter denna period av inaktivitet för att spara enhetens batteri.</string>
+  <string id="SettingsPollDelay">Ytterligare fördröjning (i sekunder). Lägger till en fördröjning mellan statusuppdateringen av alla menyalternativ.</string>
   <string id="SettingsConfirmTimeout">Efter denna tid (i sekunder) stängs en bekräftelsedialog för en åtgärd automatiskt och åtgärden avbryts. Ställ in på 0 för att inaktivera timeout.</string>
   <string id="SettingsTextAlign">Vänster (av) eller höger (på) menyjustering.</string>
   <string id="LeftToRight">Vänster till höger</string>

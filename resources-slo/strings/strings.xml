@@ -36,7 +36,7 @@
   <string id="TrailingSlashErr">Adresa URL rozhrania API nesmie obsahovať koncovú lomku „/“</string>
   <string id="WebhookFailed">Registrácia Webhooku zlyhala</string>
   <string id="TemplateError">Vykreslenie šablóny zlyhalo</string>
-  <string id="Available" scope="glance">K dispozícii</string>
+  <string id="Available" scope="glance">Dostupné</string>
   <string id="Checking" scope="glance">Prebieha kontrola...</string>
   <string id="Unavailable" scope="glance">nedostupné</string>
   <string id="Unconfigured" scope="glance">Nekonfigurované</string>
@@ -53,6 +53,7 @@
   <string id="SettingsClearCache">Mala by aplikácia pri ďalšom spustení vymazať existujúcu vyrovnávaciu pamäť?</string>
   <string id="SettingsVibration">Mala by aplikácia poskytovať spätnú väzbu prostredníctvom vibrácií?</string>
   <string id="SettingsAppTimeout">Časový limit v sekundách. Po tejto dobe nečinnosti ukončite aplikáciu, aby ste šetrili batériu zariadenia.</string>
+  <string id="SettingsPollDelay">Dodatočné oneskorenie hlasovania (v sekundách). Pridáva oneskorenie medzi aktualizáciou stavu všetkých položiek ponuky.</string>
   <string id="SettingsConfirmTimeout">Po tomto čase (v sekundách) sa dialógové okno s potvrdením akcie automaticky zatvorí a akcia sa zruší. Ak chcete časový limit deaktivovať, nastavte na 0.</string>
   <string id="SettingsTextAlign">Zarovnanie ponuky vľavo (vypnuté) alebo vpravo (zapnuté).</string>
   <string id="LeftToRight">Zľava doprava</string>

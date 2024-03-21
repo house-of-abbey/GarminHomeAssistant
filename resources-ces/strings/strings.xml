@@ -53,6 +53,7 @@
   <string id="SettingsClearCache">Měla by aplikace při příštím spuštění vymazat stávající mezipaměť?</string>
   <string id="SettingsVibration">Měla by aplikace poskytovat zpětnou vazbu prostřednictvím vibrací?</string>
   <string id="SettingsAppTimeout">Časový limit v sekundách. Po této době nečinnosti aplikaci ukončete, abyste šetřili baterii zařízení.</string>
+  <string id="SettingsPollDelay">Dodatečné zpoždění dotazování (v sekundách). Přidá prodlevu mezi aktualizací stavu všech položek nabídky.</string>
   <string id="SettingsConfirmTimeout">Po uplynutí této doby (v sekundách) se dialog pro potvrzení akce automaticky zavře a akce se zruší. Nastavením na 0 deaktivujete časový limit.</string>
   <string id="SettingsTextAlign">Zarovnání nabídky vlevo (vypnuto) nebo vpravo (zapnuto).</string>
   <string id="LeftToRight">Zleva do prava</string>
