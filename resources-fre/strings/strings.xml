@@ -52,8 +52,8 @@
   <string id="SettingsCacheConfig">L'application doit-elle mettre en cache la configuration du menu ?</string>
   <string id="SettingsClearCache">L'application doit-elle vider le cache existant au prochain démarrage ?</string>
   <string id="SettingsVibration">L'application doit-elle fournir un retour via des vibrations ?</string>
-  <string id="SettingsAppTimeout">Délai d'attente en secondes. Quittez l'application après cette période d'inactivité pour économiser la batterie de l'appareil.</string>
-  <string id="SettingsPollDelay">Délai d'interrogation supplémentaire (en millisecondes). Ajoute un délai entre la mise à jour du statut des éléments de menu.</string>
+  <string id="SettingsAppTimeout">Délai d'expiration en secondes. Quittez l'application après cette période d'inactivité pour économiser la batterie de l'appareil.</string>
+  <string id="SettingsPollDelay">Délai d'interrogation supplémentaire (en secondes). Ajoute un délai entre la mise à jour du statut de tous les éléments de menu.</string>
   <string id="SettingsConfirmTimeout">Passé ce délai (en secondes), une boîte de dialogue de confirmation d'une action se ferme automatiquement et l'action est annulée. Réglez sur 0 pour désactiver le délai d'attente.</string>
   <string id="SettingsTextAlign">Alignement du menu à gauche (désactivé) ou à droite (activé).</string>
   <string id="LeftToRight">De gauche à droite</string>

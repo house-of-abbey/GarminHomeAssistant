@@ -53,13 +53,13 @@
   <string id="SettingsClearCache">應用程式是否應該在下次啟動時清除現有快取？</string>
   <string id="SettingsVibration">應用程式是否應該透過振動提供回饋？</string>
   <string id="SettingsAppTimeout">超時（以秒為單位）。閒置一段時間後退出應用程式以節省設備電池。</string>
-  <string id="SettingsPollDelay">額外的輪詢延遲（以毫秒為單位）。在選單項目的狀態更新之間新增延遲。</string>
+  <string id="SettingsPollDelay">額外的輪詢延遲（以秒為單位）。在所有選單項目的狀態更新之間新增延遲。</string>
   <string id="SettingsConfirmTimeout">在此時間（以秒為單位）之後，操作的確認對話方塊將自動關閉並取消該操作。設定為 0 以停用逾時。</string>
   <string id="SettingsTextAlign">左（關）或右（開）選單對齊。</string>
   <string id="LeftToRight">左至右</string>
   <string id="RightToLeft">右到左</string>
   <string id="SettingsWidgetStart">（僅限小部件）從小部件自動啟動應用程序，無需等待點擊。</string>
-  <string id="SettingsEnableBatteryLevel">啟用後台服務將裝置電池電量、位置和（如果支援）活動資料傳送到 Home Assistant。</string>
+  <string id="SettingsEnableBatteryLevel">啟用後台服務將裝置電池電量、位置和（如果支援）活動資料傳送至 Home Assistant。</string>
   <string id="SettingsBatteryLevelRefreshRate">後台服務應重複傳送資料的更新率（以分鐘為單位）。</string>
   <string id="WebhookId">（唯讀）裝置為後台服務更新所建立的 Webhook ID。您可能需要它來進行調試。</string>
 </strings>

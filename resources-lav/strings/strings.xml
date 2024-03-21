@@ -53,7 +53,7 @@
   <string id="SettingsClearCache">Vai lietojumprogrammai nākamajā startēšanas reizē vajadzētu notīrīt esošo kešatmiņu?</string>
   <string id="SettingsVibration">Vai lietojumprogrammai ir jāsniedz atgriezeniskā saite, izmantojot vibrācijas?</string>
   <string id="SettingsAppTimeout">Taimauts sekundēs. Pēc šī neaktivitātes perioda izejiet no lietojumprogrammas, lai taupītu ierīces akumulatoru.</string>
-  <string id="SettingsPollDelay">Papildu aptaujas aizkave (milisekundēs). Pievieno aizkavi starp izvēlnes vienumu statusa atjaunināšanu.</string>
+  <string id="SettingsPollDelay">Papildu aptaujas aizkave (sekundēs). Pievieno aizkavi starp visu izvēlnes vienumu statusa atjaunināšanu.</string>
   <string id="SettingsConfirmTimeout">Pēc šī laika (sekundēs) tiek automātiski aizvērts darbības apstiprinājuma dialoglodziņš un darbība tiek atcelta. Iestatiet uz 0, lai atspējotu taimautu.</string>
   <string id="SettingsTextAlign">Kreisā (izslēgta) vai labā (ieslēgta) izvēlnes izlīdzināšana.</string>
   <string id="LeftToRight">No kreisās uz labo</string>

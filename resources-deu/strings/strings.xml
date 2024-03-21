@@ -54,7 +54,7 @@
   <string id="SettingsVibration">Soll die Anwendung über Vibrationen Feedback geben?</string>
   <string id="SettingsAppTimeout">Die App wird nach Ablauf der Zeit (in Sekunden) bei Inaktivität beendet, um den Akku
   des Geräts zu schonen.</string>
-  <string id="SettingsPollDelay">Zusätzliche Abfrageverzögerung (in Millisekunden). Fügt eine Verzögerung zwischen der Statusaktualisierung von Menüelementen hinzu.</string>
+  <string id="SettingsPollDelay">Zusätzliche Abfrageverzögerung (in Sekunden). Fügt eine Verzögerung zwischen der Statusaktualisierung aller Menüelemente hinzu.</string>
   <string id="SettingsConfirmTimeout">Nach dieser Zeit (in Sekunden) wird der Bestätigungsdialog einer Aktion geschlossen und die
     Aktion abgebrochen. Auf 0 setzen, um den Timeout zu deaktivieren.</string>
   <string id="SettingsTextAlign">Menüausrichtung links (aus) oder rechts (ein).</string>

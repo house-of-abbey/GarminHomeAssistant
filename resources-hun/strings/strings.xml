@@ -40,7 +40,7 @@
   <string id="Checking" scope="glance">Ellenőrzés...</string>
   <string id="Unavailable" scope="glance">Nem érhető el</string>
   <string id="Unconfigured" scope="glance">Nincs konfigurálva</string>
-  <string id="Cached" scope="glance">Gyorsítótárban</string>
+  <string id="Cached" scope="glance">Gyorsítótárazott</string>
   <string id="GlanceMenu" scope="glance">Menü</string>
   <string id="Memory" scope="glance">memória</string>
   <!-- A beállítások GUI-hoz -->
@@ -53,7 +53,7 @@
   <string id="SettingsClearCache">Törölje az alkalmazásnak a meglévő gyorsítótárat a következő indításakor?</string>
   <string id="SettingsVibration">Az alkalmazásnak rezgésekkel kell visszajelzést adnia?</string>
   <string id="SettingsAppTimeout">Időtúllépés másodpercben. Az eszköz akkumulátorának kímélése érdekében lépjen ki az alkalmazásból ezen inaktivitási időszak után.</string>
-  <string id="SettingsPollDelay">További lekérdezési késleltetés (ezredmásodpercben). Késleltetést ad a menüelemek állapotfrissítése között.</string>
+  <string id="SettingsPollDelay">További lekérdezési késleltetés (másodpercben). Késleltetést ad az összes menüelem állapotfrissítése között.</string>
   <string id="SettingsConfirmTimeout">Ezen idő elteltével (másodpercben) egy művelet megerősítő párbeszédpanele automatikusan bezárul, és a művelet megszakad. Állítsa 0-ra az időtúllépés letiltásához.</string>
   <string id="SettingsTextAlign">Balra (ki) vagy Jobbra (be) Menüigazítás.</string>
   <string id="LeftToRight">Balról jobbra</string>

@@ -53,7 +53,7 @@
   <string id="SettingsClearCache">Skal applikationen rydde den eksisterende cache næste gang den startes?</string>
   <string id="SettingsVibration">Skal applikationen give feedback via vibrationer?</string>
   <string id="SettingsAppTimeout">Timeout i sekunder. Afslut applikationen efter denne periode med inaktivitet for at spare på enhedens batteri.</string>
-  <string id="SettingsPollDelay">Yderligere afstemningsforsinkelse (i millisekunder). Tilføjer en forsinkelse mellem statusopdatering af menupunkter.</string>
+  <string id="SettingsPollDelay">Yderligere afstemningsforsinkelse (i sekunder). Tilføjer en forsinkelse mellem statusopdatering af alle menupunkter.</string>
   <string id="SettingsConfirmTimeout">Efter dette tidspunkt (i sekunder) lukkes en bekræftelsesdialog for en handling automatisk, og handlingen annulleres. Indstil til 0 for at deaktivere timeout.</string>
   <string id="SettingsTextAlign">Venstre (fra) eller Højre (til) menujustering.</string>
   <string id="LeftToRight">Venstre til højre</string>

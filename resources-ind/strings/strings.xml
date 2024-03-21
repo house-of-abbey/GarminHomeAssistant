@@ -53,7 +53,7 @@
   <string id="SettingsClearCache">Haruskah aplikasi menghapus cache yang ada saat dijalankan lagi?</string>
   <string id="SettingsVibration">Haruskah aplikasi memberikan umpan balik melalui getaran?</string>
   <string id="SettingsAppTimeout">Batas waktu dalam hitungan detik. Keluar dari aplikasi setelah periode tidak aktif ini untuk menghemat baterai perangkat.</string>
-  <string id="SettingsPollDelay">Penundaan jajak pendapat tambahan (dalam milidetik). Menambahkan penundaan antara pembaruan status item menu.</string>
+  <string id="SettingsPollDelay">Penundaan jajak pendapat tambahan (dalam hitungan detik). Menambahkan penundaan antara pembaruan status semua item menu.</string>
   <string id="SettingsConfirmTimeout">Setelah waktu ini (dalam detik), dialog konfirmasi untuk suatu tindakan secara otomatis ditutup dan tindakan tersebut dibatalkan. Setel ke 0 untuk menonaktifkan batas waktu.</string>
   <string id="SettingsTextAlign">Penyelarasan Menu Kiri (mati) atau Kanan (hidup).</string>
   <string id="LeftToRight">Kiri ke kanan</string>

@@ -28,7 +28,7 @@
   <string id="NoAPIKey" scope="glance">Nicio cheie API în setările aplicației</string>
   <string id="NoApiUrl" scope="glance">Nicio adresă URL API în setările aplicației</string>
   <string id="NoConfigUrl" scope="glance">Nicio adresă URL de configurare în setările aplicației</string>
-  <string id="ApiFlood">Apeluri API prea rapide. Vă rugăm să încetiniți cererile dvs.</string>
+  <string id="ApiFlood">Apeluri API prea rapide. Vă rugăm să vă încetiniți solicitările.</string>
   <string id="ApiUrlNotFound">Adresa URL nu a fost găsită. Potențială eroare URL API în setări.</string>
   <string id="ConfigUrlNotFound">Adresa URL nu a fost găsită. Potențială eroare URL de configurare în setări.</string>
   <string id="NoJson">Niciun JSON nu a fost returnat de la solicitarea HTTP.</string>
@@ -53,7 +53,7 @@
   <string id="SettingsClearCache">Ar trebui aplicația să golească memoria cache existentă data viitoare când este pornită?</string>
   <string id="SettingsVibration">Ar trebui aplicația să ofere feedback prin vibrații?</string>
   <string id="SettingsAppTimeout">Timeout în secunde. Ieșiți din aplicație după această perioadă de inactivitate pentru a economisi bateria dispozitivului.</string>
-  <string id="SettingsPollDelay">Întârziere suplimentară a sondajului (în milisecunde). Adaugă o întârziere între actualizarea stării elementelor de meniu.</string>
+  <string id="SettingsPollDelay">Întârziere suplimentară a sondajului (în secunde). Adaugă o întârziere între actualizarea stării tuturor elementelor de meniu.</string>
   <string id="SettingsConfirmTimeout">După acest timp (în secunde), un dialog de confirmare pentru o acțiune este închis automat și acțiunea este anulată. Setați la 0 pentru a dezactiva timeout-ul.</string>
   <string id="SettingsTextAlign">Alinierea meniului la stânga (dezactivată) sau la dreapta (activată).</string>
   <string id="LeftToRight">De la stânga la dreapta</string>

@@ -36,7 +36,7 @@
   <string id="TrailingSlashErr">API URL pabaigoje negali būti pasvirojo brūkšnio „/“</string>
   <string id="WebhookFailed">Nepavyko užregistruoti Webhook</string>
   <string id="TemplateError">Nepavyko pateikti šablono</string>
-  <string id="Available" scope="glance">Galima</string>
+  <string id="Available" scope="glance">Yra</string>
   <string id="Checking" scope="glance">Tikrinama...</string>
   <string id="Unavailable" scope="glance">Nepasiekiamas</string>
   <string id="Unconfigured" scope="glance">Nesukonfigūruotas</string>
@@ -45,7 +45,7 @@
   <string id="Memory" scope="glance">Atmintis</string>
   <!-- Dėl nustatymų GUI -->
   <string id="SettingsSelect">Pasirinkite...</string>
-  <string id="SettingsApiKey">API raktas, skirtas „HomeAssistant“.</string>
+  <string id="SettingsApiKey">API raktas, skirtas HomeAssistant.</string>
   <string id="SettingsApiKeyPrompt">Ilgalaikis prieigos raktas.</string>
   <string id="SettingsApiUrl">„HomeAssistant“ API URL.</string>
   <string id="SettingsConfigUrl">Meniu konfigūravimo URL (JSON).</string>
@@ -53,7 +53,7 @@
   <string id="SettingsClearCache">Ar programa turėtų išvalyti esamą talpyklą kitą kartą paleidus?</string>
   <string id="SettingsVibration">Ar programa turėtų teikti grįžtamąjį ryšį per vibraciją?</string>
   <string id="SettingsAppTimeout">Skirtasis laikas sekundėmis. Po šio neveiklumo laikotarpio išeikite iš programos, kad taupytumėte įrenginio akumuliatorių.</string>
-  <string id="SettingsPollDelay">Papildoma apklausos delsa (milisekundėmis). Prideda delsą tarp meniu elementų būsenos atnaujinimo.</string>
+  <string id="SettingsPollDelay">Papildoma apklausos delsa (sekundėmis). Prideda delsą tarp visų meniu elementų būsenos atnaujinimo.</string>
   <string id="SettingsConfirmTimeout">Praėjus šiam laikui (sekundėmis), veiksmo patvirtinimo dialogo langas automatiškai uždaromas ir veiksmas atšaukiamas. Nustatykite 0, kad išjungtumėte skirtąjį laiką.</string>
   <string id="SettingsTextAlign">Kairysis (išjungtas) arba dešinysis (įjungtas) meniu lygiavimas.</string>
   <string id="LeftToRight">Iš kairės į dešinę</string>
