@@ -28,7 +28,7 @@
   <string id="NoAPIKey" scope="glance">Nicio cheie API în setările aplicației</string>
   <string id="NoApiUrl" scope="glance">Nicio adresă URL API în setările aplicației</string>
   <string id="NoConfigUrl" scope="glance">Nicio adresă URL de configurare în setările aplicației</string>
-  <string id="ApiFlood">Apeluri API prea rapide. Vă rugăm să vă încetiniți solicitările.</string>
+  <string id="ApiFlood">Apeluri API prea rapide. Vă rugăm să încetiniți cererile dvs.</string>
   <string id="ApiUrlNotFound">Adresa URL nu a fost găsită. Potențială eroare URL API în setări.</string>
   <string id="ConfigUrlNotFound">Adresa URL nu a fost găsită. Potențială eroare URL de configurare în setări.</string>
   <string id="NoJson">Niciun JSON nu a fost returnat de la solicitarea HTTP.</string>
