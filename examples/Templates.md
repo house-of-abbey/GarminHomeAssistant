@@ -58,6 +58,21 @@ In order to keep the formatting of floating point numbers under control, you mig
 },
 ```
 
+Where your device supports unicode characters these example may work.
+
+```json
+    {
+      "name": "Charge",
+      "type": "template",
+      "content": "☎ {{ states('sensor.my_phone_battery_level') }}%{% if is_state('binary_sensor.my_phone_is_charging', 'on') %}⚡{% endif %}, ⏳ {{ '%.0f'|format(states('sensor.my_watch_battery_level') | float) }}%{% if is_state('binary_binary_sensor.my_watch_battery_is_charging', 'on') %}⚡{% endif %}"
+    },
+    {
+      "name": "Hallway",
+      "type": "template",
+      "content": "🌡{% if is_state('sensor.hallway_temperature', 'unavailable') %}-{% else %}{{ '%.1f'|format(states('sensor.hallway_temperature')|float) }}°C{% if is_state_attr('climate.hallway', 'hvac_action', 'heating') or is_state_attr('climate.hallway', 'hvac_action', 'preheating') -%}🔥{%- endif %}{% endif %}, 💧{% if is_state('sensor.hallway_humidity', 'unavailable') %}-{% else %}{{ '%.1f'|format(states('sensor.hallway_humidity')|float) }}%{% endif %}"
+    }
+```
+
 ## Conditionals
 
 Anything between `{%` and `%}` is a directive (`if`, `else`, `elif`, `endif`, etc.). Conditionals are used to dynamically change the content based on the state of the entity.
