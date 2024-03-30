@@ -58,7 +58,7 @@ In order to keep the formatting of floating point numbers under control, you mig
 },
 ```
 
-Where your watch supports unicode characters these example may work.
+Where your device supports unicode characters these example may work.
 
 ```json
     {
