@@ -24,9 +24,9 @@
   <string id="NoPhone">Žiadne telefónne spojenie</string>
   <string id="NoInternet">Žiadne internetové pripojenie</string>
   <string id="NoResponse">Žiadna odpoveď, skontrolujte internetové pripojenie</string>
-  <string id="NoAPIKey">V nastaveniach aplikácie nie je žiadny kľúč API</string>
-  <string id="NoApiUrl">V nastaveniach aplikácie nie je žiadna adresa URL rozhrania API</string>
-  <string id="NoConfigUrl">V nastaveniach aplikácie nie je žiadna konfiguračná URL</string>
+  <string id="NoAPIKey">V nastaveniach aplikácie chýba kľúč API</string>
+  <string id="NoApiUrl">V nastaveniach aplikácie chýba adresa URL rozhrania API</string>
+  <string id="NoConfigUrl">V nastaveniach aplikácie chýba konfiguračná adresa URL</string>
   <string id="ApiFlood">Volania API sú príliš rýchle. Spomaľte svoje požiadavky.</string>
   <string id="ApiUrlNotFound">Adresa URL sa nenašla. Potenciálna chyba webovej adresy rozhrania API v nastaveniach.</string>
   <string id="ConfigUrlNotFound">Adresa URL sa nenašla. Potenciálna chyba konfiguračnej adresy URL v nastaveniach.</string>
@@ -37,7 +37,7 @@
   <string id="TemplateError">Vykreslenie šablóny zlyhalo</string>
   <string id="Available">K dispozícii</string>
   <string id="Checking">Prebieha kontrola...</string>
-  <string id="Unavailable">nedostupné</string>
+  <string id="Unavailable">Nedostupné</string>
   <string id="Unconfigured">Nekonfigurované</string>
   <string id="Cached">Vo vyrovnávacej pamäti</string>
   <string id="Menu">Ponuka</string>
@@ -45,7 +45,7 @@
   <!-- Pre nastavenia GUI -->
   <string id="SettingsSelect">Vybrať...</string>
   <string id="SettingsApiKey">Kľúč API pre HomeAssistant.</string>
-  <string id="SettingsApiKeyPrompt">Prístupový token s dlhou životnosťou.</string>
+  <string id="SettingsApiKeyPrompt">Dlhotrvajúci prístupový token.</string>
   <string id="SettingsApiUrl">URL pre HomeAssistant API.</string>
   <string id="SettingsConfigUrl">Webová adresa pre konfiguráciu ponuky (JSON).</string>
   <string id="SettingsCacheConfig">Má aplikácia uložiť do vyrovnávacej pamäte konfiguráciu ponuky?</string>
@@ -54,9 +54,9 @@
   <string id="SettingsConfirmTimeout">Po tomto čase (v sekundách) sa dialógové okno s potvrdením akcie automaticky zatvorí a akcia sa zruší. Ak chcete časový limit deaktivovať, nastavte na 0.</string>
   <string id="SettingsTextAlign">Zarovnanie ponuky vľavo (vypnuté) alebo vpravo (zapnuté).</string>
   <string id="LeftToRight">Zľava doprava</string>
-  <string id="RightToLeft">Zprava doľava</string>
+  <string id="RightToLeft">Sprava doľava</string>
   <string id="SettingsWidgetStart">Automaticky spustite aplikáciu z miniaplikácie bez čakania na ťuknutie.</string>
-  <string id="SettingsEnableBatteryLevel">Povoľte službu na pozadí na odosielanie údajov o stave batérie zariadenia, polohe a (ak je podporované) o aktivite domácemu asistentovi.</string>
+  <string id="SettingsEnableBatteryLevel">Povoľte službu na pozadí, ktorá bude do Home Assistenta odosielať údaje o stave batérie zariadenia, polohe a (ak je podporované) o aktivite.</string>
   <string id="SettingsBatteryLevelRefreshRate">Obnovovacia frekvencia (v minútach), pri ktorej by služba na pozadí mala opakovať odosielanie údajov.</string>
   <string id="WebhookId">(Len na čítanie) Webhook ID vytvorené zariadením pre aktualizácie služby na pozadí. Možno to budete potrebovať na ladenie.</string>
 </strings>

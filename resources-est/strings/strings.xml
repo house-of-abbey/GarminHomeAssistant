@@ -30,7 +30,7 @@
   <string id="ApiFlood">API-kõned liiga kiired. Palun aeglustage oma taotlusi.</string>
   <string id="ApiUrlNotFound">URL-i ei leitud. Võimalik API URL-i viga seadetes.</string>
   <string id="ConfigUrlNotFound">URL-i ei leitud. Võimalik konfiguratsiooni URL-i viga seadetes.</string>
-  <string id="NoJson">HTTP päringust ei tagastatud ühtegi JSON-i.</string>
+  <string id="NoJson">HTTP-päringust ei tagastatud ühtegi JSON-i.</string>
   <string id="UnhandledHttpErr">HTTP päring tagastas veakoodi =</string>
   <string id="TrailingSlashErr">API URL-i lõpus ei tohi olla kaldkriipsu „/”</string>
   <string id="WebhookFailed">Webhaoki registreerimine ebaõnnestus</string>

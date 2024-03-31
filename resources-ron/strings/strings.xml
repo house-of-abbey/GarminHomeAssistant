@@ -56,7 +56,7 @@
   <string id="LeftToRight">De la stânga la dreapta</string>
   <string id="RightToLeft">De la dreapta la stanga</string>
   <string id="SettingsWidgetStart">Porniți automat aplicația din widget fără a aștepta o atingere.</string>
-  <string id="SettingsEnableBatteryLevel">Activați serviciul de fundal pentru a trimite datele despre nivelul bateriei dispozitivului, locația și (dacă sunt acceptate) datele de activitate către Home Assistant.</string>
+  <string id="SettingsEnableBatteryLevel">Activați serviciul de fundal pentru a trimite datele despre nivelul bateriei dispozitivului, locația și (dacă este acceptat) datele de activitate către Home Assistant.</string>
   <string id="SettingsBatteryLevelRefreshRate">Rata de reîmprospătare (în minute) la care serviciul de fundal ar trebui să repete trimiterea datelor.</string>
   <string id="WebhookId">(Numai pentru citire) ID-ul Webhook creat de dispozitiv pentru actualizările serviciului de fundal. Este posibil să aveți nevoie de acest lucru pentru depanare.</string>
 </strings>

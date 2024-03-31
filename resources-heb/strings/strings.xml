@@ -51,12 +51,12 @@
   <string id="SettingsCacheConfig">האם האפליקציה צריכה לשמור את תצורת התפריט במטמון?</string>
   <string id="SettingsClearCache">האם היישום צריך לנקות את המטמון הקיים בפעם הבאה שהוא יופעל?</string>
   <string id="SettingsAppTimeout">פסק זמן בשניות. צא מהאפליקציה לאחר תקופה זו של חוסר פעילות כדי לחסוך בסוללת המכשיר.</string>
-  <string id="SettingsConfirmTimeout">לאחר זמן זה (בשניות), תיבת דו-שיח לאישור פעולה נסגרת אוטומטית והפעולה מבוטלת. הגדר ל-0 כדי לבטל את הזמן הקצוב.</string>
+  <string id="SettingsConfirmTimeout">לאחר זמן זה (בשניות), תיבת דו-שיח לאישור פעולה נסגרת אוטומטית והפעולה מבוטלת. הגדר ל-0 כדי להשבית את הזמן הקצוב.</string>
   <string id="SettingsTextAlign">יישור תפריט שמאלה (כבוי) או ימינה (מופעל).</string>
   <string id="LeftToRight">משמאל לימין</string>
   <string id="RightToLeft">מימין לשמאל</string>
   <string id="SettingsWidgetStart">הפעל את האפליקציה באופן אוטומטי מהווידג'ט מבלי לחכות להקשה.</string>
-  <string id="SettingsEnableBatteryLevel">אפשר את שירות הרקע כדי לשלוח את נתוני רמת הסוללה של המכשיר, מיקום (אם נתמכים) נתוני פעילות אל Home Assistant.</string>
+  <string id="SettingsEnableBatteryLevel">אפשר את שירות הרקע כדי לשלוח את נתוני רמת הסוללה של המכשיר, המיקום (אם נתמכים) ל-Home Assistant.</string>
   <string id="SettingsBatteryLevelRefreshRate">קצב הרענון (בדקות) שבו שירות הרקע צריך לחזור על שליחת נתונים.</string>
-  <string id="WebhookId">(לקריאה בלבד) מזהה ה-Webhook שנוצר על ידי המכשיר עבור עדכוני שירות ברקע. ייתכן שתדרוש זאת לצורך איתור באגים.</string>
+  <string id="WebhookId">(לקריאה בלבד) מזהה ה-Webhook שנוצר על ידי המכשיר עבור עדכוני שירות ברקע. ייתכן שתדרוש את זה בשביל איתור באגים.</string>
 </strings>
