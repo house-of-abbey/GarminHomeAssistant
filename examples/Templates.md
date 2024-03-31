@@ -73,6 +73,8 @@ Where your device supports unicode characters these example may work.
     }
 ```
 
+![Unicode Characters in a Template](../images/Unicode_Template.png)
+
 ## Conditionals
 
 Anything between `{%` and `%}` is a directive (`if`, `else`, `elif`, `endif`, etc.). Conditionals are used to dynamically change the content based on the state of the entity.
