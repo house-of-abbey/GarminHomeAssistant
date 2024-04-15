@@ -77,6 +77,7 @@ class HomeAssistantApp extends Application.AppBase {
         } else {
             fetchMenuConfig();
             fetchApiStatus();
+            System.println("HomeAssistantApp getInitialView(): Pushing root view");
             return [new RootView(self), new RootViewDelegate(self)] as Lang.Array<WatchUi.Views or WatchUi.InputDelegates>;
         }
     }
@@ -154,11 +155,11 @@ class HomeAssistantApp extends Application.AppBase {
             }
             if (menu == null) {
                 if (! System.getDeviceSettings().phoneConnected) {
-                    // System.println("HomeAssistantToggleMenuItem getState(): No Phone connection, skipping API call.");
+                    // System.println("HomeAssistantApp getState(): No Phone connection, skipping API call.");
                     ErrorView.show(WatchUi.loadResource($.Rez.Strings.NoPhone) as Lang.String + ".");
                     mMenuStatus = WatchUi.loadResource($.Rez.Strings.Unavailable) as Lang.String;
                 } else if (! System.getDeviceSettings().connectionAvailable) {
-                    // System.println("HomeAssistantToggleMenuItem getState(): No Internet connection, skipping API call.");
+                    // System.println("HomeAssistantApp getState(): No Internet connection, skipping API call.");
                     ErrorView.show(WatchUi.loadResource($.Rez.Strings.NoInternet) as Lang.String + ".");
                     mMenuStatus = WatchUi.loadResource($.Rez.Strings.Unavailable) as Lang.String;
                 } else {
@@ -187,6 +188,7 @@ class HomeAssistantApp extends Application.AppBase {
             // As soon as the menu has been fetched start show the menu of items.
             // This behaviour is inconsistent with the standard Garmin User Interface, but has been
             // requested by users so has been made the non-default option.
+            System.println("HomeAssistantApp buildMenu(): Pushing menu view");
             pushHomeAssistantMenuView();
         }
         mItemsToUpdate = mHaMenu.getItemsToUpdate();
@@ -256,11 +258,11 @@ class HomeAssistantApp extends Application.AppBase {
             WatchUi.requestUpdate();
         } else {
             if (! System.getDeviceSettings().phoneConnected) {
-                // System.println("HomeAssistantToggleMenuItem getState(): No Phone connection, skipping API call.");
+                // System.println("HomeAssistantApp getState(): No Phone connection, skipping API call.");
                 mApiStatus = WatchUi.loadResource($.Rez.Strings.Unavailable) as Lang.String;
                 ErrorView.show(WatchUi.loadResource($.Rez.Strings.NoPhone) as Lang.String + ".");
             } else if (! System.getDeviceSettings().connectionAvailable) {
-                // System.println("HomeAssistantToggleMenuItem getState(): No Internet connection, skipping API call.");
+                // System.println("HomeAssistantApp getState(): No Internet connection, skipping API call.");
                 mApiStatus = WatchUi.loadResource($.Rez.Strings.Unavailable) as Lang.String;
                 ErrorView.show(WatchUi.loadResource($.Rez.Strings.NoInternet) as Lang.String + ".");
             } else {
