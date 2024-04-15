@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+
+   Distributed under MIT Licence
+     See https://github.com/house-of-abbey/GarminHomeAssistantWidget/blob/main/LICENSE.
+
+
+   GarminHomeAssistantWidget is a Garmin IQ widget written in Monkey C. The source code is provided at:
+              https://github.com/house-of-abbey/GarminHomeAssistantWidget.
+
+   P A Abbey & J D Abbey & Someone0nEarth, 15 April 2024
+
+-->
+
+<!--
+  Corrections for the Czech language
+  Opravy pro český jazyk
+-->
+
+<strings>
+  <string id="Confirm">Určitě?</string>
+  <string id="Available">Dostupné</string>
+  <string id="Menu">Menu</string>
+</strings>
