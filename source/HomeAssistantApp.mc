@@ -77,7 +77,6 @@ class HomeAssistantApp extends Application.AppBase {
         } else {
             fetchMenuConfig();
             fetchApiStatus();
-            System.println("HomeAssistantApp getInitialView(): Pushing root view");
             return [new RootView(self), new RootViewDelegate(self)] as Lang.Array<WatchUi.Views or WatchUi.InputDelegates>;
         }
     }
@@ -188,7 +187,6 @@ class HomeAssistantApp extends Application.AppBase {
             // As soon as the menu has been fetched start show the menu of items.
             // This behaviour is inconsistent with the standard Garmin User Interface, but has been
             // requested by users so has been made the non-default option.
-            System.println("HomeAssistantApp buildMenu(): Pushing menu view");
             pushHomeAssistantMenuView();
         }
         mItemsToUpdate = mHaMenu.getItemsToUpdate();
