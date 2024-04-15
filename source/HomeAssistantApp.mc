@@ -130,6 +130,9 @@ class HomeAssistantApp extends Application.AppBase {
                     ErrorView.show(WatchUi.loadResource($.Rez.Strings.NoJson) as Lang.String);
                 } else {
                     buildMenu(data);
+                    if (Settings.getIsWidgetStartNoTap()){
+                        pushHomeAssistantMenuView();
+                    }
                 }
                 break;
 
@@ -141,7 +144,7 @@ class HomeAssistantApp extends Application.AppBase {
         WatchUi.requestUpdate();
     }
 
-    function fetchMenuConfig(){
+    function fetchMenuConfig() as Void{
         if (Settings.getConfigUrl().equals("")) {
             mMenuStatus = WatchUi.loadResource($.Rez.Strings.Unconfigured) as Lang.String;
             WatchUi.requestUpdate();
@@ -183,12 +186,6 @@ class HomeAssistantApp extends Application.AppBase {
     private function buildMenu(menu as Lang.Dictionary) {
         mHaMenu = new HomeAssistantView(menu, null);
         mQuitTimer.begin();
-        if (Settings.getIsWidgetStartNoTap()) {
-            // As soon as the menu has been fetched start show the menu of items.
-            // This behaviour is inconsistent with the standard Garmin User Interface, but has been
-            // requested by users so has been made the non-default option.
-            pushHomeAssistantMenuView();
-        }
         mItemsToUpdate = mHaMenu.getItemsToUpdate();
         // Start the continuous update process that continues for as long as the application is running.
         // The chain of functions from 'updateNextMenuItem()' calls 'updateNextMenuItem()' on completion.

@@ -37,15 +37,16 @@ class RootView extends ScalableView {
     // view a swipe to left / "back button" press is done.
 
     private static const scMidSep = 10; // Middle Separator "text:_text" in pixels
-    private var mApp        as HomeAssistantApp;
-    private var mTitle      as WatchUi.Text or Null;
-    private var mApiText    as WatchUi.Text or Null;
-    private var mApiStatus  as WatchUi.Text or Null;
-    private var mMenuText   as WatchUi.Text or Null;
-    private var mMenuStatus as WatchUi.Text or Null;
-    private var mMemText    as WatchUi.Text or Null;
-    private var mMemStatus  as WatchUi.Text or Null;
-    private var mAntiAlias  as Lang.Boolean = false;
+    private var mApp             as HomeAssistantApp;
+    private var mTitle           as WatchUi.Text or Null;
+    private var mApiText         as WatchUi.Text or Null;
+    private var mApiStatus       as WatchUi.Text or Null;
+    private var mMenuText        as WatchUi.Text or Null;
+    private var mMenuStatus      as WatchUi.Text or Null;
+    private var mMemText         as WatchUi.Text or Null;
+    private var mMemStatus       as WatchUi.Text or Null;
+    private var mAntiAlias       as Lang.Boolean = false;
+    private var mInitialShowing  as Lang.Boolean = true;
 
     function initialize(app as HomeAssistantApp) {
         ScalableView.initialize();
@@ -148,7 +149,17 @@ class RootView extends ScalableView {
     }
 
     function onShow() as Void {
-        WatchUi.requestUpdate();
+        if (mInitialShowing){
+            mInitialShowing=false;
+            
+            if (mApp.isHomeAssistantMenuLoaded() && Settings.getIsWidgetStartNoTap()){
+                mApp.pushHomeAssistantMenuView();
+            } else {
+                WatchUi.requestUpdate();
+            }
+        } else {
+            WatchUi.requestUpdate();
+        }
     }
 }
 
