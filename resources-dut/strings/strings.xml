@@ -47,7 +47,7 @@
   <string id="SettingsSelect">Selecteer...</string>
   <string id="SettingsApiKey">API-sleutel voor HomeAssistant.</string>
   <string id="SettingsApiKeyPrompt">Toegangstoken met lange levensduur.</string>
-  <string id="SettingsApiUrl">URL voor HomeAssistant API.</string>
+  <string id="SettingsApiUrl">URL voor HomeAssistant-API.</string>
   <string id="SettingsConfigUrl">URL voor menuconfiguratie (JSON).</string>
   <string id="SettingsCacheConfig">Moet de applicatie de menuconfiguratie in de cache opslaan?</string>
   <string id="SettingsClearCache">Moet de applicatie de volgende keer dat deze wordt gestart de bestaande cache wissen?</string>

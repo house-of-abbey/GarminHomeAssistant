@@ -51,7 +51,7 @@
   <string id="SettingsConfigUrl">Adres URL konfiguracji menu (JSON).</string>
   <string id="SettingsCacheConfig">Czy aplikacja powinna buforować konfigurację menu?</string>
   <string id="SettingsClearCache">Czy aplikacja powinna wyczyścić istniejącą pamięć podręczną przy następnym uruchomieniu?</string>
-  <string id="SettingsVibration">Czy aplikacja powinna przekazywać informację zwrotną za pomocą wibracji?</string>
+  <string id="SettingsVibration">Czy aplikacja powinna przekazywać informacje zwrotne za pośrednictwem wibracji?</string>
   <string id="SettingsAppTimeout">Limit czasu w sekundach. Wyjdź z aplikacji po tym okresie bezczynności, aby oszczędzać baterię urządzenia.</string>
   <string id="SettingsPollDelay">Dodatkowe opóźnienie odpytywania (w sekundach). Dodaje opóźnienie pomiędzy aktualizacją stanu wszystkich pozycji menu.</string>
   <string id="SettingsConfirmTimeout">Po tym czasie (w sekundach) okno dialogowe z potwierdzeniem akcji zamyka się automatycznie, a akcja zostaje anulowana. Ustaw na 0, aby wyłączyć limit czasu.</string>
@@ -61,5 +61,5 @@
   <string id="SettingsWidgetStart">(Tylko widget) Automatycznie uruchamiaj aplikację z widgetu, bez czekania na dotknięcie.</string>
   <string id="SettingsEnableBatteryLevel">Włącz usługę działającą w tle, aby wysyłać dane dotyczące poziomu naładowania baterii urządzenia, lokalizacji i (jeśli są obsługiwane) do Home Assistant.</string>
   <string id="SettingsBatteryLevelRefreshRate">Częstotliwość odświeżania (w minutach), z jaką usługa działająca w tle powinna powtarzać wysyłanie danych.</string>
-  <string id="WebhookId">(Tylko do odczytu) Identyfikator webhooka utworzony przez urządzenie na potrzeby aktualizacji usług w tle. Możesz tego potrzebować do debugowania.</string>
+  <string id="WebhookId">(Tylko do odczytu) Identyfikator webhook utworzony przez urządzenie na potrzeby aktualizacji usług w tle. Możesz tego potrzebować do debugowania.</string>
 </strings>

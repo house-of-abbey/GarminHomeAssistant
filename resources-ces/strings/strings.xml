@@ -20,7 +20,7 @@
 
 <strings>
   <string id="AppName" scope="glance">HomeAssistant</string>
-  <string id="Confirm">Tak určitě?</string>
+  <string id="Confirm">Určitě?</string>
   <string id="Executed" scope="glance">Potvrzeno</string>
   <string id="NoPhone" scope="glance">Žádné telefonní spojení</string>
   <string id="NoInternet">Žádné internetové připojení</string>
@@ -36,12 +36,12 @@
   <string id="TrailingSlashErr">Adresa URL rozhraní API nesmí mít koncové lomítko „/“</string>
   <string id="WebhookFailed">Registrace Webhooku se nezdařila</string>
   <string id="TemplateError">Vykreslení šablony se nezdařilo</string>
-  <string id="Available" scope="glance">Dostupný</string>
+  <string id="Available" scope="glance">Dostupné</string>
   <string id="Checking" scope="glance">Kontrola...</string>
   <string id="Unavailable" scope="glance">Není k dispozici</string>
   <string id="Unconfigured" scope="glance">Nenakonfigurováno</string>
   <string id="Cached" scope="glance">Uloženo do mezipaměti</string>
-  <string id="GlanceMenu" scope="glance">Jídelní lístek</string>
+  <string id="GlanceMenu" scope="glance">Menu</string>
   <string id="Memory" scope="glance">Paměť</string>
   <!-- Pro nastavení GUI -->
   <string id="SettingsSelect">Vybrat...</string>

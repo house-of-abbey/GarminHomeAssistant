@@ -50,7 +50,7 @@
   <string id="SettingsApiUrl">URL per l'API HomeAssistant.</string>
   <string id="SettingsConfigUrl">URL per la configurazione del menu (JSON).</string>
   <string id="SettingsCacheConfig">L'applicazione dovrebbe memorizzare nella cache la configurazione del menu?</string>
-  <string id="SettingsClearCache">L'applicazione dovrebbe svuotare la cache esistente al successivo avvio?</string>
+  <string id="SettingsClearCache">L'applicazione dovrebbe svuotare la cache esistente al prossimo avvio?</string>
   <string id="SettingsVibration">L'applicazione dovrebbe fornire feedback tramite vibrazioni?</string>
   <string id="SettingsAppTimeout">Timeout in secondi. Uscire dall'applicazione dopo questo periodo di inattività per risparmiare la batteria del dispositivo.</string>
   <string id="SettingsPollDelay">Ritardo polling aggiuntivo (in secondi). Aggiunge un ritardo tra l'aggiornamento dello stato di tutte le voci di menu.</string>

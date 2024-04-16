@@ -25,7 +25,7 @@
   <string id="NoPhone" scope="glance">Ei puhelinyhteyttä</string>
   <string id="NoInternet">Ei Internet-yhteyttä</string>
   <string id="NoResponse">Ei vastausta, tarkista Internet-yhteys</string>
-  <string id="NoAPIKey" scope="glance">Sovellusasetuksissa ei ole API-avainta</string>
+  <string id="NoAPIKey" scope="glance">Sovelluksen asetuksissa ei ole API-avainta</string>
   <string id="NoApiUrl" scope="glance">Sovellusasetuksissa ei ole API URL-osoitetta</string>
   <string id="NoConfigUrl" scope="glance">Sovelluksen asetuksissa ei ole konfigurointi-URL-osoitetta</string>
   <string id="ApiFlood">API-kutsut liian nopeita. Hidasta pyyntöjäsi.</string>
@@ -54,7 +54,7 @@
   <string id="SettingsVibration">Pitäisikö sovelluksen antaa palautetta tärinän kautta?</string>
   <string id="SettingsAppTimeout">Aikakatkaisu sekunneissa. Poistu sovelluksesta tämän käyttämättömyyden jälkeen säästääksesi laitteen akkua.</string>
   <string id="SettingsPollDelay">Ylimääräinen kyselyn viive (sekunneissa). Lisää viiveen kaikkien valikkokohtien tilapäivitysten välille.</string>
-  <string id="SettingsConfirmTimeout">Tämän ajan kuluttua (sekunneissa) toiminnon vahvistusikkuna suljetaan automaattisesti ja toiminto peruutetaan. Aseta arvoksi 0, jos haluat poistaa aikakatkaisun käytöstä.</string>
+  <string id="SettingsConfirmTimeout">Tämän ajan kuluttua (sekunneissa) toiminnon vahvistusikkuna suljetaan automaattisesti ja toiminto peruutetaan. Aseta arvoksi 0 poistaaksesi aikakatkaisun käytöstä.</string>
   <string id="SettingsTextAlign">Vasen (pois) tai oikea (päällä) valikon kohdistus.</string>
   <string id="LeftToRight">Vasemmalta oikealle</string>
   <string id="RightToLeft">Oikealta vasemmalle</string>

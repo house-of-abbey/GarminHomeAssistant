@@ -29,7 +29,7 @@
   <string id="NoApiUrl" scope="glance">アプリケーション設定に API URL がありません</string>
   <string id="NoConfigUrl" scope="glance">アプリケーション設定に構成 URL がありません</string>
   <string id="ApiFlood">API 呼び出しが速すぎます。リクエストは遅くしてください。</string>
-  <string id="ApiUrlNotFound">URLが見つかりません。設定における API URL エラーの可能性があります。</string>
+  <string id="ApiUrlNotFound">URLが見つかりません。設定内の API URL エラーの可能性があります。</string>
   <string id="ConfigUrlNotFound">URLが見つかりません。設定内の構成 URL エラーの可能性があります。</string>
   <string id="NoJson">HTTP リクエストから JSON が返されませんでした。</string>
   <string id="UnhandledHttpErr">HTTP リクエストがエラー コードを返しました =</string>
