@@ -149,10 +149,9 @@ class RootView extends ScalableView {
     }
 
     function onShow() as Void {
-        if (mInitialShowing){
-            mInitialShowing=false;
-
-            if (mApp.isHomeAssistantMenuLoaded() && Settings.getIsWidgetStartNoTap()){
+        if (mInitialShowing) {
+            mInitialShowing = false;
+            if (mApp.isHomeAssistantMenuLoaded() && Settings.getIsWidgetStartNoTap()) {
                 mApp.pushHomeAssistantMenuView();
             } else {
                 WatchUi.requestUpdate();
