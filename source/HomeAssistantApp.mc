@@ -150,7 +150,7 @@ class HomeAssistantApp extends Application.AppBase {
             WatchUi.requestUpdate();
         } else {
             var menu = Storage.getValue("menu") as Lang.Dictionary;
-            if (menu != null and Settings.getClearCache()) {
+            if (menu != null and (Settings.getClearCache() || !Settings.getCacheConfig())) {
                 Storage.deleteValue("menu");
                 menu = null;
                 Settings.unsetClearCache();
