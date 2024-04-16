@@ -45,13 +45,13 @@
   <!-- Pre nastavenia GUI -->
   <string id="SettingsSelect">Vybrať...</string>
   <string id="SettingsApiKey">Kľúč API pre HomeAssistant.</string>
-  <string id="SettingsApiKeyPrompt">Dlhotrvajúci prístupový token.</string>
+  <string id="SettingsApiKeyPrompt">Prístupový token s dlhou životnosťou.</string>
   <string id="SettingsApiUrl">URL pre HomeAssistant API.</string>
   <string id="SettingsConfigUrl">Webová adresa pre konfiguráciu ponuky (JSON).</string>
   <string id="SettingsCacheConfig">Má aplikácia uložiť do vyrovnávacej pamäte konfiguráciu ponuky?</string>
   <string id="SettingsClearCache">Mala by aplikácia pri ďalšom spustení vymazať existujúcu vyrovnávaciu pamäť?</string>
   <string id="SettingsAppTimeout">Časový limit v sekundách. Po tejto dobe nečinnosti ukončite aplikáciu, aby ste šetrili batériu zariadenia.</string>
-  <string id="SettingsConfirmTimeout">Po tomto čase (v sekundách) sa dialógové okno s potvrdením akcie automaticky zatvorí a akcia sa zruší. Ak chcete časový limit deaktivovať, nastavte na 0.</string>
+  <string id="SettingsConfirmTimeout">Po tomto čase (v sekundách) sa dialógové okno s potvrdením akcie automaticky zatvorí a akcia sa zruší. Ak chcete vypnúť časový limit, nastavte na 0.</string>
   <string id="SettingsTextAlign">Zarovnanie ponuky vľavo (vypnuté) alebo vpravo (zapnuté).</string>
   <string id="LeftToRight">Zľava doprava</string>
   <string id="RightToLeft">Sprava doľava</string>

@@ -47,7 +47,7 @@
   <string id="SettingsApiKey">Ключ API для HomeAssistant.</string>
   <string id="SettingsApiKeyPrompt">Довговічний маркер доступу.</string>
   <string id="SettingsApiUrl">URL для HomeAssistant API.</string>
-  <string id="SettingsConfigUrl">URL для налаштування меню (JSON).</string>
+  <string id="SettingsConfigUrl">URL-адреса для налаштування меню (JSON).</string>
   <string id="SettingsCacheConfig">Чи має програма кешувати конфігурацію меню?</string>
   <string id="SettingsClearCache">Чи слід програмі очистити наявний кеш під час наступного запуску?</string>
   <string id="SettingsAppTimeout">Час очікування в секундах. Вийдіть із програми після цього періоду бездіяльності, щоб заощадити батарею пристрою.</string>

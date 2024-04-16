@@ -19,28 +19,28 @@
 
 <strings>
   <string id="AppName">HomeAssistant</string>
-  <string id="Confirm">Tak určitě?</string>
+  <string id="Confirm">Určitě?</string>
   <string id="Executed">Potvrzeno</string>
   <string id="NoPhone">Žádné telefonní spojení</string>
   <string id="NoInternet">Žádné internetové připojení</string>
   <string id="NoResponse">Žádná odpověď, zkontrolujte připojení k internetu</string>
-  <string id="NoAPIKey">V nastavení aplikace není žádný klíč API</string>
+  <string id="NoAPIKey">V nastavení aplikace není klíč API</string>
   <string id="NoApiUrl">V nastavení aplikace není žádná adresa URL API</string>
   <string id="NoConfigUrl">V nastavení aplikace není žádná konfigurační URL</string>
   <string id="ApiFlood">Příliš rychlá volání API. Zpomalte prosím své požadavky.</string>
-  <string id="ApiUrlNotFound">Adresa URL nenalezena. Potenciální chyba adresy URL rozhraní API v nastavení.</string>
-  <string id="ConfigUrlNotFound">Adresa URL nenalezena. Potenciální chyba konfigurační adresy URL v nastavení.</string>
+  <string id="ApiUrlNotFound">Adresa URL nebyla nalezena. Potenciální chyba adresy URL rozhraní API v nastavení.</string>
+  <string id="ConfigUrlNotFound">Adresa URL nebyla nalezena. Potenciální chyba konfigurační adresy URL v nastavení.</string>
   <string id="NoJson">Z požadavku HTTP se nevrátil žádný JSON.</string>
   <string id="UnhandledHttpErr">Požadavek HTTP vrátil kód chyby =</string>
   <string id="TrailingSlashErr">Adresa URL rozhraní API nesmí mít koncové lomítko „/“</string>
   <string id="WebhookFailed">Registrace Webhooku se nezdařila</string>
   <string id="TemplateError">Vykreslení šablony se nezdařilo</string>
-  <string id="Available">Dostupný</string>
+  <string id="Available">Dostupné</string>
   <string id="Checking">Kontrola...</string>
   <string id="Unavailable">Není k dispozici</string>
   <string id="Unconfigured">Nenakonfigurováno</string>
   <string id="Cached">Uloženo do mezipaměti</string>
-  <string id="Menu">Jídelní lístek</string>
+  <string id="Menu">Menu</string>
   <string id="Memory">Paměť</string>
   <!-- Pro nastavení GUI -->
   <string id="SettingsSelect">Vybrat...</string>

@@ -49,7 +49,7 @@
   <string id="SettingsApiUrl">URL untuk API HomeAssistant.</string>
   <string id="SettingsConfigUrl">URL untuk konfigurasi menu (JSON).</string>
   <string id="SettingsCacheConfig">Sekiranya aplikasi cache konfigurasi menu?</string>
-  <string id="SettingsClearCache">Patutkah aplikasi mengosongkan cache sedia ada pada kali seterusnya ia dimulakan?</string>
+  <string id="SettingsClearCache">Patutkah aplikasi mengosongkan cache sedia ada pada masa seterusnya ia dimulakan?</string>
   <string id="SettingsAppTimeout">Tamat masa dalam beberapa saat. Keluar dari aplikasi selepas tempoh tidak aktif ini untuk menjimatkan bateri peranti.</string>
   <string id="SettingsConfirmTimeout">Selepas masa ini (dalam beberapa saat), dialog pengesahan untuk tindakan ditutup secara automatik dan tindakan itu dibatalkan. Tetapkan kepada 0 untuk melumpuhkan tamat masa.</string>
   <string id="SettingsTextAlign">Penjajaran Menu Kiri (mati) atau Kanan (hidup).</string>

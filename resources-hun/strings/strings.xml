@@ -55,8 +55,8 @@
   <string id="SettingsTextAlign">Balra (ki) vagy Jobbra (be) Menüigazítás.</string>
   <string id="LeftToRight">Balról jobbra</string>
   <string id="RightToLeft">Jobbról balra</string>
-  <string id="SettingsWidgetStart">Automatikusan indítsa el az alkalmazást a widgetből, anélkül, hogy egy érintésre várna.</string>
-  <string id="SettingsEnableBatteryLevel">Engedélyezze a háttérszolgáltatást, hogy elküldje az eszköz akkumulátorszintjét, helyét és (ha támogatott) tevékenységi adatait a Home Assistantnek.</string>
+  <string id="SettingsWidgetStart">Automatikusan indítsa el az alkalmazást a widgetből anélkül, hogy megvárna egy érintést.</string>
+  <string id="SettingsEnableBatteryLevel">Engedélyezze a háttérszolgáltatást, hogy elküldje az eszköz akkumulátorának töltöttségi szintjét, helyét és (ha támogatott) tevékenységi adatait a Home Assistantnek.</string>
   <string id="SettingsBatteryLevelRefreshRate">Az a frissítési gyakoriság (percben), amellyel a háttérszolgáltatásnak meg kell ismételnie az adatok küldését.</string>
   <string id="WebhookId">(Csak olvasható) Az eszköz által a háttérszolgáltatás frissítéséhez létrehozott Webhook-azonosító. Erre szükség lehet a hibakereséshez.</string>
 </strings>

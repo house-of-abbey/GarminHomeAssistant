@@ -25,7 +25,7 @@
   <string id="NoInternet">Ingen internetanslutning</string>
   <string id="NoResponse">Inget svar, kontrollera internetanslutningen</string>
   <string id="NoAPIKey">Ingen API-nyckel i applikationsinställningarna</string>
-  <string id="NoApiUrl">Ingen API-URL i applikationsinställningarna</string>
+  <string id="NoApiUrl">Ingen API-URL i programinställningarna</string>
   <string id="NoConfigUrl">Ingen konfigurations-URL i programinställningarna</string>
   <string id="ApiFlood">API-anrop för snabba. Vänligen sakta ner dina förfrågningar.</string>
   <string id="ApiUrlNotFound">Webbadressen hittades inte. Potentiellt API-URL-fel i inställningarna.</string>

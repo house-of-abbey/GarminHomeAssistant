@@ -28,7 +28,7 @@
   <string id="NoApiUrl">アプリケーション設定に API URL がありません</string>
   <string id="NoConfigUrl">アプリケーション設定に構成 URL がありません</string>
   <string id="ApiFlood">API 呼び出しが速すぎます。リクエストは遅くしてください。</string>
-  <string id="ApiUrlNotFound">URLが見つかりません。設定における API URL エラーの可能性があります。</string>
+  <string id="ApiUrlNotFound">URLが見つかりません。設定内の API URL エラーの可能性があります。</string>
   <string id="ConfigUrlNotFound">URLが見つかりません。設定内の構成 URL エラーの可能性があります。</string>
   <string id="NoJson">HTTP リクエストから JSON が返されませんでした。</string>
   <string id="UnhandledHttpErr">HTTP リクエストがエラー コードを返しました =</string>
@@ -52,7 +52,7 @@
   <string id="SettingsClearCache">アプリケーションは次回起動時に既存のキャッシュをクリアする必要がありますか?</string>
   <string id="SettingsAppTimeout">秒単位のタイムアウト。デバイスのバッテリーを節約するために、この期間非アクティブになった後はアプリケーションを終了してください。</string>
   <string id="SettingsConfirmTimeout">この時間 (秒単位) が経過すると、アクションの確認ダイアログが自動的に閉じられ、アクションがキャンセルされます。タイムアウトを無効にするには、0 に設定します。</string>
-  <string id="SettingsTextAlign">左 (オフ) または右 (オン) メニューの配置。</string>
+  <string id="SettingsTextAlign">メニューの左揃え (オフ) または右揃え (オン)。</string>
   <string id="LeftToRight">左から右へ</string>
   <string id="RightToLeft">右から左に</string>
   <string id="SettingsWidgetStart">タップを待たずにウィジェットからアプリを自動起動します。</string>
