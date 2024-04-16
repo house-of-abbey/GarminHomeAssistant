@@ -36,6 +36,9 @@ class Settings {
     private static var mAppTimeout            as Lang.Number  = 0;  // seconds
     private static var mConfirmTimeout        as Lang.Number  = 3;  // seconds
     private static var mMenuAlignment         as Lang.Number  = WatchUi.MenuItem.MENU_ITEM_LABEL_ALIGN_LEFT;
+    // As soon as the menu has been fetched start show the menu of items.
+    // This behaviour is inconsistent with the standard Garmin User Interface, but has been
+    // requested by users so has been made the non-default option.
     private static var mIsWidgetStartNoTap    as Lang.Boolean = false;
     private static var mIsBatteryLevelEnabled as Lang.Boolean = false;
     private static var mBatteryRefreshRate    as Lang.Number  = 15; // minutes
