@@ -29,7 +29,7 @@
   <string id="NoApiUrl" scope="glance">アプリケーション設定に API URL がありません</string>
   <string id="NoConfigUrl" scope="glance">アプリケーション設定に構成 URL がありません</string>
   <string id="ApiFlood">API 呼び出しが速すぎます。リクエストは遅くしてください。</string>
-  <string id="ApiUrlNotFound">URLが見つかりません。設定内の API URL エラーの可能性があります。</string>
+  <string id="ApiUrlNotFound">URLが見つかりません。設定における API URL エラーの可能性があります。</string>
   <string id="ConfigUrlNotFound">URLが見つかりません。設定内の構成 URL エラーの可能性があります。</string>
   <string id="NoJson">HTTP リクエストから JSON が返されませんでした。</string>
   <string id="UnhandledHttpErr">HTTP リクエストがエラー コードを返しました =</string>
@@ -46,7 +46,7 @@
   <!-- 設定GUIの場合 -->
   <string id="SettingsSelect">選択する...</string>
   <string id="SettingsApiKey">ホームアシスタントの API キー。</string>
-  <string id="SettingsApiKeyPrompt">有効期間の長いアクセス トークン。</string>
+  <string id="SettingsApiKeyPrompt">有効期限の長いアクセス トークン。</string>
   <string id="SettingsApiUrl">ホームアシスタント API の URL。</string>
   <string id="SettingsConfigUrl">メニュー構成の URL (JSON)。</string>
   <string id="SettingsCacheConfig">アプリケーションはメニュー構成をキャッシュする必要がありますか?</string>

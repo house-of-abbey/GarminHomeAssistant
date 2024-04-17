@@ -26,7 +26,7 @@
   <string id="NoInternet">Δεν υπάρχει σύνδεση στο διαδίκτυο</string>
   <string id="NoResponse">Καμία απάντηση, ελέγξτε τη σύνδεση στο Διαδίκτυο</string>
   <string id="NoAPIKey" scope="glance">Δεν υπάρχει κλειδί API στις ρυθμίσεις της εφαρμογής</string>
-  <string id="NoApiUrl" scope="glance">Δεν υπάρχει διεύθυνση URL API στις ρυθμίσεις της εφαρμογής</string>
+  <string id="NoApiUrl" scope="glance">Δεν υπάρχει URL API στις ρυθμίσεις της εφαρμογής</string>
   <string id="NoConfigUrl" scope="glance">Δεν υπάρχει διεύθυνση URL διαμόρφωσης στις ρυθμίσεις της εφαρμογής</string>
   <string id="ApiFlood">Κλήσεις API πολύ γρήγορες. Παρακαλώ επιβραδύνετε τα αιτήματά σας.</string>
   <string id="ApiUrlNotFound">Η διεύθυνση URL δεν βρέθηκε. Πιθανό σφάλμα διεύθυνσης URL API στις ρυθμίσεις.</string>
