@@ -20,11 +20,11 @@
 
 <strings>
   <string id="Confirm">Potvrďte</string>
-  <string id="Executed" scope="glance">Spustený</string>
-  <string id="NoAPIKey" scope="glance">V nastaveniach aplikácie chýba kľúč API</string>
-  <string id="NoApiUrl" scope="glance">V nastaveniach aplikácie chýba adresa URL rozhrania API</string>
-  <string id="NoConfigUrl" scope="glance">V nastaveniach aplikácie chýba konfiguračná adresa URL</string>
-  <string id="Unavailable" scope="glance">Nedostupné</string>
+  <string id="Executed">Spustený</string>
+  <string id="NoAPIKey">V nastaveniach aplikácie chýba kľúč API</string>
+  <string id="NoApiUrl">V nastaveniach aplikácie chýba adresa URL rozhrania API</string>
+  <string id="NoConfigUrl">V nastaveniach aplikácie chýba konfiguračná adresa URL</string>
+  <string id="Unavailable">Nedostupné</string>
   <string id="RightToLeft">Sprava doľava</string>
   <string id="SettingsEnableBatteryLevel">Povoľte službu na pozadí, ktorá bude do Home Assistenta odosielať údaje o stave batérie zariadenia, polohe a (ak je podporované) o aktivite.</string>
 </strings>
