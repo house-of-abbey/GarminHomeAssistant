@@ -36,7 +36,7 @@
   <string id="TrailingSlashErr">Adresa URL rozhrania API nesmie obsahovať koncovú lomku „/“</string>
   <string id="WebhookFailed">Registrácia Webhooku zlyhala</string>
   <string id="TemplateError">Vykreslenie šablóny zlyhalo</string>
-  <string id="Available" scope="glance">Dostupné</string>
+  <string id="Available" scope="glance">K dispozícii</string>
   <string id="Checking" scope="glance">Prebieha kontrola...</string>
   <string id="Unavailable" scope="glance">Nedostupné</string>
   <string id="Unconfigured" scope="glance">Nekonfigurované</string>

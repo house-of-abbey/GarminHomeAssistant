@@ -25,7 +25,7 @@
   <string id="NoPhone" scope="glance">Ei puhelinyhteyttä</string>
   <string id="NoInternet">Ei Internet-yhteyttä</string>
   <string id="NoResponse">Ei vastausta, tarkista Internet-yhteys</string>
-  <string id="NoAPIKey" scope="glance">Sovelluksen asetuksissa ei ole API-avainta</string>
+  <string id="NoAPIKey" scope="glance">Sovellusasetuksissa ei ole API-avainta</string>
   <string id="NoApiUrl" scope="glance">Sovellusasetuksissa ei ole API URL-osoitetta</string>
   <string id="NoConfigUrl" scope="glance">Sovelluksen asetuksissa ei ole konfigurointi-URL-osoitetta</string>
   <string id="ApiFlood">API-kutsut liian nopeita. Hidasta pyyntöjäsi.</string>

@@ -40,7 +40,7 @@
   <string id="Checking" scope="glance">Kontrol etme...</string>
   <string id="Unavailable" scope="glance">Kullanım dışı</string>
   <string id="Unconfigured" scope="glance">Yapılandırılmamış</string>
-  <string id="Cached" scope="glance">Önbelleğe alınmış</string>
+  <string id="Cached" scope="glance">Önbelleğe alındı</string>
   <string id="GlanceMenu" scope="glance">Menü</string>
   <string id="Memory" scope="glance">Hafıza</string>
   <!-- Ayarlar GUI'si için -->

@@ -29,9 +29,9 @@
   <string id="NoApiUrl" scope="glance">Nicio adresă URL API în setările aplicației</string>
   <string id="NoConfigUrl" scope="glance">Nicio adresă URL de configurare în setările aplicației</string>
   <string id="ApiFlood">Apeluri API prea rapide. Vă rugăm să vă încetiniți solicitările.</string>
-  <string id="ApiUrlNotFound">Adresa URL nu a fost găsită. Potențială eroare URL API în setări.</string>
-  <string id="ConfigUrlNotFound">Adresa URL nu a fost găsită. Potențială eroare URL de configurare în setări.</string>
-  <string id="NoJson">Nu a fost returnat niciun JSON de la solicitarea HTTP.</string>
+  <string id="ApiUrlNotFound">URL nu a fost găsit. Potențială eroare URL API în setări.</string>
+  <string id="ConfigUrlNotFound">URL nu a fost găsit. Potențială eroare URL de configurare în setări.</string>
+  <string id="NoJson">Niciun JSON nu a fost returnat de la solicitarea HTTP.</string>
   <string id="UnhandledHttpErr">Solicitarea HTTP a returnat codul de eroare =</string>
   <string id="TrailingSlashErr">Adresa URL API nu trebuie să aibă o bară oblică „/”</string>
   <string id="WebhookFailed">Nu s-a putut înregistra Webhook</string>
