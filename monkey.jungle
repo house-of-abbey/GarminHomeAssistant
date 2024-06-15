@@ -68,10 +68,12 @@ edge1040.resourcePath = $(edge1040.resourcePath);resources-launcher-40-40;resour
 edge520plus.resourcePath = $(edge520plus.resourcePath);resources-launcher-35-35;resources-icons-24
 # Screen Size 246x322 launcher icon size 35x35
 edge530.resourcePath = $(edge530.resourcePath);resources-launcher-35-35;resources-icons-28
+edge540.resourcePath = $(edge540.resourcePath);resources-launcher-35-35;resources-icons-28
 # Screen Size 200x265 launcher icon size 35x35
 edge820.resourcePath = $(edge820.resourcePath);resources-launcher-35-35;resources-icons-24
 # Screen Size 246x322 launcher icon size 35x35
 edge830.resourcePath = $(edge830.resourcePath);resources-launcher-35-35;resources-icons-28
+edge840.resourcePath = $(edge840.resourcePath);resources-launcher-35-35;resources-icons-28
 # Screen Size 240x400 launcher icon size 36x36
 edgeexplore.resourcePath = $(edgeexplore.resourcePath);resources-launcher-36-36;resources-icons-28
 edgeexplore2.resourcePath = $(edgeexplore2.resourcePath);resources-launcher-36-36;resources-icons-28
