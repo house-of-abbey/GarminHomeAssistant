@@ -56,8 +56,10 @@
       <iq:product id="edge1040" />
       <iq:product id="edge520plus" />
       <iq:product id="edge530" />
+      <iq:product id="edge540" />
       <iq:product id="edge820" />
       <iq:product id="edge830" />
+      <iq:product id="edge840" />
       <iq:product id="edgeexplore" />
       <iq:product id="edgeexplore2" />
       <iq:product id="enduro" />
