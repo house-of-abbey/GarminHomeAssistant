@@ -24,3 +24,4 @@
 |   2.9   | Added an option to enable confirmation vibration so it can be turned off by request of a user. Removed a redundant setting for the alternative Widget version that was not removed previously, and fixed a bug with dereferencing Null. |
 |   2.10  | Added a user requested feature to slow down the rate of API calls in order to reduce battery wear for a situation where the application is kept open permanently on the device for convenience. Added 4 new devices. |
 |   2.11  | Bug fix release for menu caching being turned off and language corrections (Czech & Slovenian). |
+|   2.12  | Re-enabled Edge 540 and Edge 840 devices which we are unable to support due to simulator issues, but the Edge 840 device has been confirmed as working by a @Petucky. |
