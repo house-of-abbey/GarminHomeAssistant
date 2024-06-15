@@ -23,3 +23,4 @@
 |   2.8   | Separation release. The application and widget are no longer joined and now have separate source code repositories. The widget version has gained a 5% memory saving and is now in "maintenance only mode" hence will not receive new features, whilst the application version can now take advantage of not being constrained by the widget's memory limitation, which should allow new features to be added in the future. |
 |   2.9   | Amended the settings text for a previously Widget only option, and fixed a bug with dereferencing Null. |
 |   2.10  | Bug fix release for menu caching being turned on with auto start and also being turned off, and language corrections (Czech & Slovenian). |
+|   2.11  | Re-enabled Edge 540 and Edge 840 devices which we are unable to support due to simulator issues, but the Edge 840 device has been confirmed as working by a @Petucky. |
