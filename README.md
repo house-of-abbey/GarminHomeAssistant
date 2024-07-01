@@ -43,7 +43,10 @@ Setup for this menu is more complicated than the Connect IQ settings menu really
 2. the file is editable within Home Assistant via "[Studio Code Server](https://my.home-assistant.io/redirect/supervisor_addon/?addon=a0d7b954_vscode)", and
 3. the schema is verifiable using [JSON Schema](https://json-schema.org/overview/what-is-jsonschema).
 
-We have used `/config/www/garmin/<something>.json` on our Home Assistant's file system. That equates to a URL of `https://homeassistant.local/local/garmin/<something>.json`.
+We have used `/config/www/garmin/<something>.json` on our home brew Home Assistant's file system. That equates to a URL of `https://homeassistant.local/local/garmin/<something>.json`.
+
+> [!IMPORTANT]
+> However [recent reports](https://community.home-assistant.io/t/www-folder-location-for-local-documents/24903/16) suggest this path may no longer work on [Nabu Casa](https://www.nabucasa.com/) and you should use `/homeassistant/www/` instead of `/config/www/`. We are unable to verify this since our free trial of Nabu Casa has expired.
 
 Schema verification is a big part of this design choice. If the application cannot read your menu definition, there's a limited amount of debug it can reasonably provide on a small screen. That responsibility now falls to you and the schema checker for help.
 
