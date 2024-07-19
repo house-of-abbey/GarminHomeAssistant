@@ -24,6 +24,7 @@
 using Toybox.Lang;
 using Toybox.Communications;
 using Toybox.System;
+using Toybox.WatchUi;
 
 // Can use push view so must never be run in a glance context
 class WebhookManager {
@@ -52,13 +53,13 @@ class WebhookManager {
                 break;
             case Communications.INVALID_HTTP_BODY_IN_NETWORK_RESPONSE:
                 // System.println("WebhookManager onReturnRequestWebhookId() Response Code: INVALID_HTTP_BODY_IN_NETWORK_RESPONSE, check JSON is returned.");
-                Settings.unsetIsBatteryLevelEnabled();
+                Settings.unsetIsSensorsLevelEnabled();
                 ErrorView.show(WatchUi.loadResource($.Rez.Strings.WebhookFailed) as Lang.String + "\n" + WatchUi.loadResource($.Rez.Strings.NoJson) as Lang.String);
                 break;
 
             case 404:
                 // System.println("WebhookManager onReturnRequestWebhookId() Response Code: 404, page not found. Check API URL setting.");
-                Settings.unsetIsBatteryLevelEnabled();
+                Settings.unsetIsSensorsLevelEnabled();
                 ErrorView.show(WatchUi.loadResource($.Rez.Strings.WebhookFailed) as Lang.String + "\n" + WatchUi.loadResource($.Rez.Strings.ApiUrlNotFound) as Lang.String);
                 break;
 
@@ -77,25 +78,25 @@ class WebhookManager {
                         "unit_of_measurement" => "%",
                         "state_class"         => "measurement",
                         "entity_category"     => "diagnostic",
-                        "disabled"            => false
+                        "disabled"            => !Settings.isSensorsLevelEnabled()
                     }, 0);
                 } else {
                     // System.println("WebhookManager onReturnRequestWebhookId(): No webhook id in response data.");
-                    Settings.unsetIsBatteryLevelEnabled();
+                    Settings.unsetIsSensorsLevelEnabled();
                     ErrorView.show(WatchUi.loadResource($.Rez.Strings.WebhookFailed) as Lang.String);
                 }
                 break;
 
             default:
                 // System.println("WebhookManager onReturnRequestWebhookId(): Unhandled HTTP response code = " + responseCode);
-                Settings.unsetIsBatteryLevelEnabled();
+                Settings.unsetIsSensorsLevelEnabled();
                 ErrorView.show(WatchUi.loadResource($.Rez.Strings.WebhookFailed) as Lang.String + "\n" + WatchUi.loadResource($.Rez.Strings.UnhandledHttpErr) as Lang.String + responseCode);
         }
     }
 
     function requestWebhookId() {
-        // System.println("WebhookManager requestWebhookId(): Requesting webhook id");
         var deviceSettings = System.getDeviceSettings();
+        // System.println("WebhookManager requestWebhookId(): Requesting webhook id for device = " + deviceSettings.uniqueIdentifier);
         Communications.makeWebRequest(
             Settings.getApiUrl() + "/mobile_app/registrations",
             {
@@ -153,21 +154,24 @@ class WebhookManager {
 
             case Communications.INVALID_HTTP_BODY_IN_NETWORK_RESPONSE:
                 // System.println("WebhookManager onReturnRegisterWebhookSensor() Response Code: INVALID_HTTP_BODY_IN_NETWORK_RESPONSE, check JSON is returned.");
+                // Webhook ID might have been deleted on Home Assistant server
                 Settings.unsetWebhookId();
-                Settings.unsetIsBatteryLevelEnabled();
-                ErrorView.show(WatchUi.loadResource($.Rez.Strings.WebhookFailed) as Lang.String + "\n" + WatchUi.loadResource($.Rez.Strings.NoJson) as Lang.String);
+                // System.println("WebhookManager onReturnRegisterWebhookSensor(): Webhook ID invalid, going full chain.");
+                requestWebhookId();
                 break;
 
             case 404:
-                // System.println("WebhookManager onReturnRequestWebhookId() Response Code: 404, page not found. Check API URL setting.");
+                // System.println("WebhookManager onReturnRegisterWebhookSensor() Response Code: 404, page not found. Check API URL setting.");
+                // Webhook ID might have been deleted on Home Assistant server
                 Settings.unsetWebhookId();
-                Settings.unsetIsBatteryLevelEnabled();
-                ErrorView.show(WatchUi.loadResource($.Rez.Strings.WebhookFailed) as Lang.String + "\n" + WatchUi.loadResource($.Rez.Strings.ApiUrlNotFound) as Lang.String);
+                // System.println("WebhookManager onReturnRegisterWebhookSensor(): Webhook ID invalid, going full chain.");
+                requestWebhookId();
                 break;
 
             case 200:
             case 201:
-                if ((data.get("success") as Lang.Boolean or Null) != false) {
+                var d = data as Lang.Dictionary;
+                if ((d.get("success") as Lang.Boolean or Null) != false) {
                     // System.println("WebhookManager onReturnRegisterWebhookSensor(): Success");
                     switch (step) {
                         case 0:
@@ -179,7 +183,7 @@ class WebhookManager {
                                 "type"            => "binary_sensor",
                                 "unique_id"       => "battery_is_charging",
                                 "entity_category" => "diagnostic",
-                                "disabled"        => false
+                                "disabled"        => !Settings.isSensorsLevelEnabled()
                             }, 1);
                             break;
                         case 1:
@@ -198,12 +202,12 @@ class WebhookManager {
                                     "state"     => activity,
                                     "type"      => "sensor",
                                     "unique_id" => "activity",
-                                    "disabled"  => false
+                                    "disabled"  => !Settings.isSensorsLevelEnabled()
                                 }, 2);
                                 break;
                             }
                         case 2:
-                            // System.println("WebhookManager onReturnRegisterWebhookSensor(): Registering next sensor: Activity");
+                            // System.println("WebhookManager onReturnRegisterWebhookSensor(): Registering next sensor: Sub-Activity");
                             if (Activity has :getProfileInfo) {
                                 var sub_activity = Activity.getProfileInfo().subSport;
                                 if ((Activity.getActivityInfo() != null) and
@@ -218,16 +222,18 @@ class WebhookManager {
                                     "state"     => sub_activity,
                                     "type"      => "sensor",
                                     "unique_id" => "sub_activity",
-                                    "disabled"  => false
+                                    "disabled"  => !Settings.isSensorsLevelEnabled()
                                 }, 3);
                                 break;
                             }
+                        case 3:
+                            getApp().startUpdates();
                         default:
                     }
                 } else {
                     // System.println("WebhookManager onReturnRegisterWebhookSensor(): Failure");
                     Settings.unsetWebhookId();
-                    Settings.unsetIsBatteryLevelEnabled();
+                    Settings.unsetIsSensorsLevelEnabled();
                     ErrorView.show(WatchUi.loadResource($.Rez.Strings.WebhookFailed) as Lang.String);
                 }
                 break;
@@ -235,15 +241,18 @@ class WebhookManager {
             default:
                 // System.println("WebhookManager onReturnRequestWebhookId(): Unhandled HTTP response code = " + responseCode);
                 Settings.unsetWebhookId();
-                Settings.unsetIsBatteryLevelEnabled();
+                Settings.unsetIsSensorsLevelEnabled();
                 ErrorView.show(WatchUi.loadResource($.Rez.Strings.WebhookFailed) as Lang.String + "\n" + WatchUi.loadResource($.Rez.Strings.UnhandledHttpErr) as Lang.String + responseCode);
         }
     }
 
     function registerWebhookSensor(sensor as Lang.Object, step as Lang.Number) {
+        var url = Settings.getApiUrl() + "/webhook/" + Settings.getWebhookId();
         // System.println("WebhookManager registerWebhookSensor(): Registering webhook sensor: " + sensor.toString());
+        // System.println("WebhookManager registerWebhookSensor(): URL=" + url);
+        // https://developers.home-assistant.io/docs/api/native-app-integration/sensors/#registering-a-sensor
         Communications.makeWebRequest(
-            Settings.getApiUrl() + "/webhook/" + Settings.getWebhookId(),
+            url,
             {
                 "type" => "register_sensor",
                 "data" => sensor
