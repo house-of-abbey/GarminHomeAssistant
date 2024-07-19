@@ -25,3 +25,4 @@
 |   2.10  | Added a user requested feature to slow down the rate of API calls in order to reduce battery wear for a situation where the application is kept open permanently on the device for convenience. Added 4 new devices. |
 |   2.11  | Bug fix release for menu caching being turned off and language corrections (Czech & Slovenian). |
 |   2.12  | Re-enabled Edge 540 and Edge 840 devices which we are unable to support due to simulator issues, but the Edge 840 device has been confirmed as working by a @Petucky. |
+|   2.13  | Moved the template status queries to Webhooks in order to fix the situation where an account is a non-privileged user. |
