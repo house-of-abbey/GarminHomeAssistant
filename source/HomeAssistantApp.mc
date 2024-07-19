@@ -145,6 +145,7 @@ class HomeAssistantApp extends Application.AppBase {
     }
 
     function fetchMenuConfig() as Void{
+        // System.println("URL = " + Settings.getConfigUrl());
         if (Settings.getConfigUrl().equals("")) {
             mMenuStatus = WatchUi.loadResource($.Rez.Strings.Unconfigured) as Lang.String;
             WatchUi.requestUpdate();
@@ -186,6 +187,9 @@ class HomeAssistantApp extends Application.AppBase {
     private function buildMenu(menu as Lang.Dictionary) {
         mHaMenu = new HomeAssistantView(menu, null);
         mQuitTimer.begin();
+    }
+
+    function startUpdates() {
         mItemsToUpdate = mHaMenu.getItemsToUpdate();
         // Start the continuous update process that continues for as long as the application is running.
         // The chain of functions from 'updateNextMenuItem()' calls 'updateNextMenuItem()' on completion.
