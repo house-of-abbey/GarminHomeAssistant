@@ -27,17 +27,18 @@ using Toybox.Timer;
 
 (:glance, :background)
 class HomeAssistantApp extends Application.AppBase {
-    private var mApiStatus           as Lang.String       or Null;
-    private var mMenuStatus          as Lang.String       or Null;
-    private var mHaMenu              as HomeAssistantView or Null;
-    private var mQuitTimer           as QuitTimer         or Null;
-    private var mGlanceTimer         as Timer.Timer       or Null;
-    private var mUpdateTimer         as Timer.Timer       or Null;
+    private var mApiStatus         as Lang.String       or Null;
+    private var mMenuStatus        as Lang.String       or Null;
+    private var mHaMenu            as HomeAssistantView or Null;
+    private var mQuitTimer         as QuitTimer         or Null;
+    private var mGlanceTimer       as Timer.Timer       or Null;
+    private var mUpdateTimer       as Timer.Timer       or Null;
     // Array initialised by onReturnFetchMenuConfig()
-    private var mItemsToUpdate       as Lang.Array<HomeAssistantToggleMenuItem or HomeAssistantTemplateMenuItem> or Null;
-    private var mNextItemToUpdate    as Lang.Number  = 0;     // Index into the above array
-    private var mIsGlance            as Lang.Boolean = false;
-    private var mIsApp               as Lang.Boolean = false; // Or Widget
+    private var mItemsToUpdate     as Lang.Array<HomeAssistantToggleMenuItem or HomeAssistantTemplateMenuItem> or Null;
+    private var mNextItemToUpdate  as Lang.Number  = 0;     // Index into the above array
+    private var mIsGlance          as Lang.Boolean = false;
+    private var mIsApp             as Lang.Boolean = false; // Or Widget
+    private var mIsInitUpdateCompl as Lang.Boolean = false;
 
     function initialize() {
         AppBase.initialize();
@@ -400,7 +401,7 @@ class HomeAssistantApp extends Application.AppBase {
 
     function updateNextMenuItem() as Void {
         var delay = Settings.getPollDelay();
-        if ((delay > 0) and (mNextItemToUpdate == 0)) {
+        if (mIsInitUpdateCompl and (delay > 0) and (mNextItemToUpdate == 0)) {
             mUpdateTimer.start(method(:updateNextMenuItemInternal), delay, false);
         } else {
             updateNextMenuItemInternal();
@@ -412,8 +413,16 @@ class HomeAssistantApp extends Application.AppBase {
     function updateNextMenuItemInternal() as Void {
         var itu = mItemsToUpdate as Lang.Array<HomeAssistantToggleMenuItem>;
         if (itu != null) {
+            // System.println("HomeAssistantApp updateNextMenuItemInternal(): Doing update for item " + mNextItemToUpdate + ", mIsInitUpdateCompl=" + mIsInitUpdateCompl);
             itu[mNextItemToUpdate].getState();
-            mNextItemToUpdate = (mNextItemToUpdate + 1) % itu.size();
+            // mNextItemToUpdate = (mNextItemToUpdate + 1) % itu.size() - But with roll-over detection
+            if (mNextItemToUpdate == itu.size()-1) {
+                // Last item completed return to the start of the list
+                mNextItemToUpdate  = 0;
+                mIsInitUpdateCompl = true;
+            } else {
+                mNextItemToUpdate++;
+            }
         // } else {
         //     System.println("HomeAssistantApp updateNextMenuItemInternal(): No menu items to update");
         }
