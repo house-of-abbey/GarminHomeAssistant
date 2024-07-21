@@ -408,6 +408,20 @@ class HomeAssistantApp extends Application.AppBase {
         }
     }
 
+    // Only call this function if Settings.getPollDelay() > 0. This must be tested locally as it is then efficient to take
+    // alternative action if the test fails.
+    function forceStatusUpdates() as Void {
+        // Don't mess with updates unless we are using a timer.
+        if (Settings.getPollDelay() > 0) {
+            mUpdateTimer.stop();
+            mIsInitUpdateCompl = false;
+            // Start from the beginning, or we will only get a partial round of updates before mIsInitUpdateCompl is flipped.
+            mNextItemToUpdate = 0;
+            // For immediate updates
+            updateNextMenuItem();
+        }
+    }
+
     // We need to spread out the API calls so as not to overload the results queue and cause Communications.BLE_QUEUE_FULL
     // (-101) error. This function is called by a timer every Globals.menuItemUpdateInterval ms.
     function updateNextMenuItemInternal() as Void {

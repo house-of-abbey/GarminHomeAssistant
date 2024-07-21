@@ -196,6 +196,8 @@ class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
                 break;
 
             case 200:
+                // System.println("HomeAssistantToggleMenuItem onReturnSetState(): Service executed.");
+                getApp().forceStatusUpdates();
                 var state;
                 var d = data as Lang.Array;
                 for(var i = 0; i < d.size(); i++) {

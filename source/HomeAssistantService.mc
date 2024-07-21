@@ -80,6 +80,7 @@ class HomeAssistantService {
 
             case 200:
                 // System.println("HomeAssistantService onReturnCall(): Service executed.");
+                getApp().forceStatusUpdates();
                 var d     = data as Lang.Array;
                 var toast = WatchUi.loadResource($.Rez.Strings.Executed) as Lang.String;
                 for(var i = 0; i < d.size(); i++) {
