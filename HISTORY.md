@@ -24,3 +24,4 @@
 |   2.9   | Amended the settings text for a previously Widget only option, and fixed a bug with dereferencing Null. |
 |   2.10  | Bug fix release for menu caching being turned on with auto start and also being turned off, and language corrections (Czech & Slovenian). |
 |   2.11  | Re-enabled Edge 540 and Edge 840 devices which we are unable to support due to simulator issues, but the Edge 840 device has been confirmed as working by a @Petucky. |
+|   2.12  | Moved the template status queries to Webhooks in order to fix the situation where an account is a non-privileged user. |

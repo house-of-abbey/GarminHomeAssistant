@@ -82,7 +82,7 @@ class HomeAssistantTemplateMenuItem extends WatchUi.IconMenuItem {
     // Terminate updating the toggle menu items via the chain of calls for a permanent network
     // error. The ErrorView cancellation will resume the call chain.
     //
-    function onReturnGetState(responseCode as Lang.Number, data as Lang.String) as Void {
+    function onReturnGetState(responseCode as Lang.Number, data as Null or Lang.Dictionary) as Void {
         // System.println("HomeAssistantTemplateMenuItem onReturnGetState() Response Code: " + responseCode);
         // System.println("HomeAssistantTemplateMenuItem onReturnGetState() Response Data: " + data);
 
@@ -130,7 +130,7 @@ class HomeAssistantTemplateMenuItem extends WatchUi.IconMenuItem {
 
             case 200:
                 status = WatchUi.loadResource($.Rez.Strings.Available) as Lang.String;
-                setSubLabel(data);
+                setSubLabel(data.get("request"));
                 requestUpdate();
                 // Now this feels very "closely coupled" to the application, but it is the most reliable method instead of using a timer.
                 getApp().updateNextMenuItem();
@@ -152,19 +152,28 @@ class HomeAssistantTemplateMenuItem extends WatchUi.IconMenuItem {
             // System.println("HomeAssistantTemplateMenuItem getState(): No Internet connection, skipping API call.");
             ErrorView.show(WatchUi.loadResource($.Rez.Strings.NoInternet) as Lang.String + ".");
             getApp().setApiStatus(WatchUi.loadResource($.Rez.Strings.Unavailable) as Lang.String);
+        } else if (Settings.getWebhookId().equals("")) {
+            getApp().updateNextMenuItem();
         } else {
-            var url = Settings.getApiUrl() + "/template";
+            // https://developers.home-assistant.io/docs/api/native-app-integration/sending-data/#render-templates
+            var url = Settings.getApiUrl() + "/webhook/" + Settings.getWebhookId();
             // System.println("HomeAssistantTemplateMenuItem getState() URL=" + url + ", Template='" + mTemplate + "'");
             Communications.makeWebRequest(
                 url,
-                { "template" => mTemplate },
                 {
-                    :method  => Communications.HTTP_REQUEST_METHOD_POST,
-                    :headers => {
-                        "Content-Type"  => Communications.REQUEST_CONTENT_TYPE_JSON,
-                        "Authorization" => "Bearer " + Settings.getApiKey()
+                    "type" => "render_template",
+                    "data" => {
+                        "request" => {
+                            "template" => mTemplate
+                        }
+                    }
+                },
+                {
+                    :method       => Communications.HTTP_REQUEST_METHOD_POST,
+                    :headers      => {
+                        "Content-Type" => Communications.REQUEST_CONTENT_TYPE_JSON
                     },
-                    :responseType => Communications.HTTP_RESPONSE_CONTENT_TYPE_TEXT_PLAIN
+                    :responseType => Communications.HTTP_RESPONSE_CONTENT_TYPE_JSON
                 },
                 method(:onReturnGetState)
             );

@@ -40,7 +40,7 @@ class Settings {
     // This behaviour is inconsistent with the standard Garmin User Interface, but has been
     // requested by users so has been made the non-default option.
     private static var mIsWidgetStartNoTap    as Lang.Boolean = false;
-    private static var mIsBatteryLevelEnabled as Lang.Boolean = false;
+    private static var mIsSensorsLevelEnabled as Lang.Boolean = false;
     private static var mBatteryRefreshRate    as Lang.Number  = 15; // minutes
     private static var mHasService            as Lang.Boolean = false;
     // Must keep the object so it doesn't get garbage collected.
@@ -58,29 +58,49 @@ class Settings {
         mConfirmTimeout        = Properties.getValue("confirm_timeout");
         mMenuAlignment         = Properties.getValue("menu_alignment");
         mIsWidgetStartNoTap    = Properties.getValue("widget_start_no_tap");
-        mIsBatteryLevelEnabled = Properties.getValue("enable_battery_level");
+        mIsSensorsLevelEnabled = Properties.getValue("enable_battery_level");
         mBatteryRefreshRate    = Properties.getValue("battery_level_refresh_rate");
 
         if (System has :ServiceDelegate) {
             mHasService = true;
         }
 
-        if (mIsBatteryLevelEnabled and mHasService) {
+        if (mHasService) {
+            mWebhookManager = new WebhookManager();
             if (getWebhookId().equals("")) {
-                mWebhookManager = new WebhookManager();
+                // System.println("Settings update(): Doing full webhook & sensor creation.");
                 mWebhookManager.requestWebhookId();
+            } else {
+                // System.println("Settings update(): Doing just sensor creation.");
+                // We already have a Webhook ID, so just enable or disable the sensor in Home Assistant.
+                // Its a multiple step process, hence starting at step 0.
+                mWebhookManager.registerWebhookSensor({
+                        "device_class"        => "battery",
+                        "name"                => "Battery Level",
+                        "state"               => System.getSystemStats().battery,
+                        "type"                => "sensor",
+                        "unique_id"           => "battery_level",
+                        "unit_of_measurement" => "%",
+                        "state_class"         => "measurement",
+                        "entity_category"     => "diagnostic",
+                        "disabled"            => !Settings.isSensorsLevelEnabled()
+                    }, 0);
             }
-            if ((Background.getTemporalEventRegisteredTime() == null) or
-                (Background.getTemporalEventRegisteredTime() != (mBatteryRefreshRate * 60))) {
-                Background.registerForTemporalEvent(new Time.Duration(mBatteryRefreshRate * 60)); // Convert to seconds
+            if (mIsSensorsLevelEnabled) {
+                // Create the timed activity
+                if ((Background.getTemporalEventRegisteredTime() == null) or
+                    (Background.getTemporalEventRegisteredTime() != (mBatteryRefreshRate * 60))) {
+                    Background.registerForTemporalEvent(new Time.Duration(mBatteryRefreshRate * 60)); // Convert to seconds
+                }
+            } else if (Background.getTemporalEventRegisteredTime() != null) {
+                Background.deleteTemporalEvent();
             }
         } else {
             // Explicitly disable the background event which persists when the application closes.
             // If !mHasService disable the Settings option as user feedback
-            unsetIsBatteryLevelEnabled();
+            unsetIsSensorsLevelEnabled();
             unsetWebhookId();
         }
-
         // System.println("Settings update(): getTemporalEventRegisteredTime() = " + Background.getTemporalEventRegisteredTime());
         // if (Background.getTemporalEventRegisteredTime() != null) {
         //     System.println("Settings update(): getTemporalEventRegisteredTime().value() = " + Background.getTemporalEventRegisteredTime().value().format("%d") + " seconds");
@@ -144,9 +164,13 @@ class Settings {
         return mIsWidgetStartNoTap;
     }
 
-    static function unsetIsBatteryLevelEnabled() {
-        mIsBatteryLevelEnabled = false;
-        Properties.setValue("enable_battery_level", mIsBatteryLevelEnabled);
+    static function isSensorsLevelEnabled() as Lang.Boolean {
+        return mIsSensorsLevelEnabled;
+    }
+
+    static function unsetIsSensorsLevelEnabled() {
+        mIsSensorsLevelEnabled = false;
+        Properties.setValue("enable_battery_level", mIsSensorsLevelEnabled);
         if (mHasService and (Background.getTemporalEventRegisteredTime() != null)) {
             Background.deleteTemporalEvent();
         }
