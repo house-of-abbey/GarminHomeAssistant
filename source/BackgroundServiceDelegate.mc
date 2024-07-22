@@ -56,23 +56,27 @@ class BackgroundServiceDelegate extends System.ServiceDelegate {
         } else if (!System.getDeviceSettings().connectionAvailable) {
             // System.println("BackgroundServiceDelegate onTemporalEvent(): No Internet connection, skipping API call.");
         } else {
-            var activity     = Activity.getProfileInfo().sport;
-            var sub_activity = Activity.getProfileInfo().subSport;
-            // We need to check if we are actually tracking any activity as the enumerated type does not include "No Sport".
-            if ((Activity.getActivityInfo() != null) and
-                ((Activity.getActivityInfo().elapsedTime == null) or
-                    (Activity.getActivityInfo().elapsedTime == 0))) {
-                // Indicate no activity with -1, not part of Garmin's activity codes.
-                // https://developer.garmin.com/connect-iq/api-docs/Toybox/Activity.html#Sport-module
-                activity     = -1;
-                sub_activity = -1;
+            var activity     = null;
+            var sub_activity = null;
+            if ((Activity has :getActivityInfo) and (Activity has :getProfileInfo)) {
+                activity     = Activity.getProfileInfo().sport;
+                sub_activity = Activity.getProfileInfo().subSport;
+                // We need to check if we are actually tracking any activity as the enumerated type does not include "No Sport".
+                if ((Activity.getActivityInfo() != null) and
+                    ((Activity.getActivityInfo().elapsedTime == null) or
+                        (Activity.getActivityInfo().elapsedTime == 0))) {
+                    // Indicate no activity with -1, not part of Garmin's activity codes.
+                    // https://developer.garmin.com/connect-iq/api-docs/Toybox/Activity.html#Sport-module
+                    activity     = -1;
+                    sub_activity = -1;
+                }
             }
             // System.println("BackgroundServiceDelegate onTemporalEvent(): Event triggered, activity = " + activity + " sub_activity = " + sub_activity);
             doUpdate(activity, sub_activity);
         }
     }
 
-    private function doUpdate(activity as Lang.Number, sub_activity as Lang.Number) {
+    private function doUpdate(activity as Lang.Number or Null, sub_activity as Lang.Number or Null) {
         // System.println("BackgroundServiceDelegate onTemporalEvent(): Making API call.");
         var position = Position.getInfo();
         // System.println("BackgroundServiceDelegate onTemporalEvent(): gps: " + position.position.toDegrees());
@@ -132,12 +136,14 @@ class BackgroundServiceDelegate extends System.ServiceDelegate {
                 "unique_id" => "battery_is_charging"
             }
         ];
-        if ((Activity has :getActivityInfo) and (Activity has :getProfileInfo)) {
+        if (activity != null) {
             data.add({
                 "state"     => activity,
                 "type"      => "sensor",
                 "unique_id" => "activity"
             });
+        }
+        if (sub_activity != null) {
             data.add({
                 "state"     => sub_activity,
                 "type"      => "sensor",
