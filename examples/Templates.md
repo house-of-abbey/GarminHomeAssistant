@@ -16,7 +16,6 @@ In this example we get the battery level of the device and add the percent sign.
 
 ```json
 {
-  "entity": "sensor.<device>_battery_level",
   "name": "Phone",
   "type": "template",
   "content": "{{ states('sensor.<device>_battery_level') }}%"
@@ -29,19 +28,16 @@ The first two keep to the simple proposal above. The last combines them into a s
 
 ```json
 {
-  "entity": "sensor.hallway_temperature",
   "name": "Hall Temp",
   "type": "template",
   "content": "{{ states('sensor.hallway_temperature') }}°C"
 },
 {
-  "entity": "sensor.hallway_humidity",
   "name": "Hall Humidity",
   "type": "template",
   "content": "{{ states('sensor.hallway_humidity') }}%"
 },
 {
-  "entity": "sensor.hallway_temperature",
   "name": "Hallway",
   "type": "template",
   "content": "{{ states('sensor.hallway_temperature') }}°C {{ states('sensor.hallway_humidity') }}%"
@@ -61,16 +57,16 @@ In order to keep the formatting of floating point numbers under control, you mig
 Where your device supports unicode characters these example may work.
 
 ```json
-    {
-      "name": "Charge",
-      "type": "template",
-      "content": "☎ {{ states('sensor.my_phone_battery_level') }}%{% if is_state('binary_sensor.my_phone_is_charging', 'on') %}⚡{% endif %}, ⏳ {{ '%.0f'|format(states('sensor.my_watch_battery_level') | float) }}%{% if is_state('binary_binary_sensor.my_watch_battery_is_charging', 'on') %}⚡{% endif %}"
-    },
-    {
-      "name": "Hallway",
-      "type": "template",
-      "content": "🌡{% if is_state('sensor.hallway_temperature', 'unavailable') %}-{% else %}{{ '%.1f'|format(states('sensor.hallway_temperature')|float) }}°C{% if is_state_attr('climate.hallway', 'hvac_action', 'heating') or is_state_attr('climate.hallway', 'hvac_action', 'preheating') -%}🔥{%- endif %}{% endif %}, 💧{% if is_state('sensor.hallway_humidity', 'unavailable') %}-{% else %}{{ '%.1f'|format(states('sensor.hallway_humidity')|float) }}%{% endif %}"
-    }
+{
+  "name": "Charge",
+  "type": "template",
+  "content": "☎ {{ states('sensor.my_phone_battery_level') }}%{% if is_state('binary_sensor.my_phone_is_charging', 'on') %}⚡{% endif %}, ⏳ {{ '%.0f'|format(states('sensor.my_watch_battery_level') | float) }}%{% if is_state('binary_binary_sensor.my_watch_battery_is_charging', 'on') %}⚡{% endif %}"
+},
+{
+  "name": "Hallway",
+  "type": "template",
+  "content": "🌡{% if is_state('sensor.hallway_temperature', 'unavailable') %}-{% else %}{{ '%.1f'|format(states('sensor.hallway_temperature')|float) }}°C{% if is_state_attr('climate.hallway', 'hvac_action', 'heating') or is_state_attr('climate.hallway', 'hvac_action', 'preheating') -%}🔥{%- endif %}{% endif %}, 💧{% if is_state('sensor.hallway_humidity', 'unavailable') %}-{% else %}{{ '%.1f'|format(states('sensor.hallway_humidity')|float) }}%{% endif %}"
+}
 ```
 
 ![Unicode Characters in a Template](../images/Unicode_Template.png)
@@ -83,7 +79,6 @@ In this example we get the battery level of the device and add the percent sign.
 
 ```json
 {
-  "entity": "sensor.<device>_battery_level",
   "name": "Phone",
   "type": "template",
   "content": "{{ states('sensor.<device>_battery_level') }}%{% if is_state('binary_sensor.<device>_is_charging', 'on') %}+{% endif %}"
@@ -94,10 +89,29 @@ Here we also use the else clause as well to give proper text instead of just `on
 
 ```json
 {
-  "entity": "binary_sensor.garage_doors",
   "name": "Garage Doors",
   "type": "template",
   "content": "{% if is_state('binary_sensor.<door-0>', 'on') %}Open{% else %}Closed{% endif %} {% if is_state('binary_sensor.<door-1>', 'on') %}Open{% else %}Closed{% endif %}"
+}
+```
+
+> [!IMPORTANT]
+> We advise users against adding security devices.
+
+However, users are doing this **against our advice** and asking how to operate 'covers'. This is an example of toggling a garage door open and closed with confirmation. *Do this at your own risk*.
+
+Note: Only when you use the `tap_action` field do you also need to include the `entity` field. This is a change to a previous version of the application, hence the presence of the `entity` field will be ignored for backwards compatibility, and the schema will provide a warning only.
+
+```json
+{
+  "entity": "cover.garage_door",
+  "name": "Garage Door",
+  "type": "template",
+  "content": "{% if is_state('binary_sensor.garage_connected', 'on') %}{{state_translated('cover.garage_door')}} - {{state_attr('cover.garage_door', 'current_position')}}%{%else%}Unconnected{% endif %}",
+  "tap_action": {
+    "service": "cover.toggle",
+    "confirm": true
+  }
 }
 ```
 
@@ -114,7 +128,6 @@ Here we generate a bar graph of the battery level. We use the following steps to
 
 ```json
 {
-  "entity": "sensor.<device>_battery_level",
   "name": "Phone",
   "type": "template",
   "content": "{{ states('sensor.<device>_battery_level') }}%{% if is_state('binary_sensor.<device>_is_charging', 'on') %}+{% endif %} {{ '#' * (((states('sensor.<device>_battery_level') | int) / 100 * <width>) | int) }}{{ '_' * (<width> - (((states('sensor.<device>_battery_level') | int) / 100 * <width>) | int)) }}"
@@ -125,11 +138,10 @@ An example of a dimmer light with 4 brightness settings 0..3. Here our light wor
 
 ```json
 {
-  "$schema": "./schema.json",
+  "$schema": "https://raw.githubusercontent.com/house-of-abbey/GarminHomeAssistant/main/config.schema.json",
   "title": "Home",
   "items": [
     {
-      "entity": "light.green_house",
       "name": "LEDs",
       "type": "template",
       "content": "{% if not (is_state('light.green_house', 'off') or is_state('light.green_house', 'unavailable')) %}{{ (((state_attr('light.green_house', 'brightness') | float) / 255 * 100) | round(0)) | int }}%{% else %}Off{% endif %}"
