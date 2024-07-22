@@ -91,9 +91,11 @@ class Settings {
                 if ((Background.getTemporalEventRegisteredTime() == null) or
                     (Background.getTemporalEventRegisteredTime() != (mBatteryRefreshRate * 60))) {
                     Background.registerForTemporalEvent(new Time.Duration(mBatteryRefreshRate * 60)); // Convert to seconds
+                    Background.registerForActivityCompletedEvent();
                 }
             } else if (Background.getTemporalEventRegisteredTime() != null) {
                 Background.deleteTemporalEvent();
+                Background.registerForActivityCompletedEvent();
             }
         } else {
             // Explicitly disable the background event which persists when the application closes.
@@ -173,6 +175,7 @@ class Settings {
         Properties.setValue("enable_battery_level", mIsSensorsLevelEnabled);
         if (mHasService and (Background.getTemporalEventRegisteredTime() != null)) {
             Background.deleteTemporalEvent();
+            Background.registerForActivityCompletedEvent();
         }
     }
 }
