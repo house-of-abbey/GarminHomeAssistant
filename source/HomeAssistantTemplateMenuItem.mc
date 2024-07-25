@@ -131,7 +131,19 @@ class HomeAssistantTemplateMenuItem extends WatchUi.IconMenuItem {
 
             case 200:
                 status = WatchUi.loadResource($.Rez.Strings.Available) as Lang.String;
-                setSubLabel(data.get("request"));
+                var label = data.get("request");
+                if (label == null) {
+                    setSubLabel("Empty");
+                } else if(label instanceof Lang.String) {
+                    setSubLabel(label);
+                } else if(label instanceof Lang.Dictionary) {
+                    System.println("HomeAssistantTemplateMenuItem onReturnGetState() label = " + label);
+                    if (label.get("error") != null) {
+                        setSubLabel("Template Error");
+                    } else {
+                        setSubLabel("Potential Error");
+                    }
+                }
                 requestUpdate();
                 // Now this feels very "closely coupled" to the application, but it is the most reliable method instead of using a timer.
                 getApp().updateNextMenuItem();
