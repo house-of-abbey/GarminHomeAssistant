@@ -26,3 +26,4 @@
 |   2.11  | Bug fix release for menu caching being turned off and language corrections (Czech & Slovenian). |
 |   2.12  | Re-enabled Edge 540 and Edge 840 devices which we are unable to support due to simulator issues, but the Edge 840 device has been confirmed as working by a @Petucky. |
 |   2.13  | Moved the template status queries to Webhooks in order to fix the situation where an account is a non-privileged user. Added telemetry update on activity completion to make automations more timely at the end of an activity. When using a polling delay, there is no longer a startup delay for status updates and an action will trigger an immediate round of updates. |
+|   2.14  | Cautionary bug fix for the background service code where refactorisation spoilt some API level guard clauses. |
