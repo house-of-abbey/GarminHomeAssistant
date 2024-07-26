@@ -43,6 +43,9 @@
   <string id="Cached" scope="glance">Kešatmiņā saglabāts</string>
   <string id="GlanceMenu" scope="glance">Izvēlne</string>
   <string id="Memory" scope="glance">Atmiņa</string>
+  <string id="Empty">Tukšs</string>
+  <string id="TemplateError">Veidnes kļūda</string>
+  <string id="PotentialError">Iespējama kļūda</string>
   <!-- Iestatījumu GUI -->
   <string id="SettingsSelect">Izvēlieties...</string>
   <string id="SettingsApiKey">API atslēga Home Assistant.</string>
@@ -55,7 +58,7 @@
   <string id="SettingsAppTimeout">Taimauts sekundēs. Pēc šī neaktivitātes perioda izejiet no lietojumprogrammas, lai taupītu ierīces akumulatoru.</string>
   <string id="SettingsPollDelay">Papildu aptaujas aizkave (sekundēs). Pievieno aizkavi starp visu izvēlnes vienumu statusa atjaunināšanu.</string>
   <string id="SettingsConfirmTimeout">Pēc šī laika (sekundēs) tiek automātiski aizvērts darbības apstiprinājuma dialoglodziņš un darbība tiek atcelta. Iestatiet uz 0, lai atspējotu taimautu.</string>
-  <string id="SettingsTextAlign">Kreisā (izslēgta) vai labā (ieslēgta) izvēlnes līdzināšana.</string>
+  <string id="SettingsTextAlign">Kreisā (izslēgta) vai labā (ieslēgta) izvēlnes izlīdzināšana.</string>
   <string id="LeftToRight">No kreisās uz labo</string>
   <string id="RightToLeft">No labās uz kreiso</string>
   <string id="SettingsWidgetStart">(tikai logrīkam) Automātiski startējiet lietojumprogrammu no logrīka, negaidot pieskārienu.</string>

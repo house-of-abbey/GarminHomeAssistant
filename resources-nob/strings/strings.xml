@@ -43,6 +43,9 @@
   <string id="Cached" scope="glance">Bufret</string>
   <string id="GlanceMenu" scope="glance">Meny</string>
   <string id="Memory" scope="glance">Hukommelse</string>
+  <string id="Empty">Tømme</string>
+  <string id="TemplateError">Malfeil</string>
+  <string id="PotentialError">Potensiell feil</string>
   <!-- For innstillingene GUI -->
   <string id="SettingsSelect">Plukke ut...</string>
   <string id="SettingsApiKey">API-nøkkel for HomeAssistant.</string>
@@ -61,5 +64,5 @@
   <string id="SettingsWidgetStart">(Kun widget) Start applikasjonen automatisk fra widgeten uten å vente på et trykk.</string>
   <string id="SettingsEnableBatteryLevel">Aktiver bakgrunnstjenesten for å sende enhetens batterinivå, plassering og (hvis støttet) aktivitetsdata til Home Assistant.</string>
   <string id="SettingsBatteryLevelRefreshRate">Oppdateringshastigheten (i minutter) som bakgrunnstjenesten skal gjenta sending av data med.</string>
-  <string id="WebhookId">(Skrivebeskyttet) Webhook-IDen opprettet av enheten for bakgrunnstjenesteoppdateringer. Du kan kreve dette for feilsøking.</string>
+  <string id="WebhookId">(Skrivebeskyttet) Webhook-IDen opprettet av enheten for oppdateringer av bakgrunnstjenester. Du kan kreve dette for feilsøking.</string>
 </strings>

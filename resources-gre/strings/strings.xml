@@ -20,7 +20,7 @@
 
 <strings>
   <string id="AppName" scope="glance">HomeAssistant</string>
-  <string id="Confirm">Σίγουρος?</string>
+  <string id="Confirm">Σίγουρος;</string>
   <string id="Executed" scope="glance">Επιβεβαιωμένος</string>
   <string id="NoPhone" scope="glance">Δεν υπάρχει σύνδεση τηλεφώνου</string>
   <string id="NoInternet">Δεν υπάρχει σύνδεση στο διαδίκτυο</string>
@@ -30,10 +30,10 @@
   <string id="NoConfigUrl" scope="glance">Δεν υπάρχει διεύθυνση URL διαμόρφωσης στις ρυθμίσεις της εφαρμογής</string>
   <string id="ApiFlood">Κλήσεις API πολύ γρήγορες. Παρακαλώ επιβραδύνετε τα αιτήματά σας.</string>
   <string id="ApiUrlNotFound">Η διεύθυνση URL δεν βρέθηκε. Πιθανό σφάλμα διεύθυνσης URL API στις ρυθμίσεις.</string>
-  <string id="ConfigUrlNotFound">Η διεύθυνση URL δεν βρέθηκε. Πιθανό σφάλμα διεύθυνσης URL διαμόρφωσης στις ρυθμίσεις.</string>
+  <string id="ConfigUrlNotFound">Η διεύθυνση URL δεν βρέθηκε. Πιθανό σφάλμα διαμόρφωσης URL στις ρυθμίσεις.</string>
   <string id="NoJson">Δεν επιστράφηκε JSON από αίτημα HTTP.</string>
   <string id="UnhandledHttpErr">Το αίτημα HTTP επέστρεψε κωδικό σφάλματος =</string>
-  <string id="TrailingSlashErr">Η διεύθυνση URL του API δεν πρέπει να έχει τελική κάθετο "/"</string>
+  <string id="TrailingSlashErr">Η διεύθυνση URL του API δεν πρέπει να έχει κάθετο "/"</string>
   <string id="WebhookFailed">Η εγγραφή του Webhook απέτυχε</string>
   <string id="TemplateError">Απέτυχε η απόδοση του προτύπου</string>
   <string id="Available" scope="glance">Διαθέσιμος</string>
@@ -43,6 +43,9 @@
   <string id="Cached" scope="glance">Αποθηκευμένο στην κρυφή μνήμη</string>
   <string id="GlanceMenu" scope="glance">Μενού</string>
   <string id="Memory" scope="glance">Μνήμη</string>
+  <string id="Empty">Αδειάζω</string>
+  <string id="TemplateError">Σφάλμα προτύπου</string>
+  <string id="PotentialError">Πιθανό σφάλμα</string>
   <!-- Για τις ρυθμίσεις GUI -->
   <string id="SettingsSelect">Επιλέγω...</string>
   <string id="SettingsApiKey">Κλειδί API για το HomeAssistant.</string>

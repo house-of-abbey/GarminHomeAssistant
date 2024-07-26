@@ -28,7 +28,7 @@
   <string id="NoAPIKey" scope="glance">Rakenduse seadetes pole API-võtit</string>
   <string id="NoApiUrl" scope="glance">Rakenduse seadetes pole API URL-i</string>
   <string id="NoConfigUrl" scope="glance">Rakenduse seadetes pole konfiguratsiooni URL-i</string>
-  <string id="ApiFlood">API-kutsed liiga kiired. Palun aeglustage oma taotlusi.</string>
+  <string id="ApiFlood">API-kõned liiga kiired. Palun aeglustage oma taotlusi.</string>
   <string id="ApiUrlNotFound">URL-i ei leitud. Võimalik API URL-i viga seadetes.</string>
   <string id="ConfigUrlNotFound">URL-i ei leitud. Võimalik konfiguratsiooni URL-i viga seadetes.</string>
   <string id="NoJson">HTTP-päringust ei tagastatud ühtegi JSON-i.</string>
@@ -43,6 +43,9 @@
   <string id="Cached" scope="glance">Vahemällu salvestatud</string>
   <string id="GlanceMenu" scope="glance">Menüü</string>
   <string id="Memory" scope="glance">Mälu</string>
+  <string id="Empty">Tühi</string>
+  <string id="TemplateError">Malli viga</string>
+  <string id="PotentialError">Võimalik viga</string>
   <!-- Seadete GUI jaoks -->
   <string id="SettingsSelect">Vali...</string>
   <string id="SettingsApiKey">API-võti HomeAssistantile.</string>
