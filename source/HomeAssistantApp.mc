@@ -262,11 +262,13 @@ class HomeAssistantApp extends Application.AppBase {
     }
 
     function startUpdates() {
-        mItemsToUpdate = mHaMenu.getItemsToUpdate();
-        // Start the continuous update process that continues for as long as the application is running.
-        // The chain of functions from 'updateNextMenuItem()' calls 'updateNextMenuItem()' on completion.
-        if (mItemsToUpdate.size() > 0) {
-            updateNextMenuItemInternal();
+        if (mHaMenu != null) {
+            mItemsToUpdate = mHaMenu.getItemsToUpdate();
+            // Start the continuous update process that continues for as long as the application is running.
+            // The chain of functions from 'updateNextMenuItem()' calls 'updateNextMenuItem()' on completion.
+            if (mItemsToUpdate.size() > 0) {
+                updateNextMenuItemInternal();
+            }
         }
     }
 
