@@ -133,15 +133,15 @@ class HomeAssistantTemplateMenuItem extends WatchUi.IconMenuItem {
                 status = WatchUi.loadResource($.Rez.Strings.Available) as Lang.String;
                 var label = data.get("request");
                 if (label == null) {
-                    setSubLabel("Empty");
+                    setSubLabel($.Rez.Strings.Empty);
                 } else if(label instanceof Lang.String) {
                     setSubLabel(label);
                 } else if(label instanceof Lang.Dictionary) {
                     System.println("HomeAssistantTemplateMenuItem onReturnGetState() label = " + label);
                     if (label.get("error") != null) {
-                        setSubLabel("Template Error");
+                        setSubLabel($.Rez.Strings.TemplateError);
                     } else {
-                        setSubLabel("Potential Error");
+                        setSubLabel($.Rez.Strings.PotentialError);
                     }
                 }
                 requestUpdate();
