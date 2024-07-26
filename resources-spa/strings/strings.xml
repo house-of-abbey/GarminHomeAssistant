@@ -24,42 +24,45 @@
   <string id="Executed" scope="glance">Confirmado</string>
   <string id="NoPhone" scope="glance">Sin conexión telefónica</string>
   <string id="NoInternet">Sin conexión a Internet</string>
-  <string id="NoResponse">No hay respuesta, verifique la conexión a Internet</string>
-  <string id="NoAPIKey" scope="glance">Sin clave API en la configuración de la aplicación</string>
+  <string id="NoResponse">Sin respuesta, verifique la conexión a Internet</string>
+  <string id="NoAPIKey" scope="glance">No hay clave API en la configuración de la aplicación</string>
   <string id="NoApiUrl" scope="glance">No hay URL de API en la configuración de la aplicación</string>
-  <string id="NoConfigUrl" scope="glance">No hay URL de configuración en la configuración de la aplicación.</string>
-  <string id="ApiFlood">Llamadas API demasiado rápidas. Por favor, ralentice sus solicitudes.</string>
+  <string id="NoConfigUrl" scope="glance">No hay URL de configuración en la configuración de la aplicación</string>
+  <string id="ApiFlood">Las llamadas a la API son demasiado rápidas. Reduzca la velocidad de sus solicitudes.</string>
   <string id="ApiUrlNotFound">URL no encontrada. Posible error de URL de API en la configuración.</string>
-  <string id="ConfigUrlNotFound">URL no encontrada. Posible error de URL de configuración en la configuración.</string>
-  <string id="NoJson">No se devolvió ningún JSON de la solicitud HTTP.</string>
+  <string id="ConfigUrlNotFound">URL no encontrada. Posible error de configuración de URL en los ajustes.</string>
+  <string id="NoJson">No se devolvió JSON de la solicitud HTTP.</string>
   <string id="UnhandledHttpErr">La solicitud HTTP devolvió el código de error =</string>
-  <string id="TrailingSlashErr">La URL de API no debe tener una barra diagonal '/'</string>
+  <string id="TrailingSlashErr">La URL de la API no debe tener una barra diagonal final '/'</string>
   <string id="WebhookFailed">No se pudo registrar el webhook</string>
   <string id="TemplateError">No se pudo renderizar la plantilla</string>
   <string id="Available" scope="glance">Disponible</string>
   <string id="Checking" scope="glance">Comprobación...</string>
   <string id="Unavailable" scope="glance">Indisponible</string>
-  <string id="Unconfigured" scope="glance">Desconfigurado</string>
+  <string id="Unconfigured" scope="glance">Sin configurar</string>
   <string id="Cached" scope="glance">En caché</string>
   <string id="GlanceMenu" scope="glance">Menú</string>
   <string id="Memory" scope="glance">Memoria</string>
+  <string id="Empty">Vacío</string>
+  <string id="TemplateError">Error de plantilla</string>
+  <string id="PotentialError">Error potencial</string>
   <!-- Para la configuración GUI -->
   <string id="SettingsSelect">Seleccionar...</string>
   <string id="SettingsApiKey">Clave API para HomeAssistant.</string>
   <string id="SettingsApiKeyPrompt">Token de acceso de larga duración.</string>
   <string id="SettingsApiUrl">URL para la API de HomeAssistant.</string>
-  <string id="SettingsConfigUrl">URL para configuración del menú (JSON).</string>
-  <string id="SettingsCacheConfig">¿La aplicación debería almacenar en caché la configuración del menú?</string>
-  <string id="SettingsClearCache">¿La aplicación debería borrar el caché existente la próxima vez que se inicie?</string>
+  <string id="SettingsConfigUrl">URL para la configuración del menú (JSON).</string>
+  <string id="SettingsCacheConfig">¿La aplicación debe almacenar en caché la configuración del menú?</string>
+  <string id="SettingsClearCache">¿La aplicación debe borrar el caché existente la próxima vez que se inicie?</string>
   <string id="SettingsVibration">¿La aplicación debería proporcionar retroalimentación mediante vibraciones?</string>
   <string id="SettingsAppTimeout">Tiempo de espera en segundos. Salga de la aplicación después de este período de inactividad para ahorrar batería del dispositivo.</string>
-  <string id="SettingsPollDelay">Retraso adicional en la encuesta (en segundos). Agrega un retraso entre la actualización del estado de todos los elementos del menú.</string>
+  <string id="SettingsPollDelay">Retraso de sondeo adicional (en segundos). Agrega un retraso entre la actualización de estado de todos los elementos del menú.</string>
   <string id="SettingsConfirmTimeout">Después de este tiempo (en segundos), se cierra automáticamente un cuadro de diálogo de confirmación de una acción y se cancela la acción. Establezca en 0 para desactivar el tiempo de espera.</string>
   <string id="SettingsTextAlign">Alineación del menú izquierda (desactivada) o derecha (activada).</string>
   <string id="LeftToRight">De izquierda a derecha</string>
   <string id="RightToLeft">De derecha a izquierda</string>
   <string id="SettingsWidgetStart">(Solo widget) Inicia automáticamente la aplicación desde el widget sin esperar un toque.</string>
-  <string id="SettingsEnableBatteryLevel">Habilite el servicio en segundo plano para enviar el nivel de batería del dispositivo, la ubicación y (si es compatible) datos de actividad a Home Assistant.</string>
-  <string id="SettingsBatteryLevelRefreshRate">La frecuencia de actualización (en minutos) a la que el servicio en segundo plano debe repetir el envío de datos.</string>
-  <string id="WebhookId">(Solo lectura) El ID de Webhook creado por el dispositivo para actualizaciones del servicio en segundo plano. Es posible que necesite esto para la depuración.</string>
+  <string id="SettingsEnableBatteryLevel">Habilite el servicio en segundo plano para enviar el nivel de batería del dispositivo, la ubicación y (si es compatible) los datos de actividad a Home Assistant.</string>
+  <string id="SettingsBatteryLevelRefreshRate">La frecuencia de actualización (en minutos) con la que el servicio en segundo plano debe repetir el envío de datos.</string>
+  <string id="WebhookId">(Solo lectura) El ID del Webhook creado por el dispositivo para actualizaciones del servicio en segundo plano. Es posible que necesite esto para la depuración.</string>
 </strings>

@@ -131,7 +131,19 @@ class HomeAssistantTemplateMenuItem extends WatchUi.IconMenuItem {
 
             case 200:
                 status = WatchUi.loadResource($.Rez.Strings.Available) as Lang.String;
-                setSubLabel(data.get("request"));
+                var label = data.get("request");
+                if (label == null) {
+                    setSubLabel($.Rez.Strings.Empty);
+                } else if(label instanceof Lang.String) {
+                    setSubLabel(label);
+                } else if(label instanceof Lang.Dictionary) {
+                    // System.println("HomeAssistantTemplateMenuItem onReturnGetState() label = " + label);
+                    if (label.get("error") != null) {
+                        setSubLabel($.Rez.Strings.TemplateError);
+                    } else {
+                        setSubLabel($.Rez.Strings.PotentialError);
+                    }
+                }
                 requestUpdate();
                 // Now this feels very "closely coupled" to the application, but it is the most reliable method instead of using a timer.
                 getApp().updateNextMenuItem();
@@ -153,8 +165,6 @@ class HomeAssistantTemplateMenuItem extends WatchUi.IconMenuItem {
             // System.println("HomeAssistantTemplateMenuItem getState(): No Internet connection, skipping API call.");
             ErrorView.show(WatchUi.loadResource($.Rez.Strings.NoInternet) as Lang.String + ".");
             getApp().setApiStatus(WatchUi.loadResource($.Rez.Strings.Unavailable) as Lang.String);
-        } else if (Settings.getWebhookId().equals("")) {
-            getApp().updateNextMenuItem();
         } else {
             // https://developers.home-assistant.io/docs/api/native-app-integration/sending-data/#render-templates
             var url = Settings.getApiUrl() + "/webhook/" + Settings.getWebhookId();

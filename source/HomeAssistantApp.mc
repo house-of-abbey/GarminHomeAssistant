@@ -39,6 +39,7 @@ class HomeAssistantApp extends Application.AppBase {
     private var mIsGlance          as Lang.Boolean = false;
     private var mIsApp             as Lang.Boolean = false; // Or Widget
     private var mIsInitUpdateCompl as Lang.Boolean = false;
+    private var mUpdating          as Lang.Boolean = false; // Don't start a second chain of updates
 
     function initialize() {
         AppBase.initialize();
@@ -109,10 +110,10 @@ class HomeAssistantApp extends Application.AppBase {
             // System.println("HomeAssistantApp getInitialView(): No configuration URL in the application settings.");
             return ErrorView.create(WatchUi.loadResource($.Rez.Strings.NoConfigUrl) as Lang.String + ".");
         } else if (! System.getDeviceSettings().phoneConnected) {
-            // System.println("HomeAssistantApp fetchMenuConfig(): No Phone connection, skipping API call.");
+            // System.println("HomeAssistantApp getInitialView(): No Phone connection, skipping API call.");
             return ErrorView.create(WatchUi.loadResource($.Rez.Strings.NoPhone) as Lang.String + ".");
         } else if (! System.getDeviceSettings().connectionAvailable) {
-            // System.println("HomeAssistantApp fetchMenuConfig(): No Internet connection, skipping API call.");
+            // System.println("HomeAssistantApp getInitialView(): No Internet connection, skipping API call.");
             return ErrorView.create(WatchUi.loadResource($.Rez.Strings.NoInternet) as Lang.String + ".");
         } else {
             var isCached = fetchMenuConfig();
@@ -218,7 +219,7 @@ class HomeAssistantApp extends Application.AppBase {
             }
             if (menu == null) {
                 if (! System.getDeviceSettings().phoneConnected) {
-                    // System.println("HomeAssistantApp getState(): No Phone connection, skipping API call.");
+                    // System.println("HomeAssistantApp fetchMenuConfig(): No Phone connection, skipping API call.");
                     if (mIsGlance) {
                         WatchUi.requestUpdate();
                     } else {
@@ -226,7 +227,7 @@ class HomeAssistantApp extends Application.AppBase {
                     }
                     mMenuStatus = WatchUi.loadResource($.Rez.Strings.Unavailable) as Lang.String;
                 } else if (! System.getDeviceSettings().connectionAvailable) {
-                    // System.println("HomeAssistantApp getState(): No Internet connection, skipping API call.");
+                    // System.println("HomeAssistantApp fetchMenuConfig(): No Internet connection, skipping API call.");
                     if (mIsGlance) {
                         WatchUi.requestUpdate();
                     } else {
@@ -262,11 +263,14 @@ class HomeAssistantApp extends Application.AppBase {
     }
 
     function startUpdates() {
-        mItemsToUpdate = mHaMenu.getItemsToUpdate();
-        // Start the continuous update process that continues for as long as the application is running.
-        // The chain of functions from 'updateNextMenuItem()' calls 'updateNextMenuItem()' on completion.
-        if (mItemsToUpdate.size() > 0) {
-            updateNextMenuItemInternal();
+        if (mHaMenu != null and !mUpdating) {
+            mItemsToUpdate = mHaMenu.getItemsToUpdate();
+            // Start the continuous update process that continues for as long as the application is running.
+            // The chain of functions from 'updateNextMenuItem()' calls 'updateNextMenuItem()' on completion.
+            if (mItemsToUpdate.size() > 0) {
+                mUpdating = true;
+                updateNextMenuItemInternal();
+            }
         }
     }
 
@@ -345,7 +349,7 @@ class HomeAssistantApp extends Application.AppBase {
             WatchUi.requestUpdate();
         } else {
             if (! System.getDeviceSettings().phoneConnected) {
-                // System.println("HomeAssistantApp getState(): No Phone connection, skipping API call.");
+                // System.println("HomeAssistantApp fetchApiStatus(): No Phone connection, skipping API call.");
                 mApiStatus = WatchUi.loadResource($.Rez.Strings.Unavailable) as Lang.String;
                 if (mIsGlance) {
                     WatchUi.requestUpdate();
@@ -353,7 +357,7 @@ class HomeAssistantApp extends Application.AppBase {
                     ErrorView.show(WatchUi.loadResource($.Rez.Strings.NoPhone) as Lang.String + ".");
                 }
             } else if (! System.getDeviceSettings().connectionAvailable) {
-                // System.println("HomeAssistantApp getState(): No Internet connection, skipping API call.");
+                // System.println("HomeAssistantApp fetchApiStatus(): No Internet connection, skipping API call.");
                 mApiStatus = WatchUi.loadResource($.Rez.Strings.Unavailable) as Lang.String;
                 if (mIsGlance) {
                     WatchUi.requestUpdate();

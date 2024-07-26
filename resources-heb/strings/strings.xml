@@ -43,6 +43,9 @@
   <string id="Cached" scope="glance">שמור במטמון</string>
   <string id="GlanceMenu" scope="glance">תַפרִיט</string>
   <string id="Memory" scope="glance">זיכרון</string>
+  <string id="Empty">ריק</string>
+  <string id="TemplateError">שגיאת תבנית</string>
+  <string id="PotentialError">שגיאה פוטנציאלית</string>
   <!-- עבור ה-GUI של ההגדרות -->
   <string id="SettingsSelect">בחר...</string>
   <string id="SettingsApiKey">מפתח API עבור HomeAssistant.</string>
@@ -54,7 +57,7 @@
   <string id="SettingsVibration">האם האפליקציה צריכה לספק משוב באמצעות רעידות?</string>
   <string id="SettingsAppTimeout">פסק זמן בשניות. צא מהאפליקציה לאחר תקופה זו של חוסר פעילות כדי לחסוך בסוללת המכשיר.</string>
   <string id="SettingsPollDelay">עיכוב נוסף בסקר (בשניות). מוסיף עיכוב בין עדכון המצב של כל פריטי התפריט.</string>
-  <string id="SettingsConfirmTimeout">לאחר זמן זה (בשניות), תיבת דו-שיח לאישור פעולה נסגרת אוטומטית והפעולה מבוטלת. הגדר ל-0 כדי להשבית את הזמן הקצוב.</string>
+  <string id="SettingsConfirmTimeout">לאחר זמן זה (בשניות), תיבת דו-שיח לאישור פעולה נסגרת אוטומטית והפעולה מבוטלת. הגדר ל-0 כדי לבטל את הזמן הקצוב.</string>
   <string id="SettingsTextAlign">יישור תפריט שמאלה (כבוי) או ימינה (מופעל).</string>
   <string id="LeftToRight">משמאל לימין</string>
   <string id="RightToLeft">מימין לשמאל</string>

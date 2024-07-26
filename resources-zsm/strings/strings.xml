@@ -43,6 +43,9 @@
   <string id="Cached" scope="glance">Dicache</string>
   <string id="GlanceMenu" scope="glance">Menu</string>
   <string id="Memory" scope="glance">Ingatan</string>
+  <string id="Empty">kosong</string>
+  <string id="TemplateError">Ralat Templat</string>
+  <string id="PotentialError">Ralat Berpotensi</string>
   <!-- Untuk GUI tetapan -->
   <string id="SettingsSelect">Pilih...</string>
   <string id="SettingsApiKey">Kunci API untuk HomeAssistant.</string>

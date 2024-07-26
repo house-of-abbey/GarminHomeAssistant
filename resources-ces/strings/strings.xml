@@ -29,8 +29,8 @@
   <string id="NoApiUrl" scope="glance">V nastavení aplikace není žádná adresa URL API</string>
   <string id="NoConfigUrl" scope="glance">V nastavení aplikace není žádná konfigurační URL</string>
   <string id="ApiFlood">Příliš rychlá volání API. Zpomalte prosím své požadavky.</string>
-  <string id="ApiUrlNotFound">Adresa URL nebyla nalezena. Potenciální chyba adresy URL rozhraní API v nastavení.</string>
-  <string id="ConfigUrlNotFound">Adresa URL nebyla nalezena. Potenciální chyba konfigurační adresy URL v nastavení.</string>
+  <string id="ApiUrlNotFound">Adresa URL nenalezena. Potenciální chyba URL API v nastavení.</string>
+  <string id="ConfigUrlNotFound">Adresa URL nenalezena. Potenciální chyba konfigurační adresy URL v nastavení.</string>
   <string id="NoJson">Z požadavku HTTP se nevrátil žádný JSON.</string>
   <string id="UnhandledHttpErr">Požadavek HTTP vrátil kód chyby =</string>
   <string id="TrailingSlashErr">Adresa URL rozhraní API nesmí mít koncové lomítko „/“</string>
@@ -43,6 +43,9 @@
   <string id="Cached" scope="glance">Uloženo do mezipaměti</string>
   <string id="GlanceMenu" scope="glance">Menu</string>
   <string id="Memory" scope="glance">Paměť</string>
+  <string id="Empty">Prázdný</string>
+  <string id="TemplateError">Chyba šablony</string>
+  <string id="PotentialError">Potenciální chyba</string>
   <!-- Pro nastavení GUI -->
   <string id="SettingsSelect">Vybrat...</string>
   <string id="SettingsApiKey">Klíč API pro HomeAssistant.</string>
