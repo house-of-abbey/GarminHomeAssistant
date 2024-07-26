@@ -37,9 +37,9 @@
   <string id="Cached" scope="glance">Cached</string>
   <string id="GlanceMenu" scope="glance">Menu</string>
   <string id="Memory" scope="glance">Memory</string>
-  <string id="Empty" scope="glance">Empty</string>
-  <string id="TemplateError" scope="glance">Template Error</string>
-  <string id="PotentialError" scope="glance">Potential Error</string>
+  <string id="Empty">Empty</string>
+  <string id="TemplateError">Template Error</string>
+  <string id="PotentialError">Potential Error</string>
 
   <!-- For the settings GUI -->
   <string id="SettingsSelect">Select...</string>
