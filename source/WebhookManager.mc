@@ -69,17 +69,7 @@ class WebhookManager {
                 if (id != null) {
                     Settings.setWebhookId(id);
                     // System.println("WebhookManager onReturnRegisterWebhookSensor(): Registering first sensor: Battery Level");
-                    registerWebhookSensor({
-                        "device_class"        => "battery",
-                        "name"                => "Battery Level",
-                        "state"               => System.getSystemStats().battery,
-                        "type"                => "sensor",
-                        "unique_id"           => "battery_level",
-                        "unit_of_measurement" => "%",
-                        "state_class"         => "measurement",
-                        "entity_category"     => "diagnostic",
-                        "disabled"            => !Settings.isSensorsLevelEnabled()
-                    }, 0);
+                    registerWebhookSensors();
                 } else {
                     // System.println("WebhookManager onReturnRequestWebhookId(): No webhook id in response data.");
                     Settings.unsetIsSensorsLevelEnabled();
@@ -125,7 +115,7 @@ class WebhookManager {
         );
     }
 
-    function onReturnRegisterWebhookSensor(responseCode as Lang.Number, data as Null or Lang.Dictionary or Lang.String, step as Lang.Number) as Void {
+    function onReturnRegisterWebhookSensor(responseCode as Lang.Number, data as Null or Lang.Dictionary or Lang.String, sensors as Lang.Array<Lang.Object>) as Void {
         switch (responseCode) {
             case Communications.BLE_HOST_TIMEOUT:
             case Communications.BLE_CONNECTION_UNAVAILABLE:
@@ -172,63 +162,10 @@ class WebhookManager {
             case 201:
                 var d = data as Lang.Dictionary;
                 if ((d.get("success") as Lang.Boolean or Null) != false) {
-                    // System.println("WebhookManager onReturnRegisterWebhookSensor(): Success");
-                    switch (step) {
-                        case 0:
-                            // System.println("WebhookManager onReturnRegisterWebhookSensor(): Registering next sensor: Battery is Charging");
-                            registerWebhookSensor({
-                                "device_class"    => "battery_charging",
-                                "name"            => "Battery is Charging",
-                                "state"           => System.getSystemStats().charging,
-                                "type"            => "binary_sensor",
-                                "unique_id"       => "battery_is_charging",
-                                "entity_category" => "diagnostic",
-                                "disabled"        => !Settings.isSensorsLevelEnabled()
-                            }, 1);
-                            break;
-                        case 1:
-                            // System.println("WebhookManager onReturnRegisterWebhookSensor(): Registering next sensor: Activity");
-                            if (Activity has :getProfileInfo) {
-                                var activity = Activity.getProfileInfo().sport;
-                                if ((Activity.getActivityInfo() != null) and
-                                    ((Activity.getActivityInfo().elapsedTime == null) or
-                                     (Activity.getActivityInfo().elapsedTime == 0))) {
-                                    // Indicate no activity with -1, not part of Garmin's activity codes.
-                                    // https://developer.garmin.com/connect-iq/api-docs/Toybox/Activity.html#Sport-module
-                                    activity = -1;
-                                }
-                                registerWebhookSensor({
-                                    "name"      => "Activity",
-                                    "state"     => activity,
-                                    "type"      => "sensor",
-                                    "unique_id" => "activity",
-                                    "disabled"  => !Settings.isSensorsLevelEnabled()
-                                }, 2);
-                                break;
-                            }
-                        case 2:
-                            // System.println("WebhookManager onReturnRegisterWebhookSensor(): Registering next sensor: Sub-Activity");
-                            if (Activity has :getProfileInfo) {
-                                var sub_activity = Activity.getProfileInfo().subSport;
-                                if ((Activity.getActivityInfo() != null) and
-                                    ((Activity.getActivityInfo().elapsedTime == null) or
-                                     (Activity.getActivityInfo().elapsedTime == 0))) {
-                                    // Indicate no activity with -1, not part of Garmin's activity codes.
-                                    // https://developer.garmin.com/connect-iq/api-docs/Toybox/Activity.html#Sport-module
-                                    sub_activity = -1;
-                                }
-                                registerWebhookSensor({
-                                    "name"      => "Sub-activity",
-                                    "state"     => sub_activity,
-                                    "type"      => "sensor",
-                                    "unique_id" => "sub_activity",
-                                    "disabled"  => !Settings.isSensorsLevelEnabled()
-                                }, 3);
-                                break;
-                            }
-                        case 3:
-                            getApp().startUpdates();
-                        default:
+                    if (sensors.size() == 0) {
+                        getApp().startUpdates();
+                    } else {
+                        registerWebhookSensor(sensors);
                     }
                 } else {
                     // System.println("WebhookManager onReturnRegisterWebhookSensor(): Failure");
@@ -246,7 +183,7 @@ class WebhookManager {
         }
     }
 
-    function registerWebhookSensor(sensor as Lang.Object, step as Lang.Number) {
+    function registerWebhookSensor(sensors as Lang.Array<Lang.Object>) {
         var url = Settings.getApiUrl() + "/webhook/" + Settings.getWebhookId();
         // System.println("WebhookManager registerWebhookSensor(): Registering webhook sensor: " + sensor.toString());
         // System.println("WebhookManager registerWebhookSensor(): URL=" + url);
@@ -255,7 +192,7 @@ class WebhookManager {
             url,
             {
                 "type" => "register_sensor",
-                "data" => sensor
+                "data" => sensors[0]
             },
             {
                 :method       => Communications.HTTP_REQUEST_METHOD_POST,
@@ -263,10 +200,118 @@ class WebhookManager {
                     "Content-Type" => Communications.REQUEST_CONTENT_TYPE_JSON
                 },
                 :responseType => Communications.HTTP_RESPONSE_CONTENT_TYPE_JSON,
-                :context      => step
+                :context      => sensors.slice(1, null)
             },
             method(:onReturnRegisterWebhookSensor)
         );
+    }
+
+    function registerWebhookSensors() {
+        var activityInfo = ActivityMonitor.getInfo();
+        var heartRate = Activity.getActivityInfo().currentHeartRate;
+
+        var sensors = [
+            {
+                "device_class"        => "battery",
+                "name"                => "Battery Level",
+                "state"               => System.getSystemStats().battery,
+                "type"                => "sensor",
+                "unique_id"           => "battery_level",
+                "unit_of_measurement" => "%",
+                "state_class"         => "measurement",
+                "entity_category"     => "diagnostic",
+                "disabled"            => !Settings.isSensorsLevelEnabled()
+            },
+            {
+                "device_class"    => "battery_charging",
+                "name"            => "Battery is Charging",
+                "state"           => System.getSystemStats().charging,
+                "type"            => "binary_sensor",
+                "unique_id"       => "battery_is_charging",
+                "entity_category" => "diagnostic",
+                "disabled"        => !Settings.isSensorsLevelEnabled()
+            },
+            {
+                "name"        => "Steps today",
+                "state"       => activityInfo.steps == null ? "unknown" : activityInfo.steps,
+                "type"        => "sensor",
+                "unique_id"   => "steps_today",
+                "icon"        => "mdi:shoe-print",
+                "state_class" => "total",
+                "disabled"    => !Settings.isSensorsLevelEnabled()
+            },
+            {
+                "name"                => "Heart rate",
+                "state"               => heartRate == null ? "unknown" : heartRate,
+                "type"                => "sensor",
+                "unique_id"           => "heart_rate",
+                "icon"                => "mdi:heart-pulse",
+                "unit_of_measurement" => "bpm",
+                "state_class"         => "measurement",
+                "disabled"            => !Settings.isSensorsLevelEnabled()
+            },
+            {
+                "name"        => "Floors climbed today",
+                "state"       => activityInfo.floorsClimbed == null ? "unknown" : activityInfo.floorsClimbed,
+                "type"        => "sensor",
+                "unique_id"   => "floors_climbed_today",
+                "icon"        => "mdi:stairs-up",
+                "state_class" => "total",
+                "disabled"    => !Settings.isSensorsLevelEnabled()
+            },
+            {
+                "name"        => "Floors descended today",
+                "state"       => activityInfo.floorsDescended == null ? "unknown" : activityInfo.floorsDescended,
+                "type"        => "sensor",
+                "unique_id"   => "floors_descended_today",
+                "icon"        => "mdi:stairs-down",
+                "state_class" => "total",
+                "disabled"    => !Settings.isSensorsLevelEnabled()
+            }
+        ];
+
+
+        if (ActivityMonitor.Info has :respirationRate) {
+            sensors.add({
+                "name"                => "Respiration rate",
+                "state"               => activityInfo.respirationRate == null ? "unknown" : activityInfo.respirationRate,
+                "type"                => "sensor",
+                "unique_id"           => "respiration_rate",
+                "icon"                => "mdi:lungs",
+                "unit_of_measurement" => "bpm",
+                "state_class"         => "measurement",
+                "disabled"            => !Settings.isSensorsLevelEnabled()
+            });
+        }
+
+        if (Activity has :getProfileInfo) {
+            var activity = Activity.getProfileInfo().sport;
+            var sub_activity = Activity.getProfileInfo().subSport;
+            if ((Activity.getActivityInfo() != null) and
+                ((Activity.getActivityInfo().elapsedTime == null) or
+                    (Activity.getActivityInfo().elapsedTime == 0))) {
+                // Indicate no activity with -1, not part of Garmin's activity codes.
+                // https://developer.garmin.com/connect-iq/api-docs/Toybox/Activity.html#Sport-module
+                activity = -1;
+                sub_activity = -1;
+            }
+            sensors.add({
+                "name"      => "Activity",
+                "state"     => activity,
+                "type"      => "sensor",
+                "unique_id" => "activity",
+                "disabled"  => !Settings.isSensorsLevelEnabled()
+            });
+            sensors.add({
+                "name"      => "Sub-activity",
+                "state"     => sub_activity,
+                "type"      => "sensor",
+                "unique_id" => "sub_activity",
+                "disabled"  => !Settings.isSensorsLevelEnabled()
+            });
+        }
+
+        registerWebhookSensor(sensors);
     }
 
 }

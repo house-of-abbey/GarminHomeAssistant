@@ -124,6 +124,8 @@ class BackgroundServiceDelegate extends System.ServiceDelegate {
                 method(:onReturnBatteryUpdate)
             );
         }
+        var activityInfo = ActivityMonitor.getInfo();
+        var heartRate = Activity.getActivityInfo().currentHeartRate;
         var data = [
             {
                 "state"     => System.getSystemStats().battery,
@@ -134,8 +136,37 @@ class BackgroundServiceDelegate extends System.ServiceDelegate {
                 "state"     => System.getSystemStats().charging,
                 "type"      => "binary_sensor",
                 "unique_id" => "battery_is_charging"
+            },
+            {
+                "state"     => activityInfo.steps == null ? "unknown" : activityInfo.steps,
+                "type"      => "sensor",
+                "unique_id" => "steps_today"
+            },
+            {
+                "state"     => heartRate == null ? "unknown" : heartRate,
+                "type"      => "sensor",
+                "unique_id" => "heart_rate"
+            },
+            {
+                "state"     => activityInfo.floorsClimbed == null ? "unknown" : activityInfo.floorsClimbed,
+                "type"      => "sensor",
+                "unique_id" => "floors_climbed_today",
+            },
+            {
+                "state"     => activityInfo.floorsDescended == null ? "unknown" : activityInfo.floorsDescended,
+                "type"      => "sensor",
+                "unique_id" => "floors_descended_today",
             }
         ];
+
+        if (ActivityMonitor.Info has :respirationRate) {
+            data.add({
+                "state"     => activityInfo.respirationRate == null ? "unknown" : activityInfo.respirationRate,
+                "type"      => "sensor",
+                "unique_id" => "respiration_rate",
+            });
+        }
+
         if (activity != null) {
             data.add({
                 "state"     => activity,
