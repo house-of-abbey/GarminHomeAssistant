@@ -217,6 +217,7 @@ class WebhookManager {
                 "state"               => System.getSystemStats().battery,
                 "type"                => "sensor",
                 "unique_id"           => "battery_level",
+                "icon"                => "mdi:battery",
                 "unit_of_measurement" => "%",
                 "state_class"         => "measurement",
                 "entity_category"     => "diagnostic",
@@ -228,6 +229,7 @@ class WebhookManager {
                 "state"           => System.getSystemStats().charging,
                 "type"            => "binary_sensor",
                 "unique_id"       => "battery_is_charging",
+                "icon"            => System.getSystemStats().charging ? "mdi:battery-plus" : "mdi:battery-minus",
                 "entity_category" => "diagnostic",
                 "disabled"        => !Settings.isSensorsLevelEnabled()
             },
@@ -236,7 +238,7 @@ class WebhookManager {
                 "state"       => activityInfo.steps == null ? "unknown" : activityInfo.steps,
                 "type"        => "sensor",
                 "unique_id"   => "steps_today",
-                "icon"        => "mdi:shoe-print",
+                "icon"        => "mdi:walk",
                 "state_class" => "total",
                 "disabled"    => !Settings.isSensorsLevelEnabled()
             },

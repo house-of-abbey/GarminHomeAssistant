@@ -130,32 +130,38 @@ class BackgroundServiceDelegate extends System.ServiceDelegate {
             {
                 "state"     => System.getSystemStats().battery,
                 "type"      => "sensor",
-                "unique_id" => "battery_level"
+                "unique_id" => "battery_level",
+                "icon"      => "mdi:battery"
             },
             {
                 "state"     => System.getSystemStats().charging,
                 "type"      => "binary_sensor",
-                "unique_id" => "battery_is_charging"
+                "unique_id" => "battery_is_charging",
+                "icon"      => System.getSystemStats().charging ? "mdi:battery-plus" : "mdi:battery-minus"
             },
             {
                 "state"     => activityInfo.steps == null ? "unknown" : activityInfo.steps,
                 "type"      => "sensor",
-                "unique_id" => "steps_today"
+                "unique_id" => "steps_today",
+                "icon"      => "mdi:walk"
             },
             {
                 "state"     => heartRate == null ? "unknown" : heartRate,
                 "type"      => "sensor",
-                "unique_id" => "heart_rate"
+                "unique_id" => "heart_rate",
+                "icon"      => "mdi:heart-pulse"
             },
             {
                 "state"     => activityInfo.floorsClimbed == null ? "unknown" : activityInfo.floorsClimbed,
                 "type"      => "sensor",
                 "unique_id" => "floors_climbed_today",
+                "icon"      => "mdi:stairs-up"
             },
             {
                 "state"     => activityInfo.floorsDescended == null ? "unknown" : activityInfo.floorsDescended,
                 "type"      => "sensor",
                 "unique_id" => "floors_descended_today",
+                "icon"      => "mdi:stairs-down"
             }
         ];
 
@@ -164,6 +170,7 @@ class BackgroundServiceDelegate extends System.ServiceDelegate {
                 "state"     => activityInfo.respirationRate == null ? "unknown" : activityInfo.respirationRate,
                 "type"      => "sensor",
                 "unique_id" => "respiration_rate",
+                "icon"      => "mdi:lungs"
             });
         }
 
