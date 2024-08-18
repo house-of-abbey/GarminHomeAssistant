@@ -28,3 +28,4 @@
 |   2.13  | Moved the template status queries to Webhooks in order to fix the situation where an account is a non-privileged user. Added telemetry update on activity completion to make automations more timely at the end of an activity. When using a polling delay, there is no longer a startup delay for status updates and an action will trigger an immediate round of updates. |
 |   2.14  | Cautionary bug fix for the background service code where refactorisation spoilt some API level guard clauses. |
 |   2.15  | Better support for templates by isolating erroneous returns and marking the menu item. |
+|   2.16  | Bug fix for lack of phone connection when starting the application. |
