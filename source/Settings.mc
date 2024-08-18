@@ -103,13 +103,13 @@ class Settings {
                         Background.deleteActivityCompletedEvent();
                     }
                 } else {
-                    // Explicitly disable the background event which persists when the application closes.
-                    // If !mHasService disable the Settings option as user feedback
-                    unsetIsSensorsLevelEnabled();
-                    unsetWebhookId();
+                    ErrorView.show(WatchUi.loadResource($.Rez.Strings.NoPhone) as Lang.String);
                 }
             } else {
-                ErrorView.show(WatchUi.loadResource($.Rez.Strings.NoPhone) as Lang.String);
+                // Explicitly disable the background event which persists when the application closes.
+                // If !mHasService disable the Settings option as user feedback
+                unsetIsSensorsLevelEnabled();
+                unsetWebhookId();
             }
         }
         // System.println("Settings update(): getTemporalEventRegisteredTime() = " + Background.getTemporalEventRegisteredTime());
