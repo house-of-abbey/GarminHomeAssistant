@@ -70,36 +70,40 @@ class Settings {
         // Manage this inside the application or widget only (not a glance or background service process)
         if (mIsApp) {
             if (mHasService) {
-                mWebhookManager = new WebhookManager();
-                if (getWebhookId().equals("")) {
-                    // System.println("Settings update(): Doing full webhook & sensor creation.");
-                    mWebhookManager.requestWebhookId();
-                } else {
-                    // System.println("Settings update(): Doing just sensor creation.");
-                    // We already have a Webhook ID, so just enable or disable the sensor in Home Assistant.
-                    // Its a multiple step process, hence starting at step 0.
-                    mWebhookManager.registerWebhookSensor({
-                        "device_class"        => "battery",
-                        "name"                => "Battery Level",
-                        "state"               => System.getSystemStats().battery,
-                        "type"                => "sensor",
-                        "unique_id"           => "battery_level",
-                        "unit_of_measurement" => "%",
-                        "state_class"         => "measurement",
-                        "entity_category"     => "diagnostic",
-                        "disabled"            => !Settings.isSensorsLevelEnabled()
-                    }, 0);
-                }
-                if (mIsSensorsLevelEnabled) {
-                    // Create the timed activity
-                    if ((Background.getTemporalEventRegisteredTime() == null) or
-                        (Background.getTemporalEventRegisteredTime() != (mBatteryRefreshRate * 60))) {
-                        Background.registerForTemporalEvent(new Time.Duration(mBatteryRefreshRate * 60)); // Convert to seconds
-                        Background.registerForActivityCompletedEvent();
+                if (System.getDeviceSettings().phoneConnected) {
+                    mWebhookManager = new WebhookManager();
+                    if (getWebhookId().equals("")) {
+                        // System.println("Settings update(): Doing full webhook & sensor creation.");
+                        mWebhookManager.requestWebhookId();
+                    } else {
+                        // System.println("Settings update(): Doing just sensor creation.");
+                        // We already have a Webhook ID, so just enable or disable the sensor in Home Assistant.
+                        // Its a multiple step process, hence starting at step 0.
+                        mWebhookManager.registerWebhookSensor({
+                            "device_class"        => "battery",
+                            "name"                => "Battery Level",
+                            "state"               => System.getSystemStats().battery,
+                            "type"                => "sensor",
+                            "unique_id"           => "battery_level",
+                            "unit_of_measurement" => "%",
+                            "state_class"         => "measurement",
+                            "entity_category"     => "diagnostic",
+                            "disabled"            => !Settings.isSensorsLevelEnabled()
+                        }, 0);
                     }
-                } else if (Background.getTemporalEventRegisteredTime() != null) {
-                    Background.deleteTemporalEvent();
-                    Background.deleteActivityCompletedEvent();
+                    if (mIsSensorsLevelEnabled) {
+                        // Create the timed activity
+                        if ((Background.getTemporalEventRegisteredTime() == null) or
+                            (Background.getTemporalEventRegisteredTime() != (mBatteryRefreshRate * 60))) {
+                            Background.registerForTemporalEvent(new Time.Duration(mBatteryRefreshRate * 60)); // Convert to seconds
+                            Background.registerForActivityCompletedEvent();
+                        }
+                    } else if (Background.getTemporalEventRegisteredTime() != null) {
+                        Background.deleteTemporalEvent();
+                        Background.deleteActivityCompletedEvent();
+                    }
+                } else {
+                    ErrorView.show(WatchUi.loadResource($.Rez.Strings.NoPhone) as Lang.String);
                 }
             } else {
                 // Explicitly disable the background event which persists when the application closes.
