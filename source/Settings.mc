@@ -78,18 +78,7 @@ class Settings {
                     } else {
                         // System.println("Settings update(): Doing just sensor creation.");
                         // We already have a Webhook ID, so just enable or disable the sensor in Home Assistant.
-                        // Its a multiple step process, hence starting at step 0.
-                        mWebhookManager.registerWebhookSensor({
-                            "device_class"        => "battery",
-                            "name"                => "Battery Level",
-                            "state"               => System.getSystemStats().battery,
-                            "type"                => "sensor",
-                            "unique_id"           => "battery_level",
-                            "unit_of_measurement" => "%",
-                            "state_class"         => "measurement",
-                            "entity_category"     => "diagnostic",
-                            "disabled"            => !Settings.isSensorsLevelEnabled()
-                        }, 0);
+                        mWebhookManager.registerWebhookSensors();
                     }
                     if (mIsSensorsLevelEnabled) {
                         // Create the timed activity
