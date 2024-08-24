@@ -22,13 +22,15 @@
           "$ref": "#/$defs/entity"
         },
         "name": {
-          "title": "Your familiar name",
-          "type": "string"
+          "$ref": "#/$defs/name"
         },
         "type": {
-          "title": "Menu item type",
-          "description": "One of 'tap', 'template', 'toggle' or 'group'.",
+          "$ref": "#/$defs/type",
           "const": "toggle"
+        },
+        "content": {
+          "$ref": "#/$defs/content",
+          "description": "Optional in a toggle."
         },
         "tap_action": {
           "type": "object",
@@ -55,16 +57,13 @@
               "description": "Use 'tap_action' instead to mirror Home Assistant."
             },
             "name": {
-              "title": "Your familiar name",
-              "type": "string"
+              "$ref": "#/$defs/name"
             },
             "content": {
-              "title": "What to display (template)",
-              "type": "string"
+              "$ref": "#/$defs/content"
             },
             "type": {
-              "title": "Menu item type",
-              "description": "One of 'tap', 'template', 'toggle' or 'group'.",
+              "$ref": "#/$defs/type",
               "const": "template"
             }
           },
@@ -78,16 +77,13 @@
               "$ref": "#/$defs/entity"
             },
             "name": {
-              "title": "Your familiar name",
-              "type": "string"
+              "$ref": "#/$defs/name"
             },
             "content": {
-              "title": "What to display (template)",
-              "type": "string"
+              "$ref": "#/$defs/content"
             },
             "type": {
-              "title": "Menu item type",
-              "description": "One of 'tap', 'template', 'toggle' or 'group'.",
+              "$ref": "#/$defs/type",
               "const": "template"
             },
             "tap_action": {
@@ -106,12 +102,10 @@
           "$ref": "#/$defs/entity"
         },
         "name": {
-          "title": "Your familiar name",
-          "type": "string"
+          "$ref": "#/$defs/name"
         },
         "type": {
-          "title": "Menu item type",
-          "description": "One of 'tap', 'template', 'toggle' or 'group'.",
+          "$ref": "#/$defs/type",
           "const": "tap"
         },
         "service": {
@@ -153,9 +147,12 @@
           "type": "string"
         },
         "type": {
-          "title": "Menu item type",
-          "description": "One of 'tap', 'template', 'toggle' or 'group'.",
+          "$ref": "#/$defs/type",
           "const": "group"
+        },
+        "content": {
+          "$ref": "#/$defs/content",
+          "description": "Optional in a group."
         },
         "items": {
           "$ref": "#/$defs/items"
@@ -163,6 +160,10 @@
       },
       "required": ["name", "title", "type", "items"],
       "additionalProperties": false
+    },
+    "type": {
+      "title": "Menu item type",
+      "description": "One of 'tap', 'template', 'toggle' or 'group'."
     },
     "items": {
       "type": "array",
@@ -183,6 +184,10 @@
           }
         ]
       }
+    },
+    "name": {
+      "title": "Your familiar name",
+      "type": "string"
     },
     "entity": {
       "type": "string",
@@ -212,6 +217,10 @@
         }
       },
       "required": ["service"]
+    },
+    "content": {
+      "title": "Jinja2 template defining the text to display.",
+      "type": "string"
     },
     "confirm": {
       "type": "boolean",

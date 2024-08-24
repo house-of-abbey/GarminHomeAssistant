@@ -145,7 +145,15 @@ class HomeAssistantMenuItemFactory {
         );
     }
 
-    function group(definition as Lang.Dictionary) as WatchUi.MenuItem {
-        return new HomeAssistantGroupMenuItem(definition, mGroupTypeIcon, mMenuItemOptions);
+    function group(
+        definition as Lang.Dictionary,
+        template   as Lang.String or Null
+    ) as WatchUi.MenuItem {
+        return new HomeAssistantGroupMenuItem(
+            definition,
+            template,
+            mGroupTypeIcon,
+            mMenuItemOptions
+        );
     }
 }

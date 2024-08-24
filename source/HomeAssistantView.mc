@@ -73,7 +73,7 @@ class HomeAssistantView extends WatchUi.Menu2 {
                     } else if (type.equals("tap") && service != null) {
                         addItem(HomeAssistantMenuItemFactory.create().tap(name, entity, service, confirm, data));
                     } else if (type.equals("group")) {
-                        addItem(HomeAssistantMenuItemFactory.create().group(items[i]));
+                        addItem(HomeAssistantMenuItemFactory.create().group(items[i], content));
                     }
                 }
             }
@@ -82,11 +82,16 @@ class HomeAssistantView extends WatchUi.Menu2 {
 
     function getItemsToUpdate() as Lang.Array<HomeAssistantToggleMenuItem or HomeAssistantTemplateMenuItem> {
         var fullList = [];
-
         var lmi = mItems as Lang.Array<WatchUi.MenuItem>;
+
         for(var i = 0; i < mItems.size(); i++) {
             var item = lmi[i];
             if (item instanceof HomeAssistantGroupMenuItem) {
+                // Group menu items can now have an optional template to evaluate
+                var gmi = item as HomeAssistantGroupMenuItem;
+                if (gmi.hasTemplate()) {
+                    fullList.add(item);
+                }
                 fullList.addAll(item.getMenuView().getItemsToUpdate());
             } else if (item instanceof HomeAssistantToggleMenuItem) {
                 fullList.add(item);
