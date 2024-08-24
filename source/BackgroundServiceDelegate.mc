@@ -150,20 +150,26 @@ class BackgroundServiceDelegate extends System.ServiceDelegate {
                 "type"      => "sensor",
                 "unique_id" => "heart_rate",
                 "icon"      => "mdi:heart-pulse"
-            },
-            {
+            }
+        ];
+
+        if (ActivityMonitor.Info has :floorsClimbed) {
+            data.add({
                 "state"     => activityInfo.floorsClimbed == null ? "unknown" : activityInfo.floorsClimbed,
                 "type"      => "sensor",
                 "unique_id" => "floors_climbed_today",
                 "icon"      => "mdi:stairs-up"
-            },
-            {
+            });
+        }
+
+        if (ActivityMonitor.Info has :floorsDescended) {
+            data.add({
                 "state"     => activityInfo.floorsDescended == null ? "unknown" : activityInfo.floorsDescended,
                 "type"      => "sensor",
                 "unique_id" => "floors_descended_today",
                 "icon"      => "mdi:stairs-down"
-            }
-        ];
+            });
+        }
 
         if (ActivityMonitor.Info has :respirationRate) {
             data.add({
