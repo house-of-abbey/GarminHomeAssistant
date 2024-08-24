@@ -209,7 +209,6 @@ class WebhookManager {
     function registerWebhookSensors() {
         var activityInfo = ActivityMonitor.getInfo();
         var heartRate    = Activity.getActivityInfo().currentHeartRate;
-        var unavailable  = WatchUi.loadResource($.Rez.Strings.Unavailable) as Lang.String;
 
         var sensors = [
             {
@@ -236,7 +235,7 @@ class WebhookManager {
             },
             {
                 "name"                => "Steps today",
-                "state"               => activityInfo.steps == null ? unavailable : activityInfo.steps,
+                "state"               => activityInfo.steps == null ? "unknown" : activityInfo.steps,
                 "type"                => "sensor",
                 "unique_id"           => "steps_today",
                 "icon"                => "mdi:walk",
@@ -245,7 +244,7 @@ class WebhookManager {
             },
             {
                 "name"                => "Heart rate",
-                "state"               => heartRate == null ? unavailable : heartRate,
+                "state"               => heartRate == null ? "unknown" : heartRate,
                 "type"                => "sensor",
                 "unique_id"           => "heart_rate",
                 "icon"                => "mdi:heart-pulse",
@@ -258,7 +257,7 @@ class WebhookManager {
         if (ActivityMonitor.Info has :floorsClimbed) {
             sensors.add({
                 "name"                => "Floors climbed today",
-                "state"               => activityInfo.floorsClimbed == null ? unavailable : activityInfo.floorsClimbed,
+                "state"               => activityInfo.floorsClimbed == null ? "unknown" : activityInfo.floorsClimbed,
                 "type"                => "sensor",
                 "unique_id"           => "floors_climbed_today",
                 "icon"                => "mdi:stairs-up",
@@ -270,7 +269,7 @@ class WebhookManager {
         if (ActivityMonitor.Info has :floorsDescended) {
             sensors.add({
                 "name"                => "Floors descended today",
-                "state"               => activityInfo.floorsDescended == null ? unavailable : activityInfo.floorsDescended,
+                "state"               => activityInfo.floorsDescended == null ? "unknown" : activityInfo.floorsDescended,
                 "type"                => "sensor",
                 "unique_id"           => "floors_descended_today",
                 "icon"                => "mdi:stairs-down",
@@ -282,7 +281,7 @@ class WebhookManager {
         if (ActivityMonitor.Info has :respirationRate) {
             sensors.add({
                 "name"                => "Respiration rate",
-                "state"               => activityInfo.respirationRate == null ? unavailable : activityInfo.respirationRate,
+                "state"               => activityInfo.respirationRate == null ? "unknown" : activityInfo.respirationRate,
                 "type"                => "sensor",
                 "unique_id"           => "respiration_rate",
                 "icon"                => "mdi:lungs",
