@@ -29,3 +29,4 @@
 |   2.14  | Cautionary bug fix for the background service code where refactorisation spoilt some API level guard clauses. |
 |   2.15  | Better support for templates by isolating erroneous returns and marking the menu item. |
 |   2.16  | Bug fix for lack of phone connection when starting the application. Includes new activity reporting features from [KPWhiver](https://github.com/KPWhiver) covering steps, heart rate, floors climbed and descended, and respiration rate. |
+|   2.17  | Bug fix for reporting activity metrics that are not found on some devices. |

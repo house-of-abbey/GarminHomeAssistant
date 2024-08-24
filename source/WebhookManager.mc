@@ -208,7 +208,8 @@ class WebhookManager {
 
     function registerWebhookSensors() {
         var activityInfo = ActivityMonitor.getInfo();
-        var heartRate = Activity.getActivityInfo().currentHeartRate;
+        var heartRate    = Activity.getActivityInfo().currentHeartRate;
+        var unavailable  = WatchUi.loadResource($.Rez.Strings.Unavailable) as Lang.String;
 
         var sensors = [
             {
@@ -224,59 +225,64 @@ class WebhookManager {
                 "disabled"            => !Settings.isSensorsLevelEnabled()
             },
             {
-                "device_class"    => "battery_charging",
-                "name"            => "Battery is Charging",
-                "state"           => System.getSystemStats().charging,
-                "type"            => "binary_sensor",
-                "unique_id"       => "battery_is_charging",
-                "icon"            => System.getSystemStats().charging ? "mdi:battery-plus" : "mdi:battery-minus",
-                "entity_category" => "diagnostic",
-                "disabled"        => !Settings.isSensorsLevelEnabled()
+                "device_class"        => "battery_charging",
+                "name"                => "Battery is Charging",
+                "state"               => System.getSystemStats().charging,
+                "type"                => "binary_sensor",
+                "unique_id"           => "battery_is_charging",
+                "icon"                => System.getSystemStats().charging ? "mdi:battery-plus" : "mdi:battery-minus",
+                "entity_category"     => "diagnostic",
+                "disabled"            => !Settings.isSensorsLevelEnabled()
             },
             {
-                "name"        => "Steps today",
-                "state"       => activityInfo.steps == null ? "unknown" : activityInfo.steps,
-                "type"        => "sensor",
-                "unique_id"   => "steps_today",
-                "icon"        => "mdi:walk",
-                "state_class" => "total",
-                "disabled"    => !Settings.isSensorsLevelEnabled()
+                "name"                => "Steps today",
+                "state"               => activityInfo.steps == null ? unavailable : activityInfo.steps,
+                "type"                => "sensor",
+                "unique_id"           => "steps_today",
+                "icon"                => "mdi:walk",
+                "state_class"         => "total",
+                "disabled"            => !Settings.isSensorsLevelEnabled()
             },
             {
                 "name"                => "Heart rate",
-                "state"               => heartRate == null ? "unknown" : heartRate,
+                "state"               => heartRate == null ? unavailable : heartRate,
                 "type"                => "sensor",
                 "unique_id"           => "heart_rate",
                 "icon"                => "mdi:heart-pulse",
                 "unit_of_measurement" => "bpm",
                 "state_class"         => "measurement",
                 "disabled"            => !Settings.isSensorsLevelEnabled()
-            },
-            {
-                "name"        => "Floors climbed today",
-                "state"       => activityInfo.floorsClimbed == null ? "unknown" : activityInfo.floorsClimbed,
-                "type"        => "sensor",
-                "unique_id"   => "floors_climbed_today",
-                "icon"        => "mdi:stairs-up",
-                "state_class" => "total",
-                "disabled"    => !Settings.isSensorsLevelEnabled()
-            },
-            {
-                "name"        => "Floors descended today",
-                "state"       => activityInfo.floorsDescended == null ? "unknown" : activityInfo.floorsDescended,
-                "type"        => "sensor",
-                "unique_id"   => "floors_descended_today",
-                "icon"        => "mdi:stairs-down",
-                "state_class" => "total",
-                "disabled"    => !Settings.isSensorsLevelEnabled()
             }
         ];
 
+        if (ActivityMonitor.Info has :floorsClimbed) {
+            sensors.add({
+                "name"                => "Floors climbed today",
+                "state"               => activityInfo.floorsClimbed == null ? unavailable : activityInfo.floorsClimbed,
+                "type"                => "sensor",
+                "unique_id"           => "floors_climbed_today",
+                "icon"                => "mdi:stairs-up",
+                "state_class"         => "total",
+                "disabled"            => !Settings.isSensorsLevelEnabled()
+            });
+        }
+
+        if (ActivityMonitor.Info has :floorsDescended) {
+            sensors.add({
+                "name"                => "Floors descended today",
+                "state"               => activityInfo.floorsDescended == null ? unavailable : activityInfo.floorsDescended,
+                "type"                => "sensor",
+                "unique_id"           => "floors_descended_today",
+                "icon"                => "mdi:stairs-down",
+                "state_class"         => "total",
+                "disabled"            => !Settings.isSensorsLevelEnabled()
+            });
+        }
 
         if (ActivityMonitor.Info has :respirationRate) {
             sensors.add({
                 "name"                => "Respiration rate",
-                "state"               => activityInfo.respirationRate == null ? "unknown" : activityInfo.respirationRate,
+                "state"               => activityInfo.respirationRate == null ? unavailable : activityInfo.respirationRate,
                 "type"                => "sensor",
                 "unique_id"           => "respiration_rate",
                 "icon"                => "mdi:lungs",
@@ -287,14 +293,15 @@ class WebhookManager {
         }
 
         if (Activity has :getProfileInfo) {
-            var activity = Activity.getProfileInfo().sport;
+            var activity     = Activity.getProfileInfo().sport;
             var sub_activity = Activity.getProfileInfo().subSport;
+
             if ((Activity.getActivityInfo() != null) and
                 ((Activity.getActivityInfo().elapsedTime == null) or
                     (Activity.getActivityInfo().elapsedTime == 0))) {
                 // Indicate no activity with -1, not part of Garmin's activity codes.
                 // https://developer.garmin.com/connect-iq/api-docs/Toybox/Activity.html#Sport-module
-                activity = -1;
+                activity     = -1;
                 sub_activity = -1;
             }
             sensors.add({
