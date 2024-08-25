@@ -30,4 +30,5 @@
 |   2.15  | Better support for templates by isolating erroneous returns and marking the menu item. |
 |   2.16  | Bug fix for lack of phone connection when starting the application. Includes new activity reporting features from [KPWhiver](https://github.com/KPWhiver) covering steps, heart rate, floors climbed and descended, and respiration rate. |
 |   2.17  | Bug fix for reporting activity metrics that are not found on some devices. |
-|   2.18  | A template to evaluate is now optionally allowed on both `group` and `toggle` menu items. The template to evaluate is non-optional on a `template` menu item. |
+|   2.18  | Bug fix for reporting activity metrics that might be `null` sometimes. This is unsimulatable situation, so this version is a change based on an informed guess. |
+|   2.19  | A template to evaluate is now optionally allowed on both `group` and `toggle` menu items. The template to evaluate is non-optional on a `template` menu item. |

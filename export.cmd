@@ -69,6 +69,8 @@ rem -x,--excludes <arg>        Add annotations to the exclude list (deprecated)
 rem -y,--private-key <arg>     Private key to sign builds with
 rem -z,--rez <arg>             Resource files (deprecated)
 
+title Exporting Garmin Home Assistant Application
+
 rem Batch file's directory where the source code is
 set SRC=%~dp0
 rem drop last character '\'
