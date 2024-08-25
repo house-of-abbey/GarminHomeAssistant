@@ -102,17 +102,28 @@ class BackgroundServiceDelegate extends System.ServiceDelegate {
                     accuracy = 10;
                     break;
             }
+
+            var data = { "gps_accuracy" => accuracy };
+            // Only add the non-null fields as all the values are optional in Home Assistant, and it avoid submitting fake values.
+            if (position.position != null) {
+                data.put("gps", position.position.toDegrees());
+            }
+            if (position.speed != null) {
+                data.put("speed", Math.round(position.speed));
+            }
+            if (position.heading != null) {
+                data.put("course", Math.round(position.heading * 180 / Math.PI));
+            }
+            if (position.altitude != null) {
+                data.put("altitude", Math.round(position.altitude));
+            }
+            // System.println("BackgroundServiceDelegate onTemporalEvent(): data = " + data.toString());
+
             Communications.makeWebRequest(
                 (Properties.getValue("api_url") as Lang.String) + "/webhook/" + (Properties.getValue("webhook_id") as Lang.String),
                 {
                     "type" => "update_location",
-                    "data" => {
-                        "gps"          => position.position == null ? [0.0, 0.0] : position.position.toDegrees(),
-                        "gps_accuracy" => accuracy,
-                        "speed"        => Math.round(position.speed    == null ? 0 : position.speed),
-                        "course"       => Math.round(position.heading  == null ? 0 : position.heading * 180 / Math.PI),
-                        "altitude"     => Math.round(position.altitude == null ? 0 : position.altitude),
-                    }
+                    "data" => data,
                 },
                 {
                     :method       => Communications.HTTP_REQUEST_METHOD_POST,
