@@ -79,13 +79,13 @@ class BackgroundServiceDelegate extends System.ServiceDelegate {
     private function doUpdate(activity as Lang.Number or Null, sub_activity as Lang.Number or Null) {
         // System.println("BackgroundServiceDelegate onTemporalEvent(): Making API call.");
         var position = Position.getInfo();
-        // System.println("BackgroundServiceDelegate onTemporalEvent(): gps: " + position.position.toDegrees());
-        // System.println("BackgroundServiceDelegate onTemporalEvent(): speed: " + position.speed);
-        // System.println("BackgroundServiceDelegate onTemporalEvent(): course: " + position.heading + "rad (" + (position.heading * 180 / Math.PI) + "°)");
-        // System.println("BackgroundServiceDelegate onTemporalEvent(): altitude: " + position.altitude);
-        // System.println("BackgroundServiceDelegate onTemporalEvent(): battery: " + System.getSystemStats().battery);
-        // System.println("BackgroundServiceDelegate onTemporalEvent(): charging: " + System.getSystemStats().charging);
-        // System.println("BackgroundServiceDelegate onTemporalEvent(): activity: " + Activity.getProfileInfo().name);
+        // System.println("BackgroundServiceDelegate onTemporalEvent(): GPS      : " + position.position.toDegrees());
+        // System.println("BackgroundServiceDelegate onTemporalEvent(): Speed    : " + position.speed);
+        // System.println("BackgroundServiceDelegate onTemporalEvent(): Course   : " + position.heading + " radians (" + (position.heading * 180 / Math.PI) + "°)");
+        // System.println("BackgroundServiceDelegate onTemporalEvent(): Altitude : " + position.altitude);
+        // System.println("BackgroundServiceDelegate onTemporalEvent(): Battery  : " + System.getSystemStats().battery);
+        // System.println("BackgroundServiceDelegate onTemporalEvent(): Charging : " + System.getSystemStats().charging);
+        // System.println("BackgroundServiceDelegate onTemporalEvent(): Activity : " + Activity.getProfileInfo().name);
 
         // Don't use Settings.* here as the object lasts < 30 secs and is recreated each time the background service is run
 
@@ -102,17 +102,28 @@ class BackgroundServiceDelegate extends System.ServiceDelegate {
                     accuracy = 10;
                     break;
             }
+
+            var data = { "gps_accuracy" => accuracy };
+            // Only add the non-null fields as all the values are optional in Home Assistant, and it avoid submitting fake values.
+            if (position.position != null) {
+                data.put("gps", position.position.toDegrees());
+            }
+            if (position.speed != null) {
+                data.put("speed", Math.round(position.speed));
+            }
+            if (position.heading != null) {
+                data.put("course", Math.round(position.heading * 180 / Math.PI));
+            }
+            if (position.altitude != null) {
+                data.put("altitude", Math.round(position.altitude));
+            }
+            // System.println("BackgroundServiceDelegate onTemporalEvent(): data = " + data.toString());
+
             Communications.makeWebRequest(
                 (Properties.getValue("api_url") as Lang.String) + "/webhook/" + (Properties.getValue("webhook_id") as Lang.String),
                 {
                     "type" => "update_location",
-                    "data" => {
-                        "gps"          => position.position.toDegrees(),
-                        "gps_accuracy" => accuracy,
-                        "speed"        => Math.round(position.speed),
-                        "course"       => Math.round(position.heading * 180 / Math.PI),
-                        "altitude"     => Math.round(position.altitude),
-                    }
+                    "data" => data,
                 },
                 {
                     :method       => Communications.HTTP_REQUEST_METHOD_POST,
