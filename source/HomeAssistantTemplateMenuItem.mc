@@ -47,6 +47,8 @@ class HomeAssistantTemplateMenuItem extends TemplateMenuItem {
         TemplateMenuItem.initialize(
             label,
             template,
+            // Now this feels very "closely coupled" to the application, but it is the most reliable method instead of using a timer.
+            getApp().method(:updateNextMenuItem),
             icon,
             options
         );

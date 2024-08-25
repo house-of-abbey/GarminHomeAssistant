@@ -9,7 +9,7 @@
 // tested on a Venu 2 device. The source code is provided at:
 //            https://github.com/house-of-abbey/GarminHomeAssistant.
 //
-// P A Abbey & J D Abbey, 12 January 2024
+// P A Abbey & J D Abbey, 24 August 2024
 //
 //
 // Description:
@@ -28,10 +28,13 @@ using Toybox.Graphics;
 
 class TemplateMenuItem extends WatchUi.IconMenuItem {
     private var mTemplate as Lang.String;
+    private var mCallback as Method() as Void;
 
     function initialize(
         label    as Lang.String or Lang.Symbol,
         template as Lang.String,
+        // Do not use Lang.Method as it does not compile!
+        callback as Method() as Void,
         icon     as Graphics.BitmapType or WatchUi.Drawable,
         options  as {
             :alignment as WatchUi.MenuItem.Alignment
@@ -46,6 +49,7 @@ class TemplateMenuItem extends WatchUi.IconMenuItem {
         );
 
         mTemplate = template;
+        mCallback = callback;
     }
 
     // Callback function after completing the GET request to fetch the status.
@@ -117,8 +121,9 @@ class TemplateMenuItem extends WatchUi.IconMenuItem {
                     setSubLabel(WatchUi.loadResource($.Rez.Strings.TemplateError) as Lang.String);
                 }
                 requestUpdate();
-                // Now this feels very "closely coupled" to the application, but it is the most reliable method instead of using a timer.
-                getApp().updateNextMenuItem();
+                if (mCallback != null) {
+                    mCallback.invoke();
+                }
                 break;
 
             default:
@@ -131,8 +136,9 @@ class TemplateMenuItem extends WatchUi.IconMenuItem {
     function getState() as Void {
         if (mTemplate == null) {
             // Nothing to do here.
-            // Now this feels very "closely coupled" to the application, but it is the most reliable method instead of using a timer.
-            getApp().updateNextMenuItem();
+            if (mCallback != null) {
+                mCallback.invoke();
+            }
         } else {
             if (! System.getDeviceSettings().phoneConnected) {
                 // System.println("HomeAssistantTemplateMenuItem getState(): No Phone connection, skipping API call.");
