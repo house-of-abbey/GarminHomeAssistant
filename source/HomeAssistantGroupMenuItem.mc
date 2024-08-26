@@ -14,27 +14,31 @@
 //
 // Description:
 //
-// Menu button with an icon that opens a sub-menu, i.e. group.
+// Menu button with an icon that opens a sub-menu, i.e. group, and optionally renders
+// a Home Assistant Template.
 //
 //-----------------------------------------------------------------------------------
 
 using Toybox.Lang;
 using Toybox.WatchUi;
 
-class HomeAssistantGroupMenuItem extends WatchUi.IconMenuItem {
+class HomeAssistantGroupMenuItem extends TemplateMenuItem {
     private var mMenu as HomeAssistantView;
 
     function initialize(
         definition as Lang.Dictionary,
+        template   as Lang.String,
         icon       as WatchUi.Drawable,
         options    as {
             :alignment as WatchUi.MenuItem.Alignment
-        } or Null) {
+        } or Null
+    ) {
 
-        WatchUi.IconMenuItem.initialize(
+        TemplateMenuItem.initialize(
             definition.get("name") as Lang.String,
-            null,
-            null,
+            template,
+            // Now this feels very "closely coupled" to the application, but it is the most reliable method instead of using a timer.
+            getApp().method(:updateNextMenuItem),
             icon,
             options
         );

@@ -67,10 +67,12 @@ class HomeAssistantMenuItemFactory {
     function toggle(
         label     as Lang.String or Lang.Symbol,
         entity_id as Lang.String or Null,
+        template  as Lang.String or Null,
         confirm   as Lang.Boolean
     ) as WatchUi.MenuItem {
         return new HomeAssistantToggleMenuItem(
             label,
+            template,
             confirm,
             { "entity_id" => entity_id },
             mMenuItemOptions
@@ -145,7 +147,15 @@ class HomeAssistantMenuItemFactory {
         );
     }
 
-    function group(definition as Lang.Dictionary) as WatchUi.MenuItem {
-        return new HomeAssistantGroupMenuItem(definition, mGroupTypeIcon, mMenuItemOptions);
+    function group(
+        definition as Lang.Dictionary,
+        template   as Lang.String or Null
+    ) as WatchUi.MenuItem {
+        return new HomeAssistantGroupMenuItem(
+            definition,
+            template,
+            mGroupTypeIcon,
+            mMenuItemOptions
+        );
     }
 }

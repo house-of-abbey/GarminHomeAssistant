@@ -429,12 +429,11 @@ class HomeAssistantApp extends Application.AppBase {
     // We need to spread out the API calls so as not to overload the results queue and cause Communications.BLE_QUEUE_FULL
     // (-101) error. This function is called by a timer every Globals.menuItemUpdateInterval ms.
     function updateNextMenuItemInternal() as Void {
-        var itu = mItemsToUpdate as Lang.Array<HomeAssistantToggleMenuItem>;
-        if (itu != null) {
+        if (mItemsToUpdate != null) {
             // System.println("HomeAssistantApp updateNextMenuItemInternal(): Doing update for item " + mNextItemToUpdate + ", mIsInitUpdateCompl=" + mIsInitUpdateCompl);
-            itu[mNextItemToUpdate].getState();
-            // mNextItemToUpdate = (mNextItemToUpdate + 1) % itu.size() - But with roll-over detection
-            if (mNextItemToUpdate == itu.size()-1) {
+            mItemsToUpdate[mNextItemToUpdate].getState();
+            // mNextItemToUpdate = (mNextItemToUpdate + 1) % mItemsToUpdate.size() - But with roll-over detection
+            if (mNextItemToUpdate == mItemsToUpdate.size()-1) {
                 // Last item completed return to the start of the list
                 mNextItemToUpdate  = 0;
                 mIsInitUpdateCompl = true;

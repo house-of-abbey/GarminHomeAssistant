@@ -10,6 +10,9 @@ In order to provide the most functionality possible the content of the menu item
   - `{{` ... `}}` for Expressions to print to the template output
   - `{#` ... `#}` for Comments not included in the template output
 
+> [!IMPORTANT]
+> In order to avoid "Template Error" being displayed as the return value, make sure your Jinja2 template returns a `string`, not a number of some variety. _All numbers must be formatted to strings_ so the application does not need to distinguish an `integer` from a `float`.
+
 ## States
 
 In this example we get the battery level of the device and add the percent sign. *Very simple*
