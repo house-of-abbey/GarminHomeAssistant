@@ -51,8 +51,22 @@ class HomeAssistantGroupMenuItem extends WatchUi.IconMenuItem {
         return mTemplate;
     }
 
-    function updateState(data as Lang.String or Null) as Void {
-        setSubLabel(data);
+    function updateState(data as Lang.String or Lang.Dictionary or Null) as Void {
+        if (data == null) {
+            setSubLabel($.Rez.Strings.Empty);
+        } else if(data instanceof Lang.String) {
+            setSubLabel(data);
+        } else if(data instanceof Lang.Dictionary) {
+            // System.println("HomeAsistantGroupMenuItem updateState() data = " + data);
+            if (data.get("error") != null) {
+                setSubLabel($.Rez.Strings.TemplateError);
+            } else {
+                setSubLabel($.Rez.Strings.PotentialError);
+            }
+        } else {
+            // The template must return a Lang.String, a number can be either integer or float and hence cannot be formatted locally without error.
+            setSubLabel(WatchUi.loadResource($.Rez.Strings.TemplateError) as Lang.String);
+        }
         WatchUi.requestUpdate();
     }
 

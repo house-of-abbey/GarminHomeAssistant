@@ -49,10 +49,8 @@ class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
         if (state != null) {
             if (state.equals("on") && !isEnabled()) {
                 setEnabled(true);
-                WatchUi.requestUpdate();
             } else if (state.equals("off") && isEnabled()) {
                 setEnabled(false);
-                WatchUi.requestUpdate();
             }
         }
     }
@@ -64,19 +62,29 @@ class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
         return "{{states('" + mData.get("entity_id") + "')}}," + mTemplate;
     }
 
-    function updateState(data as Lang.String or Null) as Void {
+    function updateState(data as Lang.String or Lang.Dictionary or Null) as Void {
         if (data == null) {
-            setSubLabel(null);
-            WatchUi.requestUpdate();
-            return;
+            setSubLabel($.Rez.Strings.Empty);
+        } else if(data instanceof Lang.String) {
+            if (mTemplate == null) {
+                setUiToggle(data);
+            } else {
+                var split = data.find(",");
+                setSubLabel(data.substring(split + 1, data.length()));
+                setUiToggle(data.substring(0, split));
+            }
+        } else if(data instanceof Lang.Dictionary) {
+            // System.println("HomeAsistantToggleMenuItem updateState() data = " + data);
+            if (data.get("error") != null) {
+                setSubLabel($.Rez.Strings.TemplateError);
+            } else {
+                setSubLabel($.Rez.Strings.PotentialError);
+            }
+        } else {
+            // The template must return a Lang.String, a number can be either integer or float and hence cannot be formatted locally without error.
+            setSubLabel(WatchUi.loadResource($.Rez.Strings.TemplateError) as Lang.String);
         }
-        if (mTemplate == null) {
-            setUiToggle(data);
-            return;
-        }
-        var split = data.find(",");
-        setSubLabel(data.substring(split + 1, data.length()));
-        setUiToggle(data.substring(0, split));
+        WatchUi.requestUpdate();
     }
 
     // Callback function after completing the POST request to set the status.
@@ -123,6 +131,7 @@ class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
                         state = d[i].get("state") as Lang.String;
                         // System.println((d[i].get("attributes") as Lang.Dictionary).get("friendly_name") + " State=" + state);
                         setUiToggle(state);
+                        WatchUi.requestUpdate();
                     }
                 }
                 status = WatchUi.loadResource($.Rez.Strings.Available) as Lang.String;

@@ -21,7 +21,7 @@ rem
 rem -----------------------------------------------------------------------------------
 
 rem Check this path is correct for your Java installation
-set JAVA_PATH=C:\Program Files\Java\jdk-22\bin
+set JAVA_PATH=C:\Program Files\Java\jdk-21\bin\
 rem SDK_PATH should work for all users
 set /p SDK_PATH=<"%USERPROFILE%\AppData\Roaming\Garmin\ConnectIQ\current-sdk.cfg"
 set SDK_PATH=%SDK_PATH:~0,-1%\bin
@@ -100,7 +100,7 @@ rem Compile PRG for a single device for side loading
   -jar %SDK_PATH%\monkeybrains.jar ^
   --output %SRC%\bin\HomeAssistant.prg ^
   --jungles %SRC%\%JUNGLE% ^
-  --private-key %SRC%\..\developer_key ^
+  --private-key "C:\Users\josep\AppData\Roaming\Garmin\ConnectIQ\Key\developer_key" ^
   --device %DEVICE%_sim ^
   --warn ^
   --release
