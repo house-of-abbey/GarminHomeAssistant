@@ -268,9 +268,17 @@ class HomeAssistantApp extends Application.AppBase {
             mTemplates = {};
             for (var i = 0; i < mItemsToUpdate.size(); i++) {
                 var item = mItemsToUpdate[i];
-                mTemplates.put(i.toString(), {
-                    "template" => item.buildTemplate()
-                });
+                var template = item.buildTemplate();
+                if (template != null) {
+                    mTemplates.put(i.toString(), {
+                        "template" => template
+                    });
+                }
+                if (item instanceof HomeAssistantToggleMenuItem) {
+                    mTemplates.put(i.toString() + "t", {
+                        "template" => (item as HomeAssistantToggleMenuItem).buildToggleTemplate()
+                    });
+                }
             }
             updateMenuItems();
         }
@@ -328,6 +336,9 @@ class HomeAssistantApp extends Application.AppBase {
                     var item = mItemsToUpdate[i];
                     var state = data.get(i.toString());
                     item.updateState(state);
+                    if (item instanceof HomeAssistantToggleMenuItem) {
+                        (item as HomeAssistantToggleMenuItem).updateToggleState(data.get(i.toString() + "t"));
+                    }
                 }
                 var delay = Settings.getPollDelay();
                 if (delay > 0) {

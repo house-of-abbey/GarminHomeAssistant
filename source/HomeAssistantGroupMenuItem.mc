@@ -53,7 +53,7 @@ class HomeAssistantGroupMenuItem extends WatchUi.IconMenuItem {
 
     function updateState(data as Lang.String or Lang.Dictionary or Null) as Void {
         if (data == null) {
-            setSubLabel($.Rez.Strings.Empty);
+            setSubLabel(null);
         } else if(data instanceof Lang.String) {
             setSubLabel(data);
         } else if(data instanceof Lang.Dictionary) {

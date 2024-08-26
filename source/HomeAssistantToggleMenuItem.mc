@@ -56,23 +56,17 @@ class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
     }
 
     function buildTemplate() as Lang.String or Null {
-        if (mTemplate == null) {
-            return "{{states('" + mData.get("entity_id") + "')}}";
-        }
-        return "{{states('" + mData.get("entity_id") + "')}}," + mTemplate;
+        return mTemplate;
+    }
+    function buildToggleTemplate() as Lang.String or Null {
+        return "{{states('" + mData.get("entity_id") + "')}}";
     }
 
     function updateState(data as Lang.String or Lang.Dictionary or Null) as Void {
         if (data == null) {
-            setSubLabel($.Rez.Strings.Empty);
+            setSubLabel(null);
         } else if(data instanceof Lang.String) {
-            if (mTemplate == null) {
-                setUiToggle(data);
-            } else {
-                var split = data.find(",");
-                setSubLabel(data.substring(split + 1, data.length()));
-                setUiToggle(data.substring(0, split));
-            }
+            setSubLabel(data);
         } else if(data instanceof Lang.Dictionary) {
             // System.println("HomeAsistantToggleMenuItem updateState() data = " + data);
             if (data.get("error") != null) {
@@ -83,6 +77,31 @@ class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
         } else {
             // The template must return a Lang.String, a number can be either integer or float and hence cannot be formatted locally without error.
             setSubLabel(WatchUi.loadResource($.Rez.Strings.TemplateError) as Lang.String);
+        }
+        WatchUi.requestUpdate();
+    }
+    function updateToggleState(data as Lang.String or Lang.Dictionary or Null) as Void {
+        if (data == null) {
+            setUiToggle("off");
+        } else if(data instanceof Lang.String) {
+            setUiToggle(data);
+            if (mTemplate == null and data.equals("unavailable")) {
+                setSubLabel($.Rez.Strings.Unavailable);
+            }
+        } else if(data instanceof Lang.Dictionary) {
+            // System.println("HomeAsistantToggleMenuItem updateState() data = " + data);
+            if (mTemplate == null) {
+                if (data.get("error") != null) {
+                    setSubLabel($.Rez.Strings.TemplateError);
+                } else {
+                    setSubLabel($.Rez.Strings.PotentialError);
+                }
+            }
+        } else {
+            // The template must return a Lang.String, a number can be either integer or float and hence cannot be formatted locally without error.
+            if (mTemplate == null) {
+                setSubLabel(WatchUi.loadResource($.Rez.Strings.TemplateError) as Lang.String);
+            }
         }
         WatchUi.requestUpdate();
     }
