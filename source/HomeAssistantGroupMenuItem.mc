@@ -22,7 +22,8 @@
 using Toybox.Lang;
 using Toybox.WatchUi;
 
-class HomeAssistantGroupMenuItem extends TemplateMenuItem {
+class HomeAssistantGroupMenuItem extends WatchUi.IconMenuItem {
+    private var mTemplate as Lang.String or Null;
     private var mMenu as HomeAssistantView;
 
     function initialize(
@@ -34,20 +35,33 @@ class HomeAssistantGroupMenuItem extends TemplateMenuItem {
         } or Null
     ) {
 
-        TemplateMenuItem.initialize(
+        WatchUi.IconMenuItem.initialize(
             definition.get("name") as Lang.String,
-            template,
-            // Now this feels very "closely coupled" to the application, but it is the most reliable method instead of using a timer.
-            getApp().method(:updateNextMenuItem),
+            null,
+            null,
             icon,
             options
         );
 
+        mTemplate = template;
         mMenu = new HomeAssistantView(definition, null);
+    }
+
+    function buildTemplate() as Lang.String or Null {
+        return mTemplate;
+    }
+
+    function updateState(data as Lang.String or Null) as Void {
+        setSubLabel(data);
+        WatchUi.requestUpdate();
     }
 
     function getMenuView() as HomeAssistantView {
         return mMenu;
+    }
+
+    function hasTemplate() as Lang.Boolean {
+        return mTemplate != null;
     }
 
 }

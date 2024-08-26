@@ -116,10 +116,10 @@ class ErrorView extends ScalableView {
     static function unShow() as Void {
         if (mShown) {
             WatchUi.popView(WatchUi.SLIDE_DOWN);
-            // The call to 'updateNextMenuItem()' must be on another thread so that the view is popped above.
+            // The call to 'updateMenuItems()' must be on another thread so that the view is popped above.
             var myTimer = new Timer.Timer();
             // Now this feels very "closely coupled" to the application, but it is the most reliable method instead of using a timer.
-            myTimer.start(getApp().method(:updateNextMenuItem), Globals.scApiResume, false);
+            myTimer.start(getApp().method(:updateMenuItems), Globals.scApiResume, false);
             // This must be last to avoid a race condition with show(), where the
             // ErrorView can't be dismissed.
             mShown = false;
