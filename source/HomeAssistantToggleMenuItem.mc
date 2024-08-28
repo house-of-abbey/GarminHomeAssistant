@@ -164,15 +164,14 @@ class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
     }
 
     function setState(s as Lang.Boolean) as Void {
+        // Toggle the UI back, we'll wait for confirmation from the Home Assistant
+        setEnabled(!isEnabled());
         if (! System.getDeviceSettings().phoneConnected) {
             // System.println("HomeAssistantToggleMenuItem getState(): No Phone connection, skipping API call.");
-            // Toggle the UI back
-            setEnabled(!isEnabled());
             ErrorView.show(WatchUi.loadResource($.Rez.Strings.NoPhone) as Lang.String + ".");
         } else if (! System.getDeviceSettings().connectionAvailable) {
             // System.println("HomeAssistantToggleMenuItem getState(): No Internet connection, skipping API call.");
             // Toggle the UI back
-            setEnabled(!isEnabled());
             ErrorView.show(WatchUi.loadResource($.Rez.Strings.NoInternet) as Lang.String + ".");
         } else {
             // Updated SDK and got a new error
