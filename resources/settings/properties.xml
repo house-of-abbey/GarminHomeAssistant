@@ -56,7 +56,7 @@
     this delayfor an "always open" mode of operation, which then drains the
     watch battery from the additional API access activity.
   -->
-  <property id="poll_delay" type="number">0</property>
+  <property id="poll_delay_combined" type="number">5</property>
 
   <!--
     After this time (in seconds), a confirmation dialog for an action is

@@ -66,7 +66,7 @@
   </setting>
 
   <setting
-    propertyKey="@Properties.poll_delay"
+    propertyKey="@Properties.poll_delay_combined"
     title="@Strings.SettingsPollDelay"
   >
     <settingConfig type="numeric" min="0" />
