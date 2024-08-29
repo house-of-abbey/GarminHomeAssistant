@@ -2,7 +2,7 @@
 
 # Actions
 
-A simple example using a scene as a `tap`` menu item.
+A simple example using a scene as a `tap` menu item.
 
 ```json
 {

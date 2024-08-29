@@ -118,6 +118,20 @@ Note: Only when you use the `tap_action` field do you also need to include the `
 }
 ```
 
+## Group and Toggle Menu Items
+
+Both `group` and `toggle` menu items accept an optional `content` field as of v2.19. This allows the use of templates to present status information.
+
+```json
+    {
+      "name": "Each Lounge Light",
+      "title": "Lounge",
+      "type": "group",
+      "content": "{{'On: %d, Off: %d'|format(expand(state_attr('light.living_room_lights', 'entity_id'))|selectattr('state','eq','on')|map(attribute='entity_id')|list|count, expand(state_attr('light.living_room_lights', 'entity_id'))|selectattr('state','eq','off')|map(attribute='entity_id')|list|count)}}",
+      "items": [..]
+    }
+```
+
 ## Advanced
 
 Here we generate a bar graph of the battery level. We use the following steps to do this:

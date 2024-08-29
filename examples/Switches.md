@@ -43,6 +43,17 @@ Then you can use the following in your config:
 }
 ```
 
+And you can optionally include a template to reflect some status. See [Templates](Templates.md) for details on hwo to use this JSON field.
+
+```json
+{
+  "entity": "switch.<switch-name>",
+  "name": "<name>",
+  "type": "toggle",
+  "content": "..."
+}
+```
+
 ## Example - Covers
 
 ```yaml
