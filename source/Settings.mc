@@ -57,7 +57,7 @@ class Settings {
         mClearCache            = Properties.getValue("clear_cache");
         mVibrate               = Properties.getValue("enable_vibration");
         mAppTimeout            = Properties.getValue("app_timeout");
-        mPollDelay             = Properties.getValue("poll_delay");
+        mPollDelay             = Properties.getValue("poll_delay_combined");
         mConfirmTimeout        = Properties.getValue("confirm_timeout");
         mMenuAlignment         = Properties.getValue("menu_alignment");
         mIsSensorsLevelEnabled = Properties.getValue("enable_battery_level");

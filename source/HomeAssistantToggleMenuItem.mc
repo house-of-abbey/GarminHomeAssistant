@@ -49,125 +49,61 @@ class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
         if (state != null) {
             if (state.equals("on") && !isEnabled()) {
                 setEnabled(true);
-                WatchUi.requestUpdate();
             } else if (state.equals("off") && isEnabled()) {
                 setEnabled(false);
-                WatchUi.requestUpdate();
             }
         }
     }
 
-    // Callback function after completing the GET request to fetch the status.
-    // Terminate updating the toggle menu items via the chain of calls for a permanent network
-    // error. The ErrorView cancellation will resume the call chain.
-    //
-    function onReturnGetState(responseCode as Lang.Number, data as Null or Lang.Dictionary or Lang.String) as Void {
-        // System.println("HomeAssistantToggleMenuItem onReturnGetState() Response Code: " + responseCode);
-        // System.println("HomeAssistantToggleMenuItem onReturnGetState() Response Data: " + data);
-
-        var status = WatchUi.loadResource($.Rez.Strings.Unavailable) as Lang.String;
-        switch (responseCode) {
-            case Communications.BLE_HOST_TIMEOUT:
-            case Communications.BLE_CONNECTION_UNAVAILABLE:
-                // System.println("HomeAssistantToggleMenuItem onReturnGetState() Response Code: BLE_HOST_TIMEOUT or BLE_CONNECTION_UNAVAILABLE, Bluetooth connection severed.");
-                ErrorView.show(WatchUi.loadResource($.Rez.Strings.NoPhone) as Lang.String + ".");
-                break;
-
-            case Communications.BLE_QUEUE_FULL:
-                // System.println("HomeAssistantToggleMenuItem onReturnGetState() Response Code: BLE_QUEUE_FULL, API calls too rapid.");
-                ErrorView.show(WatchUi.loadResource($.Rez.Strings.ApiFlood) as Lang.String);
-                break;
-
-            case Communications.NETWORK_REQUEST_TIMED_OUT:
-                // System.println("HomeAssistantToggleMenuItem onReturnGetState() Response Code: NETWORK_REQUEST_TIMED_OUT, check Internet connection.");
-                ErrorView.show(WatchUi.loadResource($.Rez.Strings.NoResponse) as Lang.String);
-                break;
-
-            case Communications.INVALID_HTTP_BODY_IN_NETWORK_RESPONSE:
-                // System.println("HomeAssistantToggleMenuItem onReturnGetState() Response Code: INVALID_HTTP_BODY_IN_NETWORK_RESPONSE, check JSON is returned.");
-                ErrorView.show(WatchUi.loadResource($.Rez.Strings.NoJson) as Lang.String);
-                break;
-
-            case Communications.NETWORK_RESPONSE_OUT_OF_MEMORY:
-                // System.println("HomeAssistantToggleMenuItem onReturnGetState() Response Code: NETWORK_RESPONSE_OUT_OF_MEMORY, are we going too fast?");
-                var myTimer = new Timer.Timer();
-                // Abandon the update to this menu item, and any template, and move on to the next with a back-off delay.
-                // Now this feels very "closely coupled" to the application, but it is the most reliable method instead of using a timer.
-                myTimer.start(getApp().method(:updateNextMenuItem), Globals.scApiBackoff, false);
-                // Revert status
-                status = getApp().getApiStatus();
-                break;
-
-            case 404:
-                var msg = null;
-                if (data != null) {
-                    msg = data.get("message");
-                }
-                if (msg != null) {
-                    // Should be an HTTP 404 according to curl queries
-                    // System.println("HomeAssistantToggleMenuItem onReturnGetState() Response Code: 404. " + mData.get("entity_id") + " " + msg);
-                    ErrorView.show("HTTP 404, " + mData.get("entity_id") + ". " + data.get("message"));
-                } else {
-                    // System.println("HomeAssistantToggleMenuItem onReturnGetState() Response Code: 404, page not found. Check API URL setting.");
-                    ErrorView.show(WatchUi.loadResource($.Rez.Strings.ApiUrlNotFound) as Lang.String);
-                }
-                break;
-
-            case 405:
-                // System.println("HomeAssistantToggleMenuItem onReturnGetState() Response Code: 405. " + mData.get("entity_id") + " " + data.get("message"));
-                ErrorView.show("HTTP 405, " + mData.get("entity_id") + ". " + data.get("message"));
-
-                break;
-
-            case 200:
-                status = WatchUi.loadResource($.Rez.Strings.Available) as Lang.String;
-                var state = data.get("state") as Lang.String;
-                // System.println((data.get("attributes") as Lang.Dictionary).get("friendly_name") + " State=" + state);
-                if (getLabel().equals("...")) {
-                    setLabel((data.get("attributes") as Lang.Dictionary).get("friendly_name") as Lang.String);
-                }
-                setUiToggle(state);
-                if (mTemplate == null) {
-                    // Nothing more to do
-                    // Now this feels very "closely coupled" to the application, but it is the most reliable method instead of using a timer.
-                    getApp().updateNextMenuItem();
-                } else {
-                    updateTemplate();
-                }
-                break;
-
-            default:
-                // System.println("HomeAssistantToggleMenuItem onReturnGetState(): Unhandled HTTP response code = " + responseCode);
-                ErrorView.show(WatchUi.loadResource($.Rez.Strings.UnhandledHttpErr) as Lang.String + responseCode);
-        }
-        getApp().setApiStatus(status);
+    function buildTemplate() as Lang.String or Null {
+        return mTemplate;
+    }
+    function buildToggleTemplate() as Lang.String or Null {
+        return "{{states('" + mData.get("entity_id") + "')}}";
     }
 
-    function getState() as Void {
-        if (! System.getDeviceSettings().phoneConnected) {
-            // System.println("HomeAssistantToggleMenuItem getState(): No Phone connection, skipping API call.");
-            ErrorView.show(WatchUi.loadResource($.Rez.Strings.NoPhone) as Lang.String + ".");
-            getApp().setApiStatus(WatchUi.loadResource($.Rez.Strings.Unavailable) as Lang.String);
-        } else if (! System.getDeviceSettings().connectionAvailable) {
-            // System.println("HomeAssistantToggleMenuItem getState(): No Internet connection, skipping API call.");
-            ErrorView.show(WatchUi.loadResource($.Rez.Strings.NoInternet) as Lang.String + ".");
-            getApp().setApiStatus(WatchUi.loadResource($.Rez.Strings.Unavailable) as Lang.String);
+    function updateState(data as Lang.String or Lang.Dictionary or Null) as Void {
+        if (data == null) {
+            setSubLabel(null);
+        } else if(data instanceof Lang.String) {
+            setSubLabel(data);
+        } else if(data instanceof Lang.Dictionary) {
+            // System.println("HomeAsistantToggleMenuItem updateState() data = " + data);
+            if (data.get("error") != null) {
+                setSubLabel($.Rez.Strings.TemplateError);
+            } else {
+                setSubLabel($.Rez.Strings.PotentialError);
+            }
         } else {
-            var url = Settings.getApiUrl() + "/states/" + mData.get("entity_id");
-            // System.println("HomeAssistantToggleMenuItem getState() URL=" + url);
-            Communications.makeWebRequest(
-                url,
-                null,
-                {
-                    :method  => Communications.HTTP_REQUEST_METHOD_GET,
-                    :headers => {
-                        "Authorization" => "Bearer " + Settings.getApiKey()
-                    },
-                    :responseType => Communications.HTTP_RESPONSE_CONTENT_TYPE_JSON
-                },
-                method(:onReturnGetState)
-            );
+            // The template must return a Lang.String, a number can be either integer or float and hence cannot be formatted locally without error.
+            setSubLabel(WatchUi.loadResource($.Rez.Strings.TemplateError) as Lang.String);
         }
+        WatchUi.requestUpdate();
+    }
+    function updateToggleState(data as Lang.String or Lang.Dictionary or Null) as Void {
+        if (data == null) {
+            setUiToggle("off");
+        } else if(data instanceof Lang.String) {
+            setUiToggle(data);
+            if (mTemplate == null and data.equals("unavailable")) {
+                setSubLabel($.Rez.Strings.Unavailable);
+            }
+        } else if(data instanceof Lang.Dictionary) {
+            // System.println("HomeAsistantToggleMenuItem updateState() data = " + data);
+            if (mTemplate == null) {
+                if (data.get("error") != null) {
+                    setSubLabel($.Rez.Strings.TemplateError);
+                } else {
+                    setSubLabel($.Rez.Strings.PotentialError);
+                }
+            }
+        } else {
+            // The template must return a Lang.String, a number can be either integer or float and hence cannot be formatted locally without error.
+            if (mTemplate == null) {
+                setSubLabel(WatchUi.loadResource($.Rez.Strings.TemplateError) as Lang.String);
+            }
+        }
+        WatchUi.requestUpdate();
     }
 
     // Callback function after completing the POST request to set the status.
@@ -214,6 +150,7 @@ class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
                         state = d[i].get("state") as Lang.String;
                         // System.println((d[i].get("attributes") as Lang.Dictionary).get("friendly_name") + " State=" + state);
                         setUiToggle(state);
+                        WatchUi.requestUpdate();
                     }
                 }
                 status = WatchUi.loadResource($.Rez.Strings.Available) as Lang.String;
@@ -227,15 +164,14 @@ class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
     }
 
     function setState(s as Lang.Boolean) as Void {
+        // Toggle the UI back, we'll wait for confirmation from the Home Assistant
+        setEnabled(!isEnabled());
         if (! System.getDeviceSettings().phoneConnected) {
             // System.println("HomeAssistantToggleMenuItem getState(): No Phone connection, skipping API call.");
-            // Toggle the UI back
-            setEnabled(!isEnabled());
             ErrorView.show(WatchUi.loadResource($.Rez.Strings.NoPhone) as Lang.String + ".");
         } else if (! System.getDeviceSettings().connectionAvailable) {
             // System.println("HomeAssistantToggleMenuItem getState(): No Internet connection, skipping API call.");
             // Toggle the UI back
-            setEnabled(!isEnabled());
             ErrorView.show(WatchUi.loadResource($.Rez.Strings.NoInternet) as Lang.String + ".");
         } else {
             // Updated SDK and got a new error
@@ -279,129 +215,6 @@ class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
 
     function onConfirm(b as Lang.Boolean) as Void {
         setState(b);
-    }
-
-    // Callback function after completing the GET request to fetch the status.
-    // Terminate updating the toggle menu items via the chain of calls for a permanent network
-    // error. The ErrorView cancellation will resume the call chain.
-    //
-    function onReturnUpdateTemplate(responseCode as Lang.Number, data as Null or Lang.Dictionary) as Void {
-        // System.println("HomeAssistantTemplateMenuItem onReturnGetState() Response Code: " + responseCode);
-        // System.println("HomeAssistantTemplateMenuItem onReturnGetState() Response Data: " + data);
-
-        var status = WatchUi.loadResource($.Rez.Strings.Unavailable) as Lang.String;
-        switch (responseCode) {
-            case Communications.BLE_HOST_TIMEOUT:
-            case Communications.BLE_CONNECTION_UNAVAILABLE:
-                // System.println("HomeAssistantTemplateMenuItem onReturnGetState() Response Code: BLE_HOST_TIMEOUT or BLE_CONNECTION_UNAVAILABLE, Bluetooth connection severed.");
-                ErrorView.show(WatchUi.loadResource($.Rez.Strings.NoPhone) as Lang.String + ".");
-                break;
-
-            case Communications.BLE_QUEUE_FULL:
-                // System.println("HomeAssistantTemplateMenuItem onReturnGetState() Response Code: BLE_QUEUE_FULL, API calls too rapid.");
-                ErrorView.show(WatchUi.loadResource($.Rez.Strings.ApiFlood) as Lang.String);
-                break;
-
-            case Communications.NETWORK_REQUEST_TIMED_OUT:
-                // System.println("HomeAssistantTemplateMenuItem onReturnGetState() Response Code: NETWORK_REQUEST_TIMED_OUT, check Internet connection.");
-                ErrorView.show(WatchUi.loadResource($.Rez.Strings.NoResponse) as Lang.String);
-                break;
-
-            case Communications.INVALID_HTTP_BODY_IN_NETWORK_RESPONSE:
-                // System.println("HomeAssistantTemplateMenuItem onReturnGetState() Response Code: INVALID_HTTP_BODY_IN_NETWORK_RESPONSE, check JSON is returned.");
-                ErrorView.show(WatchUi.loadResource($.Rez.Strings.NoJson) as Lang.String);
-                break;
-
-            case Communications.NETWORK_RESPONSE_OUT_OF_MEMORY:
-                // System.println("HomeAssistantTemplateMenuItem onReturnGetState() Response Code: NETWORK_RESPONSE_OUT_OF_MEMORY, are we going too fast?");
-                var myTimer = new Timer.Timer();
-                // Now this feels very "closely coupled" to the application, but it is the most reliable method instead of using a timer.
-                myTimer.start(getApp().method(:updateNextMenuItem), Globals.scApiBackoff, false);
-                // Revert status
-                status = getApp().getApiStatus();
-                break;
-
-            case 404:
-                // System.println("HomeAssistantTemplateMenuItem onReturnGetState() Response Code: 404, page not found. Check API URL setting.");
-                ErrorView.show(WatchUi.loadResource($.Rez.Strings.ApiUrlNotFound) as Lang.String);
-                break;
-
-            case 400:
-                // System.println("HomeAssistantTemplateMenuItem onReturnGetState() Response Code: 400, bad request. Template error.");
-                ErrorView.show(WatchUi.loadResource($.Rez.Strings.TemplateError) as Lang.String);
-                break;
-
-            case 200:
-                status = WatchUi.loadResource($.Rez.Strings.Available) as Lang.String;
-                var label = data.get("request");
-                if (label == null) {
-                    setSubLabel($.Rez.Strings.Empty);
-                } else if(label instanceof Lang.String) {
-                    setSubLabel(label);
-                } else if(label instanceof Lang.Dictionary) {
-                    // System.println("HomeAssistantTemplateMenuItem onReturnGetState() label = " + label);
-                    if (label.get("error") != null) {
-                        setSubLabel($.Rez.Strings.TemplateError);
-                    } else {
-                        setSubLabel($.Rez.Strings.PotentialError);
-                    }
-                } else {
-                    // The template must return a Lang.String, a number can be either integer or float and hence cannot be formatted locally without error.
-                    setSubLabel(WatchUi.loadResource($.Rez.Strings.TemplateError) as Lang.String);
-                }
-                requestUpdate();
-                // Now this feels very "closely coupled" to the application, but it is the most reliable method instead of using a timer.
-                getApp().updateNextMenuItem();
-                break;
-
-            default:
-                // System.println("HomeAssistantTemplateMenuItem onReturnGetState(): Unhandled HTTP response code = " + responseCode);
-                ErrorView.show(WatchUi.loadResource($.Rez.Strings.UnhandledHttpErr) as Lang.String + responseCode);
-        }
-        getApp().setApiStatus(status);
-    }
-
-    // Massive code duplication from TemplateMenuItem, but cannot inherit from two classes.
-    //
-    function updateTemplate() as Void {
-        if (mTemplate == null) {
-            // Nothing to do here.
-            // Now this feels very "closely coupled" to the application, but it is the most reliable method instead of using a timer.
-            getApp().updateNextMenuItem();
-        } else {
-            if (! System.getDeviceSettings().phoneConnected) {
-                // System.println("HomeAssistantTemplateMenuItem getState(): No Phone connection, skipping API call.");
-                ErrorView.show(WatchUi.loadResource($.Rez.Strings.NoPhone) as Lang.String + ".");
-                getApp().setApiStatus(WatchUi.loadResource($.Rez.Strings.Unavailable) as Lang.String);
-            } else if (! System.getDeviceSettings().connectionAvailable) {
-                // System.println("HomeAssistantTemplateMenuItem getState(): No Internet connection, skipping API call.");
-                ErrorView.show(WatchUi.loadResource($.Rez.Strings.NoInternet) as Lang.String + ".");
-                getApp().setApiStatus(WatchUi.loadResource($.Rez.Strings.Unavailable) as Lang.String);
-            } else {
-                // https://developers.home-assistant.io/docs/api/native-app-integration/sending-data/#render-templates
-                var url = Settings.getApiUrl() + "/webhook/" + Settings.getWebhookId();
-                // System.println("HomeAssistantTemplateMenuItem getState() URL=" + url + ", Template='" + mTemplate + "'");
-                Communications.makeWebRequest(
-                    url,
-                    {
-                        "type" => "render_template",
-                        "data" => {
-                            "request" => {
-                                "template" => mTemplate
-                            }
-                        }
-                    },
-                    {
-                        :method       => Communications.HTTP_REQUEST_METHOD_POST,
-                        :headers      => {
-                            "Content-Type" => Communications.REQUEST_CONTENT_TYPE_JSON
-                        },
-                        :responseType => Communications.HTTP_RESPONSE_CONTENT_TYPE_JSON
-                    },
-                    method(:onReturnUpdateTemplate)
-                );
-            }
-        }
     }
 
 }

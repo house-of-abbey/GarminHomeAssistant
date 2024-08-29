@@ -26,8 +26,9 @@ using Toybox.Lang;
 using Toybox.WatchUi;
 using Toybox.Graphics;
 
-class HomeAssistantTemplateMenuItem extends TemplateMenuItem {
+class HomeAssistantTemplateMenuItem extends WatchUi.IconMenuItem {
     private var mHomeAssistantService as HomeAssistantService;
+    private var mTemplate             as Lang.String;
     private var mService              as Lang.String or Null;
     private var mConfirm              as Lang.Boolean;
     private var mData                 as Lang.Dictionary or Null;
@@ -44,19 +45,42 @@ class HomeAssistantTemplateMenuItem extends TemplateMenuItem {
         } or Null,
         haService as HomeAssistantService
     ) {
-        TemplateMenuItem.initialize(
+        WatchUi.IconMenuItem.initialize(
             label,
-            template,
-            // Now this feels very "closely coupled" to the application, but it is the most reliable method instead of using a timer.
-            getApp().method(:updateNextMenuItem),
+            null,
+            null,
             icon,
             options
         );
 
         mHomeAssistantService = haService;
+        mTemplate             = template;
         mService              = service;
         mConfirm              = confirm;
         mData                 = data;
+    }
+
+    function buildTemplate() as Lang.String or Null {
+        return mTemplate;
+    }
+
+    function updateState(data as Lang.String or Lang.Dictionary or Null) as Void {
+        if (data == null) {
+            setSubLabel($.Rez.Strings.Empty);
+        } else if(data instanceof Lang.String) {
+            setSubLabel(data);
+        } else if(data instanceof Lang.Dictionary) {
+            // System.println("HomeAsistantTemplateMenuItem updateState() data = " + data);
+            if (data.get("error") != null) {
+                setSubLabel($.Rez.Strings.TemplateError);
+            } else {
+                setSubLabel($.Rez.Strings.PotentialError);
+            }
+        } else {
+            // The template must return a Lang.String, a number can be either integer or float and hence cannot be formatted locally without error.
+            setSubLabel(WatchUi.loadResource($.Rez.Strings.TemplateError) as Lang.String);
+        }
+        WatchUi.requestUpdate();
     }
 
     function callService() as Void {

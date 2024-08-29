@@ -53,6 +53,13 @@ class HomeAssistantTapMenuItem extends WatchUi.IconMenuItem {
         mData                 = data;
     }
 
+    function buildTemplate() as Lang.String or Null {
+        return null;
+    }
+
+    function updateState(data as Lang.String or Null) as Void {
+    }
+
     function callService() as Void {
         if (mConfirm) {
             WatchUi.pushView(

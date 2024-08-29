@@ -35,10 +35,8 @@ class HomeAssistantApp extends Application.AppBase {
     private var mUpdateTimer       as Timer.Timer       or Null;
     // Array initialised by onReturnFetchMenuConfig()
     private var mItemsToUpdate     as Lang.Array<HomeAssistantToggleMenuItem or HomeAssistantTemplateMenuItem> or Null;
-    private var mNextItemToUpdate  as Lang.Number  = 0;     // Index into the above array
     private var mIsGlance          as Lang.Boolean = false;
     private var mIsApp             as Lang.Boolean = false; // Or Widget
-    private var mIsInitUpdateCompl as Lang.Boolean = false;
     private var mUpdating          as Lang.Boolean = false; // Don't start a second chain of updates
 
     function initialize() {
@@ -262,15 +260,129 @@ class HomeAssistantApp extends Application.AppBase {
         mQuitTimer.begin();
     }
 
+    var mTemplates as Lang.Dictionary = {};
     function startUpdates() {
         if (mHaMenu != null and !mUpdating) {
             mItemsToUpdate = mHaMenu.getItemsToUpdate();
             // Start the continuous update process that continues for as long as the application is running.
-            // The chain of functions from 'updateNextMenuItem()' calls 'updateNextMenuItem()' on completion.
-            if (mItemsToUpdate.size() > 0) {
-                mUpdating = true;
-                updateNextMenuItemInternal();
+            mTemplates = {};
+            for (var i = 0; i < mItemsToUpdate.size(); i++) {
+                var item = mItemsToUpdate[i];
+                var template = item.buildTemplate();
+                if (template != null) {
+                    mTemplates.put(i.toString(), {
+                        "template" => template
+                    });
+                }
+                if (item instanceof HomeAssistantToggleMenuItem) {
+                    mTemplates.put(i.toString() + "t", {
+                        "template" => (item as HomeAssistantToggleMenuItem).buildToggleTemplate()
+                    });
+                }
             }
+            updateMenuItems();
+        }
+    }
+
+    function onReturnUpdateMenuItems(responseCode as Lang.Number, data as Null or Lang.Dictionary) as Void {
+        // System.println("HomeAssistantApp onReturnUpdateMenuItems() Response Code: " + responseCode);
+        // System.println("HomeAssistantApp onReturnUpdateMenuItems() Response Data: " + data);
+
+        var status = WatchUi.loadResource($.Rez.Strings.Unavailable) as Lang.String;
+        switch (responseCode) {
+            case Communications.BLE_HOST_TIMEOUT:
+            case Communications.BLE_CONNECTION_UNAVAILABLE:
+                // System.println("HomeAssistantApp onReturnUpdateMenuItems() Response Code: BLE_HOST_TIMEOUT or BLE_CONNECTION_UNAVAILABLE, Bluetooth connection severed.");
+                ErrorView.show(WatchUi.loadResource($.Rez.Strings.NoPhone) as Lang.String + ".");
+                break;
+
+            case Communications.BLE_QUEUE_FULL:
+                // System.println("HomeAssistantApp onReturnUpdateMenuItems() Response Code: BLE_QUEUE_FULL, API calls too rapid.");
+                ErrorView.show(WatchUi.loadResource($.Rez.Strings.ApiFlood) as Lang.String);
+                break;
+
+            case Communications.NETWORK_REQUEST_TIMED_OUT:
+                // System.println("HomeAssistantApp onReturnUpdateMenuItems() Response Code: NETWORK_REQUEST_TIMED_OUT, check Internet connection.");
+                ErrorView.show(WatchUi.loadResource($.Rez.Strings.NoResponse) as Lang.String);
+                break;
+
+            case Communications.INVALID_HTTP_BODY_IN_NETWORK_RESPONSE:
+                // System.println("HomeAssistantApp onReturnUpdateMenuItems() Response Code: INVALID_HTTP_BODY_IN_NETWORK_RESPONSE, check JSON is returned.");
+                ErrorView.show(WatchUi.loadResource($.Rez.Strings.NoJson) as Lang.String);
+                break;
+
+            case Communications.NETWORK_RESPONSE_OUT_OF_MEMORY:
+                // System.println("HomeAssistantApp onReturnUpdateMenuItems() Response Code: NETWORK_RESPONSE_OUT_OF_MEMORY, are we going too fast?");
+                var myTimer = new Timer.Timer();
+                // Now this feels very "closely coupled" to the application, but it is the most reliable method instead of using a timer.
+                myTimer.start(method(:updateMenuItems), Globals.scApiBackoff, false);
+                // Revert status
+                status = getApiStatus();
+                break;
+
+            case 404:
+                // System.println("HomeAssistantApp onReturnUpdateMenuItems() Response Code: 404, page not found. Check API URL setting.");
+                ErrorView.show(WatchUi.loadResource($.Rez.Strings.ApiUrlNotFound) as Lang.String);
+                break;
+
+            case 400:
+                // System.println("HomeAssistantApp onReturnUpdateMenuItems() Response Code: 400, bad request. Template error.");
+                ErrorView.show(WatchUi.loadResource($.Rez.Strings.TemplateError) as Lang.String);
+                break;
+
+            case 200:
+                status = WatchUi.loadResource($.Rez.Strings.Available) as Lang.String;
+                for (var i = 0; i < mItemsToUpdate.size(); i++) {
+                    var item = mItemsToUpdate[i];
+                    var state = data.get(i.toString());
+                    item.updateState(state);
+                    if (item instanceof HomeAssistantToggleMenuItem) {
+                        (item as HomeAssistantToggleMenuItem).updateToggleState(data.get(i.toString() + "t"));
+                    }
+                }
+                var delay = Settings.getPollDelay();
+                if (delay > 0) {
+                    mUpdateTimer.start(method(:updateMenuItems), delay, false);
+                } else {
+                    updateMenuItems();
+                }
+                break;
+
+            default:
+                // System.println("HomeAssistantApp onReturnUpdateMenuItems(): Unhandled HTTP response code = " + responseCode);
+                ErrorView.show(WatchUi.loadResource($.Rez.Strings.UnhandledHttpErr) as Lang.String + responseCode);
+        }
+        setApiStatus(status);
+    }
+
+    function updateMenuItems() as Void {
+        if (! System.getDeviceSettings().phoneConnected) {
+            // System.println("HomeAssistantApp updateMenuItems(): No Phone connection, skipping API call.");
+            ErrorView.show(WatchUi.loadResource($.Rez.Strings.NoPhone) as Lang.String + ".");
+            setApiStatus(WatchUi.loadResource($.Rez.Strings.Unavailable) as Lang.String);
+        } else if (! System.getDeviceSettings().connectionAvailable) {
+            // System.println("HomeAssistantApp updateMenuItems(): No Internet connection, skipping API call.");
+            ErrorView.show(WatchUi.loadResource($.Rez.Strings.NoInternet) as Lang.String + ".");
+            setApiStatus(WatchUi.loadResource($.Rez.Strings.Unavailable) as Lang.String);
+        } else {
+            // https://developers.home-assistant.io/docs/api/native-app-integration/sending-data/#render-templates
+            var url = Settings.getApiUrl() + "/webhook/" + Settings.getWebhookId();
+            // System.println("HomeAssistantApp updateMenuItems() URL=" + url + ", Template='" + mTemplate + "'");
+            Communications.makeWebRequest(
+                url,
+                {
+                    "type" => "render_template",
+                    "data" => mTemplates
+                },
+                {
+                    :method       => Communications.HTTP_REQUEST_METHOD_POST,
+                    :headers      => {
+                        "Content-Type" => Communications.REQUEST_CONTENT_TYPE_JSON
+                    },
+                    :responseType => Communications.HTTP_RESPONSE_CONTENT_TYPE_JSON
+                },
+                method(:onReturnUpdateMenuItems)
+            );
         }
     }
 
@@ -403,45 +515,14 @@ class HomeAssistantApp extends Application.AppBase {
         WatchUi.pushView(mHaMenu, new HomeAssistantViewDelegate(true), WatchUi.SLIDE_IMMEDIATE);
     }
 
-    function updateNextMenuItem() as Void {
-        var delay = Settings.getPollDelay();
-        if (mIsInitUpdateCompl and (delay > 0) and (mNextItemToUpdate == 0)) {
-            mUpdateTimer.start(method(:updateNextMenuItemInternal), delay, false);
-        } else {
-            updateNextMenuItemInternal();
-        }
-    }
-
     // Only call this function if Settings.getPollDelay() > 0. This must be tested locally as it is then efficient to take
     // alternative action if the test fails.
     function forceStatusUpdates() as Void {
         // Don't mess with updates unless we are using a timer.
         if (Settings.getPollDelay() > 0) {
             mUpdateTimer.stop();
-            mIsInitUpdateCompl = false;
-            // Start from the beginning, or we will only get a partial round of updates before mIsInitUpdateCompl is flipped.
-            mNextItemToUpdate = 0;
             // For immediate updates
-            updateNextMenuItem();
-        }
-    }
-
-    // We need to spread out the API calls so as not to overload the results queue and cause Communications.BLE_QUEUE_FULL
-    // (-101) error. This function is called by a timer every Globals.menuItemUpdateInterval ms.
-    function updateNextMenuItemInternal() as Void {
-        if (mItemsToUpdate != null) {
-            // System.println("HomeAssistantApp updateNextMenuItemInternal(): Doing update for item " + mNextItemToUpdate + ", mIsInitUpdateCompl=" + mIsInitUpdateCompl);
-            mItemsToUpdate[mNextItemToUpdate].getState();
-            // mNextItemToUpdate = (mNextItemToUpdate + 1) % mItemsToUpdate.size() - But with roll-over detection
-            if (mNextItemToUpdate == mItemsToUpdate.size()-1) {
-                // Last item completed return to the start of the list
-                mNextItemToUpdate  = 0;
-                mIsInitUpdateCompl = true;
-            } else {
-                mNextItemToUpdate++;
-            }
-        // } else {
-        //     System.println("HomeAssistantApp updateNextMenuItemInternal(): No menu items to update");
+            updateMenuItems();
         }
     }
 
