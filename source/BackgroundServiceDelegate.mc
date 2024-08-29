@@ -112,7 +112,11 @@ class BackgroundServiceDelegate extends System.ServiceDelegate {
                 data.put("speed", Math.round(position.speed));
             }
             if (position.heading != null) {
-                data.put("course", Math.round(position.heading * 180 / Math.PI));
+                var heading = Math.round(position.heading * 180 / Math.PI);
+                while (heading < 0) {
+                    heading += 360;
+                }
+                data.put("course", heading);
             }
             if (position.altitude != null) {
                 data.put("altitude", Math.round(position.altitude));

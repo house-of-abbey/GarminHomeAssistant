@@ -25,9 +25,10 @@ using Toybox.Application.Properties;
 using Toybox.Timer;
 
 class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
-    private var mConfirm  as Lang.Boolean;
-    private var mData     as Lang.Dictionary;
-    private var mTemplate as Lang.String;
+    private var mConfirm    as Lang.Boolean;
+    private var mData       as Lang.Dictionary;
+    private var mTemplate   as Lang.String;
+    private var mHasVibrate as Lang.Boolean = false;
 
     function initialize(
         label    as Lang.String or Lang.Symbol,
@@ -40,6 +41,9 @@ class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
         } or Null
     ) {
         WatchUi.ToggleMenuItem.initialize(label, null, null, false, options);
+        if (Attention has :vibrate) {
+            mHasVibrate = true;
+        }
         mConfirm  = confirm;
         mData     = data;
         mTemplate = template;
@@ -198,6 +202,13 @@ class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
                 },
                 method(:onReturnSetState)
             );
+            if (mHasVibrate and Settings.getVibrate()) {
+                Attention.vibrate([
+                    new Attention.VibeProfile(50, 100), // On  for 100ms
+                    new Attention.VibeProfile( 0, 100), // Off for 100ms
+                    new Attention.VibeProfile(50, 100)  // On  for 100ms
+                ]);
+            }
         }
     }
 
