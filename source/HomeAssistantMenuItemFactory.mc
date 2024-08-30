@@ -79,7 +79,7 @@ class HomeAssistantMenuItemFactory {
         );
     }
 
-    function template_tap(
+    function tap(
         label    as Lang.String or Lang.Symbol,
         entity   as Lang.String or Null,
         template as Lang.String or Null,
@@ -94,57 +94,29 @@ class HomeAssistantMenuItemFactory {
                 data.put("entity_id", entity);
             }
         }
-        return new HomeAssistantTemplateMenuItem(
-            label,
-            template,
-            service,
-            confirm,
-            data,
-            mTapTypeIcon,
-            mMenuItemOptions,
-            mHomeAssistantService
-        );
-    }
-
-    function template_notap(
-        label    as Lang.String or Lang.Symbol,
-        template as Lang.String or Null
-    ) as WatchUi.MenuItem {
-        return new HomeAssistantTemplateMenuItem(
-            label,
-            template,
-            null,
-            false,
-            null,
-            mInfoTypeIcon,
-            mMenuItemOptions,
-            mHomeAssistantService
-        );
-    }
-
-    function tap(
-        label   as Lang.String or Lang.Symbol,
-        entity  as Lang.String or Null,
-        service as Lang.String or Null,
-        confirm as Lang.Boolean,
-        data    as Lang.Dictionary or Null
-    ) as WatchUi.MenuItem {
-        if (entity != null) {
-            if (data == null) {
-                data = { "entity_id" => entity };
-            } else {
-                data.put("entity_id", entity);
-            }
+        if (service != null) {
+            return new HomeAssistantTapMenuItem(
+                label,
+                template,
+                service,
+                confirm,
+                data,
+                mTapTypeIcon,
+                mMenuItemOptions,
+                mHomeAssistantService
+            );
+        } else {
+            return new HomeAssistantTapMenuItem(
+                label,
+                template,
+                service,
+                confirm,
+                data,
+                mInfoTypeIcon,
+                mMenuItemOptions,
+                mHomeAssistantService
+            );
         }
-        return new HomeAssistantTapMenuItem(
-            label,
-            service,
-            confirm,
-            data,
-            mTapTypeIcon,
-            mMenuItemOptions,
-            mHomeAssistantService
-        );
     }
 
     function group(
