@@ -284,3 +284,29 @@ JSON for copy & paste:
   ]
 }
 ```
+
+# Debug Logs
+
+As a desperate measure to assist with debugging the Home Assistant Application, you might be asked to send the authors a debug log.
+
+![How to find the debug log file](images/debug_log_location.png)
+
+The figure above shows how to find the file on Windows by attaching your watch by USB cable. Inside the `CIQ_LOG.YML` file there are often multiple entries, each looking like this:
+
+```
+Error: Unexpected Type Error
+Details: 'Failed invoking <symbol>'
+Time: 2024-08-30T12:00:25Z
+Part-Number: 006-B3703-00
+Firmware-Version: '19.05'
+Language-Code: eng
+ConnectIQ-Version: 4.2.4
+Store-Id: 61c91d28-ec5e-438d-9f83-39e9f45b199d
+Store-Version: 30
+Filename: DCRL0437
+Appname: HomeAssistant
+Stack: 
+  - pc: 0x10003b5e
+```
+
+The only useful information we can glean from this log is the first line, `Error: Unexpected Type Error`. There is no useful mapping to a line of code unless someone can explain to us how to use the `pc` line. Being able to send us the error type does serve as a clue.
