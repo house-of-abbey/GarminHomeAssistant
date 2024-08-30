@@ -64,7 +64,10 @@
             },
             "type": {
               "$ref": "#/$defs/type",
-              "const": "template"
+              "const": "template",
+              "deprecated": true,
+              "title": "Schema change:",
+              "description": "Use 'tap' instead."
             }
           },
           "required": ["name", "content", "type"],
@@ -84,7 +87,10 @@
             },
             "type": {
               "$ref": "#/$defs/type",
-              "const": "template"
+              "const": "template",
+              "deprecated": true,
+              "title": "Schema change:",
+              "description": "Use 'tap' instead."
             },
             "tap_action": {
               "$ref": "#/$defs/tap_action"
@@ -108,6 +114,10 @@
           "$ref": "#/$defs/type",
           "const": "tap"
         },
+        "content": {
+          "$ref": "#/$defs/content",
+          "description": "Optional in a tap."
+        },
         "service": {
           "$ref": "#/$defs/entity",
           "deprecated": true,
@@ -118,14 +128,7 @@
           "$ref": "#/$defs/tap_action"
         }
       },
-      "oneOf": [
-        {
-          "required": ["name", "type", "service"]
-        },
-        {
-          "required": ["name", "type", "tap_action"]
-        }
-      ],
+      "required": ["name", "type"],
       "additionalProperties": false
     },
     "group": {
