@@ -56,6 +56,10 @@ class HomeAssistantTapMenuItem extends WatchUi.IconMenuItem {
         mData                 = data;
     }
 
+    function hasTemplate() as Lang.Boolean {
+        return mTemplate != null;
+    }
+
     function buildTemplate() as Lang.String or Null {
         return mTemplate;
     }

@@ -34,7 +34,7 @@ class HomeAssistantApp extends Application.AppBase {
     private var mGlanceTimer       as Timer.Timer       or Null;
     private var mUpdateTimer       as Timer.Timer       or Null;
     // Array initialised by onReturnFetchMenuConfig()
-    private var mItemsToUpdate     as Lang.Array<HomeAssistantToggleMenuItem or HomeAssistantTemplateMenuItem> or Null;
+    private var mItemsToUpdate     as Lang.Array<HomeAssistantToggleMenuItem or HomeAssistantTapMenuItem or HomeAssistantGroupMenuItem> or Null;
     private var mIsGlance          as Lang.Boolean = false;
     private var mIsApp             as Lang.Boolean = false; // Or Widget
     private var mUpdating          as Lang.Boolean = false; // Don't start a second chain of updates

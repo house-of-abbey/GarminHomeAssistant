@@ -94,16 +94,29 @@ class HomeAssistantMenuItemFactory {
                 data.put("entity_id", entity);
             }
         }
-        return new HomeAssistantTapMenuItem(
-            label,
-            template,
-            service,
-            confirm,
-            data,
-            mTapTypeIcon,
-            mMenuItemOptions,
-            mHomeAssistantService
-        );
+        if (service != null) {
+            return new HomeAssistantTapMenuItem(
+                label,
+                template,
+                service,
+                confirm,
+                data,
+                mTapTypeIcon,
+                mMenuItemOptions,
+                mHomeAssistantService
+            );
+        } else {
+            return new HomeAssistantTapMenuItem(
+                label,
+                template,
+                service,
+                confirm,
+                data,
+                mInfoTypeIcon,
+                mMenuItemOptions,
+                mHomeAssistantService
+            );
+        }
     }
 
     function group(
