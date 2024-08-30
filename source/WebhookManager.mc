@@ -160,18 +160,28 @@ class WebhookManager {
 
             case 200:
             case 201:
-                var d = data as Lang.Dictionary;
-                if ((d.get("success") as Lang.Boolean or Null) != false) {
-                    if (sensors.size() == 0) {
-                        getApp().startUpdates();
+                if (data instanceof Lang.Dictionary) {
+                    var d = data as Lang.Dictionary;
+                    var b = d.get("success") as Lang.Boolean or Null;
+                    if (b != null and b != false) {
+                        if (sensors.size() == 0) {
+                            getApp().startUpdates();
+                        } else {
+                            registerWebhookSensor(sensors);
+                        }
                     } else {
-                        registerWebhookSensor(sensors);
+                        // System.println("WebhookManager onReturnRegisterWebhookSensor(): Failure, no 'success'.");
+                        Settings.unsetWebhookId();
+                        Settings.unsetIsSensorsLevelEnabled();
+                        ErrorView.show(WatchUi.loadResource($.Rez.Strings.WebhookFailed) as Lang.String);
                     }
                 } else {
-                    // System.println("WebhookManager onReturnRegisterWebhookSensor(): Failure");
+                    // !! Speculative code for an application crash !!
+                    // System.println("WebhookManager onReturnRegisterWebhookSensor(): Failure, not a Lang.Dict");
+                    // Webhook ID might have been deleted on Home Assistant server and a Lang.String is trying to tell us an error message
                     Settings.unsetWebhookId();
                     Settings.unsetIsSensorsLevelEnabled();
-                    ErrorView.show(WatchUi.loadResource($.Rez.Strings.WebhookFailed) as Lang.String);
+                    ErrorView.show(WatchUi.loadResource($.Rez.Strings.WebhookFailed) as Lang.String + "\n" + data.toString());
                 }
                 break;
 
@@ -179,7 +189,7 @@ class WebhookManager {
                 // System.println("WebhookManager onReturnRequestWebhookId(): Unhandled HTTP response code = " + responseCode);
                 Settings.unsetWebhookId();
                 Settings.unsetIsSensorsLevelEnabled();
-                ErrorView.show(WatchUi.loadResource($.Rez.Strings.WebhookFailed) as Lang.String + "\n" + WatchUi.loadResource($.Rez.Strings.UnhandledHttpErr) as Lang.String + responseCode);
+                ErrorView.show(WatchUi.loadResource($.Rez.Strings.WebhookFailed) as Lang.String + "\n" + WatchUi.loadResource($.Rez.Strings.UnhandledHttpErr) as Lang.String + " " + responseCode);
         }
     }
 
