@@ -310,3 +310,5 @@ Stack:
 ```
 
 The only useful information we can glean from this log is the first line, `Error: Unexpected Type Error`. There is no useful mapping to a line of code unless someone can explain to us how to use the `pc` line. Being able to send us the error type does serve as a clue.
+
+More on [debugging Monkey C applications](https://developer.garmin.com/connect-iq/core-topics/debugging/#appcrashes). The filenames and line numbers must only be present for deployment of code instrumented for debug.
