@@ -91,7 +91,7 @@ class ErrorView extends ScalableView {
         return mDelegate;
     }
 
-    static function create(text as Lang.String) as Lang.Array<ErrorView or ErrorDelegate> {
+    static function create(text as Lang.String) as [ WatchUi.Views ] or [ WatchUi.Views, WatchUi.InputDelegates ] {
         if (instance == null) {
             instance = new ErrorView();
         }

@@ -27,17 +27,18 @@ using Toybox.Timer;
 
 (:glance, :background)
 class HomeAssistantApp extends Application.AppBase {
-    private var mApiStatus         as Lang.String       or Null;
-    private var mMenuStatus        as Lang.String       or Null;
-    private var mHaMenu            as HomeAssistantView or Null;
-    private var mQuitTimer         as QuitTimer         or Null;
-    private var mGlanceTimer       as Timer.Timer       or Null;
-    private var mUpdateTimer       as Timer.Timer       or Null;
+    private var mApiStatus     as Lang.String       or Null;
+    private var mMenuStatus    as Lang.String       or Null;
+    private var mHaMenu        as HomeAssistantView or Null;
+    private var mQuitTimer     as QuitTimer         or Null;
+    private var mGlanceTimer   as Timer.Timer       or Null;
+    private var mUpdateTimer   as Timer.Timer       or Null;
     // Array initialised by onReturnFetchMenuConfig()
-    private var mItemsToUpdate     as Lang.Array<HomeAssistantToggleMenuItem or HomeAssistantTapMenuItem or HomeAssistantGroupMenuItem> or Null;
-    private var mIsGlance          as Lang.Boolean = false;
-    private var mIsApp             as Lang.Boolean = false; // Or Widget
-    private var mUpdating          as Lang.Boolean = false; // Don't start a second chain of updates
+    private var mItemsToUpdate as Lang.Array<HomeAssistantToggleMenuItem or HomeAssistantTapMenuItem or HomeAssistantGroupMenuItem> or Null;
+    private var mIsGlance      as Lang.Boolean    = false;
+    private var mIsApp         as Lang.Boolean    = false; // Or Widget
+    private var mUpdating      as Lang.Boolean    = false; // Don't start a second chain of updates
+    private var mTemplates     as Lang.Dictionary = {};
 
     function initialize() {
         AppBase.initialize();
@@ -87,7 +88,7 @@ class HomeAssistantApp extends Application.AppBase {
     }
 
     // Return the initial view of your application here
-    function getInitialView() as Lang.Array<WatchUi.Views or WatchUi.InputDelegates>? {
+    function getInitialView() as [ WatchUi.Views ] or [ WatchUi.Views, WatchUi.InputDelegates ] {
         mIsApp       = true;
         mQuitTimer   = new QuitTimer();
         mUpdateTimer = new Timer.Timer();
@@ -117,9 +118,9 @@ class HomeAssistantApp extends Application.AppBase {
             var isCached = fetchMenuConfig();
             fetchApiStatus();
             if (isCached) {
-                return [mHaMenu, new HomeAssistantViewDelegate(true)] as Lang.Array<WatchUi.Views or WatchUi.InputDelegates>;
+                return [mHaMenu, new HomeAssistantViewDelegate(true)];
             } else {
-                return [new WatchUi.View(), new WatchUi.BehaviorDelegate()] as Lang.Array<WatchUi.Views or WatchUi.InputDelegates>;
+                return [new WatchUi.View(), new WatchUi.BehaviorDelegate()];
             }
         }
     }
@@ -260,7 +261,6 @@ class HomeAssistantApp extends Application.AppBase {
         mQuitTimer.begin();
     }
 
-    var mTemplates as Lang.Dictionary = {};
     function startUpdates() {
         if (mHaMenu != null and !mUpdating) {
             mItemsToUpdate = mHaMenu.getItemsToUpdate();
@@ -432,11 +432,7 @@ class HomeAssistantApp extends Application.AppBase {
                 break;
 
             case 200:
-                var msg = null;
-                if (data != null) {
-                    msg = data.get("message");
-                }
-                if (msg.equals("API running.")) {
+                if ((data != null) && data.get("message").equals("API running.")) {
                     mApiStatus = WatchUi.loadResource($.Rez.Strings.Available) as Lang.String;
                 } else {
                     if (!mIsGlance) {
@@ -530,7 +526,7 @@ class HomeAssistantApp extends Application.AppBase {
         return mQuitTimer;
     }
 
-    function getGlanceView() as Lang.Array<WatchUi.GlanceView or WatchUi.GlanceViewDelegate> or Null {
+    function getGlanceView() as [ WatchUi.GlanceView ] or [ WatchUi.GlanceView, WatchUi.GlanceViewDelegate ] or Null {
         mIsGlance   = true;
         mApiStatus  = WatchUi.loadResource($.Rez.Strings.Checking) as Lang.String;
         mMenuStatus = WatchUi.loadResource($.Rez.Strings.Checking) as Lang.String;
@@ -555,7 +551,7 @@ class HomeAssistantApp extends Application.AppBase {
 
     // Called each time the Registered Temporal Event is to be invoked. So the object is created each time on request and
     // then destroyed on completion (to save resources).
-    function getServiceDelegate() as Lang.Array<System.ServiceDelegate> {
+    function getServiceDelegate() as [ System.ServiceDelegate ] {
         return [new BackgroundServiceDelegate()];
     }
 
