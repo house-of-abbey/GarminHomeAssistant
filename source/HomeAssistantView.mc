@@ -73,7 +73,8 @@ class HomeAssistantView extends WatchUi.Menu2 {
         }
     }
 
-    function getItemsToUpdate() as Lang.Array<HomeAssistantToggleMenuItem or HomeAssistantTapMenuItem or HomeAssistantGroupMenuItem> {
+    // Lang.Array.addAll() fails structural type checking without including "Null" in the return type
+    function getItemsToUpdate() as Lang.Array<HomeAssistantToggleMenuItem or HomeAssistantTapMenuItem or HomeAssistantGroupMenuItem or Null> {
         var fullList = [];
         var lmi = mItems as Lang.Array<WatchUi.MenuItem>;
 

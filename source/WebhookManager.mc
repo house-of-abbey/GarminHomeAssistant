@@ -181,7 +181,8 @@ class WebhookManager {
                     // Webhook ID might have been deleted on Home Assistant server and a Lang.String is trying to tell us an error message
                     Settings.unsetWebhookId();
                     Settings.unsetIsSensorsLevelEnabled();
-                    ErrorView.show(WatchUi.loadResource($.Rez.Strings.WebhookFailed) as Lang.String + "\n" + data.toString());
+//                    ErrorView.show(WatchUi.loadResource($.Rez.Strings.WebhookFailed) as Lang.String + "\n" + data.toString());
+                    ErrorView.show(WatchUi.loadResource($.Rez.Strings.WebhookFailed) as Lang.String);
                 }
                 break;
 
@@ -217,8 +218,7 @@ class WebhookManager {
     }
 
     function registerWebhookSensors() {
-        var activityInfo = ActivityMonitor.getInfo();
-        var heartRate    = Activity.getActivityInfo().currentHeartRate;
+        var heartRate = Activity.getActivityInfo().currentHeartRate;
 
         var sensors = [
             {
@@ -244,15 +244,6 @@ class WebhookManager {
                 "disabled"            => !Settings.isSensorsLevelEnabled()
             },
             {
-                "name"                => "Steps today",
-                "state"               => activityInfo.steps == null ? "unknown" : activityInfo.steps,
-                "type"                => "sensor",
-                "unique_id"           => "steps_today",
-                "icon"                => "mdi:walk",
-                "state_class"         => "total",
-                "disabled"            => !Settings.isSensorsLevelEnabled()
-            },
-            {
                 "name"                => "Heart rate",
                 "state"               => heartRate == null ? "unknown" : heartRate,
                 "type"                => "sensor",
@@ -264,41 +255,57 @@ class WebhookManager {
             }
         ];
 
-        if (ActivityMonitor.Info has :floorsClimbed) {
+        if (Toybox has :ActivityMonitor) {
+            System.println("WebhookManager registerWebhookSensors(): has ActivityMonitor class");
+            var activityInfo = ActivityMonitor.getInfo();
             sensors.add({
-                "name"                => "Floors climbed today",
-                "state"               => activityInfo.floorsClimbed == null ? "unknown" : activityInfo.floorsClimbed,
+                "name"                => "Steps today",
+                "state"               => activityInfo.steps == null ? "unknown" : activityInfo.steps,
                 "type"                => "sensor",
-                "unique_id"           => "floors_climbed_today",
-                "icon"                => "mdi:stairs-up",
+                "unique_id"           => "steps_today",
+                "icon"                => "mdi:walk",
                 "state_class"         => "total",
                 "disabled"            => !Settings.isSensorsLevelEnabled()
             });
-        }
 
-        if (ActivityMonitor.Info has :floorsDescended) {
-            sensors.add({
-                "name"                => "Floors descended today",
-                "state"               => activityInfo.floorsDescended == null ? "unknown" : activityInfo.floorsDescended,
-                "type"                => "sensor",
-                "unique_id"           => "floors_descended_today",
-                "icon"                => "mdi:stairs-down",
-                "state_class"         => "total",
-                "disabled"            => !Settings.isSensorsLevelEnabled()
-            });
-        }
+            if (ActivityMonitor.Info has :floorsClimbed) {
+                sensors.add({
+                    "name"                => "Floors climbed today",
+                    "state"               => activityInfo.floorsClimbed == null ? "unknown" : activityInfo.floorsClimbed,
+                    "type"                => "sensor",
+                    "unique_id"           => "floors_climbed_today",
+                    "icon"                => "mdi:stairs-up",
+                    "state_class"         => "total",
+                    "disabled"            => !Settings.isSensorsLevelEnabled()
+                });
+            }
 
-        if (ActivityMonitor.Info has :respirationRate) {
-            sensors.add({
-                "name"                => "Respiration rate",
-                "state"               => activityInfo.respirationRate == null ? "unknown" : activityInfo.respirationRate,
-                "type"                => "sensor",
-                "unique_id"           => "respiration_rate",
-                "icon"                => "mdi:lungs",
-                "unit_of_measurement" => "bpm",
-                "state_class"         => "measurement",
-                "disabled"            => !Settings.isSensorsLevelEnabled()
-            });
+            if (ActivityMonitor.Info has :floorsDescended) {
+                sensors.add({
+                    "name"                => "Floors descended today",
+                    "state"               => activityInfo.floorsDescended == null ? "unknown" : activityInfo.floorsDescended,
+                    "type"                => "sensor",
+                    "unique_id"           => "floors_descended_today",
+                    "icon"                => "mdi:stairs-down",
+                    "state_class"         => "total",
+                    "disabled"            => !Settings.isSensorsLevelEnabled()
+                });
+            }
+
+            if (ActivityMonitor.Info has :respirationRate) {
+                sensors.add({
+                    "name"                => "Respiration rate",
+                    "state"               => activityInfo.respirationRate == null ? "unknown" : activityInfo.respirationRate,
+                    "type"                => "sensor",
+                    "unique_id"           => "respiration_rate",
+                    "icon"                => "mdi:lungs",
+                    "unit_of_measurement" => "bpm",
+                    "state_class"         => "measurement",
+                    "disabled"            => !Settings.isSensorsLevelEnabled()
+                });
+            }
+        } else {
+            System.println("WebhookManager registerWebhookSensors(): has no ActivityMonitor class");
         }
 
         if (Activity has :getProfileInfo) {
