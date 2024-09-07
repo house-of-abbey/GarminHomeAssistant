@@ -181,8 +181,12 @@ class WebhookManager {
                     // Webhook ID might have been deleted on Home Assistant server and a Lang.String is trying to tell us an error message
                     Settings.unsetWebhookId();
                     Settings.unsetIsSensorsLevelEnabled();
-//                    ErrorView.show(WatchUi.loadResource($.Rez.Strings.WebhookFailed) as Lang.String + "\n" + data.toString());
-                    ErrorView.show(WatchUi.loadResource($.Rez.Strings.WebhookFailed) as Lang.String);
+                    if (data == null) {
+                        ErrorView.show(WatchUi.loadResource($.Rez.Strings.WebhookFailed) as Lang.String + "\nNull data");
+                    } else {
+                        // All objects have toString()
+                        ErrorView.show(WatchUi.loadResource($.Rez.Strings.WebhookFailed) as Lang.String + "\n" + data.toString());
+                    }
                 }
                 break;
 
