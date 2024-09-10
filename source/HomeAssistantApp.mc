@@ -39,6 +39,7 @@ class HomeAssistantApp extends Application.AppBase {
     private var mIsApp         as Lang.Boolean    = false; // Or Widget
     private var mUpdating      as Lang.Boolean    = false; // Don't start a second chain of updates
     private var mTemplates     as Lang.Dictionary = {};
+    private var startUpdating  as Lang.Boolean    = false;
 
     function initialize() {
         AppBase.initialize();
@@ -259,29 +260,17 @@ class HomeAssistantApp extends Application.AppBase {
     private function buildMenu(menu as Lang.Dictionary) {
         mHaMenu = new HomeAssistantView(menu, null);
         mQuitTimer.begin();
+        if (startUpdating) {
+            startUpdates();
+        }
     }
 
     function startUpdates() {
         if (mHaMenu != null and !mUpdating) {
-            mItemsToUpdate = mHaMenu.getItemsToUpdate();
             // Start the continuous update process that continues for as long as the application is running.
-            mTemplates = {};
-            for (var i = 0; i < mItemsToUpdate.size(); i++) {
-                var item = mItemsToUpdate[i];
-                var template = item.buildTemplate();
-                if (template != null) {
-                    mTemplates.put(i.toString(), {
-                        "template" => template
-                    });
-                }
-                if (item instanceof HomeAssistantToggleMenuItem) {
-                    mTemplates.put(i.toString() + "t", {
-                        "template" => (item as HomeAssistantToggleMenuItem).buildToggleTemplate()
-                    });
-                }
-            }
             updateMenuItems();
         }
+        startUpdating = true;
     }
 
     function onReturnUpdateMenuItems(responseCode as Lang.Number, data as Null or Lang.Dictionary) as Void {
@@ -332,19 +321,22 @@ class HomeAssistantApp extends Application.AppBase {
 
             case 200:
                 status = WatchUi.loadResource($.Rez.Strings.Available) as Lang.String;
-                for (var i = 0; i < mItemsToUpdate.size(); i++) {
-                    var item = mItemsToUpdate[i];
-                    var state = data.get(i.toString());
-                    item.updateState(state);
-                    if (item instanceof HomeAssistantToggleMenuItem) {
-                        (item as HomeAssistantToggleMenuItem).updateToggleState(data.get(i.toString() + "t"));
+                // System.println("mItemsToUpdate: " + mItemsToUpdate);
+                if (mItemsToUpdate != null) {
+                    for (var i = 0; i < mItemsToUpdate.size(); i++) {
+                        var item = mItemsToUpdate[i];
+                        var state = data.get(i.toString());
+                        item.updateState(state);
+                        if (item instanceof HomeAssistantToggleMenuItem) {
+                            (item as HomeAssistantToggleMenuItem).updateToggleState(data.get(i.toString() + "t"));
+                        }
                     }
-                }
-                var delay = Settings.getPollDelay();
-                if (delay > 0) {
-                    mUpdateTimer.start(method(:updateMenuItems), delay, false);
-                } else {
-                    updateMenuItems();
+                    var delay = Settings.getPollDelay();
+                    if (delay > 0) {
+                        mUpdateTimer.start(method(:updateMenuItems), delay, false);
+                    } else {
+                        updateMenuItems();
+                    }
                 }
                 break;
 
@@ -365,6 +357,24 @@ class HomeAssistantApp extends Application.AppBase {
             ErrorView.show(WatchUi.loadResource($.Rez.Strings.NoInternet) as Lang.String + ".");
             setApiStatus(WatchUi.loadResource($.Rez.Strings.Unavailable) as Lang.String);
         } else {
+            if (mItemsToUpdate == null or mTemplates == null) {
+                mItemsToUpdate = mHaMenu.getItemsToUpdate();
+                mTemplates = {};
+                for (var i = 0; i < mItemsToUpdate.size(); i++) {
+                    var item = mItemsToUpdate[i];
+                    var template = item.buildTemplate();
+                    if (template != null) {
+                        mTemplates.put(i.toString(), {
+                            "template" => template
+                        });
+                    }
+                    if (item instanceof HomeAssistantToggleMenuItem) {
+                        mTemplates.put(i.toString() + "t", {
+                            "template" => (item as HomeAssistantToggleMenuItem).buildToggleTemplate()
+                        });
+                    }
+                }
+            }
             // https://developers.home-assistant.io/docs/api/native-app-integration/sending-data/#render-templates
             var url = Settings.getApiUrl() + "/webhook/" + Settings.getWebhookId();
             // System.println("HomeAssistantApp updateMenuItems() URL=" + url + ", Template='" + mTemplate + "'");
