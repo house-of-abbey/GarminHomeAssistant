@@ -12,6 +12,19 @@ This is the simplest form:
  },
 ```
 
+And with an optional confirmation:
+
+```json
+ {
+   "entity": "light.exterior",
+   "name": "Exterior Lights",
+   "type": "toggle",
+   "tap_action": {
+     "confirm": true
+   }
+ },
+```
+
 To support a non-standard light, switch, or automation as a toggle menu item you may like to define a custom switch. In order to facilitate custom switches at this time, you must create a template switch in HomeAssistant.
 
 ```yaml
