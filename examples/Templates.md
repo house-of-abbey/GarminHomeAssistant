@@ -118,6 +118,30 @@ Note: Only when you use the `tap_action` field do you also need to include the `
 }
 ```
 
+In order to provide at least some kind of additional security, users with touch devices can now choose to use a PIN confirmation when using the `tap_action` field. Please be aware that the dashboard configuration is hosted on your Home assistant server without authentication, making the PIN publicly available for everyone accessing your configuration.
+The PIN can be a string of arbitrary length consisting only of the digits 1-4.
+
+```json
+{
+  "entity": "cover.garage_door",
+  "name": "Garage Door",
+  "type": "template",
+  "content": "{% if is_state('binary_sensor.garage_connected', 'on') %}{{state_translated('cover.garage_door')}} - {{state_attr('cover.garage_door', 'current_position')}}%{%else%}Unconnected{% endif %}",
+  "tap_action": {
+    "service": "cover.toggle",
+    "pin": "1234"
+  }
+}
+```
+
+In order to further strengthen the PIN, you can add a PIN mask to your app settings (in Garmin IQ). This PIN mask will transcode each digit of your PIN on the Garmin device, effectively scrambling the publicly available PIN. Think of it like turning the discs of a combination lock n times for each digit at the same position as the mask digit. If no mask is provided or if the mask is shorter than the pin, the corresponding digits won't be transcoded.
+
+```
+PIN:  1234
+      |||| -> PIN to be entered: 3311
+Mask: 2121
+```
+
 ## Group and Toggle Menu Items
 
 Both `group` and `toggle` menu items accept an optional `content` field as of v2.19. This allows the use of templates to present status information.

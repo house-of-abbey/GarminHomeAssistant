@@ -28,12 +28,14 @@ class HomeAssistantTapMenuItem extends WatchUi.IconMenuItem {
     private var mService              as Lang.String or Null;
     private var mConfirm              as Lang.Boolean;
     private var mData                 as Lang.Dictionary or Null;
+    private var mPin                  as Lang.String or Null;
 
     function initialize(
         label     as Lang.String or Lang.Symbol,
         template  as Lang.String,
         service   as Lang.String or Null,
         confirm   as Lang.Boolean,
+        pin       as Lang.String or Null,
         data      as Lang.Dictionary or Null,
         icon      as Graphics.BitmapType or WatchUi.Drawable,
         options   as {
@@ -54,6 +56,7 @@ class HomeAssistantTapMenuItem extends WatchUi.IconMenuItem {
         mService              = service;
         mConfirm              = confirm;
         mData                 = data;
+        mPin                  = pin;
     }
 
     function hasTemplate() as Lang.Boolean {
@@ -84,7 +87,14 @@ class HomeAssistantTapMenuItem extends WatchUi.IconMenuItem {
     }
 
     function callService() as Void {
-        if (mConfirm) {
+        var hasTouchScreen = System.getDeviceSettings().isTouchScreen;
+        if (mPin != null && hasTouchScreen) {
+            WatchUi.pushView(
+                new HomeAssistantPinConfirmationView(),
+                new HomeAssistantPinConfirmationDelegate(method(:onConfirm), false, mPin),
+                WatchUi.SLIDE_IMMEDIATE
+            );
+        } else if (mConfirm || (mPin!=null && !hasTouchScreen)) {
             WatchUi.pushView(
                 new HomeAssistantConfirmation(),
                 new HomeAssistantConfirmationDelegate(method(:onConfirm), false),
