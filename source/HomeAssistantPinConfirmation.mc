@@ -118,10 +118,17 @@ class HomeAssistantPinConfirmationDelegate extends WatchUi.BehaviorDelegate {
         return true;
     }
 
-    function getTranscodedCurrentDigit() as Number {
-        var currentDigit = mPin[mCurrentIndex].toString().toNumber(); // this is ugly, but apparently the only way for char<->number comparisons
-        // TODO: Transcode digit using a pin mask for additional security
-        return currentDigit;
+    function getTranscodedCurrentDigit() as Number or Null {
+        var currentDigit = mPin[mCurrentIndex].toString().toNumber(); // this is ugly, but apparently the only way for char<->number conversions
+        if (currentDigit == null) {
+            return null;
+        }
+        var pinMask = Settings.getPinMask();
+        var maskDigit = pinMask.substring(mCurrentIndex, mCurrentIndex+1).toNumber();
+        if (maskDigit == null) {
+            return currentDigit;
+        }
+        return ((currentDigit + maskDigit - 1) % 4) + 1;
     }
 
     function resetTimer() {

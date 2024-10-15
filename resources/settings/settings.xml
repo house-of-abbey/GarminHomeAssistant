@@ -80,6 +80,13 @@
   </setting>
 
   <setting
+    propertyKey="@Properties.pin_mask"
+    title="@Strings.SettingsPinMask"
+  >
+    <settingConfig type="alphaNumeric" />
+  </setting>
+
+  <setting
     propertyKey="@Properties.menu_alignment"
     title="@Strings.SettingsTextAlign"
   >
