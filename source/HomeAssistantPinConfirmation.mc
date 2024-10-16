@@ -124,6 +124,9 @@ class HomeAssistantPinConfirmationDelegate extends WatchUi.BehaviorDelegate {
         }
         var instance = event.getInstance();
         if (instance instanceof PinDigit && event.getPreviousState() == :stateSelected) {
+            if (Attention has :vibrate && Settings.getVibrate()) {
+                Attention.vibrate([new Attention.VibeProfile(25, 25)]);
+            }
             var currentDigit = getTranscodedCurrentDigit();
             if (currentDigit != null && currentDigit == instance.getDigit()) { 
                 // System.println("Pin digit " + (mCurrentIndex+1) + " matches");
