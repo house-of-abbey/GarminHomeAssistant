@@ -1,8 +1,29 @@
+//-----------------------------------------------------------------------------------
+//
+// Distributed under MIT Licence
+//   See https://github.com/house-of-abbey/GarminHomeAssistant/blob/main/LICENSE.
+//
+//-----------------------------------------------------------------------------------
+//
+// GarminHomeAssistant is a Garmin IQ application written in Monkey C and routinely
+// tested on a Venu 2 device. The source code is provided at:
+//            https://github.com/house-of-abbey/GarminHomeAssistant.
+//
+// P A Abbey & J D Abbey & Someone0nEarth, 31 October 2023
+//
+//
+// Description:
+//
+// Pin Confirmation dialog and logic.
+//
+//-----------------------------------------------------------------------------------
+
 import Toybox.Graphics;
 import Toybox.Lang;
 import Toybox.WatchUi;
 import Toybox.Timer;
 import Toybox.Attention;
+import Toybox.Time;
 
 class PinDigit extends WatchUi.Selectable {
 
@@ -82,23 +103,32 @@ class HomeAssistantPinConfirmationDelegate extends WatchUi.BehaviorDelegate {
     private var mConfirmMethod as Method(state as Lang.Boolean) as Void;
     private var mTimer         as Timer.Timer or Null;
     private var mState         as Lang.Boolean;
+    private var mFailures      as PinFailures;
 
     function initialize(callback as Method(state as Lang.Boolean) as Void, state as Lang.Boolean, pin as String) {
         BehaviorDelegate.initialize();
+        mFailures      = new PinFailures();
+        if (mFailures.isLocked()) {
+            WatchUi.showToast("PIN input locked for " + mFailures.getLockedUntilSeconds() + " seconds", {});
+        }
         mPin = pin.toCharArray();
-        mCurrentIndex = 0;
+        mCurrentIndex  = 0;
         mConfirmMethod = callback;
         mState         = state;
         resetTimer();
     }
 
     function onSelectable(event as SelectableEvent) as Boolean {
+        if (mFailures.isLocked()) {
+            goBack();
+        }
         var instance = event.getInstance();
         if (instance instanceof PinDigit && event.getPreviousState() == :stateSelected) {
             var currentDigit = getTranscodedCurrentDigit();
             if (currentDigit != null && currentDigit == instance.getDigit()) { 
                 // System.println("Pin digit " + (mCurrentIndex+1) + " matches");
                 if (mCurrentIndex == mPin.size()-1) {
+                    mFailures.reset();
                     getApp().getQuitTimer().reset();
                     if (mTimer != null) {
                         mTimer.stop();
@@ -111,7 +141,6 @@ class HomeAssistantPinConfirmationDelegate extends WatchUi.BehaviorDelegate {
                 }
             } else {
                 // System.println("Pin digit " + (mCurrentIndex+1) + " doesn't match");
-                // TODO: add maxFailures counter & protection
                 error();
             }
         }
@@ -151,6 +180,7 @@ class HomeAssistantPinConfirmationDelegate extends WatchUi.BehaviorDelegate {
     }
 
     function error() as Void {
+        mFailures.addFailure();
         if (Attention has :vibrate && Settings.getVibrate()) {
             Attention.vibrate([
                 new Attention.VibeProfile(100, 100),
@@ -163,6 +193,71 @@ class HomeAssistantPinConfirmationDelegate extends WatchUi.BehaviorDelegate {
             ]);
         }
         goBack();
+    }
+
+}
+
+class PinFailures {
+
+    const MAX_FAILURES         as Number = 5;              // maximum number of failed pin confirmation attemps allwed in ...
+    const MAX_FAILURE_MINUTES  as Number = 2;              // ... this number of minutes before pin confirmation is locked for ...
+    const LOCK_TIME_MINUTES    as Number = 10;             // ... this number of minutes
+    
+    const STORAGE_KEY_FAILURES as String = "pin_failures";
+    const STORAGE_KEY_LOCKED   as String = "pin_locked";
+    
+    private var mFailures    as Array<Number>;
+    private var mLockedUntil as Number or Null;
+
+    function initialize() {
+        // System.println("Initializing PIN failures from storage");
+        var failures = Application.Storage.getValue(PinFailures.STORAGE_KEY_FAILURES);
+        mFailures = (failures == null) ? [] : failures;
+        mLockedUntil = Application.Storage.getValue(PinFailures.STORAGE_KEY_LOCKED);
+    }
+
+    function addFailure() {
+        mFailures.add(Time.now().value());
+        // System.println(mFailures.size() + " PIN confirmation failures recorded");
+        if (mFailures.size() >= MAX_FAILURES) {
+            // System.println("Too many failures detected");
+            var oldestFailureOutdate = new Time.Moment(mFailures[0]).add(new Time.Duration(MAX_FAILURE_MINUTES * 60));
+            // System.println("Oldest failure: " + oldestFailureOutdate.value() + " Now:" + Time.now().value());
+            if (new Time.Moment(Time.now().value()).greaterThan(oldestFailureOutdate)) {
+                // System.println("Pruning oldest outdated failure");
+                mFailures = mFailures.slice(1, null);
+            } else {
+                mFailures = [];
+                mLockedUntil = Time.now().add(new Time.Duration(LOCK_TIME_MINUTES * Gregorian.SECONDS_PER_MINUTE)).value();
+                Application.Storage.setValue(STORAGE_KEY_LOCKED, mLockedUntil);
+                // System.println("Locked until " + mLockedUntil);
+            }
+        }
+        Application.Storage.setValue(STORAGE_KEY_FAILURES, mFailures);
+    }
+
+    function reset() {
+        // System.println("Resetting failures");
+        mFailures = [];
+        mLockedUntil = null;
+        Application.Storage.deleteValue(STORAGE_KEY_FAILURES);
+        Application.Storage.deleteValue(STORAGE_KEY_LOCKED);
+    }
+
+    function getLockedUntilSeconds() as Number {
+        return new Time.Moment(mLockedUntil).subtract(Time.now()).value();
+    }
+
+    function isLocked() as Boolean {
+        if (mLockedUntil == null) {
+            return false;            
+        }
+        var isLocked = new Time.Moment(Time.now().value()).lessThan(new Time.Moment(mLockedUntil));
+        if (!isLocked) {
+            mLockedUntil = null;
+            Application.Storage.deleteValue(STORAGE_KEY_LOCKED);
+        }
+        return isLocked;
     }
 
 }

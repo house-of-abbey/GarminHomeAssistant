@@ -120,6 +120,7 @@ Note: Only when you use the `tap_action` field do you also need to include the `
 
 In order to provide at least some kind of additional security, users with touch devices can now choose to use a PIN confirmation when using the `tap_action` field. Please be aware that the dashboard configuration is hosted on your Home assistant server without authentication, making the PIN publicly available for everyone accessing your configuration.
 The PIN can be a string of arbitrary length consisting only of the digits 1-4.
+The user has 5 attempts to provide a valid PIN within 2 minutes. If too many failures have been detected in this time, the PIN dialog will be locked for 10 minutes.
 
 ```json
 {
