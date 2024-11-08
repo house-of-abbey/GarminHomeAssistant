@@ -38,6 +38,7 @@ class Settings {
     private static var mAppTimeout            as Lang.Number  = 0;  // seconds
     private static var mPollDelay             as Lang.Number  = 0;  // seconds
     private static var mConfirmTimeout        as Lang.Number  = 3;  // seconds
+    private static var mPinMask               as Lang.String  = "";
     private static var mMenuAlignment         as Lang.Number  = WatchUi.MenuItem.MENU_ITEM_LABEL_ALIGN_LEFT;
     private static var mIsSensorsLevelEnabled as Lang.Boolean = false;
     private static var mBatteryRefreshRate    as Lang.Number  = 15; // minutes
@@ -59,6 +60,7 @@ class Settings {
         mAppTimeout            = Properties.getValue("app_timeout");
         mPollDelay             = Properties.getValue("poll_delay_combined");
         mConfirmTimeout        = Properties.getValue("confirm_timeout");
+        mPinMask               = Properties.getValue("pin_mask");
         mMenuAlignment         = Properties.getValue("menu_alignment");
         mIsSensorsLevelEnabled = Properties.getValue("enable_battery_level");
         mBatteryRefreshRate    = Properties.getValue("battery_level_refresh_rate");
@@ -162,6 +164,10 @@ class Settings {
 
     static function getConfirmTimeout() as Lang.Number {
         return mConfirmTimeout * 1000; // Convert to milliseconds
+    }
+
+    static function getPinMask() as Lang.String {
+        return mPinMask;
     }
 
     static function getMenuAlignment() as Lang.Number {

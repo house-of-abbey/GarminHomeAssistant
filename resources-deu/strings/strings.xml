@@ -60,6 +60,7 @@
   <string id="SettingsPollDelay">Zusätzliche Abfrageverzögerung (in Sekunden). Fügt eine Verzögerung zwischen der Statusaktualisierung aller Menüelemente hinzu.</string>
   <string id="SettingsConfirmTimeout">Nach dieser Zeit (in Sekunden) wird der Bestätigungsdialog einer Aktion geschlossen und die
     Aktion abgebrochen. Auf 0 setzen, um den Timeout zu deaktivieren.</string>
+  <string id="SettingsPinMask">Schablone um die PIN aus der Dashboard Config zu transkodieren.</string>
   <string id="SettingsTextAlign">Menüausrichtung links (aus) oder rechts (ein).</string>
   <string id="LeftToRight">Links nach rechts</string>
   <string id="RightToLeft">Rechts nach links</string>

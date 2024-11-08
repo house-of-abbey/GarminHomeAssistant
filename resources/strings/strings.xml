@@ -53,6 +53,7 @@
   <string id="SettingsAppTimeout">Timeout in seconds. Exit the application after this period of inactivity to save the device battery.</string>
   <string id="SettingsPollDelay">Additional poll delay (in seconds). Adds a delay between the status update of all menu items.</string>
   <string id="SettingsConfirmTimeout">After this time (in seconds), a confirmation dialog for an action is automatically closed and the action is cancelled. Set to 0 to disable the timeout.</string>
+  <string id="SettingsPinMask">Integer Mask to transcode the plain text PIN from the public dashboard config.</string>
   <string id="SettingsTextAlign">Left (off) or Right (on) Menu Alignment.</string>
   <string id="LeftToRight">Left to right</string>
   <string id="RightToLeft">Right to Left</string>

@@ -52,10 +52,12 @@ class HomeAssistantView extends WatchUi.Menu2 {
                 var service    = items[i].get("service")    as Lang.String     or Null; // Deprecated schema
                 var confirm    = false                      as Lang.Boolean    or Null;
                 var data       = null                       as Lang.Dictionary or Null;
+                var pin        = null                       as Lang.String     or Null;
                 if (tap_action != null) {
                     service = tap_action.get("service");
                     confirm = tap_action.get("confirm"); // Optional
                     data    = tap_action.get("data");    // Optional
+                    pin     = tap_action.get("pin");     // Optional
                     if (confirm == null) {
                         confirm = false;
                     }
@@ -64,7 +66,7 @@ class HomeAssistantView extends WatchUi.Menu2 {
                     if (type.equals("toggle") && entity != null) {
                         addItem(HomeAssistantMenuItemFactory.create().toggle(name, entity, content, confirm));
                     } else if ((type.equals("tap") && service != null) || (type.equals("template") && content != null)) {
-                        addItem(HomeAssistantMenuItemFactory.create().tap(name, entity, content, service, confirm, data));
+                        addItem(HomeAssistantMenuItemFactory.create().tap(name, entity, content, service, confirm, data, pin));
                     } else if (type.equals("group")) {
                         addItem(HomeAssistantMenuItemFactory.create().group(items[i], content));
                     }
