@@ -111,7 +111,7 @@ class HomeAssistantPinConfirmationDelegate extends WatchUi.BehaviorDelegate {
         if (mFailures.isLocked()) {
             WatchUi.showToast("PIN input locked for " + mFailures.getLockedUntilSeconds() + " seconds", {});
         }
-        mPin = pin.toCharArray();
+        mPin           = pin.toCharArray();
         mCurrentIndex  = 0;
         mConfirmMethod = callback;
         mState         = state;
@@ -127,7 +127,7 @@ class HomeAssistantPinConfirmationDelegate extends WatchUi.BehaviorDelegate {
             if (Attention has :vibrate && Settings.getVibrate()) {
                 Attention.vibrate([new Attention.VibeProfile(25, 25)]);
             }
-            var currentDigit = getTranscodedCurrentDigit();
+            var currentDigit = mPin[mCurrentIndex].toString().toNumber(); // this is ugly, but apparently the only way for char<->number conversions
             if (currentDigit != null && currentDigit == instance.getDigit()) { 
                 // System.println("Pin digit " + (mCurrentIndex+1) + " matches");
                 if (mCurrentIndex == mPin.size()-1) {
@@ -148,19 +148,6 @@ class HomeAssistantPinConfirmationDelegate extends WatchUi.BehaviorDelegate {
             }
         }
         return true;
-    }
-
-    function getTranscodedCurrentDigit() as Number or Null {
-        var currentDigit = mPin[mCurrentIndex].toString().toNumber(); // this is ugly, but apparently the only way for char<->number conversions
-        if (currentDigit == null) {
-            return null;
-        }
-        var pinMask = Settings.getPinMask();
-        var maskDigit = pinMask.substring(mCurrentIndex, mCurrentIndex+1).toNumber();
-        if (maskDigit == null) {
-            return currentDigit;
-        }
-        return ((currentDigit + maskDigit - 1) % 4) + 1;
     }
 
     function resetTimer() {

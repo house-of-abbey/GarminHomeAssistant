@@ -85,8 +85,7 @@ class HomeAssistantMenuItemFactory {
         template as Lang.String or Null,
         service  as Lang.String or Null,
         confirm  as Lang.Boolean,
-        data     as Lang.Dictionary or Null,
-        pin      as Lang.String or Null
+        data     as Lang.Dictionary or Null
     ) as WatchUi.MenuItem {
         if (entity != null) {
             if (data == null) {
@@ -101,7 +100,6 @@ class HomeAssistantMenuItemFactory {
                 template,
                 service,
                 confirm,
-                pin,
                 data,
                 mTapTypeIcon,
                 mMenuItemOptions,
@@ -113,7 +111,6 @@ class HomeAssistantMenuItemFactory {
                 template,
                 service,
                 confirm,
-                pin,
                 data,
                 mInfoTypeIcon,
                 mMenuItemOptions,

@@ -66,12 +66,10 @@
   <property id="confirm_timeout" type="number">3</property>
 
   <!--
-    This mask transcodes the plain text PIN from the public dashboard config.
-    Every digit is used to increase the corresponding digit at this position
-    in the PIN by the value given, starting at 1 if a value bigger than 4 has 
-    been reached.
+    PIN to be used for confirmation. If a PIN is set, every action with 'confirm': true
+    will show the PIN confirmation dialog.
   -->
-  <property id="pin_mask" type="string"></property>
+  <property id="pin" type="string"></property>
 
   <!--
     Left to right or right to left text. Language dependent.

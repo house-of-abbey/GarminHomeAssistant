@@ -80,8 +80,8 @@
   </setting>
 
   <setting
-    propertyKey="@Properties.pin_mask"
-    title="@Strings.SettingsPinMask"
+    propertyKey="@Properties.pin"
+    title="@Strings.SettingsPin"
   >
     <settingConfig type="alphaNumeric" />
   </setting>

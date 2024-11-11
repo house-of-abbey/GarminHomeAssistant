@@ -217,9 +217,6 @@
           "type": "object",
           "title": "Your services's parameters",
           "description": "The object containing the parameters and their values to be passed to the entity. No schema checking can be done here, you are on your own! On application crash, remove the parameters."
-        },
-        "pin": {
-          "$ref": "#/$defs/pin"
         }
       },
       "required": ["service"]
@@ -233,12 +230,6 @@
       "default": false,
       "title": "Confirmation",
       "description": "Optional confirmation of the action before execution as a precaution."
-    },
-    "pin": {
-      "title": "Confirmation PIN",
-      "type": "string",
-      "pattern": "^[1-4]+$",
-      "description": "Optional confirmation PIN to be entered before execution as a simple security measure."
     }
   }
 }
