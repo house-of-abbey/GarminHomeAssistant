@@ -171,7 +171,7 @@ class HomeAssistantPinConfirmationDelegate extends WatchUi.BehaviorDelegate {
     }
 
     function error() as Void {
-        // System.println("HomeAssistantPinConfirmationDelegate error()");
+        // System.println("HomeAssistantPinConfirmationDelegate error() Wrong PIN entered");
         mFailures.addFailure();
         if (Attention has :vibrate && Settings.getVibrate()) {
             Attention.vibrate([
@@ -202,7 +202,7 @@ class PinFailures {
     private var mLockedUntil as Number or Null;
 
     function initialize() {
-        // System.println("Initializing PIN failures from storage");
+        // System.println("PinFailures initialize() Initializing PIN failures from storage");
         var failures = Application.Storage.getValue(PinFailures.STORAGE_KEY_FAILURES);
         mFailures = (failures == null) ? [] : failures;
         mLockedUntil = Application.Storage.getValue(PinFailures.STORAGE_KEY_LOCKED);
@@ -210,26 +210,26 @@ class PinFailures {
 
     function addFailure() {
         mFailures.add(Time.now().value());
-        // System.println(mFailures.size() + " PIN confirmation failures recorded");
+        // System.println("PinFailures addFailure() " + mFailures.size() + " PIN confirmation failures recorded");
         if (mFailures.size() >= MAX_FAILURES) {
-            // System.println("Too many failures detected");
+            // System.println("PinFailures addFailure() Too many failures detected");
             var oldestFailureOutdate = new Time.Moment(mFailures[0]).add(new Time.Duration(MAX_FAILURE_MINUTES * 60));
-            // System.println("Oldest failure: " + oldestFailureOutdate.value() + " Now:" + Time.now().value());
+            // System.println("PinFailures addFailure() Oldest failure: " + oldestFailureOutdate.value() + " Now:" + Time.now().value());
             if (new Time.Moment(Time.now().value()).greaterThan(oldestFailureOutdate)) {
-                // System.println("Pruning oldest outdated failure");
+                // System.println("PinFailures addFailure() Pruning oldest outdated failure");
                 mFailures = mFailures.slice(1, null);
             } else {
                 mFailures = [];
                 mLockedUntil = Time.now().add(new Time.Duration(LOCK_TIME_MINUTES * Gregorian.SECONDS_PER_MINUTE)).value();
                 Application.Storage.setValue(STORAGE_KEY_LOCKED, mLockedUntil);
-                // System.println("Locked until " + mLockedUntil);
+                // System.println("PinFailures addFailure() Locked until " + mLockedUntil);
             }
         }
         Application.Storage.setValue(STORAGE_KEY_FAILURES, mFailures);
     }
 
     function reset() {
-        // System.println("Resetting failures");
+        // System.println("PinFailures reset() Resetting failures");
         mFailures = [];
         mLockedUntil = null;
         Application.Storage.deleteValue(STORAGE_KEY_FAILURES);
