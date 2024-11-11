@@ -40,6 +40,8 @@
   <string id="Empty">Empty</string>
   <string id="TemplateError">Template Error</string>
   <string id="PotentialError">Potential Error</string>
+  <string id="PinInputLocked">PIN input locked for</string>
+  <string id="Seconds">seconds</string>
 
   <!-- For the settings GUI -->
   <string id="SettingsSelect">Select...</string>

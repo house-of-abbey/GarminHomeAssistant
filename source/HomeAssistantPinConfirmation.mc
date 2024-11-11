@@ -109,7 +109,10 @@ class HomeAssistantPinConfirmationDelegate extends WatchUi.BehaviorDelegate {
         BehaviorDelegate.initialize();
         mFailures      = new PinFailures();
         if (mFailures.isLocked()) {
-            WatchUi.showToast("PIN input locked for " + mFailures.getLockedUntilSeconds() + " seconds", {});
+            var msg = WatchUi.loadResource($.Rez.Strings.PinInputLocked) + " " +
+                      mFailures.getLockedUntilSeconds() + " " + 
+                      WatchUi.loadResource($.Rez.Strings.Seconds);
+            WatchUi.showToast(msg, {});
         }
         mPin           = pin.toCharArray();
         mCurrentIndex  = 0;
