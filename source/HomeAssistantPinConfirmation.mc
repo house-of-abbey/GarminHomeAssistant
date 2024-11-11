@@ -98,8 +98,8 @@ class HomeAssistantPinConfirmationView extends WatchUi.View {
 
 class HomeAssistantPinConfirmationDelegate extends WatchUi.BehaviorDelegate {
 
-    private var mPin           as Array<Char>;
-    private var mCurrentIndex  as Number;
+    private var mPin           as String;
+    private var mEnteredPin    as String;
     private var mConfirmMethod as Method(state as Lang.Boolean) as Void;
     private var mTimer         as Timer.Timer or Null;
     private var mState         as Lang.Boolean;
@@ -114,8 +114,8 @@ class HomeAssistantPinConfirmationDelegate extends WatchUi.BehaviorDelegate {
                       WatchUi.loadResource($.Rez.Strings.Seconds);
             WatchUi.showToast(msg, {});
         }
-        mPin           = pin.toCharArray();
-        mCurrentIndex  = 0;
+        mPin           = pin;
+        mEnteredPin    = "";
         mConfirmMethod = callback;
         mState         = state;
         resetTimer();
@@ -130,10 +130,10 @@ class HomeAssistantPinConfirmationDelegate extends WatchUi.BehaviorDelegate {
             if (Attention has :vibrate && Settings.getVibrate()) {
                 Attention.vibrate([new Attention.VibeProfile(25, 25)]);
             }
-            var currentDigit = mPin[mCurrentIndex].toString().toNumber(); // this is ugly, but apparently the only way for char<->number conversions
-            if (currentDigit != null && currentDigit == instance.getDigit()) { 
-                // System.println("Pin digit " + (mCurrentIndex+1) + " matches");
-                if (mCurrentIndex == mPin.size()-1) {
+            mEnteredPin += instance.getDigit();
+            // System.println("HomeAssitantPinConfirmationDelegate onSelectable() mEnteredPin = " + mEnteredPin);
+            if (mEnteredPin.length() == mPin.length()) {
+                if (mEnteredPin.equals(mPin)) {
                     mFailures.reset();
                     getApp().getQuitTimer().reset();
                     if (mTimer != null) {
@@ -142,12 +142,10 @@ class HomeAssistantPinConfirmationDelegate extends WatchUi.BehaviorDelegate {
                     mConfirmMethod.invoke(mState);
                     WatchUi.popView(WatchUi.SLIDE_RIGHT);
                 } else {
-                    mCurrentIndex++;
-                    resetTimer();
+                    error();
                 }
             } else {
-                // System.println("Pin digit " + (mCurrentIndex+1) + " doesn't match");
-                error();
+                resetTimer();
             }
         }
         return true;
@@ -173,6 +171,7 @@ class HomeAssistantPinConfirmationDelegate extends WatchUi.BehaviorDelegate {
     }
 
     function error() as Void {
+        // System.println("HomeAssistantPinConfirmationDelegate error()");
         mFailures.addFailure();
         if (Attention has :vibrate && Settings.getVibrate()) {
             Attention.vibrate([

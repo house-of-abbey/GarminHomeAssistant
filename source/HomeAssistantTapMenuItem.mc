@@ -87,7 +87,6 @@ class HomeAssistantTapMenuItem extends WatchUi.IconMenuItem {
         if (mConfirm) {
             var hasTouchScreen = System.getDeviceSettings().isTouchScreen;
             var pin = Settings.getPin();
-            System.println("HomeAsistantTemplateMenuItem callService() pin = '" + pin + "'");
             if (!hasTouchScreen || "".equals(pin)) {
                 WatchUi.pushView(
                     new HomeAssistantConfirmation(),
