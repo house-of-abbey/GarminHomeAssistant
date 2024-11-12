@@ -131,8 +131,7 @@ Example schema:
       "name": "TV Lights Scene",
       "type": "tap",
       "tap_action": {
-        "service": "scene.turn_on",
-        "pin": "1234"
+        "service": "scene.turn_on"
       }
     }
   ]
