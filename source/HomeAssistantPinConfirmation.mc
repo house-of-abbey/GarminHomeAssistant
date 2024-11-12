@@ -29,26 +29,33 @@ class PinDigit extends WatchUi.Selectable {
 
     private var mDigit as Number;
 
-    function initialize(digit as Number, halfX as Number, halfY as Number) {
-        var margin = 40;
-        var x = (digit % 2 == 1) ? 0 + margin : halfX + margin; // place even numbers in right half, odd in left half
-        var y = (digit < 3) ? 0 + margin : halfY + margin; // place 1&2 on top half, 3&4 on bottom half
-        var width = halfX - 2 * margin;
-        var height = halfY - 2 * margin;
+    function initialize(digit as Number, stepX as Number, stepY as Number) {
+        var marginX = stepX * 0.05; // 5% margin on all sides
+        var marginY = stepY * 0.05; 
+        var x = (digit == 0) ? stepX : stepX * ((digit+2) % 3); // layout '0' in 2nd col, others ltr in 3 columns
+        x += marginX + HomeAssistantPinConfirmationView.MARGIN_X;
+        var y = (digit == 0) ? stepY * 4 : (digit <= 3) ? stepY : (digit <=6) ? stepY * 2 : stepY * 3; // layout '0' in bottom row (5), others top to bottom in 3 rows (2-4) (row 1 is reserved for masked pin)
+        y += marginY;
+        var width = stepX - (marginX * 2);
+        var height = stepY - (marginY * 2);
 
-        // build text area
-        var textArea = new WatchUi.TextArea({
-            :text=>digit.format("%d"),
-            :color=>Graphics.COLOR_WHITE,
-            :font=>[Graphics.FONT_NUMBER_THAI_HOT, Graphics.FONT_NUMBER_HOT, Graphics.FONT_NUMBER_MEDIUM, Graphics.FONT_NUMBER_MILD],
+        var button = new PinDigitButton({
             :width=>width,
             :height=>height,
-            :justification=>Graphics.TEXT_JUSTIFY_CENTER
+            :label=>digit
+        });
+
+        var buttonTouched = new PinDigitButton({
+            :width=>width,
+            :height=>height,
+            :label=>digit,
+            :touched=>true
         });
 
         // initialize selectable
         Selectable.initialize({
-            :stateDefault=>textArea,
+            :stateDefault=>button,
+            :stateHighlighted=>buttonTouched,
             :locX =>x,
             :locY=>y,
             :width=>width,
@@ -63,34 +70,69 @@ class PinDigit extends WatchUi.Selectable {
         return mDigit;
     }
 
+    class PinDigitButton extends WatchUi.Drawable {
+        private var mText as Number;
+        private var mTouched as Boolean = false;
+
+        function initialize(options) {
+            Drawable.initialize(options);
+            mText = options.get(:label);
+            mTouched = options.get(:touched);
+        }
+
+        function draw(dc) {
+            if (mTouched) {
+                dc.setColor(Graphics.COLOR_ORANGE, Graphics.COLOR_ORANGE);
+            } else {
+                dc.setColor(Graphics.COLOR_DK_GRAY, Graphics.COLOR_DK_GRAY);
+            }
+            dc.fillCircle(locX + width / 2, locY + height / 2, height / 2); // circle fill
+            dc.setColor(Graphics.COLOR_LT_GRAY, Graphics.COLOR_LT_GRAY);
+            dc.setPenWidth(3);
+            dc.drawCircle(locX + width / 2, locY + height / 2, height / 2); // circle outline
+            dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
+            dc.drawText(locX+width / 2, locY+height / 2, Graphics.FONT_TINY, mText, Graphics.TEXT_JUSTIFY_CENTER|Graphics.TEXT_JUSTIFY_VCENTER); // center text in circle
+        }
+
+    }
+
 }
 
 class HomeAssistantPinConfirmationView extends WatchUi.View {
+
+    static const MARGIN_X = 20; // margin on left & right side of screen (overall prettier and works better on round displays)
+
+    var mPinMask as String = "";
         
     function initialize() {
         View.initialize();
     }
 
     function onLayout(dc as Dc) as Void {
-        var halfX = dc.getWidth()/2;
-        var halfY = dc.getHeight()/2;
+        var stepX = (dc.getWidth() - MARGIN_X * 2) / 3;   // three columns
+        var stepY = dc.getHeight() / 5;                   // five rows (first row for masked pin entry)
+        var digits = [];
+        for (var i=0; i<=9; i++) {
+            digits.add(new PinDigit(i, stepX, stepY));
+        }
         // draw digits
-        setLayout([
-            new PinDigit(1, halfX, halfY),
-            new PinDigit(2, halfX, halfY),
-            new PinDigit(3, halfX, halfY),
-            new PinDigit(4, halfX, halfY)
-        ]);
+        setLayout(digits);
     }
 
     function onUpdate(dc as Dc) as Void {
         View.onUpdate(dc);
-        // draw cross
-        var halfX = dc.getWidth()/2;
-        var halfY = dc.getHeight()/2;
-        dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_BLACK);
-        dc.drawRectangle(halfX, dc.getHeight() * 0.1, 2, dc.getHeight() * 0.8);
-        dc.drawRectangle(dc.getWidth() * 0.1, halfY, dc.getWidth() * 0.8, 2);
+        if (mPinMask.length() != 0) {
+            dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_BLACK);
+            dc.drawText(dc.getWidth()/2, dc.getHeight()/10, Graphics.FONT_SYSTEM_SMALL, mPinMask, Graphics.TEXT_JUSTIFY_CENTER|Graphics.TEXT_JUSTIFY_VCENTER);
+        }
+    }
+
+    function updatePinMask(length as Number) {
+        mPinMask = "";
+        for (var i=0; i<length; i++) {
+            mPinMask += "*";
+        }
+        requestUpdate();
     }
 
 }
@@ -104,8 +146,9 @@ class HomeAssistantPinConfirmationDelegate extends WatchUi.BehaviorDelegate {
     private var mTimer         as Timer.Timer or Null;
     private var mState         as Lang.Boolean;
     private var mFailures      as PinFailures;
+    private var mView          as HomeAssistantPinConfirmationView;
 
-    function initialize(callback as Method(state as Lang.Boolean) as Void, state as Lang.Boolean, pin as String) {
+    function initialize(callback as Method(state as Lang.Boolean) as Void, state as Lang.Boolean, pin as String, view as HomeAssistantPinConfirmationView) {
         BehaviorDelegate.initialize();
         mFailures      = new PinFailures();
         if (mFailures.isLocked()) {
@@ -118,6 +161,7 @@ class HomeAssistantPinConfirmationDelegate extends WatchUi.BehaviorDelegate {
         mEnteredPin    = "";
         mConfirmMethod = callback;
         mState         = state;
+        mView          = view;
         resetTimer();
     }
 
@@ -127,10 +171,8 @@ class HomeAssistantPinConfirmationDelegate extends WatchUi.BehaviorDelegate {
         }
         var instance = event.getInstance();
         if (instance instanceof PinDigit && event.getPreviousState() == :stateSelected) {
-            if (Attention has :vibrate && Settings.getVibrate()) {
-                Attention.vibrate([new Attention.VibeProfile(25, 25)]);
-            }
             mEnteredPin += instance.getDigit();
+            createUserFeedback();
             // System.println("HomeAssitantPinConfirmationDelegate onSelectable() mEnteredPin = " + mEnteredPin);
             if (mEnteredPin.length() == mPin.length()) {
                 if (mEnteredPin.equals(mPin)) {
@@ -151,6 +193,13 @@ class HomeAssistantPinConfirmationDelegate extends WatchUi.BehaviorDelegate {
         return true;
     }
 
+    function createUserFeedback() {
+        if (Attention has :vibrate && Settings.getVibrate()) {
+            Attention.vibrate([new Attention.VibeProfile(25, 25)]);
+        }
+        mView.updatePinMask(mEnteredPin.length());
+    }
+
     function resetTimer() {
         var timeout = Settings.getConfirmTimeout(); // ms
         if (timeout > 0) {
@@ -159,7 +208,7 @@ class HomeAssistantPinConfirmationDelegate extends WatchUi.BehaviorDelegate {
             } else {
                 mTimer = new Timer.Timer();
             }
-            mTimer.start(method(:goBack), timeout, true);
+            mTimer.start(method(:goBack), timeout, false);
         }
     }
 
@@ -183,6 +232,9 @@ class HomeAssistantPinConfirmationDelegate extends WatchUi.BehaviorDelegate {
                 new Attention.VibeProfile(0, 200),
                 new Attention.VibeProfile(25, 100)
             ]);
+        }
+        if (WatchUi has :showToast) {
+            showToast($.Rez.Strings.WrongPin, null);
         }
         goBack();
     }

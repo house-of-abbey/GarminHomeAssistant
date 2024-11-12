@@ -94,9 +94,14 @@ class HomeAssistantTapMenuItem extends WatchUi.IconMenuItem {
                     WatchUi.SLIDE_IMMEDIATE
                 );
             } else {
+                if (pin.toNumber() == null || pin.length() != 4) {
+                    ErrorView.show(WatchUi.loadResource($.Rez.Strings.SettingsPinError) as Lang.String);
+                    return;
+                }
+                var pinConfirmationView = new HomeAssistantPinConfirmationView();
                 WatchUi.pushView(
-                    new HomeAssistantPinConfirmationView(),
-                    new HomeAssistantPinConfirmationDelegate(method(:onConfirm), false, pin),
+                    pinConfirmationView,
+                    new HomeAssistantPinConfirmationDelegate(method(:onConfirm), false, pin, pinConfirmationView),
                     WatchUi.SLIDE_IMMEDIATE
                 );
             }
