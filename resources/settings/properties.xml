@@ -66,10 +66,10 @@
   <property id="confirm_timeout" type="number">3</property>
 
   <!--
-    PIN to be used for confirmation. If a PIN is set, every action with 'confirm': true
-    will show the PIN confirmation dialog.
+    PIN to be used for confirmation. Used for actions with 'pin': true
+    which will show the PIN confirmation dialog.
   -->
-  <property id="pin" type="string"></property>
+  <property id="pin" type="string">0000</property>
 
   <!--
     Left to right or right to left text. Language dependent.

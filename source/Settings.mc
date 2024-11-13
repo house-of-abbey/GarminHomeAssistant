@@ -38,7 +38,7 @@ class Settings {
     private static var mAppTimeout            as Lang.Number  = 0;  // seconds
     private static var mPollDelay             as Lang.Number  = 0;  // seconds
     private static var mConfirmTimeout        as Lang.Number  = 3;  // seconds
-    private static var mPin                   as Lang.String  = "";
+    private static var mPin                   as Lang.String  = "0000";
     private static var mMenuAlignment         as Lang.Number  = WatchUi.MenuItem.MENU_ITEM_LABEL_ALIGN_LEFT;
     private static var mIsSensorsLevelEnabled as Lang.Boolean = false;
     private static var mBatteryRefreshRate    as Lang.Number  = 15; // minutes

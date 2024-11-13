@@ -26,6 +26,7 @@ using Toybox.Timer;
 
 class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
     private var mConfirm    as Lang.Boolean;
+    private var mPin        as Lang.Boolean;
     private var mData       as Lang.Dictionary;
     private var mTemplate   as Lang.String;
     private var mHasVibrate as Lang.Boolean = false;
@@ -34,6 +35,7 @@ class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
         label    as Lang.String or Lang.Symbol,
         template as Lang.String,
         confirm  as Lang.Boolean,
+        pin      as Lang.Boolean,
         data     as Lang.Dictionary or Null,
         options  as {
             :alignment as WatchUi.MenuItem.Alignment,
@@ -45,6 +47,7 @@ class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
             mHasVibrate = true;
         }
         mConfirm  = confirm;
+        mPin      = pin;
         mData     = data;
         mTemplate = template;
     }
@@ -213,19 +216,33 @@ class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
     }
 
     function callService(b as Lang.Boolean) as Void {
-        if (mConfirm) {
+        var hasTouchScreen = System.getDeviceSettings().isTouchScreen;
+        if (mPin && hasTouchScreen) {
+            var pin = Settings.getPin();
+            if (pin.toNumber() == null || pin.length() != 4) {
+                ErrorView.show(WatchUi.loadResource($.Rez.Strings.SettingsPinError) as Lang.String);
+                return;
+            }
+            var pinConfirmationView = new HomeAssistantPinConfirmationView();
+            WatchUi.pushView(
+                pinConfirmationView,
+                new HomeAssistantPinConfirmationDelegate(method(:onConfirm), b, pin, pinConfirmationView),
+                WatchUi.SLIDE_IMMEDIATE
+            );
+        } else if (mConfirm) {
             WatchUi.pushView(
                 new HomeAssistantConfirmation(),
                 new HomeAssistantConfirmationDelegate(method(:onConfirm), b),
                 WatchUi.SLIDE_IMMEDIATE
             );
         } else {
-            setState(b);
+            onConfirm(b);
         }
     }
 
     function onConfirm(b as Lang.Boolean) as Void {
         setState(b);
     }
+
 
 }
