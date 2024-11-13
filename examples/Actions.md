@@ -38,6 +38,22 @@ For example:
 }
 ```
 
+**Please be advised that for security sensitive actions, a PIN confirmation should be used.**
+
+This can be enabled by setting the `pin` field in the `tap_action`. The `pin` field overrides `confirm`. Explicitly setting `confirm` is not necessary.
+
+The 4-digit PIN is set globally for all actions in the app settings in Connect IQ.
+
+```json
+  "tap_action": {
+    "pin": true
+  }
+```
+
+When entering an invalid PIN for the fifth time within 2 minutes, the PIN dialog will be locked for all actions for the next 10 minutes. Entering a valid PIN will always reset the failure counter.
+
+<img src="../images/pin_view.png" width="200" title="Confirmation View"/>
+
 Note that for notify events, you _must_ not supply an `entity_id` or the API call will fail. There are other examples too.
 
 ```json

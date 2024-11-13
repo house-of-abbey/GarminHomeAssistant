@@ -131,7 +131,8 @@ Example schema:
       "name": "TV Lights Scene",
       "type": "tap",
       "tap_action": {
-        "service": "scene.turn_on"
+        "service": "scene.turn_on",
+        "pin": true
       }
     }
   ]
@@ -263,6 +264,8 @@ The application timeout prevents the HomeAssistant App running on your watch whe
 |         > 0         |    > 0     | Temporarily open, poll more gently to save battery, but the application closes before the benefit is realised. Not recommended. |
 
 There is a second timeout value for confirmation views. This is intended for use with more sensitive toggles so that the confirmation view is not left open and forgotten and then confirmed accidentally without you noticing. **We cannot advise you this is safe, be careful what you toggle with the watch application!**
+
+The confirmation timeout is also used for the maximum time between clicks in the PIN confirmation dialog. The PIN confirmation provides a more secure alternative for toggling security-sensitive actions.
 
 There is a toggle setting for "text alignment" that provides finer adjustment for right-to-left languages. Perhaps this could be made automatic based on device language?
 
