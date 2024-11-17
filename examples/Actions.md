@@ -38,7 +38,7 @@ For example:
 }
 ```
 
-**Please be advised that for security sensitive actions, a PIN confirmation should be used.**
+**The authors do not advise the use of this application for security sensitive devices. But we suspect users are taking that risk anyway, hence a PIN confirmation is provided that can be used for additional menu item security.**
 
 This can be enabled by setting the `pin` field in the `tap_action`. The `pin` field overrides `confirm`. Explicitly setting `confirm` is not necessary.
 
