@@ -242,11 +242,7 @@ class HomeAssistantPinConfirmationDelegate extends WatchUi.BehaviorDelegate {
 }
 
 class PinFailures {
-
-    const MAX_FAILURES         as Number = 5;              // maximum number of failed pin confirmation attemps allwed in ...
-    const MAX_FAILURE_MINUTES  as Number = 2;              // ... this number of minutes before pin confirmation is locked for ...
-    const LOCK_TIME_MINUTES    as Number = 10;             // ... this number of minutes
-    
+   
     const STORAGE_KEY_FAILURES as String = "pin_failures";
     const STORAGE_KEY_LOCKED   as String = "pin_locked";
     
@@ -263,16 +259,16 @@ class PinFailures {
     function addFailure() {
         mFailures.add(Time.now().value());
         // System.println("PinFailures addFailure() " + mFailures.size() + " PIN confirmation failures recorded");
-        if (mFailures.size() >= MAX_FAILURES) {
+        if (mFailures.size() >= Globals.scPinMaxFailures) {
             // System.println("PinFailures addFailure() Too many failures detected");
-            var oldestFailureOutdate = new Time.Moment(mFailures[0]).add(new Time.Duration(MAX_FAILURE_MINUTES * 60));
+            var oldestFailureOutdate = new Time.Moment(mFailures[0]).add(new Time.Duration(Globals.scPinMaxFailureMinutes * 60));
             // System.println("PinFailures addFailure() Oldest failure: " + oldestFailureOutdate.value() + " Now:" + Time.now().value());
             if (new Time.Moment(Time.now().value()).greaterThan(oldestFailureOutdate)) {
                 // System.println("PinFailures addFailure() Pruning oldest outdated failure");
                 mFailures = mFailures.slice(1, null);
             } else {
                 mFailures = [];
-                mLockedUntil = Time.now().add(new Time.Duration(LOCK_TIME_MINUTES * Gregorian.SECONDS_PER_MINUTE)).value();
+                mLockedUntil = Time.now().add(new Time.Duration(Globals.scPinLockTimeMinutes * Gregorian.SECONDS_PER_MINUTE)).value();
                 Application.Storage.setValue(STORAGE_KEY_LOCKED, mLockedUntil);
                 // System.println("PinFailures addFailure() Locked until " + mLockedUntil);
             }
