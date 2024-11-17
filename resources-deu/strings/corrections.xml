@@ -40,7 +40,7 @@
   <string id="SettingsConfirmTimeout">Nach dieser Zeit (in Sekunden) wird der Bestätigungsdialog einer Aktion geschlossen und die
     Aktion abgebrochen. Auf 0 setzen, um den Timeout zu deaktivieren.</string>
   <string id="SettingsPin">4-stellige PIN für alle Actions mit 'confirm': true (0000-9999).</string>
-  <string id="SettingsPinError">Bitte eine gültige 4-stellige numerische PIN in den App Einstellungen eingeben (0000-4444).</string>
+  <string id="SettingsPinError">Bitte eine gültige 4-stellige numerische PIN in den App Einstellungen eingeben (0000-9999).</string>
   <string id="SettingsWidgetStart">(Nur Widget) Anwendung automatisch über das Widget starten ohne drauftippen zu müssen.</string>
   <string id="SettingsEnableBatteryLevel">Hintergrunddienst aktivieren, um den Ladezustand der Batterie an HomeAssistant zu senden.</string>
   <string id="SettingsBatteryLevelRefreshRate">Die Aktualisierungsrate (in Minuten) mit der der Ladezustand der Batterie
