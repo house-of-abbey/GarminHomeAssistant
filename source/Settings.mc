@@ -38,7 +38,7 @@ class Settings {
     private static var mAppTimeout            as Lang.Number  = 0;  // seconds
     private static var mPollDelay             as Lang.Number  = 0;  // seconds
     private static var mConfirmTimeout        as Lang.Number  = 3;  // seconds
-    private static var mPin                   as Lang.String  = "0000";
+    private static var mPin                   as Lang.String  or Null = "0000";
     private static var mMenuAlignment         as Lang.Number  = WatchUi.MenuItem.MENU_ITEM_LABEL_ALIGN_LEFT;
     private static var mIsSensorsLevelEnabled as Lang.Boolean = false;
     private static var mBatteryRefreshRate    as Lang.Number  = 15; // minutes
@@ -60,7 +60,7 @@ class Settings {
         mAppTimeout            = Properties.getValue("app_timeout");
         mPollDelay             = Properties.getValue("poll_delay_combined");
         mConfirmTimeout        = Properties.getValue("confirm_timeout");
-        mPin                   = Properties.getValue("pin");
+        mPin                   = validatePin();
         mMenuAlignment         = Properties.getValue("menu_alignment");
         mIsSensorsLevelEnabled = Properties.getValue("enable_battery_level");
         mBatteryRefreshRate    = Properties.getValue("battery_level_refresh_rate");
@@ -166,8 +166,19 @@ class Settings {
         return mConfirmTimeout * 1000; // Convert to milliseconds
     }
 
-    static function getPin() as Lang.String {
+    static function getPin() as Lang.String or Null {
+        if (mPin == null) {
+            ErrorView.show(WatchUi.loadResource($.Rez.Strings.SettingsPinError) as Lang.String);
+        }
         return mPin;
+    }
+
+    private static function validatePin() as Lang.String or Null {
+        var pin = Properties.getValue("pin");
+        if (pin.toNumber() == null || pin.length() != 4) {
+            return null;
+        }
+        return pin;
     }
 
     static function getMenuAlignment() as Lang.Number {

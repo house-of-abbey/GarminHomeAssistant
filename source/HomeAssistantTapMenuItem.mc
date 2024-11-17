@@ -90,16 +90,14 @@ class HomeAssistantTapMenuItem extends WatchUi.IconMenuItem {
         var hasTouchScreen = System.getDeviceSettings().isTouchScreen;
         if (mPin && hasTouchScreen) {
             var pin = Settings.getPin();
-            if (pin.toNumber() == null || pin.length() != 4) {
-                ErrorView.show(WatchUi.loadResource($.Rez.Strings.SettingsPinError) as Lang.String);
-                return;
+            if (pin != null) {
+                var pinConfirmationView = new HomeAssistantPinConfirmationView();
+                WatchUi.pushView(
+                    pinConfirmationView,
+                    new HomeAssistantPinConfirmationDelegate(method(:onConfirm), false, pin, pinConfirmationView),
+                    WatchUi.SLIDE_IMMEDIATE
+                );
             }
-            var pinConfirmationView = new HomeAssistantPinConfirmationView();
-            WatchUi.pushView(
-                pinConfirmationView,
-                new HomeAssistantPinConfirmationDelegate(method(:onConfirm), false, pin, pinConfirmationView),
-                WatchUi.SLIDE_IMMEDIATE
-            );
         } else if (mConfirm) {
             WatchUi.pushView(
                 new HomeAssistantConfirmation(),
