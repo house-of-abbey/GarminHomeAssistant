@@ -51,7 +51,7 @@ class HomeAssistantService {
             case Communications.BLE_HOST_TIMEOUT:
             case Communications.BLE_CONNECTION_UNAVAILABLE:
                 // System.println("HomeAssistantService onReturnCall() Response Code: BLE_HOST_TIMEOUT or BLE_CONNECTION_UNAVAILABLE, Bluetooth connection severed.");
-                ErrorView.show(WatchUi.loadResource($.Rez.Strings.NoPhone) as Lang.String + ".");
+                ErrorView.show(WatchUi.loadResource($.Rez.Strings.NoPhone) as Lang.String);
                 break;
 
             case Communications.BLE_QUEUE_FULL:
@@ -113,10 +113,10 @@ class HomeAssistantService {
     ) as Void {
         if (! System.getDeviceSettings().phoneConnected) {
             // System.println("HomeAssistantService call(): No Phone connection, skipping API call.");
-            ErrorView.show(WatchUi.loadResource($.Rez.Strings.NoPhone) as Lang.String + ".");
+            ErrorView.show(WatchUi.loadResource($.Rez.Strings.NoPhone) as Lang.String);
         } else if (! System.getDeviceSettings().connectionAvailable) {
             // System.println("HomeAssistantService call(): No Internet connection, skipping API call.");
-            ErrorView.show(WatchUi.loadResource($.Rez.Strings.NoInternet) as Lang.String + ".");
+            ErrorView.show(WatchUi.loadResource($.Rez.Strings.NoInternet) as Lang.String);
         } else {
             // Can't use null for substring() parameters due to API version level.
             var url = Settings.getApiUrl() + "/services/" + service.substring(0, service.find(".")) + "/" + service.substring(service.find(".")+1, service.length());

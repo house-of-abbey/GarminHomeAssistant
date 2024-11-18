@@ -30,8 +30,7 @@ class HomeAssistantView extends WatchUi.Menu2 {
         definition as Lang.Dictionary,
         options as {
             :focus as Lang.Number,
-            :icon  as Graphics.BitmapType or WatchUi.Drawable or Lang.Symbol,
-            :theme as WatchUi.MenuTheme or Null
+            :icon  as Graphics.BitmapType or WatchUi.Drawable or Lang.Symbol
         } or Null
     ) {
         if (options == null) {
@@ -56,7 +55,7 @@ class HomeAssistantView extends WatchUi.Menu2 {
                 if (tap_action != null) {
                     service = tap_action.get("service");
                     confirm = tap_action.get("confirm"); // Optional
-                    pin     = tap_action.get("pin");    // Optional
+                    pin     = tap_action.get("pin");     // Optional
                     data    = tap_action.get("data");    // Optional
                     if (confirm == null) {
                         confirm = false;

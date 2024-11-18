@@ -34,7 +34,7 @@ class WebhookManager {
             case Communications.BLE_HOST_TIMEOUT:
             case Communications.BLE_CONNECTION_UNAVAILABLE:
                 // System.println("WebhookManager onReturnRequestWebhookId() Response Code: BLE_HOST_TIMEOUT or BLE_CONNECTION_UNAVAILABLE, Bluetooth connection severed.");
-                ErrorView.show(WatchUi.loadResource($.Rez.Strings.WebhookFailed) as Lang.String + "\n" + WatchUi.loadResource($.Rez.Strings.NoPhone) as Lang.String + ".");
+                ErrorView.show(WatchUi.loadResource($.Rez.Strings.WebhookFailed) as Lang.String + "\n" + WatchUi.loadResource($.Rez.Strings.NoPhone) as Lang.String);
                 break;
 
             case Communications.BLE_QUEUE_FULL:
@@ -73,7 +73,7 @@ class WebhookManager {
                 } else {
                     // System.println("WebhookManager onReturnRequestWebhookId(): No webhook id in response data.");
                     Settings.unsetIsSensorsLevelEnabled();
-                    ErrorView.show(WatchUi.loadResource($.Rez.Strings.WebhookFailed) as Lang.String);
+                    ErrorView.show(WatchUi.loadResource($.Rez.Strings.WebhookFailed) as Lang.String + ".");
                 }
                 break;
 
@@ -121,7 +121,7 @@ class WebhookManager {
             case Communications.BLE_CONNECTION_UNAVAILABLE:
                 // System.println("WebhookManager onReturnRegisterWebhookSensor() Response Code: BLE_HOST_TIMEOUT or BLE_CONNECTION_UNAVAILABLE, Bluetooth connection severed.");
                 Settings.unsetWebhookId();
-                ErrorView.show(WatchUi.loadResource($.Rez.Strings.WebhookFailed) as Lang.String + "\n" + WatchUi.loadResource($.Rez.Strings.NoPhone) as Lang.String + ".");
+                ErrorView.show(WatchUi.loadResource($.Rez.Strings.WebhookFailed) as Lang.String + "\n" + WatchUi.loadResource($.Rez.Strings.NoPhone) as Lang.String);
                 break;
 
             case Communications.BLE_QUEUE_FULL:
@@ -173,7 +173,7 @@ class WebhookManager {
                         // System.println("WebhookManager onReturnRegisterWebhookSensor(): Failure, no 'success'.");
                         Settings.unsetWebhookId();
                         Settings.unsetIsSensorsLevelEnabled();
-                        ErrorView.show(WatchUi.loadResource($.Rez.Strings.WebhookFailed) as Lang.String);
+                        ErrorView.show(WatchUi.loadResource($.Rez.Strings.WebhookFailed) as Lang.String + ".");
                     }
                 } else {
                     // !! Speculative code for an application crash !!

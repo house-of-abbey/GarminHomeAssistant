@@ -124,7 +124,7 @@ class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
             case Communications.BLE_HOST_TIMEOUT:
             case Communications.BLE_CONNECTION_UNAVAILABLE:
                 // System.println("HomeAssistantToggleMenuItem onReturnSetState() Response Code: BLE_HOST_TIMEOUT or BLE_CONNECTION_UNAVAILABLE, Bluetooth connection severed.");
-                ErrorView.show(WatchUi.loadResource($.Rez.Strings.NoPhone) as Lang.String + ".");
+                ErrorView.show(WatchUi.loadResource($.Rez.Strings.NoPhone) as Lang.String);
                 break;
 
             case Communications.BLE_QUEUE_FULL:
@@ -175,11 +175,11 @@ class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
         setEnabled(!isEnabled());
         if (! System.getDeviceSettings().phoneConnected) {
             // System.println("HomeAssistantToggleMenuItem getState(): No Phone connection, skipping API call.");
-            ErrorView.show(WatchUi.loadResource($.Rez.Strings.NoPhone) as Lang.String + ".");
+            ErrorView.show(WatchUi.loadResource($.Rez.Strings.NoPhone) as Lang.String);
         } else if (! System.getDeviceSettings().connectionAvailable) {
             // System.println("HomeAssistantToggleMenuItem getState(): No Internet connection, skipping API call.");
             // Toggle the UI back
-            ErrorView.show(WatchUi.loadResource($.Rez.Strings.NoInternet) as Lang.String + ".");
+            ErrorView.show(WatchUi.loadResource($.Rez.Strings.NoInternet) as Lang.String);
         } else {
             // Updated SDK and got a new error
             // ERROR: venu: Cannot find symbol ':substring' on type 'PolyType<Null or $.Toybox.Lang.Object>'.
@@ -241,6 +241,5 @@ class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
     function onConfirm(b as Lang.Boolean) as Void {
         setState(b);
     }
-
 
 }
