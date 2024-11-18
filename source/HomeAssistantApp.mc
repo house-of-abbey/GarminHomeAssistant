@@ -111,7 +111,7 @@ class HomeAssistantApp extends Application.AppBase {
             return ErrorView.create(WatchUi.loadResource($.Rez.Strings.NoConfigUrl) as Lang.String + ".");
         } else if (Settings.getPin() == null) {
             // System.println("HomeAssistantApp getInitialView(): Invalid PIN in application settings.");
-            return ErrorView.create(WatchUi.loadResource($.Rez.Strings.SettingsPinError) as Lang.String);
+            return ErrorView.create(WatchUi.loadResource($.Rez.Strings.SettingsPinError) as Lang.String + ".");
         } else if (! System.getDeviceSettings().phoneConnected) {
             // System.println("HomeAssistantApp getInitialView(): No Phone connection, skipping API call.");
             return ErrorView.create(WatchUi.loadResource($.Rez.Strings.NoPhone) as Lang.String + ".");
