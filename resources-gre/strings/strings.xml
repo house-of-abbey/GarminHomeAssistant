@@ -19,34 +19,36 @@
 -->
 
 <strings>
-  <string id="AppName" scope="glance">HomeAssistant</string>
-  <string id="Confirm">Σίγουρος;</string>
-  <string id="Executed" scope="glance">Επιβεβαιωμένος</string>
-  <string id="NoPhone" scope="glance">Δεν υπάρχει σύνδεση τηλεφώνου</string>
-  <string id="NoInternet">Δεν υπάρχει σύνδεση στο διαδίκτυο</string>
-  <string id="NoResponse">Καμία απάντηση, ελέγξτε τη σύνδεση στο Διαδίκτυο</string>
-  <string id="NoAPIKey" scope="glance">Δεν υπάρχει κλειδί API στις ρυθμίσεις της εφαρμογής</string>
-  <string id="NoApiUrl" scope="glance">Δεν υπάρχει URL API στις ρυθμίσεις της εφαρμογής</string>
-  <string id="NoConfigUrl" scope="glance">Δεν υπάρχει διεύθυνση URL διαμόρφωσης στις ρυθμίσεις της εφαρμογής</string>
   <string id="ApiFlood">Κλήσεις API πολύ γρήγορες. Παρακαλώ επιβραδύνετε τα αιτήματά σας.</string>
   <string id="ApiUrlNotFound">Η διεύθυνση URL δεν βρέθηκε. Πιθανό σφάλμα διεύθυνσης URL API στις ρυθμίσεις.</string>
-  <string id="ConfigUrlNotFound">Η διεύθυνση URL δεν βρέθηκε. Πιθανό σφάλμα διαμόρφωσης URL στις ρυθμίσεις.</string>
-  <string id="NoJson">Δεν επιστράφηκε JSON από αίτημα HTTP.</string>
-  <string id="UnhandledHttpErr">Το αίτημα HTTP επέστρεψε κωδικό σφάλματος =</string>
-  <string id="TrailingSlashErr">Η διεύθυνση URL του API δεν πρέπει να έχει κάθετο "/"</string>
-  <string id="WebhookFailed">Η εγγραφή του Webhook απέτυχε</string>
-  <string id="TemplateError">Απέτυχε η απόδοση του προτύπου</string>
+  <string id="AppName" scope="glance">HomeAssistant</string>
   <string id="Available" scope="glance">Διαθέσιμος</string>
-  <string id="Checking" scope="glance">Ελεγχος...</string>
-  <string id="Unavailable" scope="glance">Μη διαθέσιμο</string>
-  <string id="Unconfigured" scope="glance">Μη διαμορφωμένο</string>
   <string id="Cached" scope="glance">Αποθηκευμένο στην κρυφή μνήμη</string>
+  <string id="Checking" scope="glance">Ελεγχος...</string>
+  <string id="ConfigUrlNotFound">Η διεύθυνση URL δεν βρέθηκε. Πιθανό σφάλμα διεύθυνσης URL διαμόρφωσης στις ρυθμίσεις.</string>
+  <string id="Confirm">Σίγουρος;</string>
+  <string id="Empty">Αδειάζω</string>
+  <string id="Executed" scope="glance">Επιβεβαιωμένος</string>
   <string id="GlanceMenu" scope="glance">Μενού</string>
   <string id="Memory" scope="glance">Μνήμη</string>
-  <string id="Empty">Αδειάζω</string>
-  <string id="TemplateError">Σφάλμα προτύπου</string>
+  <string id="NoAPIKey" scope="glance">Δεν υπάρχει κλειδί API στις ρυθμίσεις της εφαρμογής.</string>
+  <string id="NoApiUrl" scope="glance">Δεν υπάρχει URL API στις ρυθμίσεις της εφαρμογής.</string>
+  <string id="NoConfigUrl" scope="glance">Δεν υπάρχει διεύθυνση URL διαμόρφωσης στις ρυθμίσεις της εφαρμογής.</string>
+  <string id="NoInternet">Δεν υπάρχει σύνδεση στο Διαδίκτυο.</string>
+  <string id="NoJson">Δεν επιστράφηκε JSON από αίτημα HTTP.</string>
+  <string id="NoPhone" scope="glance">Δεν υπάρχει σύνδεση τηλεφώνου.</string>
+  <string id="NoResponse">Καμία απάντηση, ελέγξτε τη σύνδεση στο Διαδίκτυο</string>
+  <string id="PinInputLocked">Η είσοδος PIN κλειδώθηκε για</string>
   <string id="PotentialError">Πιθανό σφάλμα</string>
-  <!-- Για τις ρυθμίσεις GUI -->
+  <string id="Seconds">δευτερόλεπτα</string>
+  <string id="TemplateError">Σφάλμα προτύπου</string>
+  <string id="TrailingSlashErr">Η διεύθυνση URL του API δεν πρέπει να έχει τελική κάθετο '/'.</string>
+  <string id="Unavailable" scope="glance">Δυσεύρετος</string>
+  <string id="Unconfigured" scope="glance">Μη διαμορφωμένο</string>
+  <string id="UnhandledHttpErr">Το αίτημα HTTP επέστρεψε κωδικό σφάλματος =</string>
+  <string id="WebhookFailed">Η εγγραφή του Webhook απέτυχε</string>
+  <string id="WrongPin">Λάθος PIN</string>
+  <!-- Για τις ρυθμίσεις GUI, οι συμβολοσειρές πρέπει να είναι με τη σειρά που χρησιμοποιούνται. -->
   <string id="SettingsSelect">Επιλέγω...</string>
   <string id="SettingsApiKey">Κλειδί API για το HomeAssistant.</string>
   <string id="SettingsApiKeyPrompt">Διακριτικό πρόσβασης μακράς διαρκείας.</string>
@@ -58,9 +60,11 @@
   <string id="SettingsAppTimeout">Timeout σε δευτερόλεπτα. Κλείστε την εφαρμογή μετά από αυτήν την περίοδο αδράνειας για να εξοικονομήσετε την μπαταρία της συσκευής.</string>
   <string id="SettingsPollDelay">Πρόσθετη καθυστέρηση δημοσκόπησης (σε δευτερόλεπτα). Προσθέτει μια καθυστέρηση μεταξύ της ενημέρωσης κατάστασης όλων των στοιχείων μενού.</string>
   <string id="SettingsConfirmTimeout">Μετά από αυτό το χρονικό διάστημα (σε δευτερόλεπτα), ένα παράθυρο διαλόγου επιβεβαίωσης για μια ενέργεια κλείνει αυτόματα και η ενέργεια ακυρώνεται. Ορίστε στο 0 για να απενεργοποιήσετε το χρονικό όριο.</string>
+  <string id="SettingsPin">4-ψήφιο PIN που θα χρησιμοποιηθεί για όλες τις ενέργειες που απαιτούν επιβεβαίωση (0000-9999).</string>
+  <string id="SettingsPinError">Διαμορφώστε ένα έγκυρο τετραψήφιο αριθμητικό PIN μεταξύ 0000 και 9999 στις ρυθμίσεις της εφαρμογής.</string>
   <string id="SettingsTextAlign">Αριστερά (απενεργοποίηση) ή Δεξιά (ενεργό) Ευθυγράμμιση μενού.</string>
   <string id="LeftToRight">Από αριστερά προς τα δεξιά</string>
-  <string id="RightToLeft">Δεξιά προς τα αριστερά</string>
+  <string id="RightToLeft">Δεξιά προς Αριστερά</string>
   <string id="SettingsWidgetStart">(Μόνο widget) Αυτόματη εκκίνηση της εφαρμογής από το widget χωρίς να περιμένετε ένα πάτημα.</string>
   <string id="SettingsEnableBatteryLevel">Ενεργοποιήστε την υπηρεσία παρασκηνίου για αποστολή του επιπέδου μπαταρίας της συσκευής, της τοποθεσίας και (εάν υποστηρίζονται) δεδομένα δραστηριότητας στον Βοηθό σπιτιού.</string>
   <string id="SettingsBatteryLevelRefreshRate">Ο ρυθμός ανανέωσης (σε λεπτά) με τον οποίο η υπηρεσία παρασκηνίου θα πρέπει να επαναλαμβάνει την αποστολή δεδομένων.</string>

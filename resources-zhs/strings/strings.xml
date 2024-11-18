@@ -19,34 +19,36 @@
 -->
 
 <strings>
-  <string id="AppName" scope="glance">HomeAssistant</string>
-  <string id="Confirm">当然？</string>
-  <string id="Executed" scope="glance">确认的</string>
-  <string id="NoPhone" scope="glance">没有电话连接</string>
-  <string id="NoInternet">没有网络连接</string>
-  <string id="NoResponse">无响应，请检查网络连接</string>
-  <string id="NoAPIKey" scope="glance">应用程序设置中没有 API 密钥</string>
-  <string id="NoApiUrl" scope="glance">应用程序设置中没有 API URL</string>
-  <string id="NoConfigUrl" scope="glance">应用程序设置中没有配置 URL</string>
   <string id="ApiFlood">API 调用速度过快。请放慢您的请求速度。</string>
   <string id="ApiUrlNotFound">未找到 URL。设置中可能存在 API URL 错误。</string>
-  <string id="ConfigUrlNotFound">未找到 URL。设置中可能存在配置 URL 错误。</string>
-  <string id="NoJson">HTTP 请求未返回 JSON。</string>
-  <string id="UnhandledHttpErr">HTTP 请求返回错误代码 =</string>
-  <string id="TrailingSlashErr">API URL 不能有尾部斜杠“/”</string>
-  <string id="WebhookFailed">无法注册 Webhook</string>
-  <string id="TemplateError">模板渲染失败</string>
+  <string id="AppName" scope="glance">HomeAssistant</string>
   <string id="Available" scope="glance">可用的</string>
-  <string id="Checking" scope="glance">检查...</string>
-  <string id="Unavailable" scope="glance">不可用</string>
-  <string id="Unconfigured" scope="glance">未配置</string>
   <string id="Cached" scope="glance">已缓存</string>
+  <string id="Checking" scope="glance">检查...</string>
+  <string id="ConfigUrlNotFound">未找到 URL。设置中可能存在配置 URL 错误。</string>
+  <string id="Confirm">当然？</string>
+  <string id="Empty">空的</string>
+  <string id="Executed" scope="glance">确认的</string>
   <string id="GlanceMenu" scope="glance">菜单</string>
   <string id="Memory" scope="glance">记忆</string>
-  <string id="Empty">空的</string>
-  <string id="TemplateError">模板错误</string>
+  <string id="NoAPIKey" scope="glance">应用程序设置中没有 API 密钥。</string>
+  <string id="NoApiUrl" scope="glance">应用程序设置中没有 API URL。</string>
+  <string id="NoConfigUrl" scope="glance">应用程序设置中没有配置 URL。</string>
+  <string id="NoInternet">没有互联网连接。</string>
+  <string id="NoJson">HTTP 请求未返回 JSON。</string>
+  <string id="NoPhone" scope="glance">没有电话连接。</string>
+  <string id="NoResponse">无响应，请检查互联网连接</string>
+  <string id="PinInputLocked">PIN 输入已锁定</string>
   <string id="PotentialError">潜在错误</string>
-  <!-- 对于设置 GUI -->
+  <string id="Seconds">秒</string>
+  <string id="TemplateError">模板错误</string>
+  <string id="TrailingSlashErr">API URL 末尾不能有斜杠“/”。</string>
+  <string id="Unavailable" scope="glance">不可用</string>
+  <string id="Unconfigured" scope="glance">未配置</string>
+  <string id="UnhandledHttpErr">HTTP 请求返回错误代码 =</string>
+  <string id="WebhookFailed">无法注册 Webhook</string>
+  <string id="WrongPin">PIN 码错误</string>
+  <!-- 对于设置 GUI，字符串应该按照其使用的顺序排列。 -->
   <string id="SettingsSelect">选择...</string>
   <string id="SettingsApiKey">HomeAssistant 的 API 密钥。</string>
   <string id="SettingsApiKeyPrompt">长寿命访问令牌。</string>
@@ -58,9 +60,11 @@
   <string id="SettingsAppTimeout">超时时间（秒）。在这段不活动时间过后退出应用程序以节省设备电池。</string>
   <string id="SettingsPollDelay">附加轮询延迟（以秒为单位）。在所有菜单项的状态更新之间添加延迟。</string>
   <string id="SettingsConfirmTimeout">在此时间（以秒为单位）之后，操作的确认对话框将自动关闭，并且操作将被取消。设置为 0 可禁用超时。</string>
+  <string id="SettingsPin">所有需要确认的操作均需使用 4 位 PIN 码（0000-9999）。</string>
+  <string id="SettingsPinError">请在应用程序设置中配置一个介于 0000 和 9999 之间的有效 4 位数字 PIN 码。</string>
   <string id="SettingsTextAlign">左（关闭）或右（打开）菜单对齐。</string>
-  <string id="LeftToRight">左到右</string>
-  <string id="RightToLeft">右到左</string>
+  <string id="LeftToRight">从左到右</string>
+  <string id="RightToLeft">从右到左</string>
   <string id="SettingsWidgetStart">（仅限小部件）无需等待点击即可从小部件自动启动应用程序。</string>
   <string id="SettingsEnableBatteryLevel">启用后台服务将设备电池电量、位置和（如果支持）活动数据发送到 Home Assistant。</string>
   <string id="SettingsBatteryLevelRefreshRate">后台服务应重复发送数据的刷新率（以分钟为单位）。</string>

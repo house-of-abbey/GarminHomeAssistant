@@ -19,34 +19,36 @@
 -->
 
 <strings>
-  <string id="AppName" scope="glance">HomeAssistant</string>
-  <string id="Confirm">Sicher?</string>
-  <string id="Executed" scope="glance">Bestätigt</string>
-  <string id="NoPhone" scope="glance">Keine Telefonverbindung</string>
-  <string id="NoInternet">Keine Internetverbindung</string>
-  <string id="NoResponse">Keine Antwort, Internetverbindung prüfen</string>
-  <string id="NoAPIKey" scope="glance">Kein API-Schlüssel in den Anwendungseinstellungen</string>
-  <string id="NoApiUrl" scope="glance">Keine API-URL in den Anwendungseinstellungen</string>
-  <string id="NoConfigUrl" scope="glance">Keine Konfigurations-URL in den Anwendungseinstellungen</string>
   <string id="ApiFlood">API-Aufrufe zu schnell. Bitte verlangsamen Sie Ihre Anfragen.</string>
   <string id="ApiUrlNotFound">URL nicht gefunden. Möglicher API-URL-Fehler in den Einstellungen.</string>
-  <string id="ConfigUrlNotFound">URL nicht gefunden. Möglicherweise falsche Konfigurations-URL in den Einstellungen.</string>
-  <string id="NoJson">Von der HTTP-Anforderung wurde kein JSON zurückgegeben.</string>
-  <string id="UnhandledHttpErr">Die HTTP-Anfrage gab folgenden Fehlercode zurück = </string>
-  <string id="TrailingSlashErr">Die API-URL darf keinen abschließenden Schrägstrich „/“ enthalten.</string>
-  <string id="WebhookFailed">Webhook konnte nicht registriert werden</string>
-  <string id="TemplateError">Template konnte nicht gerendert werden</string>
+  <string id="AppName" scope="glance">HomeAssistant</string>
   <string id="Available" scope="glance">OK</string>
-  <string id="Checking" scope="glance">Prüfe...</string>
-  <string id="Unavailable" scope="glance">Nicht verfügbar</string>
-  <string id="Unconfigured" scope="glance">Nicht konfiguriert</string>
   <string id="Cached" scope="glance">gecacht</string>
+  <string id="Checking" scope="glance">Prüfe...</string>
+  <string id="ConfigUrlNotFound">URL nicht gefunden. Möglicherweise falsche Konfigurations-URL in den Einstellungen.</string>
+  <string id="Confirm">Sicher?</string>
+  <string id="Empty">Leer</string>
+  <string id="Executed" scope="glance">Bestätigt</string>
   <string id="GlanceMenu" scope="glance">Menü</string>
   <string id="Memory" scope="glance">Speicher</string>
-  <string id="Empty">Leer</string>
-  <string id="TemplateError">Template konnte nicht gerendert werden</string>
+  <string id="NoAPIKey" scope="glance">Kein API-Schlüssel in den Anwendungseinstellungen.</string>
+  <string id="NoApiUrl" scope="glance">Keine API-URL in den Anwendungseinstellungen.</string>
+  <string id="NoConfigUrl" scope="glance">Keine Konfigurations-URL in den Anwendungseinstellungen.</string>
+  <string id="NoInternet">Keine Internetverbindung.</string>
+  <string id="NoJson">Von der HTTP-Anforderung wurde kein JSON zurückgegeben.</string>
+  <string id="NoPhone" scope="glance">Keine Telefonverbindung.</string>
+  <string id="NoResponse">Keine Antwort, überprüfen Sie die Internetverbindung</string>
+  <string id="PinInputLocked">PIN-Eingabe gesperrt für</string>
   <string id="PotentialError">Möglicher Fehler</string>
-  <!-- Für die Einstellungs-GUI -->
+  <string id="Seconds">Sekunden</string>
+  <string id="TemplateError">Template konnte nicht gerendert werden</string>
+  <string id="TrailingSlashErr">Die API-URL darf keinen Schrägstrich „/“ am Ende haben.</string>
+  <string id="Unavailable" scope="glance">Nicht verfügbar</string>
+  <string id="Unconfigured" scope="glance">Nicht konfiguriert</string>
+  <string id="UnhandledHttpErr">Die HTTP-Anfrage gab folgenden Fehlercode zurück = </string>
+  <string id="WebhookFailed">Webhook konnte nicht registriert werden</string>
+  <string id="WrongPin">Falsche PIN</string>
+  <!-- Für die GUI mit den Einstellungen sollten die Zeichenfolgen in der Reihenfolge angegeben werden, in der sie verwendet werden. -->
   <string id="SettingsSelect">Wählen...</string>
   <string id="SettingsApiKey">API-Schlüssel für HomeAssistant.</string>
   <string id="SettingsApiKeyPrompt">Langlebiger Zugriffstoken.</string>
@@ -60,9 +62,11 @@
   <string id="SettingsPollDelay">Zusätzliche Abfrageverzögerung (in Sekunden). Fügt eine Verzögerung zwischen der Statusaktualisierung aller Menüelemente hinzu.</string>
   <string id="SettingsConfirmTimeout">Nach dieser Zeit (in Sekunden) wird der Bestätigungsdialog einer Aktion geschlossen und die
     Aktion abgebrochen. Auf 0 setzen, um den Timeout zu deaktivieren.</string>
+  <string id="SettingsPin">4-stellige PIN für alle Actions mit 'confirm': true (0000-9999).</string>
+  <string id="SettingsPinError">Bitte eine gültige 4-stellige numerische PIN in den App Einstellungen eingeben (0000-9999).</string>
   <string id="SettingsTextAlign">Menüausrichtung links (aus) oder rechts (ein).</string>
-  <string id="LeftToRight">Links nach rechts</string>
-  <string id="RightToLeft">Rechts nach links</string>
+  <string id="LeftToRight">Von links nach rechts</string>
+  <string id="RightToLeft">Von rechts nach links</string>
   <string id="SettingsWidgetStart">(Nur Widget) Anwendung automatisch über das Widget starten ohne drauftippen zu müssen.</string>
   <string id="SettingsEnableBatteryLevel">Hintergrunddienst aktivieren, um den Ladezustand der Batterie an HomeAssistant zu senden.</string>
   <string id="SettingsBatteryLevelRefreshRate">Die Aktualisierungsrate (in Minuten) mit der der Ladezustand der Batterie

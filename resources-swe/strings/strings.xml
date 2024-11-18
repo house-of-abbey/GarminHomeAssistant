@@ -19,35 +19,37 @@
 -->
 
 <strings>
-  <string id="AppName" scope="glance">HomeAssistant</string>
-  <string id="Confirm">Säker?</string>
-  <string id="Executed" scope="glance">Bekräftad</string>
-  <string id="NoPhone" scope="glance">Ingen telefonanslutning</string>
-  <string id="NoInternet">Ingen internetanslutning</string>
-  <string id="NoResponse">Inget svar, kontrollera internetanslutningen</string>
-  <string id="NoAPIKey" scope="glance">Ingen API-nyckel i applikationsinställningarna</string>
-  <string id="NoApiUrl" scope="glance">Ingen API-URL i applikationsinställningarna</string>
-  <string id="NoConfigUrl" scope="glance">Ingen konfigurations-URL i programinställningarna</string>
   <string id="ApiFlood">API-anrop för snabba. Vänligen sakta ner dina förfrågningar.</string>
   <string id="ApiUrlNotFound">Webbadressen hittades inte. Potentiellt API-URL-fel i inställningarna.</string>
-  <string id="ConfigUrlNotFound">Webbadressen hittades inte. Potentiellt konfigurations-URL-fel i inställningarna.</string>
-  <string id="NoJson">Ingen JSON returnerades från HTTP-begäran.</string>
-  <string id="UnhandledHttpErr">HTTP-begäran returnerade felkod =</string>
-  <string id="TrailingSlashErr">API-URL får inte ha ett snedstreck '/'</string>
-  <string id="WebhookFailed">Det gick inte att registrera Webhook</string>
-  <string id="TemplateError">Det gick inte att rendera mallen</string>
-  <string id="Available" scope="glance">Tillgängliga</string>
-  <string id="Checking" scope="glance">Kontroll...</string>
-  <string id="Unavailable" scope="glance">Inte tillgänglig</string>
-  <string id="Unconfigured" scope="glance">Okonfigurerad</string>
+  <string id="AppName" scope="glance">HomeAssistant</string>
+  <string id="Available" scope="glance">Tillgänglig</string>
   <string id="Cached" scope="glance">Cachad</string>
+  <string id="Checking" scope="glance">Kontroll...</string>
+  <string id="ConfigUrlNotFound">Webbadressen hittades inte. Potentiellt konfigurations-URL-fel i inställningarna.</string>
+  <string id="Confirm">Säker?</string>
+  <string id="Empty">Tömma</string>
+  <string id="Executed" scope="glance">Bekräftad</string>
   <string id="GlanceMenu" scope="glance">Meny</string>
   <string id="Memory" scope="glance">Minne</string>
-  <string id="Empty">Tömma</string>
-  <string id="TemplateError">Mallfel</string>
+  <string id="NoAPIKey" scope="glance">Ingen API-nyckel i applikationsinställningarna.</string>
+  <string id="NoApiUrl" scope="glance">Ingen API-URL i applikationsinställningarna.</string>
+  <string id="NoConfigUrl" scope="glance">Ingen konfigurations-URL i programinställningarna.</string>
+  <string id="NoInternet">Ingen internetanslutning.</string>
+  <string id="NoJson">Ingen JSON returnerades från HTTP-begäran.</string>
+  <string id="NoPhone" scope="glance">Ingen telefonanslutning.</string>
+  <string id="NoResponse">Inget svar, kontrollera internetanslutningen</string>
+  <string id="PinInputLocked">PIN-inmatning låst för</string>
   <string id="PotentialError">Potentiellt fel</string>
-  <!-- För inställningar GUI -->
-  <string id="SettingsSelect">Välj...</string>
+  <string id="Seconds">sekunder</string>
+  <string id="TemplateError">Mallfel</string>
+  <string id="TrailingSlashErr">API-URL får inte ha ett snedstreck '/'.</string>
+  <string id="Unavailable" scope="glance">Inte tillgänglig</string>
+  <string id="Unconfigured" scope="glance">Okonfigurerad</string>
+  <string id="UnhandledHttpErr">HTTP-begäran returnerade felkod =</string>
+  <string id="WebhookFailed">Det gick inte att registrera Webhook</string>
+  <string id="WrongPin">Fel PIN-kod</string>
+  <!-- För inställningarna GUI, bör strängar vara i den ordning de används. -->
+  <string id="SettingsSelect">Välja...</string>
   <string id="SettingsApiKey">API-nyckel för HomeAssistant.</string>
   <string id="SettingsApiKeyPrompt">Långlivad åtkomsttoken.</string>
   <string id="SettingsApiUrl">URL för HomeAssistant API.</string>
@@ -55,9 +57,11 @@
   <string id="SettingsCacheConfig">Ska programmet cachelagra menykonfigurationen?</string>
   <string id="SettingsClearCache">Ska programmet rensa den befintliga cachen nästa gång den startas?</string>
   <string id="SettingsVibration">Ska applikationen ge feedback via vibrationer?</string>
-  <string id="SettingsAppTimeout">Timeout på sekunder. Avsluta programmet efter denna period av inaktivitet för att spara enhetens batteri.</string>
+  <string id="SettingsAppTimeout">Timeout i sekunder. Avsluta programmet efter denna period av inaktivitet för att spara enhetens batteri.</string>
   <string id="SettingsPollDelay">Ytterligare fördröjning (i sekunder). Lägger till en fördröjning mellan statusuppdateringen av alla menyalternativ.</string>
   <string id="SettingsConfirmTimeout">Efter denna tid (i sekunder) stängs en bekräftelsedialog för en åtgärd automatiskt och åtgärden avbryts. Ställ in på 0 för att inaktivera timeout.</string>
+  <string id="SettingsPin">4-siffrig PIN-kod som ska användas för alla åtgärder som kräver bekräftelse (0000-9999).</string>
+  <string id="SettingsPinError">Vänligen konfigurera en giltig 4-siffrig numerisk PIN-kod mellan 0000 och 9999 i programinställningarna.</string>
   <string id="SettingsTextAlign">Vänster (av) eller höger (på) menyjustering.</string>
   <string id="LeftToRight">Vänster till höger</string>
   <string id="RightToLeft">Höger till vänster</string>

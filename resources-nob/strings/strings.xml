@@ -19,35 +19,37 @@
 -->
 
 <strings>
-  <string id="AppName" scope="glance">HomeAssistant</string>
-  <string id="Confirm">Sikker?</string>
-  <string id="Executed" scope="glance">Bekreftet</string>
-  <string id="NoPhone" scope="glance">Ingen telefonforbindelse</string>
-  <string id="NoInternet">Ingen Internett-tilkobling</string>
-  <string id="NoResponse">Ingen svar, sjekk Internett-tilkoblingen</string>
-  <string id="NoAPIKey" scope="glance">Ingen API-nøkkel i applikasjonsinnstillingene</string>
-  <string id="NoApiUrl" scope="glance">Ingen API-URL i applikasjonsinnstillingene</string>
-  <string id="NoConfigUrl" scope="glance">Ingen konfigurasjons-URL i applikasjonsinnstillingene</string>
   <string id="ApiFlood">API-kall for raske. Vennligst senke forespørslene dine.</string>
   <string id="ApiUrlNotFound">Finner ikke URL. Potensiell API URL-feil i innstillingene.</string>
-  <string id="ConfigUrlNotFound">Finner ikke URL. Potensiell konfigurasjons-URL-feil i innstillingene.</string>
-  <string id="NoJson">Ingen JSON returnert fra HTTP-forespørsel.</string>
-  <string id="UnhandledHttpErr">HTTP-forespørsel returnerte feilkode =</string>
-  <string id="TrailingSlashErr">API URL må ikke ha en etterfølgende skråstrek '/'</string>
-  <string id="WebhookFailed">Kunne ikke registrere Webhook</string>
-  <string id="TemplateError">Kunne ikke gjengi malen</string>
+  <string id="AppName" scope="glance">HomeAssistant</string>
   <string id="Available" scope="glance">Tilgjengelig</string>
-  <string id="Checking" scope="glance">Sjekker...</string>
-  <string id="Unavailable" scope="glance">Utilgjengelig</string>
-  <string id="Unconfigured" scope="glance">Ukonfigurert</string>
   <string id="Cached" scope="glance">Bufret</string>
+  <string id="Checking" scope="glance">Sjekker...</string>
+  <string id="ConfigUrlNotFound">Finner ikke URL. Potensiell konfigurasjons-URL-feil i innstillingene.</string>
+  <string id="Confirm">Sikker?</string>
+  <string id="Empty">Tømme</string>
+  <string id="Executed" scope="glance">Bekreftet</string>
   <string id="GlanceMenu" scope="glance">Meny</string>
   <string id="Memory" scope="glance">Hukommelse</string>
-  <string id="Empty">Tømme</string>
-  <string id="TemplateError">Malfeil</string>
+  <string id="NoAPIKey" scope="glance">Ingen API-nøkkel i applikasjonsinnstillingene.</string>
+  <string id="NoApiUrl" scope="glance">Ingen API-URL i applikasjonsinnstillingene.</string>
+  <string id="NoConfigUrl" scope="glance">Ingen konfigurasjons-URL i applikasjonsinnstillingene.</string>
+  <string id="NoInternet">Ingen Internett-tilkobling.</string>
+  <string id="NoJson">Ingen JSON returnert fra HTTP-forespørsel.</string>
+  <string id="NoPhone" scope="glance">Ingen telefonforbindelse.</string>
+  <string id="NoResponse">Ingen svar, sjekk Internett-tilkoblingen</string>
+  <string id="PinInputLocked">PIN-inntasting låst for</string>
   <string id="PotentialError">Potensiell feil</string>
-  <!-- For innstillingene GUI -->
-  <string id="SettingsSelect">Plukke ut...</string>
+  <string id="Seconds">sekunder</string>
+  <string id="TemplateError">Malfeil</string>
+  <string id="TrailingSlashErr">API URL må ikke ha en etterfølgende skråstrek '/'.</string>
+  <string id="Unavailable" scope="glance">Utilgjengelig</string>
+  <string id="Unconfigured" scope="glance">Ukonfigurert</string>
+  <string id="UnhandledHttpErr">HTTP-forespørsel returnerte feilkode =</string>
+  <string id="WebhookFailed">Kunne ikke registrere Webhook</string>
+  <string id="WrongPin">Feil PIN-kode</string>
+  <!-- For innstillingene GUI, bør strenger være i den rekkefølgen de brukes. -->
+  <string id="SettingsSelect">Velge...</string>
   <string id="SettingsApiKey">API-nøkkel for HomeAssistant.</string>
   <string id="SettingsApiKeyPrompt">Langlevd tilgangstoken.</string>
   <string id="SettingsApiUrl">URL for HomeAssistant API.</string>
@@ -58,11 +60,13 @@
   <string id="SettingsAppTimeout">Tidsavbrudd i sekunder. Avslutt applikasjonen etter denne perioden med inaktivitet for å spare enhetens batteri.</string>
   <string id="SettingsPollDelay">Ytterligere avstemningsforsinkelse (i sekunder). Legger til en forsinkelse mellom statusoppdatering av alle menyelementer.</string>
   <string id="SettingsConfirmTimeout">Etter denne tiden (i sekunder), lukkes en bekreftelsesdialog for en handling automatisk og handlingen avbrytes. Sett til 0 for å deaktivere tidsavbruddet.</string>
+  <string id="SettingsPin">4-sifret PIN-kode som skal brukes for alle handlinger som krever bekreftelse (0000-9999).</string>
+  <string id="SettingsPinError">Konfigurer en gyldig 4-sifret numerisk PIN-kode mellom 0000 og 9999 i applikasjonsinnstillingene.</string>
   <string id="SettingsTextAlign">Venstre (av) eller Høyre (på) Menyjustering.</string>
   <string id="LeftToRight">Venstre til høyre</string>
   <string id="RightToLeft">Høyre til venstre</string>
   <string id="SettingsWidgetStart">(Kun widget) Start applikasjonen automatisk fra widgeten uten å vente på et trykk.</string>
   <string id="SettingsEnableBatteryLevel">Aktiver bakgrunnstjenesten for å sende enhetens batterinivå, plassering og (hvis støttet) aktivitetsdata til Home Assistant.</string>
   <string id="SettingsBatteryLevelRefreshRate">Oppdateringshastigheten (i minutter) som bakgrunnstjenesten skal gjenta sending av data med.</string>
-  <string id="WebhookId">(Skrivebeskyttet) Webhook-IDen opprettet av enheten for oppdateringer av bakgrunnstjenester. Du kan kreve dette for feilsøking.</string>
+  <string id="WebhookId">(Skrivebeskyttet) Webhook-IDen opprettet av enheten for bakgrunnstjenesteoppdateringer. Du kan kreve dette for feilsøking.</string>
 </strings>

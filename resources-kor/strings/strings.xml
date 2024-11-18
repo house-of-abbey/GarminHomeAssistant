@@ -19,45 +19,49 @@
 -->
 
 <strings>
-  <string id="AppName" scope="glance">HomeAssistant</string>
-  <string id="Confirm">확신하는?</string>
-  <string id="Executed" scope="glance">확인됨</string>
-  <string id="NoPhone" scope="glance">전화 연결 안됨</string>
-  <string id="NoInternet">인터넷에 연결되지 않음</string>
-  <string id="NoResponse">응답 없음, 인터넷 연결을 확인하세요</string>
-  <string id="NoAPIKey" scope="glance">애플리케이션 설정에 API 키가 없습니다</string>
-  <string id="NoApiUrl" scope="glance">애플리케이션 설정에 API URL이 없습니다</string>
-  <string id="NoConfigUrl" scope="glance">애플리케이션 설정에 구성 URL이 없습니다.</string>
   <string id="ApiFlood">API 호출이 너무 빠릅니다. 요청 속도를 늦춰주세요.</string>
   <string id="ApiUrlNotFound">URL을 찾을 수 없습니다. 설정에 잠재적인 API URL 오류가 있습니다.</string>
-  <string id="ConfigUrlNotFound">URL을 찾을 수 없습니다. 설정에서 잠재적인 구성 URL 오류.</string>
-  <string id="NoJson">HTTP 요청에서 JSON이 반환되지 않았습니다.</string>
-  <string id="UnhandledHttpErr">HTTP 요청이 오류 코드를 반환했습니다 =</string>
-  <string id="TrailingSlashErr">API URL에는 끝에 슬래시('/')가 있어서는 안 됩니다.</string>
-  <string id="WebhookFailed">Webhook 등록에 실패했습니다.</string>
-  <string id="TemplateError">템플릿 렌더링에 실패했습니다</string>
+  <string id="AppName" scope="glance">HomeAssistant</string>
   <string id="Available" scope="glance">사용 가능</string>
-  <string id="Checking" scope="glance">확인 중...</string>
-  <string id="Unavailable" scope="glance">없는</string>
-  <string id="Unconfigured" scope="glance">구성되지 않음</string>
   <string id="Cached" scope="glance">캐시됨</string>
+  <string id="Checking" scope="glance">확인 중...</string>
+  <string id="ConfigUrlNotFound">URL을 찾을 수 없습니다. 설정에서 잠재적인 구성 URL 오류.</string>
+  <string id="Confirm">확신하는?</string>
+  <string id="Empty">비어 있는</string>
+  <string id="Executed" scope="glance">확인됨</string>
   <string id="GlanceMenu" scope="glance">메뉴</string>
   <string id="Memory" scope="glance">메모리</string>
-  <string id="Empty">비어 있는</string>
+  <string id="NoAPIKey" scope="glance">애플리케이션 설정에 API 키가 없습니다.</string>
+  <string id="NoApiUrl" scope="glance">애플리케이션 설정에 API URL이 없습니다.</string>
+  <string id="NoConfigUrl" scope="glance">애플리케이션 설정에 구성 URL이 없습니다.</string>
+  <string id="NoInternet">인터넷에 연결되지 않았습니다.</string>
+  <string id="NoJson">HTTP 요청에서 JSON이 반환되지 않았습니다.</string>
+  <string id="NoPhone" scope="glance">전화가 연결되지 않았습니다.</string>
+  <string id="NoResponse">응답 없음, 인터넷 연결을 확인하세요</string>
+  <string id="PinInputLocked">PIN 입력이 잠겼습니다</string>
+  <string id="PotentialError">잠재적 오류</string>
+  <string id="Seconds">초</string>
   <string id="TemplateError">템플릿 오류</string>
-  <string id="PotentialError">잠재적인 오류</string>
-  <!-- 설정 GUI의 경우 -->
+  <string id="TrailingSlashErr">API URL 끝에 슬래시(/)가 있어서는 안 됩니다.</string>
+  <string id="Unavailable" scope="glance">없는</string>
+  <string id="Unconfigured" scope="glance">구성되지 않음</string>
+  <string id="UnhandledHttpErr">HTTP 요청이 오류 코드를 반환했습니다 =</string>
+  <string id="WebhookFailed">Webhook 등록에 실패했습니다.</string>
+  <string id="WrongPin">잘못된 PIN</string>
+  <!-- 설정 GUI의 경우 문자열은 사용된 순서대로 있어야 합니다. -->
   <string id="SettingsSelect">선택하다...</string>
   <string id="SettingsApiKey">HomeAssistant의 API 키.</string>
   <string id="SettingsApiKeyPrompt">장기 액세스 토큰.</string>
   <string id="SettingsApiUrl">HomeAssistant API의 URL입니다.</string>
   <string id="SettingsConfigUrl">메뉴 구성을 위한 URL(JSON).</string>
   <string id="SettingsCacheConfig">애플리케이션이 메뉴 구성을 캐시해야 할까요?</string>
-  <string id="SettingsClearCache">애플리케이션이 다음에 시작될 때 기존 캐시를 지워야 합니까?</string>
+  <string id="SettingsClearCache">다음에 애플리케이션을 시작할 때 기존 캐시를 지워야 합니까?</string>
   <string id="SettingsVibration">앱에서 진동을 통해 피드백을 제공해야 할까요?</string>
   <string id="SettingsAppTimeout">시간 초과(초). 이 기간 동안 활동이 없으면 애플리케이션을 종료하여 장치 배터리를 절약하세요.</string>
-  <string id="SettingsPollDelay">추가 폴링 지연(초)입니다. 모든 메뉴 항목의 상태 업데이트 사이에 지연을 추가합니다.</string>
+  <string id="SettingsPollDelay">추가 폴 지연(초). 모든 메뉴 항목의 상태 업데이트 사이에 지연을 추가합니다.</string>
   <string id="SettingsConfirmTimeout">이 시간(초) 이후에는 작업에 대한 확인 대화 상자가 자동으로 닫히고 작업이 취소됩니다. 시간 초과를 비활성화하려면 0으로 설정합니다.</string>
+  <string id="SettingsPin">확인이 필요한 모든 작업에 사용되는 4자리 PIN(0000-9999)</string>
+  <string id="SettingsPinError">애플리케이션 설정에서 0000~9999 사이의 유효한 4자리 숫자 PIN을 구성하세요.</string>
   <string id="SettingsTextAlign">왼쪽(끄기) 또는 오른쪽(켜기) 메뉴 정렬.</string>
   <string id="LeftToRight">왼쪽에서 오른쪽으로</string>
   <string id="RightToLeft">오른쪽에서 왼쪽으로</string>

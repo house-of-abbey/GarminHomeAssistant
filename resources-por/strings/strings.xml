@@ -19,34 +19,36 @@
 -->
 
 <strings>
-  <string id="AppName" scope="glance">HomeAssistant</string>
-  <string id="Confirm">Claro?</string>
-  <string id="Executed" scope="glance">Confirmado</string>
-  <string id="NoPhone" scope="glance">Sem conexão telefônica</string>
-  <string id="NoInternet">Sem conexão com a Internet</string>
-  <string id="NoResponse">Nenhuma resposta, verifique a conexão com a Internet</string>
-  <string id="NoAPIKey" scope="glance">Nenhuma chave de API nas configurações do aplicativo</string>
-  <string id="NoApiUrl" scope="glance">Nenhuma URL de API nas configurações do aplicativo</string>
-  <string id="NoConfigUrl" scope="glance">Nenhum URL de configuração nas configurações do aplicativo</string>
   <string id="ApiFlood">Chamadas de API muito rápidas. Por favor, diminua a velocidade de suas solicitações.</string>
   <string id="ApiUrlNotFound">URL não encontrada. Possível erro de URL de API nas configurações.</string>
-  <string id="ConfigUrlNotFound">URL não encontrada. Possível erro de URL de configuração nas configurações.</string>
-  <string id="NoJson">Nenhum JSON foi retornado da solicitação HTTP.</string>
-  <string id="UnhandledHttpErr">A solicitação HTTP retornou o código de erro =</string>
-  <string id="TrailingSlashErr">A URL da API não deve ter uma barra final '/'</string>
-  <string id="WebhookFailed">Falha ao registrar o Webhook</string>
-  <string id="TemplateError">Falha ao renderizar o modelo</string>
+  <string id="AppName" scope="glance">HomeAssistant</string>
   <string id="Available" scope="glance">Disponível</string>
+  <string id="Cached" scope="glance">Em cache</string>
   <string id="Checking" scope="glance">Verificando...</string>
+  <string id="ConfigUrlNotFound">URL não encontrada. Possível erro de URL de configuração nas configurações.</string>
+  <string id="Confirm">Claro?</string>
+  <string id="Empty">Vazio</string>
+  <string id="Executed" scope="glance">Confirmado</string>
+  <string id="GlanceMenu" scope="glance">Menu</string>
+  <string id="Memory" scope="glance">Memória</string>
+  <string id="NoAPIKey" scope="glance">Nenhuma chave de API nas configurações do aplicativo.</string>
+  <string id="NoApiUrl" scope="glance">Nenhuma URL de API nas configurações do aplicativo.</string>
+  <string id="NoConfigUrl" scope="glance">Nenhuma URL de configuração nas configurações do aplicativo.</string>
+  <string id="NoInternet">Sem conexão com a Internet.</string>
+  <string id="NoJson">Nenhum JSON foi retornado da solicitação HTTP.</string>
+  <string id="NoPhone" scope="glance">Sem conexão telefônica.</string>
+  <string id="NoResponse">Nenhuma resposta, verifique a conexão com a Internet</string>
+  <string id="PinInputLocked">Entrada de PIN bloqueada para</string>
+  <string id="PotentialError">Erro potencial</string>
+  <string id="Seconds">segundos</string>
+  <string id="TemplateError">Erro de modelo</string>
+  <string id="TrailingSlashErr">A URL da API não deve ter uma barra final '/'.</string>
   <string id="Unavailable" scope="glance">Indisponível</string>
   <string id="Unconfigured" scope="glance">Não configurado</string>
-  <string id="Cached" scope="glance">Em cache</string>
-  <string id="GlanceMenu" scope="glance">Cardápio</string>
-  <string id="Memory" scope="glance">Memória</string>
-  <string id="Empty">Vazio</string>
-  <string id="TemplateError">Erro de modelo</string>
-  <string id="PotentialError">Erro potencial</string>
-  <!-- Para a GUI de configurações -->
+  <string id="UnhandledHttpErr">A solicitação HTTP retornou o código de erro =</string>
+  <string id="WebhookFailed">Falha ao registrar o Webhook</string>
+  <string id="WrongPin">PIN errado</string>
+  <!-- Para a GUI de configurações, as strings devem estar na ordem em que são usadas. -->
   <string id="SettingsSelect">Selecione...</string>
   <string id="SettingsApiKey">Chave API para HomeAssistant.</string>
   <string id="SettingsApiKeyPrompt">Token de acesso de longa duração.</string>
@@ -57,10 +59,12 @@
   <string id="SettingsVibration">O aplicativo deve fornecer feedback por meio de vibrações?</string>
   <string id="SettingsAppTimeout">Tempo limite em segundos. Saia do aplicativo após esse período de inatividade para economizar a bateria do dispositivo.</string>
   <string id="SettingsPollDelay">Atraso adicional de pesquisa (em segundos). Adiciona um atraso entre a atualização de status de todos os itens do menu.</string>
-  <string id="SettingsConfirmTimeout">Após esse tempo (em segundos), uma caixa de diálogo de confirmação de uma ação é automaticamente fechada e a ação é cancelada. Defina como 0 para desativar o tempo limite.</string>
+  <string id="SettingsConfirmTimeout">Após esse tempo (em segundos), um diálogo de confirmação para uma ação é fechado automaticamente e a ação é cancelada. Defina como 0 para desabilitar o tempo limite.</string>
+  <string id="SettingsPin">PIN de 4 dígitos a ser usado para todas as ações que exigem confirmação (0000-9999).</string>
+  <string id="SettingsPinError">Configure um PIN numérico válido de 4 dígitos entre 0000 e 9999 nas configurações do aplicativo.</string>
   <string id="SettingsTextAlign">Alinhamento do menu à esquerda (desligado) ou à direita (ligado).</string>
-  <string id="LeftToRight">Da esquerda para direita</string>
-  <string id="RightToLeft">Direita para esquerda</string>
+  <string id="LeftToRight">Da esquerda para a direita</string>
+  <string id="RightToLeft">Da direita para a esquerda</string>
   <string id="SettingsWidgetStart">(Somente widget) Inicie o aplicativo automaticamente a partir do widget sem esperar por um toque.</string>
   <string id="SettingsEnableBatteryLevel">Habilite o serviço em segundo plano para enviar o nível da bateria do dispositivo, a localização e (se compatível) dados de atividade para o Home Assistant.</string>
   <string id="SettingsBatteryLevelRefreshRate">A taxa de atualização (em minutos) na qual o serviço em segundo plano deve repetir o envio de dados.</string>

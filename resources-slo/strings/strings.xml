@@ -19,34 +19,36 @@
 -->
 
 <strings>
+  <string id="ApiFlood">Volania API sú príliš rýchle. Spomaľte svoje požiadavky.</string>
+  <string id="ApiUrlNotFound">Adresa URL sa nenašla. Potenciálna chyba webovej adresy rozhrania API v nastaveniach.</string>
   <string id="AppName" scope="glance">HomeAssistant</string>
+  <string id="Available" scope="glance">Dostupné</string>
+  <string id="Cached" scope="glance">Vo vyrovnávacej pamäti</string>
+  <string id="Checking" scope="glance">Prebieha kontrola...</string>
+  <string id="ConfigUrlNotFound">Adresa URL sa nenašla. Potenciálna chyba konfiguračnej adresy URL v nastaveniach.</string>
   <string id="Confirm">Potvrďte</string>
+  <string id="Empty">Prázdny</string>
   <string id="Executed" scope="glance">Spustený</string>
-  <string id="NoPhone" scope="glance">Žiadne telefónne spojenie</string>
-  <string id="NoInternet">Žiadne internetové pripojenie</string>
-  <string id="NoResponse">Žiadna odpoveď, skontrolujte internetové pripojenie</string>
+  <string id="GlanceMenu" scope="glance">Menu</string>
+  <string id="Memory" scope="glance">pamäť</string>
   <string id="NoAPIKey" scope="glance">V nastaveniach aplikácie chýba kľúč API</string>
   <string id="NoApiUrl" scope="glance">V nastaveniach aplikácie chýba adresa URL rozhrania API</string>
   <string id="NoConfigUrl" scope="glance">V nastaveniach aplikácie chýba konfiguračná adresa URL</string>
-  <string id="ApiFlood">Volania API sú príliš rýchle. Spomaľte svoje požiadavky.</string>
-  <string id="ApiUrlNotFound">Adresa URL sa nenašla. Potenciálna chyba webovej adresy rozhrania API v nastaveniach.</string>
-  <string id="ConfigUrlNotFound">Adresa URL sa nenašla. Potenciálna chyba konfiguračnej adresy URL v nastaveniach.</string>
+  <string id="NoInternet">Žiadne internetové pripojenie.</string>
   <string id="NoJson">Z požiadavky HTTP sa nevrátil žiadny JSON.</string>
-  <string id="UnhandledHttpErr">Požiadavka HTTP vrátila kód chyby =</string>
-  <string id="TrailingSlashErr">Adresa URL rozhrania API nesmie obsahovať koncovú lomku „/“</string>
-  <string id="WebhookFailed">Registrácia Webhooku zlyhala</string>
-  <string id="TemplateError">Vykreslenie šablóny zlyhalo</string>
-  <string id="Available" scope="glance">K dispozícii</string>
-  <string id="Checking" scope="glance">Prebieha kontrola...</string>
+  <string id="NoPhone" scope="glance">Žiadne telefónne spojenie.</string>
+  <string id="NoResponse">Žiadna odpoveď, skontrolujte internetové pripojenie</string>
+  <string id="PinInputLocked">Vstup PIN zablokovaný pre</string>
+  <string id="PotentialError">Potenciálna chyba</string>
+  <string id="Seconds">sekúnd</string>
+  <string id="TemplateError">Chyba šablóny</string>
+  <string id="TrailingSlashErr">Adresa URL rozhrania API nesmie obsahovať koncovú lomku „/“.</string>
   <string id="Unavailable" scope="glance">Nedostupné</string>
   <string id="Unconfigured" scope="glance">Nekonfigurované</string>
-  <string id="Cached" scope="glance">Vo vyrovnávacej pamäti</string>
-  <string id="GlanceMenu" scope="glance">Ponuka</string>
-  <string id="Memory" scope="glance">Pamäť</string>
-  <string id="Empty">Prázdny</string>
-  <string id="TemplateError">Chyba šablóny</string>
-  <string id="PotentialError">Potenciálna chyba</string>
-  <!-- Pre nastavenia GUI -->
+  <string id="UnhandledHttpErr">Požiadavka HTTP vrátila kód chyby =</string>
+  <string id="WebhookFailed">Registrácia Webhooku zlyhala</string>
+  <string id="WrongPin">Nesprávny PIN</string>
+  <!-- Pre nastavenia GUI by reťazce mali byť v poradí, v akom sa používajú. -->
   <string id="SettingsSelect">Vybrať...</string>
   <string id="SettingsApiKey">Kľúč API pre HomeAssistant.</string>
   <string id="SettingsApiKeyPrompt">Prístupový token s dlhou životnosťou.</string>
@@ -58,6 +60,8 @@
   <string id="SettingsAppTimeout">Časový limit v sekundách. Po tejto dobe nečinnosti ukončite aplikáciu, aby ste šetrili batériu zariadenia.</string>
   <string id="SettingsPollDelay">Dodatočné oneskorenie hlasovania (v sekundách). Pridáva oneskorenie medzi aktualizáciou stavu všetkých položiek ponuky.</string>
   <string id="SettingsConfirmTimeout">Po tomto čase (v sekundách) sa dialógové okno s potvrdením akcie automaticky zatvorí a akcia sa zruší. Ak chcete časový limit deaktivovať, nastavte na 0.</string>
+  <string id="SettingsPin">4-ciferný PIN, ktorý sa má použiť pre všetky akcie, ktoré vyžadujú potvrdenie (0000-9999).</string>
+  <string id="SettingsPinError">V nastaveniach aplikácie nakonfigurujte platný 4-miestny číselný kód PIN medzi 0000 a 9999.</string>
   <string id="SettingsTextAlign">Zarovnanie ponuky vľavo (vypnuté) alebo vpravo (zapnuté).</string>
   <string id="LeftToRight">Zľava doprava</string>
   <string id="RightToLeft">Sprava doľava</string>
