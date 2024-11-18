@@ -37,6 +37,9 @@
           "properties": {
             "confirm": {
               "$ref": "#/$defs/confirm"
+            },
+            "pin": {
+              "$ref": "#/$defs/pin"
             }
           },
           "additionalProperties": false
@@ -213,6 +216,9 @@
         "confirm": {
           "$ref": "#/$defs/confirm"
         },
+        "pin": {
+          "$ref": "#/$defs/pin"
+        },
         "data": {
           "type": "object",
           "title": "Your services's parameters",
@@ -230,6 +236,12 @@
       "default": false,
       "title": "Confirmation",
       "description": "Optional confirmation of the action before execution as a precaution."
+    },
+    "pin": {
+      "type": "boolean",
+      "default": false,
+      "title": "PIN Confirmation",
+      "description": "Optional PIN confirmation of the action before execution as a precaution. Has precedence over 'confirm': true if both are set."
     }
   }
 }

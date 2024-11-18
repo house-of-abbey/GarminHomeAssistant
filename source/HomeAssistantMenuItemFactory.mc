@@ -68,12 +68,14 @@ class HomeAssistantMenuItemFactory {
         label     as Lang.String or Lang.Symbol,
         entity_id as Lang.String or Null,
         template  as Lang.String or Null,
-        confirm   as Lang.Boolean
+        confirm   as Lang.Boolean,
+        pin       as Lang.Boolean
     ) as WatchUi.MenuItem {
         return new HomeAssistantToggleMenuItem(
             label,
             template,
             confirm,
+            pin,
             { "entity_id" => entity_id },
             mMenuItemOptions
         );
@@ -85,6 +87,7 @@ class HomeAssistantMenuItemFactory {
         template as Lang.String or Null,
         service  as Lang.String or Null,
         confirm  as Lang.Boolean,
+        pin      as Lang.Boolean,
         data     as Lang.Dictionary or Null
     ) as WatchUi.MenuItem {
         if (entity != null) {
@@ -100,6 +103,7 @@ class HomeAssistantMenuItemFactory {
                 template,
                 service,
                 confirm,
+                pin,
                 data,
                 mTapTypeIcon,
                 mMenuItemOptions,
@@ -111,6 +115,7 @@ class HomeAssistantMenuItemFactory {
                 template,
                 service,
                 confirm,
+                pin,
                 data,
                 mInfoTypeIcon,
                 mMenuItemOptions,

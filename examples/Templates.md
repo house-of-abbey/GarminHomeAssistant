@@ -101,7 +101,11 @@ Here we also use the else clause as well to give proper text instead of just `on
 > [!IMPORTANT]
 > We advise users against adding security devices.
 
-However, users are doing this **against our advice** and asking how to operate 'covers'. This is an example of toggling a garage door open and closed with confirmation. *Do this at your own risk*.
+However, for users doing this **against our advice**, we strongly recommend to secure confirmation of the action using our PIN confirmation dialog.
+This an example of toggling a garage door open and closed with a PIN confirmation. *Do this at your own risk*.
+
+The PIN confirmation is activated for actions with `"pin": true`. The PIN is configured globally in the application settings. The PIN needs to be a 4-digit number.
+The user has 5 attempts to provide a valid PIN within 2 minutes. If too many failures have been detected during this time, the PIN dialog will be locked for 10 minutes.
 
 Note: Only when you use the `tap_action` field do you also need to include the `entity` field. This is a change to a previous version of the application, hence the presence of the `entity` field will be ignored for backwards compatibility, and the schema will provide a warning only.
 
@@ -113,7 +117,7 @@ Note: Only when you use the `tap_action` field do you also need to include the `
   "content": "{% if is_state('binary_sensor.garage_connected', 'on') %}{{state_translated('cover.garage_door')}} - {{state_attr('cover.garage_door', 'current_position')}}%{%else%}Unconnected{% endif %}",
   "tap_action": {
     "service": "cover.toggle",
-    "confirm": true
+    "pin": true
   }
 }
 ```
