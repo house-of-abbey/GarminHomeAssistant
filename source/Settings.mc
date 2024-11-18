@@ -167,9 +167,6 @@ class Settings {
     }
 
     static function getPin() as Lang.String or Null {
-        if (mPin == null) {
-            ErrorView.show(WatchUi.loadResource($.Rez.Strings.SettingsPinError) as Lang.String);
-        }
         return mPin;
     }
 
