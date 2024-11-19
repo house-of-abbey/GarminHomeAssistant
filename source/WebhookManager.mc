@@ -260,7 +260,7 @@ class WebhookManager {
         ];
 
         if (Toybox has :ActivityMonitor) {
-            System.println("WebhookManager registerWebhookSensors(): has ActivityMonitor class");
+            // System.println("WebhookManager registerWebhookSensors(): has ActivityMonitor class");
             var activityInfo = ActivityMonitor.getInfo();
             sensors.add({
                 "name"                => "Steps today",
@@ -309,7 +309,7 @@ class WebhookManager {
                 });
             }
         } else {
-            System.println("WebhookManager registerWebhookSensors(): has no ActivityMonitor class");
+            //System.println("WebhookManager registerWebhookSensors(): has no ActivityMonitor class");
         }
 
         if (Activity has :getProfileInfo) {
