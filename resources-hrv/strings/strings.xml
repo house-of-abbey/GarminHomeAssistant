@@ -19,35 +19,37 @@
 -->
 
 <strings>
-  <string id="AppName" scope="glance">HomeAssistant</string>
-  <string id="Confirm">Naravno?</string>
-  <string id="Executed" scope="glance">Potvrđeno</string>
-  <string id="NoPhone" scope="glance">Nema telefonske veze</string>
-  <string id="NoInternet">Nema internetske veze</string>
-  <string id="NoResponse">Nema odgovora, provjerite internetsku vezu</string>
-  <string id="NoAPIKey" scope="glance">Nema API ključa u postavkama aplikacije</string>
-  <string id="NoApiUrl" scope="glance">Nema API URL-a u postavkama aplikacije</string>
-  <string id="NoConfigUrl" scope="glance">Nema konfiguracijskog URL-a u postavkama aplikacije</string>
   <string id="ApiFlood">API pozivi su prebrzi. Molimo usporite svoje zahtjeve.</string>
   <string id="ApiUrlNotFound">URL nije pronađen. Potencijalna pogreška API URL-a u postavkama.</string>
-  <string id="ConfigUrlNotFound">URL nije pronađen. Potencijalna pogreška URL-a konfiguracije u postavkama.</string>
-  <string id="NoJson">HTTP zahtjev nije vratio JSON.</string>
-  <string id="UnhandledHttpErr">HTTP zahtjev vratio je kod greške =</string>
-  <string id="TrailingSlashErr">API URL ne smije imati kosu crtu na kraju '/'</string>
-  <string id="WebhookFailed">Registracija Webhooka nije uspjela</string>
-  <string id="TemplateError">Nije uspjelo generiranje predloška</string>
-  <string id="Available" scope="glance">Dostupno</string>
-  <string id="Checking" scope="glance">Provjera...</string>
-  <string id="Unavailable" scope="glance">Nedostupan</string>
-  <string id="Unconfigured" scope="glance">Nekonfigurirano</string>
+  <string id="AppName" scope="glance">HomeAssistant</string>
+  <string id="Available" scope="glance">na raspolaganju</string>
   <string id="Cached" scope="glance">Spremljeno u predmemoriju</string>
+  <string id="Checking" scope="glance">Provjera...</string>
+  <string id="ConfigUrlNotFound">URL nije pronađen. Potencijalna pogreška URL-a konfiguracije u postavkama.</string>
+  <string id="Confirm">Naravno?</string>
+  <string id="Empty">Prazan</string>
+  <string id="Executed" scope="glance">Potvrđeno</string>
   <string id="GlanceMenu" scope="glance">Jelovnik</string>
   <string id="Memory" scope="glance">Memorija</string>
-  <string id="Empty">Prazan</string>
-  <string id="TemplateError">Pogreška predloška</string>
+  <string id="NoAPIKey" scope="glance">Nema API ključa u postavkama aplikacije.</string>
+  <string id="NoApiUrl" scope="glance">Nema API URL-a u postavkama aplikacije.</string>
+  <string id="NoConfigUrl" scope="glance">Nema konfiguracijskog URL-a u postavkama aplikacije.</string>
+  <string id="NoInternet">Nema internetske veze.</string>
+  <string id="NoJson">HTTP zahtjev nije vratio JSON.</string>
+  <string id="NoPhone" scope="glance">Nema telefonske veze.</string>
+  <string id="NoResponse">Nema odgovora, provjerite internetsku vezu</string>
+  <string id="PinInputLocked">Unos PIN-a zaključan za</string>
   <string id="PotentialError">Potencijalna pogreška</string>
-  <!-- Za GUI postavki -->
-  <string id="SettingsSelect">Izaberi...</string>
+  <string id="Seconds">sekundi</string>
+  <string id="TemplateError">Pogreška predloška</string>
+  <string id="TrailingSlashErr">API URL ne smije imati kosu crtu '/' na kraju.</string>
+  <string id="Unavailable" scope="glance">Nedostupan</string>
+  <string id="Unconfigured" scope="glance">Nekonfigurirano</string>
+  <string id="UnhandledHttpErr">HTTP zahtjev vratio je kod greške =</string>
+  <string id="WebhookFailed">Registracija Webhooka nije uspjela</string>
+  <string id="WrongPin">Pogrešan PIN</string>
+  <!-- Za GUI postavki, nizovi trebaju biti redoslijedom kojim se koriste. -->
+  <string id="SettingsSelect">Odaberite...</string>
   <string id="SettingsApiKey">API ključ za HomeAssistant.</string>
   <string id="SettingsApiKeyPrompt">Dugotrajni pristupni token.</string>
   <string id="SettingsApiUrl">URL za HomeAssistant API.</string>
@@ -58,9 +60,11 @@
   <string id="SettingsAppTimeout">Istek u sekundama. Izađite iz aplikacije nakon ovog razdoblja neaktivnosti kako biste uštedjeli bateriju uređaja.</string>
   <string id="SettingsPollDelay">Dodatna odgoda ankete (u sekundama). Dodaje odgodu između ažuriranja statusa svih stavki izbornika.</string>
   <string id="SettingsConfirmTimeout">Nakon tog vremena (u sekundama), dijaloški okvir za potvrdu radnje automatski se zatvara i radnja se poništava. Postavite na 0 da onemogućite vremensko ograničenje.</string>
+  <string id="SettingsPin">4-znamenkasti PIN koji se koristi za sve radnje koje zahtijevaju potvrdu (0000-9999).</string>
+  <string id="SettingsPinError">Molimo konfigurirajte važeći 4-znamenkasti numerički PIN između 0000 i 9999 u postavkama aplikacije.</string>
   <string id="SettingsTextAlign">Lijevo (isključeno) ili desno (uključeno) poravnanje izbornika.</string>
-  <string id="LeftToRight">S lijeva nadesno</string>
-  <string id="RightToLeft">S desna na lijevo</string>
+  <string id="LeftToRight">Slijeva na desno</string>
+  <string id="RightToLeft">Zdesna na lijevo</string>
   <string id="SettingsWidgetStart">(Samo widget) Automatski pokrenite aplikaciju iz widgeta bez čekanja na dodir.</string>
   <string id="SettingsEnableBatteryLevel">Omogućite pozadinsku uslugu za slanje podataka o razini baterije uređaja, lokaciji i (ako je podržano) aktivnostima kućnom pomoćniku.</string>
   <string id="SettingsBatteryLevelRefreshRate">Brzina osvježavanja (u minutama) kojom bi pozadinska usluga trebala ponoviti slanje podataka.</string>

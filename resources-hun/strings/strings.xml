@@ -19,34 +19,36 @@
 -->
 
 <strings>
-  <string id="AppName" scope="glance">HomeAssistant</string>
-  <string id="Confirm">Biztos?</string>
-  <string id="Executed" scope="glance">Megerősített</string>
-  <string id="NoPhone" scope="glance">Nincs telefonkapcsolat</string>
-  <string id="NoInternet">Nincs internetkapcsolat</string>
-  <string id="NoResponse">Nincs válasz, ellenőrizze az internetkapcsolatot</string>
-  <string id="NoAPIKey" scope="glance">Nincs API kulcs az alkalmazás beállításaiban</string>
-  <string id="NoApiUrl" scope="glance">Nincs API URL az alkalmazás beállításai között</string>
-  <string id="NoConfigUrl" scope="glance">Nincs konfigurációs URL az alkalmazás beállításai között</string>
   <string id="ApiFlood">Az API-hívások túl gyorsak. Kérjük, lassítsa a kérések teljesítését.</string>
   <string id="ApiUrlNotFound">Az URL nem található. Lehetséges API URL hiba a beállításokban.</string>
-  <string id="ConfigUrlNotFound">Az URL nem található. Lehetséges konfigurációs URL hiba a beállításokban.</string>
-  <string id="NoJson">A HTTP-kérésből nem érkezett vissza JSON.</string>
-  <string id="UnhandledHttpErr">A HTTP-kérés = hibakódot adott vissza</string>
-  <string id="TrailingSlashErr">Az API URL-ben nem lehet perjel a „/”</string>
-  <string id="WebhookFailed">Nem sikerült regisztrálni a Webhook-ot</string>
-  <string id="TemplateError">Nem sikerült megjeleníteni a sablont</string>
+  <string id="AppName" scope="glance">HomeAssistant</string>
   <string id="Available" scope="glance">Elérhető</string>
-  <string id="Checking" scope="glance">Ellenőrzés...</string>
-  <string id="Unavailable" scope="glance">Nem érhető el</string>
-  <string id="Unconfigured" scope="glance">Nincs konfigurálva</string>
   <string id="Cached" scope="glance">Gyorsítótárban</string>
-  <string id="GlanceMenu" scope="glance">Menü</string>
-  <string id="Memory" scope="glance">memória</string>
+  <string id="Checking" scope="glance">Ellenőrzés...</string>
+  <string id="ConfigUrlNotFound">Az URL nem található. Lehetséges konfigurációs URL hiba a beállításokban.</string>
+  <string id="Confirm">Persze?</string>
   <string id="Empty">Üres</string>
-  <string id="TemplateError">Sablon hiba</string>
+  <string id="Executed" scope="glance">Megerősített</string>
+  <string id="GlanceMenu" scope="glance">Menü</string>
+  <string id="Memory" scope="glance">Memória</string>
+  <string id="NoAPIKey" scope="glance">Nincs API kulcs az alkalmazás beállításaiban.</string>
+  <string id="NoApiUrl" scope="glance">Nincs API URL az alkalmazás beállításai között.</string>
+  <string id="NoConfigUrl" scope="glance">Nincs konfigurációs URL az alkalmazás beállításai között.</string>
+  <string id="NoInternet">Nincs internet kapcsolat.</string>
+  <string id="NoJson">A HTTP-kérésből nem érkezett vissza JSON.</string>
+  <string id="NoPhone" scope="glance">Nincs telefonkapcsolat.</string>
+  <string id="NoResponse">Nincs válasz, ellenőrizze az internetkapcsolatot</string>
+  <string id="PinInputLocked">A PIN-kód bevitele zárolva van</string>
   <string id="PotentialError">Lehetséges hiba</string>
-  <!-- A beállítások GUI-hoz -->
+  <string id="Seconds">másodpercig</string>
+  <string id="TemplateError">Sablon hiba</string>
+  <string id="TrailingSlashErr">Az API URL-címében nem szerepelhet perjel '/'.</string>
+  <string id="Unavailable" scope="glance">Nem elérhető</string>
+  <string id="Unconfigured" scope="glance">Nincs konfigurálva</string>
+  <string id="UnhandledHttpErr">A HTTP-kérés = hibakódot adott vissza</string>
+  <string id="WebhookFailed">Nem sikerült regisztrálni a Webhook-ot</string>
+  <string id="WrongPin">Hibás PIN</string>
+  <!-- A beállítások GUI-ban a karakterláncoknak a használatuk sorrendjében kell lenniük. -->
   <string id="SettingsSelect">Válassz...</string>
   <string id="SettingsApiKey">API-kulcs a HomeAssistant számára.</string>
   <string id="SettingsApiKeyPrompt">Hosszú életű hozzáférési token.</string>
@@ -58,6 +60,8 @@
   <string id="SettingsAppTimeout">Időtúllépés másodpercben. Az eszköz akkumulátorának kímélése érdekében lépjen ki az alkalmazásból ezen inaktivitási időszak után.</string>
   <string id="SettingsPollDelay">További lekérdezési késleltetés (másodpercben). Késleltetést ad az összes menüelem állapotfrissítése között.</string>
   <string id="SettingsConfirmTimeout">Ezen idő elteltével (másodpercben) egy művelet megerősítő párbeszédpanele automatikusan bezárul, és a művelet megszakad. Állítsa 0-ra az időtúllépés letiltásához.</string>
+  <string id="SettingsPin">4 számjegyű PIN-kód, amelyet minden megerősítést igénylő művelethez kell használni (0000-9999).</string>
+  <string id="SettingsPinError">Adjon meg egy érvényes, 4 számjegyű PIN-kódot 0000 és 9999 között az alkalmazás beállításaiban.</string>
   <string id="SettingsTextAlign">Balra (ki) vagy Jobbra (be) Menüigazítás.</string>
   <string id="LeftToRight">Balról jobbra</string>
   <string id="RightToLeft">Jobbról balra</string>

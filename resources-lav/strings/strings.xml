@@ -19,34 +19,36 @@
 -->
 
 <strings>
-  <string id="AppName" scope="glance">HomeAssistant</string>
-  <string id="Confirm">Protams?</string>
-  <string id="Executed" scope="glance">Apstiprināts</string>
-  <string id="NoPhone" scope="glance">Nav tālruņa savienojuma</string>
-  <string id="NoInternet">Nav interneta savienojuma</string>
-  <string id="NoResponse">Nav atbildes, pārbaudiet interneta savienojumu</string>
-  <string id="NoAPIKey" scope="glance">Lietojumprogrammas iestatījumos nav API atslēgas</string>
-  <string id="NoApiUrl" scope="glance">Lietojumprogrammas iestatījumos nav API URL</string>
-  <string id="NoConfigUrl" scope="glance">Lietojumprogrammas iestatījumos nav konfigurācijas URL</string>
   <string id="ApiFlood">API izsaukumi ir pārāk ātri. Lūdzu, palēniniet pieprasījumu izpildi.</string>
   <string id="ApiUrlNotFound">URL nav atrasts. Iespējama API URL kļūda iestatījumos.</string>
-  <string id="ConfigUrlNotFound">URL nav atrasts. Iespējama konfigurācijas URL kļūda iestatījumos.</string>
-  <string id="NoJson">No HTTP pieprasījuma netika atgriezts neviens JSON fails.</string>
-  <string id="UnhandledHttpErr">HTTP pieprasījums atgrieza kļūdas kodu =</string>
-  <string id="TrailingSlashErr">API URL beigās nedrīkst būt slīpsvītra “/”</string>
-  <string id="WebhookFailed">Neizdevās reģistrēt Web aizķeri</string>
-  <string id="TemplateError">Neizdevās renderēt veidni</string>
+  <string id="AppName" scope="glance">HomeAssistant</string>
   <string id="Available" scope="glance">Pieejams</string>
-  <string id="Checking" scope="glance">Notiek pārbaude...</string>
-  <string id="Unavailable" scope="glance">Nav pieejams</string>
-  <string id="Unconfigured" scope="glance">Nav konfigurēts</string>
   <string id="Cached" scope="glance">Kešatmiņā saglabāts</string>
+  <string id="Checking" scope="glance">Notiek pārbaude...</string>
+  <string id="ConfigUrlNotFound">URL nav atrasts. Iespējama konfigurācijas URL kļūda iestatījumos.</string>
+  <string id="Confirm">Protams?</string>
+  <string id="Empty">Tukšs</string>
+  <string id="Executed" scope="glance">Apstiprināts</string>
   <string id="GlanceMenu" scope="glance">Izvēlne</string>
   <string id="Memory" scope="glance">Atmiņa</string>
-  <string id="Empty">Tukšs</string>
-  <string id="TemplateError">Veidnes kļūda</string>
+  <string id="NoAPIKey" scope="glance">Lietojumprogrammas iestatījumos nav API atslēgas.</string>
+  <string id="NoApiUrl" scope="glance">Lietojumprogrammas iestatījumos nav API URL.</string>
+  <string id="NoConfigUrl" scope="glance">Lietojumprogrammas iestatījumos nav konfigurācijas URL.</string>
+  <string id="NoInternet">Nav interneta savienojuma.</string>
+  <string id="NoJson">No HTTP pieprasījuma netika atgriezts neviens JSON fails.</string>
+  <string id="NoPhone" scope="glance">Nav tālruņa savienojuma.</string>
+  <string id="NoResponse">Nav atbildes, pārbaudiet interneta savienojumu</string>
+  <string id="PinInputLocked">PIN ievade bloķēta</string>
   <string id="PotentialError">Iespējama kļūda</string>
-  <!-- Iestatījumu GUI -->
+  <string id="Seconds">sekundes</string>
+  <string id="TemplateError">Veidnes kļūda</string>
+  <string id="TrailingSlashErr">API URL beigās nedrīkst būt slīpsvītra “/”.</string>
+  <string id="Unavailable" scope="glance">Nav pieejams</string>
+  <string id="Unconfigured" scope="glance">Nav konfigurēts</string>
+  <string id="UnhandledHttpErr">HTTP pieprasījums atgrieza kļūdas kodu =</string>
+  <string id="WebhookFailed">Neizdevās reģistrēt Web aizķeri</string>
+  <string id="WrongPin">Nepareizs PIN</string>
+  <!-- Iestatījumu GUI virknēm jābūt tādā secībā, kādā tās tiek izmantotas. -->
   <string id="SettingsSelect">Izvēlieties...</string>
   <string id="SettingsApiKey">API atslēga Home Assistant.</string>
   <string id="SettingsApiKeyPrompt">Ilgmūžīgs piekļuves marķieris.</string>
@@ -58,6 +60,8 @@
   <string id="SettingsAppTimeout">Taimauts sekundēs. Pēc šī neaktivitātes perioda izejiet no lietojumprogrammas, lai taupītu ierīces akumulatoru.</string>
   <string id="SettingsPollDelay">Papildu aptaujas aizkave (sekundēs). Pievieno aizkavi starp visu izvēlnes vienumu statusa atjaunināšanu.</string>
   <string id="SettingsConfirmTimeout">Pēc šī laika (sekundēs) tiek automātiski aizvērts darbības apstiprinājuma dialoglodziņš un darbība tiek atcelta. Iestatiet uz 0, lai atspējotu taimautu.</string>
+  <string id="SettingsPin">4 ciparu PIN, kas jāizmanto visām darbībām, kurām nepieciešams apstiprinājums (0000-9999).</string>
+  <string id="SettingsPinError">Lūdzu, konfigurējiet derīgu 4 ciparu ciparu PIN kodu no 0000 līdz 9999 lietojumprogrammas iestatījumos.</string>
   <string id="SettingsTextAlign">Kreisā (izslēgta) vai labā (ieslēgta) izvēlnes izlīdzināšana.</string>
   <string id="LeftToRight">No kreisās uz labo</string>
   <string id="RightToLeft">No labās uz kreiso</string>

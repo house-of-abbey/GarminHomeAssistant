@@ -19,38 +19,40 @@
 -->
 
 <strings>
-  <string id="AppName" scope="glance">HomeAssistant</string>
-  <string id="Confirm">Jasne?</string>
-  <string id="Executed" scope="glance">Potwierdzony</string>
-  <string id="NoPhone" scope="glance">Brak połączenia telefonicznego</string>
-  <string id="NoInternet">Brak połączenia z internetem</string>
-  <string id="NoResponse">Brak odpowiedzi, sprawdź połączenie internetowe</string>
-  <string id="NoAPIKey" scope="glance">Brak klucza API w ustawieniach aplikacji</string>
-  <string id="NoApiUrl" scope="glance">Brak adresu URL API w ustawieniach aplikacji</string>
-  <string id="NoConfigUrl" scope="glance">Brak adresu URL konfiguracji w ustawieniach aplikacji</string>
   <string id="ApiFlood">Wywołania API są zbyt szybkie. Proszę zwolnić żądania.</string>
   <string id="ApiUrlNotFound">Nie znaleziono adresu URL. Potencjalny błąd adresu URL API w ustawieniach.</string>
-  <string id="ConfigUrlNotFound">Nie znaleziono adresu URL. Potencjalny błąd adresu URL konfiguracji w ustawieniach.</string>
-  <string id="NoJson">Z żądania HTTP nie zwrócono żadnego kodu JSON.</string>
-  <string id="UnhandledHttpErr">Żądanie HTTP zwróciło kod błędu =</string>
-  <string id="TrailingSlashErr">Adres URL interfejsu API nie może mieć ukośnika „/” na końcu</string>
-  <string id="WebhookFailed">Nie udało się zarejestrować Webhook</string>
-  <string id="TemplateError">Nie udało się wyrenderować szablonu</string>
+  <string id="AppName" scope="glance">HomeAssistant</string>
   <string id="Available" scope="glance">Dostępny</string>
-  <string id="Checking" scope="glance">Kontrola...</string>
-  <string id="Unavailable" scope="glance">Niedostępne</string>
-  <string id="Unconfigured" scope="glance">Nieskonfigurowany</string>
   <string id="Cached" scope="glance">Zapisane w pamięci podręcznej</string>
+  <string id="Checking" scope="glance">Kontrola...</string>
+  <string id="ConfigUrlNotFound">Nie znaleziono adresu URL. Potencjalny błąd adresu URL konfiguracji w ustawieniach.</string>
+  <string id="Confirm">Jasne?</string>
+  <string id="Empty">Pusty</string>
+  <string id="Executed" scope="glance">Potwierdzony</string>
   <string id="GlanceMenu" scope="glance">Menu</string>
   <string id="Memory" scope="glance">Pamięć</string>
-  <string id="Empty">Pusty</string>
-  <string id="TemplateError">Błąd szablonu</string>
+  <string id="NoAPIKey" scope="glance">Brak klucza API w ustawieniach aplikacji.</string>
+  <string id="NoApiUrl" scope="glance">Brak adresu URL API w ustawieniach aplikacji.</string>
+  <string id="NoConfigUrl" scope="glance">Brak adresu URL konfiguracji w ustawieniach aplikacji.</string>
+  <string id="NoInternet">Brak połączenia z Internetem.</string>
+  <string id="NoJson">Żądanie HTTP nie zwróciło żadnego JSON-a.</string>
+  <string id="NoPhone" scope="glance">Brak połączenia telefonicznego.</string>
+  <string id="NoResponse">Brak odpowiedzi, sprawdź połączenie internetowe</string>
+  <string id="PinInputLocked">Wprowadzanie kodu PIN zablokowane</string>
   <string id="PotentialError">Potencjalny błąd</string>
-  <!-- Dla ustawień GUI -->
+  <string id="Seconds">towary drugiej jakości</string>
+  <string id="TemplateError">Błąd szablonu</string>
+  <string id="TrailingSlashErr">Adres URL interfejsu API nie może mieć ukośnika „/”.</string>
+  <string id="Unavailable" scope="glance">Nie płynny</string>
+  <string id="Unconfigured" scope="glance">Nieskonfigurowany</string>
+  <string id="UnhandledHttpErr">Żądanie HTTP zwróciło kod błędu =</string>
+  <string id="WebhookFailed">Nie udało się zarejestrować Webhook</string>
+  <string id="WrongPin">Zły PIN</string>
+  <!-- W przypadku interfejsu graficznego ustawień ciągi znaków powinny być w kolejności, w jakiej są używane. -->
   <string id="SettingsSelect">Wybierać...</string>
   <string id="SettingsApiKey">Klucz API dla HomeAssistant.</string>
   <string id="SettingsApiKeyPrompt">Długoterminowy token dostępu.</string>
-  <string id="SettingsApiUrl">Adres URL interfejsu API HomeAssistant.</string>
+  <string id="SettingsApiUrl">Adres URL dla API HomeAssistant.</string>
   <string id="SettingsConfigUrl">Adres URL do konfiguracji menu (JSON).</string>
   <string id="SettingsCacheConfig">Czy aplikacja powinna buforować konfigurację menu?</string>
   <string id="SettingsClearCache">Czy aplikacja powinna wyczyścić pamięć podręczną przy następnym uruchomieniu?</string>
@@ -58,11 +60,13 @@
   <string id="SettingsAppTimeout">Limit czasu w sekundach. Wyjdź z aplikacji po tym okresie bezczynności, aby oszczędzać baterię urządzenia.</string>
   <string id="SettingsPollDelay">Dodatkowe opóźnienie sondowania (w sekundach). Dodaje opóźnienie między aktualizacją statusu wszystkich elementów menu.</string>
   <string id="SettingsConfirmTimeout">Po tym czasie (w sekundach) okno dialogowe potwierdzenia akcji jest automatycznie zamykane, a akcja jest anulowana. Ustaw na 0, aby wyłączyć limit czasu.</string>
+  <string id="SettingsPin">4-cyfrowy kod PIN, który należy stosować do wszystkich czynności wymagających potwierdzenia (0000-9999).</string>
+  <string id="SettingsPinError">Proszę skonfigurować prawidłowy 4-cyfrowy kod PIN z zakresu od 0000 do 9999 w ustawieniach aplikacji.</string>
   <string id="SettingsTextAlign">Wyrównanie menu do lewej (wyłączone) lub prawej (włączone).</string>
   <string id="LeftToRight">Od lewej do prawej</string>
   <string id="RightToLeft">Od prawej do lewej</string>
   <string id="SettingsWidgetStart">(Tylko widżet) Automatyczne uruchamianie aplikacji z widżetu bez czekania na dotknięcie.</string>
   <string id="SettingsEnableBatteryLevel">Włącz usługę działającą w tle, aby wysyłać do Home Assistant dane dotyczące poziomu naładowania baterii urządzenia, jego lokalizacji i aktywności (jeśli jest obsługiwana).</string>
   <string id="SettingsBatteryLevelRefreshRate">Częstotliwość odświeżania (w minutach), z jaką usługa działająca w tle powinna powtarzać wysyłanie danych.</string>
-  <string id="WebhookId">(Tylko do odczytu) Identyfikator webhooka utworzony przez urządzenie na potrzeby aktualizacji usług w tle. Możesz tego potrzebować do debugowania.</string>
+  <string id="WebhookId">(Tylko do odczytu) Identyfikator webhooka utworzony przez urządzenie do aktualizacji usług w tle. Może być potrzebny do debugowania.</string>
 </strings>

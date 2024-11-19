@@ -19,34 +19,36 @@
 -->
 
 <strings>
-  <string id="AppName" scope="glance">HomeAssistant</string>
-  <string id="Confirm">Muidugi?</string>
-  <string id="Executed" scope="glance">Kinnitatud</string>
-  <string id="NoPhone" scope="glance">Telefoniühendus puudub</string>
-  <string id="NoInternet">Interneti-ühendus puudub</string>
-  <string id="NoResponse">Ei reageeri, kontrollige Interneti-ühendust</string>
-  <string id="NoAPIKey" scope="glance">Rakenduse seadetes pole API-võtit</string>
-  <string id="NoApiUrl" scope="glance">Rakenduse seadetes pole API URL-i</string>
-  <string id="NoConfigUrl" scope="glance">Rakenduse seadetes pole konfiguratsiooni URL-i</string>
-  <string id="ApiFlood">API-kõned liiga kiired. Palun aeglustage oma taotlusi.</string>
+  <string id="ApiFlood">API-kutsed liiga kiired. Palun aeglustage taotluste esitamist.</string>
   <string id="ApiUrlNotFound">URL-i ei leitud. Võimalik API URL-i viga seadetes.</string>
-  <string id="ConfigUrlNotFound">URL-i ei leitud. Võimalik konfiguratsiooni URL-i viga seadetes.</string>
-  <string id="NoJson">HTTP-päringust ei tagastatud ühtegi JSON-i.</string>
-  <string id="UnhandledHttpErr">HTTP päring tagastas veakoodi =</string>
-  <string id="TrailingSlashErr">API URL-i lõpus ei tohi olla kaldkriipsu „/”</string>
-  <string id="WebhookFailed">Webhaoki registreerimine ebaõnnestus</string>
-  <string id="TemplateError">Malli renderdamine ebaõnnestus</string>
+  <string id="AppName" scope="glance">HomeAssistant</string>
   <string id="Available" scope="glance">Saadaval</string>
-  <string id="Checking" scope="glance">Kontrollimine...</string>
-  <string id="Unavailable" scope="glance">Pole saadaval</string>
-  <string id="Unconfigured" scope="glance">Konfigureerimata</string>
   <string id="Cached" scope="glance">Vahemällu salvestatud</string>
+  <string id="Checking" scope="glance">Kontrollimine...</string>
+  <string id="ConfigUrlNotFound">URL-i ei leitud. Võimalik konfiguratsiooni URL-i viga seadetes.</string>
+  <string id="Confirm">Muidugi?</string>
+  <string id="Empty">Tühi</string>
+  <string id="Executed" scope="glance">Kinnitatud</string>
   <string id="GlanceMenu" scope="glance">Menüü</string>
   <string id="Memory" scope="glance">Mälu</string>
-  <string id="Empty">Tühi</string>
-  <string id="TemplateError">Malli viga</string>
+  <string id="NoAPIKey" scope="glance">Rakenduse seadetes pole API-võtit.</string>
+  <string id="NoApiUrl" scope="glance">Rakenduse seadetes pole API URL-i.</string>
+  <string id="NoConfigUrl" scope="glance">Rakenduse seadetes pole konfiguratsiooni URL-i.</string>
+  <string id="NoInternet">Interneti-ühendus puudub.</string>
+  <string id="NoJson">HTTP-päringust ei tagastatud ühtegi JSON-i.</string>
+  <string id="NoPhone" scope="glance">Telefoniühendus puudub.</string>
+  <string id="NoResponse">Ei reageeri, kontrollige Interneti-ühendust</string>
+  <string id="PinInputLocked">PIN-i sisestus on lukustatud</string>
   <string id="PotentialError">Võimalik viga</string>
-  <!-- Seadete GUI jaoks -->
+  <string id="Seconds">sekundit</string>
+  <string id="TemplateError">Malli viga</string>
+  <string id="TrailingSlashErr">API URL-i lõpus ei tohi olla kaldkriipsu „/”.</string>
+  <string id="Unavailable" scope="glance">Pole saadaval</string>
+  <string id="Unconfigured" scope="glance">Konfigureerimata</string>
+  <string id="UnhandledHttpErr">HTTP päring tagastas veakoodi =</string>
+  <string id="WebhookFailed">Webhaoki registreerimine ebaõnnestus</string>
+  <string id="WrongPin">Vale PIN-kood</string>
+  <!-- Seadete GUI jaoks peavad stringid olema nende kasutamise järjekorras. -->
   <string id="SettingsSelect">Vali...</string>
   <string id="SettingsApiKey">API-võti HomeAssistantile.</string>
   <string id="SettingsApiKeyPrompt">Pikaealine juurdepääsuluba.</string>
@@ -58,11 +60,13 @@
   <string id="SettingsAppTimeout">Aegumine sekundites. Seadme aku säästmiseks sulgege rakendus pärast seda tegevusetusperioodi.</string>
   <string id="SettingsPollDelay">Küsitluse täiendav viivitus (sekundites). Lisab viivituse kõigi menüüelementide olekuvärskenduse vahele.</string>
   <string id="SettingsConfirmTimeout">Pärast seda aega (sekundites) suletakse automaatselt toimingu kinnitusdialoog ja toiming tühistatakse. Ajalõpu keelamiseks määrake väärtusele 0.</string>
+  <string id="SettingsPin">4-kohaline PIN-kood, mida kasutatakse kõigi kinnitust vajavate toimingute jaoks (0000-9999).</string>
+  <string id="SettingsPinError">Seadistage rakenduse seadetes kehtiv 4-kohaline PIN-kood vahemikus 0000 kuni 9999.</string>
   <string id="SettingsTextAlign">Vasak (väljas) või parem (sees) menüü joondamine.</string>
   <string id="LeftToRight">Vasakult paremale</string>
   <string id="RightToLeft">Paremalt vasakule</string>
   <string id="SettingsWidgetStart">(Ainult vidin) Käivitage rakendus automaatselt vidinast ilma puudutust ootamata.</string>
-  <string id="SettingsEnableBatteryLevel">Lubage taustteenus, et saata Home Assistantile seadme aku tase, asukoht ja (kui see on toetatud) tegevusandmed.</string>
+  <string id="SettingsEnableBatteryLevel">Lubage taustateenus, et saata Home Assistantile seadme aku tase, asukoht ja (kui see on toetatud) tegevusandmed.</string>
   <string id="SettingsBatteryLevelRefreshRate">Värskendussagedus (minutites), millega taustateenus peaks andmete saatmist kordama.</string>
   <string id="WebhookId">(Ainult lugemiseks) Seadme loodud veebihaagi ID taustateenuste värskenduste jaoks. Võib-olla vajate seda silumiseks.</string>
 </strings>

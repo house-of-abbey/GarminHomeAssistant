@@ -99,25 +99,25 @@ class HomeAssistantApp extends Application.AppBase {
 
         if (Settings.getApiKey().length() == 0) {
             // System.println("HomeAssistantApp getInitialView(): No API key in the application Settings.");
-            return ErrorView.create(WatchUi.loadResource($.Rez.Strings.NoAPIKey) as Lang.String + ".");
+            return ErrorView.create(WatchUi.loadResource($.Rez.Strings.NoAPIKey) as Lang.String);
         } else if (Settings.getApiUrl().length() == 0) {
             // System.println("HomeAssistantApp getInitialView(): No API URL in the application Settings.");
-            return ErrorView.create(WatchUi.loadResource($.Rez.Strings.NoApiUrl) as Lang.String + ".");
+            return ErrorView.create(WatchUi.loadResource($.Rez.Strings.NoApiUrl) as Lang.String);
         } else if (Settings.getApiUrl().substring(-1, Settings.getApiUrl().length()).equals("/")) {
             // System.println("HomeAssistantApp getInitialView(): API URL must not have a trailing slash '/'.");
-            return ErrorView.create(WatchUi.loadResource($.Rez.Strings.TrailingSlashErr) as Lang.String + ".");
+            return ErrorView.create(WatchUi.loadResource($.Rez.Strings.TrailingSlashErr) as Lang.String);
         } else if (Settings.getConfigUrl().length() == 0) {
             // System.println("HomeAssistantApp getInitialView(): No configuration URL in the application settings.");
-            return ErrorView.create(WatchUi.loadResource($.Rez.Strings.NoConfigUrl) as Lang.String + ".");
+            return ErrorView.create(WatchUi.loadResource($.Rez.Strings.NoConfigUrl) as Lang.String);
         } else if (Settings.getPin() == null) {
             // System.println("HomeAssistantApp getInitialView(): Invalid PIN in application settings.");
-            return ErrorView.create(WatchUi.loadResource($.Rez.Strings.SettingsPinError) as Lang.String + ".");
+            return ErrorView.create(WatchUi.loadResource($.Rez.Strings.SettingsPinError) as Lang.String);
         } else if (! System.getDeviceSettings().phoneConnected) {
             // System.println("HomeAssistantApp getInitialView(): No Phone connection, skipping API call.");
-            return ErrorView.create(WatchUi.loadResource($.Rez.Strings.NoPhone) as Lang.String + ".");
+            return ErrorView.create(WatchUi.loadResource($.Rez.Strings.NoPhone) as Lang.String);
         } else if (! System.getDeviceSettings().connectionAvailable) {
             // System.println("HomeAssistantApp getInitialView(): No Internet connection, skipping API call.");
-            return ErrorView.create(WatchUi.loadResource($.Rez.Strings.NoInternet) as Lang.String + ".");
+            return ErrorView.create(WatchUi.loadResource($.Rez.Strings.NoInternet) as Lang.String);
         } else {
             var isCached = fetchMenuConfig();
             fetchApiStatus();
@@ -142,7 +142,7 @@ class HomeAssistantApp extends Application.AppBase {
             case Communications.BLE_CONNECTION_UNAVAILABLE:
                 // System.println("HomeAssistantApp onReturnFetchMenuConfig() Response Code: BLE_HOST_TIMEOUT or BLE_CONNECTION_UNAVAILABLE, Bluetooth connection severed.");
                 if (!mIsGlance) {
-                    ErrorView.show(WatchUi.loadResource($.Rez.Strings.NoPhone) as Lang.String + ".");
+                    ErrorView.show(WatchUi.loadResource($.Rez.Strings.NoPhone) as Lang.String);
                 }
                 break;
 
@@ -226,7 +226,7 @@ class HomeAssistantApp extends Application.AppBase {
                     if (mIsGlance) {
                         WatchUi.requestUpdate();
                     } else {
-                        ErrorView.show(WatchUi.loadResource($.Rez.Strings.NoPhone) as Lang.String + ".");
+                        ErrorView.show(WatchUi.loadResource($.Rez.Strings.NoPhone) as Lang.String);
                     }
                     mMenuStatus = WatchUi.loadResource($.Rez.Strings.Unavailable) as Lang.String;
                 } else if (! System.getDeviceSettings().connectionAvailable) {
@@ -234,7 +234,7 @@ class HomeAssistantApp extends Application.AppBase {
                     if (mIsGlance) {
                         WatchUi.requestUpdate();
                     } else {
-                        ErrorView.show(WatchUi.loadResource($.Rez.Strings.NoInternet) as Lang.String + ".");
+                        ErrorView.show(WatchUi.loadResource($.Rez.Strings.NoInternet) as Lang.String);
                     }
                     mMenuStatus = WatchUi.loadResource($.Rez.Strings.Unavailable) as Lang.String;
                 } else {
@@ -285,7 +285,7 @@ class HomeAssistantApp extends Application.AppBase {
             case Communications.BLE_HOST_TIMEOUT:
             case Communications.BLE_CONNECTION_UNAVAILABLE:
                 // System.println("HomeAssistantApp onReturnUpdateMenuItems() Response Code: BLE_HOST_TIMEOUT or BLE_CONNECTION_UNAVAILABLE, Bluetooth connection severed.");
-                ErrorView.show(WatchUi.loadResource($.Rez.Strings.NoPhone) as Lang.String + ".");
+                ErrorView.show(WatchUi.loadResource($.Rez.Strings.NoPhone) as Lang.String);
                 break;
 
             case Communications.BLE_QUEUE_FULL:
@@ -353,11 +353,11 @@ class HomeAssistantApp extends Application.AppBase {
     function updateMenuItems() as Void {
         if (! System.getDeviceSettings().phoneConnected) {
             // System.println("HomeAssistantApp updateMenuItems(): No Phone connection, skipping API call.");
-            ErrorView.show(WatchUi.loadResource($.Rez.Strings.NoPhone) as Lang.String + ".");
+            ErrorView.show(WatchUi.loadResource($.Rez.Strings.NoPhone) as Lang.String);
             setApiStatus(WatchUi.loadResource($.Rez.Strings.Unavailable) as Lang.String);
         } else if (! System.getDeviceSettings().connectionAvailable) {
             // System.println("HomeAssistantApp updateMenuItems(): No Internet connection, skipping API call.");
-            ErrorView.show(WatchUi.loadResource($.Rez.Strings.NoInternet) as Lang.String + ".");
+            ErrorView.show(WatchUi.loadResource($.Rez.Strings.NoInternet) as Lang.String);
             setApiStatus(WatchUi.loadResource($.Rez.Strings.Unavailable) as Lang.String);
         } else {
             if (mItemsToUpdate == null or mTemplates == null) {
@@ -412,7 +412,7 @@ class HomeAssistantApp extends Application.AppBase {
             case Communications.BLE_CONNECTION_UNAVAILABLE:
                 // System.println("HomeAssistantApp onReturnFetchApiStatus() Response Code: BLE_HOST_TIMEOUT or BLE_CONNECTION_UNAVAILABLE, Bluetooth connection severed.");
                 if (!mIsGlance) {
-                    ErrorView.show(WatchUi.loadResource($.Rez.Strings.NoPhone) as Lang.String + ".");
+                    ErrorView.show(WatchUi.loadResource($.Rez.Strings.NoPhone) as Lang.String);
                 }
                 break;
 
@@ -475,7 +475,7 @@ class HomeAssistantApp extends Application.AppBase {
                 if (mIsGlance) {
                     WatchUi.requestUpdate();
                 } else {
-                    ErrorView.show(WatchUi.loadResource($.Rez.Strings.NoPhone) as Lang.String + ".");
+                    ErrorView.show(WatchUi.loadResource($.Rez.Strings.NoPhone) as Lang.String);
                 }
             } else if (! System.getDeviceSettings().connectionAvailable) {
                 // System.println("HomeAssistantApp fetchApiStatus(): No Internet connection, skipping API call.");
@@ -483,7 +483,7 @@ class HomeAssistantApp extends Application.AppBase {
                 if (mIsGlance) {
                     WatchUi.requestUpdate();
                 } else {
-                    ErrorView.show(WatchUi.loadResource($.Rez.Strings.NoInternet) as Lang.String + ".");
+                    ErrorView.show(WatchUi.loadResource($.Rez.Strings.NoInternet) as Lang.String);
                 }
             } else {
                 Communications.makeWebRequest(

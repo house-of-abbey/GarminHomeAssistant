@@ -36,30 +36,30 @@ class PinDigit extends WatchUi.Selectable {
         x += marginX + HomeAssistantPinConfirmationView.MARGIN_X;
         var y = (digit == 0) ? stepY * 4 : (digit <= 3) ? stepY : (digit <=6) ? stepY * 2 : stepY * 3; // layout '0' in bottom row (5), others top to bottom in 3 rows (2-4) (row 1 is reserved for masked pin)
         y += marginY;
-        var width = stepX - (marginX * 2);
+        var width  = stepX - (marginX * 2);
         var height = stepY - (marginY * 2);
 
         var button = new PinDigitButton({
-            :width=>width,
-            :height=>height,
-            :label=>digit
+            :width  => width,
+            :height => height,
+            :label  => digit
         });
 
         var buttonTouched = new PinDigitButton({
-            :width=>width,
-            :height=>height,
-            :label=>digit,
-            :touched=>true
+            :width   => width,
+            :height  => height,
+            :label   => digit,
+            :touched => true
         });
 
         // initialize selectable
         Selectable.initialize({
-            :stateDefault=>button,
-            :stateHighlighted=>buttonTouched,
-            :locX =>x,
-            :locY=>y,
-            :width=>width,
-            :height=>height
+            :stateDefault     => button,
+            :stateHighlighted => buttonTouched,
+            :locX             => x,
+            :locY             => y,
+            :width            => width,
+            :height           => height
         });
 
         mDigit = digit;
@@ -71,12 +71,12 @@ class PinDigit extends WatchUi.Selectable {
     }
 
     class PinDigitButton extends WatchUi.Drawable {
-        private var mText as Number;
+        private var mText    as Number;
         private var mTouched as Boolean = false;
 
         function initialize(options) {
             Drawable.initialize(options);
-            mText = options.get(:label);
+            mText    = options.get(:label);
             mTouched = options.get(:touched);
         }
 

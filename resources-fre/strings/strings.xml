@@ -19,49 +19,53 @@
 -->
 
 <strings>
-  <string id="AppName" scope="glance">HomeAssistant</string>
-  <string id="Confirm">Bien sûr?</string>
-  <string id="Executed" scope="glance">Confirmé</string>
-  <string id="NoPhone" scope="glance">Pas de connexion téléphonique</string>
-  <string id="NoInternet">Pas de connexion Internet</string>
-  <string id="NoResponse">Aucune réponse, vérifiez la connexion Internet</string>
-  <string id="NoAPIKey" scope="glance">Aucune clé API dans les paramètres de l'application</string>
-  <string id="NoApiUrl" scope="glance">Aucune URL d'API dans les paramètres de l'application</string>
-  <string id="NoConfigUrl" scope="glance">Aucune URL de configuration dans les paramètres de l'application</string>
   <string id="ApiFlood">Appels API trop rapide. Veuillez signaler cette erreur avec les détails de l'appareil.</string>
   <string id="ApiUrlNotFound">URL introuvable. Erreur potentielle d'URL d'API dans les paramètres.</string>
-  <string id="ConfigUrlNotFound">URL introuvable. Erreur potentielle d'URL de configuration dans les paramètres.</string>
-  <string id="NoJson">Aucun JSON renvoyé par la requête HTTP.</string>
-  <string id="UnhandledHttpErr">La requête HTTP a renvoyé le code d'erreur =</string>
-  <string id="TrailingSlashErr">L'URL de l'API ne doit pas comporter de barre oblique finale '/'</string>
-  <string id="WebhookFailed">Échec de l'enregistrement du Webhook</string>
-  <string id="TemplateError">Impossible de restituer le modèle</string>
+  <string id="AppName" scope="glance">HomeAssistant</string>
   <string id="Available" scope="glance">Disponible</string>
-  <string id="Checking" scope="glance">Vérification...</string>
-  <string id="Unavailable" scope="glance">Indisponible</string>
-  <string id="Unconfigured" scope="glance">Non configuré</string>
   <string id="Cached" scope="glance">Mis en cache</string>
+  <string id="Checking" scope="glance">Vérification...</string>
+  <string id="ConfigUrlNotFound">URL introuvable. Erreur potentielle d'URL de configuration dans les paramètres.</string>
+  <string id="Confirm">Bien sûr?</string>
+  <string id="Empty">Vide</string>
+  <string id="Executed" scope="glance">Confirmé</string>
   <string id="GlanceMenu" scope="glance">Menu</string>
   <string id="Memory" scope="glance">Mémoire</string>
-  <string id="Empty">Vide</string>
-  <string id="TemplateError">Erreur de modèle</string>
+  <string id="NoAPIKey" scope="glance">Aucune clé API dans les paramètres de l'application.</string>
+  <string id="NoApiUrl" scope="glance">Aucune URL API dans les paramètres de l'application.</string>
+  <string id="NoConfigUrl" scope="glance">Aucune URL de configuration dans les paramètres de l'application.</string>
+  <string id="NoInternet">Pas de connexion Internet.</string>
+  <string id="NoJson">Aucun JSON renvoyé par la requête HTTP.</string>
+  <string id="NoPhone" scope="glance">Pas de connexion téléphonique.</string>
+  <string id="NoResponse">Aucune réponse, vérifiez la connexion Internet</string>
+  <string id="PinInputLocked">Entrée du code PIN verrouillée pour</string>
   <string id="PotentialError">Erreur potentielle</string>
-  <!-- Pour l'interface graphique des paramètres -->
+  <string id="Seconds">secondes</string>
+  <string id="TemplateError">Erreur de modèle</string>
+  <string id="TrailingSlashErr">L'URL de l'API ne doit pas avoir de barre oblique finale « / ».</string>
+  <string id="Unavailable" scope="glance">Indisponible</string>
+  <string id="Unconfigured" scope="glance">Non configuré</string>
+  <string id="UnhandledHttpErr">La requête HTTP a renvoyé le code d'erreur =</string>
+  <string id="WebhookFailed">Échec de l'enregistrement du Webhook</string>
+  <string id="WrongPin">Code PIN incorrect</string>
+  <!-- Pour l'interface graphique des paramètres, les chaînes doivent être dans l'ordre dans lequel elles sont utilisées. -->
   <string id="SettingsSelect">Sélectionner...</string>
   <string id="SettingsApiKey">Clé API pour HomeAssistant.</string>
   <string id="SettingsApiKeyPrompt">Jeton d'accès longue durée.</string>
   <string id="SettingsApiUrl">URL pour l'API HomeAssistant.</string>
   <string id="SettingsConfigUrl">URL pour la configuration du menu (JSON).</string>
-  <string id="SettingsCacheConfig">L'application doit-elle mettre en cache la configuration du menu ?</string>
-  <string id="SettingsClearCache">L'application doit-elle vider le cache existant au prochain démarrage ?</string>
+  <string id="SettingsCacheConfig">L'application doit-elle mettre en cache la configuration du menu ?</string>
+  <string id="SettingsClearCache">L'application doit-elle vider le cache existant lors de son prochain démarrage ?</string>
   <string id="SettingsVibration">L'application doit-elle fournir un retour via des vibrations ?</string>
   <string id="SettingsAppTimeout">Délai d'expiration en secondes. Quittez l'application après cette période d'inactivité pour économiser la batterie de l'appareil.</string>
   <string id="SettingsPollDelay">Délai d'interrogation supplémentaire (en secondes). Ajoute un délai entre la mise à jour du statut de tous les éléments du menu.</string>
   <string id="SettingsConfirmTimeout">Après ce délai (en secondes), une boîte de dialogue de confirmation d'une action est automatiquement fermée et l'action est annulée. Réglez sur 0 pour désactiver le délai d'attente.</string>
+  <string id="SettingsPin">Code PIN à 4 chiffres à utiliser pour toutes les actions nécessitant une confirmation (0000-9999).</string>
+  <string id="SettingsPinError">Veuillez configurer un code PIN numérique valide à 4 chiffres entre 0000 et 9999 dans les paramètres de l'application.</string>
   <string id="SettingsTextAlign">Alignement du menu à gauche (désactivé) ou à droite (activé).</string>
   <string id="LeftToRight">De gauche à droite</string>
   <string id="RightToLeft">De droite à gauche</string>
-  <string id="SettingsWidgetStart">(Widget uniquement) Démarrez automatiquement l'application à partir du widget sans attendre un clic.</string>
+  <string id="SettingsWidgetStart">(Widget uniquement) Démarrez automatiquement l'application depuis le widget sans attendre un appui.</string>
   <string id="SettingsEnableBatteryLevel">Activez le service d'arrière-plan pour envoyer le niveau de batterie de l'appareil, l'emplacement et (si pris en charge) les données d'activité à Home Assistant.</string>
   <string id="SettingsBatteryLevelRefreshRate">La fréquence de rafraîchissement (en minutes) à laquelle le service d'arrière-plan doit répéter l'envoi de données.</string>
   <string id="WebhookId">(Lecture seule) L'ID Webhook créé par l'appareil pour les mises à jour du service en arrière-plan. Vous pourriez en avoir besoin pour le débogage.</string>

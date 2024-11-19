@@ -19,34 +19,36 @@
 -->
 
 <strings>
-  <string id="AppName" scope="glance">HomeAssistant</string>
-  <string id="Confirm">Určitě?</string>
-  <string id="Executed" scope="glance">Potvrzeno</string>
-  <string id="NoPhone" scope="glance">Žádné telefonní spojení</string>
-  <string id="NoInternet">Žádné internetové připojení</string>
-  <string id="NoResponse">Žádná odpověď, zkontrolujte připojení k internetu</string>
-  <string id="NoAPIKey" scope="glance">V nastavení aplikace není klíč API</string>
-  <string id="NoApiUrl" scope="glance">V nastavení aplikace není žádná adresa URL API</string>
-  <string id="NoConfigUrl" scope="glance">V nastavení aplikace není žádná konfigurační URL</string>
   <string id="ApiFlood">Příliš rychlá volání API. Zpomalte prosím své požadavky.</string>
-  <string id="ApiUrlNotFound">Adresa URL nenalezena. Potenciální chyba URL API v nastavení.</string>
-  <string id="ConfigUrlNotFound">Adresa URL nenalezena. Potenciální chyba konfigurační adresy URL v nastavení.</string>
-  <string id="NoJson">Z požadavku HTTP se nevrátil žádný JSON.</string>
-  <string id="UnhandledHttpErr">Požadavek HTTP vrátil kód chyby =</string>
-  <string id="TrailingSlashErr">Adresa URL rozhraní API nesmí mít koncové lomítko „/“</string>
-  <string id="WebhookFailed">Registrace Webhooku se nezdařila</string>
-  <string id="TemplateError">Vykreslení šablony se nezdařilo</string>
+  <string id="ApiUrlNotFound">Adresa URL nenalezena. Potenciální chyba adresy URL rozhraní API v nastavení.</string>
+  <string id="AppName" scope="glance">HomeAssistant</string>
   <string id="Available" scope="glance">Dostupné</string>
-  <string id="Checking" scope="glance">Kontrola...</string>
-  <string id="Unavailable" scope="glance">Není k dispozici</string>
-  <string id="Unconfigured" scope="glance">Nenakonfigurováno</string>
   <string id="Cached" scope="glance">Uloženo do mezipaměti</string>
+  <string id="Checking" scope="glance">Kontrola...</string>
+  <string id="ConfigUrlNotFound">Adresa URL nenalezena. Potenciální chyba konfigurační adresy URL v nastavení.</string>
+  <string id="Confirm">Určitě?</string>
+  <string id="Empty">Prázdný</string>
+  <string id="Executed" scope="glance">Potvrzeno</string>
   <string id="GlanceMenu" scope="glance">Menu</string>
   <string id="Memory" scope="glance">Paměť</string>
-  <string id="Empty">Prázdný</string>
-  <string id="TemplateError">Chyba šablony</string>
+  <string id="NoAPIKey" scope="glance">V nastavení aplikace není žádný klíč API.</string>
+  <string id="NoApiUrl" scope="glance">V nastavení aplikace není žádná adresa URL API.</string>
+  <string id="NoConfigUrl" scope="glance">V nastavení aplikace není žádná konfigurační URL.</string>
+  <string id="NoInternet">Žádné připojení k internetu.</string>
+  <string id="NoJson">Z požadavku HTTP se nevrátil žádný JSON.</string>
+  <string id="NoPhone" scope="glance">Žádné telefonní spojení.</string>
+  <string id="NoResponse">Žádná odpověď, zkontrolujte připojení k internetu</string>
+  <string id="PinInputLocked">Vstup PIN uzamčen pro</string>
   <string id="PotentialError">Potenciální chyba</string>
-  <!-- Pro nastavení GUI -->
+  <string id="Seconds">sekundy</string>
+  <string id="TemplateError">Chyba šablony</string>
+  <string id="TrailingSlashErr">Adresa URL rozhraní API nesmí mít na konci lomítko „/“.</string>
+  <string id="Unavailable" scope="glance">Není k dispozici</string>
+  <string id="Unconfigured" scope="glance">Nenakonfigurováno</string>
+  <string id="UnhandledHttpErr">Požadavek HTTP vrátil kód chyby =</string>
+  <string id="WebhookFailed">Registrace Webhooku se nezdařila</string>
+  <string id="WrongPin">Chybný PIN</string>
+  <!-- Pro nastavení GUI by řetězce měly být v pořadí, v jakém se používají. -->
   <string id="SettingsSelect">Vybrat...</string>
   <string id="SettingsApiKey">Klíč API pro HomeAssistant.</string>
   <string id="SettingsApiKeyPrompt">Přístupový token s dlouhou životností.</string>
@@ -58,8 +60,10 @@
   <string id="SettingsAppTimeout">Časový limit v sekundách. Po této době nečinnosti aplikaci ukončete, abyste šetřili baterii zařízení.</string>
   <string id="SettingsPollDelay">Dodatečné zpoždění dotazování (v sekundách). Přidá prodlevu mezi aktualizací stavu všech položek nabídky.</string>
   <string id="SettingsConfirmTimeout">Po uplynutí této doby (v sekundách) se dialog pro potvrzení akce automaticky zavře a akce se zruší. Nastavením na 0 deaktivujete časový limit.</string>
+  <string id="SettingsPin">4místný PIN pro všechny akce, které vyžadují potvrzení (0000-9999).</string>
+  <string id="SettingsPinError">Nakonfigurujte v nastavení aplikace platný čtyřmístný číselný kód PIN mezi 0000 a 9999.</string>
   <string id="SettingsTextAlign">Zarovnání nabídky vlevo (vypnuto) nebo vpravo (zapnuto).</string>
-  <string id="LeftToRight">Zleva do prava</string>
+  <string id="LeftToRight">Zleva doprava</string>
   <string id="RightToLeft">Zprava doleva</string>
   <string id="SettingsWidgetStart">(Pouze widget) Automaticky spusťte aplikaci z widgetu bez čekání na klepnutí.</string>
   <string id="SettingsEnableBatteryLevel">Povolte službu na pozadí pro odesílání údajů o stavu baterie, poloze a (pokud je podporováno) o aktivitě zařízení Home Assistant.</string>

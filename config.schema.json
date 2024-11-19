@@ -169,7 +169,7 @@
     },
     "type": {
       "title": "Menu item type",
-      "description": "One of 'tap', 'template', 'toggle' or 'group'."
+      "description": "One of 'tap', 'toggle' or 'group'."
     },
     "items": {
       "type": "array",

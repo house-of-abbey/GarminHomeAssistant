@@ -19,35 +19,37 @@
 -->
 
 <strings>
-  <string id="AppName" scope="glance">HomeAssistant</string>
-  <string id="Confirm">もちろん？</string>
-  <string id="Executed" scope="glance">確認済み</string>
-  <string id="NoPhone" scope="glance">電話接続なし</string>
-  <string id="NoInternet">インターネット接続なし</string>
-  <string id="NoResponse">応答なし。インターネット接続を確認してください</string>
-  <string id="NoAPIKey" scope="glance">アプリケーション設定にAPIキーがありません</string>
-  <string id="NoApiUrl" scope="glance">アプリケーション設定にAPI URLがありません</string>
-  <string id="NoConfigUrl" scope="glance">アプリケーション設定に構成URLがありません</string>
   <string id="ApiFlood">API 呼び出しが速すぎます。リクエストの速度を落としてください。</string>
   <string id="ApiUrlNotFound">URL が見つかりません。設定で API URL エラーが発生する可能性があります。</string>
-  <string id="ConfigUrlNotFound">URL が見つかりません。設定で構成 URL エラーが発生する可能性があります。</string>
-  <string id="NoJson">HTTP リクエストから JSON が返されません。</string>
-  <string id="UnhandledHttpErr">HTTP リクエストがエラーコードを返しました =</string>
-  <string id="TrailingSlashErr">API URL の末尾にスラッシュ「/」を付けないでください</string>
-  <string id="WebhookFailed">Webhook の登録に失敗しました</string>
-  <string id="TemplateError">テンプレートのレンダリングに失敗しました</string>
+  <string id="AppName" scope="glance">HomeAssistant</string>
   <string id="Available" scope="glance">利用可能</string>
-  <string id="Checking" scope="glance">チェック中...</string>
-  <string id="Unavailable" scope="glance">利用不可</string>
-  <string id="Unconfigured" scope="glance">未設定</string>
   <string id="Cached" scope="glance">キャッシュ済み</string>
+  <string id="Checking" scope="glance">チェック中...</string>
+  <string id="ConfigUrlNotFound">URL が見つかりません。設定で構成 URL エラーが発生する可能性があります。</string>
+  <string id="Confirm">もちろん？</string>
+  <string id="Empty">空の</string>
+  <string id="Executed" scope="glance">確認済み</string>
   <string id="GlanceMenu" scope="glance">メニュー</string>
   <string id="Memory" scope="glance">メモリ</string>
-  <string id="Empty">空の</string>
-  <string id="TemplateError">テンプレートエラー</string>
+  <string id="NoAPIKey" scope="glance">アプリケーション設定に API キーがありません。</string>
+  <string id="NoApiUrl" scope="glance">アプリケーション設定に API URL がありません。</string>
+  <string id="NoConfigUrl" scope="glance">アプリケーション設定に構成 URL がありません。</string>
+  <string id="NoInternet">インターネットに接続できません。</string>
+  <string id="NoJson">HTTP リクエストから JSON が返されません。</string>
+  <string id="NoPhone" scope="glance">電話接続がありません。</string>
+  <string id="NoResponse">応答なし。インターネット接続を確認してください</string>
+  <string id="PinInputLocked">PIN入力がロックされました</string>
   <string id="PotentialError">潜在的なエラー</string>
-  <!-- 設定GUIの場合 -->
-  <string id="SettingsSelect">選択する...</string>
+  <string id="Seconds">秒</string>
+  <string id="TemplateError">テンプレートエラー</string>
+  <string id="TrailingSlashErr">API URL の末尾にスラッシュ「/」を含めることはできません。</string>
+  <string id="Unavailable" scope="glance">利用不可</string>
+  <string id="Unconfigured" scope="glance">未設定</string>
+  <string id="UnhandledHttpErr">HTTP リクエストがエラーコードを返しました =</string>
+  <string id="WebhookFailed">Webhook の登録に失敗しました</string>
+  <string id="WrongPin">PINが間違っています</string>
+  <!-- 設定 GUI の場合、文字列は使用される順序に従う必要があります。 -->
+  <string id="SettingsSelect">選択...</string>
   <string id="SettingsApiKey">HomeAssistant の API キー。</string>
   <string id="SettingsApiKeyPrompt">長期有効アクセス トークン。</string>
   <string id="SettingsApiUrl">HomeAssistant API の URL。</string>
@@ -58,9 +60,11 @@
   <string id="SettingsAppTimeout">タイムアウトは秒単位で行われます。デバイスのバッテリーを節約するために、この時間操作が行われなかったらアプリケーションを終了してください。</string>
   <string id="SettingsPollDelay">追加のポーリング遅延 (秒単位)。すべてのメニュー項目のステータス更新の間に遅延を追加します。</string>
   <string id="SettingsConfirmTimeout">この時間 (秒単位) が経過すると、アクションの確認ダイアログが自動的に閉じられ、アクションがキャンセルされます。タイムアウトを無効にするには 0 に設定します。</string>
+  <string id="SettingsPin">確認が必要なすべてのアクションに使用する 4 桁の PIN (0000 ～ 9999)。</string>
+  <string id="SettingsPinError">アプリケーション設定で、0000 ～ 9999 の間の有効な 4 桁の数字 PIN を設定してください。</string>
   <string id="SettingsTextAlign">メニューの配置を左 (オフ) または右 (オン) にします。</string>
   <string id="LeftToRight">左から右へ</string>
-  <string id="RightToLeft">右から左に</string>
+  <string id="RightToLeft">右から左へ</string>
   <string id="SettingsWidgetStart">(ウィジェットのみ) タップを待たずにウィジェットからアプリケーションを自動的に起動します。</string>
   <string id="SettingsEnableBatteryLevel">バックグラウンド サービスを有効にして、デバイスのバッテリー レベル、位置情報、および (サポートされている場合) アクティビティ データを Home Assistant に送信します。</string>
   <string id="SettingsBatteryLevelRefreshRate">バックグラウンド サービスがデータの送信を繰り返す更新レート (分単位)。</string>

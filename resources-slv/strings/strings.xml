@@ -19,34 +19,36 @@
 -->
 
 <strings>
-  <string id="AppName" scope="glance">HomeAssistant</string>
-  <string id="Confirm">Seveda?</string>
-  <string id="Executed" scope="glance">Potrjeno</string>
-  <string id="NoPhone" scope="glance">Ni telefonske povezave</string>
-  <string id="NoInternet">Ni internetne povezave</string>
-  <string id="NoResponse">Ni odgovora, preverite internetno povezavo</string>
-  <string id="NoAPIKey" scope="glance">V nastavitvah aplikacije ni ključa API</string>
-  <string id="NoApiUrl" scope="glance">V nastavitvah aplikacije ni URL-ja API-ja</string>
-  <string id="NoConfigUrl" scope="glance">V nastavitvah aplikacije ni konfiguracijskega URL-ja</string>
   <string id="ApiFlood">API klici so prehitri. Prosim, upočasnite svoje zahteve.</string>
   <string id="ApiUrlNotFound">URL-ja ni bilo mogoče najti. Morebitna napaka URL-ja API-ja v nastavitvah.</string>
-  <string id="ConfigUrlNotFound">URL-ja ni bilo mogoče najti. Morebitna napaka URL-ja konfiguracije v nastavitvah.</string>
-  <string id="NoJson">Zahteva HTTP ni vrnila JSON.</string>
-  <string id="UnhandledHttpErr">Zahteva HTTP je vrnila kodo napake =</string>
-  <string id="TrailingSlashErr">URL API-ja ne sme imeti končne poševnice '/'</string>
-  <string id="WebhookFailed">Webhooka ni bilo mogoče registrirati</string>
-  <string id="TemplateError">Upodabljanje predloge ni uspelo</string>
+  <string id="AppName" scope="glance">HomeAssistant</string>
   <string id="Available" scope="glance">Na voljo</string>
-  <string id="Checking" scope="glance">Preverjanje ...</string>
-  <string id="Unavailable" scope="glance">Ni na voljo</string>
-  <string id="Unconfigured" scope="glance">Nekonfigurirano</string>
   <string id="Cached" scope="glance">Predpomnjeno</string>
+  <string id="Checking" scope="glance">Preverjanje ...</string>
+  <string id="ConfigUrlNotFound">URL-ja ni bilo mogoče najti. Morebitna napaka URL-ja konfiguracije v nastavitvah.</string>
+  <string id="Confirm">Seveda?</string>
+  <string id="Empty">prazno</string>
+  <string id="Executed" scope="glance">Potrjeno</string>
   <string id="GlanceMenu" scope="glance">meni</string>
   <string id="Memory" scope="glance">Spomin</string>
-  <string id="Empty">Prazno</string>
-  <string id="TemplateError">Napaka predloge</string>
+  <string id="NoAPIKey" scope="glance">V nastavitvah aplikacije ni ključa API.</string>
+  <string id="NoApiUrl" scope="glance">V nastavitvah aplikacije ni URL-ja API-ja.</string>
+  <string id="NoConfigUrl" scope="glance">V nastavitvah aplikacije ni konfiguracijskega URL-ja.</string>
+  <string id="NoInternet">Ni internetne povezave.</string>
+  <string id="NoJson">Zahteva HTTP ni vrnila JSON.</string>
+  <string id="NoPhone" scope="glance">Ni telefonske povezave.</string>
+  <string id="NoResponse">Ni odgovora, preverite internetno povezavo</string>
+  <string id="PinInputLocked">Vnos PIN zaklenjen za</string>
   <string id="PotentialError">Potencialna napaka</string>
-  <!-- Za nastavitve GUI -->
+  <string id="Seconds">sekund</string>
+  <string id="TemplateError">Napaka predloge</string>
+  <string id="TrailingSlashErr">URL API-ja ne sme imeti končne poševnice '/'.</string>
+  <string id="Unavailable" scope="glance">Ni na voljo</string>
+  <string id="Unconfigured" scope="glance">Nekonfigurirano</string>
+  <string id="UnhandledHttpErr">Zahteva HTTP je vrnila kodo napake =</string>
+  <string id="WebhookFailed">Webhooka ni bilo mogoče registrirati</string>
+  <string id="WrongPin">Napačen PIN</string>
+  <!-- Za GUI nastavitev morajo biti nizi v vrstnem redu, kot so uporabljeni. -->
   <string id="SettingsSelect">Izberite ...</string>
   <string id="SettingsApiKey">API ključ za HomeAssistant.</string>
   <string id="SettingsApiKeyPrompt">Dolgoživ dostopni žeton.</string>
@@ -58,6 +60,8 @@
   <string id="SettingsAppTimeout">Časovna omejitev v sekundah. Po tem obdobju nedejavnosti zaprite aplikacijo, da prihranite baterijo naprave.</string>
   <string id="SettingsPollDelay">Dodatna zakasnitev ankete (v sekundah). Doda zakasnitev med posodobitvijo stanja vseh elementov menija.</string>
   <string id="SettingsConfirmTimeout">Po tem času (v sekundah) se potrditveno pogovorno okno za dejanje samodejno zapre in dejanje je preklicano. Nastavite na 0, da onemogočite časovno omejitev.</string>
+  <string id="SettingsPin">4-mestni PIN, ki se uporablja za vsa dejanja, ki zahtevajo potrditev (0000-9999).</string>
+  <string id="SettingsPinError">V nastavitvah aplikacije konfigurirajte veljavno 4-mestno številčno kodo PIN med 0000 in 9999.</string>
   <string id="SettingsTextAlign">Leva (izklopljena) ali desna (vklopljena) poravnava menija.</string>
   <string id="LeftToRight">Od leve proti desni</string>
   <string id="RightToLeft">Od desne proti levi</string>

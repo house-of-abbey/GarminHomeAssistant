@@ -19,34 +19,36 @@
 -->
 
 <strings>
-  <string id="AppName" scope="glance">HomeAssistant</string>
-  <string id="Confirm">Sicuro?</string>
-  <string id="Executed" scope="glance">Confermato</string>
-  <string id="NoPhone" scope="glance">Nessuna connessione telefonica</string>
-  <string id="NoInternet">Nessuna connessione internet</string>
-  <string id="NoResponse">Nessuna risposta, controlla la connessione Internet</string>
-  <string id="NoAPIKey" scope="glance">Nessuna chiave API nelle impostazioni dell'applicazione</string>
-  <string id="NoApiUrl" scope="glance">Nessun URL API nelle impostazioni dell'applicazione</string>
-  <string id="NoConfigUrl" scope="glance">Nessun URL di configurazione nelle impostazioni dell'applicazione</string>
   <string id="ApiFlood">Chiamate API troppo rapide. Rallenta le tue richieste.</string>
   <string id="ApiUrlNotFound">URL non trovato. Possibile errore URL API nelle impostazioni.</string>
-  <string id="ConfigUrlNotFound">URL non trovato. Possibile errore URL di configurazione nelle impostazioni.</string>
-  <string id="NoJson">Nessun JSON restituito dalla richiesta HTTP.</string>
-  <string id="UnhandledHttpErr">La richiesta HTTP ha restituito il codice di errore =</string>
-  <string id="TrailingSlashErr">L'URL dell'API non deve avere una barra finale '/'</string>
-  <string id="WebhookFailed">Impossibile registrare il webhook</string>
-  <string id="TemplateError">Impossibile eseguire il rendering del modello</string>
+  <string id="AppName" scope="glance">HomeAssistant</string>
   <string id="Available" scope="glance">Disponibile</string>
+  <string id="Cached" scope="glance">Memorizzato nella cache</string>
   <string id="Checking" scope="glance">Controllo in corso...</string>
+  <string id="ConfigUrlNotFound">URL non trovato. Possibile errore URL di configurazione nelle impostazioni.</string>
+  <string id="Confirm">Sicuro?</string>
+  <string id="Empty">Vuoto</string>
+  <string id="Executed" scope="glance">Confermato</string>
+  <string id="GlanceMenu" scope="glance">Menu</string>
+  <string id="Memory" scope="glance">Memoria</string>
+  <string id="NoAPIKey" scope="glance">Nessuna chiave API nelle impostazioni dell'applicazione.</string>
+  <string id="NoApiUrl" scope="glance">Nessun URL API nelle impostazioni dell'applicazione.</string>
+  <string id="NoConfigUrl" scope="glance">Nessun URL di configurazione nelle impostazioni dell'applicazione.</string>
+  <string id="NoInternet">Nessuna connessione Internet.</string>
+  <string id="NoJson">Nessun JSON restituito dalla richiesta HTTP.</string>
+  <string id="NoPhone" scope="glance">Nessuna connessione telefonica.</string>
+  <string id="NoResponse">Nessuna risposta, controlla la connessione Internet</string>
+  <string id="PinInputLocked">Inserimento PIN bloccato per</string>
+  <string id="PotentialError">Errore potenziale</string>
+  <string id="Seconds">secondi</string>
+  <string id="TemplateError">Errore modello</string>
+  <string id="TrailingSlashErr">L'URL dell'API non deve contenere la barra finale '/'.</string>
   <string id="Unavailable" scope="glance">Non disponibile</string>
   <string id="Unconfigured" scope="glance">Non configurato</string>
-  <string id="Cached" scope="glance">Memorizzato nella cache</string>
-  <string id="GlanceMenu" scope="glance">Menù</string>
-  <string id="Memory" scope="glance">Memoria</string>
-  <string id="Empty">Vuoto</string>
-  <string id="TemplateError">Errore modello</string>
-  <string id="PotentialError">Errore potenziale</string>
-  <!-- Per l'interfaccia utente grafica delle impostazioni -->
+  <string id="UnhandledHttpErr">La richiesta HTTP ha restituito il codice di errore =</string>
+  <string id="WebhookFailed">Impossibile registrare il webhook</string>
+  <string id="WrongPin">PIN errato</string>
+  <!-- Per l'interfaccia utente grafica delle impostazioni, le stringhe devono essere nell'ordine in cui vengono utilizzate. -->
   <string id="SettingsSelect">Selezionare...</string>
   <string id="SettingsApiKey">Chiave API per HomeAssistant.</string>
   <string id="SettingsApiKeyPrompt">Token di accesso di lunga durata.</string>
@@ -58,6 +60,8 @@
   <string id="SettingsAppTimeout">Timeout in secondi. Esci dall'applicazione dopo questo periodo di inattività per risparmiare la batteria del dispositivo.</string>
   <string id="SettingsPollDelay">Ritardo di polling aggiuntivo (in secondi). Aggiunge un ritardo tra l'aggiornamento dello stato di tutte le voci di menu.</string>
   <string id="SettingsConfirmTimeout">Dopo questo tempo (in secondi), una finestra di dialogo di conferma per un'azione viene automaticamente chiusa e l'azione viene annullata. Impostare su 0 per disabilitare il timeout.</string>
+  <string id="SettingsPin">PIN a 4 cifre da utilizzare per tutte le azioni che richiedono conferma (0000-9999).</string>
+  <string id="SettingsPinError">Configurare un PIN numerico valido a 4 cifre compreso tra 0000 e 9999 nelle impostazioni dell'applicazione.</string>
   <string id="SettingsTextAlign">Allineamento del menu a sinistra (disattivato) o a destra (attivato).</string>
   <string id="LeftToRight">Da sinistra a destra</string>
   <string id="RightToLeft">Da destra a sinistra</string>

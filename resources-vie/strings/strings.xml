@@ -19,34 +19,36 @@
 -->
 
 <strings>
-  <string id="AppName" scope="glance">HomeAssistant</string>
-  <string id="Confirm">Chắc chắn?</string>
-  <string id="Executed" scope="glance">Đã xác nhận</string>
-  <string id="NoPhone" scope="glance">Không có kết nối điện thoại</string>
-  <string id="NoInternet">Không có kết nối Internet</string>
-  <string id="NoResponse">Không có phản hồi, hãy kiểm tra kết nối Internet</string>
-  <string id="NoAPIKey" scope="glance">Không có khóa API trong cài đặt ứng dụng</string>
-  <string id="NoApiUrl" scope="glance">Không có URL API trong cài đặt ứng dụng</string>
-  <string id="NoConfigUrl" scope="glance">Không có URL cấu hình trong cài đặt ứng dụng</string>
   <string id="ApiFlood">Cuộc gọi API quá nhanh. Vui lòng làm chậm yêu cầu của bạn.</string>
-  <string id="ApiUrlNotFound">Không tìm thấy URL. Lỗi URL API tiềm ẩn trong cài đặt.</string>
-  <string id="ConfigUrlNotFound">Không tìm thấy URL. Có thể có lỗi URL cấu hình trong cài đặt.</string>
-  <string id="NoJson">Không có JSON nào được trả về từ yêu cầu HTTP.</string>
-  <string id="UnhandledHttpErr">Yêu cầu HTTP trả về mã lỗi =</string>
-  <string id="TrailingSlashErr">URL API không được có dấu gạch chéo '/' theo sau</string>
-  <string id="WebhookFailed">Không đăng ký được Webhook</string>
-  <string id="TemplateError">Không thể hiển thị mẫu</string>
+  <string id="ApiUrlNotFound">Không tìm thấy URL. Có thể có lỗi URL API trong cài đặt.</string>
+  <string id="AppName" scope="glance">HomeAssistant</string>
   <string id="Available" scope="glance">Có sẵn</string>
-  <string id="Checking" scope="glance">Đang kiểm tra...</string>
-  <string id="Unavailable" scope="glance">Không có sẵn</string>
-  <string id="Unconfigured" scope="glance">Chưa cấu hình</string>
   <string id="Cached" scope="glance">Đã lưu trữ</string>
+  <string id="Checking" scope="glance">Đang kiểm tra...</string>
+  <string id="ConfigUrlNotFound">Không tìm thấy URL. Có thể có lỗi URL cấu hình trong cài đặt.</string>
+  <string id="Confirm">Chắc chắn?</string>
+  <string id="Empty">Trống</string>
+  <string id="Executed" scope="glance">Đã xác nhận</string>
   <string id="GlanceMenu" scope="glance">Thực đơn</string>
   <string id="Memory" scope="glance">Ký ức</string>
-  <string id="Empty">Trống</string>
-  <string id="TemplateError">Lỗi mẫu</string>
+  <string id="NoAPIKey" scope="glance">Không có khóa API trong cài đặt ứng dụng.</string>
+  <string id="NoApiUrl" scope="glance">Không có URL API trong cài đặt ứng dụng.</string>
+  <string id="NoConfigUrl" scope="glance">Không có URL cấu hình trong cài đặt ứng dụng.</string>
+  <string id="NoInternet">Không có kết nối Internet.</string>
+  <string id="NoJson">Không có JSON nào được trả về từ yêu cầu HTTP.</string>
+  <string id="NoPhone" scope="glance">Không có kết nối điện thoại.</string>
+  <string id="NoResponse">Không có phản hồi, hãy kiểm tra kết nối Internet</string>
+  <string id="PinInputLocked">Mã PIN đầu vào bị khóa</string>
   <string id="PotentialError">Lỗi tiềm ẩn</string>
-  <!-- Đối với GUI cài đặt -->
+  <string id="Seconds">giây</string>
+  <string id="TemplateError">Lỗi mẫu</string>
+  <string id="TrailingSlashErr">URL API không được có dấu gạch chéo '/' ở cuối.</string>
+  <string id="Unavailable" scope="glance">Không có sẵn</string>
+  <string id="Unconfigured" scope="glance">Chưa cấu hình</string>
+  <string id="UnhandledHttpErr">Yêu cầu HTTP trả về mã lỗi =</string>
+  <string id="WebhookFailed">Không đăng ký được Webhook</string>
+  <string id="WrongPin">Mã PIN sai</string>
+  <!-- Đối với giao diện cài đặt, các chuỗi phải được sắp xếp theo thứ tự sử dụng. -->
   <string id="SettingsSelect">Lựa chọn...</string>
   <string id="SettingsApiKey">Khóa API cho HomeAssistant.</string>
   <string id="SettingsApiKeyPrompt">Mã thông báo truy cập lâu dài.</string>
@@ -57,10 +59,12 @@
   <string id="SettingsVibration">Ứng dụng có nên cung cấp phản hồi thông qua rung động không?</string>
   <string id="SettingsAppTimeout">Thời gian chờ tính bằng giây. Thoát khỏi ứng dụng sau khoảng thời gian không hoạt động này để tiết kiệm pin cho thiết bị.</string>
   <string id="SettingsPollDelay">Độ trễ thăm dò bổ sung (tính bằng giây). Thêm độ trễ giữa quá trình cập nhật trạng thái của tất cả các mục menu.</string>
-  <string id="SettingsConfirmTimeout">Sau thời gian này (tính bằng giây), hộp thoại xác nhận cho một hành động sẽ tự động đóng và hành động đó sẽ bị hủy. Đặt thành 0 để tắt thời gian chờ.</string>
+  <string id="SettingsConfirmTimeout">Sau thời gian này (tính bằng giây), hộp thoại xác nhận cho một hành động sẽ tự động đóng lại và hành động đó sẽ bị hủy. Đặt thành 0 để vô hiệu hóa thời gian chờ.</string>
+  <string id="SettingsPin">Mã PIN gồm 4 chữ số được sử dụng cho mọi hành động cần xác nhận (0000-9999).</string>
+  <string id="SettingsPinError">Vui lòng cấu hình mã PIN số 4 chữ số hợp lệ trong khoảng từ 0000 đến 9999 trong cài đặt ứng dụng.</string>
   <string id="SettingsTextAlign">Căn chỉnh Menu Trái (tắt) hoặc Phải (bật).</string>
   <string id="LeftToRight">Từ trái sang phải</string>
-  <string id="RightToLeft">Phải sang trái</string>
+  <string id="RightToLeft">Từ phải sang trái</string>
   <string id="SettingsWidgetStart">(Chỉ dành cho tiện ích) Tự động khởi động ứng dụng từ tiện ích mà không cần phải chạm.</string>
   <string id="SettingsEnableBatteryLevel">Bật dịch vụ nền để gửi mức pin, vị trí và dữ liệu hoạt động (nếu được hỗ trợ) của thiết bị tới Home Assistant.</string>
   <string id="SettingsBatteryLevelRefreshRate">Tốc độ làm mới (tính bằng phút) mà dịch vụ nền sẽ lặp lại việc gửi dữ liệu.</string>

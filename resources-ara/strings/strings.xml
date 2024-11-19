@@ -19,34 +19,36 @@
 -->
 
 <strings>
-  <string id="AppName" scope="glance">HomeAssistant</string>
-  <string id="Confirm">بالتأكيد؟</string>
-  <string id="Executed" scope="glance">مؤكد</string>
-  <string id="NoPhone" scope="glance">لا يوجد اتصال بالهاتف</string>
-  <string id="NoInternet">لا يوجد اتصال بالإنترنت</string>
-  <string id="NoResponse">لا يوجد رد، تحقق من اتصال الإنترنت</string>
-  <string id="NoAPIKey" scope="glance">لا يوجد مفتاح API في إعدادات التطبيق</string>
-  <string id="NoApiUrl" scope="glance">لا يوجد عنوان URL لواجهة برمجة التطبيقات في إعدادات التطبيق</string>
-  <string id="NoConfigUrl" scope="glance">لا يوجد عنوان URL للتكوين في إعدادات التطبيق</string>
   <string id="ApiFlood">مكالمات واجهة برمجة التطبيقات سريعة جدًا. يُرجى إبطاء طلباتك.</string>
   <string id="ApiUrlNotFound">لم يتم العثور على عنوان URL. قد يكون هناك خطأ في عنوان URL الخاص بواجهة برمجة التطبيقات في الإعدادات.</string>
-  <string id="ConfigUrlNotFound">لم يتم العثور على عنوان URL. قد يكون هناك خطأ في تكوين عنوان URL في الإعدادات.</string>
-  <string id="NoJson">لم يتم إرجاع JSON من طلب HTTP.</string>
-  <string id="UnhandledHttpErr">طلب HTTP أعاد رمز الخطأ =</string>
-  <string id="TrailingSlashErr">يجب ألا يحتوي عنوان URL الخاص بواجهة برمجة التطبيقات على شرطة مائلة '/'</string>
-  <string id="WebhookFailed">فشل في تسجيل Webhook</string>
-  <string id="TemplateError">فشل في عرض القالب</string>
+  <string id="AppName" scope="glance">HomeAssistant</string>
   <string id="Available" scope="glance">متاح</string>
-  <string id="Checking" scope="glance">تدقيق...</string>
-  <string id="Unavailable" scope="glance">غير متوفره</string>
-  <string id="Unconfigured" scope="glance">غير مهيأ</string>
   <string id="Cached" scope="glance">مخزن مؤقتا</string>
+  <string id="Checking" scope="glance">جاري التحقق...</string>
+  <string id="ConfigUrlNotFound">لم يتم العثور على عنوان URL. قد يكون هناك خطأ في تكوين عنوان URL في الإعدادات.</string>
+  <string id="Confirm">بالتأكيد؟</string>
+  <string id="Empty">فارغ</string>
+  <string id="Executed" scope="glance">مؤكد</string>
   <string id="GlanceMenu" scope="glance">قائمة طعام</string>
   <string id="Memory" scope="glance">ذاكرة</string>
-  <string id="Empty">فارغ</string>
-  <string id="TemplateError">خطأ القالب</string>
+  <string id="NoAPIKey" scope="glance">لا يوجد مفتاح API في إعدادات التطبيق.</string>
+  <string id="NoApiUrl" scope="glance">لا يوجد عنوان URL لـ API في إعدادات التطبيق.</string>
+  <string id="NoConfigUrl" scope="glance">لا يوجد عنوان URL للتكوين في إعدادات التطبيق.</string>
+  <string id="NoInternet">لا يوجد اتصال بالإنترنت.</string>
+  <string id="NoJson">لم يتم إرجاع JSON من طلب HTTP.</string>
+  <string id="NoPhone" scope="glance">لا يوجد اتصال بالهاتف.</string>
+  <string id="NoResponse">لا يوجد رد، تحقق من اتصال الإنترنت</string>
+  <string id="PinInputLocked">تم قفل مدخل رقم التعريف الشخصي (PIN)</string>
   <string id="PotentialError">خطأ محتمل</string>
-  <!-- لإعدادات واجهة المستخدم الرسومية -->
+  <string id="Seconds">ثواني</string>
+  <string id="TemplateError">خطأ القالب</string>
+  <string id="TrailingSlashErr">يجب ألا يحتوي عنوان URL الخاص بواجهة برمجة التطبيقات على شرطة مائلة '/' في نهايته.</string>
+  <string id="Unavailable" scope="glance">غير متاح</string>
+  <string id="Unconfigured" scope="glance">غير مهيأ</string>
+  <string id="UnhandledHttpErr">طلب HTTP أعاد رمز الخطأ =</string>
+  <string id="WebhookFailed">فشل في تسجيل Webhook</string>
+  <string id="WrongPin">رقم التعريف الشخصي خاطئ</string>
+  <!-- بالنسبة لإعدادات واجهة المستخدم الرسومية، يجب أن تكون السلاسل بالترتيب الذي يتم استخدامها به. -->
   <string id="SettingsSelect">يختار...</string>
   <string id="SettingsApiKey">مفتاح API لـ HomeAssistant.</string>
   <string id="SettingsApiKeyPrompt">رمز الوصول طويل الأمد.</string>
@@ -55,14 +57,16 @@
   <string id="SettingsCacheConfig">هل يجب على التطبيق تخزين تكوين القائمة مؤقتًا؟</string>
   <string id="SettingsClearCache">هل يجب على التطبيق مسح ذاكرة التخزين المؤقت الموجودة في المرة التالية التي يتم تشغيله فيها؟</string>
   <string id="SettingsVibration">هل يجب أن يوفر التطبيق ردود الفعل عبر الاهتزازات؟</string>
-  <string id="SettingsAppTimeout">المهلة بالثواني. قم بالخروج من التطبيق بعد هذه الفترة من عدم النشاط لحفظ بطارية الجهاز.</string>
+  <string id="SettingsAppTimeout">مهلة زمنية بالثواني. قم بالخروج من التطبيق بعد هذه الفترة من عدم النشاط للحفاظ على بطارية الجهاز.</string>
   <string id="SettingsPollDelay">تأخير إضافي في الاستطلاع (بالثواني). يضيف تأخيرًا بين تحديث حالة جميع عناصر القائمة.</string>
-  <string id="SettingsConfirmTimeout">بعد هذا الوقت (بالثواني)، يتم إغلاق مربع حوار تأكيد الإجراء تلقائيًا ويتم إلغاء الإجراء. اضبط على 0 لتعطيل المهلة.</string>
+  <string id="SettingsConfirmTimeout">بعد هذا الوقت (بالثواني)، يتم إغلاق مربع حوار التأكيد الخاص بالإجراء تلقائيًا ويتم إلغاء الإجراء. اضبطه على 0 لتعطيل مهلة الانتظار.</string>
+  <string id="SettingsPin">رقم التعريف الشخصي (PIN) المكون من 4 أرقام الذي سيتم استخدامه لجميع الإجراءات التي تتطلب التأكيد (0000-9999).</string>
+  <string id="SettingsPinError">يرجى تكوين رقم تعريف شخصي صالح مكون من 4 أرقام بين 0000 و9999 في إعدادات التطبيق.</string>
   <string id="SettingsTextAlign">محاذاة القائمة اليسرى (إيقاف) أو اليمنى (تشغيل).</string>
   <string id="LeftToRight">من اليسار إلى اليمين</string>
-  <string id="RightToLeft">من اليمين الى اليسار</string>
+  <string id="RightToLeft">من اليمين إلى اليسار</string>
   <string id="SettingsWidgetStart">(الأداة فقط) قم بتشغيل التطبيق تلقائيًا من الأداة دون انتظار نقرة.</string>
-  <string id="SettingsEnableBatteryLevel">قم بتمكين خدمة الخلفية لإرسال بيانات مستوى بطارية الجهاز وموقعه وبيانات النشاط (إذا كانت مدعومة) إلى Home Assistant.</string>
+  <string id="SettingsEnableBatteryLevel">قم بتمكين خدمة الخلفية لإرسال بيانات مستوى بطارية الجهاز وموقعه ونشاطه (إذا كان مدعومًا) إلى Home Assistant.</string>
   <string id="SettingsBatteryLevelRefreshRate">معدل التحديث (بالدقائق) الذي يجب أن تكرر به الخدمة الخلفية إرسال البيانات.</string>
   <string id="WebhookId">(للقراءة فقط) معرف Webhook الذي أنشأه الجهاز لتحديثات الخدمة في الخلفية. قد تحتاج إلى هذا من أجل تصحيح الأخطاء.</string>
 </strings>

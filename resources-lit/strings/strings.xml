@@ -19,36 +19,38 @@
 -->
 
 <strings>
-  <string id="AppName" scope="glance">HomeAssistant</string>
-  <string id="Confirm">Žinoma?</string>
-  <string id="Executed" scope="glance">Patvirtinta</string>
-  <string id="NoPhone" scope="glance">Nėra telefono ryšio</string>
-  <string id="NoInternet">Nėra interneto ryšio</string>
-  <string id="NoResponse">Neatsako, patikrinkite interneto ryšį</string>
-  <string id="NoAPIKey" scope="glance">Programos nustatymuose nėra API rakto</string>
-  <string id="NoApiUrl" scope="glance">Programos nustatymuose nėra API URL</string>
-  <string id="NoConfigUrl" scope="glance">Programos nustatymuose nėra konfigūracijos URL</string>
   <string id="ApiFlood">API skambučiai per greiti. Sulėtinkite prašymų vykdymą.</string>
   <string id="ApiUrlNotFound">URL nerastas. Galima API URL klaida nustatymuose.</string>
-  <string id="ConfigUrlNotFound">URL nerastas. Galima konfigūracijos URL klaida nustatymuose.</string>
-  <string id="NoJson">Joks JSON negrąžintas iš HTTP užklausos.</string>
-  <string id="UnhandledHttpErr">HTTP užklausa grąžino klaidos kodą =</string>
-  <string id="TrailingSlashErr">API URL pabaigoje negali būti pasvirojo brūkšnio „/“</string>
-  <string id="WebhookFailed">Nepavyko užregistruoti Webhook</string>
-  <string id="TemplateError">Nepavyko pateikti šablono</string>
-  <string id="Available" scope="glance">Yra</string>
-  <string id="Checking" scope="glance">Tikrinama...</string>
-  <string id="Unavailable" scope="glance">Nepasiekiamas</string>
-  <string id="Unconfigured" scope="glance">Nesukonfigūruotas</string>
+  <string id="AppName" scope="glance">HomeAssistant</string>
+  <string id="Available" scope="glance">Galima</string>
   <string id="Cached" scope="glance">Talpykloje</string>
+  <string id="Checking" scope="glance">Tikrinama...</string>
+  <string id="ConfigUrlNotFound">URL nerastas. Galima konfigūracijos URL klaida nustatymuose.</string>
+  <string id="Confirm">Žinoma?</string>
+  <string id="Empty">Tuščia</string>
+  <string id="Executed" scope="glance">Patvirtinta</string>
   <string id="GlanceMenu" scope="glance">Meniu</string>
   <string id="Memory" scope="glance">Atmintis</string>
-  <string id="Empty">Tuščia</string>
-  <string id="TemplateError">Šablono klaida</string>
+  <string id="NoAPIKey" scope="glance">Programos nustatymuose nėra API rakto.</string>
+  <string id="NoApiUrl" scope="glance">Programos nustatymuose nėra API URL.</string>
+  <string id="NoConfigUrl" scope="glance">Programos nustatymuose nėra konfigūracijos URL.</string>
+  <string id="NoInternet">Nėra interneto ryšio.</string>
+  <string id="NoJson">Joks JSON negrąžintas iš HTTP užklausos.</string>
+  <string id="NoPhone" scope="glance">Nėra telefono ryšio.</string>
+  <string id="NoResponse">Neatsako, patikrinkite interneto ryšį</string>
+  <string id="PinInputLocked">PIN įvestis užrakinta</string>
   <string id="PotentialError">Galima klaida</string>
-  <!-- Dėl nustatymų GUI -->
+  <string id="Seconds">sekundžių</string>
+  <string id="TemplateError">Šablono klaida</string>
+  <string id="TrailingSlashErr">API URL pabaigoje negali būti pasvirojo brūkšnio „/“.</string>
+  <string id="Unavailable" scope="glance">Nepasiekiamas</string>
+  <string id="Unconfigured" scope="glance">Nesukonfigūruotas</string>
+  <string id="UnhandledHttpErr">HTTP užklausa grąžino klaidos kodą =</string>
+  <string id="WebhookFailed">Nepavyko užregistruoti Webhook</string>
+  <string id="WrongPin">Neteisingas PIN kodas</string>
+  <!-- Nustatymų GUI eilutės turi būti tokia tvarka, kokia jos naudojamos. -->
   <string id="SettingsSelect">Pasirinkite...</string>
-  <string id="SettingsApiKey">API raktas, skirtas HomeAssistant.</string>
+  <string id="SettingsApiKey">API raktas, skirtas „HomeAssistant“.</string>
   <string id="SettingsApiKeyPrompt">Ilgalaikis prieigos raktas.</string>
   <string id="SettingsApiUrl">„HomeAssistant“ API URL.</string>
   <string id="SettingsConfigUrl">Meniu konfigūravimo URL (JSON).</string>
@@ -58,10 +60,12 @@
   <string id="SettingsAppTimeout">Skirtasis laikas sekundėmis. Po šio neveiklumo laikotarpio išeikite iš programos, kad taupytumėte įrenginio akumuliatorių.</string>
   <string id="SettingsPollDelay">Papildoma apklausos delsa (sekundėmis). Prideda delsą tarp visų meniu elementų būsenos atnaujinimo.</string>
   <string id="SettingsConfirmTimeout">Praėjus šiam laikui (sekundėmis), veiksmo patvirtinimo dialogo langas automatiškai uždaromas ir veiksmas atšaukiamas. Nustatykite 0, kad išjungtumėte skirtąjį laiką.</string>
+  <string id="SettingsPin">4 skaitmenų PIN kodas, naudojamas visiems veiksmams, kuriuos reikia patvirtinti (0000-9999).</string>
+  <string id="SettingsPinError">Programos nustatymuose sukonfigūruokite galiojantį 4 skaitmenų skaitmeninį PIN kodą nuo 0000 iki 9999.</string>
   <string id="SettingsTextAlign">Kairysis (išjungtas) arba dešinysis (įjungtas) meniu lygiavimas.</string>
   <string id="LeftToRight">Iš kairės į dešinę</string>
   <string id="RightToLeft">Iš dešinės į kairę</string>
-  <string id="SettingsWidgetStart">(Tik valdiklis) Automatiškai paleiskite programą iš valdiklio, nelaukdami palietimo.</string>
+  <string id="SettingsWidgetStart">(Tik valdikliui) Automatiškai paleiskite programą iš valdiklio, nelaukdami, kol bus palietus.</string>
   <string id="SettingsEnableBatteryLevel">Įgalinkite foninę paslaugą, kad į „Home Assistant“ būtų išsiųsti įrenginio akumuliatoriaus lygio, vietos ir (jei palaikoma) veiklos duomenys.</string>
   <string id="SettingsBatteryLevelRefreshRate">Atnaujinimo dažnis (minutėmis), kuriuo foninė paslauga turėtų pakartoti duomenų siuntimą.</string>
   <string id="WebhookId">(Tik skaitoma) Įrenginio sukurtas „Webhook“ ID, skirtas foninėms paslaugoms atnaujinti. Jums gali prireikti derinimo.</string>
