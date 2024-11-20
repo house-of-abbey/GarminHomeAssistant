@@ -14,7 +14,12 @@
 //
 // Description:
 //
-// Home Assistant settings.
+// Home Assistant settings. 
+//
+// WARNING!
+//
+// Careful putting ErrorView.show() calls in here. They need to be guarded so that
+// they do not get called when only displaying the glance view.
 //
 //-----------------------------------------------------------------------------------
 
@@ -93,8 +98,6 @@ class Settings {
                         Background.deleteTemporalEvent();
                         Background.deleteActivityCompletedEvent();
                     }
-                } else {
-                    ErrorView.show(WatchUi.loadResource($.Rez.Strings.NoPhone) as Lang.String);
                 }
             } else {
                 // Explicitly disable the background event which persists when the application closes.
