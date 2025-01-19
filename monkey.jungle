@@ -31,8 +31,8 @@ project.manifest = manifest.xml
 #
 # The icons need to scale as a ratio of screen size 48:416 pixels
 #
-# Icon     55  53   48   46   42   37   32   30   28   26   24   21   18
-# Screen  480 454  416  390  360  320  280  260  240  218  208  176  156
+# Icon     55  53   48   46   42   37   32   30   28   26   24   21   19  18
+# Screen  480 454  416  390  360  320  280  260  240  218  208  176  166 156
 
 # Screen Size 390x390 launcher icon size 70x70
 approachs7042mm.resourcePath = $(approachs7042mm.resourcePath);resources-launcher-70-70;resources-icons-46
@@ -166,13 +166,23 @@ fr965.resourcePath = $(fr965.resourcePath);resources-launcher-65-65;resources-ic
 # Screen Size 240x400 launcher icon size 38x33
 gpsmap67.resourcePath = $(gpsmap67.resourcePath);resources-launcher-33-33;resources-icons-28
 # Screen Size 176x176 launcher icon size 62x62
-instinct2.resourcePath = $(instinct2.resourcePath);resources-launcher-62-62;resources-icons-21
+instinct2.resourcePath = $(instinct2.resourcePath);resources-launcher-62-62;resources-icons-21-w
 # Screen Size 163x156 launcher icon size 54x54
-instinct2s.resourcePath = $(instinct2s.resourcePath);resources-launcher-54-54;resources-icons-18
+instinct2s.resourcePath = $(instinct2s.resourcePath);resources-launcher-54-54;resources-icons-18-w
 # Screen Size 176x176 launcher icon size 62x62
-instinct2x.resourcePath = $(instinct2x.resourcePath);resources-launcher-62-62;resources-icons-21
+instinct2x.resourcePath = $(instinct2x.resourcePath);resources-launcher-62-62;resources-icons-21-w
+# Screen Size 390x390 launcher icon size 60x60, but the icon size used here is reduced as the menu items were clipped.
+instinct3amoled45mm.resourcePath = $(instinct3amoled45mm.resourcePath);resources-launcher-60-60;resources-icons-32
+# Screen Size 416x416 launcher icon size 60x60, but the icon size used here is reduced as the menu items were clipped.
+instinct3amoled50mm.resourcePath = $(instinct3amoled50mm.resourcePath);resources-launcher-60-60;resources-icons-34
+# Screen Size 176x176 launcher icon size 62x62
+instinct3solar45mm.resourcePath = $(instinct3solar45mm.resourcePath);resources-launcher-62-62;resources-icons-18-w
 # Screen Size 176x176 launcher icon size 26x26
-instinctcrossover.resourcePath = $(instinctcrossover.resourcePath);resources-launcher-26-26;resources-icons-21
+instinctcrossover.resourcePath = $(instinctcrossover.resourcePath);resources-launcher-26-26;resources-icons-21-w
+# Screen Size 166x166 launcher icon size 52x52, but the icon size used here is reduced as the menu items were clipped.
+instincte40mm.resourcePath = $(instincte40mm.resourcePath);resources-launcher-52-52;resources-icons-18-w
+# Screen Size	176x176 launcher icon size 62x62, but the icon size used here is reduced as the menu items were clipped.
+instincte45mm.resourcePath = $(instincte45mm.resourcePath);resources-launcher-62-62;resources-icons-18-w
 # Screen Size 218x218 launcher icon size 30x30
 legacyherocaptainmarvel.resourcePath = $(legacyherocaptainmarvel.resourcePath);resources-launcher-30-30;resources-icons-26
 # Screen Size 260x260 launcher icon size 35x35
