@@ -70,7 +70,7 @@
               "const": "template",
               "deprecated": true,
               "title": "Schema change:",
-              "description": "Use 'tap' instead."
+              "description": "Use 'info' or 'tap' instead."
             }
           },
           "required": ["name", "content", "type"],
@@ -93,7 +93,7 @@
               "const": "template",
               "deprecated": true,
               "title": "Schema change:",
-              "description": "Use 'tap' instead."
+              "description": "Use 'info' or 'tap' instead."
             },
             "tap_action": {
               "$ref": "#/$defs/tap_action"
@@ -103,6 +103,23 @@
           "additionalProperties": false
         }
       ]
+    },
+    "info": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "$ref": "#/$defs/name"
+        },
+        "content": {
+          "$ref": "#/$defs/content"
+        },
+        "type": {
+          "$ref": "#/$defs/type",
+          "const": "info"
+        }
+      },
+      "required": ["name", "content", "type"],
+      "additionalProperties": false
     },
     "tap": {
       "type": "object",
@@ -169,7 +186,7 @@
     },
     "type": {
       "title": "Menu item type",
-      "description": "One of 'tap', 'toggle' or 'group'."
+      "description": "One of 'info', 'tap', 'toggle' or 'group'."
     },
     "items": {
       "type": "array",
@@ -186,13 +203,16 @@
             "$ref": "#/$defs/tap"
           },
           {
+            "$ref": "#/$defs/info"
+          },
+          {
             "$ref": "#/$defs/group"
           }
         ]
       }
     },
     "name": {
-      "title": "Your familiar name",
+      "title": "Your familiar name to display in the menu item",
       "type": "string"
     },
     "entity": {
