@@ -6,9 +6,9 @@ Home | [Switches](examples/Switches.md) | [Actions](examples/Actions.md) | [Temp
 
 A Garmin application to provide a "dashboard" to control your devices via [Home Assistant](https://www.home-assistant.io/). The application will never be as fully fledged as a Home Assistant dashboard, so it is designed to be good enough for the simple and essential things. Those things that can be activated via an on/off toggle or a tap. That should cover lights, switches, and anything requiring a single press such as an automation. For anything more complicated, e.g. thermostat, it would always be quicker and simpler to reach for your phone or tablet... or the device's own remote control!
 
-The application is designed around a simple scrollable menu where menu items have been extended to interface with the [Home Assistant API](https://developers.home-assistant.io/docs/api/rest/), e.g. to get the status of switches or lights for display on the toggle menu item, or a text status for an entity (template item). It is possible to nest menus, so there is a menu item to open a sub-menu. This can be arbitrarily deep and nested in the format of a tree of items, although you need to consider if reaching for your phone becomes quicker to select the device what you want to control.
+The application is designed around a simple scrollable menu where menu items have been extended to interface with the [Home Assistant API](https://developers.home-assistant.io/docs/api/rest/), e.g. to get the status of switches or lights for display on the `toggle` menu item, or a text status for an entity (`info` item). It is possible to nest menus, so there is a menu item to open a sub-menu. This can be arbitrarily deep and nested in the format of a tree of items, although you need to consider if reaching for your phone becomes quicker to select the device what you want to control.
 
-**The intended audience for this application are those comfortable with configuring a Home Assistant** (e.g. editing the YAML configuration files) and debugging why URLs don't work. It does not require programming skills, but the menu is configured via JSON which feels like "coding". If you are not comfortable with this relatively low level of configuration, you may like to try other Garmin applications instead.
+**The intended audience for this application are those comfortable with configuring a Home Assistant** (e.g. editing the YAML configuration files) and debugging why URLs don't work. It does not require programming skills, but the menu is configured via JSON which feels like "coding" (more like "describing"). If you are not comfortable with this relatively low level of configuration, you may like to try other Garmin applications instead.
 
 > [!IMPORTANT]
 > The Garmin SDK allows HTTP requests only to a limited number of domains specified in their app. Therefore, for your Garmin to communicate with your Home Assistant instance, your Home Assistant instance must be accessible via HTTPS (with a public certificate!) or through a local DNS server that overrides one of the whitelisted domains to communicate using HTTP.
@@ -145,32 +145,33 @@ NB. Entity names are not real in case anyone's a hacker ;-).
 
 The example above illustrates how to configure:
 
-* Lights or switches (toggle), <img src="images/toggle_icon.png" height="20">
-* Enables for automations (toggle), <img src="images/toggle_icon.png" height="20">
-* Script invocation (tap)
-* Service invocation, e.g. Scene setting, (tap)
-* A sub-menu to open (group)
-* You can also display the status of devices (template) and add an optional 'tap' action. However that's a bit more involved and has its own [examples page](examples/Templates.md). Add those later!
+* Lights or switches (`toggle`), <img src="images/toggle_icon.png" height="20">
+* Enables for automations (`toggle`), <img src="images/toggle_icon.png" height="20">
+* Script invocation (`tap`)
+* Service invocation, e.g. Scene setting, (`tap`)
+* A sub-menu to open (`group`)
+* You can also display the status of devices (`info`) which is essentially a `tap` with no action
+* All menu items can display the results of evaluating [templates](examples/Templates.md).
 
-The following table indicates how Home Assistant entity types can map to the Garmin applications menu types. Presently, an automation is the only one that can be either a 'tap' or a 'toggle'.
+The following table indicates how Home Assistant entity types can map to the Garmin applications menu types. Presently, an automation is the only one that can be either a `tap` or a `toggle`.
 
-| HA Entity Type   | Tap | Toggle | Template (custom status text with optional tap action) |
-|------------------|:---:|:------:|:------------------------------------------------------:|
-| Switch           |  ❌  |  ✅  |   ✅<br>Separate on and off, or anything in between   |
-| Light            |  ❌  |  ✅  |   ✅<br>Separate on and off, or anything in between   |
-| Automation       |  ✅  |  ✅  |   ✅                                                  |
-| Script           |  ✅  |  ❌  |   ✅                                                  |
-| Scene            |  ✅  |  ❌  |   ✅                                                  |
-| Sensor           |  ❌  |  ❌  |   ✅                                                  |
-| Binary Sensor    |  ❌  |  ❌  |   ✅                                                  |
-| Any other entity |  ❌  |  ❌  |   ✅                                                  |
-| Any service      |  ✅  |  ❌  |   ✅                                                  |
+| HA Entity Type   | Tap | Toggle | Info (status)|
+|------------------|:---:|:------:|:------------:|
+| Switch           | ❌ |   ✅  |      ✅      |
+| Light            | ❌ |   ✅  |      ✅      |
+| Automation       | ✅ |   ✅  |      ❌      |
+| Script           | ✅ |   ❌  |      ❌      |
+| Scene            | ✅ |   ❌  |      ❌      |
+| Sensor           | ❌ |   ❌  |      ✅      |
+| Binary Sensor    | ❌ |   ❌  |      ✅      |
+| Any other entity | ❌ |   ❌  |      ✅      |
+| Any service      | ✅ |   ❌  |      ❌      |
 
-Templates need separate HTTP requests to update their status and send an action. Only the toggle items have the on/off <img src="images/toggle_icon.png" height="20"> icon. A Tap does not require a status update and hence does not require the associated HTTP GET request. NB. All 'tap' items must specify a 'service' tag.
+Multiple templates are evaluated in a single HTTP request to update their status. Only the toggle items have the on/off <img src="images/toggle_icon.png" height="20"> icon. NB. All `tap` items must specify a `service` tag in the `tap_action` object (see example below).
 
 You can now specify alternative texts to use instead of "On" and "Off", e.g. "Locked" and "Unlocked" or "Open" and "Closed" through the use of a [template menu item](examples/Templates.md). But wouldn't having locks operated from your watch be a security concern ;-) ?
 
-The [schema](https://raw.githubusercontent.com/house-of-abbey/GarminHomeAssistant/main/config.schema.json) is checked by using a URL directly back to this GitHub source repository, so you do not need to install that file. You can just copy & paste your entity names from the YAML configuration files used to configure Home Assistant. With a submenu, there's a difference between "title" and "name". The "name" goes on the menu item, and the "title" at the head of the submenu. If your dashboard definition fails to meet the schema, the application will simply drop items with the wrong field names without warning to protect itself.
+The [schema](https://raw.githubusercontent.com/house-of-abbey/GarminHomeAssistant/main/config.schema.json) is checked by using a URL directly back to this GitHub source repository, so you do not need to install that file. You can just copy & paste your entity names from the YAML configuration files used to configure Home Assistant. With a submenu, there's a difference between `title` and `name`. The `name` goes on the menu item, and the `title` at the head of the submenu. If your dashboard definition fails to meet the schema, the application will simply drop items with the wrong field names without warning to protect itself.
 
 ### Old deprecated format
 
@@ -198,13 +199,13 @@ The above should be replaced by the following:
     }
 ```
 
-This allows the `confirm` field to be accommodated in the `tap_action` along side the `service` tag, and follows the Home Assistant YAML format more closely.
+This allows the `confirm` and `pin` fields to be accommodated in the `tap_action` along side the `service` tag, and follows the Home Assistant YAML format more closely.
 
 ### More Examples
 
-- [Switches](examples/Switches.md)
-- [Actions](examples/Actions.md)
-- [Templates](examples/Templates.md)
+* [Switches](examples/Switches.md)
+* [Actions](examples/Actions.md)
+* [Templates](examples/Templates.md)
 
 ## Editing the JSON file
 
