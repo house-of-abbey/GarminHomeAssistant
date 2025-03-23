@@ -120,25 +120,21 @@ class WebhookManager {
             case Communications.BLE_HOST_TIMEOUT:
             case Communications.BLE_CONNECTION_UNAVAILABLE:
                 // System.println("WebhookManager onReturnRegisterWebhookSensor() Response Code: BLE_HOST_TIMEOUT or BLE_CONNECTION_UNAVAILABLE, Bluetooth connection severed.");
-                Settings.unsetWebhookId();
                 ErrorView.show(WatchUi.loadResource($.Rez.Strings.WebhookFailed) as Lang.String + "\n" + WatchUi.loadResource($.Rez.Strings.NoPhone) as Lang.String);
                 break;
 
             case Communications.BLE_QUEUE_FULL:
                 // System.println("WebhookManager onReturnRegisterWebhookSensor() Response Code: BLE_QUEUE_FULL, API calls too rapid.");
-                Settings.unsetWebhookId();
                 ErrorView.show(WatchUi.loadResource($.Rez.Strings.WebhookFailed) as Lang.String + "\n" + WatchUi.loadResource($.Rez.Strings.ApiFlood) as Lang.String);
                 break;
 
             case Communications.NETWORK_REQUEST_TIMED_OUT:
                 // System.println("WebhookManager onReturnRegisterWebhookSensor() Response Code: NETWORK_REQUEST_TIMED_OUT, check Internet connection.");
-                Settings.unsetWebhookId();
                 ErrorView.show(WatchUi.loadResource($.Rez.Strings.WebhookFailed) as Lang.String + "\n" + WatchUi.loadResource($.Rez.Strings.NoResponse) as Lang.String);
                 break;
 
             case Communications.NETWORK_RESPONSE_OUT_OF_MEMORY:
                 // System.println("WebhookManager onReturnRegisterWebhookSensor() Response Code: NETWORK_RESPONSE_OUT_OF_MEMORY, are we going too fast?");
-                Settings.unsetWebhookId();
                 // Ignore and see if we can carry on
                 break;
 
