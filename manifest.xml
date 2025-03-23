@@ -30,13 +30,14 @@
   -->
   <iq:application id="98c36259-498a-4458-9cef-74a273ad2bc3" type="watch-app" name="@Strings.AppName" entry="HomeAssistantApp" launcherIcon="@Drawables.LauncherIcon" minApiLevel="3.1.0">
     <!--
-      Use the following from the Visual Studio Code comand palette to edit
+      Use the following from the Visual Studio Code command palette to edit
       the build targets:
       "Monkey C: Set Products by Product Category" - Lets you add all products
                                   that belong to the same product category
       "Monkey C: Edit Products" - Lets you add or remove any product
     -->
     <iq:products>
+      <iq:product id="approachs50"/>
       <iq:product id="approachs7042mm"/>
       <iq:product id="approachs7047mm"/>
       <iq:product id="d2air"/>
@@ -46,6 +47,8 @@
       <iq:product id="d2deltas"/>
       <iq:product id="d2mach1"/>
       <iq:product id="descentg1"/>
+      <iq:product id="descentg2"/>
+      <iq:product id="descentmk1"/>
       <iq:product id="descentmk2"/>
       <iq:product id="descentmk2s"/>
       <iq:product id="descentmk343mm"/>
@@ -113,6 +116,7 @@
       <iq:product id="fr945lte"/>
       <iq:product id="fr955"/>
       <iq:product id="fr965"/>
+      <iq:product id="gpsmap66"/>
       <iq:product id="gpsmap67"/>
       <iq:product id="instinct2"/>
       <iq:product id="instinct2s"/>
