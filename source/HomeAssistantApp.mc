@@ -39,7 +39,6 @@ class HomeAssistantApp extends Application.AppBase {
     private var mIsApp         as Lang.Boolean    = false; // Or Widget
     private var mUpdating      as Lang.Boolean    = false; // Don't start a second chain of updates
     private var mTemplates     as Lang.Dictionary = {};
-    private var startUpdating  as Lang.Boolean    = false;
 
     function initialize() {
         AppBase.initialize();
@@ -120,12 +119,16 @@ class HomeAssistantApp extends Application.AppBase {
             return ErrorView.create(WatchUi.loadResource($.Rez.Strings.NoInternet) as Lang.String);
         } else {
             var isCached = fetchMenuConfig();
+            var ret      = null;
             fetchApiStatus();
             if (isCached) {
-                return [mHaMenu, new HomeAssistantViewDelegate(true)];
+                ret = [mHaMenu, new HomeAssistantViewDelegate(true)];
             } else {
-                return [new WatchUi.View(), new WatchUi.BehaviorDelegate()];
+                ret = [new WatchUi.View(), new WatchUi.BehaviorDelegate()];
             }
+            // Separated from Settings.update() in order to call after fetchMenuConfig() and not call it on changes settings.
+            Settings.webhook();
+            return ret;
         }
     }
 
@@ -263,17 +266,15 @@ class HomeAssistantApp extends Application.AppBase {
     private function buildMenu(menu as Lang.Dictionary) {
         mHaMenu = new HomeAssistantView(menu, null);
         mQuitTimer.begin();
-        if (startUpdating) {
-            startUpdates();
-        }
+        startUpdates();
     }
 
     function startUpdates() {
         if (mHaMenu != null and !mUpdating) {
             // Start the continuous update process that continues for as long as the application is running.
             updateMenuItems();
+            mUpdating = true;
         }
-        startUpdating = true;
     }
 
     function onReturnUpdateMenuItems(responseCode as Lang.Number, data as Null or Lang.Dictionary) as Void {

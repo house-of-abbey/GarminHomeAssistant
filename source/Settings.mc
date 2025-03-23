@@ -69,7 +69,9 @@ class Settings {
         mMenuAlignment         = Properties.getValue("menu_alignment");
         mIsSensorsLevelEnabled = Properties.getValue("enable_battery_level");
         mBatteryRefreshRate    = Properties.getValue("battery_level_refresh_rate");
+    }
 
+    static function webhook() {
         if (System has :ServiceDelegate) {
             mHasService = true;
         }
@@ -106,13 +108,13 @@ class Settings {
                 unsetWebhookId();
             }
         }
-        // System.println("Settings update(): getTemporalEventRegisteredTime() = " + Background.getTemporalEventRegisteredTime());
+        // System.println("Settings webhook(): getTemporalEventRegisteredTime() = " + Background.getTemporalEventRegisteredTime());
         // if (Background.getTemporalEventRegisteredTime() != null) {
-        //     System.println("Settings update(): getTemporalEventRegisteredTime().value() = " + Background.getTemporalEventRegisteredTime().value().format("%d") + " seconds");
+        //     System.println("Settings webhook(): getTemporalEventRegisteredTime().value() = " + Background.getTemporalEventRegisteredTime().value().format("%d") + " seconds");
         // } else {
-        //     System.println("Settings update(): getTemporalEventRegisteredTime() = null");
+        //     System.println("Settings webhook(): getTemporalEventRegisteredTime() = null");
         // }
-    }
+     }
 
     static function getApiKey() as Lang.String {
         return mApiKey;
