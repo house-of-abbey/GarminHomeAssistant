@@ -266,6 +266,9 @@ class HomeAssistantApp extends Application.AppBase {
     private function buildMenu(menu as Lang.Dictionary) {
         mHaMenu = new HomeAssistantView(menu, null);
         mQuitTimer.begin();
+        if (!Settings.getWebhookId().equals("")) {
+            startUpdates();
+        } // If not, this will be done via a chain in Settings.webhook() and mWebhookManager.requestWebhookId() that registers the sensors.
     }
 
     function startUpdates() {
