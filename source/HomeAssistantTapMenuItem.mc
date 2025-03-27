@@ -72,6 +72,12 @@ class HomeAssistantTapMenuItem extends WatchUi.IconMenuItem {
             setSubLabel($.Rez.Strings.Empty);
         } else if(data instanceof Lang.String) {
             setSubLabel(data);
+        } else if(data instanceof Lang.Number) {
+            var d = data as Lang.Number;
+            setSubLabel(d.format("%d"));
+        } else if(data instanceof Lang.Float) {
+            var f = data as Lang.Float;
+            setSubLabel(f.format("%f"));
         } else if(data instanceof Lang.Dictionary) {
             // System.println("HomeAsistantTemplateMenuItem updateState() data = " + data);
             if (data.get("error") != null) {
@@ -80,7 +86,7 @@ class HomeAssistantTapMenuItem extends WatchUi.IconMenuItem {
                 setSubLabel($.Rez.Strings.PotentialError);
             }
         } else {
-            // The template must return a Lang.String, a number can be either integer or float and hence cannot be formatted locally without error.
+            // The template must return a Lang.String, Number or Float, or the item cannot be formatted locally without error.
             setSubLabel(WatchUi.loadResource($.Rez.Strings.TemplateError) as Lang.String);
         }
         WatchUi.requestUpdate();

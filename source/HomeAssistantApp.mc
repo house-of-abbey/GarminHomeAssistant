@@ -266,7 +266,6 @@ class HomeAssistantApp extends Application.AppBase {
     private function buildMenu(menu as Lang.Dictionary) {
         mHaMenu = new HomeAssistantView(menu, null);
         mQuitTimer.begin();
-        startUpdates();
     }
 
     function startUpdates() {
