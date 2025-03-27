@@ -47,6 +47,10 @@ class HomeAssistantGroupMenuItem extends WatchUi.IconMenuItem {
         mMenu = new HomeAssistantView(definition, null);
     }
 
+    function hasTemplate() as Lang.Boolean {
+        return mTemplate != null;
+    }
+
     function buildTemplate() as Lang.String or Null {
         return mTemplate;
     }
@@ -63,7 +67,7 @@ class HomeAssistantGroupMenuItem extends WatchUi.IconMenuItem {
             var f = data as Lang.Float;
             setSubLabel(f.format("%f"));
         } else if(data instanceof Lang.Dictionary) {
-            // System.println("HomeAsistantGroupMenuItem updateState() data = " + data);
+            // System.println("HomeAssistantGroupMenuItem updateState() data = " + data);
             if (data.get("error") != null) {
                 setSubLabel($.Rez.Strings.TemplateError);
             } else {
@@ -78,10 +82,6 @@ class HomeAssistantGroupMenuItem extends WatchUi.IconMenuItem {
 
     function getMenuView() as HomeAssistantView {
         return mMenu;
-    }
-
-    function hasTemplate() as Lang.Boolean {
-        return mTemplate != null;
     }
 
 }

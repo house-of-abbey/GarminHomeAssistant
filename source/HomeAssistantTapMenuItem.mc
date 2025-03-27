@@ -79,7 +79,7 @@ class HomeAssistantTapMenuItem extends WatchUi.IconMenuItem {
             var f = data as Lang.Float;
             setSubLabel(f.format("%f"));
         } else if(data instanceof Lang.Dictionary) {
-            // System.println("HomeAsistantTemplateMenuItem updateState() data = " + data);
+            // System.println("HomeAssistantTapMenuItem updateState() data = " + data);
             if (data.get("error") != null) {
                 setSubLabel($.Rez.Strings.TemplateError);
             } else {
