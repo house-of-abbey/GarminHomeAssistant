@@ -37,3 +37,4 @@
 |   2.22  | Major feature release adding an optional PIN to menu items. This significant new feature has been provided by [moesterheld](https://github.com/moesterheld). Please do not rely on this application for security. Use at your own risk! |
 |   2.23  | Added "info" menu item for displaying information via a template without a tap or toggle. Essentially like the old 'template' type that was deprecated when all items were amended to display evaluated templates. That action removed the display only items too hastily. Added 5 new devices in the model range Instinct 3 and Instinct E. |
 |   2.24  | Experiment to prevent new Webhook IDs being created unnecessarily. Reduced the latency for the first menu update. Added 4 new devices: approachs50, descentg2, descentmk1, and gpsmap66. |
+|   2.25  | 2 Bug fixes. First time startup issues caused by v2.24 change and a fix for pure numbers in returned templates. |
