@@ -22,8 +22,7 @@
 using Toybox.Lang;
 using Toybox.WatchUi;
 
-class HomeAssistantGroupMenuItem extends WatchUi.IconMenuItem {
-    private var mTemplate as Lang.String or Null;
+class HomeAssistantGroupMenuItem extends HomeAssistantMenuItem {
     private var mMenu as HomeAssistantView;
 
     function initialize(
@@ -34,54 +33,23 @@ class HomeAssistantGroupMenuItem extends WatchUi.IconMenuItem {
             :alignment as WatchUi.MenuItem.Alignment
         } or Null
     ) {
+        if (options != null) {
+            options.put(:icon, icon);
+        } else {
+            options = { :icon => icon };
+        }
 
-        WatchUi.IconMenuItem.initialize(
+        HomeAssistantMenuItem.initialize(
             definition.get("name") as Lang.String,
-            null,
-            null,
-            icon,
+            template,
             options
         );
 
-        mTemplate = template;
         mMenu = new HomeAssistantView(definition, null);
-    }
-
-    function buildTemplate() as Lang.String or Null {
-        return mTemplate;
-    }
-
-    function updateState(data as Lang.String or Lang.Dictionary or Null) as Void {
-        if (data == null) {
-            setSubLabel(null);
-        } else if(data instanceof Lang.String) {
-            setSubLabel(data);
-        } else if(data instanceof Lang.Number) {
-            var d = data as Lang.Number;
-            setSubLabel(d.format("%d"));
-        } else if(data instanceof Lang.Float) {
-            var f = data as Lang.Float;
-            setSubLabel(f.format("%f"));
-        } else if(data instanceof Lang.Dictionary) {
-            // System.println("HomeAsistantGroupMenuItem updateState() data = " + data);
-            if (data.get("error") != null) {
-                setSubLabel($.Rez.Strings.TemplateError);
-            } else {
-                setSubLabel($.Rez.Strings.PotentialError);
-            }
-        } else {
-            // The template must return a Lang.String, Number or Float, or the item cannot be formatted locally without error.
-            setSubLabel(WatchUi.loadResource($.Rez.Strings.TemplateError) as Lang.String);
-        }
-        WatchUi.requestUpdate();
     }
 
     function getMenuView() as HomeAssistantView {
         return mMenu;
-    }
-
-    function hasTemplate() as Lang.Boolean {
-        return mTemplate != null;
     }
 
 }

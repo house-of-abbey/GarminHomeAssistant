@@ -9,7 +9,7 @@
 // tested on a Venu 2 device. The source code is provided at:
 //            https://github.com/house-of-abbey/GarminHomeAssistant.
 //
-// P A Abbey & J D Abbey & Someone0nEarth, 31 October 2023
+// P A Abbey & J D Abbey & Someone0nEarth & moesterheld, 31 October 2023
 //
 //
 // Description:
@@ -266,6 +266,9 @@ class HomeAssistantApp extends Application.AppBase {
     private function buildMenu(menu as Lang.Dictionary) {
         mHaMenu = new HomeAssistantView(menu, null);
         mQuitTimer.begin();
+        if (!Settings.getWebhookId().equals("")) {
+            startUpdates();
+        } // If not, this will be done via a chain in Settings.webhook() and mWebhookManager.requestWebhookId() that registers the sensors.
     }
 
     function startUpdates() {

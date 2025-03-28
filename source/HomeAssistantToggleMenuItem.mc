@@ -9,7 +9,7 @@
 // tested on a Venu 2 device. The source code is provided at:
 //            https://github.com/house-of-abbey/GarminHomeAssistant.
 //
-// P A Abbey & J D Abbey & Someone0nEarth, 31 October 2023
+// P A Abbey & J D Abbey & Someone0nEarth & moesterheld, 31 October 2023
 //
 //
 // Description:
@@ -42,7 +42,13 @@ class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
             :icon      as Graphics.BitmapType or WatchUi.Drawable or Lang.Symbol
         } or Null
     ) {
-        WatchUi.ToggleMenuItem.initialize(label, null, null, false, options);
+        WatchUi.ToggleMenuItem.initialize(
+            label,
+            null,
+            null,
+            false,
+            options
+        );
         if (Attention has :vibrate) {
             mHasVibrate = true;
         }
@@ -81,7 +87,7 @@ class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
             var f = data as Lang.Float;
             setSubLabel(f.format("%f"));
         } else if(data instanceof Lang.Dictionary) {
-            // System.println("HomeAsistantToggleMenuItem updateState() data = " + data);
+            // System.println("HomeAssistantToggleMenuItem updateState() data = " + data);
             if (data.get("error") != null) {
                 setSubLabel($.Rez.Strings.TemplateError);
             } else {
@@ -93,6 +99,7 @@ class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
         }
         WatchUi.requestUpdate();
     }
+
     function updateToggleState(data as Lang.String or Lang.Dictionary or Null) as Void {
         if (data == null) {
             setUiToggle("off");
@@ -102,7 +109,7 @@ class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
                 setSubLabel($.Rez.Strings.Unavailable);
             }
         } else if(data instanceof Lang.Dictionary) {
-            // System.println("HomeAsistantToggleMenuItem updateState() data = " + data);
+            // System.println("HomeAssistantToggleMenuItem updateState() data = " + data);
             if (mTemplate == null) {
                 if (data.get("error") != null) {
                     setSubLabel($.Rez.Strings.TemplateError);
