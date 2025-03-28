@@ -9,7 +9,7 @@
 // tested on a Venu 2 device. The source code is provided at:
 //            https://github.com/house-of-abbey/GarminHomeAssistant.
 //
-// P A Abbey & J D Abbey & Someone0nEarth, 31 October 2023
+// P A Abbey & J D Abbey & Someone0nEarth & moesterheld, 31 October 2023
 //
 //
 // Description:
@@ -22,9 +22,8 @@ using Toybox.Lang;
 using Toybox.WatchUi;
 using Toybox.Graphics;
 
-class HomeAssistantTapMenuItem extends WatchUi.IconMenuItem {
+class HomeAssistantTapMenuItem extends HomeAssistantMenuItem {
     private var mHomeAssistantService as HomeAssistantService;
-    private var mTemplate             as Lang.String;
     private var mService              as Lang.String or Null;
     private var mConfirm              as Lang.Boolean;
     private var mPin                  as Lang.Boolean;
@@ -39,57 +38,28 @@ class HomeAssistantTapMenuItem extends WatchUi.IconMenuItem {
         data      as Lang.Dictionary or Null,
         icon      as Graphics.BitmapType or WatchUi.Drawable,
         options   as {
-            :alignment as WatchUi.MenuItem.Alignment
+            :alignment as WatchUi.MenuItem.Alignment,
+            :icon      as Graphics.BitmapType or WatchUi.Drawable or Lang.Symbol
         } or Null,
         haService as HomeAssistantService
     ) {
-        WatchUi.IconMenuItem.initialize(
+        if (options != null) {
+            options.put(:icon, icon);
+        } else {
+            options = { :icon => icon };
+        }
+
+        HomeAssistantMenuItem.initialize(
             label,
-            null,
-            null,
-            icon,
+            template,
             options
         );
 
         mHomeAssistantService = haService;
-        mTemplate             = template;
         mService              = service;
         mConfirm              = confirm;
         mPin                  = pin;
         mData                 = data;
-    }
-
-    function hasTemplate() as Lang.Boolean {
-        return mTemplate != null;
-    }
-
-    function buildTemplate() as Lang.String or Null {
-        return mTemplate;
-    }
-
-    function updateState(data as Lang.String or Lang.Dictionary or Null) as Void {
-        if (data == null) {
-            setSubLabel($.Rez.Strings.Empty);
-        } else if(data instanceof Lang.String) {
-            setSubLabel(data);
-        } else if(data instanceof Lang.Number) {
-            var d = data as Lang.Number;
-            setSubLabel(d.format("%d"));
-        } else if(data instanceof Lang.Float) {
-            var f = data as Lang.Float;
-            setSubLabel(f.format("%f"));
-        } else if(data instanceof Lang.Dictionary) {
-            // System.println("HomeAssistantTapMenuItem updateState() data = " + data);
-            if (data.get("error") != null) {
-                setSubLabel($.Rez.Strings.TemplateError);
-            } else {
-                setSubLabel($.Rez.Strings.PotentialError);
-            }
-        } else {
-            // The template must return a Lang.String, Number or Float, or the item cannot be formatted locally without error.
-            setSubLabel(WatchUi.loadResource($.Rez.Strings.TemplateError) as Lang.String);
-        }
-        WatchUi.requestUpdate();
     }
 
     function callService() as Void {
