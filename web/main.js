@@ -451,7 +451,7 @@ loadSchema();
 // require is provided by loader.min.js.
 require.config({
   paths: {
-    vs: 'https://unpkg.com/monaco-editor@0.45.0/min/vs',
+    vs: 'https://www.unpkg.com/monaco-editor@0.45.0/min/vs',
   },
 });
 require(['vs/editor/editor.main'], async () => {
