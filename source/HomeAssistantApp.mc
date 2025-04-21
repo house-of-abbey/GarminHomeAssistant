@@ -212,7 +212,7 @@ class HomeAssistantApp extends Application.AppBase {
     // asynchronous and affects how the views are managed.
     (:glance)
     function fetchMenuConfig() as Lang.Boolean {
-        // System.println("URL = " + Settings.getConfigUrl());
+        // System.println("Menu URL = " + Settings.getConfigUrl());
         if (Settings.getConfigUrl().equals("")) {
             mMenuStatus = WatchUi.loadResource($.Rez.Strings.Unconfigured) as Lang.String;
             WatchUi.requestUpdate();
@@ -468,6 +468,7 @@ class HomeAssistantApp extends Application.AppBase {
 
     (:glance)
     function fetchApiStatus() as Void {
+        // System.println("API URL = " + Settings.getApiUrl());
         if (Settings.getApiUrl().equals("")) {
             mApiStatus = WatchUi.loadResource($.Rez.Strings.Unconfigured) as Lang.String;
             WatchUi.requestUpdate();
@@ -546,8 +547,8 @@ class HomeAssistantApp extends Application.AppBase {
         mIsGlance   = true;
         mApiStatus  = WatchUi.loadResource($.Rez.Strings.Checking) as Lang.String;
         mMenuStatus = WatchUi.loadResource($.Rez.Strings.Checking) as Lang.String;
-        updateStatus();
         Settings.update();
+        updateStatus();
         mGlanceTimer = new Timer.Timer();
         mGlanceTimer.start(method(:updateStatus), Globals.scApiBackoff, true);
         return [new HomeAssistantGlanceView(self)];
