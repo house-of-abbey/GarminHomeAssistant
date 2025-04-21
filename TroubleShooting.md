@@ -120,6 +120,32 @@ There's an online way of testing the API URL too, thanks to [REQBIN](https://req
 
 ![API Test REQBIN](images/api_test_online.png)
 
+#### SSL Certificate Chain
+
+With thanks to [@ziceva](https://github.com/ziceva) for solving this problem. The symptoms are:
+1. Using an API URL with SSL (HTTPS), the [web-based editor](https://house-of-abbey.github.io/GarminHomeAssistant/web/) running in a browser on the same phone running Garmin Connect works well.
+2. The exact same configuration is set in the Garmin Home Assistant application.
+3. The Garmin Home Assistant application reports:
+```
+API: not available
+Menu: not available
+```
+
+**Solution: Make sure you use a _full chain_ certificate in your HTTPS proxy as some watches might be unable to validate the site certificate alone.**
+
+Most web browsers and OSes probably have the latest Certificate Authorities (CAs) trusted out-of-the-box and so they do not need the full chain to verify the certificates. Garmin watches may not have the latest CAs and that is why the Troubleshooting web page does not catch this problem. E.g. It turns out some Garmin watches do not have the LetsEncrypt CA marked as trusted.
+
+To verify if you have this issue you can use a tool like [SSL Shoppers's SSL Checker](https://www.sslshopper.com/ssl-checker.html), which will catch this issue. The following two screen captures illustrate the difference between partial and full chain certificates respectively.
+
+##### Partial Chain Certificate
+
+![Partial Chain Certificate](images/HTTPS_partial_chain.png)
+
+##### Full Chain Certificate
+
+![Full Chain Certificate](images/HTTPS_full_chain.png)
+
+
 ### Top Problems
 
 1. Failure to copy & paste keys and URLs leading to minor and hard to see errors in strings, even with protestations they are the same! (No they weren't...)
