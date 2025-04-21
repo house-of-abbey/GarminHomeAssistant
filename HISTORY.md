@@ -39,3 +39,4 @@
 |   2.24  | Experiment to prevent new Webhook IDs being created unnecessarily. Reduced the latency for the first menu update. Added 4 new devices: approachs50, descentg2, descentmk1, and gpsmap66. |
 |   2.25  | 2 Bug fixes. First time startup issues caused by v2.24 change and a fix for pure numbers in returned templates. |
 |   2.26  | Retry responsive menu fix failed in v2.24. Cosmetic internal class changes. |
+|   2.27  | Trivial bug fix for the glance view to prevent the "Unconfigured" result being erroneously displayed because the settings were not yet pulled from persistent storage. |
