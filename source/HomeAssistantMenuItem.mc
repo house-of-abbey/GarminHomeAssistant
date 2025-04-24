@@ -51,7 +51,7 @@ class HomeAssistantMenuItem extends WatchUi.IconMenuItem {
         return mTemplate;
     }
 
-    function updateState(data as Lang.String or Lang.Dictionary or Null) as Void {
+    function updateState(data as Lang.String or Lang.Dictionary or Lang.Number or Lang.Float or Null) as Void {
         if (data == null) {
             setSubLabel($.Rez.Strings.Empty);
         } else if(data instanceof Lang.String) {
