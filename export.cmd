@@ -29,45 +29,49 @@ rem Assume we can create and use this directory
 set DEST=export
 set IQ=HomeAssistant-app.iq
 
-rem C:\>java -jar %SDK_PATH%\monkeybrains.jar -h
-rem usage: monkeyc [-a <arg>] [-b <arg>] [--build-stats <arg>] [-c <arg>] [-d <arg>]
-rem        [--debug-log-level <arg>] [--debug-log-output <arg>] [-e]
+rem usage: monkeyc [-a <arg>] [-b <arg>] [--build-stats <arg>] [-d <arg>]
+rem        [--debug-log-level <arg>] [--debug-log-output <arg>]
+rem        [--disable-api-has-check-removal] [--disable-v2-opcodes] [-e]
 rem        [--Eno-invalid-symbol] [-f <arg>] [-g] [-h] [-i <arg>] [-k] [-l <arg>]
-rem        [-m <arg>] [--no-gen-styles] [-o <arg>] [-O <arg>] [-p <arg>] [-r] [-s
-rem        <arg>] [-t] [-u <arg>] [-v] [-w] [-x <arg>] [-y <arg>] [-z <arg>]
-rem -a,--apidb <arg>           API import file
-rem -b,--apimir <arg>          API MIR file
-rem    --build-stats <arg>     Print build stats [0=basic]
-rem -c,--api-level <arg>       API Level to target
-rem -d,--device <arg>          Target device
-rem    --debug-log-level <arg> Debug logging verbosity [0=errors, 1=basic,
-rem                            2=intermediate, 3=verbose]
-rem    --debug-log-output <arg>Output log zip file
-rem -e,--package-app           Create an application package.
-rem    --Eno-invalid-symbol    Do not error when a symbol is found to be invalid
-rem -f,--jungles <arg>         Jungle files
-rem -g,--debug                 Print debug output
-rem -h,--help                  Prints help information
-rem -i,--import-dbg <arg>      Import api.debug.xml
-rem -k,--profile               Enable profiling support
-rem -l,--typecheck <arg>       Type check [0=off, 1=gradual, 2=informative,
-rem                            3=strict]
-rem -m,--manifest <arg>        Manifest file (deprecated)
-rem    --no-gen-styles         Do not generate Rez.Styles module
-rem -o,--output <arg>          Output file to create
-rem -O,--optimization <arg>    Optimization level [0=none, 1=basic, 2=fast
-rem                            optimizations, 3=slow optimizations] [p=optimize
-rem                            performance, z=optimize code space]
-rem -p,--project-info <arg>    projectInfo.xml file to use when compiling
-rem -r,--release               Strip debug information
-rem -s,--sdk-version <arg>     SDK version to target (deprecated, use -c
-rem -t,--unit-test             Enables compilation of unit tests
-rem -u,--devices <arg>         devices.xml file to use when compiling (deprecated)
-rem -v,--version               Prints the compiler version
-rem -w,--warn                  Show compiler warnings
-rem -x,--excludes <arg>        Add annotations to the exclude list (deprecated)
-rem -y,--private-key <arg>     Private key to sign builds with
-rem -z,--rez <arg>             Resource files (deprecated)
+rem        [-m <arg>] [--no-gen-styles] [-o <arg>] [-O <arg>] [-p <arg>] [-r] [-t]
+rem        [-u <arg>] [-v] [-w] [-x <arg>] [-y <arg>] [-z <arg>]
+rem -a,--apidb <arg>                  API import file
+rem -b,--apimir <arg>                 API MIR file
+rem    --build-stats <arg>            Print build stats [0=basic]
+rem -d,--device <arg>                 Target device
+rem    --debug-log-level <arg>        Debug logging verbosity [0=errors, 1=basic,
+rem                                   2=intermediate, 3=verbose]
+rem    --debug-log-output <arg>       Output log zip file
+rem    --disable-api-has-check-removalDo not optimize out API has checks
+rem    --disable-v2-opcodes           Do not use the v2 opcodes
+rem -e,--package-app                  Create an application package.
+rem    --Eno-invalid-symbol           Do not error when a symbol is found to be
+rem                                   invalid
+rem -f,--jungles <arg>                Jungle files
+rem -g,--debug                        Print debug output
+rem -h,--help                         Prints help information
+rem -i,--import-dbg <arg>             Import api.debug.xml
+rem -k,--profile                      Enable profiling support
+rem -l,--typecheck <arg>              Type check [0=off, 1=gradual, 2=informative,
+rem                                   3=strict]
+rem -m,--manifest <arg>               Manifest file (deprecated)
+rem    --no-gen-styles                Do not generate Rez.Styles module
+rem -o,--output <arg>                 Output file to create
+rem -O,--optimization <arg>           Optimization level [0=none, 1=basic, 2=fast
+rem                                   optimizations, 3=slow optimizations]
+rem                                   [p=optimize performance, z=optimize code
+rem                                   space]
+rem -p,--project-info <arg>           projectInfo.xml file to use when compiling
+rem -r,--release                      Strip debug information
+rem -t,--unit-test                    Enables compilation of unit tests
+rem -u,--devices <arg>                devices.xml file to use when compiling
+rem                                   (deprecated)
+rem -v,--version                      Prints the compiler version
+rem -w,--warn                         Show compiler warnings
+rem -x,--excludes <arg>               Add annotations to the exclude list
+rem                                   (deprecated)
+rem -y,--private-key <arg>            Private key to sign builds with
+rem -z,--rez <arg>                    Resource files (deprecated)
 
 title Exporting Garmin Home Assistant Application
 
@@ -96,7 +100,6 @@ echo.
   -Dfile.encoding=UTF-8 ^
   -Dapple.awt.UIElement=true ^
   -jar %SDK_PATH%\monkeybrains.jar ^
-  --api-level 3.1.0 ^
   --output %IQ% ^
   --jungles %SRC%\monkey.jungle ^
   --private-key %SRC%\..\developer_key ^
