@@ -241,5 +241,7 @@ vivoactive3mlte.resourcePath = $(vivoactive3mlte.resourcePath);resources-launche
 vivoactive4.resourcePath = $(vivoactive4.resourcePath);resources-launcher-35-35;resources-icons-30
 # Screen Size 218x218 launcher icon size 30x30
 vivoactive4s.resourcePath = $(vivoactive4s.resourcePath);resources-launcher-30-30;resources-icons-26
-# Screen Size 390x390 launcher icon size 70x70
-vivoactive5.resourcePath = $(vivoactive5.resourcePath);resources-launcher-70-70;resources-icons-46
+# Screen Size 390x390 launcher icon size 56x56
+vivoactive5.resourcePath = $(vivoactive5.resourcePath);resources-launcher-56-56;resources-icons-46
+# Screen Size 390x390 launcher icon size 54x54
+vivoactive6.resourcePath = $(vivoactive6.resourcePath);resources-launcher-54-54;resources-icons-46
