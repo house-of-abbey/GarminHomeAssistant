@@ -41,3 +41,4 @@
 |   2.26  | Retry responsive menu fix failed in v2.24. Cosmetic internal class changes. |
 |   2.27  | Trivial bug fix for the glance view to prevent the "Unconfigured" result being erroneously displayed because the settings were not yet pulled from persistent storage. |
 |   2.28  | Added support for Vivoactive 6 device which also required an SDK update to 8.1.0. |
+|   2.29  | Added support for three new devices, Forerunners 570 42mm & 47mm and 970. |

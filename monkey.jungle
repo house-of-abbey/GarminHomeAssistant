@@ -87,8 +87,7 @@ edgeexplore.resourcePath = $(edgeexplore.resourcePath);resources-launcher-36-36;
 edgeexplore2.resourcePath = $(edgeexplore2.resourcePath);resources-launcher-36-36;resources-icons-28
 # Screen Size 280x280 launcher icon size 40x40
 enduro.resourcePath = $(enduro.resourcePath);resources-launcher-40-40;resources-icons-32
-# Screen Size 280x280 launcher icon size 40x40
-enduro3.resourcePath = $(enduro3.resourcePath);resources-launcher-40-40;resources-icons-32
+ enduro3.resourcePath = $(enduro3.resourcePath);resources-launcher-40-40;resources-icons-32
 # Screen Size 416x416 launcher icon size 60x60
 epix2.resourcePath = $(epix2.resourcePath);resources-launcher-60-60;resources-icons-48
 # Screen Size 390x390 launcher icon size 60x60
@@ -115,7 +114,6 @@ fenix6spro.resourcePath = $(fenix6spro.resourcePath);resources-launcher-40-40;re
 fenix6xpro.resourcePath = $(fenix6xpro.resourcePath);resources-launcher-40-40;resources-icons-32
 # Screen Size 260x260 launcher icon size 40x40
 fenix7.resourcePath = $(fenix7.resourcePath);resources-launcher-40-40;resources-icons-30
-# Screen Size 260x260 launcher icon size 40x40
 fenix7pro.resourcePath = $(fenix7pro.resourcePath);resources-launcher-40-40;resources-icons-30
 fenix7pronowifi.resourcePath = $(fenix7pronowifi.resourcePath);resources-launcher-40-40;resources-icons-30
 # Screen Size 240x240 launcher icon size 40x40
@@ -124,7 +122,6 @@ fenix7s.resourcePath = $(fenix7s.resourcePath);resources-launcher-40-40;resource
 fenix7spro.resourcePath = $(fenix7spro.resourcePath);resources-launcher-40-40;resources-icons-28
 # Screen Size 280x280 launcher icon size 40x40
 fenix7x.resourcePath = $(fenix7x.resourcePath);resources-launcher-40-40;resources-icons-32
-# Screen Size 280x280 launcher icon size 40x40
 fenix7xpro.resourcePath = $(fenix7xpro.resourcePath);resources-launcher-40-40;resources-icons-32
 fenix7xpronowifi.resourcePath = $(fenix7xpronowifi.resourcePath);resources-launcher-40-40;resources-icons-32
 # Screen Size 416x416 launcher icon size 60x60
@@ -141,7 +138,6 @@ fenixchronos.resourcePath = $(fenixchronos.resourcePath);resources-launcher-36-3
 fenixe.resourcePath = $(fenixe.resourcePath);resources-launcher-60-60;resources-icons-48
 # Screen Size 390 x 390 launcher icon size 54x54
 fr165.resourcePath = $(descentmk2s.resourcePath);resources-launcher-54-54;resources-icons-46
-# Screen Size 390 x 390 launcher icon size 54x54
 fr165m.resourcePath = $(descentmk2s.resourcePath);resources-launcher-54-54;resources-icons-46
 # Screen Size 240x240 launcher icon size 40x40
 fr245.resourcePath = $(fr245.resourcePath);resources-launcher-40-40;resources-icons-28
@@ -157,6 +153,10 @@ fr265.resourcePath = $(fr265.resourcePath);resources-launcher-60-60;resources-ic
 fr265s.resourcePath = $(fr265s.resourcePath);resources-launcher-60-60;resources-icons-48
 # Screen Size 208x208 launcher icon size 35x35
 fr55.resourcePath = $(fr55.resourcePath);resources-launcher-35-35;resources-icons-24
+# Screen Size 390x390 launcher icon size 54x54
+fr57042mm.resourcePath = $(fr57042mm.resourcePath);resources-launcher-54-54;resources-icons-46
+# Screen Size 454x454 launcher icon size 65x65
+fr57047mm.resourcePath = $(fr57047mm.resourcePath);resources-launcher-65-65;resources-icons-53
 # Screen Size 240x240 launcher icon size 40x40
 fr645.resourcePath = $(fr645.resourcePath);resources-launcher-40-40;resources-icons-28
 fr645m.resourcePath = $(fr645m.resourcePath);resources-launcher-40-40;resources-icons-28
@@ -169,9 +169,9 @@ fr945lte.resourcePath = $(fr945lte.resourcePath);resources-launcher-40-40;resour
 fr955.resourcePath = $(fr955.resourcePath);resources-launcher-40-40;resources-icons-30
 # Screen Size 454x454 launcher icon size 65x65
 fr965.resourcePath = $(fr965.resourcePath);resources-launcher-65-65;resources-icons-53
+fr970.resourcePath = $(fr970.resourcePath);resources-launcher-65-65;resources-icons-53
 # Screen Size 240x400 launcher icon size 38x33
 gpsmap66.resourcePath = $(gpsmap66.resourcePath);resources-launcher-33-33;resources-icons-28
-# Screen Size 240x400 launcher icon size 38x33
 gpsmap67.resourcePath = $(gpsmap67.resourcePath);resources-launcher-33-33;resources-icons-28
 # Screen Size 176x176 launcher icon size 62x62
 instinct2.resourcePath = $(instinct2.resourcePath);resources-launcher-62-62;resources-icons-21-w
@@ -229,7 +229,6 @@ venud.resourcePath = $(venud.resourcePath);resources-launcher-60-60;resources-ic
 venusq.resourcePath = $(venusq.resourcePath);resources-launcher-36-36;resources-icons-28
 # Screen Size 320x360 launcher icon size 40x40
 venusq2.resourcePath = $(venusq2.resourcePath);resources-launcher-40-40;resources-icons-38
-# Screen Size 320x360 launcher icon size 40x40
 venusq2m.resourcePath = $(venusq2m.resourcePath);resources-launcher-40-40;resources-icons-38
 # Screen Size 240x240 launcher icon size 36x36
 venusqm.resourcePath = $(venusqm.resourcePath);resources-launcher-36-36;resources-icons-28
