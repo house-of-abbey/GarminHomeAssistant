@@ -11,11 +11,6 @@
 //
 // P A Abbey & J D Abbey & Someone0nEarth & moesterheld, 31 October 2023
 //
-//
-// Description:
-//
-// Light or switch toggle button that calls the API to maintain the up to date state.
-//
 //-----------------------------------------------------------------------------------
 
 using Toybox.Lang;
@@ -24,6 +19,8 @@ using Toybox.Graphics;
 using Toybox.Application.Properties;
 using Toybox.Timer;
 
+//! Light or switch toggle menu button that calls the API to maintain the up to date state.
+//
 class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
     private var mConfirm    as Lang.Boolean;
     private var mPin        as Lang.Boolean;
@@ -31,6 +28,15 @@ class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
     private var mTemplate   as Lang.String;
     private var mHasVibrate as Lang.Boolean = false;
 
+    //! Class Constructor
+    //!
+    //! @param label    Menu item label.
+    //! @param template Menu item template.
+    //! @param confirm  Should the service call be confirmed to avoid accidental invocation?
+    //! @param pin      Should the service call be protected with a PIN for some low level of security?
+    //! @param data     Data to supply to the service call.
+    //! @param options  Menu item options to be passed on.
+    //
     function initialize(
         label    as Lang.String or Lang.Symbol,
         template as Lang.String,
@@ -58,6 +64,8 @@ class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
         mTemplate = template;
     }
 
+    //! Set the state of a toggle menu item.
+    //
     private function setUiToggle(state as Null or Lang.String) as Void {
         if (state != null) {
             if (state.equals("on") && !isEnabled()) {
@@ -68,13 +76,26 @@ class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
         }
     }
 
-    function buildTemplate() as Lang.String or Null {
+    //! Return the menu item's template.
+    //!
+    //! @return A string with the menu item's template definition.
+    //
+    function getTemplate() as Lang.String or Null {
         return mTemplate;
     }
-    function buildToggleTemplate() as Lang.String or Null {
+
+    //! Return a toggle menu item's state template.
+    //!
+    //! @return A string with the menu item's template definition.
+    //
+    function getToggleTemplate() as Lang.String or Null {
         return "{{states('" + mData.get("entity_id") + "')}}";
     }
 
+    //! Update the menu item's label from a recent GET request.
+    //!
+    //! @param data This should be a string, but the way the GET response is parsed, it can also be a number.
+    //
     function updateState(data as Lang.String or Lang.Dictionary or Lang.Number or Lang.Float or Null) as Void {
         if (data == null) {
             setSubLabel(null);
@@ -100,6 +121,10 @@ class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
         WatchUi.requestUpdate();
     }
 
+    //! Update the menu item's toggle state from a recent GET request.
+    //!
+    //! @param data This should be a string of either "on" or "off".
+    //
     function updateToggleState(data as Lang.String or Lang.Dictionary or Null) as Void {
         if (data == null) {
             setUiToggle("off");
@@ -126,9 +151,15 @@ class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
         WatchUi.requestUpdate();
     }
 
-    // Callback function after completing the POST request to set the status.
+    //! Callback function after completing the POST request to set the status.
+    //!
+    //! @param responseCode Response code.
+    //! @param data         Response data.
     //
-    function onReturnSetState(responseCode as Lang.Number, data as Null or Lang.Dictionary or Lang.String) as Void {
+    function onReturnSetState(
+        responseCode as Lang.Number,
+        data         as Null or Lang.Dictionary or Lang.String
+    ) as Void {
         // System.println("HomeAssistantToggleMenuItem onReturnSetState() Response Code: " + responseCode);
         // System.println("HomeAssistantToggleMenuItem onReturnSetState() Response Data: " + data);
 
@@ -183,6 +214,10 @@ class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
         getApp().setApiStatus(status);
     }
 
+    //! Set the state of the toggle menu item.
+    //!
+    //! @param s Boolean indicating the desired state of the toggle switch.
+    //
     function setState(s as Lang.Boolean) as Void {
         // Toggle the UI back, we'll wait for confirmation from the Home Assistant
         setEnabled(!isEnabled());
@@ -228,6 +263,8 @@ class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
         }
     }
 
+    //! Call a Home Assistant service only after checks have been done for confirmation or PIN entry.
+    //
     function callService(b as Lang.Boolean) as Void {
         var hasTouchScreen = System.getDeviceSettings().isTouchScreen;
         if (mPin && hasTouchScreen) {
@@ -251,6 +288,10 @@ class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
         }
     }
 
+    //! Callback function to toggle state of this item after (optional) confirmation.
+    //!
+    //! @param b Desired toggle button state.
+    //
     function onConfirm(b as Lang.Boolean) as Void {
         setState(b);
     }

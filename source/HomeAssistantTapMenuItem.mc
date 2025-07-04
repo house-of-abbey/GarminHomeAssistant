@@ -11,17 +11,14 @@
 //
 // P A Abbey & J D Abbey & Someone0nEarth & moesterheld, 31 October 2023
 //
-//
-// Description:
-//
-// Menu button that triggers a service.
-//
 //-----------------------------------------------------------------------------------
 
 using Toybox.Lang;
 using Toybox.WatchUi;
 using Toybox.Graphics;
 
+//! Menu button that triggers a service.
+//
 class HomeAssistantTapMenuItem extends HomeAssistantMenuItem {
     private var mHomeAssistantService as HomeAssistantService;
     private var mService              as Lang.String or Null;
@@ -29,6 +26,19 @@ class HomeAssistantTapMenuItem extends HomeAssistantMenuItem {
     private var mPin                  as Lang.Boolean;
     private var mData                 as Lang.Dictionary or Null;
 
+    //! Class Constructor
+    //!
+    //! @param label     Menu item label.
+    //! @param template  Menu item template.
+    //! @param service   Menu item service.
+    //! @param confirm   Should the service call be confirmed to avoid accidental invocation?
+    //! @param pin       Should the service call be protected with a PIN for some low level of security?
+    //! @param data      Data to supply to the service call.
+    //! @param icon      Icon to use for the menu item.
+    //! @param options   Menu item options to be passed on.
+    //! @param haService Shared Home Assistant service object that will perform the required call. Only
+    //!                  one of these objects is created for all menu items to re-use.
+    //
     function initialize(
         label     as Lang.String or Lang.Symbol,
         template  as Lang.String,
@@ -62,6 +72,8 @@ class HomeAssistantTapMenuItem extends HomeAssistantMenuItem {
         mData                 = data;
     }
 
+    //! Call a Home Assistant service only after checks have been done for confirmation or PIN entry.
+    //
     function callService() as Void {
         var hasTouchScreen = System.getDeviceSettings().isTouchScreen;
         if (mPin && hasTouchScreen) {
@@ -85,7 +97,10 @@ class HomeAssistantTapMenuItem extends HomeAssistantMenuItem {
         }
     }
 
-    // NB. Parameter 'b' is ignored
+    //! Callback function after the menu items selection has been (optionally) confirmed.
+    //!
+    //! @param b Ignored. It is included in order to match the expected function prototype of the callback method.
+    //
     function onConfirm(b as Lang.Boolean) as Void {
         if (mService != null) {
             mHomeAssistantService.call(mService, mData);

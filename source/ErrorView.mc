@@ -11,22 +11,6 @@
 //
 // J D Abbey & P A Abbey, 28 December 2022
 //
-//
-// Description:
-//
-// ErrorView provides a means to present application errors to the user. These
-// should not happen of course... but they do, so best make sure errors can be
-// reported.
-//
-// Designed so that a single ErrorView is used for all errors and hence can ensure
-// that only the first call to display is honoured until the view is dismissed.
-// This compensates for older devices not being able to call WatchUi.getCurrentView()
-// due to not supporting API level 3.4.0.
-//
-// Usage:
-//   1) ErrorView.show("Error message");
-//   2) return ErrorView.create("Error message"); // as Lang.Array<WatchUi.Views or WatchUi.InputDelegates>
-//
 //-----------------------------------------------------------------------------------
 
 using Toybox.Graphics;
@@ -35,6 +19,19 @@ using Toybox.WatchUi;
 using Toybox.Communications;
 using Toybox.Timer;
 
+//! ErrorView provides a means to present application errors to the user. These
+//! should not happen of course... but they do, so best make sure errors can be
+//! reported.
+//!
+//! Designed so that a single ErrorView is used for all errors and hence can ensure
+//! that only the first call to display is honoured until the view is dismissed.
+//! This compensates for older devices not being able to call WatchUi.getCurrentView()
+//! due to not supporting API level 3.4.0.
+//!
+//! Usage:
+//!   1) `ErrorView.show("Error message");`
+//!   2) `return ErrorView.create("Error message"); // as Lang.Array<WatchUi.Views or WatchUi.InputDelegates>`
+//
 class ErrorView extends ScalableView {
     private static const scErrorIconMargin as Lang.Float = 7f;
     private var mText            as Lang.String          = "";
@@ -48,9 +45,11 @@ class ErrorView extends ScalableView {
     private static var instance;
     private static var mShown as Lang.Boolean = false;
 
+    //! Class Constructor
+    //
     function initialize() {
         ScalableView.initialize();
-        mDelegate = new ErrorDelegate(self);
+        mDelegate = new ErrorDelegate();
         // Convert the settings from % of screen size to pixels
         mErrorIconMargin = pixelsForScreen(scErrorIconMargin);
         mErrorIcon       = Application.loadResource(Rez.Drawables.ErrorIcon) as Graphics.BitmapResource;
@@ -59,7 +58,10 @@ class ErrorView extends ScalableView {
         }
     }
 
-    // Load your resources here
+    //! Construct the view.
+    //!
+    //! @param dc Device context
+    //
     function onLayout(dc as Graphics.Dc) as Void {
         var w = dc.getWidth();
 
@@ -75,7 +77,10 @@ class ErrorView extends ScalableView {
         });
     }
 
-    // Update the view
+    //! Update the view
+    //!
+    //! @param dc Device context
+    //
     function onUpdate(dc as Graphics.Dc) as Void {
         var w = dc.getWidth();
         if (mAntiAlias) {
@@ -87,10 +92,18 @@ class ErrorView extends ScalableView {
         mTextArea.draw(dc);
     }
 
+    //! Get this view's delegate for processing events.
+    //
     function getDelegate() as ErrorDelegate {
         return mDelegate;
     }
 
+    //! 'Create' (get) the ErrorView instance, intended to make short work of using this class. E.g.
+    //!
+    //! `return ErrorView.create("Went wrong!");`
+    //!
+    //! @param text The string to display in the ErrorView.
+    //
     static function create(text as Lang.String) as [ WatchUi.Views ] or [ WatchUi.Views, WatchUi.InputDelegates ] {
         if (instance == null) {
             instance = new ErrorView();
@@ -102,7 +115,10 @@ class ErrorView extends ScalableView {
         return [instance, instance.getDelegate()];
     }
 
-    // Create or reuse an existing ErrorView, and pass on the text.
+    //! Create or reuse an existing ErrorView, and pass on the text.
+    //!
+    //! @param text The string to display in the ErrorView.
+    //
     static function show(text as Lang.String) as Void {
         if (!mShown) {
             create(text); // Ignore returned values
@@ -113,6 +129,8 @@ class ErrorView extends ScalableView {
         }
     }
 
+    //! Pop the view and clean up timers.
+    //
     static function unShow() as Void {
         if (mShown) {
             WatchUi.popView(WatchUi.SLIDE_DOWN);
@@ -126,7 +144,10 @@ class ErrorView extends ScalableView {
         }
     }
 
-    // Internal show now we're not a static method like 'show()'.
+    //! Internal show now we're not a static method like 'show()'.
+    //!
+    //! @param text Change the string tio display in the ErrorView.
+    //
     function setText(text as Lang.String) as Void {
         mText = text;
         if (mTextArea != null) {
@@ -137,12 +158,19 @@ class ErrorView extends ScalableView {
 
 }
 
+
+//! Delegate for the ErrorView.
+//
 class ErrorDelegate extends WatchUi.BehaviorDelegate {
 
-    function initialize(view as ErrorView) {
+    //! Class Constructor
+    //!
+    function initialize() {
         WatchUi.BehaviorDelegate.initialize();
     }
 
+    //! Process the event to clear the ErrorView.
+    //
     function onBack() as Lang.Boolean {
         getApp().getQuitTimer().reset();
         ErrorView.unShow();

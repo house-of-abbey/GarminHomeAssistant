@@ -11,11 +11,6 @@
 //
 // P A Abbey & J D Abbey & Someone0nEarth & moesterheld, 31 October 2023
 //
-//
-// Description:
-//
-// Home Assistant menu construction.
-//
 //-----------------------------------------------------------------------------------
 
 using Toybox.Application;
@@ -24,8 +19,12 @@ using Toybox.Graphics;
 using Toybox.System;
 using Toybox.WatchUi;
 
+//! Home Assistant menu construction.
+//
 class HomeAssistantView extends WatchUi.Menu2 {
 
+    //! Class Constructor
+    //
     function initialize(
         definition as Lang.Dictionary,
         options as {
@@ -75,7 +74,12 @@ class HomeAssistantView extends WatchUi.Menu2 {
         }
     }
 
-    // Lang.Array.addAll() fails structural type checking without including "Null" in the return type
+    //! Return a list of items that need to be updated within this menu structure.
+    //!
+    //! MN. Lang.Array.addAll() fails structural type checking without including "Null" in the return type
+    //!
+    //! @return An array of menu items that need to be updated periodically to reflect the latest Home Assistant state.
+    //
     function getItemsToUpdate() as Lang.Array<HomeAssistantToggleMenuItem or HomeAssistantTapMenuItem or HomeAssistantGroupMenuItem or Null> {
         var fullList = [];
         var lmi = mItems as Lang.Array<WatchUi.MenuItem>;
@@ -102,26 +106,35 @@ class HomeAssistantView extends WatchUi.Menu2 {
         return fullList;
     }
 
-    // Called when this View is brought to the foreground. Restore
-    // the state of this View and prepare it to be shown. This includes
-    // loading resources into memory.
+    //! Called when this View is brought to the foreground. Restore
+    //! the state of this View and prepare it to be shown. This includes
+    //! loading resources into memory.
     function onShow() as Void {}
 
 }
 
-//
-// Reference: https://developer.garmin.com/connect-iq/core-topics/input-handling/
+//! Delegate for the HomeAssistantView.
+//!
+//! Reference: https://developer.garmin.com/connect-iq/core-topics/input-handling/
 //
 class HomeAssistantViewDelegate extends WatchUi.Menu2InputDelegate {
     private var mIsRootMenuView as Lang.Boolean = false;
     private var mTimer          as QuitTimer;
 
+    //! Class Constructor
+    //!
+    //! @param isRootMenuView As menus can be nested, this state marks the top level menu so that the
+    //!                       back event can exit the application completely rather than just popping
+    //!                       a menu view.
+    //
     function initialize(isRootMenuView as Lang.Boolean) {
         Menu2InputDelegate.initialize();
         mIsRootMenuView = isRootMenuView;
         mTimer          = getApp().getQuitTimer();
     }
 
+    //! Back button event
+    //
     function onBack() {
         mTimer.reset();
 
@@ -135,16 +148,22 @@ class HomeAssistantViewDelegate extends WatchUi.Menu2InputDelegate {
         WatchUi.popView(WatchUi.SLIDE_RIGHT);
     }
 
-    // Only for CheckboxMenu
+    //! Only for CheckboxMenu
+    //
     function onDone() {
         mTimer.reset();
     }
 
-    // Only for CustomMenu
+    //! Only for CustomMenu
+    //
     function onFooter() {
         mTimer.reset();
     }
 
+    //! Select event
+    //!
+    //! @param item Selected menu item.
+    //
     function onSelect(item as WatchUi.MenuItem) as Void {
         mTimer.reset();
         if (item instanceof HomeAssistantToggleMenuItem) {
@@ -164,7 +183,8 @@ class HomeAssistantViewDelegate extends WatchUi.Menu2InputDelegate {
         }
     }
 
-    // Only for CustomMenu
+    //! Only for CustomMenu
+    //
     function onTitle() {
         mTimer.reset();
     }

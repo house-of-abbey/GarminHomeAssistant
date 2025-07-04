@@ -11,25 +11,28 @@
 //
 // P A Abbey & J D Abbey & Someone0nEarth & moesterheld, 31 October 2023
 //
-//
-// Description:
-//
-// Pin Confirmation dialog and logic.
-//
 //-----------------------------------------------------------------------------------
 
-import Toybox.Graphics;
-import Toybox.Lang;
-import Toybox.WatchUi;
-import Toybox.Timer;
-import Toybox.Attention;
-import Toybox.Time;
+using Toybox.Graphics;
+using Toybox.Lang;
+using Toybox.WatchUi;
+using Toybox.Timer;
+using Toybox.Attention;
+using Toybox.Time;
 
+//! Pin digit used for number 0..9
+//
 class PinDigit extends WatchUi.Selectable {
 
-    private var mDigit as Number;
+    private var mDigit as Lang.Number;
 
-    function initialize(digit as Number, stepX as Number, stepY as Number) {
+    //! Class Constructor
+    //!
+    //! @param digit The digit this instance of the class represents and to display.
+    //! @param stepX Horizontal spacing.
+    //! @param stepY Vertical spacing.
+    //
+    function initialize(digit as Lang.Number, stepX as Lang.Number, stepY as Lang.Number) {
         var marginX = stepX * 0.05; // 5% margin on all sides
         var marginY = stepY * 0.05; 
         var x = (digit == 0) ? stepX : stepX * ((digit+2) % 3); // layout '0' in 2nd col, others ltr in 3 columns
@@ -63,24 +66,40 @@ class PinDigit extends WatchUi.Selectable {
         });
 
         mDigit = digit;
-
     }
 
-    function getDigit() as Number {
+    //! Return the digit 0..9 represented by this button
+    //
+    function getDigit() as Lang.Number {
         return mDigit;
     }
 
+    //! Customised drawing of a PIN digit's button.
+    //
     class PinDigitButton extends WatchUi.Drawable {
-        private var mText    as Number;
-        private var mTouched as Boolean = false;
+        private var mText    as Lang.Number;
+        private var mTouched as Lang.Boolean = false;
 
+        //! Class Constructor
+        //!
+        //! @param options See `Drawable.initialize()`, but with `:label` and `:touched` added.<br>
+        //!   &lbrace;<br>
+        //!   &emsp; :label   as Lang.Number,  // The digit 0..9 to display<br>
+        //!   &emsp; :touched as Lang.Boolean, // Should the digit be filled to indicate it has been pressed?<br>
+        //!   &emsp; + those required by `Drawable.initialize()`<br>
+        //!   &rbrace;
+        //
         function initialize(options) {
             Drawable.initialize(options);
             mText    = options.get(:label);
             mTouched = options.get(:touched);
         }
 
-        function draw(dc) {
+        //! Draw the PIN digit button.
+        //!
+        //! @param dc Device context
+        //
+        function draw(dc as Graphics.Dc) {
             if (mTouched) {
                 dc.setColor(Graphics.COLOR_ORANGE, Graphics.COLOR_ORANGE);
             } else {
@@ -98,17 +117,27 @@ class PinDigit extends WatchUi.Selectable {
 
 }
 
+
+//! Pin Confirmation dialog and logic.
+//
 class HomeAssistantPinConfirmationView extends WatchUi.View {
 
-    static const MARGIN_X = 20; // margin on left & right side of screen (overall prettier and works better on round displays)
+    //! Margin on left & right side of screen (overall prettier and works better on round displays)
+    static const MARGIN_X = 20;
+    //! Indicates how many digits have been entered so far.
+    var mPinMask as Lang.String = "";
 
-    var mPinMask as String = "";
-        
+    //! Class Constructor
+    //
     function initialize() {
         View.initialize();
     }
 
-    function onLayout(dc as Dc) as Void {
+    //! Construct the view.
+    //!
+    //! @param dc Device context
+    //
+    function onLayout(dc as Graphics.Dc) as Void {
         var stepX = (dc.getWidth() - MARGIN_X * 2) / 3;   // three columns
         var stepY = dc.getHeight() / 5;                   // five rows (first row for masked pin entry)
         var digits = [];
@@ -119,7 +148,11 @@ class HomeAssistantPinConfirmationView extends WatchUi.View {
         setLayout(digits);
     }
 
-    function onUpdate(dc as Dc) as Void {
+    //! Update the view.
+    //!
+    //! @param dc Device context
+    //
+    function onUpdate(dc as Graphics.Dc) as Void {
         View.onUpdate(dc);
         if (mPinMask.length() != 0) {
             dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_BLACK);
@@ -127,7 +160,11 @@ class HomeAssistantPinConfirmationView extends WatchUi.View {
         }
     }
 
-    function updatePinMask(length as Number) {
+    //! Update the PIN mask displayed.
+    //!
+    //! @param length Number of `*` characters to use for the mask string.
+    //
+    function updatePinMask(length as Lang.Number) {
         mPinMask = "";
         for (var i=0; i<length; i++) {
             mPinMask += "*";
@@ -138,17 +175,31 @@ class HomeAssistantPinConfirmationView extends WatchUi.View {
 }
 
 
+//! Delegate for the HomeAssistantPinConfirmationView.
+//
 class HomeAssistantPinConfirmationDelegate extends WatchUi.BehaviorDelegate {
 
-    private var mPin           as String;
-    private var mEnteredPin    as String;
+    private var mPin           as Lang.String;
+    private var mEnteredPin    as Lang.String;
     private var mConfirmMethod as Method(state as Lang.Boolean) as Void;
     private var mTimer         as Timer.Timer or Null;
     private var mState         as Lang.Boolean;
     private var mFailures      as PinFailures;
     private var mView          as HomeAssistantPinConfirmationView;
 
-    function initialize(callback as Method(state as Lang.Boolean) as Void, state as Lang.Boolean, pin as String, view as HomeAssistantPinConfirmationView) {
+    //! Class Constructor
+    //!
+    //! @param callback Method to call on confirmation.
+    //! @param state    Current state of a toggle button.
+    //! @param pin      PIN to be matched.
+    //! @param view     PIN confirmation view.
+    //
+    function initialize(
+        callback as Method(state as Lang.Boolean) as Void,
+        state    as Lang.Boolean,
+        pin      as Lang.String,
+        view     as HomeAssistantPinConfirmationView
+    ) {
         BehaviorDelegate.initialize();
         mFailures      = new PinFailures();
         if (mFailures.isLocked()) {
@@ -165,7 +216,12 @@ class HomeAssistantPinConfirmationDelegate extends WatchUi.BehaviorDelegate {
         resetTimer();
     }
 
-    function onSelectable(event as SelectableEvent) as Boolean {
+    //! Add another entered digit to the "PIN so far". When it is long enough verify the PIN is correct and the
+    //! invoke the supplied call back function.
+    //!
+    //! @param event The digit pressed by the user tapping the screen.
+    //
+    function onSelectable(event as WatchUi.SelectableEvent) as Lang.Boolean {
         if (mFailures.isLocked()) {
             goBack();
         }
@@ -173,7 +229,7 @@ class HomeAssistantPinConfirmationDelegate extends WatchUi.BehaviorDelegate {
         if (instance instanceof PinDigit && event.getPreviousState() == :stateSelected) {
             mEnteredPin += instance.getDigit();
             createUserFeedback();
-            // System.println("HomeAssitantPinConfirmationDelegate onSelectable() mEnteredPin = " + mEnteredPin);
+            // System.println("HomeAssistantPinConfirmationDelegate onSelectable() mEnteredPin = " + mEnteredPin);
             if (mEnteredPin.length() == mPin.length()) {
                 if (mEnteredPin.equals(mPin)) {
                     mFailures.reset();
@@ -193,6 +249,8 @@ class HomeAssistantPinConfirmationDelegate extends WatchUi.BehaviorDelegate {
         return true;
     }
 
+    //! Hepatic feedback.
+    //
     function createUserFeedback() {
         if (Attention has :vibrate && Settings.getVibrate()) {
             Attention.vibrate([new Attention.VibeProfile(25, 25)]);
@@ -200,6 +258,9 @@ class HomeAssistantPinConfirmationDelegate extends WatchUi.BehaviorDelegate {
         mView.updatePinMask(mEnteredPin.length());
     }
 
+    //! A timer is used to clear the PIN entry view if digits are not pressed. So each time a digit is pressed the
+    //! timer is reset.
+    //
     function resetTimer() {
         var timeout = Settings.getConfirmTimeout(); // ms
         if (timeout > 0) {
@@ -212,6 +273,8 @@ class HomeAssistantPinConfirmationDelegate extends WatchUi.BehaviorDelegate {
         }
     }
 
+    //! Cancel PIN entry.
+    //
     function goBack() as Void {
         if (mTimer != null) {
             mTimer.stop();
@@ -219,18 +282,20 @@ class HomeAssistantPinConfirmationDelegate extends WatchUi.BehaviorDelegate {
         WatchUi.popView(WatchUi.SLIDE_RIGHT);
     }
 
+    //! Hepatic feedback for a wrong PIN and cancel entry.
+    //
     function error() as Void {
         // System.println("HomeAssistantPinConfirmationDelegate error() Wrong PIN entered");
         mFailures.addFailure();
         if (Attention has :vibrate && Settings.getVibrate()) {
             Attention.vibrate([
                 new Attention.VibeProfile(100, 100),
-                new Attention.VibeProfile(0, 200),                
-                new Attention.VibeProfile(75, 100),
-                new Attention.VibeProfile(0, 200),
-                new Attention.VibeProfile(50, 100),
-                new Attention.VibeProfile(0, 200),
-                new Attention.VibeProfile(25, 100)
+                new Attention.VibeProfile(  0, 200),                
+                new Attention.VibeProfile( 75, 100),
+                new Attention.VibeProfile(  0, 200),
+                new Attention.VibeProfile( 50, 100),
+                new Attention.VibeProfile(  0, 200),
+                new Attention.VibeProfile( 25, 100)
             ]);
         }
         if (WatchUi has :showToast) {
@@ -241,14 +306,19 @@ class HomeAssistantPinConfirmationDelegate extends WatchUi.BehaviorDelegate {
 
 }
 
+
+//! Manage PIN entry failures to try and prevent brute force exhaustion by inserting delays in retries.
+//
 class PinFailures {
    
-    const STORAGE_KEY_FAILURES as String = "pin_failures";
-    const STORAGE_KEY_LOCKED   as String = "pin_locked";
+    const STORAGE_KEY_FAILURES as Lang.String = "pin_failures";
+    const STORAGE_KEY_LOCKED   as Lang.String = "pin_locked";
     
-    private var mFailures    as Array<Number>;
-    private var mLockedUntil as Number or Null;
+    private var mFailures    as Lang.Array<Lang.Number>;
+    private var mLockedUntil as Lang.Number or Null;
 
+    //! Class Constructor
+    //
     function initialize() {
         // System.println("PinFailures initialize() Initializing PIN failures from storage");
         var failures = Application.Storage.getValue(PinFailures.STORAGE_KEY_FAILURES);
@@ -256,6 +326,8 @@ class PinFailures {
         mLockedUntil = Application.Storage.getValue(PinFailures.STORAGE_KEY_LOCKED);
     }
 
+    //! Record a PIN entry failure. If too many have occurred lock the application.
+    //
     function addFailure() {
         mFailures.add(Time.now().value());
         // System.println("PinFailures addFailure() " + mFailures.size() + " PIN confirmation failures recorded");
@@ -268,7 +340,7 @@ class PinFailures {
                 mFailures = mFailures.slice(1, null);
             } else {
                 mFailures = [];
-                mLockedUntil = Time.now().add(new Time.Duration(Globals.scPinLockTimeMinutes * Gregorian.SECONDS_PER_MINUTE)).value();
+                mLockedUntil = Time.now().add(new Time.Duration(Globals.scPinLockTimeMinutes * Time.Gregorian.SECONDS_PER_MINUTE)).value();
                 Application.Storage.setValue(STORAGE_KEY_LOCKED, mLockedUntil);
                 // System.println("PinFailures addFailure() Locked until " + mLockedUntil);
             }
@@ -276,6 +348,9 @@ class PinFailures {
         Application.Storage.setValue(STORAGE_KEY_FAILURES, mFailures);
     }
 
+    //! Clear the record of previous PIN entry failures, e.g. because the correct PIN has now been entered
+    //! within tolerance.
+    //
     function reset() {
         // System.println("PinFailures reset() Resetting failures");
         mFailures = [];
@@ -284,11 +359,18 @@ class PinFailures {
         Application.Storage.deleteValue(STORAGE_KEY_LOCKED);
     }
 
-    function getLockedUntilSeconds() as Number {
+    //! Retrieve the remaining time the application must be locked out for.
+    //
+    function getLockedUntilSeconds() as Lang.Number {
         return new Time.Moment(mLockedUntil).subtract(Time.now()).value();
     }
 
-    function isLocked() as Boolean {
+    //! Is the application currently locked out? If the application is no longer locked out, then clear the
+    //! stored values used to determine this state.
+    //!
+    //! @return Boolean indicating if the application is currently locked out.
+    //
+    function isLocked() as Lang.Boolean {
         if (mLockedUntil == null) {
             return false;            
         }

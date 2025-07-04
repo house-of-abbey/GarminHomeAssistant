@@ -11,88 +11,99 @@
 //
 // J D Abbey & P A Abbey, 28 December 2022
 //
-//
-// Description:
-//
-// WebLog provides a logging and hence debugging aid for when the application is
-// deployed to the watch. This is only used for development and use of it must not
-// persist into a deployed version. It uses a string buffer to group log entries into
-// larger submissions in order to prevent overflow of the blue tooth stack.
-//
 //-----------------------------------------------------------------------------------
-//
-// Usage:
-//   wl = new WebLog();
-//   wl.clear();
-//   wl.println("Debug Message");
-//   wl.flush();
-//
-// https://domain.name/path/log.php
-//
-// <?php
-//   $myfile = fopen("log", "a");
-//   $queries = array();
-//   parse_str($_SERVER['QUERY_STRING'], $queries);
-//   fwrite($myfile, $queries['log']);
-//   print "Success";
-// ?>
-//
-// Logs published to: https://domain.name/path/log
-//
-// https://domain.name/path/log_clear.php
-//
-// <?php
-//   $myfile = fopen("log", "w");
-//   fwrite($myfile, "");
-//   print "Success";
-// ?>
 
 using Toybox.Communications;
 using Toybox.Lang;
 using Toybox.System;
 
+//! WebLog provides a logging and hence debugging aid for when the application is
+//! deployed to the watch. This is only used for development and use of it must not
+//! persist into a deployed version. It uses a string buffer to group log entries into
+//! larger submissions in order to prevent overflow of the blue tooth stack.
+//!
+//! Usage:
+//! <pre>
+//!   wl = new WebLog();
+//!   wl.clear();
+//!   wl.println("Debug Message");
+//!   wl.flush();
+//! </pre>
+//!
+//! File: https://domain.name/path/log.php
+//!
+//! <pre>
+//! &lt;?php
+//!   $myfile = fopen("log", "a");
+//!   $queries = array();
+//!   parse_str($_SERVER['QUERY_STRING'], $queries);
+//!   fwrite($myfile, $queries['log']);
+//!   print "Success";
+//! ?&gt;
+//! </pre>
+//!
+//! Logs published to https://domain.name/path/log.
+//!
+//! File: https://domain.name/path/log_clear.php
+//!
+//! <pre>
+//! &lt;?php
+//!   $myfile = fopen("log", "w");
+//!   fwrite($myfile, "");
+//!   print "Success";
+//! ?&gt;
+//! </pre>
+//
 (:glance, :background)
 class WebLog {
-    private var callsbuffer =  4 as Lang.Number;
+    private var callsBuffer =  4 as Lang.Number;
     private var numCalls    =  0 as Lang.Number;
     private var buffer      = "" as Lang.String;
 
-    // Set the number of calls to print() before sending the buffer to the online
-    // logger.
+    //! Set the number of calls to print() before sending the buffer to the online
+    //! logger.
+    //!
+    //! @param l The number of log calls to buffer before writing to the online service.
     //
     function setCallsBuffer(l as Lang.Number) {
-        callsbuffer = l;
+        callsBuffer = l;
     }
 
-    // Get the number of calls to print() before sending the buffer to the online
-    // logger.
+    //! Get the number of calls to print() before sending the buffer to the online
+    //! logger.
+    //!
+    //! @return The number of log calls to buffer before writing to the online service.
     //
     function getCallsBuffer() as Lang.Number {
-        return callsbuffer;
+        return callsBuffer;
     }
 
-    // Create a debug log over the Internet to keep track of the watch's runtime
-    // execution.
+    //! Create a debug log over the Internet to keep track of the watch's runtime
+    //! execution.
+    //!
+    //! @param str The string to log.
     //
     function print(str as Lang.String) {
         var myTime = System.getClockTime();
         buffer += myTime.hour.format("%02d") + ":" + myTime.min.format("%02d") + ":" + myTime.sec.format("%02d") + " " + str;
         numCalls++;
         // System.println("WebLog print() str      = " + str);
-        if (numCalls >= callsbuffer) {
+        if (numCalls >= callsBuffer) {
             doPrint();
         }
     }
 
-    // Create a debug log over the Internet to keep track of the watch's runtime
-    // execution. Add a new line character to the end.
+    //! Create a debug log over the Internet to keep track of the watch's runtime
+    //! execution. Add a new line character to the end.
+    //!
+    //! @param str The string to log.
     //
     function println(str as Lang.String) {
         print(str + "\n");
     }
 
-    // Flush the current buffer to the online logger even if it has not reach the
-    // submission level set by 'callsbuffer'.
+    //! Flush the current buffer to the online logger even if it has not reach the
+    //! submission level set by 'callsBuffer'.
     //
     function flush() {
         // System.println("WebLog flush()");
@@ -101,7 +112,7 @@ class WebLog {
         }
     }
 
-    // Perform the submission to the online logger.
+    //! Perform the submission to the online logger.
     //
     function doPrint() {
         // System.println("WebLog doPrint()");
@@ -122,8 +133,8 @@ class WebLog {
         buffer   = "";
     }
 
-    // Clear the debug log over the Internet to start a new track of the watch's runtime
-    // execution.
+    //! Clear the debug log over the Internet to start a new track of the watch's runtime
+    //! execution.
     //
     function clear() {
         // System.println("WebLog clear()");
@@ -143,7 +154,10 @@ class WebLog {
         buffer   = "";
     }
 
-    // Callback function to print the outcome of a doPrint() method.
+    //! Callback function to print the outcome of a doPrint() method. Typically used for debugging this class.
+    //!
+    //! @param responseCode Response code.
+    //! @param data         Response data.
     //
     function onLog(responseCode as Lang.Number, data as Null or Lang.Dictionary or Lang.String) as Void {
         // if (responseCode != 200) {
@@ -153,7 +167,10 @@ class WebLog {
         // }
     }
 
-    // Callback function to print the outcome of a clear() method.
+    // Callback function to print the outcome of a clear() method. Typically used for debugging this class.
+    //!
+    //! @param responseCode Response code.
+    //! @param data         Response data.
     //
     function onClear(responseCode as Lang.Number, data as Null or Lang.Dictionary or Lang.String) as Void {
         // if (responseCode != 200) {

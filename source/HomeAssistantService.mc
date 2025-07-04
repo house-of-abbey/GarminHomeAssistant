@@ -11,11 +11,6 @@
 //
 // P A Abbey & J D Abbey & Someone0nEarth, 19 November 2023
 //
-//
-// Description:
-//
-// Calling a Home Assistant Service.
-//
 //-----------------------------------------------------------------------------------
 
 using Toybox.Lang;
@@ -23,10 +18,14 @@ using Toybox.WatchUi;
 using Toybox.Graphics;
 using Toybox.Application.Properties;
 
+//! Calling a Home Assistant Service.
+//
 class HomeAssistantService {
     private var mHasToast   as Lang.Boolean = false;
     private var mHasVibrate as Lang.Boolean = false;
 
+    //! Class Constructor
+    //
     function initialize() {
         if (WatchUi has :showToast) {
             mHasToast = true;
@@ -36,7 +35,11 @@ class HomeAssistantService {
         }
     }
 
-    // Callback function after completing the POST request to call a service.
+    //! Callback function after completing the POST request to call a service.
+    //!
+    //! @param responseCode Response code.
+    //! @param data         Response data.
+    //! @param context      An `entity_id` supplied in the GET request `options` `Lang.Dictionary` `context` field.
     //
     function onReturnCall(
         responseCode as Lang.Number,
@@ -107,6 +110,11 @@ class HomeAssistantService {
         }
     }
 
+    //! Invoke a service call for a menu item.
+    //!
+    //! @param service The Home Assistant service to be run, e.g. from the JSON `service` field.
+    //! @param data    Data to be supplied to the service call.
+    //
     function call(
         service as Lang.String,
         data    as Lang.Dictionary or Null

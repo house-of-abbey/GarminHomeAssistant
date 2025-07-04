@@ -11,11 +11,6 @@
 //
 // P A Abbey & J D Abbey & Someone0nEarth & moesterheld, 31 October 2023
 //
-//
-// Description:
-//
-// Application root for GarminHomeAssistant
-//
 //-----------------------------------------------------------------------------------
 
 using Toybox.Application;
@@ -25,6 +20,8 @@ using Toybox.System;
 using Toybox.Application.Properties;
 using Toybox.Timer;
 
+//! Application root for GarminHomeAssistant
+//
 (:glance, :background)
 class HomeAssistantApp extends Application.AppBase {
     private var mApiStatus     as Lang.String       or Null;
@@ -40,6 +37,8 @@ class HomeAssistantApp extends Application.AppBase {
     private var mUpdating      as Lang.Boolean    = false; // Don't start a second chain of updates
     private var mTemplates     as Lang.Dictionary = {};
 
+    //! Class Constructor
+    //
     function initialize() {
         AppBase.initialize();
         // ATTENTION when adding stuff into this block:
@@ -55,7 +54,10 @@ class HomeAssistantApp extends Application.AppBase {
         // with "(:glance)".
     }
 
-    // onStart() is called on application start up
+    //! Called on application start up
+    //!
+    //! @param state see `AppBase.onStart()`
+    //
     function onStart(state as Lang.Dictionary?) as Void {
         AppBase.onStart(state);
         // ATTENTION when adding stuff into this block:
@@ -71,7 +73,11 @@ class HomeAssistantApp extends Application.AppBase {
         // with "(:glance)".
     }
 
-    // onStop() is called when your application is exiting
+    //! Called when your application is exiting
+    //
+    //!
+    //! @param state see `AppBase.onStop()`
+    //
     function onStop(state as Lang.Dictionary?) as Void {
         AppBase.onStop(state);
         // ATTENTION when adding stuff into this block:
@@ -87,7 +93,10 @@ class HomeAssistantApp extends Application.AppBase {
         // with "(:glance)".
     }
 
-    // Return the initial view of your application here
+    //! Returns the initial view of the application.
+    //!
+    //! @return The initial view.
+    //
     function getInitialView() as [ WatchUi.Views ] or [ WatchUi.Views, WatchUi.InputDelegates ] {
         mIsApp       = true;
         mQuitTimer   = new QuitTimer();
@@ -132,10 +141,16 @@ class HomeAssistantApp extends Application.AppBase {
         }
     }
 
-    // Callback function after completing the GET request to fetch the configuration menu.
+    //! Callback function after completing the GET request to fetch the configuration menu.
+    //!
+    //! @param responseCode Response code.
+    //! @param data         Response data.
     //
     (:glance)
-    function onReturnFetchMenuConfig(responseCode as Lang.Number, data as Null or Lang.Dictionary or Lang.String) as Void {
+    function onReturnFetchMenuConfig(
+        responseCode as Lang.Number,
+        data         as Null or Lang.Dictionary or Lang.String
+    ) as Void {
         // System.println("HomeAssistantApp onReturnFetchMenuConfig() Response Code: " + responseCode);
         // System.println("HomeAssistantApp onReturnFetchMenuConfig() Response Data: " + data);
 
@@ -208,8 +223,11 @@ class HomeAssistantApp extends Application.AppBase {
         WatchUi.requestUpdate();
     }
 
-    // Return true if the menu came from the cache, otherwise false. This is because fetching the menu when not in the cache is
-    // asynchronous and affects how the views are managed.
+    //! Fetch the menu configuration over HTTPS, which might be locally cached.
+    //!
+    //! @return Return true if the menu came from the cache, otherwise false. This is because fetching
+    //!         the menu when not in the cache is asynchronous and affects how the views are managed.
+    //
     (:glance)
     function fetchMenuConfig() as Lang.Boolean {
         // System.println("Menu URL = " + Settings.getConfigUrl());
@@ -263,6 +281,10 @@ class HomeAssistantApp extends Application.AppBase {
         return false;
     }
 
+    //! Build the menu and store in `mHaMenu`. Then start updates if necessary.
+    //!
+    //! @param menu The dictionary derived from the JSON menu fetched by `fetchMenuConfig()`.
+    //
     private function buildMenu(menu as Lang.Dictionary) {
         mHaMenu = new HomeAssistantView(menu, null);
         mQuitTimer.begin();
@@ -271,6 +293,8 @@ class HomeAssistantApp extends Application.AppBase {
         } // If not, this will be done via a chain in Settings.webhook() and mWebhookManager.requestWebhookId() that registers the sensors.
     }
 
+    //! Start the periodic menu updates for as long as the application is running.
+    //
     function startUpdates() {
         if (mHaMenu != null and !mUpdating) {
             // Start the continuous update process that continues for as long as the application is running.
@@ -279,7 +303,15 @@ class HomeAssistantApp extends Application.AppBase {
         }
     }
 
-    function onReturnUpdateMenuItems(responseCode as Lang.Number, data as Null or Lang.Dictionary) as Void {
+    //! Callback function for each menu update GET request.
+    //!
+    //! @param responseCode Response code.
+    //! @param data         Response data.
+    //
+    function onReturnUpdateMenuItems(
+        responseCode as Lang.Number,
+        data         as Null or Lang.Dictionary
+    ) as Void {
         // System.println("HomeAssistantApp onReturnUpdateMenuItems() Response Code: " + responseCode);
         // System.println("HomeAssistantApp onReturnUpdateMenuItems() Response Data: " + data);
 
@@ -353,6 +385,8 @@ class HomeAssistantApp extends Application.AppBase {
         setApiStatus(status);
     }
 
+    //! Construct the GET request to update all menu items.
+    //
     function updateMenuItems() as Void {
         if (! System.getDeviceSettings().phoneConnected) {
             // System.println("HomeAssistantApp updateMenuItems(): No Phone connection, skipping API call.");
@@ -368,17 +402,17 @@ class HomeAssistantApp extends Application.AppBase {
                 mTemplates = {};
                 for (var i = 0; i < mItemsToUpdate.size(); i++) {
                     var item = mItemsToUpdate[i];
-                    var template = item.buildTemplate();
+                    var template = item.getTemplate();
                     if (template != null) {
                         mTemplates.put(i.toString(), {
                             "template" => template
                         });
                     }
-                    if (item instanceof HomeAssistantToggleMenuItem) {
-                        mTemplates.put(i.toString() + "t", {
-                            "template" => (item as HomeAssistantToggleMenuItem).buildToggleTemplate()
-                        });
-                    }
+                   if (item instanceof HomeAssistantToggleMenuItem) {
+                       mTemplates.put(i.toString() + "t", {
+                           "template" => (item as HomeAssistantToggleMenuItem).getToggleTemplate()
+                       });
+                   }
                 }
             }
             // https://developers.home-assistant.io/docs/api/native-app-integration/sending-data/#render-templates
@@ -402,10 +436,16 @@ class HomeAssistantApp extends Application.AppBase {
         }
     }
 
-    // Callback function after completing the GET request to fetch the API status.
+    //! Callback function after completing the GET request to fetch the API status.
+    //!
+    //! @param responseCode Response code.
+    //! @param data         Response data.
     //
     (:glance)
-    function onReturnFetchApiStatus(responseCode as Lang.Number, data as Null or Lang.Dictionary or Lang.String) as Void {
+    function onReturnFetchApiStatus(
+        responseCode as Lang.Number,
+        data         as Null or Lang.Dictionary or Lang.String
+    ) as Void {
         // System.println("HomeAssistantApp onReturnFetchApiStatus() Response Code: " + responseCode);
         // System.println("HomeAssistantApp onReturnFetchApiStatus() Response Data: " + data);
 
@@ -466,6 +506,8 @@ class HomeAssistantApp extends Application.AppBase {
         WatchUi.requestUpdate();
     }
 
+    //! Construct the GET request to test the API status, is it accessible?
+    //
     (:glance)
     function fetchApiStatus() as Void {
         // System.println("API URL = " + Settings.getApiUrl());
@@ -506,30 +548,49 @@ class HomeAssistantApp extends Application.AppBase {
         }
     }
 
+    //! Record the API status result.
+    //!
+    //! @param s API status
+    //
     function setApiStatus(s as Lang.String) {
         mApiStatus = s;
     }
 
+    //! Return the API status result.
+    //!
+    //! @return The API status
+    //
     (:glance)
     function getApiStatus() as Lang.String {
         return mApiStatus;
     }
 
+    //! Return the Menu status result.
+    //!
+    //! @return The Menu status
+    //
     (:glance)
     function getMenuStatus() as Lang.String {
         return mMenuStatus;
     }
 
+    //! Return the Menu construction status.
+    //!
+    //! @return The Menu status
+    //
     function isHomeAssistantMenuLoaded() as Lang.Boolean {
         return mHaMenu != null;
     }
 
+    //! Make the menu visible on the watch face.
+    //
     function pushHomeAssistantMenuView() as Void {
         WatchUi.pushView(mHaMenu, new HomeAssistantViewDelegate(true), WatchUi.SLIDE_IMMEDIATE);
     }
 
-    // Only call this function if Settings.getPollDelay() > 0. This must be tested locally as it is then efficient to take
-    // alternative action if the test fails.
+    //! Force status updates. Only take action if `Settings.getPollDelay() > 0`. This must be tested
+    //! locally as it is then efficient to take alternative action if the test fails.
+    //
     function forceStatusUpdates() as Void {
         // Don't mess with updates unless we are using a timer.
         if (Settings.getPollDelay() > 0) {
@@ -539,10 +600,18 @@ class HomeAssistantApp extends Application.AppBase {
         }
     }
 
+    //! Return the timer used to quit the application.
+    //!
+    //! @return Timer object
+    //
     function getQuitTimer() as QuitTimer {
         return mQuitTimer;
     }
 
+    //! Return the glance view.
+    //!
+    //! @return The glance view
+    //
     function getGlanceView() as [ WatchUi.GlanceView ] or [ WatchUi.GlanceView, WatchUi.GlanceViewDelegate ] or Null {
         mIsGlance   = true;
         mApiStatus  = WatchUi.loadResource($.Rez.Strings.Checking) as Lang.String;
@@ -554,30 +623,38 @@ class HomeAssistantApp extends Application.AppBase {
         return [new HomeAssistantGlanceView(self)];
     }
 
-    // Required for the Glance update timer.
+    //! Update the menu and API statuses. Required for the Glance update timer.
+    //
     function updateStatus() as Void {
         mGlanceTimer = null;
         fetchMenuConfig();
         fetchApiStatus();
     }
 
+    //! Code for when the application settings are updated.
+    //
     function onSettingsChanged() as Void {
         // System.println("HomeAssistantApp onSettingsChanged()");
         Settings.update();
     }
 
-    // Called each time the Registered Temporal Event is to be invoked. So the object is created each time on request and
-    // then destroyed on completion (to save resources).
+    //! Called each time the Registered Temporal Event is to be invoked. So the object is created each time
+    //! on request and then destroyed on completion (to save resources).
+    //
     function getServiceDelegate() as [ System.ServiceDelegate ] {
         return [new BackgroundServiceDelegate()];
     }
 
+    //! Determine is we are a glance or the full application. Glances should be considered to be separate applications.
+    //
     function getIsApp() as Lang.Boolean {
         return mIsApp;
     }
 
 }
 
+//! Global function to return the application object.
+//
 (:glance, :background)
 function getApp() as HomeAssistantApp {
     return Application.getApp() as HomeAssistantApp;
