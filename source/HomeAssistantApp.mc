@@ -550,7 +550,7 @@ class HomeAssistantApp extends Application.AppBase {
 
     //! Record the API status result.
     //!
-    //! @param s API status
+    //! @param s A string describing the API status
     //
     function setApiStatus(s as Lang.String) {
         mApiStatus = s;
@@ -558,7 +558,7 @@ class HomeAssistantApp extends Application.AppBase {
 
     //! Return the API status result.
     //!
-    //! @return The API status
+    //! @return A string describing the API status
     //
     (:glance)
     function getApiStatus() as Lang.String {
@@ -567,7 +567,7 @@ class HomeAssistantApp extends Application.AppBase {
 
     //! Return the Menu status result.
     //!
-    //! @return The Menu status
+    //! @return A string describing the Menu status
     //
     (:glance)
     function getMenuStatus() as Lang.String {
@@ -576,7 +576,7 @@ class HomeAssistantApp extends Application.AppBase {
 
     //! Return the Menu construction status.
     //!
-    //! @return The Menu status
+    //! @return A string describing the Menu status
     //
     function isHomeAssistantMenuLoaded() as Lang.Boolean {
         return mHaMenu != null;
