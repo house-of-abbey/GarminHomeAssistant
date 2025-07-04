@@ -576,7 +576,7 @@ class HomeAssistantApp extends Application.AppBase {
 
     //! Return the Menu construction status.
     //!
-    //! @return A string describing the Menu status
+    //! @return A Boolean indicating if the menu is loaded into the application.
     //
     function isHomeAssistantMenuLoaded() as Lang.Boolean {
         return mHaMenu != null;
