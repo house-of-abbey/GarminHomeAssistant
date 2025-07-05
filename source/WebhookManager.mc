@@ -27,7 +27,7 @@ using Toybox.WatchUi;
 //
 class WebhookManager {
 
-    //! Callback for requesting a Webhoo ID.
+    //! Callback for requesting a Webhook ID.
     //!
     //! @param responseCode Response code
     //! @param data         Return data
