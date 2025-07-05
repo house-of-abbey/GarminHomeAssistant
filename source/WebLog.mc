@@ -20,7 +20,7 @@ using Toybox.System;
 //! WebLog provides a logging and hence debugging aid for when the application is
 //! deployed to the watch. This is only used for development and use of it must not
 //! persist into a deployed version. It uses a string buffer to group log entries into
-//! larger submissions in order to prevent overflow of the blue tooth stack.
+//! larger submissions in order to prevent overflow of the Bluetooth stack.
 //!
 //! Usage:
 //! <pre>
