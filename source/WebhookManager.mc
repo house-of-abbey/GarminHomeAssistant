@@ -11,14 +11,6 @@
 //
 // P A Abbey & J D Abbey, 10 January 2024
 //
-//
-// Description:
-//
-// Home Assistant Webhook creation.
-//
-// Reference:
-//  * https://developers.home-assistant.io/docs/api/native-app-integration
-//
 //-----------------------------------------------------------------------------------
 
 using Toybox.Lang;
@@ -26,10 +18,24 @@ using Toybox.Communications;
 using Toybox.System;
 using Toybox.WatchUi;
 
-// Can use push view so must never be run in a glance context
+//! Home Assistant Webhook creation.
+//!
+//! NB. Because we can use push view (E.g. `ErrorView.show()`) this class must never
+//! be run in a glance context.
+//!
+//! Reference: https://developers.home-assistant.io/docs/api/native-app-integration
+//
 class WebhookManager {
 
-    function onReturnRequestWebhookId(responseCode as Lang.Number, data as Null or Lang.Dictionary or Lang.String) as Void {
+    //! Callback for requesting a Webhook ID.
+    //!
+    //! @param responseCode Response code
+    //! @param data         Return data
+    //
+    function onReturnRequestWebhookId(
+        responseCode as Lang.Number,
+        data         as Null or Lang.Dictionary or Lang.String
+    ) as Void {
         switch (responseCode) {
             case Communications.BLE_HOST_TIMEOUT:
             case Communications.BLE_CONNECTION_UNAVAILABLE:
@@ -84,6 +90,8 @@ class WebhookManager {
         }
     }
 
+    //! Request a Webhook ID from Home Assistant for use in this application.
+    //
     function requestWebhookId() {
         var deviceSettings = System.getDeviceSettings();
         // System.println("WebhookManager requestWebhookId(): Requesting webhook id for device = " + deviceSettings.uniqueIdentifier);
@@ -115,7 +123,18 @@ class WebhookManager {
         );
     }
 
-    function onReturnRegisterWebhookSensor(responseCode as Lang.Number, data as Null or Lang.Dictionary or Lang.String, sensors as Lang.Array<Lang.Object>) as Void {
+    //! Callback function for the POST request to register the watch's sensors on the Home Assistant instance.
+    //!
+    //! @param responseCode Response code.
+    //! @param data         Response data.
+    //! @param sensors      The remaining sensors to be processed. The list of sensors is iterated through
+    //!                     until empty. Each POST request creating one sensor on the local Home Assistant.
+    //
+    function onReturnRegisterWebhookSensor(
+        responseCode as Lang.Number,
+        data         as Null or Lang.Dictionary or Lang.String,
+        sensors      as Lang.Array<Lang.Object>
+    ) as Void {
         switch (responseCode) {
             case Communications.BLE_HOST_TIMEOUT:
             case Communications.BLE_CONNECTION_UNAVAILABLE:
@@ -194,7 +213,11 @@ class WebhookManager {
         }
     }
 
-    function registerWebhookSensor(sensors as Lang.Array<Lang.Object>) {
+    //! Local method to send the POST request to register a number of sensors.
+    //!
+    //! @param sensors An array of sensors, e.g. As created by `registerWebhookSensors()`.
+    //
+    private function registerWebhookSensor(sensors as Lang.Array<Lang.Object>) {
         var url = Settings.getApiUrl() + "/webhook/" + Settings.getWebhookId();
         // System.println("WebhookManager registerWebhookSensor(): Registering webhook sensor: " + sensor.toString());
         // System.println("WebhookManager registerWebhookSensor(): URL=" + url);
@@ -217,6 +240,8 @@ class WebhookManager {
         );
     }
 
+    //! Request the creation of all the supported watch sensors on the Home Assistant instance.
+    //
     function registerWebhookSensors() {
         var heartRate = Activity.getActivityInfo().currentHeartRate;
 

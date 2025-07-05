@@ -11,15 +11,12 @@
 //
 // J D Abbey & P A Abbey, 28 December 2022
 //
-//
-// Description:
-//
-// ClientId is somewhere to store personal credentials that should not be shared in
-// a separate file that is locally customised to the source code and not commited
-// back to GitHub.
-//
 //-----------------------------------------------------------------------------------
 
+//! ClientId is somewhere to store personal credentials that should not be shared in
+//! a separate file that is locally customised to the source code and not committed
+//! back to GitHub.
+//
 (:glance)
 class ClientId {
    static const webLogUrl      = "https://...";

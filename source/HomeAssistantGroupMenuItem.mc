@@ -11,20 +11,19 @@
 //
 // P A Abbey & J D Abbey & Someone0nEarth, 31 October 2023
 //
-//
-// Description:
-//
-// Menu button with an icon that opens a sub-menu, i.e. group, and optionally renders
-// a Home Assistant Template.
-//
 //-----------------------------------------------------------------------------------
 
 using Toybox.Lang;
 using Toybox.WatchUi;
 
+//! Menu button with an icon that opens a sub-menu, i.e. group, and optionally renders
+//! a Home Assistant Template.
+//
 class HomeAssistantGroupMenuItem extends HomeAssistantMenuItem {
     private var mMenu as HomeAssistantView;
 
+    //! Class Constructor
+    //
     function initialize(
         definition as Lang.Dictionary,
         template   as Lang.String,
@@ -48,6 +47,8 @@ class HomeAssistantGroupMenuItem extends HomeAssistantMenuItem {
         mMenu = new HomeAssistantView(definition, null);
     }
 
+    //! Return the submenu for this group menu item.
+    //
     function getMenuView() as HomeAssistantView {
         return mMenu;
     }

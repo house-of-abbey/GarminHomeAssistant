@@ -11,20 +11,23 @@
 //
 // P A Abbey & J D Abbey & Someone0nEarth, 31 October 2023
 //
-//
-// Description:
-//
-// Generic menu button with an icon that optionally renders a Home Assistant Template.
-//
 //-----------------------------------------------------------------------------------
 
 using Toybox.Lang;
 using Toybox.WatchUi;
 using Toybox.Graphics;
 
+//! Generic menu button with an icon that optionally renders a Home Assistant Template.
+//
 class HomeAssistantMenuItem extends WatchUi.IconMenuItem {
     private var mTemplate as Lang.String or Null;
 
+    //! Class Constructor
+    //!
+    //! @param label    Menu item label
+    //! @param template Menu item template
+    //! @param options  Menu item options to be passed on.
+    //
     function initialize(
         label    as Lang.String or Lang.Symbol,
         template as Lang.String,
@@ -43,14 +46,27 @@ class HomeAssistantMenuItem extends WatchUi.IconMenuItem {
         mTemplate = template;
     }
 
+    //! Does this menu item use a template?
+    //!
+    //! @return True if the menu has a defined template else false.
+    //
     function hasTemplate() as Lang.Boolean {
         return mTemplate != null;
     }
 
-    function buildTemplate() as Lang.String or Null {
+    //! Return the menu item's template.
+    //!
+    //! @return A string with the menu item's template definition.
+    //
+    function getTemplate() as Lang.String or Null {
         return mTemplate;
     }
 
+    //! Update the menu item's sub label to display the template rendered by Home Assistant.
+    //!
+    //! @param data The rendered template (typically a string) to be placed in the sub label. This may
+    //!             unusually be a number if the SDK interprets the JSON returned by Home Assistant as such.
+    //
     function updateState(data as Lang.String or Lang.Dictionary or Lang.Number or Lang.Float or Null) as Void {
         if (data == null) {
             setSubLabel($.Rez.Strings.Empty);

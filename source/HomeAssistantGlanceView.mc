@@ -11,17 +11,14 @@
 //
 // P A Abbey & J D Abbey & Someone0nEarth, 23 November 2023
 //
-//
-// Description:
-//
-// Glance view for GarminHomeAssistant
-//
 //-----------------------------------------------------------------------------------
 
 using Toybox.Lang;
 using Toybox.WatchUi;
 using Toybox.Graphics;
 
+//! Glance view for GarminHomeAssistant
+//
 (:glance)
 class HomeAssistantGlanceView extends WatchUi.GlanceView {
     private static const scLeftMargin =  5; // in pixels
@@ -34,6 +31,8 @@ class HomeAssistantGlanceView extends WatchUi.GlanceView {
     private var mMenuStatus as WatchUi.Text or Null;
     private var mAntiAlias  as Lang.Boolean = false;
 
+    //! Class Constructor
+    //
     function initialize(app as HomeAssistantApp) {
         GlanceView.initialize();
         mApp = app;
@@ -42,6 +41,10 @@ class HomeAssistantGlanceView extends WatchUi.GlanceView {
         }
     }
 
+    //! Construct the view.
+    //!
+    //! @param dc Device context
+    //
     function onLayout(dc as Graphics.Dc) as Void {
         var h  = dc.getHeight();
         var tw = dc.getTextWidthInPixels(WatchUi.loadResource($.Rez.Strings.GlanceMenu) as Lang.String, Graphics.FONT_XTINY);
@@ -89,6 +92,10 @@ class HomeAssistantGlanceView extends WatchUi.GlanceView {
         });
     }
 
+    //! Update the view with the latest status text.
+    //!
+    //! @param dc Device context
+    //
     function onUpdate(dc as Graphics.Dc) as Void {
         GlanceView.onUpdate(dc);
         if(mAntiAlias) {

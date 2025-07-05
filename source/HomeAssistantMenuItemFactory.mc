@@ -11,17 +11,14 @@
 //
 // P A Abbey & J D Abbey & Someone0nEarth, 17 November 2023
 //
-//
-// Description:
-//
-// MenuItems Factory.
-//
 //-----------------------------------------------------------------------------------
 
 using Toybox.Application;
 using Toybox.Lang;
 using Toybox.WatchUi;
 
+//! MenuItems Factory class.
+//
 class HomeAssistantMenuItemFactory {
     private var mMenuItemOptions      as Lang.Dictionary;
     private var mTapTypeIcon          as WatchUi.Bitmap;
@@ -31,6 +28,8 @@ class HomeAssistantMenuItemFactory {
 
     private static var instance;
 
+    //! Class Constructor
+    //
     private function initialize() {
         mMenuItemOptions = {
             :alignment => Settings.getMenuAlignment()
@@ -57,6 +56,8 @@ class HomeAssistantMenuItemFactory {
         mHomeAssistantService = new HomeAssistantService();
     }
 
+    //! Create the one and only instance of this class.
+    //
     static function create() as HomeAssistantMenuItemFactory {
         if (instance == null) {
             instance = new HomeAssistantMenuItemFactory();
@@ -64,6 +65,14 @@ class HomeAssistantMenuItemFactory {
         return instance;
     }
 
+    //! Toggle menu item.
+    //!
+    //! @param label     Menu item label.
+    //! @param entity_id Home Assistant Entity ID (optional)
+    //! @param template  Template for Home Assistant to render (optional)
+    //! @param confirm   Should this menu item selection be confirmed?
+    //! @param pin       Should this menu item selection request the security PIN?
+    //
     function toggle(
         label     as Lang.String or Lang.Symbol,
         entity_id as Lang.String or Null,
@@ -81,20 +90,30 @@ class HomeAssistantMenuItemFactory {
         );
     }
 
+    //! Tap menu item.
+    //!
+    //! @param label     Menu item label.
+    //! @param entity_id Home Assistant Entity ID (optional)
+    //! @param template  Template for Home Assistant to render (optional)
+    //! @param service   Template for Home Assistant to render (optional)
+    //! @param confirm   Should this menu item selection be confirmed?
+    //! @param pin       Should this menu item selection request the security PIN?
+    //! @param data      Sourced from the menu JSON, this is the `data` field from the `tap_action` field.
+    //
     function tap(
-        label    as Lang.String or Lang.Symbol,
-        entity   as Lang.String or Null,
-        template as Lang.String or Null,
-        service  as Lang.String or Null,
-        confirm  as Lang.Boolean,
-        pin      as Lang.Boolean,
-        data     as Lang.Dictionary or Null
+        label     as Lang.String or Lang.Symbol,
+        entity_id as Lang.String or Null,
+        template  as Lang.String or Null,
+        service   as Lang.String or Null,
+        confirm   as Lang.Boolean,
+        pin       as Lang.Boolean,
+        data      as Lang.Dictionary or Null
     ) as WatchUi.MenuItem {
-        if (entity != null) {
+        if (entity_id != null) {
             if (data == null) {
-                data = { "entity_id" => entity };
+                data = { "entity_id" => entity_id };
             } else {
-                data.put("entity_id", entity);
+                data.put("entity_id", entity_id);
             }
         }
         if (service != null) {
@@ -124,6 +143,11 @@ class HomeAssistantMenuItemFactory {
         }
     }
 
+    //! Group menu item.
+    //!
+    //! @param definition Items array from the JSON that defines this sub menu.
+    //! @param template   Template for Home Assistant to render (optional)
+    //
     function group(
         definition as Lang.Dictionary,
         template   as Lang.String or Null

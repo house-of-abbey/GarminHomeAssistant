@@ -11,12 +11,6 @@
 //
 // P A Abbey & J D Abbey & Someone0nEarth, 31 October 2023
 //
-//
-// Description:
-//
-// The background service delegate currently just reports the Garmin watch's battery
-// level.
-//
 //-----------------------------------------------------------------------------------
 
 using Toybox.Lang;
@@ -25,20 +19,43 @@ using Toybox.Background;
 using Toybox.System;
 using Toybox.Activity;
 
+//! The background service delegate reports the Garmin watch's various status values
+//! back to the Home Assistant instance.
+//
 (:background)
 class BackgroundServiceDelegate extends System.ServiceDelegate {
 
+    //! Class Constructor
+    //
     function initialize() {
         ServiceDelegate.initialize();
     }
 
-    function onReturnBatteryUpdate(responseCode as Lang.Number, data as Null or Lang.Dictionary or Lang.String) as Void {
-        // System.println("BackgroundServiceDelegate onReturnBatteryUpdate() Response Code: " + responseCode);
-        // System.println("BackgroundServiceDelegate onReturnBatteryUpdate() Response Data: " + data);
+    //! Callback function for doUpdate().
+    //!
+    //! @param responseCode Response code
+    //! @param data         Return data
+    //
+    function onReturnDoUpdate(responseCode as Lang.Number, data as Null or Lang.Dictionary or Lang.String) as Void {
+        // System.println("BackgroundServiceDelegate onReturnDoUpdate() Response Code: " + responseCode);
+        // System.println("BackgroundServiceDelegate onReturnDoUpdate() Response Data: " + data);
         Background.exit(null);
     }
 
-    function onActivityCompleted(activity as { :sport as Activity.Sport, :subSport as Activity.SubSport }) as Void {
+    //! Called on completion of an activity.
+    //!
+    //! @param activity Specified as a Dictionary with two items.<br>
+    //!   &lbrace;<br>
+    //!   &emsp; :sport    as Activity.Sport<br>
+    //!   &emsp; :subSport as Activity.SubSport<br>
+    //!   &rbrace;
+    //
+    function onActivityCompleted(
+        activity as {
+            :sport    as Activity.Sport,
+            :subSport as Activity.SubSport
+        }
+    ) as Void {
         if (!System.getDeviceSettings().phoneConnected) {
             // System.println("BackgroundServiceDelegate onActivityCompleted(): No Phone connection, skipping API call.");
         } else if (!System.getDeviceSettings().connectionAvailable) {
@@ -50,6 +67,8 @@ class BackgroundServiceDelegate extends System.ServiceDelegate {
         }
     }
 
+    //! Called periodically to send status updates to the Home Assistant instance.
+    //
     function onTemporalEvent() as Void {
         if (!System.getDeviceSettings().phoneConnected) {
             // System.println("BackgroundServiceDelegate onTemporalEvent(): No Phone connection, skipping API call.");
@@ -76,7 +95,15 @@ class BackgroundServiceDelegate extends System.ServiceDelegate {
         }
     }
 
-    private function doUpdate(activity as Lang.Number or Null, sub_activity as Lang.Number or Null) {
+    //! Combined update function to collect the data to be sent as updates to the Home Assistant instance.
+    //!
+    //! @param activity     Activity.Sport
+    //! @param sub_activity Activity.SubSport
+    //
+    private function doUpdate(
+        activity     as Lang.Number or Null,
+        sub_activity as Lang.Number or Null
+    ) {
         // System.println("BackgroundServiceDelegate onTemporalEvent(): Making API call.");
         var position = Position.getInfo();
         // System.println("BackgroundServiceDelegate onTemporalEvent(): GPS      : " + position.position.toDegrees());
@@ -136,7 +163,7 @@ class BackgroundServiceDelegate extends System.ServiceDelegate {
                     },
                     :responseType => Communications.HTTP_RESPONSE_CONTENT_TYPE_JSON
                 },
-                method(:onReturnBatteryUpdate)
+                method(:onReturnDoUpdate)
             );
         }
         var activityInfo = ActivityMonitor.getInfo();
@@ -222,7 +249,7 @@ class BackgroundServiceDelegate extends System.ServiceDelegate {
                 },
                 :responseType => Communications.HTTP_RESPONSE_CONTENT_TYPE_JSON
             },
-            method(:onReturnBatteryUpdate)
+            method(:onReturnDoUpdate)
         );
     }
 

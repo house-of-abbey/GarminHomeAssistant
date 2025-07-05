@@ -11,15 +11,6 @@
 //
 // J D Abbey & P A Abbey, 28 December 2022
 //
-//
-// Description:
-//
-// Alert provides a means to present application notifications to the user
-// briefly. Credit to travis.vitek on forums.garmin.com.
-//
-// Reference:
-//  * https://forums.garmin.com/developer/connect-iq/f/discussion/106/how-to-show-alert-messages
-//
 //-----------------------------------------------------------------------------------
 
 using Toybox.Lang;
@@ -27,6 +18,12 @@ using Toybox.Graphics;
 using Toybox.WatchUi;
 using Toybox.Timer;
 
+//! The Alert class provides a means to present application notifications to the user
+//! briefly. Credit to travis.vitek on forums.garmin.com.
+//!
+//! Reference:
+//!  @url https://forums.garmin.com/developer/connect-iq/f/discussion/106/how-to-show-alert-messages
+//
 class Alert extends WatchUi.View {
     private static const scRadius = 10;
     private var mTimer   as Timer.Timer;
@@ -36,6 +33,16 @@ class Alert extends WatchUi.View {
     private var mFgcolor as Graphics.ColorType;
     private var mBgcolor as Graphics.ColorType;
 
+    //! Class Constructor
+    //! @param params A dictionary object as follows:<br>
+    //!   &lbrace;<br>
+    //!   &emsp; :timeout as Lang.Number,        // Timeout in millseconds<br>
+    //!   &emsp; :font    as Graphics.FontType,  // Text font size<br>
+    //!   &emsp; :text    as Lang.String,        // Text to display<br>
+    //!   &emsp; :fgcolor as Graphics.ColorType, // Foreground Colour<br>
+    //!   &emsp; :bgcolor as Graphics.ColorType  // Background Colour<br>
+    //!   &rbrace;
+    //
     function initialize(params as Lang.Dictionary) {
         View.initialize();
 
@@ -67,14 +74,22 @@ class Alert extends WatchUi.View {
         mTimer = new Timer.Timer();
     }
 
+    //! Setup a timer to dismiss the alert.
+    //
     function onShow() {
         mTimer.start(method(:dismiss), mTimeout, false);
     }
 
+    //! Prematurely stop the timer.
+    //
     function onHide() {
         mTimer.stop();
     }
 
+    //! Draw the Alert view.
+    //!
+    //! @param dc Device context
+    //
     function onUpdate(dc as Graphics.Dc) {
         var tWidth  = dc.getTextWidthInPixels(mText, mFont);
         var tHeight = dc.getFontHeight(mFont);
@@ -110,32 +125,49 @@ class Alert extends WatchUi.View {
         dc.drawText(tX, tY, mFont, mText, Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
     }
 
-    // Remove the alert from view, usually on user input, but that is defined by the calling function.
+    //! Remove the alert from view, usually on user input, but that is defined by the calling function.
     //
     function dismiss() as Void {
         WatchUi.popView(SLIDE_IMMEDIATE);
     }
 
-    function pushView(transition) as Void {
+    //! Push this view onto the view stack.
+    //!
+    //! @param transition Slide Type
+    function pushView(transition as WatchUi.SlideType) as Void {
         WatchUi.pushView(self, new AlertDelegate(self), transition);
     }
 }
 
+//! Input Delegate for the Alert view.
+//
 class AlertDelegate extends WatchUi.InputDelegate {
-    private var mView;
+    private var mView as Alert;
 
-    function initialize(view) {
+    //! Class Constructor
+    //!
+    //! @param view The Alert view for which this class is a delegate.
+    //!
+    function initialize(view as Alert) {
         InputDelegate.initialize();
         mView = view;
     }
 
-    function onKey(evt) as Lang.Boolean {
+    //! Handle key events.
+    //!
+    //! @param evt The key event whose value is ignored, just fact of key event matters.
+    //!
+    function onKey(evt as WatchUi.KeyEvent) as Lang.Boolean {
         mView.dismiss();
         getApp().getQuitTimer().reset();
         return true;
     }
 
-    function onTap(evt) as Lang.Boolean {
+    //! Handle click events.
+    //!
+    //! @param evt The click event whose value is ignored, just fact of key event matters.
+    //!
+    function onTap(evt as WatchUi.ClickEvent) as Lang.Boolean {
         mView.dismiss();
         getApp().getQuitTimer().reset();
         return true;
