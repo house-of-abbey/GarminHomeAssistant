@@ -32,6 +32,8 @@ class HomeAssistantGlanceView extends WatchUi.GlanceView {
     private static const scMidSep            = 10;
     //! Margin on the right side of the glance in pixels.
     private static const scRightGlanceMargin = 15;
+    //! Internal margin for the custom template between the border and the text in pixels.
+    private static const scIntCustMargin     =  5;
     //! Margin top and bottom of the rectangles in pixels.
     private static const scVertMargin        =  5;
     //! Size of the rounded rectangle corners in pixels.
@@ -117,9 +119,9 @@ class HomeAssistantGlanceView extends WatchUi.GlanceView {
             :color         => Graphics.COLOR_WHITE,
             :font          => Graphics.FONT_XTINY,
             :justification => Graphics.TEXT_JUSTIFY_LEFT | Graphics.TEXT_JUSTIFY_VCENTER,
-            :locX          => scLeftRectMargin + scRectWidth + scRightRectMargin + scMidSep,
+            :locX          => scLeftRectMargin + scRectWidth + scRightRectMargin + scIntCustMargin,
             :locY          => (2 * h / 6) + scVertMargin,
-            :width         => dc.getWidth() - scLeftRectMargin - scRightGlanceMargin,
+            :width         => dc.getWidth() - scLeftRectMargin - scRectWidth - scRightRectMargin - (2 * scIntCustMargin) - scRightGlanceMargin,
             :height        => (4 * h / 6) - (2 * scVertMargin)
         });
     }
