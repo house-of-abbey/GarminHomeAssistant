@@ -45,7 +45,7 @@ For example:
 }
 ```
 
-You may make this as complicated as you like! But you have limited space and only ASCII text characters.
+You may make this as complicated as you like! But you have limited space and only ASCII text characters. **It is best to turn on menu caching in order to speed up the display of the template**. The display is then nearly instantaneous.
 
 The default view will persist showing until the errors are resolved. In order to extract the custom glance template both the menu and the API are required. So it is logical that the two tests must pass first. The exception here is if the menu is cached, in which case only the API needs to pass.
 
