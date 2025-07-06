@@ -24,18 +24,20 @@ using Toybox.Timer;
 //
 (:glance, :background)
 class HomeAssistantApp extends Application.AppBase {
-    private var mApiStatus     as Lang.String       or Null;
-    private var mMenuStatus    as Lang.String       or Null;
-    private var mHaMenu        as HomeAssistantView or Null;
-    private var mQuitTimer     as QuitTimer         or Null;
-    private var mGlanceTimer   as Timer.Timer       or Null;
-    private var mUpdateTimer   as Timer.Timer       or Null;
+    private var mApiStatus      as Lang.String       or Null;
+    private var mMenuStatus     as Lang.String       or Null;
+    private var mHaMenu         as HomeAssistantView or Null;
+    private var mGlanceTemplate as Lang.String       or Null = null;
+    private var mGlanceText     as Lang.String       or Null = null;
+    private var mQuitTimer      as QuitTimer         or Null;
+    private var mGlanceTimer    as Timer.Timer       or Null;
+    private var mUpdateTimer    as Timer.Timer       or Null;
     // Array initialised by onReturnFetchMenuConfig()
-    private var mItemsToUpdate as Lang.Array<HomeAssistantToggleMenuItem or HomeAssistantTapMenuItem or HomeAssistantGroupMenuItem> or Null;
-    private var mIsGlance      as Lang.Boolean    = false;
-    private var mIsApp         as Lang.Boolean    = false; // Or Widget
-    private var mUpdating      as Lang.Boolean    = false; // Don't start a second chain of updates
-    private var mTemplates     as Lang.Dictionary = {};
+    private var mItemsToUpdate  as Lang.Array<HomeAssistantToggleMenuItem or HomeAssistantTapMenuItem or HomeAssistantGroupMenuItem> or Null;
+    private var mIsGlance       as Lang.Boolean    = false;
+    private var mIsApp          as Lang.Boolean    = false; // Or Widget
+    private var mUpdating       as Lang.Boolean    = false; // Don't start a second chain of updates
+    private var mTemplates      as Lang.Dictionary = {};
 
     //! Class Constructor
     //
@@ -203,7 +205,9 @@ class HomeAssistantApp extends Application.AppBase {
                         mMenuStatus = WatchUi.loadResource($.Rez.Strings.Available) as Lang.String;
                     }
                 }
-                if (!mIsGlance) {
+                if (mIsGlance) {
+                    glanceTemplate(data);
+                } else {
                     if (data == null) {
                         ErrorView.show(WatchUi.loadResource($.Rez.Strings.NoJson) as Lang.String);
                     } else {
@@ -272,7 +276,9 @@ class HomeAssistantApp extends Application.AppBase {
             } else {
                 mMenuStatus = WatchUi.loadResource($.Rez.Strings.Cached) as Lang.String;
                 WatchUi.requestUpdate();
-                if (!mIsGlance) {
+                if (mIsGlance) {
+                    glanceTemplate(menu);
+                } else {
                     buildMenu(menu);
                 }
                 return true;
@@ -300,6 +306,22 @@ class HomeAssistantApp extends Application.AppBase {
             // Start the continuous update process that continues for as long as the application is running.
             updateMenuItems();
             mUpdating = true;
+        }
+    }
+
+    //! Extract the optional template to override the default glance view.
+    //
+    function glanceTemplate(menu as Lang.Dictionary) {
+        if (menu != null) {
+            if (menu.get("glance") != null) {
+                var glance = menu.get("glance") as Lang.Dictionary;
+                if (glance.get("type").equals("info")) {
+                    mGlanceTemplate = glance.get("content") as Lang.String;
+                    // System.println("HomeAssistantApp glanceTemplate() " + mGlanceTemplate);
+                } else { // if glance.get("type").equals("status")
+                    mGlanceTemplate = null;
+                }
+            }
         }
     }
 
@@ -416,10 +438,9 @@ class HomeAssistantApp extends Application.AppBase {
                 }
             }
             // https://developers.home-assistant.io/docs/api/native-app-integration/sending-data/#render-templates
-            var url = Settings.getApiUrl() + "/webhook/" + Settings.getWebhookId();
             // System.println("HomeAssistantApp updateMenuItems() URL=" + url + ", Template='" + mTemplate + "'");
             Communications.makeWebRequest(
-                url,
+                Settings.getApiUrl() + "/webhook/" + Settings.getWebhookId(),
                 {
                     "type" => "render_template",
                     "data" => mTemplates
@@ -548,6 +569,100 @@ class HomeAssistantApp extends Application.AppBase {
         }
     }
 
+
+    //! Callback function after completing the GET request to render the glance template.
+    //!
+    //! @param responseCode Response code.
+    //! @param data         Response data.
+    //
+    (:glance)
+    function onReturnFetchGlanceContent(
+        responseCode as Lang.Number,
+        data         as Null or Lang.Dictionary or Lang.String
+    ) as Void {
+        // System.println("HomeAssistantApp onReturnFetchGlanceContent() Response Code: " + responseCode);
+        // System.println("HomeAssistantApp onReturnFetchGlanceContent() Response Data: " + data);
+
+        switch (responseCode) {
+            case Communications.BLE_HOST_TIMEOUT:
+            case Communications.BLE_CONNECTION_UNAVAILABLE:
+                // System.println("HomeAssistantApp onReturnFetchGlanceContent() Response Code: BLE_HOST_TIMEOUT or BLE_CONNECTION_UNAVAILABLE, Bluetooth connection severed.");
+                if (!mIsGlance) {
+                    ErrorView.show(WatchUi.loadResource($.Rez.Strings.NoPhone) as Lang.String);
+                }
+                break;
+
+            case Communications.BLE_QUEUE_FULL:
+                // System.println("HomeAssistantApp onReturnFetchGlanceContent() Response Code: BLE_QUEUE_FULL, API calls too rapid.");
+                if (!mIsGlance) {
+                    ErrorView.show(WatchUi.loadResource($.Rez.Strings.ApiFlood) as Lang.String);
+                }
+                break;
+
+            case Communications.NETWORK_REQUEST_TIMED_OUT:
+                // System.println("HomeAssistantApp onReturnFetchGlanceContent() Response Code: NETWORK_REQUEST_TIMED_OUT, check Internet connection.");
+                if (!mIsGlance) {
+                    ErrorView.show(WatchUi.loadResource($.Rez.Strings.NoResponse) as Lang.String);
+                }
+                break;
+
+            case Communications.INVALID_HTTP_BODY_IN_NETWORK_RESPONSE:
+                // System.println("HomeAssistantApp onReturnFetchGlanceContent() Response Code: INVALID_HTTP_BODY_IN_NETWORK_RESPONSE, check JSON is returned.");
+                if (!mIsGlance) {
+                    ErrorView.show(WatchUi.loadResource($.Rez.Strings.NoJson) as Lang.String);
+                }
+                break;
+
+            case 404:
+                // System.println("HomeAssistantApp onReturnFetchGlanceContent() Response Code: 404, page not found. Check Configuration URL setting.");
+                if (!mIsGlance) {
+                    ErrorView.show(WatchUi.loadResource($.Rez.Strings.ConfigUrlNotFound) as Lang.String);
+                }
+                break;
+
+            case 200:
+                if (data != null) {
+                    mGlanceText = data.get("glanceTemplate");
+                }
+                break;
+
+            default:
+                // System.println("HomeAssistantApp onReturnFetchGlanceContent(): Unhandled HTTP response code = " + responseCode);
+                if (!mIsGlance) {
+                    ErrorView.show(WatchUi.loadResource($.Rez.Strings.UnhandledHttpErr) as Lang.String + responseCode);
+                }
+        }
+        WatchUi.requestUpdate();
+    }
+
+    //! Construct the GET request to convert the optional glance template to text for display.
+    //
+    (:glance)
+    function fetchGlanceContent() as Void {
+        if (mGlanceTemplate != null) {
+            // https://developers.home-assistant.io/docs/api/native-app-integration/sending-data/#render-templates
+            Communications.makeWebRequest(
+                Settings.getApiUrl() + "/webhook/" + Settings.getWebhookId(),
+                {
+                    "type" => "render_template",
+                    "data" => {
+                        "glanceTemplate" => {
+                            "template" => mGlanceTemplate
+                        }
+                    }
+                },
+                {
+                    :method       => Communications.HTTP_REQUEST_METHOD_POST,
+                    :headers      => {
+                        "Content-Type" => Communications.REQUEST_CONTENT_TYPE_JSON
+                    },
+                    :responseType => Communications.HTTP_RESPONSE_CONTENT_TYPE_JSON
+                },
+                method(:onReturnFetchGlanceContent)
+            );
+        }
+    }
+
     //! Record the API status result.
     //!
     //! @param s A string describing the API status
@@ -572,6 +687,16 @@ class HomeAssistantApp extends Application.AppBase {
     (:glance)
     function getMenuStatus() as Lang.String {
         return mMenuStatus;
+    }
+
+    //! Return the optional glance text that overrides the default glance content. This
+    //! is derived from the glance template.
+    //!
+    //! @return A string derived from the glance template
+    //
+    (:glance)
+    function getGlanceText() as Lang.String or Null {
+        return mGlanceText;
     }
 
     //! Return the Menu construction status.
@@ -623,12 +748,21 @@ class HomeAssistantApp extends Application.AppBase {
         return [new HomeAssistantGlanceView(self)];
     }
 
+    //! Return the glance theme.
+    //!
+    //! @return The glance colour
+    //
+    function getGlanceTheme() as Application.AppBase.GlanceTheme {
+        return Application.AppBase.GLANCE_THEME_LIGHT_BLUE;
+    }
+
     //! Update the menu and API statuses. Required for the Glance update timer.
     //
     function updateStatus() as Void {
         mGlanceTimer = null;
         fetchMenuConfig();
         fetchApiStatus();
+        fetchGlanceContent();
     }
 
     //! Code for when the application settings are updated.

@@ -167,7 +167,7 @@ class WebLog {
         // }
     }
 
-    // Callback function to print the outcome of a clear() method. Typically used for debugging this class.
+    //! Callback function to print the outcome of a clear() method. Typically used for debugging this class.
     //!
     //! @param responseCode Response code.
     //! @param data         Response data.
