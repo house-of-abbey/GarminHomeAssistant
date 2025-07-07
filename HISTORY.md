@@ -1,4 +1,4 @@
-[Home](README.md) | [Switches](examples/Switches.md) | [Actions](examples/Actions.md) | [Templates](examples/Templates.md) | [Background Service](BackgroundService.md) | [Trouble Shooting](TroubleShooting.md) | Version History
+[Home](README.md) | [Switches](examples/Switches.md) | [Actions](examples/Actions.md) | [Templates](examples/Templates.md) | [Glance](examples/Glance.md) | [Background Service](BackgroundService.md) | [Trouble Shooting](TroubleShooting.md) | [Version History](HISTORY.md)
 
 # Version History
 
@@ -34,7 +34,7 @@
 |   2.19  | A template to evaluate is now optionally allowed on both `group` and `toggle` menu items. The template to evaluate is non-optional on a `template` menu item. All updates are performed in a single HTTP GET request for efficiency. Bug fix for negative heading values. Vibration now (optionally) confirms toggle menu items being tapped. |
 |   2.20  | Simplified the code base now that templates have been requested in all menu items. This means the `template` menu item became a superset of `tap`. Therefore the `tap` code has been has been upgraded to include `template` and the latter deprecated. JSON menu definitions continue to support `template` items by instantiating a `tap` menu item, but the schema marks them as deprecated and users should migrate their menu definitions now. Use the [web editor](https://house-of-abbey.github.io/GarminHomeAssistant/web/) for assistance with changes. |
 |   2.21  | Added 7 new devices (`edge1050`, `enduro3`, `fenix843mm`, `fenix847mm`, `fenix8solar47mm`, `fenix8solar51mm`, `fenixe`) and upgraded the SDK to 7.3.0. Fix for a bug on Edge devices introduced by v2.16 activity reporting improvements. |
-|   2.22  | Major feature release adding an optional PIN to menu items. This significant new feature has been provided by [moesterheld](https://github.com/moesterheld). Please do not rely on this application for security. Use at your own risk! |
+|   2.22  | <img src="images/pin_view.png" width="200" title="PIN Entry View"/><br/>Major feature release adding an optional PIN to menu items. This significant new feature has been provided by [moesterheld](https://github.com/moesterheld). Please do not rely on this application for security. Use at your own risk! |
 |   2.23  | Added "info" menu item for displaying information via a template without a tap or toggle. Essentially like the old 'template' type that was deprecated when all items were amended to display evaluated templates. That action removed the display only items too hastily. Added 5 new devices in the model range Instinct 3 and Instinct E. |
 |   2.24  | Experiment to prevent new Webhook IDs being created unnecessarily. Reduced the latency for the first menu update. Added 4 new devices: approachs50, descentg2, descentmk1, and gpsmap66. |
 |   2.25  | 2 Bug fixes. First time startup issues caused by v2.24 change and a fix for pure numbers in returned templates. |
@@ -42,3 +42,4 @@
 |   2.27  | Trivial bug fix for the glance view to prevent the "Unconfigured" result being erroneously displayed because the settings were not yet pulled from persistent storage. |
 |   2.28  | Added support for Vivoactive 6 device which also required an SDK update to 8.1.0. |
 |   2.29  | Added support for three new devices, Forerunners 570 42mm & 47mm and 970. |
+|   2.30  | <img src="images/Venu2_glance_default.png" width="200" title="Default Glance"/><br/>Extensive re-work of the [Glance](examples/Glance.md) view, including the ability to customise it with a user supplied template. |

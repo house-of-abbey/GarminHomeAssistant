@@ -2,14 +2,19 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "type": "object",
   "properties": {
+    "$schema": {
+      "type": "string",
+      "description": "The schema will prevent JSON file errors."
+    },
     "title": {
-      "type": "string"
+      "type": "string",
+      "description": "Top level menu title"
+    },
+    "glance": {
+      "$ref": "#/$defs/glance"
     },
     "items": {
       "$ref": "#/$defs/items"
-    },
-    "$schema": {
-      "type": "string"
     }
   },
   "required": ["title", "items"],
@@ -29,8 +34,7 @@
           "const": "toggle"
         },
         "content": {
-          "$ref": "#/$defs/content",
-          "description": "Optional in a toggle."
+          "$ref": "#/$defs/content"
         },
         "tap_action": {
           "type": "object",
@@ -135,8 +139,7 @@
           "const": "tap"
         },
         "content": {
-          "$ref": "#/$defs/content",
-          "description": "Optional in a tap."
+          "$ref": "#/$defs/content"
         },
         "service": {
           "$ref": "#/$defs/entity",
@@ -174,8 +177,7 @@
           "const": "group"
         },
         "content": {
-          "$ref": "#/$defs/content",
-          "description": "Optional in a group."
+          "$ref": "#/$defs/content"
         },
         "items": {
           "$ref": "#/$defs/items"
@@ -190,7 +192,6 @@
     },
     "items": {
       "type": "array",
-      "maxItems": 16,
       "items": {
         "oneOf": [
           {
@@ -248,7 +249,8 @@
       "required": ["service"]
     },
     "content": {
-      "title": "Jinja2 template defining the text to display.",
+      "title": "Home Assistant Template",
+      "description": "Jinja2 template defining the text to display. Must be included in an 'info'. Optional in a 'toggle', 'tap' and 'group'. Special characters may not render in the glance context.",
       "type": "string"
     },
     "confirm": {
@@ -262,6 +264,35 @@
       "default": false,
       "title": "PIN Confirmation",
       "description": "Optional PIN confirmation of the action before execution as a precaution. Has precedence over 'confirm': true if both are set."
+    },
+    "glance": {
+      "type": "object",
+      "title": "Glance customisation",
+      "oneOf": [
+        {
+          "properties": {
+            "type": {
+              "title": "Glance type",
+              "description": "One of 'info' or 'status'. 'info' renders the template specified in the 'content' field inside the glance view. 'status' reverts to the default glance view and ignores the 'content' field. This allows for disabling the template temporarily.",
+              "const": "info"
+            },
+            "content": {
+              "$ref": "#/$defs/content"
+            }
+          },
+          "required": ["type", "content"]
+        },
+        {
+          "properties": {
+            "type": {
+              "title": "Glance type",
+              "description": "One of 'info' or 'status'.",
+              "const": "status"
+            }
+          },
+          "required": ["type"]
+        }
+      ]
     }
   }
 }

@@ -25,7 +25,7 @@ class Globals {
 
     //! Time to let the existing HTTP responses get serviced after a
     //! `Communications.NETWORK_RESPONSE_OUT_OF_MEMORY` response code.
-    static const scApiBackoff            = 1000; // ms
+    static const scApiBackoff            = 2000; // ms
 
     //! Needs to be long enough to enable a "double ESC" to quit the application from
     //! an ErrorView.

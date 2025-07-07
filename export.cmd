@@ -105,7 +105,6 @@ echo.
   --private-key %SRC%\..\developer_key ^
   --package-app ^
   --release
-rem  --warn
 
 echo.
 echo Finished exporting HomeAssistant
