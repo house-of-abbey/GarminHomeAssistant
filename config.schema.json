@@ -17,7 +17,7 @@
       "$ref": "#/$defs/items"
     }
   },
-  "required": ["$schema", "title", "items"],
+  "required": ["title", "items"],
   "additionalProperties": false,
   "$defs": {
     "toggle": {
