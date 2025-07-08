@@ -22,10 +22,11 @@ using Toybox.Timer;
 //! Light or switch toggle menu button that calls the API to maintain the up to date state.
 //
 class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
-    private var mConfirm    as Lang.Boolean;
-    private var mPin        as Lang.Boolean;
     private var mData       as Lang.Dictionary;
     private var mTemplate   as Lang.String;
+    private var mExit       as Lang.Boolean;
+    private var mConfirm    as Lang.Boolean;
+    private var mPin        as Lang.Boolean;
     private var mHasVibrate as Lang.Boolean = false;
 
     //! Class Constructor
@@ -40,9 +41,10 @@ class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
     function initialize(
         label    as Lang.String or Lang.Symbol,
         template as Lang.String,
+        data     as Lang.Dictionary or Null,
+        exit     as Lang.Boolean,
         confirm  as Lang.Boolean,
         pin      as Lang.Boolean,
-        data     as Lang.Dictionary or Null,
         options  as {
             :alignment as WatchUi.MenuItem.Alignment,
             :icon      as Graphics.BitmapType or WatchUi.Drawable or Lang.Symbol
@@ -58,10 +60,11 @@ class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
         if (Attention has :vibrate) {
             mHasVibrate = true;
         }
-        mConfirm  = confirm;
-        mPin      = pin;
         mData     = data;
         mTemplate = template;
+        mExit     = exit;
+        mConfirm  = confirm;
+        mPin      = pin;
     }
 
     //! Set the state of a toggle menu item.
@@ -294,6 +297,9 @@ class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
     //
     function onConfirm(b as Lang.Boolean) as Void {
         setState(b);
+        if (mExit) {
+            System.exit();
+        }
     }
 
 }

@@ -23,6 +23,7 @@ class HomeAssistantTapMenuItem extends HomeAssistantMenuItem {
     private var mHomeAssistantService as HomeAssistantService;
     private var mService              as Lang.String or Null;
     private var mConfirm              as Lang.Boolean;
+    private var mExit                 as Lang.Boolean;
     private var mPin                  as Lang.Boolean;
     private var mData                 as Lang.Dictionary or Null;
 
@@ -43,9 +44,10 @@ class HomeAssistantTapMenuItem extends HomeAssistantMenuItem {
         label     as Lang.String or Lang.Symbol,
         template  as Lang.String,
         service   as Lang.String or Null,
+        data      as Lang.Dictionary or Null,
+        exit      as Lang.Boolean,
         confirm   as Lang.Boolean,
         pin       as Lang.Boolean,
-        data      as Lang.Dictionary or Null,
         icon      as Graphics.BitmapType or WatchUi.Drawable,
         options   as {
             :alignment as WatchUi.MenuItem.Alignment,
@@ -67,9 +69,10 @@ class HomeAssistantTapMenuItem extends HomeAssistantMenuItem {
 
         mHomeAssistantService = haService;
         mService              = service;
+        mData                 = data;
+        mExit                 = exit;
         mConfirm              = confirm;
         mPin                  = pin;
-        mData                 = data;
     }
 
     //! Call a Home Assistant service only after checks have been done for confirmation or PIN entry.
@@ -104,6 +107,9 @@ class HomeAssistantTapMenuItem extends HomeAssistantMenuItem {
     function onConfirm(b as Lang.Boolean) as Void {
         if (mService != null) {
             mHomeAssistantService.call(mService, mData);
+        }
+        if (mExit) {
+            System.exit();
         }
     }
 

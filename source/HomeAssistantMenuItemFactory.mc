@@ -77,15 +77,17 @@ class HomeAssistantMenuItemFactory {
         label     as Lang.String or Lang.Symbol,
         entity_id as Lang.String or Null,
         template  as Lang.String or Null,
+        exit      as Lang.Boolean,
         confirm   as Lang.Boolean,
         pin       as Lang.Boolean
     ) as WatchUi.MenuItem {
         return new HomeAssistantToggleMenuItem(
             label,
             template,
+            { "entity_id" => entity_id },
+            exit,
             confirm,
             pin,
-            { "entity_id" => entity_id },
             mMenuItemOptions
         );
     }
@@ -101,13 +103,14 @@ class HomeAssistantMenuItemFactory {
     //! @param data      Sourced from the menu JSON, this is the `data` field from the `tap_action` field.
     //
     function tap(
-        label     as Lang.String or Lang.Symbol,
-        entity_id as Lang.String or Null,
-        template  as Lang.String or Null,
-        service   as Lang.String or Null,
+        label     as Lang.String     or Lang.Symbol,
+        entity_id as Lang.String     or Null,
+        template  as Lang.String     or Null,
+        service   as Lang.String     or Null,
+        data      as Lang.Dictionary or Null,
+        exit      as Lang.Boolean,
         confirm   as Lang.Boolean,
-        pin       as Lang.Boolean,
-        data      as Lang.Dictionary or Null
+        pin       as Lang.Boolean
     ) as WatchUi.MenuItem {
         if (entity_id != null) {
             if (data == null) {
@@ -121,9 +124,10 @@ class HomeAssistantMenuItemFactory {
                 label,
                 template,
                 service,
+                data,
+                exit,
                 confirm,
                 pin,
-                data,
                 mTapTypeIcon,
                 mMenuItemOptions,
                 mHomeAssistantService
@@ -133,9 +137,10 @@ class HomeAssistantMenuItemFactory {
                 label,
                 template,
                 service,
+                data,
+                exit,
                 confirm,
                 pin,
-                data,
                 mInfoTypeIcon,
                 mMenuItemOptions,
                 mHomeAssistantService

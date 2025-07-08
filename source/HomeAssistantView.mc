@@ -51,21 +51,30 @@ class HomeAssistantView extends WatchUi.Menu2 {
                 var confirm    = false                      as Lang.Boolean    or Null;
                 var pin        = false                      as Lang.Boolean    or Null;
                 var data       = null                       as Lang.Dictionary or Null;
+                var enable     = true                       as Lang.Boolean    or Null;
+                var exit       = false                      as Lang.Boolean    or Null;
+                if (items[i].get("enable") != null) {
+                    enable = items[i].get("enable");         // Optional
+                }
+                if (items[i].get("exit") != null) {
+                    exit = items[i].get("exit");             // Optional
+                }
                 if (tap_action != null) {
                     service = tap_action.get("service");
-                    confirm = tap_action.get("confirm"); // Optional
-                    pin     = tap_action.get("pin");     // Optional
-                    data    = tap_action.get("data");    // Optional
-                    if (confirm == null) {
-                        confirm = false;
+                    data    = tap_action.get("data");        // Optional
+                    if (tap_action.get("confirm") != null) {
+                        confirm = tap_action.get("confirm"); // Optional
+                    }
+                    if (tap_action.get("pin") != null) {
+                        pin = tap_action.get("pin");         // Optional
                     }
                 }
-                if (type != null && name != null) {
+                if (type != null && name != null && enable) {
                     if (type.equals("toggle") && entity != null) {
-                        addItem(HomeAssistantMenuItemFactory.create().toggle(name, entity, content, confirm, pin));
+                        addItem(HomeAssistantMenuItemFactory.create().toggle(name, entity, content, exit, confirm, pin));
                     } else if ((type.equals("tap") && service != null) || (type.equals("info") && content != null) || (type.equals("template") && content != null)) {
                         // NB. "template" is deprecated in the schema and remains only for backward compatibility. All menu items can now use templates, so the replacement is "info".
-                        addItem(HomeAssistantMenuItemFactory.create().tap(name, entity, content, service, confirm, pin, data));
+                        addItem(HomeAssistantMenuItemFactory.create().tap(name, entity, content, service, data, exit, confirm, pin));
                     } else if (type.equals("group")) {
                         addItem(HomeAssistantMenuItemFactory.create().group(items[i], content));
                     }
