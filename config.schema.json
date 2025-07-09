@@ -47,6 +47,12 @@
             }
           },
           "additionalProperties": false
+        },
+        "enable": {
+          "$ref": "#/$defs/enable"
+        },
+        "exit": {
+          "$ref": "#/$defs/exit"
         }
       },
       "required": ["entity", "name", "type"],
@@ -75,6 +81,12 @@
               "deprecated": true,
               "title": "Schema change:",
               "description": "Use 'info' or 'tap' instead."
+            },
+            "enable": {
+              "$ref": "#/$defs/enable"
+            },
+            "exit": {
+              "$ref": "#/$defs/exit"
             }
           },
           "required": ["name", "content", "type"],
@@ -101,6 +113,12 @@
             },
             "tap_action": {
               "$ref": "#/$defs/tap_action"
+            },
+            "enable": {
+              "$ref": "#/$defs/enable"
+            },
+            "exit": {
+              "$ref": "#/$defs/exit"
             }
           },
           "required": ["name", "content", "type", "tap_action"],
@@ -120,6 +138,12 @@
         "type": {
           "$ref": "#/$defs/type",
           "const": "info"
+        },
+        "enable": {
+          "$ref": "#/$defs/enable"
+        },
+        "exit": {
+          "$ref": "#/$defs/exit"
         }
       },
       "required": ["name", "content", "type"],
@@ -149,6 +173,12 @@
         },
         "tap_action": {
           "$ref": "#/$defs/tap_action"
+        },
+        "enable": {
+          "$ref": "#/$defs/enable"
+        },
+        "exit": {
+          "$ref": "#/$defs/exit"
         }
       },
       "required": ["name", "type"],
@@ -181,6 +211,9 @@
         },
         "items": {
           "$ref": "#/$defs/items"
+        },
+        "enable": {
+          "$ref": "#/$defs/enable"
         }
       },
       "required": ["name", "title", "type", "items"],
@@ -293,6 +326,18 @@
           "required": ["type"]
         }
       ]
+    },
+    "enable": {
+      "type": "boolean",
+      "default": true,
+      "title": "Enable the menu item",
+      "description": "Typically used to temporarily disable a menu item, e.g. for seasonal variations. Enabled (true) by default."
+    },
+    "exit": {
+      "type": "boolean",
+      "default": false,
+      "title": "Exit on selection",
+      "description": "Choose to exit the application after this item has been selected. Disabled (false) by default."
     }
   }
 }
