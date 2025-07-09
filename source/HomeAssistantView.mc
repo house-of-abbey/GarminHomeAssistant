@@ -72,9 +72,21 @@ class HomeAssistantView extends WatchUi.Menu2 {
                 if (type != null && name != null && enable) {
                     if (type.equals("toggle") && entity != null) {
                         addItem(HomeAssistantMenuItemFactory.create().toggle(name, entity, content, exit, confirm, pin));
-                    } else if ((type.equals("tap") && service != null) || (type.equals("info") && content != null) || (type.equals("template") && content != null)) {
-                        // NB. "template" is deprecated in the schema and remains only for backward compatibility. All menu items can now use templates, so the replacement is "info".
+                    } else if (type.equals("tap") && service != null) {
                         addItem(HomeAssistantMenuItemFactory.create().tap(name, entity, content, service, data, exit, confirm, pin));
+                    } else if (type.equals("template") && content != null) {
+                        // NB. "template" is deprecated in the schema and remains only for backward compatibility. All menu items can now use templates, so the replacement is "info".
+                        // The exit option is dependent on the type of template.
+                        if (tap_action == null) {
+                            // No exit from an information only item
+                            addItem(HomeAssistantMenuItemFactory.create().tap(name, entity, content, service, data, false, confirm, pin));
+                        } else {
+                            // You may exit from template item with a 'tap_action'.
+                            addItem(HomeAssistantMenuItemFactory.create().tap(name, entity, content, service, data, exit, confirm, pin));
+                        }
+                    } else if (type.equals("info") && content != null) {
+                        // Cannot exit from a non-actionable information only menu item.
+                        addItem(HomeAssistantMenuItemFactory.create().tap(name, entity, content, service, data, false, confirm, pin));
                     } else if (type.equals("group")) {
                         addItem(HomeAssistantMenuItemFactory.create().group(items[i], content));
                     }
