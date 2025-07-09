@@ -76,3 +76,35 @@ Note that for notify events, you _must_ not supply an `entity_id` or the API cal
 > Be careful with the value of the `service` field.
 
 Note that the `service` field will need to be a locally custom `script.<something>` as soon as any `data` fields are populated and not something more generic like `script.turn_on`. If the `service` field is wrong, the application will fail with a [`Communications.INVALID_HTTP_BODY_IN_NETWORK_RESPONSE`](https://developer.garmin.com/connect-iq/api-docs/Toybox/Communications.html) error in the response from your Home Assistant and show the error message as _"No JSON returned from HTTP request"_ on your device. In the [web-based editor](https://house-of-abbey.github.io/GarminHomeAssistant/web/) you can use the standard developer tools to observe an `HTTP 400` error which the application does not see. Here we are limited by the [Garmin Connect IQ](https://developer.garmin.com/connect-iq/overview/) software development kit (SDK). We do not have enough information at the point of execution in the application to determine the cause of the error. Nor is there an immediately obvious way of identifying this issue using the JSON schema checks.
+
+## Exit on Tap
+
+You can choose individual items that will quit after they have completed their action.
+
+```json
+{
+  "entity": "automation.turn_off_stuff",
+  "name": "Turn off Stuff",
+  "type": "tap",
+  "tap_action": {
+    "service": "automation.trigger"
+  },
+  "exit": true
+}
+```
+
+# Disable Menu Item
+
+If you would like to temporarily disable an item in your menu, e.g. for seasonal reasons like not needing to turn on the heating in summer, then rather than swapping menu definition files or deleting a section of the menu you can mark the item as 'disabled'. This field applies to all menu items.
+
+```json
+{
+  "entity": "automation.turn_off_stuff",
+  "name": "Turn off Stuff",
+  "type": "tap",
+  "tap_action": {
+    "service": "automation.trigger"
+  },
+  "enabled": false
+}
+```
