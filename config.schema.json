@@ -84,9 +84,6 @@
             },
             "enable": {
               "$ref": "#/$defs/enable"
-            },
-            "exit": {
-              "$ref": "#/$defs/exit"
             }
           },
           "required": ["name", "content", "type"],
@@ -141,9 +138,6 @@
         },
         "enable": {
           "$ref": "#/$defs/enable"
-        },
-        "exit": {
-          "$ref": "#/$defs/exit"
         }
       },
       "required": ["name", "content", "type"],
@@ -337,7 +331,7 @@
       "type": "boolean",
       "default": false,
       "title": "Exit on selection",
-      "description": "Choose to exit the application after this item has been selected. Disabled (false) by default."
+      "description": "Choose to exit the application after this item has been selected. Disabled (false) by default. N.B. Only actionable menu items can have this field added."
     }
   }
 }
