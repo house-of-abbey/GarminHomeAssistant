@@ -218,7 +218,7 @@ An example of a dimmer light with 4 brightness settings 0..3. Here our light wor
 }
 ```
 
-# Disable Menu Item
+## Disable Menu Item
 
 If you would like to temporarily disable an item in your menu, then rather than swapping menu definition files or deleting a section of the menu you can mark the item as 'disabled'. This field applies to all menu items.
 

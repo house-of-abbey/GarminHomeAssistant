@@ -93,7 +93,7 @@ You can choose individual items that will quit after they have completed their a
 }
 ```
 
-# Disable Menu Item
+## Disable Menu Item
 
 If you would like to temporarily disable an item in your menu, e.g. for seasonal reasons like not needing to turn on the heating in summer, then rather than swapping menu definition files or deleting a section of the menu you can mark the item as 'disabled'. This field applies to all menu items.
 
