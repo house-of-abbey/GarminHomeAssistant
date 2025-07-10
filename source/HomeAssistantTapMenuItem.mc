@@ -106,10 +106,7 @@ class HomeAssistantTapMenuItem extends HomeAssistantMenuItem {
     //
     function onConfirm(b as Lang.Boolean) as Void {
         if (mService != null) {
-            mHomeAssistantService.call(mService, mData);
-        }
-        if (mExit) {
-            System.exit();
+            mHomeAssistantService.call(mService, mData, mExit);
         }
     }
 

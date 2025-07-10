@@ -215,6 +215,9 @@ class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
                 ErrorView.show(WatchUi.loadResource($.Rez.Strings.UnhandledHttpErr) as Lang.String + responseCode);
         }
         getApp().setApiStatus(status);
+        if (mExit) {
+            System.exit();
+        }
     }
 
     //! Set the state of the toggle menu item.
@@ -297,9 +300,6 @@ class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
     //
     function onConfirm(b as Lang.Boolean) as Void {
         setState(b);
-        if (mExit) {
-            System.exit();
-        }
     }
 
 }

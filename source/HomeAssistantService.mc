@@ -46,7 +46,13 @@ class HomeAssistantService {
         data         as Null or Lang.Dictionary or Lang.String,
         context      as Lang.Object
     ) as Void {
-        var entity_id = context as Lang.String or Null;
+        var c = context as Lang.Dictionary;
+        var entity_id;
+        var exit = false;
+        if (c != null) {
+            entity_id = c.get(:entity_id) as Lang.String;
+            exit      = c.get(:exit)      as Lang.Boolean;
+        }
         // System.println("HomeAssistantService onReturnCall() Response Code: " + responseCode);
         // System.println("HomeAssistantService onReturnCall() Response Data: " + data);
 
@@ -102,6 +108,9 @@ class HomeAssistantService {
                         :bgcolor => Graphics.COLOR_BLACK
                     }).pushView(WatchUi.SLIDE_IMMEDIATE);
                 }
+                if (exit) {
+                    System.exit();
+                }
                 break;
 
             default:
@@ -117,7 +126,8 @@ class HomeAssistantService {
     //
     function call(
         service as Lang.String,
-        data    as Lang.Dictionary or Null
+        data    as Lang.Dictionary or Null,
+        exit    as Lang.Boolean
     ) as Void {
         if (! System.getDeviceSettings().phoneConnected) {
             // System.println("HomeAssistantService call(): No Phone connection, skipping API call.");
@@ -149,7 +159,10 @@ class HomeAssistantService {
                         "Authorization" => "Bearer " + Settings.getApiKey()
                     },
                     :responseType => Communications.HTTP_RESPONSE_CONTENT_TYPE_JSON,
-                    :context      => entity_id
+                    :context      => {
+                        :entity_id => entity_id,
+                        :exit      => exit
+                    }
                 },
                 method(:onReturnCall)
             );
