@@ -31,7 +31,9 @@
   <string id="NoInternet">No Internet connection.</string>
   <string id="NoJson">No JSON returned from HTTP request.</string>
   <string id="NoPhone" scope="glance">No Phone connection.</string>
+  <string id="NoPhoneNoCache" scope="glance">No phone connection, no cached menu.</string>
   <string id="NoResponse">No Response, check Internet connection</string>
+  <string id="TimedOut">Request timed out</string>
   <string id="PinInputLocked">PIN input locked for</string>
   <string id="PotentialError">Potential Error</string>
   <string id="Seconds">seconds</string>
@@ -42,6 +44,10 @@
   <string id="UnhandledHttpErr">HTTP request returned error code = </string>
   <string id="WebhookFailed">Failed to register Webhook</string>
   <string id="WrongPin">Wrong PIN</string>
+  <string id="WifiLteNotAvailable">No Wifi or LTE available</string>
+  <string id="WifiLtePrompt">Execute over Wifi/LTE?</string>
+  <string id="WifiLteExecutionTitle">Sending to Home Assistant.</string>
+  <string id="WifiLteExecutionDataError">No data received.</string>
 
   <!-- For the settings GUI, strings should be in the order they are used. -->
   <string id="SettingsSelect">Select...</string>
@@ -64,4 +70,5 @@
   <string id="SettingsEnableBatteryLevel">Enable the background service to send the device battery level, location and (if supported) activity data to Home Assistant.</string>
   <string id="SettingsBatteryLevelRefreshRate">The refresh rate (in minutes) at which the background service should repeat sending data.</string>
   <string id="WebhookId">(Read only) The Webhook ID created by the device for background service updates. You might require this for debugging.</string>
+  <string id="WifiLteExecution">Allows the app to start without phone connection, and prompt to execute command over Wifi/LTE.</string>
 </strings>

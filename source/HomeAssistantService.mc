@@ -129,10 +129,25 @@ class HomeAssistantService {
         data    as Lang.Dictionary or Null,
         exit    as Lang.Boolean
     ) as Void {
-        if (! System.getDeviceSettings().phoneConnected) {
+        var phoneConnected = System.getDeviceSettings().phoneConnected;
+        var internetAvailable = System.getDeviceSettings().connectionAvailable;
+        if (Settings.getWifiLteExecutionEnabled() && (! phoneConnected || ! internetAvailable)) {
+            var dialogMsg = WatchUi.loadResource($.Rez.Strings.WifiLtePrompt) as Lang.String;
+            var dialog = new WatchUi.Confirmation(dialogMsg);
+            WatchUi.pushView(
+                dialog,
+                new WifiLteExecutionConfirmDelegate({
+                    :type => "service",
+                    :service => service,
+                    :data => data,
+                    :exit => exit,
+                }, null),
+                WatchUi.SLIDE_LEFT
+            );
+        } else if (! phoneConnected) {
             // System.println("HomeAssistantService call(): No Phone connection, skipping API call.");
             ErrorView.show(WatchUi.loadResource($.Rez.Strings.NoPhone) as Lang.String);
-        } else if (! System.getDeviceSettings().connectionAvailable) {
+        } else if (! internetAvailable) {
             // System.println("HomeAssistantService call(): No Internet connection, skipping API call.");
             ErrorView.show(WatchUi.loadResource($.Rez.Strings.NoInternet) as Lang.String);
         } else {
