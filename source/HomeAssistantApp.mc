@@ -14,6 +14,7 @@
 //-----------------------------------------------------------------------------------
 
 using Toybox.Application;
+using Toybox.Communications;
 using Toybox.Lang;
 using Toybox.WatchUi;
 using Toybox.System;
@@ -122,11 +123,14 @@ class HomeAssistantApp extends Application.AppBase {
         } else if (Settings.getPin() == null) {
             // System.println("HomeAssistantApp getInitialView(): Invalid PIN in application settings.");
             return ErrorView.create(WatchUi.loadResource($.Rez.Strings.SettingsPinError) as Lang.String);
-        } else if (! System.getDeviceSettings().phoneConnected) {
-            // System.println("HomeAssistantApp getInitialView(): No Phone connection, skipping API call.");
+        } else if (! System.getDeviceSettings().phoneConnected and Settings.getWifiLteExecutionEnabled() and ! hasCachedMenu()) {
+            // System.println("HomeAssistantApp getInitialView(): No Phone connection, no cached menu, skipping API call.");
+            return ErrorView.create(WatchUi.loadResource($.Rez.Strings.NoPhoneNoCache) as Lang.String);
+        } else if (! System.getDeviceSettings().phoneConnected and ! Settings.getWifiLteExecutionEnabled()) {
+            // System.println("HomeAssistantApp getInitialView(): No Phone connection and wifi disabled, skipping API call.");
             return ErrorView.create(WatchUi.loadResource($.Rez.Strings.NoPhone) as Lang.String);
-        } else if (! System.getDeviceSettings().connectionAvailable) {
-            // System.println("HomeAssistantApp getInitialView(): No Internet connection, skipping API call.");
+        } else if (! System.getDeviceSettings().connectionAvailable and ! Settings.getWifiLteExecutionEnabled()) {
+            // System.println("HomeAssistantApp getInitialView(): No Internet connection and wifi disabled, skipping API call.");
             return ErrorView.create(WatchUi.loadResource($.Rez.Strings.NoInternet) as Lang.String);
         } else {
             var isCached = fetchMenuConfig();
@@ -227,6 +231,20 @@ class HomeAssistantApp extends Application.AppBase {
         WatchUi.requestUpdate();
     }
 
+    //! Can we use the cached menu?
+    //!
+    //! @return Return true if there's a menu in cache, and if the user has enabled the cache and 
+    //! has not requested to have the cache busted.
+    //
+    function hasCachedMenu() as Lang.Boolean {
+        if (Settings.getClearCache() || !Settings.getCacheConfig()) {
+            return false;
+        }
+
+        var menu = Storage.getValue("menu") as Lang.Dictionary;
+        return menu != null;
+    }
+
     //! Fetch the menu configuration over HTTPS, which might be locally cached.
     //!
     //! @return Return true if the menu came from the cache, otherwise false. This is because fetching
@@ -246,22 +264,22 @@ class HomeAssistantApp extends Application.AppBase {
                 Settings.unsetClearCache();
             }
             if (menu == null) {
-                if (! System.getDeviceSettings().phoneConnected) {
+                var phoneConnected = System.getDeviceSettings().phoneConnected;
+                var internetAvailable = System.getDeviceSettings().connectionAvailable;
+                if (! phoneConnected or ! internetAvailable) {
+                    var errorRez = $.Rez.Strings.NoPhone;
+                    if (Settings.getWifiLteExecutionEnabled()) {
+                        errorRez = $.Rez.Strings.NoPhoneNoCache;
+                    } else if (! internetAvailable) {
+                        errorRez = $.Rez.Strings.Unavailable;
+                    }
                     // System.println("HomeAssistantApp fetchMenuConfig(): No Phone connection, skipping API call.");
                     if (mIsGlance) {
                         WatchUi.requestUpdate();
                     } else {
-                        ErrorView.show(WatchUi.loadResource($.Rez.Strings.NoPhone) as Lang.String);
+                        ErrorView.show(WatchUi.loadResource(errorRez) as Lang.String);
                     }
-                    mMenuStatus = WatchUi.loadResource($.Rez.Strings.Unavailable) as Lang.String;
-                } else if (! System.getDeviceSettings().connectionAvailable) {
-                    // System.println("HomeAssistantApp fetchMenuConfig(): No Internet connection, skipping API call.");
-                    if (mIsGlance) {
-                        WatchUi.requestUpdate();
-                    } else {
-                        ErrorView.show(WatchUi.loadResource($.Rez.Strings.NoInternet) as Lang.String);
-                    }
-                    mMenuStatus = WatchUi.loadResource($.Rez.Strings.Unavailable) as Lang.String;
+                    mMenuStatus = WatchUi.loadResource(errorRez) as Lang.String;
                 } else {
                     Communications.makeWebRequest(
                         Settings.getConfigUrl(),
@@ -785,6 +803,13 @@ class HomeAssistantApp extends Application.AppBase {
         return mIsApp;
     }
 
+    //! Returns a SyncDelegate for this App
+    //!
+    //! @return a SyncDelegate or null
+    //
+    public function getSyncDelegate() as Communications.SyncDelegate? {
+        return new HomeAssistantSyncDelegate();
+    }
 }
 
 //! Global function to return the application object.

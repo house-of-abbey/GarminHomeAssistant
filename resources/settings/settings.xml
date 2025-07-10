@@ -116,4 +116,11 @@
   >
     <settingConfig type="alphaNumeric" readonly="true" />
   </setting>
+
+  <setting
+    propertyKey="@Properties.wifi_lte_execution"
+    title="@Strings.WifiLteExecution"
+  >
+    <settingConfig type="boolean" />
+  </setting>
 </settings>
