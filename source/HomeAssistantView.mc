@@ -51,10 +51,10 @@ class HomeAssistantView extends WatchUi.Menu2 {
                 var confirm    = false                      as Lang.Boolean    or Null;
                 var pin        = false                      as Lang.Boolean    or Null;
                 var data       = null                       as Lang.Dictionary or Null;
-                var enable     = true                       as Lang.Boolean    or Null;
+                var enabled    = true                       as Lang.Boolean    or Null;
                 var exit       = false                      as Lang.Boolean    or Null;
-                if (items[i].get("enable") != null) {
-                    enable = items[i].get("enable");         // Optional
+                if (items[i].get("enabled") != null) {
+                    enabled = items[i].get("enabled");       // Optional
                 }
                 if (items[i].get("exit") != null) {
                     exit = items[i].get("exit");             // Optional
@@ -69,7 +69,7 @@ class HomeAssistantView extends WatchUi.Menu2 {
                         pin = tap_action.get("pin");         // Optional
                     }
                 }
-                if (type != null && name != null && enable) {
+                if (type != null && name != null && enabled) {
                     if (type.equals("toggle") && entity != null) {
                         addItem(HomeAssistantMenuItemFactory.create().toggle(name, entity, content, exit, confirm, pin));
                     } else if (type.equals("tap") && service != null) {

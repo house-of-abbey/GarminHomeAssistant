@@ -48,8 +48,8 @@
           },
           "additionalProperties": false
         },
-        "enable": {
-          "$ref": "#/$defs/enable"
+        "enabled": {
+          "$ref": "#/$defs/enabled"
         },
         "exit": {
           "$ref": "#/$defs/exit"
@@ -82,8 +82,8 @@
               "title": "Schema change:",
               "description": "Use 'info' or 'tap' instead."
             },
-            "enable": {
-              "$ref": "#/$defs/enable"
+            "enabled": {
+              "$ref": "#/$defs/enabled"
             }
           },
           "required": ["name", "content", "type"],
@@ -111,8 +111,8 @@
             "tap_action": {
               "$ref": "#/$defs/tap_action"
             },
-            "enable": {
-              "$ref": "#/$defs/enable"
+            "enabled": {
+              "$ref": "#/$defs/enabled"
             },
             "exit": {
               "$ref": "#/$defs/exit"
@@ -136,8 +136,8 @@
           "$ref": "#/$defs/type",
           "const": "info"
         },
-        "enable": {
-          "$ref": "#/$defs/enable"
+        "enabled": {
+          "$ref": "#/$defs/enabled"
         }
       },
       "required": ["name", "content", "type"],
@@ -168,8 +168,8 @@
         "tap_action": {
           "$ref": "#/$defs/tap_action"
         },
-        "enable": {
-          "$ref": "#/$defs/enable"
+        "enabled": {
+          "$ref": "#/$defs/enabled"
         },
         "exit": {
           "$ref": "#/$defs/exit"
@@ -206,8 +206,8 @@
         "items": {
           "$ref": "#/$defs/items"
         },
-        "enable": {
-          "$ref": "#/$defs/enable"
+        "enabled": {
+          "$ref": "#/$defs/enabled"
         }
       },
       "required": ["name", "title", "type", "items"],
@@ -321,7 +321,7 @@
         }
       ]
     },
-    "enable": {
+    "enabled": {
       "type": "boolean",
       "default": true,
       "title": "Enable the menu item",
