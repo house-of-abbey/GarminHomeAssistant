@@ -70,6 +70,7 @@ class HomeAssistantMenuItemFactory {
     //! @param label     Menu item label.
     //! @param entity_id Home Assistant Entity ID (optional)
     //! @param template  Template for Home Assistant to render (optional)
+    //! @param exit      Should the service call complete and then exit?
     //! @param confirm   Should this menu item selection be confirmed?
     //! @param pin       Should this menu item selection request the security PIN?
     //
@@ -98,9 +99,10 @@ class HomeAssistantMenuItemFactory {
     //! @param entity_id Home Assistant Entity ID (optional)
     //! @param template  Template for Home Assistant to render (optional)
     //! @param service   Template for Home Assistant to render (optional)
+    //! @param data      Sourced from the menu JSON, this is the `data` field from the `tap_action` field.
+    //! @param exit      Should the service call complete and then exit?
     //! @param confirm   Should this menu item selection be confirmed?
     //! @param pin       Should this menu item selection request the security PIN?
-    //! @param data      Sourced from the menu JSON, this is the `data` field from the `tap_action` field.
     //
     function tap(
         label     as Lang.String     or Lang.Symbol,

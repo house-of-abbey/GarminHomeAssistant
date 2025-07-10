@@ -33,9 +33,10 @@ class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
     //!
     //! @param label    Menu item label.
     //! @param template Menu item template.
+    //! @param data     Data to supply to the service call.
+    //! @param exit     Should the service call complete and then exit?
     //! @param confirm  Should the service call be confirmed to avoid accidental invocation?
     //! @param pin      Should the service call be protected with a PIN for some low level of security?
-    //! @param data     Data to supply to the service call.
     //! @param options  Menu item options to be passed on.
     //
     function initialize(

@@ -32,9 +32,10 @@ class HomeAssistantTapMenuItem extends HomeAssistantMenuItem {
     //! @param label     Menu item label.
     //! @param template  Menu item template.
     //! @param service   Menu item service.
+    //! @param data      Data to supply to the service call.
+    //! @param exit      Should the service call complete and then exit?
     //! @param confirm   Should the service call be confirmed to avoid accidental invocation?
     //! @param pin       Should the service call be protected with a PIN for some low level of security?
-    //! @param data      Data to supply to the service call.
     //! @param icon      Icon to use for the menu item.
     //! @param options   Menu item options to be passed on.
     //! @param haService Shared Home Assistant service object that will perform the required call. Only
