@@ -51,21 +51,42 @@ class HomeAssistantView extends WatchUi.Menu2 {
                 var confirm    = false                      as Lang.Boolean    or Null;
                 var pin        = false                      as Lang.Boolean    or Null;
                 var data       = null                       as Lang.Dictionary or Null;
+                var enabled    = true                       as Lang.Boolean    or Null;
+                var exit       = false                      as Lang.Boolean    or Null;
+                if (items[i].get("enabled") != null) {
+                    enabled = items[i].get("enabled");       // Optional
+                }
+                if (items[i].get("exit") != null) {
+                    exit = items[i].get("exit");             // Optional
+                }
                 if (tap_action != null) {
                     service = tap_action.get("service");
-                    confirm = tap_action.get("confirm"); // Optional
-                    pin     = tap_action.get("pin");     // Optional
-                    data    = tap_action.get("data");    // Optional
-                    if (confirm == null) {
-                        confirm = false;
+                    data    = tap_action.get("data");        // Optional
+                    if (tap_action.get("confirm") != null) {
+                        confirm = tap_action.get("confirm"); // Optional
+                    }
+                    if (tap_action.get("pin") != null) {
+                        pin = tap_action.get("pin");         // Optional
                     }
                 }
-                if (type != null && name != null) {
+                if (type != null && name != null && enabled) {
                     if (type.equals("toggle") && entity != null) {
-                        addItem(HomeAssistantMenuItemFactory.create().toggle(name, entity, content, confirm, pin));
-                    } else if ((type.equals("tap") && service != null) || (type.equals("info") && content != null) || (type.equals("template") && content != null)) {
+                        addItem(HomeAssistantMenuItemFactory.create().toggle(name, entity, content, exit, confirm, pin));
+                    } else if (type.equals("tap") && service != null) {
+                        addItem(HomeAssistantMenuItemFactory.create().tap(name, entity, content, service, data, exit, confirm, pin));
+                    } else if (type.equals("template") && content != null) {
                         // NB. "template" is deprecated in the schema and remains only for backward compatibility. All menu items can now use templates, so the replacement is "info".
-                        addItem(HomeAssistantMenuItemFactory.create().tap(name, entity, content, service, confirm, pin, data));
+                        // The exit option is dependent on the type of template.
+                        if (tap_action == null) {
+                            // No exit from an information only item
+                            addItem(HomeAssistantMenuItemFactory.create().tap(name, entity, content, service, data, false, confirm, pin));
+                        } else {
+                            // You may exit from template item with a 'tap_action'.
+                            addItem(HomeAssistantMenuItemFactory.create().tap(name, entity, content, service, data, exit, confirm, pin));
+                        }
+                    } else if (type.equals("info") && content != null) {
+                        // Cannot exit from a non-actionable information only menu item.
+                        addItem(HomeAssistantMenuItemFactory.create().tap(name, entity, content, service, data, false, confirm, pin));
                     } else if (type.equals("group")) {
                         addItem(HomeAssistantMenuItemFactory.create().group(items[i], content));
                     }

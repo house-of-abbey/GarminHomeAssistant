@@ -218,6 +218,19 @@ An example of a dimmer light with 4 brightness settings 0..3. Here our light wor
 }
 ```
 
+## Disable Menu Item
+
+If you would like to temporarily disable an item in your menu, then rather than swapping menu definition files or deleting a section of the menu you can mark the item as 'disabled'. This field applies to all menu items.
+
+```json
+{
+  "name": "Phone",
+  "type": "info",
+  "content": "{{ ... }}",
+  "enabled": false
+}
+```
+
 ## Warnings
 
 Just remember, on older smaller memory devices **you have the ability to crash the application by creating an excessive menu definition**. Templates can require significant definition for highly customised text. Don't be silly.

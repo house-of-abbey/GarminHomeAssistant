@@ -109,3 +109,29 @@ Then you can use the following in your config:
   "type": "toggle"
 }
 ```
+
+## Exit On Toggle
+
+You can choose individual items that will quit after they have completed their action.
+
+```json
+{
+  "entity": "light.hall_light",
+  "name": "Hall Light & Quit",
+  "type": "toggle",
+  "exit": true
+}
+```
+
+## Disable Menu Item
+
+If you would like to temporarily disable an item in your menu, e.g. for seasonal reasons like not needing to turn on Christmas tree lights outside the festive season, then rather than swapping menu definition files or deleting a section of the menu you can mark the item as 'disabled'. This field applies to all menu items.
+
+```json
+{
+  "entity": "light.chrissmas_tree",
+  "name": "Christmas Lights",
+  "type": "toggle",
+  "enabled": false
+}
+```
