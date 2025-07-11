@@ -277,6 +277,10 @@ class Settings {
     //! @return The state of the toggle.
     //
     static function getWifiLteExecutionEnabled() as Lang.Boolean {
+        // Wifi/LTE sync execution on a cached menu
+        if (!mCacheConfig) {
+            return false;
+        }
         return mWifiLteExecution;
     }
 

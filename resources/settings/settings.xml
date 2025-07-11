@@ -117,10 +117,12 @@
     <settingConfig type="alphaNumeric" readonly="true" />
   </setting>
 
-  <setting
-    propertyKey="@Properties.wifi_lte_execution"
-    title="@Strings.WifiLteExecution"
-  >
-    <settingConfig type="boolean" />
-  </setting>
+  <group enableIfTrue="@Properties.cache_config" id="wifiLteExection" title="@Strings.WifiLteExecution" description="@Strings.WifiLteExecutionDescription">
+    <setting
+      propertyKey="@Properties.wifi_lte_execution"
+      title="@Strings.WifiLteExecutionEnable"
+    >
+      <settingConfig type="boolean" />
+    </setting>
+  </group>
 </settings>
