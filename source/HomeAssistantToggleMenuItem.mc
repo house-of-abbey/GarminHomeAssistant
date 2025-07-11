@@ -218,12 +218,19 @@ class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
     //! @param data An array of dictionaries, each representing a Home Assistant entity state.
     //
     function setToggleStateWithData(data as Lang.Array) {
-        for(var i = 0; i < data.size(); i++) {
-            if ((data[i].get("entity_id") as Lang.String).equals(mData.get("entity_id"))) {
-                var state = data[i].get("state") as Lang.String;
-                 // System.println((d[i].get("attributes") as Lang.Dictionary).get("friendly_name") + " State=" + state);
-                setUiToggle(state);
-                WatchUi.requestUpdate();
+        // if there's no response body, let's assume that what we did, happened, and flip the toggle
+        if (data.size() == 0) {
+            setEnabled(!isEnabled());
+        }
+
+        else {
+            for(var i = 0; i < data.size(); i++) {
+                if ((data[i].get("entity_id") as Lang.String).equals(mData.get("entity_id"))) {
+                    var state = data[i].get("state") as Lang.String;
+                    // System.println((d[i].get("attributes") as Lang.Dictionary).get("friendly_name") + " State=" + state);
+                    setUiToggle(state);
+                    WatchUi.requestUpdate();
+                }
             }
         }
     }
@@ -268,9 +275,6 @@ class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
                         :data => mData,
                         :callback => method(:setToggleStateWithData),
                         :exit => mExit,
-                    }, {
-                        :confirmMethod => method(:onConfirm),
-                        :state => !isEnabled(),
                     }),
                     WatchUi.SLIDE_LEFT
                 );

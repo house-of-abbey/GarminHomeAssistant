@@ -16,11 +16,8 @@ class WifiLteExecutionConfirmDelegate extends WatchUi.ConfirmationDelegate {
         :exit       as Lang.Boolean
     };
 
-    private var mToggleMethod   as Method(b as Lang.Boolean) as Void or Null;
-    private var mToggleState    as Lang.Boolean or Null;
     private var mHasToast       as Lang.Boolean = false;
     private var mTimer          as Timer.Timer or Null;
-
 
     //! Initializes a confirmation delegate to confirm a Wi-Fi or LTE command exection
     //!
@@ -31,10 +28,6 @@ class WifiLteExecutionConfirmDelegate extends WatchUi.ConfirmationDelegate {
     //!   - callback: (For type `"entity"`) A callback method (Method<data as Dictionary>) to handle the response.
     //!   - data:     (Optional) A dictionary of data to send with the request.
     //!   = exit:     Boolean: true to exit after running command.
-    //!
-    //! @param toggleItem Optional toggle state information:
-    //!   - confirmMethod: A method to call after confirmation.
-    //!   - state:         The state (boolean) that will be passed to the confirmMethod.
     function initialize(cOptions as {
         :type     as Lang.String,
         :service  as Lang.String or Null,
@@ -42,10 +35,7 @@ class WifiLteExecutionConfirmDelegate extends WatchUi.ConfirmationDelegate {
         :url      as Lang.String or Null,
         :callback as Lang.Method or Null,
         :exit     as Lang.Boolean,
-    }, toggleItem as {
-        :confirmMethod as Lang.Method,
-        :state as Lang.Boolean
-    } or Null) {
+    }) {
         ConfirmationDelegate.initialize();
 
         if (WatchUi has :showToast) {
@@ -60,10 +50,6 @@ class WifiLteExecutionConfirmDelegate extends WatchUi.ConfirmationDelegate {
             :callback => cOptions[:callback],
             :exit => cOptions[:exit]
         };
-        if (toggleItem != null) {
-            mToggleMethod = toggleItem[:confirmMethod];
-            mToggleState = toggleItem[:state];
-        }
 
         var timeout = Settings.getConfirmTimeout(); // ms
         if (timeout > 0) {
@@ -83,9 +69,6 @@ class WifiLteExecutionConfirmDelegate extends WatchUi.ConfirmationDelegate {
         }
 
         if (response == WatchUi.CONFIRM_YES) {
-            if (mToggleMethod != null) {
-                mToggleMethod.invoke(mToggleState);
-            }
             trySync();
         }
         return true;
@@ -93,7 +76,6 @@ class WifiLteExecutionConfirmDelegate extends WatchUi.ConfirmationDelegate {
 
     //! Initiates a bulk sync process to execute a command, if connections are available
     private function trySync() as Void {
-        WatchUi.popView(WatchUi.SLIDE_IMMEDIATE);
         var connectionInfo = System.getDeviceSettings().connectionInfo;
         var keys = connectionInfo.keys();
         var possibleConnection = false;

@@ -61,7 +61,7 @@ class HomeAssistantSyncDelegate extends Communications.SyncDelegate {
                     "Content-Type"  => Communications.REQUEST_CONTENT_TYPE_JSON,
                     "Authorization" => "Bearer " + Settings.getApiKey()
                 },
-                :responseType => Communications.HTTP_RESPONSE_CONTENT_TYPE_JSON
+                :responseType => Communications.HTTP_RESPONSE_CONTENT_TYPE_JSON,
             },
             method(:haCallback)
         );
@@ -73,7 +73,7 @@ class HomeAssistantSyncDelegate extends Communications.SyncDelegate {
         if (code == 200) {
             syncError = null;
             if (WifiLteExecutionConfirmDelegate.mCommandData[:type].equals("entity")) {
-                var callbackMethod = WifiLteExecutionConfirmDelegate.mCommandData[:callback];
+                var callbackMethod = WifiLteExecutionConfirmDelegate.mCommandData[:callback];               
                 if (callbackMethod != null) {
                     var d = data as Lang.Array;
                     callbackMethod.invoke(d);
@@ -107,6 +107,5 @@ class HomeAssistantSyncDelegate extends Communications.SyncDelegate {
         
         Communications.cancelAllRequests();
         Communications.notifySyncComplete(syncError);
-        
     }
 }
