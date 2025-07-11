@@ -141,7 +141,7 @@ class HomeAssistantService {
                     :service => service,
                     :data => data,
                     :exit => exit,
-                }, null),
+                }),
                 WatchUi.SLIDE_LEFT
             );
         } else if (! phoneConnected) {
