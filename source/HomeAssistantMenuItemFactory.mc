@@ -70,6 +70,7 @@ class HomeAssistantMenuItemFactory {
     //! @param label     Menu item label.
     //! @param entity_id Home Assistant Entity ID (optional)
     //! @param template  Template for Home Assistant to render (optional)
+    //! @param options   A list of Boolean options
     //! @param exit      Should the service call complete and then exit?
     //! @param confirm   Should this menu item selection be confirmed?
     //! @param pin       Should this menu item selection request the security PIN?
@@ -78,18 +79,21 @@ class HomeAssistantMenuItemFactory {
         label     as Lang.String or Lang.Symbol,
         entity_id as Lang.String or Null,
         template  as Lang.String or Null,
-        exit      as Lang.Boolean,
-        confirm   as Lang.Boolean,
-        pin       as Lang.Boolean
+        options   as {
+            :exit    as Lang.Boolean,
+            :confirm as Lang.Boolean,
+            :pin     as Lang.Boolean
+        }
     ) as WatchUi.MenuItem {
+        var keys = mMenuItemOptions.keys();
+        for (var i = 0; i < keys.size(); i++) {
+            options.put(keys[i], mMenuItemOptions.get(keys[i]));
+        }
         return new HomeAssistantToggleMenuItem(
             label,
             template,
             { "entity_id" => entity_id },
-            exit,
-            confirm,
-            pin,
-            mMenuItemOptions
+            options
         );
     }
 
@@ -100,9 +104,7 @@ class HomeAssistantMenuItemFactory {
     //! @param template  Template for Home Assistant to render (optional)
     //! @param service   Template for Home Assistant to render (optional)
     //! @param data      Sourced from the menu JSON, this is the `data` field from the `tap_action` field.
-    //! @param exit      Should the service call complete and then exit?
-    //! @param confirm   Should this menu item selection be confirmed?
-    //! @param pin       Should this menu item selection request the security PIN?
+    //! @param options   Menu item options to be passed on, including both SDK and menu options, e.g. exit, confirm & pin.
     //
     function tap(
         label     as Lang.String     or Lang.Symbol,
@@ -110,9 +112,11 @@ class HomeAssistantMenuItemFactory {
         template  as Lang.String     or Null,
         service   as Lang.String     or Null,
         data      as Lang.Dictionary or Null,
-        exit      as Lang.Boolean,
-        confirm   as Lang.Boolean,
-        pin       as Lang.Boolean
+        options   as {
+            :exit    as Lang.Boolean,
+            :confirm as Lang.Boolean,
+            :pin     as Lang.Boolean
+        }
     ) as WatchUi.MenuItem {
         if (entity_id != null) {
             if (data == null) {
@@ -121,30 +125,28 @@ class HomeAssistantMenuItemFactory {
                 data.put("entity_id", entity_id);
             }
         }
+        var keys = mMenuItemOptions.keys();
+        for (var i = 0; i < keys.size(); i++) {
+            options.put(keys[i], mMenuItemOptions.get(keys[i]));
+        }
         if (service != null) {
+            options.put(:icon, mTapTypeIcon);
             return new HomeAssistantTapMenuItem(
                 label,
                 template,
                 service,
                 data,
-                exit,
-                confirm,
-                pin,
-                mTapTypeIcon,
-                mMenuItemOptions,
+                options,
                 mHomeAssistantService
             );
         } else {
+            options.put(:icon, mInfoTypeIcon);
             return new HomeAssistantTapMenuItem(
                 label,
                 template,
-                service,
+                null,
                 data,
-                exit,
-                confirm,
-                pin,
-                mInfoTypeIcon,
-                mMenuItemOptions,
+                options,
                 mHomeAssistantService
             );
         }

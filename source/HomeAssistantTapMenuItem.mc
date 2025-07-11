@@ -21,7 +21,7 @@ using Toybox.Graphics;
 //
 class HomeAssistantTapMenuItem extends HomeAssistantMenuItem {
     private var mHomeAssistantService as HomeAssistantService;
-    private var mService              as Lang.String or Null;
+    private var mService              as Lang.String     or Null;
     private var mConfirm              as Lang.Boolean;
     private var mExit                 as Lang.Boolean;
     private var mPin                  as Lang.Boolean;
@@ -37,43 +37,39 @@ class HomeAssistantTapMenuItem extends HomeAssistantMenuItem {
     //! @param confirm   Should the service call be confirmed to avoid accidental invocation?
     //! @param pin       Should the service call be protected with a PIN for some low level of security?
     //! @param icon      Icon to use for the menu item.
-    //! @param options   Menu item options to be passed on.
+    //! @param options   Menu item options to be passed on, including both SDK and menu options, e.g. exit, confirm & pin.
     //! @param haService Shared Home Assistant service object that will perform the required call. Only
     //!                  one of these objects is created for all menu items to re-use.
     //
     function initialize(
-        label     as Lang.String or Lang.Symbol,
+        label     as Lang.String     or Lang.Symbol,
         template  as Lang.String,
-        service   as Lang.String or Null,
+        service   as Lang.String     or Null,
         data      as Lang.Dictionary or Null,
-        exit      as Lang.Boolean,
-        confirm   as Lang.Boolean,
-        pin       as Lang.Boolean,
-        icon      as Graphics.BitmapType or WatchUi.Drawable,
         options   as {
             :alignment as WatchUi.MenuItem.Alignment,
-            :icon      as Graphics.BitmapType or WatchUi.Drawable or Lang.Symbol
+            :icon      as Graphics.BitmapType or WatchUi.Drawable or Lang.Symbol,
+            :exit      as Lang.Boolean,
+            :confirm   as Lang.Boolean,
+            :pin       as Lang.Boolean
         } or Null,
         haService as HomeAssistantService
     ) {
-        if (options != null) {
-            options.put(:icon, icon);
-        } else {
-            options = { :icon => icon };
-        }
-
         HomeAssistantMenuItem.initialize(
             label,
             template,
-            options
+            {
+                :alignment => options.get(:alignment),
+                :icon      => options.get(:icon)
+            } 
         );
 
         mHomeAssistantService = haService;
         mService              = service;
         mData                 = data;
-        mExit                 = exit;
-        mConfirm              = confirm;
-        mPin                  = pin;
+        mExit                 = options.get(:exit);
+        mConfirm              = options.get(:confirm);
+        mPin                  = options.get(:acospin);
     }
 
     //! Call a Home Assistant service only after checks have been done for confirmation or PIN entry.

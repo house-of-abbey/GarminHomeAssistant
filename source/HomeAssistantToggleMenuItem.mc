@@ -34,21 +34,18 @@ class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
     //! @param label    Menu item label.
     //! @param template Menu item template.
     //! @param data     Data to supply to the service call.
-    //! @param exit     Should the service call complete and then exit?
-    //! @param confirm  Should the service call be confirmed to avoid accidental invocation?
-    //! @param pin      Should the service call be protected with a PIN for some low level of security?
-    //! @param options  Menu item options to be passed on.
+    //! @param options  Menu item options to be passed on, including both SDK and menu options, e.g. exit, confirm & pin.
     //
     function initialize(
         label    as Lang.String or Lang.Symbol,
         template as Lang.String,
         data     as Lang.Dictionary or Null,
-        exit     as Lang.Boolean,
-        confirm  as Lang.Boolean,
-        pin      as Lang.Boolean,
         options  as {
             :alignment as WatchUi.MenuItem.Alignment,
-            :icon      as Graphics.BitmapType or WatchUi.Drawable or Lang.Symbol
+            :icon      as Graphics.BitmapType or WatchUi.Drawable or Lang.Symbol,
+            :exit      as Lang.Boolean,
+            :confirm   as Lang.Boolean,
+            :pin       as Lang.Boolean
         } or Null
     ) {
         WatchUi.ToggleMenuItem.initialize(
@@ -56,16 +53,19 @@ class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
             null,
             null,
             false,
-            options
+            {
+                :alignment => options.get(:alignment),
+                :icon      => options.get(:icon)
+            }
         );
         if (Attention has :vibrate) {
             mHasVibrate = true;
         }
         mData     = data;
         mTemplate = template;
-        mExit     = exit;
-        mConfirm  = confirm;
-        mPin      = pin;
+        mExit     = options.get(:exit);
+        mConfirm  = options.get(:confirm);
+        mPin      = options.get(:pin);
     }
 
     //! Set the state of a toggle menu item.
