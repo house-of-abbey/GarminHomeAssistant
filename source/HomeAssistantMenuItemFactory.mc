@@ -70,10 +70,7 @@ class HomeAssistantMenuItemFactory {
     //! @param label     Menu item label.
     //! @param entity_id Home Assistant Entity ID (optional)
     //! @param template  Template for Home Assistant to render (optional)
-    //! @param options   A list of Boolean options
-    //! @param exit      Should the service call complete and then exit?
-    //! @param confirm   Should this menu item selection be confirmed?
-    //! @param pin       Should this menu item selection request the security PIN?
+    //! @param options   Menu item options to be passed on, including both SDK and menu options, e.g. exit, confirm & pin.
     //
     function toggle(
         label     as Lang.String or Lang.Symbol,
