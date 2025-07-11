@@ -256,7 +256,7 @@ class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
                 url = url + id.substring(0, id.find(".")) + "/turn_off";
             }
 
-            if (! phoneConnected && ! internetAvailable && Settings.getWifiLteExecutionEnabled()) {
+            if ((! phoneConnected || ! internetAvailable) && Settings.getWifiLteExecutionEnabled()) {
                 var dialogMsg = WatchUi.loadResource($.Rez.Strings.WifiLtePrompt) as Lang.String;
                 var dialog = new WatchUi.Confirmation(dialogMsg);
                 WatchUi.pushView(
@@ -334,5 +334,5 @@ class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
     function onConfirm(b as Lang.Boolean) as Void {
         setState(b);
     }
-    
+
 }

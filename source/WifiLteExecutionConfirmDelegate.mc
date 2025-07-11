@@ -47,7 +47,7 @@ class WifiLteExecutionConfirmDelegate extends WatchUi.ConfirmationDelegate {
         :state as Lang.Boolean
     } or Null) {
         ConfirmationDelegate.initialize();
-        
+
         if (WatchUi has :showToast) {
             mHasToast = true;
         }
@@ -77,6 +77,7 @@ class WifiLteExecutionConfirmDelegate extends WatchUi.ConfirmationDelegate {
     //! @param response The user's confirmation response as `WatchUi.Confirm`
     //! @return Always returns `true` to indicate the response was handled.
     function onResponse(response) as Lang.Boolean {
+        getApp().getQuitTimer().reset();
         if (mTimer != null) {
             mTimer.stop();
         }
