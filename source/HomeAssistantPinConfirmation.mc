@@ -237,8 +237,8 @@ class HomeAssistantPinConfirmationDelegate extends WatchUi.BehaviorDelegate {
                     if (mTimer != null) {
                         mTimer.stop();
                     }
-                    mConfirmMethod.invoke(mState);
                     WatchUi.popView(WatchUi.SLIDE_RIGHT);
+                    mConfirmMethod.invoke(mState);
                 } else {
                     error();
                 }
