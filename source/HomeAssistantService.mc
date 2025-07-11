@@ -27,9 +27,8 @@ class HomeAssistantService {
     //! Class Constructor
     //
     function initialize() {
-        if (WatchUi has :showToast) {
-            mHasToast = true;
-        }
+        mHasToast = WatchUi has :showToast;
+        
         if (Attention has :vibrate) {
             mHasVibrate = true;
         }

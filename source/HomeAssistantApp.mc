@@ -26,6 +26,7 @@ using Toybox.Timer;
 (:glance, :background)
 class HomeAssistantApp extends Application.AppBase {
     private var mApiStatus      as Lang.String       or Null;
+    private var mHasToast       as Lang.Boolean = false;
     private var mMenuStatus     as Lang.String       or Null;
     private var mHaMenu         as HomeAssistantView or Null;
     private var mGlanceTemplate as Lang.String       or Null = null;
@@ -106,6 +107,7 @@ class HomeAssistantApp extends Application.AppBase {
         mUpdateTimer = new Timer.Timer();
         mApiStatus   = WatchUi.loadResource($.Rez.Strings.Checking) as Lang.String;
         mMenuStatus  = WatchUi.loadResource($.Rez.Strings.Checking) as Lang.String;
+        mHasToast    = WatchUi has :showToast;
         Settings.update();
 
         if (Settings.getApiKey().length() == 0) {
@@ -428,11 +430,35 @@ class HomeAssistantApp extends Application.AppBase {
     //! Construct the GET request to update all menu items.
     //
     function updateMenuItems() as Void {
-        if (! System.getDeviceSettings().phoneConnected) {
+        var phoneConnected = System.getDeviceSettings().phoneConnected;
+        var connectionAvailable = System.getDeviceSettings().connectionAvailable;
+
+        // In Wifi/LTE execution mode, we should not show an error page but use a toast instead.
+        if (Settings.getWifiLteExecutionEnabled() && (! phoneConnected || ! connectionAvailable)) {
+            var toast = WatchUi.loadResource($.Rez.Strings.NoPhone);
+            if (!connectionAvailable) {
+                toast = WatchUi.loadResource($.Rez.Strings.NoInternet);
+            }
+
+            if (mHasToast) {
+                WatchUi.showToast(toast, null);
+            } else {
+                new Alert({
+                    :timeout => Globals.scAlertTimeout,
+                    :font    => Graphics.FONT_MEDIUM,
+                    :text    => toast,
+                    :fgcolor => Graphics.COLOR_WHITE,
+                    :bgcolor => Graphics.COLOR_BLACK
+                }).pushView(WatchUi.SLIDE_IMMEDIATE);
+            }
+            return;
+        }
+
+        if (! phoneConnected) {
             // System.println("HomeAssistantApp updateMenuItems(): No Phone connection, skipping API call.");
             ErrorView.show(WatchUi.loadResource($.Rez.Strings.NoPhone) as Lang.String);
             setApiStatus(WatchUi.loadResource($.Rez.Strings.Unavailable) as Lang.String);
-        } else if (! System.getDeviceSettings().connectionAvailable) {
+        } else if (! connectionAvailable) {
             // System.println("HomeAssistantApp updateMenuItems(): No Internet connection, skipping API call.");
             ErrorView.show(WatchUi.loadResource($.Rez.Strings.NoInternet) as Lang.String);
             setApiStatus(WatchUi.loadResource($.Rez.Strings.Unavailable) as Lang.String);
