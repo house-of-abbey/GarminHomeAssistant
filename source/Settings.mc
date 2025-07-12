@@ -35,6 +35,7 @@ class Settings {
     private static var mCacheConfig           as Lang.Boolean = false;
     private static var mClearCache            as Lang.Boolean = false;
     private static var mVibrate               as Lang.Boolean = false;
+    private static var mWifiLteExecution      as Lang.Boolean = false;
     //! seconds
     private static var mAppTimeout            as Lang.Number  = 0;
     //! seconds
@@ -69,6 +70,7 @@ class Settings {
         mMenuAlignment         = Properties.getValue("menu_alignment");
         mIsSensorsLevelEnabled = Properties.getValue("enable_battery_level");
         mBatteryRefreshRate    = Properties.getValue("battery_level_refresh_rate");
+        mWifiLteExecution      = Properties.getValue("wifi_lte_execution");
     }
 
     //! A webhook is required for non-privileged API calls.
@@ -268,6 +270,18 @@ class Settings {
             Background.deleteTemporalEvent();
             Background.deleteActivityCompletedEvent();
         }
+    }
+
+    //! Get the value of the WiFi/LTE toggle in settings.
+    //!
+    //! @return The state of the toggle.
+    //
+    static function getWifiLteExecutionEnabled() as Lang.Boolean {
+        // Wifi/LTE sync execution on a cached menu
+        if (!mCacheConfig) {
+            return false;
+        }
+        return mWifiLteExecution;
     }
 
 }
