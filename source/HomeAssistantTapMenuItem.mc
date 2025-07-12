@@ -82,14 +82,22 @@ class HomeAssistantTapMenuItem extends HomeAssistantMenuItem {
                 var pinConfirmationView = new HomeAssistantPinConfirmationView();
                 WatchUi.pushView(
                     pinConfirmationView,
-                    new HomeAssistantPinConfirmationDelegate(method(:onConfirm), false, pin, pinConfirmationView),
+                    new HomeAssistantPinConfirmationDelegate({
+                        :callback    => method(:onConfirm),
+                        :pin         => pin, 
+                        :state       => false,
+                        :view        => pinConfirmationView,
+                    }),
                     WatchUi.SLIDE_IMMEDIATE
                 );
             }
         } else if (mConfirm) {
             WatchUi.pushView(
                 new HomeAssistantConfirmation(),
-                new HomeAssistantConfirmationDelegate(method(:onConfirm), false),
+                new HomeAssistantConfirmationDelegate({
+                    :callback       => method(:onConfirm),
+                    :state          => false,
+                }),
                 WatchUi.SLIDE_IMMEDIATE
             );
         } else {

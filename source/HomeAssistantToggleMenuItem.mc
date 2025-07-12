@@ -316,14 +316,24 @@ class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
                 var pinConfirmationView = new HomeAssistantPinConfirmationView();
                 WatchUi.pushView(
                     pinConfirmationView,
-                    new HomeAssistantPinConfirmationDelegate(method(:onConfirm), b, pin, pinConfirmationView),
+                    new HomeAssistantPinConfirmationDelegate({
+                        :callback       => method(:onConfirm),
+                        :pin            => pin,
+                        :state          => b,
+                        :toggleMethod   => method(:setEnabled),
+                        :view           => pinConfirmationView,
+                    }),
                     WatchUi.SLIDE_IMMEDIATE
                 );
             }
         } else if (mConfirm) {
             WatchUi.pushView(
                 new HomeAssistantConfirmation(),
-                new HomeAssistantConfirmationDelegate(method(:onConfirm), b),
+                new HomeAssistantConfirmationDelegate({
+                    :callback       => method(:onConfirm),
+                    :state          => b,
+                    :toggleMethod   => method(:setEnabled),
+                }),
                 WatchUi.SLIDE_IMMEDIATE
             );
         } else {
