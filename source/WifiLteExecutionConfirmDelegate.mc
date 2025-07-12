@@ -43,12 +43,12 @@ class WifiLteExecutionConfirmDelegate extends WatchUi.ConfirmationDelegate {
         }
 
         mCommandData = {
-            :type => cOptions[:type],
-            :service => cOptions[:service],
-            :data => cOptions[:data],
-            :url => cOptions[:url],
-            :callback => cOptions[:callback],
-            :exit => cOptions[:exit]
+            :type       => cOptions[:type],
+            :service    => cOptions[:service],
+            :data       => cOptions[:data],
+            :url        => cOptions[:url],
+            :callback   => cOptions[:callback],
+            :exit       => cOptions[:exit]
         };
 
         var timeout = Settings.getConfirmTimeout(); // ms

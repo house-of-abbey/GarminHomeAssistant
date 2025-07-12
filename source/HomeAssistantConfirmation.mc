@@ -38,13 +38,25 @@ class HomeAssistantConfirmationDelegate extends WatchUi.ConfirmationDelegate {
     private var mConfirmMethod as Method(state as Lang.Boolean) as Void;
     private var mTimer         as Timer.Timer or Null;
     private var mState         as Lang.Boolean;
+    private var mToggleMethod  as Method(state as Lang.Boolean) as Void or Null;
 
     //! Class Constructor
+    //!
+    //! @param options A dictionary describing the following options:
+    //!  - callback Method to call on confirmation.
+    //!  - state    Wanted state of a toggle button.
+    //!  - toggle   Optional setEnabled method to untoggle ToggleItem.
     //
-    function initialize(callback as Method(state as Lang.Boolean) as Void, state as Lang.Boolean) {
+    function initialize(options as {
+        :callback as Method(state as Lang.Boolean) as Void,
+        :state as Lang.Boolean,
+        :toggleMethod as Method(state as Lang.Boolean) or Null,
+    }) {
         WatchUi.ConfirmationDelegate.initialize();
-        mConfirmMethod = callback;
-        mState         = state;
+        mConfirmMethod = options[:callback];
+        mState         = options[:state];
+        mToggleMethod  = options[:toggleMethod];
+
         var timeout = Settings.getConfirmTimeout(); // ms
         if (timeout > 0) {
             mTimer = new Timer.Timer();
@@ -64,6 +76,11 @@ class HomeAssistantConfirmationDelegate extends WatchUi.ConfirmationDelegate {
         }
         if (response == WatchUi.CONFIRM_YES) {
             mConfirmMethod.invoke(mState);
+        } else {
+            // Undo the toggle, if we have one
+            if (mToggleMethod != null) {
+                mToggleMethod.invoke(!mState);
+            }
         }
         return true;
     }
@@ -71,6 +88,10 @@ class HomeAssistantConfirmationDelegate extends WatchUi.ConfirmationDelegate {
     //! Function supplied to a timer in order to limit the time for which the confirmation can be provided.
     function onTimeout() as Void {
         mTimer.stop();
+        // Undo the toggle, if we have one
+        if (mToggleMethod != null) {
+            mToggleMethod.invoke(!mState);
+        }
         WatchUi.popView(WatchUi.SLIDE_RIGHT);
     }
 }
