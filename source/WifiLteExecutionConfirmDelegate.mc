@@ -27,7 +27,7 @@ class WifiLteExecutionConfirmDelegate extends WatchUi.ConfirmationDelegate {
     //!   - url:      (For type `"entity"`) The full Home Assistant entity API URL.
     //!   - callback: (For type `"entity"`) A callback method (Method<data as Dictionary>) to handle the response.
     //!   - data:     (Optional) A dictionary of data to send with the request.
-    //!   = exit:     Boolean: true to exit after running command.
+    //!   - exit:     Boolean: if set to true: exit after running command.
     function initialize(cOptions as {
         :type     as Lang.String,
         :service  as Lang.String or Null,

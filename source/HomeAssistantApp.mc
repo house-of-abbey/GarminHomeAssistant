@@ -575,20 +575,27 @@ class HomeAssistantApp extends Application.AppBase {
     //
     (:glance)
     function fetchApiStatus() as Void {
+        var phoneConnected = System.getDeviceSettings().phoneConnected;
+        var connectionAvailable = System.getDeviceSettings().connectionAvailable;
+
         // System.println("API URL = " + Settings.getApiUrl());
         if (Settings.getApiUrl().equals("")) {
             mApiStatus = WatchUi.loadResource($.Rez.Strings.Unconfigured) as Lang.String;
             WatchUi.requestUpdate();
         } else {
-            if (! System.getDeviceSettings().phoneConnected) {
+            if (! mIsGlance && Settings.getWifiLteExecutionEnabled() && (! phoneConnected || ! connectionAvailable)) {
+                // System.println("HomeAssistantApp fetchApiStatus(): In-app Wifi mode (No Phone and Internet connection), early return.");
+                return;
+            } else if (! phoneConnected) {
                 // System.println("HomeAssistantApp fetchApiStatus(): No Phone connection, skipping API call.");
                 mApiStatus = WatchUi.loadResource($.Rez.Strings.Unavailable) as Lang.String;
                 if (mIsGlance) {
                     WatchUi.requestUpdate();
                 } else {
+                    System.println("we here");
                     ErrorView.show(WatchUi.loadResource($.Rez.Strings.NoPhone) as Lang.String);
                 }
-            } else if (! System.getDeviceSettings().connectionAvailable) {
+            } else if (! connectionAvailable) {
                 // System.println("HomeAssistantApp fetchApiStatus(): No Internet connection, skipping API call.");
                 mApiStatus = WatchUi.loadResource($.Rez.Strings.Unavailable) as Lang.String;
                 if (mIsGlance) {
