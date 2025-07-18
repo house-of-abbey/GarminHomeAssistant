@@ -69,7 +69,7 @@ class HomeAssistantTapMenuItem extends HomeAssistantMenuItem {
         mData                 = data;
         mExit                 = options.get(:exit);
         mConfirm              = options.get(:confirm);
-        mPin                  = options.get(:acospin);
+        mPin                  = options.get(:pin);
     }
 
     //! Call a Home Assistant service only after checks have been done for confirmation or PIN entry.
