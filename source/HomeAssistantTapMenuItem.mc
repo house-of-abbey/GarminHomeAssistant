@@ -92,14 +92,33 @@ class HomeAssistantTapMenuItem extends HomeAssistantMenuItem {
                 );
             }
         } else if (mConfirm) {
-            WatchUi.pushView(
-                new HomeAssistantConfirmation(),
-                new HomeAssistantConfirmationDelegate({
-                    :callback       => method(:onConfirm),
-                    :state          => false,
-                }),
-                WatchUi.SLIDE_IMMEDIATE
-            );
+            var phoneConnected = System.getDeviceSettings().phoneConnected;
+            var internetAvailable = System.getDeviceSettings().connectionAvailable;
+            if ((! phoneConnected || ! internetAvailable) && Settings.getWifiLteExecutionEnabled()) {
+                var dialogMsg = WatchUi.loadResource($.Rez.Strings.WifiLtePrompt) as Lang.String;
+                var dialog = new WatchUi.Confirmation(dialogMsg);
+                WatchUi.pushView(
+                    dialog,
+                    new WifiLteExecutionConfirmDelegate({
+                        :type => "service",
+                        :service => mService,
+                        :data => mData,
+                        :exit => mExit,
+                    }, dialog),
+                    WatchUi.SLIDE_LEFT
+                );
+            } else {
+                var view = new HomeAssistantConfirmation();
+                WatchUi.pushView(
+                    view,
+                    new HomeAssistantConfirmationDelegate({
+                        :callback       => method(:onConfirm),
+                        :confirmationView => view,
+                        :state          => false,
+                    }),
+                    WatchUi.SLIDE_IMMEDIATE
+                );
+            }
         } else {
             onConfirm(false);
         }

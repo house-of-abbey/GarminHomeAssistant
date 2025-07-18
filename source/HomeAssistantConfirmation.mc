@@ -35,31 +35,43 @@ class HomeAssistantConfirmation extends WatchUi.Confirmation {
 //! Delegate to respond to the confirmation request.
 //
 class HomeAssistantConfirmationDelegate extends WatchUi.ConfirmationDelegate {
-    private var mConfirmMethod as Method(state as Lang.Boolean) as Void;
-    private var mTimer         as Timer.Timer or Null;
-    private var mState         as Lang.Boolean;
-    private var mToggleMethod  as Method(state as Lang.Boolean) as Void or Null;
+    private static var mTimer       as Timer.Timer or Null;
+
+    private var mConfirmMethod      as Method(state as Lang.Boolean) as Void;
+    private var mState              as Lang.Boolean;
+    private var mToggleMethod       as Method(state as Lang.Boolean) as Void or Null;
+    private var mConfirmationView   as WatchUi.Confirmation;
 
     //! Class Constructor
     //!
     //! @param options A dictionary describing the following options:
-    //!  - callback Method to call on confirmation.
-    //!  - state    Wanted state of a toggle button.
-    //!  - toggle   Optional setEnabled method to untoggle ToggleItem.
+    //!  - callback         Method to call on confirmation.
+    //!  - confirmationView Confirmation the delegate is active for
+    //!  - state            Wanted state of a toggle button.
+    //!  - toggle           Optional setEnabled method to untoggle ToggleItem.
     //
     function initialize(options as {
         :callback as Method(state as Lang.Boolean) as Void,
+        :confirmationView as WatchUi.Confirmation,
         :state as Lang.Boolean,
         :toggleMethod as Method(state as Lang.Boolean) or Null,
     }) {
+        if (mTimer != null) {
+            mTimer.stop();
+        }
+
         WatchUi.ConfirmationDelegate.initialize();
         mConfirmMethod = options[:callback];
+        mConfirmationView = options[:confirmationView];
         mState         = options[:state];
         mToggleMethod  = options[:toggleMethod];
 
         var timeout = Settings.getConfirmTimeout(); // ms
         if (timeout > 0) {
-            mTimer = new Timer.Timer();
+            if (mTimer == null) {
+                mTimer = new Timer.Timer();
+            }
+            
             mTimer.start(method(:onTimeout), timeout, true);
         }
     }
@@ -92,6 +104,10 @@ class HomeAssistantConfirmationDelegate extends WatchUi.ConfirmationDelegate {
         if (mToggleMethod != null) {
             mToggleMethod.invoke(!mState);
         }
-        WatchUi.popView(WatchUi.SLIDE_RIGHT);
+
+        var getCurrentView = WatchUi.getCurrentView();
+        if (getCurrentView[0] == mConfirmationView) {
+            WatchUi.popView(WatchUi.SLIDE_RIGHT);
+        }
     }
 }

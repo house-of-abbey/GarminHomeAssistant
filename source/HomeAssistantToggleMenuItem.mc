@@ -240,10 +240,6 @@ class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
     //! @param s Boolean indicating the desired state of the toggle switch.
     //
     function setState(s as Lang.Boolean) as Void {
-        // Toggle the UI back, we'll wait for confirmation from the Home Assistant
-        // Note: with Zigbee2MQTT a.o. we may not always get the state in the response.
-        setEnabled(!isEnabled());
-
         var phoneConnected = System.getDeviceSettings().phoneConnected;
         var internetAvailable = System.getDeviceSettings().connectionAvailable;
         
@@ -256,28 +252,10 @@ class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
             ErrorView.show(WatchUi.loadResource($.Rez.Strings.NoInternet) as Lang.String);
         } else {
             var id  = mData.get("entity_id") as Lang.String;
-            var url = Settings.getApiUrl() + "/services/";
-            if (s) {
-                url = url + id.substring(0, id.find(".")) + "/turn_on";
-            } else {
-                url = url + id.substring(0, id.find(".")) + "/turn_off";
-            }
+            var url = getUrl(id, s);
 
             if ((! phoneConnected || ! internetAvailable) && Settings.getWifiLteExecutionEnabled()) {
-                var dialogMsg = WatchUi.loadResource($.Rez.Strings.WifiLtePrompt) as Lang.String;
-                var dialog = new WatchUi.Confirmation(dialogMsg);
-                WatchUi.pushView(
-                    dialog,
-                    new WifiLteExecutionConfirmDelegate({
-                        :type => "entity",
-                        :url => url,
-                        :id => id,
-                        :data => mData,
-                        :callback => method(:setToggleStateWithData),
-                        :exit => mExit,
-                    }),
-                    WatchUi.SLIDE_LEFT
-                );
+                wifiPrompt(s);
                 return;
             }
 
@@ -311,6 +289,9 @@ class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
     function callService(b as Lang.Boolean) as Void {
         var hasTouchScreen = System.getDeviceSettings().isTouchScreen;
         if (mPin && hasTouchScreen) {
+            // Undo the toggle
+            setEnabled(!isEnabled());
+
             var pin = Settings.getPin();
             if (pin != null) {
                 var pinConfirmationView = new HomeAssistantPinConfirmationView();
@@ -327,15 +308,26 @@ class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
                 );
             }
         } else if (mConfirm) {
-            WatchUi.pushView(
-                new HomeAssistantConfirmation(),
-                new HomeAssistantConfirmationDelegate({
-                    :callback       => method(:onConfirm),
-                    :state          => b,
-                    :toggleMethod   => method(:setEnabled),
-                }),
-                WatchUi.SLIDE_IMMEDIATE
-            );
+            // Undo the toggle
+            setEnabled(!isEnabled());
+
+            var phoneConnected = System.getDeviceSettings().phoneConnected;
+            var internetAvailable = System.getDeviceSettings().connectionAvailable;
+            if ((! phoneConnected || ! internetAvailable) && Settings.getWifiLteExecutionEnabled()) {
+                wifiPrompt(b);
+            } else {
+                var confirmationView = new HomeAssistantConfirmation();
+                WatchUi.pushView(
+                    confirmationView,
+                    new HomeAssistantConfirmationDelegate({
+                        :callback           => method(:onConfirm),
+                        :confirmationView   => confirmationView,
+                        :state              => b,
+                        :toggleMethod       => method(:setEnabled),
+                    }),
+                    WatchUi.SLIDE_IMMEDIATE
+                );
+            }
         } else {
             onConfirm(b);
         }
@@ -349,4 +341,45 @@ class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
         setState(b);
     }
 
+    //! Displays a confirmation dialog before executing a service call via Wi-Fi/LTE.
+    //!
+    //! @param s Desired state: `true` to turn on, `false` to turn off.
+    //
+    private function wifiPrompt(s as Lang.Boolean) as Void {
+        var id  = mData.get("entity_id") as Lang.String;
+        var url = getUrl(id, s);
+
+        var dialogMsg = WatchUi.loadResource($.Rez.Strings.WifiLtePrompt) as Lang.String;
+        var dialog = new WatchUi.Confirmation(dialogMsg);
+        WatchUi.pushView(
+            dialog,
+            new WifiLteExecutionConfirmDelegate({
+                :type => "entity",
+                :url => url,
+                :id => id,
+                :data => mData,
+                :callback => method(:setToggleStateWithData),
+                :exit => mExit,
+            }, dialog),
+            WatchUi.SLIDE_LEFT
+        );
+    }
+
+    //! Constructs a Home Assistant API URL for the given entity and desired state.
+    //!
+    //! @param id The entity ID, e.g., `"switch.kitchen"`.
+    //! @param s Desired state: `true` for "turn_on", `false` for "turn_off".
+    //!
+    //! @return Full service URL string.
+    //
+    private function getUrl(id as Lang.String, s as Lang.Boolean) as Lang.String {
+        var url = Settings.getApiUrl() + "/services/";
+        if (s) {
+            url = url + id.substring(0, id.find(".")) + "/turn_on";
+        } else {
+            url = url + id.substring(0, id.find(".")) + "/turn_off";
+        }
+
+        return url;
+    }
 }

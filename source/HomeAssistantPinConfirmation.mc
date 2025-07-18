@@ -244,6 +244,11 @@ class HomeAssistantPinConfirmationDelegate extends WatchUi.BehaviorDelegate {
                         mTimer.stop();
                     }
                     WatchUi.popView(WatchUi.SLIDE_RIGHT);
+
+                    // Set the toggle, if we have one
+                    if (mToggleMethod != null) {
+                        mToggleMethod.invoke(!mState);
+                    }
                     mConfirmMethod.invoke(mState);
                 } else {
                     error();
@@ -285,10 +290,7 @@ class HomeAssistantPinConfirmationDelegate extends WatchUi.BehaviorDelegate {
         if (mTimer != null) {
             mTimer.stop();
         }
-        // Undo the toggle, if we have one
-        if (mToggleMethod != null) {
-            mToggleMethod.invoke(!mState);
-        }
+        
         WatchUi.popView(WatchUi.SLIDE_RIGHT);
     }
 
@@ -312,6 +314,13 @@ class HomeAssistantPinConfirmationDelegate extends WatchUi.BehaviorDelegate {
             showToast($.Rez.Strings.WrongPin, null);
         }
         goBack();
+    }
+
+    //! Handle the back button (ESC)
+    //
+    function onBack() as Lang.Boolean {
+        goBack();
+        return true;
     }
 
 }

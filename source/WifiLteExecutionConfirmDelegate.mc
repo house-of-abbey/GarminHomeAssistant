@@ -16,8 +16,9 @@ class WifiLteExecutionConfirmDelegate extends WatchUi.ConfirmationDelegate {
         :exit       as Lang.Boolean
     };
 
+    private static var mTimer   as Timer.Timer or Null;
     private var mHasToast       as Lang.Boolean = false;
-    private var mTimer          as Timer.Timer or Null;
+    private var mConfirmationView   as WatchUi.Confirmation;
 
     //! Initializes a confirmation delegate to confirm a Wi-Fi or LTE command exection
     //!
@@ -28,6 +29,7 @@ class WifiLteExecutionConfirmDelegate extends WatchUi.ConfirmationDelegate {
     //!   - callback: (For type `"entity"`) A callback method (Method<data as Dictionary>) to handle the response.
     //!   - data:     (Optional) A dictionary of data to send with the request.
     //!   - exit:     Boolean: if set to true: exit after running command.
+    //! @param view   The Confirmation view the delegate is active for
     function initialize(cOptions as {
         :type     as Lang.String,
         :service  as Lang.String or Null,
@@ -35,13 +37,18 @@ class WifiLteExecutionConfirmDelegate extends WatchUi.ConfirmationDelegate {
         :url      as Lang.String or Null,
         :callback as Lang.Method or Null,
         :exit     as Lang.Boolean,
-    }) {
+    }, view as WatchUi.Confirmation) {
         ConfirmationDelegate.initialize();
+
+        if (mTimer != null) {
+            mTimer.stop();
+        }
 
         if (WatchUi has :showToast) {
             mHasToast = true;
         }
 
+        mConfirmationView = view;
         mCommandData = {
             :type       => cOptions[:type],
             :service    => cOptions[:service],
@@ -53,7 +60,10 @@ class WifiLteExecutionConfirmDelegate extends WatchUi.ConfirmationDelegate {
 
         var timeout = Settings.getConfirmTimeout(); // ms
         if (timeout > 0) {
-            mTimer = new Timer.Timer();
+            if (mTimer == null) {
+                mTimer = new Timer.Timer();
+            }
+
             mTimer.start(method(:onTimeout), timeout, true);
         }
     }
@@ -116,6 +126,10 @@ class WifiLteExecutionConfirmDelegate extends WatchUi.ConfirmationDelegate {
     //! Function supplied to a timer in order to limit the time for which the confirmation can be provided.
     function onTimeout() as Void {
         mTimer.stop();
-        WatchUi.popView(WatchUi.SLIDE_RIGHT);
+        var getCurrentView = WatchUi.getCurrentView();
+
+        if (getCurrentView[0] == mConfirmationView) {
+            WatchUi.popView(WatchUi.SLIDE_RIGHT);
+        }
     }
 }
