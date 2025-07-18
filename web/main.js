@@ -11,7 +11,7 @@ let api_token = localStorage.getItem('api_token') ?? '';
 
 /**
  * Get all entities in HomeAssistant.
- * @returns {Promise<Record<string, string>>} [id, name]
+ * @returns {Promise<Record<string, { name: string, icon?: string }>>} [id, name]
  */
 async function get_entities() {
   try {
@@ -21,7 +21,7 @@ async function get_entities() {
         Authorization: `Bearer ${api_token}`,
       },
       mode: 'cors',
-      body: `{"template":"[{% for entity in states %}[\\"{{ entity.entity_id }}\\",\\"{{ entity.name }}\\"]{% if not loop.last %},{% endif %}{% endfor %}]"}`,
+      body: `{"template":"[{% for entity in states %}[\\"{{ entity.entity_id }}\\",\\"{{ entity.name }}\\",\\"{{ entity.attributes.icon }}\\"]{% if not loop.last %},{% endif %}{% endfor %}]"}`,
     });
     if (res.status == 401 || res.status == 403) {
       document.querySelector('#api_token').classList.add('invalid');
@@ -29,8 +29,16 @@ async function get_entities() {
     }
     document.querySelector('#api_url').classList.remove('invalid');
     document.querySelector('#api_token').classList.remove('invalid');
-    return Object.fromEntries(await res.json());
-  } catch {
+    const data = {};
+    for (const [id, name, icon] of await res.json()) {
+      data[id] = { name };
+      if (icon !== '') {
+        data[id].icon = icon;
+      }
+    }
+    return data;
+  } catch (e) {
+    console.error('Error fetching entities:', e);
     document.querySelector('#api_url').classList.add('invalid');
     return {};
   }
@@ -57,7 +65,8 @@ async function get_devices() {
     document.querySelector('#api_url').classList.remove('invalid');
     document.querySelector('#api_token').classList.remove('invalid');
     return Object.fromEntries(await res.json());
-  } catch {
+  } catch (e) {
+    console.error('Error fetching devices:', e);
     document.querySelector('#api_url').classList.add('invalid');
     return {};
   }
@@ -84,7 +93,8 @@ async function get_areas() {
     document.querySelector('#api_url').classList.remove('invalid');
     document.querySelector('#api_token').classList.remove('invalid');
     return Object.fromEntries(await res.json());
-  } catch {
+  } catch (e) {
+    console.error('Error fetching areas:', e);
     document.querySelector('#api_url').classList.add('invalid');
     return {};
   }
@@ -119,7 +129,8 @@ async function get_services() {
       }
     }
     return services;
-  } catch {
+  } catch (e) {
+    console.error('Error fetching services:', e);
     document.querySelector('#api_url').classList.add('invalid');
     return [];
   }
@@ -369,6 +380,9 @@ async function generate_schema(entities, devices, areas, services, schema) {
       },
       confirm: {
         $ref: '#/$defs/confirm',
+      },
+      pin: {
+        $ref: '#/$defs/pin',
       },
       data: {
         type: 'object',
@@ -724,6 +738,7 @@ require(['vs/editor/editor.main'], async () => {
 
   var decorations = editor.createDecorationsCollection([]);
 
+  /** @type {monaco.editor.IMarkerData[]} */
   let markers = [];
 
   const renderTemplate = editor.addCommand(
@@ -905,6 +920,7 @@ require(['vs/editor/editor.main'], async () => {
       const ast = json.parse(model.getValue());
       const data = JSON.parse(model.getValue());
       markers = [];
+      /** @type {monaco.editor.IModelDeltaDecoration[]} */
       const glyphs = [];
       async function testToggle(range, entity) {
         const res = await fetch(api_url + '/states/' + entity, {
@@ -983,8 +999,10 @@ require(['vs/editor/editor.main'], async () => {
        * @param {import('json-ast-comments').JsonAst |
        *     import('json-ast-comments').JsonProperty} node
        * @param {string[]} path
+       * @param {import('json-ast-comments').JsonAst |
+       *     import('json-ast-comments').JsonProperty | null} parent
        */
-      function recurse(node, path) {
+      function recurse(node, path, parent = null) {
         if (node.type === 'property') {
           if (node.key[0].value === 'content') {
             templates.push([
@@ -1010,10 +1028,38 @@ require(['vs/editor/editor.main'], async () => {
             }
             trim++;
             markers.push({
-              message: entities[node.value[0].value] ?? 'Entity not found',
+              message: entities[node.value[0].value].name ?? 'Entity not found',
               severity: monaco.MarkerSeverity.Hint,
               ...range,
               startColumn: trim,
+            });
+            glyphs.push({
+              range,
+              options: {
+                isWholeLine: true,
+                glyphMarginClassName:
+                  'mdi ' +
+                  entities[node.value[0].value]?.icon?.replace(':', '-'),
+              },
+            });
+          } else if (
+            node.key[0].value === 'enabled' &&
+            node.value[0].type === 'boolean' &&
+            !node.value[0].value
+          ) {
+            glyphs.push({
+              range: {
+                startLineNumber: parent.members[0].key[0].range.start.line + 1,
+                startColumn: 0,
+                endLineNumber:
+                  parent.members[parent.members.length - 1].value[0].range.end
+                    .line + 1,
+                endColumn: 10000,
+              },
+              options: {
+                isWholeLine: true,
+                inlineClassName: 'disabled',
+              },
             });
           } else if (node.key[0].value === 'type') {
             if (node.value[0].value === 'toggle') {
@@ -1041,15 +1087,15 @@ require(['vs/editor/editor.main'], async () => {
               });
             }
           } else {
-            recurse(node.value[0], [...path, node.key[0].value]);
+            recurse(node.value[0], [...path, node.key[0].value], node);
           }
         } else if (node.type === 'array') {
           for (let i = 0; i < node.members.length; i++) {
-            recurse(node.members[i], [...path, i]);
+            recurse(node.members[i], [...path, i], node);
           }
         } else if (node.type === 'object') {
           for (let member of node.members) {
-            recurse(member, path);
+            recurse(member, path, node);
           }
         }
       }

@@ -6,8 +6,8 @@ settings:
 
 devDependencies:
   '@types/toastify-js':
-    specifier: ^1.12.3
-    version: 1.12.3
+    specifier: ^1.12.4
+    version: 1.12.4
   '@vscode/webview-ui-toolkit':
     specifier: 1.4.0
     version: 1.4.0(react@18.2.0)
@@ -15,8 +15,11 @@ devDependencies:
     specifier: 1.1.1
     version: 1.1.1
   monaco-editor:
-    specifier: 0.45.0
-    version: 0.45.0
+    specifier: 0.52.2
+    version: 0.52.2
+  prettier:
+    specifier: ^3.6.2
+    version: 3.6.2
   serve:
     specifier: ^14.2.1
     version: 14.2.1
@@ -52,8 +55,8 @@ packages:
       exenv-es6: 1.1.1
     dev: true
 
-  /@types/toastify-js@1.12.3:
-    resolution: {integrity: sha512-9RjLlbAHMSaae/KZNHGv19VG4gcLIm3YjvacCXBtfMfYn26h76YP5oxXI8k26q4iKXCB9LNfv18lsoS0JnFPTg==}
+  /@types/toastify-js@1.12.4:
+    resolution: {integrity: sha512-zfZHU4tKffPCnZRe7pjv/eFKzTVHozKewFCKaCjZ4gFinKgJRz/t0bkZiMCXJxPhv/ZoeDGNOeRD09R0kQZ/nw==}
     dev: true
 
   /@vscode/webview-ui-toolkit@1.4.0(react@18.2.0):
@@ -415,8 +418,8 @@ packages:
     resolution: {integrity: sha512-2yyAR8qBkN3YuheJanUpWC5U3bb5osDywNB8RzDVlDwDHbocAJveqqj1u8+SVD7jkWT4yvsHCpWqqWqAxb0zCA==}
     dev: true
 
-  /monaco-editor@0.45.0:
-    resolution: {integrity: sha512-mjv1G1ZzfEE3k9HZN0dQ2olMdwIfaeAAjFiwNprLfYNRSz7ctv9XuCT7gPtBGrMUeV1/iZzYKj17Khu1hxoHOA==}
+  /monaco-editor@0.52.2:
+    resolution: {integrity: sha512-GEQWEZmfkOGLdd3XK8ryrfWz3AIP8YymVXiPHEdewrUq7mh0qrKrfHLNCXcbB6sTnMLnOZ3ztSiKcciFUkIJwQ==}
     dev: true
 
   /ms@2.0.0:
@@ -458,6 +461,12 @@ packages:
 
   /path-to-regexp@2.2.1:
     resolution: {integrity: sha512-gu9bD6Ta5bwGrrU8muHzVOBFFREpp2iRkVfhBJahwJ6p6Xw20SjT0MxLnwkjOibQmGSYhiUnf2FLe7k+jcFmGQ==}
+    dev: true
+
+  /prettier@3.6.2:
+    resolution: {integrity: sha512-I7AIg5boAr5R0FFtJ6rCfD+LFsWHp81dolrFD8S79U9tb8Az2nGrJncnMSnys+bpQJfRUzqs9hnA81OAA3hCuQ==}
+    engines: {node: '>=14'}
+    hasBin: true
     dev: true
 
   /punycode@1.4.1:

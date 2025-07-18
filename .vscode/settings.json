@@ -2,5 +2,8 @@
   "cSpell.words": [
     "usbs",
     "Venu"
-  ]
+  ],
+  "files.exclude": {
+    "resources-*": true
+  }
 }

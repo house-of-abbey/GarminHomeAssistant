@@ -53,7 +53,7 @@
     Poll delay adds a user configurable delay (in seconds) to each round of
     status updates of all item in the device's menu that might be amended
     externally from the watch. A user has requested that it is possible to add
-    this delayfor an "always open" mode of operation, which then drains the
+    this delay for an "always open" mode of operation, which then drains the
     watch battery from the additional API access activity.
   -->
   <property id="poll_delay_combined" type="number">5</property>

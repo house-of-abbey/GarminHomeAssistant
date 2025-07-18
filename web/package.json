@@ -10,10 +10,11 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@types/toastify-js": "^1.12.3",
+    "@types/toastify-js": "^1.12.4",
     "@vscode/webview-ui-toolkit": "1.4.0",
     "json-ast-comments": "1.1.1",
-    "monaco-editor": "0.45.0",
+    "monaco-editor": "0.52.2",
+    "prettier": "^3.6.2",
     "serve": "^14.2.1"
   }
 }

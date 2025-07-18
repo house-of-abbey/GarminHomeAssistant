@@ -37,7 +37,8 @@
         margin-left: 0.5em;
         filter: grayscale() invert();
       }
-      .template, .info {
+      .template,
+      .info {
         background-image: url(../resources-icons-48/info_type.svg);
         background-size: contain;
         margin-left: 0.5em;
@@ -62,6 +63,13 @@
         background-size: contain;
         margin-left: 0.5em;
         filter: grayscale() invert();
+      }
+      .mdi {
+        margin-left: 0.5em;
+      }
+
+      .disabled {
+        opacity: 0.5;
       }
 
       :root {
@@ -285,6 +293,10 @@
         background-color: var(--ctp-mocha-overlay1);
       }
     </style>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@mdi/font@7.4.47/css/materialdesignicons.min.css"
+      defer />
   </head>
   <body>
     <div id="settings">
@@ -441,9 +453,10 @@ http:
       </div>
     </dialog>
 
-    <script src="https://www.unpkg.com/monaco-editor@0.45.0/min/vs/loader.js"></script>
+    <script src="https://www.unpkg.com/monaco-editor@0.52.2/min/vs/loader.js"></script>
     <script src="https://www.unpkg.com/json-ast-comments@1.1.1/lib/json.js"></script>
     <script src="https://www.unpkg.com/toastify-js@1.12.0/src/toastify.js"></script>
+    <script src="https://code.iconify.design/1/1.0.6/iconify.min.js"></script>
     <script type="module" src="./main.js"></script>
   </body>
 </html>
