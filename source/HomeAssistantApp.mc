@@ -42,6 +42,8 @@ class HomeAssistantApp extends Application.AppBase {
     private var mTemplates      as Lang.Dictionary = {};
     private var mNotifiedNoBle  as Lang.Boolean = false;
 
+    private const wifiPollDelayMs = 2000;
+
     //! Class Constructor
     //
     function initialize() {
@@ -458,11 +460,7 @@ class HomeAssistantApp extends Application.AppBase {
 
             mNotifiedNoBle = true;
             setApiStatus(WatchUi.loadResource($.Rez.Strings.Unavailable) as Lang.String);
-
-            var delay = Settings.getPollDelay();
-            if (delay > 0) {
-                mUpdateTimer.start(method(:startUpdates), delay, false);
-            }
+            mUpdateTimer.start(method(:startUpdates), wifiPollDelayMs, false);
 
             mUpdating = false;
             return;
