@@ -40,6 +40,7 @@ class HomeAssistantApp extends Application.AppBase {
     private var mIsApp          as Lang.Boolean    = false; // Or Widget
     private var mUpdating       as Lang.Boolean    = false; // Don't start a second chain of updates
     private var mTemplates      as Lang.Dictionary = {};
+    private var mNotifiedNoBle  as Lang.Boolean = false;
 
     //! Class Constructor
     //
@@ -321,11 +322,11 @@ class HomeAssistantApp extends Application.AppBase {
 
     //! Start the periodic menu updates for as long as the application is running.
     //
-    function startUpdates() {
+    function startUpdates() as Void {
         if (mHaMenu != null and !mUpdating) {
             // Start the continuous update process that continues for as long as the application is running.
-            updateMenuItems();
             mUpdating = true;
+            updateMenuItems();
         }
     }
 
@@ -435,22 +436,35 @@ class HomeAssistantApp extends Application.AppBase {
 
         // In Wifi/LTE execution mode, we should not show an error page but use a toast instead.
         if (Settings.getWifiLteExecutionEnabled() && (! phoneConnected || ! connectionAvailable)) {
-            var toast = WatchUi.loadResource($.Rez.Strings.NoPhone);
-            if (!connectionAvailable) {
-                toast = WatchUi.loadResource($.Rez.Strings.NoInternet);
+            // Notify only once per disconnection cycle
+            if (!mNotifiedNoBle) {
+                var toast = WatchUi.loadResource($.Rez.Strings.NoPhone);
+                if (!connectionAvailable) {
+                    toast = WatchUi.loadResource($.Rez.Strings.NoInternet);
+                }
+
+                if (mHasToast) {
+                    WatchUi.showToast(toast, null);
+                } else {
+                    new Alert({
+                        :timeout => Globals.scAlertTimeout,
+                        :font    => Graphics.FONT_MEDIUM,
+                        :text    => toast,
+                        :fgcolor => Graphics.COLOR_WHITE,
+                        :bgcolor => Graphics.COLOR_BLACK
+                    }).pushView(WatchUi.SLIDE_IMMEDIATE);
+                }
             }
 
-            if (mHasToast) {
-                WatchUi.showToast(toast, null);
-            } else {
-                new Alert({
-                    :timeout => Globals.scAlertTimeout,
-                    :font    => Graphics.FONT_MEDIUM,
-                    :text    => toast,
-                    :fgcolor => Graphics.COLOR_WHITE,
-                    :bgcolor => Graphics.COLOR_BLACK
-                }).pushView(WatchUi.SLIDE_IMMEDIATE);
+            mNotifiedNoBle = true;
+            setApiStatus(WatchUi.loadResource($.Rez.Strings.Unavailable) as Lang.String);
+
+            var delay = Settings.getPollDelay();
+            if (delay > 0) {
+                mUpdateTimer.start(method(:startUpdates), delay, false);
             }
+
+            mUpdating = false;
             return;
         }
 
@@ -463,6 +477,8 @@ class HomeAssistantApp extends Application.AppBase {
             ErrorView.show(WatchUi.loadResource($.Rez.Strings.NoInternet) as Lang.String);
             setApiStatus(WatchUi.loadResource($.Rez.Strings.Unavailable) as Lang.String);
         } else {
+            mNotifiedNoBle = false;
+
             if (mItemsToUpdate == null or mTemplates == null) {
                 mItemsToUpdate = mHaMenu.getItemsToUpdate();
                 mTemplates = {};

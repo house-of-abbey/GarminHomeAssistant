@@ -255,6 +255,8 @@ class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
             var url = getUrl(id, s);
 
             if ((! phoneConnected || ! internetAvailable) && Settings.getWifiLteExecutionEnabled()) {
+                // Undo the toggle
+                setEnabled(!isEnabled());
                 wifiPrompt(s);
                 return;
             }
