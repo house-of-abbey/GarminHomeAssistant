@@ -1,4 +1,4 @@
-[Home](README.md) | [Switches](examples/Switches.md) | [Actions](examples/Actions.md) | [Templates](examples/Templates.md) | [Glance](examples/Glance.md) | [Background Service](BackgroundService.md) | [Trouble Shooting](TroubleShooting.md) | [Version History](HISTORY.md)
+[Home](README.md) | [Switches](examples/Switches.md) | [Actions](examples/Actions.md) | [Templates](examples/Templates.md) | [Glance](examples/Glance.md) | [Background Service](BackgroundService.md) | [Wi-Fi](Wi-Fi.md) | [Trouble Shooting](TroubleShooting.md) | [Version History](HISTORY.md)
 
 # Version History
 
@@ -45,3 +45,4 @@
 |   2.30  | <img src="images/Venu2_glance_default.png" width="200" title="Default Glance"/><br/>Extensive re-work of the [Glance](examples/Glance.md) view, including the ability to customise it with a user supplied template. |
 |   2.31  | Adding [two new options](./examples/Actions.md#exit-on-tap) to the menu items: 1) The ability to disable a menu item, e.g. temporarily for seasonal changes, 2) The option to exit after a menu item has been select. |
 |   2.32  | Bug fix for a breaking change extracting options caused by the need to rearrange function parameters for an [annoying compiler error](https://github.com/house-of-abbey/GarminHomeAssistant/issues/253). |
+|   3.0   | First version with the ability to use [Wi-Fi](Wi-Fi.md) instead of Bluetooth but with limited functionality. |
