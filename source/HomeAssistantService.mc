@@ -9,7 +9,7 @@
 // tested on a Venu 2 device. The source code is provided at:
 //            https://github.com/house-of-abbey/GarminHomeAssistant.
 //
-// P A Abbey & J D Abbey & Someone0nEarth, 19 November 2023
+// P A Abbey & J D Abbey & Someone0nEarth & vincentezw, 19 November 2023
 //
 //-----------------------------------------------------------------------------------
 
