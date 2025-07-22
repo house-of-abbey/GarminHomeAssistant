@@ -132,10 +132,10 @@ class HomeAssistantApp extends Application.AppBase {
             // System.println("HomeAssistantApp getInitialView(): No Phone connection, no cached menu, skipping API call.");
             return ErrorView.create(WatchUi.loadResource($.Rez.Strings.NoPhoneNoCache) as Lang.String);
         } else if (! System.getDeviceSettings().phoneConnected and ! Settings.getWifiLteExecutionEnabled()) {
-            // System.println("HomeAssistantApp getInitialView(): No Phone connection and wifi disabled, skipping API call.");
+            // System.println("HomeAssistantApp getInitialView(): No Phone connection and Wi-Fi disabled, skipping API call.");
             return ErrorView.create(WatchUi.loadResource($.Rez.Strings.NoPhone) as Lang.String);
         } else if (! System.getDeviceSettings().connectionAvailable and ! Settings.getWifiLteExecutionEnabled()) {
-            // System.println("HomeAssistantApp getInitialView(): No Internet connection and wifi disabled, skipping API call.");
+            // System.println("HomeAssistantApp getInitialView(): No Internet connection and Wi-Fi disabled, skipping API call.");
             return ErrorView.create(WatchUi.loadResource($.Rez.Strings.NoInternet) as Lang.String);
         } else {
             var isCached = fetchMenuConfig();
@@ -436,7 +436,7 @@ class HomeAssistantApp extends Application.AppBase {
         var phoneConnected = System.getDeviceSettings().phoneConnected;
         var connectionAvailable = System.getDeviceSettings().connectionAvailable;
 
-        // In Wifi/LTE execution mode, we should not show an error page but use a toast instead.
+        // In Wi-Fi/LTE execution mode, we should not show an error page but use a toast instead.
         if (Settings.getWifiLteExecutionEnabled() && (! phoneConnected || ! connectionAvailable)) {
             // Notify only once per disconnection cycle
             if (!mNotifiedNoBle) {

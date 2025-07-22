@@ -97,7 +97,7 @@
   <property id="webhook_id" type="string"></property>
 
   <!--
-    Enables the SyncDelegate and prompt to send a command over Wifi/LTE.
+    Enables the SyncDelegate and prompt to send a command over Wi-Fi/LTE.
     This will only show when not connected to the user's phone.
   -->
   <property id="wifi_lte_execution" type="boolean">false</property>

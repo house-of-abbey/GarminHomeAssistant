@@ -272,12 +272,12 @@ class Settings {
         }
     }
 
-    //! Get the value of the WiFi/LTE toggle in settings.
+    //! Get the value of the Wi-Fi/LTE toggle in settings.
     //!
     //! @return The state of the toggle.
     //
     static function getWifiLteExecutionEnabled() as Lang.Boolean {
-        // Wifi/LTE sync execution on a cached menu
+        // Wi-Fi/LTE sync execution on a cached menu
         if (!mCacheConfig) {
             return false;
         }
