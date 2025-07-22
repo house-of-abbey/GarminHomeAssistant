@@ -185,21 +185,25 @@ class HomeAssistantPinConfirmationDelegate extends WatchUi.BehaviorDelegate {
     private var mTimer         as Timer.Timer or Null;
     private var mState         as Lang.Boolean;
     private var mFailures      as PinFailures;
+    private var mToggleMethod  as Method(state as Lang.Boolean) as Void or Null;
     private var mView          as HomeAssistantPinConfirmationView;
 
     //! Class Constructor
     //!
-    //! @param callback Method to call on confirmation.
-    //! @param state    Current state of a toggle button.
-    //! @param pin      PIN to be matched.
-    //! @param view     PIN confirmation view.
+    //! @param options A dictionary describing the following options:
+    //!  - callback Method to call on confirmation.
+    //!  - pin      PIN to be matched.
+    //!  - state    Wanted state of a toggle button.
+    //!  - toggle   Optional setEnabled method to untoggle ToggleItem.
+    //!  - view     PIN confirmation view.
     //
-    function initialize(
-        callback as Method(state as Lang.Boolean) as Void,
-        state    as Lang.Boolean,
-        pin      as Lang.String,
-        view     as HomeAssistantPinConfirmationView
-    ) {
+    function initialize(options as {
+        :callback       as Method(state as Lang.Boolean) as Void,
+        :pin            as Lang.String,
+        :state          as Lang.Boolean,
+        :view           as HomeAssistantPinConfirmationView,
+        :toggleMethod   as (Method(state as Lang.Boolean) as Void) or Null,
+    }) {
         BehaviorDelegate.initialize();
         mFailures      = new PinFailures();
         if (mFailures.isLocked()) {
@@ -208,11 +212,13 @@ class HomeAssistantPinConfirmationDelegate extends WatchUi.BehaviorDelegate {
                       WatchUi.loadResource($.Rez.Strings.Seconds);
             WatchUi.showToast(msg, {});
         }
-        mPin           = pin;
+        mPin           = options[:pin];
         mEnteredPin    = "";
-        mConfirmMethod = callback;
-        mState         = state;
-        mView          = view;
+        mConfirmMethod = options[:callback];
+        mState         = options[:state];
+        mToggleMethod  = options[:toggleMethod];
+        mView          = options[:view];
+
         resetTimer();
     }
 
@@ -237,8 +243,13 @@ class HomeAssistantPinConfirmationDelegate extends WatchUi.BehaviorDelegate {
                     if (mTimer != null) {
                         mTimer.stop();
                     }
-                    mConfirmMethod.invoke(mState);
                     WatchUi.popView(WatchUi.SLIDE_RIGHT);
+
+                    // Set the toggle, if we have one
+                    if (mToggleMethod != null) {
+                        mToggleMethod.invoke(!mState);
+                    }
+                    mConfirmMethod.invoke(mState);
                 } else {
                     error();
                 }
@@ -279,6 +290,7 @@ class HomeAssistantPinConfirmationDelegate extends WatchUi.BehaviorDelegate {
         if (mTimer != null) {
             mTimer.stop();
         }
+        
         WatchUi.popView(WatchUi.SLIDE_RIGHT);
     }
 
@@ -302,6 +314,13 @@ class HomeAssistantPinConfirmationDelegate extends WatchUi.BehaviorDelegate {
             showToast($.Rez.Strings.WrongPin, null);
         }
         goBack();
+    }
+
+    //! Handle the back button (ESC)
+    //
+    function onBack() as Lang.Boolean {
+        goBack();
+        return true;
     }
 
 }

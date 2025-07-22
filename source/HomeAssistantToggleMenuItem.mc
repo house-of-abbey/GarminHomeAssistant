@@ -198,16 +198,8 @@ class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
             case 200:
                 // System.println("HomeAssistantToggleMenuItem onReturnSetState(): Service executed.");
                 getApp().forceStatusUpdates();
-                var state;
                 var d = data as Lang.Array;
-                for(var i = 0; i < d.size(); i++) {
-                    if ((d[i].get("entity_id") as Lang.String).equals(mData.get("entity_id"))) {
-                        state = d[i].get("state") as Lang.String;
-                        // System.println((d[i].get("attributes") as Lang.Dictionary).get("friendly_name") + " State=" + state);
-                        setUiToggle(state);
-                        WatchUi.requestUpdate();
-                    }
-                }
+                setToggleStateWithData(d);
                 status = WatchUi.loadResource($.Rez.Strings.Available) as Lang.String;
                 break;
 
@@ -221,30 +213,54 @@ class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
         }
     }
 
+    //! Handles the response from a Home Assistant service or state call and updates the toggle UI.
+    //!
+    //! @param data An array of dictionaries, each representing a Home Assistant entity state.
+    //
+    function setToggleStateWithData(data as Lang.Array) {
+        // if there's no response body, let's assume that what we did, happened, and flip the toggle
+        if (data.size() == 0) {
+            setEnabled(!isEnabled());
+        }
+
+        else {
+            for(var i = 0; i < data.size(); i++) {
+                if ((data[i].get("entity_id") as Lang.String).equals(mData.get("entity_id"))) {
+                    var state = data[i].get("state") as Lang.String;
+                    // System.println((d[i].get("attributes") as Lang.Dictionary).get("friendly_name") + " State=" + state);
+                    setUiToggle(state);
+                    WatchUi.requestUpdate();
+                }
+            }
+        }
+    }
+
     //! Set the state of the toggle menu item.
     //!
     //! @param s Boolean indicating the desired state of the toggle switch.
     //
     function setState(s as Lang.Boolean) as Void {
-        // Toggle the UI back, we'll wait for confirmation from the Home Assistant
-        setEnabled(!isEnabled());
-        if (! System.getDeviceSettings().phoneConnected) {
+        var phoneConnected = System.getDeviceSettings().phoneConnected;
+        var internetAvailable = System.getDeviceSettings().connectionAvailable;
+        
+        if (! phoneConnected && ! Settings.getWifiLteExecutionEnabled()) {
             // System.println("HomeAssistantToggleMenuItem getState(): No Phone connection, skipping API call.");
             ErrorView.show(WatchUi.loadResource($.Rez.Strings.NoPhone) as Lang.String);
-        } else if (! System.getDeviceSettings().connectionAvailable) {
+        } else if (! internetAvailable && ! Settings.getWifiLteExecutionEnabled()) {
             // System.println("HomeAssistantToggleMenuItem getState(): No Internet connection, skipping API call.");
             // Toggle the UI back
             ErrorView.show(WatchUi.loadResource($.Rez.Strings.NoInternet) as Lang.String);
         } else {
-            // Updated SDK and got a new error
-            // ERROR: venu: Cannot find symbol ':substring' on type 'PolyType<Null or $.Toybox.Lang.Object>'.
             var id  = mData.get("entity_id") as Lang.String;
-            var url = Settings.getApiUrl() + "/services/";
-            if (s) {
-                url = url + id.substring(0, id.find(".")) + "/turn_on";
-            } else {
-                url = url + id.substring(0, id.find(".")) + "/turn_off";
+            var url = getUrl(id, s);
+
+            if ((! phoneConnected || ! internetAvailable) && Settings.getWifiLteExecutionEnabled()) {
+                // Undo the toggle
+                setEnabled(!isEnabled());
+                wifiPrompt(s);
+                return;
             }
+
             // System.println("HomeAssistantToggleMenuItem setState() URL       = " + url);
             // System.println("HomeAssistantToggleMenuItem setState() entity_id = " + id);
             Communications.makeWebRequest(
@@ -275,21 +291,45 @@ class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
     function callService(b as Lang.Boolean) as Void {
         var hasTouchScreen = System.getDeviceSettings().isTouchScreen;
         if (mPin && hasTouchScreen) {
+            // Undo the toggle
+            setEnabled(!isEnabled());
+
             var pin = Settings.getPin();
             if (pin != null) {
                 var pinConfirmationView = new HomeAssistantPinConfirmationView();
                 WatchUi.pushView(
                     pinConfirmationView,
-                    new HomeAssistantPinConfirmationDelegate(method(:onConfirm), b, pin, pinConfirmationView),
+                    new HomeAssistantPinConfirmationDelegate({
+                        :callback       => method(:onConfirm),
+                        :pin            => pin,
+                        :state          => b,
+                        :toggleMethod   => method(:setEnabled),
+                        :view           => pinConfirmationView,
+                    }),
                     WatchUi.SLIDE_IMMEDIATE
                 );
             }
         } else if (mConfirm) {
-            WatchUi.pushView(
-                new HomeAssistantConfirmation(),
-                new HomeAssistantConfirmationDelegate(method(:onConfirm), b),
-                WatchUi.SLIDE_IMMEDIATE
-            );
+            // Undo the toggle
+            setEnabled(!isEnabled());
+
+            var phoneConnected = System.getDeviceSettings().phoneConnected;
+            var internetAvailable = System.getDeviceSettings().connectionAvailable;
+            if ((! phoneConnected || ! internetAvailable) && Settings.getWifiLteExecutionEnabled()) {
+                wifiPrompt(b);
+            } else {
+                var confirmationView = new HomeAssistantConfirmation();
+                WatchUi.pushView(
+                    confirmationView,
+                    new HomeAssistantConfirmationDelegate({
+                        :callback           => method(:onConfirm),
+                        :confirmationView   => confirmationView,
+                        :state              => b,
+                        :toggleMethod       => method(:setEnabled),
+                    }),
+                    WatchUi.SLIDE_IMMEDIATE
+                );
+            }
         } else {
             onConfirm(b);
         }
@@ -303,4 +343,45 @@ class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
         setState(b);
     }
 
+    //! Displays a confirmation dialog before executing a service call via Wi-Fi/LTE.
+    //!
+    //! @param s Desired state: `true` to turn on, `false` to turn off.
+    //
+    private function wifiPrompt(s as Lang.Boolean) as Void {
+        var id  = mData.get("entity_id") as Lang.String;
+        var url = getUrl(id, s);
+
+        var dialogMsg = WatchUi.loadResource($.Rez.Strings.WifiLtePrompt) as Lang.String;
+        var dialog = new WatchUi.Confirmation(dialogMsg);
+        WatchUi.pushView(
+            dialog,
+            new WifiLteExecutionConfirmDelegate({
+                :type => "entity",
+                :url => url,
+                :id => id,
+                :data => mData,
+                :callback => method(:setToggleStateWithData),
+                :exit => mExit,
+            }, dialog),
+            WatchUi.SLIDE_LEFT
+        );
+    }
+
+    //! Constructs a Home Assistant API URL for the given entity and desired state.
+    //!
+    //! @param id The entity ID, e.g., `"switch.kitchen"`.
+    //! @param s Desired state: `true` for "turn_on", `false` for "turn_off".
+    //!
+    //! @return Full service URL string.
+    //
+    private function getUrl(id as Lang.String, s as Lang.Boolean) as Lang.String {
+        var url = Settings.getApiUrl() + "/services/";
+        if (s) {
+            url = url + id.substring(0, id.find(".")) + "/turn_on";
+        } else {
+            url = url + id.substring(0, id.find(".")) + "/turn_off";
+        }
+
+        return url;
+    }
 }
