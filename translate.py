@@ -108,7 +108,7 @@ with open("./resources/strings/strings.xml", "r") as f:
             with open(f"./resources-{l[0]}/strings/strings.xml", "r", encoding="utf-8") as r:
                 prev = BeautifulSoup(r.read().replace("\r", ""), features="xml")
         except FileNotFoundError:
-            prev = BeautifulSoup("", features=["xml"])
+            prev = BeautifulSoup("", features="xml")
         try:
             with open(f"./resources-{l[0]}/strings/corrections.xml", "r", encoding="utf-8") as r:
                 curr = BeautifulSoup(r.read().replace("\r", ""), features="xml")
