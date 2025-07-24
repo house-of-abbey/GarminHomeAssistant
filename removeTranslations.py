@@ -74,7 +74,12 @@ def main(translation_id: str) -> None:
     
     :param translation_id: The id of the translation to remove.
     """
-    xml_files = [d + "/strings/strings.xml" for d in os.listdir(".") if os.path.isdir(d) and "resources-" in d and os.path.exists(d + "/strings/strings.xml")]
+    xml_files = []
+    for directory in os.listdir("."):
+        if os.path.isdir(directory) and "resources-" in directory:
+            xml_file_path = os.path.join(directory, "strings", "strings.xml")
+            if os.path.exists(xml_file_path):
+                xml_files.append(xml_file_path)
 
     for xml_file in xml_files:
         print(f"Processing file: {xml_file}")
