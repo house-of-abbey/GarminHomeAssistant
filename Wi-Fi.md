@@ -10,7 +10,7 @@ With version 3.0 onwards the application now includes the ability to temporarily
 
 1. An API request issued over Wi-Fi requires the watch to open up an IP connection to your Wi-Fi access point. This means setting up a secure channel with WPA and being allocated an IP address. Establishing the communication channel takes a short while. _You will see that this adds a noticeable delay to usability._
 
-2. **This new function can only be used when the menu is already cached.** _The watch will not perform an HTTPS GET request to retrieve the JSON menu file_. You will not be able to turn on the Wi-Fi/LTE connection option in the application settings if the menu is not cached (or at least set to be cached in due course).
+2. **The Wi-Fi/LTE functionality can only be used when the menu is already cached.** _The watch will not perform an HTTPS GET request to retrieve the JSON menu file_. Therefore, to enable the Wifi/LTE functionality in the application settings, you must enable caching first.
 
 3. The menu item statuses will not be set correctly. Instead you will be warned about the lack of connectivity by a 'toast', i.e. message partially occupying the top of the screen temporarily. Fetching the menu item statuses, including rendered templates, requires its own API call, hence this not performed.
 
