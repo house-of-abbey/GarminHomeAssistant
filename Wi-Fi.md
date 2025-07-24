@@ -8,7 +8,7 @@ With version 3.0 onwards the application now includes the ability to temporarily
 
 ## Limits of Use
 
-1. An API request issued over Wi-Fi requires the watch to open up an IP connection to your Wi-Fi access point. This means setting up a secure channel with WPA and being allocated an IP address. Establishing the communication channel takes a short while. _You will see that this adds a noticeable delay to useability._
+1. An API request issued over Wi-Fi requires the watch to open up an IP connection to your Wi-Fi access point. This means setting up a secure channel with WPA and being allocated an IP address. Establishing the communication channel takes a short while. _You will see that this adds a noticeable delay to usability._
 
 2. **This new function can only be used when the menu is already cached.** _The watch will not perform an HTTPS GET request to retrieve the JSON menu file_. You will not be able to turn on the Wi-Fi/LTE connection option in the application settings if the menu is not cached (or at least set to be cached in due course).
 
