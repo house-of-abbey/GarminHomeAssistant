@@ -154,7 +154,7 @@ class BackgroundServiceDelegate extends System.ServiceDelegate {
                 (Properties.getValue("api_url") as Lang.String) + "/webhook/" + (Properties.getValue("webhook_id") as Lang.String),
                 {
                     "type" => "update_location",
-                    "data" => data,
+                    "data" => data
                 },
                 {
                     :method       => Communications.HTTP_REQUEST_METHOD_POST,

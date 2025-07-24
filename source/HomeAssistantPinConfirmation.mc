@@ -43,9 +43,10 @@ class PinDigit extends WatchUi.Selectable {
         var height = stepY - (marginY * 2);
 
         var button = new PinDigitButton({
-            :width  => width,
-            :height => height,
-            :label  => digit
+            :width   => width,
+            :height  => height,
+            :label   => digit,
+            :touched => false
         });
 
         var buttonTouched = new PinDigitButton({
@@ -89,7 +90,14 @@ class PinDigit extends WatchUi.Selectable {
         //!   &emsp; + those required by `Drawable.initialize()`<br>
         //!   ``}`
         //
-        function initialize(options) {
+        function initialize(
+            options as {
+                :width   as Lang.Float,
+                :height  as Lang.Float,
+                :label   as Lang.Number,
+                :touched as Lang.Boolean
+            }
+        ) {
             Drawable.initialize(options);
             mText    = options[:label];
             mTouched = options[:touched];
