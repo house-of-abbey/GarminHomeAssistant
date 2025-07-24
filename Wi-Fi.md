@@ -24,6 +24,10 @@ This video using will hopefully make it obvious how slow it is to use the Wi-Fi 
   <source src="./images/wi-fi.mp4" type="video/mp4">
 </video>
 
+### Please Note
+
+We emphasize that the Wi-Fi/LTE functionality should be viewed as a 'last resort' method for executing tasks when your phone is not available. It is not recommended as a continuous mode of operation.
+
 ## Credits
 
 With thanks to [@vincentezw](https://github.com/vincentezw) for contributing this solution.
