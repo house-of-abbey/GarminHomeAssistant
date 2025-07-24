@@ -62,6 +62,7 @@ class Settings {
         mConfigUrl             = Properties.getValue("config_url");
         mCacheConfig           = Properties.getValue("cache_config");
         mClearCache            = Properties.getValue("clear_cache");
+        mWifiLteExecution      = Properties.getValue("wifi_lte_execution");
         mVibrate               = Properties.getValue("enable_vibration");
         mAppTimeout            = Properties.getValue("app_timeout");
         mPollDelay             = Properties.getValue("poll_delay_combined");
@@ -70,7 +71,6 @@ class Settings {
         mMenuAlignment         = Properties.getValue("menu_alignment");
         mIsSensorsLevelEnabled = Properties.getValue("enable_battery_level");
         mBatteryRefreshRate    = Properties.getValue("battery_level_refresh_rate");
-        mWifiLteExecution      = Properties.getValue("wifi_lte_execution");
     }
 
     //! A webhook is required for non-privileged API calls.
@@ -193,6 +193,18 @@ class Settings {
         Properties.setValue("clear_cache", mClearCache);
     }
 
+    //! Get the value of the Wi-Fi/LTE toggle in settings.
+    //!
+    //! @return The state of the toggle.
+    //
+    static function getWifiLteExecutionEnabled() as Lang.Boolean {
+        // Wi-Fi/LTE sync execution on a cached menu
+        if (!mCacheConfig) {
+            return false;
+        }
+        return mWifiLteExecution;
+    }
+
     //! Get the vibration Boolean option supplied as part of the Settings.
     //!
     //! @return Boolean for whether vibration is enabled.
@@ -270,18 +282,6 @@ class Settings {
             Background.deleteTemporalEvent();
             Background.deleteActivityCompletedEvent();
         }
-    }
-
-    //! Get the value of the Wi-Fi/LTE toggle in settings.
-    //!
-    //! @return The state of the toggle.
-    //
-    static function getWifiLteExecutionEnabled() as Lang.Boolean {
-        // Wi-Fi/LTE sync execution on a cached menu
-        if (!mCacheConfig) {
-            return false;
-        }
-        return mWifiLteExecution;
     }
 
 }

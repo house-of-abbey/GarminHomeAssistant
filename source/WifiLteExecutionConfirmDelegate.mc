@@ -24,17 +24,17 @@ using Toybox.Timer;
 //
 class WifiLteExecutionConfirmDelegate extends WatchUi.ConfirmationDelegate {
     public static var mCommandData as {
-        :type       as Lang.String,
-        :service    as Lang.String?,
-        :data       as Lang.Dictionary?,
-        :url        as Lang.String?,
-        :id         as Lang.Number?,
-        :exit       as Lang.Boolean
+        :type    as Lang.String,
+        :service as Lang.String?,
+        :data    as Lang.Dictionary?,
+        :url     as Lang.String?,
+        :id      as Lang.Number?,
+        :exit    as Lang.Boolean
     };
 
-    private static var mTimer   as Timer.Timer?;
-    private var mHasToast       as Lang.Boolean = false;
-    private var mConfirmationView   as WatchUi.Confirmation;
+    private static var mTimer     as Timer.Timer?;
+    private var mHasToast         as Lang.Boolean = false;
+    private var mConfirmationView as WatchUi.Confirmation;
 
     //! Initializes a confirmation delegate to confirm a Wi-Fi or LTE command execution
     //!
