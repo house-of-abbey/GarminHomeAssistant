@@ -14,7 +14,7 @@ With version 3.0 onwards the application now includes the ability to temporarily
 
 3. The menu item statuses will not be set correctly. Instead you will be warned about the lack of connectivity by a 'toast', i.e. message partially occupying the top of the screen temporarily. Fetching the menu item statuses, including rendered templates, requires its own API call, hence this not performed.
 
-4. Do not forget you need to be within range of your watch's configured Wi-Fi access point to take advantage of this functionality. LTE is obviously longer range.
+4. Remember that you need to be within range of your watch's configured Wi-Fi access point to utilize this functionality. If supported by your device, LTE offers a longer range, but network charges may apply.
 
 ## Video
 
