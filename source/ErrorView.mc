@@ -39,7 +39,7 @@ class ErrorView extends ScalableView {
     // Vertical spacing between the top of the face and the error icon
     private var mErrorIconMargin as Lang.Number;
     private var mErrorIcon;
-    private var mTextArea        as WatchUi.TextArea or Null;
+    private var mTextArea        as WatchUi.TextArea?;
     private var mAntiAlias       as Lang.Boolean         = false;
 
     private static var instance;
@@ -169,7 +169,7 @@ class ErrorDelegate extends WatchUi.BehaviorDelegate {
         WatchUi.BehaviorDelegate.initialize();
     }
 
-    //! Process the event to clear the ErrorView.
+    //! Handle the back button (ESC) to clear the ErrorView.
     //
     function onBack() as Lang.Boolean {
         getApp().getQuitTimer().reset();

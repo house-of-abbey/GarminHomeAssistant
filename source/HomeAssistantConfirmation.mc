@@ -35,27 +35,30 @@ class HomeAssistantConfirmation extends WatchUi.Confirmation {
 //! Delegate to respond to the confirmation request.
 //
 class HomeAssistantConfirmationDelegate extends WatchUi.ConfirmationDelegate {
-    private static var mTimer       as Timer.Timer or Null;
-
-    private var mConfirmMethod      as Method(state as Lang.Boolean) as Void;
-    private var mState              as Lang.Boolean;
-    private var mToggleMethod       as Method(state as Lang.Boolean) as Void or Null;
-    private var mConfirmationView   as WatchUi.Confirmation;
+    private static var mTimer     as Timer.Timer?;
+    private var mConfirmMethod    as Method(state as Lang.Boolean) as Void;
+    private var mState            as Lang.Boolean;
+    private var mToggleMethod     as Method(state as Lang.Boolean) as Void or Null;
+    private var mConfirmationView as WatchUi.Confirmation;
 
     //! Class Constructor
     //!
-    //! @param options A dictionary describing the following options:
-    //!  - callback         Method to call on confirmation.
-    //!  - confirmationView Confirmation the delegate is active for
-    //!  - state            Wanted state of a toggle button.
-    //!  - toggle           Optional setEnabled method to untoggle ToggleItem.
+    //! @param options A dictionary describing the following options:<br>
+    //!   `{`<br>
+    //!   &emsp; `:callback         as Method(state as Lang.Boolean) as Void,` // Method to call on confirmation.<br>
+    //!   &emsp; `:confirmationView as WatchUi.Confirmation,`                  // Confirmation the delegate is active for<br>
+    //!   &emsp; `:state            as Lang.Boolean,`                          // Wanted state of a toggle button.<br>
+    //!   &emsp; `:toggle           as Method(state as Lang.Boolean)?`         // Optional setEnabled method to untoggle ToggleItem.<br>
+    //!   `}`
     //
-    function initialize(options as {
-        :callback as Method(state as Lang.Boolean) as Void,
-        :confirmationView as WatchUi.Confirmation,
-        :state as Lang.Boolean,
-        :toggleMethod as Method(state as Lang.Boolean) or Null,
-    }) {
+    function initialize(
+        options as {
+            :callback         as Method(state as Lang.Boolean) as Void,
+            :confirmationView as WatchUi.Confirmation,
+            :state            as Lang.Boolean,
+            :toggleMethod     as Method(state as Lang.Boolean)?
+        }
+    ) {
         if (mTimer != null) {
             mTimer.stop();
         }
@@ -78,7 +81,7 @@ class HomeAssistantConfirmationDelegate extends WatchUi.ConfirmationDelegate {
 
     //! Respond to the confirmation event.
     //!
-    //! @param response code
+    //! @param response response code
     //! @return Required to meet the function prototype, but the base class does not indicate a definition.
     //
     function onResponse(response as WatchUi.Confirm) as Lang.Boolean {
@@ -98,6 +101,7 @@ class HomeAssistantConfirmationDelegate extends WatchUi.ConfirmationDelegate {
     }
 
     //! Function supplied to a timer in order to limit the time for which the confirmation can be provided.
+    //
     function onTimeout() as Void {
         mTimer.stop();
         // Undo the toggle, if we have one

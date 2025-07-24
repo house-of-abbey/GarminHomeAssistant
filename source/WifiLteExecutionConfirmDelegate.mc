@@ -19,40 +19,47 @@ using Toybox.Communications;
 using Toybox.Lang;
 using Toybox.Timer;
 
-// Delegate to respond to a confirmation to execute command via bulk sync
+//! Delegate to respond to a confirmation to execute an API request via bulk
+//! synchronisation.
 //
 class WifiLteExecutionConfirmDelegate extends WatchUi.ConfirmationDelegate {
     public static var mCommandData as {
         :type       as Lang.String,
-        :service    as Lang.String or Null,
-        :data       as Lang.Dictionary or Null,
-        :url        as Lang.String or Null,
-        :id         as Lang.Number or Null,
+        :service    as Lang.String?,
+        :data       as Lang.Dictionary?,
+        :url        as Lang.String?,
+        :id         as Lang.Number?,
         :exit       as Lang.Boolean
     };
 
-    private static var mTimer   as Timer.Timer or Null;
+    private static var mTimer   as Timer.Timer?;
     private var mHasToast       as Lang.Boolean = false;
     private var mConfirmationView   as WatchUi.Confirmation;
 
-    //! Initializes a confirmation delegate to confirm a Wi-Fi or LTE command exection
+    //! Initializes a confirmation delegate to confirm a Wi-Fi or LTE command execution
     //!
-    //! @param options A dictionary describing the command to be executed:
-    //!   - type:     The command type, either `"service"` or `"entity"`.
-    //!   - service:  (For type `"service"`) The Home Assistant service to call (e.g., "light.turn_on").
-    //!   - url:      (For type `"entity"`) The full Home Assistant entity API URL.
-    //!   - callback: (For type `"entity"`) A callback method (Method<data as Dictionary>) to handle the response.
-    //!   - data:     (Optional) A dictionary of data to send with the request.
-    //!   - exit:     Boolean: if set to true: exit after running command.
+    //! @param options A dictionary describing the command to be executed:<br>
+    //!   `{`<br>
+    //!   &emsp; `:type:     as Lang.String,`      // The command type, either `"service"` or `"entity"`.<br>
+    //!   &emsp; `:service:  as Lang.String?,`     // (For type `"service"`) The Home Assistant service to call (e.g., "light.turn_on").<br>
+    //!   &emsp; `:url:      as Lang.Dictionary?,` // (For type `"entity"`) The full Home Assistant entity API URL.<br>
+    //!   &emsp; `:callback: as Lang.String?,`     // (For type `"entity"`) A callback method (Method<data as Dictionary>) to handle the response.<br>
+    //!   &emsp; `:data:     as Lang.Method?,`     // (Optional) A dictionary of data to send with the request.<br>
+    //!   &emsp; `:exit:     as Lang.Boolean,`     // Boolean: if set to true: exit after running command.<br>
+    //!   &rbrace;<br>
     //! @param view   The Confirmation view the delegate is active for
-    function initialize(cOptions as {
-        :type     as Lang.String,
-        :service  as Lang.String or Null,
-        :data     as Lang.Dictionary or Null,
-        :url      as Lang.String or Null,
-        :callback as Lang.Method or Null,
-        :exit     as Lang.Boolean,
-    }, view as WatchUi.Confirmation) {
+    //
+    function initialize(
+        cOptions as {
+            :type     as Lang.String,
+            :service  as Lang.String?,
+            :data     as Lang.Dictionary?,
+            :url      as Lang.String?,
+            :callback as Lang.Method?,
+            :exit     as Lang.Boolean,
+        },
+        view as WatchUi.Confirmation
+    ) {
         ConfirmationDelegate.initialize();
 
         if (mTimer != null) {
@@ -65,12 +72,12 @@ class WifiLteExecutionConfirmDelegate extends WatchUi.ConfirmationDelegate {
 
         mConfirmationView = view;
         mCommandData = {
-            :type       => cOptions[:type],
-            :service    => cOptions[:service],
-            :data       => cOptions[:data],
-            :url        => cOptions[:url],
-            :callback   => cOptions[:callback],
-            :exit       => cOptions[:exit]
+            :type     => cOptions[:type],
+            :service  => cOptions[:service],
+            :data     => cOptions[:data],
+            :url      => cOptions[:url],
+            :callback => cOptions[:callback],
+            :exit     => cOptions[:exit]
         };
 
         var timeout = Settings.getConfirmTimeout(); // ms
@@ -78,7 +85,6 @@ class WifiLteExecutionConfirmDelegate extends WatchUi.ConfirmationDelegate {
             if (mTimer == null) {
                 mTimer = new Timer.Timer();
             }
-
             mTimer.start(method(:onTimeout), timeout, true);
         }
     }
@@ -87,6 +93,7 @@ class WifiLteExecutionConfirmDelegate extends WatchUi.ConfirmationDelegate {
     //!
     //! @param response The user's confirmation response as `WatchUi.Confirm`
     //! @return Always returns `true` to indicate the response was handled.
+    //
     function onResponse(response) as Lang.Boolean {
         getApp().getQuitTimer().reset();
         if (mTimer != null) {
@@ -100,15 +107,15 @@ class WifiLteExecutionConfirmDelegate extends WatchUi.ConfirmationDelegate {
     }
 
     //! Initiates a bulk sync process to execute a command, if connections are available
+    //
     private function trySync() as Void {
-        var connectionInfo = System.getDeviceSettings().connectionInfo;
-        var keys = connectionInfo.keys();
+        var connectionInfo     = System.getDeviceSettings().connectionInfo;
+        var keys               = connectionInfo.keys();
         var possibleConnection = false;
 
         for(var i = 0; i < keys.size(); i++) {
             if (keys[i] != :bluetooth) {
-                var connection = connectionInfo[keys[i]];
-                if (connection.state != System.CONNECTION_STATE_NOT_INITIALIZED) {
+                if (connectionInfo[keys[i]].state != System.CONNECTION_STATE_NOT_INITIALIZED) {
                     possibleConnection = true;
                     break;
                 }
@@ -117,8 +124,9 @@ class WifiLteExecutionConfirmDelegate extends WatchUi.ConfirmationDelegate {
 
         if (possibleConnection) {
             if (Communications has :startSync2) {
-                var syncString = WatchUi.loadResource($.Rez.Strings.WifiLteExecutionTitle) as Lang.String;
-                Communications.startSync2({:message => syncString});
+                Communications.startSync2({
+                    :message => WatchUi.loadResource($.Rez.Strings.WifiLteExecutionTitle) as Lang.String
+                });
             } else {
                 Communications.startSync();
             }
@@ -139,6 +147,7 @@ class WifiLteExecutionConfirmDelegate extends WatchUi.ConfirmationDelegate {
     }
 
     //! Function supplied to a timer in order to limit the time for which the confirmation can be provided.
+    //
     function onTimeout() as Void {
         mTimer.stop();
         var getCurrentView = WatchUi.getCurrentView();

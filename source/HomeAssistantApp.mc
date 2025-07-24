@@ -25,22 +25,22 @@ using Toybox.Timer;
 //
 (:glance, :background)
 class HomeAssistantApp extends Application.AppBase {
-    private var mApiStatus      as Lang.String       or Null;
+    private var mApiStatus      as Lang.String?;
     private var mHasToast       as Lang.Boolean = false;
-    private var mMenuStatus     as Lang.String       or Null;
-    private var mHaMenu         as HomeAssistantView or Null;
-    private var mGlanceTemplate as Lang.String       or Null = null;
-    private var mGlanceText     as Lang.String       or Null = null;
-    private var mQuitTimer      as QuitTimer         or Null;
-    private var mGlanceTimer    as Timer.Timer       or Null;
-    private var mUpdateTimer    as Timer.Timer       or Null;
+    private var mMenuStatus     as Lang.String?;
+    private var mHaMenu         as HomeAssistantView?;
+    private var mGlanceTemplate as Lang.String? = null;
+    private var mGlanceText     as Lang.String? = null;
+    private var mQuitTimer      as QuitTimer?;
+    private var mGlanceTimer    as Timer.Timer?;
+    private var mUpdateTimer    as Timer.Timer?;
     // Array initialised by onReturnFetchMenuConfig()
-    private var mItemsToUpdate  as Lang.Array<HomeAssistantToggleMenuItem or HomeAssistantTapMenuItem or HomeAssistantGroupMenuItem> or Null;
+    private var mItemsToUpdate  as Lang.Array<HomeAssistantToggleMenuItem or HomeAssistantTapMenuItem or HomeAssistantGroupMenuItem>?;
     private var mIsGlance       as Lang.Boolean    = false;
     private var mIsApp          as Lang.Boolean    = false; // Or Widget
     private var mUpdating       as Lang.Boolean    = false; // Don't start a second chain of updates
     private var mTemplates      as Lang.Dictionary = {};
-    private var mNotifiedNoBle  as Lang.Boolean = false;
+    private var mNotifiedNoBle  as Lang.Boolean    = false;
 
     private const wifiPollDelayMs = 2000;
 
@@ -239,15 +239,13 @@ class HomeAssistantApp extends Application.AppBase {
     //! Can we use the cached menu?
     //!
     //! @return Return true if there's a menu in cache, and if the user has enabled the cache and 
-    //! has not requested to have the cache busted.
+    //!         has not requested to have the cache refreshed.
     //
     function hasCachedMenu() as Lang.Boolean {
         if (Settings.getClearCache() || !Settings.getCacheConfig()) {
             return false;
         }
-
-        var menu = Storage.getValue("menu") as Lang.Dictionary;
-        return menu != null;
+        return (Storage.getValue("menu") as Lang.Dictionary) != null;
     }
 
     //! Fetch the menu configuration over HTTPS, which might be locally cached.
@@ -757,10 +755,10 @@ class HomeAssistantApp extends Application.AppBase {
     //! Return the optional glance text that overrides the default glance content. This
     //! is derived from the glance template.
     //!
-    //! @return A string derived from the glance template
+    //! @return A string derived from the glance template (or null)
     //
     (:glance)
-    function getGlanceText() as Lang.String or Null {
+    function getGlanceText() as Lang.String? {
         return mGlanceText;
     }
 

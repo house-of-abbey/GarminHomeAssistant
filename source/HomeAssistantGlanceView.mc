@@ -44,12 +44,12 @@ class HomeAssistantGlanceView extends WatchUi.GlanceView {
     private var mTextWidth     as Lang.Number  = 0;
     // Re-usable text items for drawing
     private var mApp           as HomeAssistantApp;
-    private var mTitle         as WatchUi.Text     or Null;
-    private var mApiText       as WatchUi.Text     or Null;
-    private var mApiStatus     as WatchUi.Text     or Null;
-    private var mMenuText      as WatchUi.Text     or Null;
-    private var mMenuStatus    as WatchUi.Text     or Null;
-    private var mGlanceContent as WatchUi.TextArea or Null;
+    private var mTitle         as WatchUi.Text?;
+    private var mApiText       as WatchUi.Text?;
+    private var mApiStatus     as WatchUi.Text?;
+    private var mMenuText      as WatchUi.Text?;
+    private var mMenuStatus    as WatchUi.Text?;
+    private var mGlanceContent as WatchUi.TextArea?;
     private var mAntiAlias     as Lang.Boolean = false;
 
     //! Class Constructor

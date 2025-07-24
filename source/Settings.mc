@@ -42,7 +42,7 @@ class Settings {
     private static var mPollDelay             as Lang.Number  = 0;
     //! seconds
     private static var mConfirmTimeout        as Lang.Number  = 3;
-    private static var mPin                   as Lang.String  or Null = "0000";
+    private static var mPin                   as Lang.String? = "0000";
     private static var mMenuAlignment         as Lang.Number  = WatchUi.MenuItem.MENU_ITEM_LABEL_ALIGN_LEFT;
     private static var mIsSensorsLevelEnabled as Lang.Boolean = false;
     //! minutes
@@ -50,7 +50,7 @@ class Settings {
     private static var mIsApp                 as Lang.Boolean = false;
     private static var mHasService            as Lang.Boolean = false;
     //! Must keep the object so it doesn't get garbage collected.
-    private static var mWebhookManager        as WebhookManager or Null;
+    private static var mWebhookManager        as WebhookManager?;
 
     //! Called on application start and then whenever the settings are changed.
     //
@@ -229,7 +229,7 @@ class Settings {
     //!
     //! @return The menu item security PIN.
     //
-    static function getPin() as Lang.String or Null {
+    static function getPin() as Lang.String? {
         return mPin;
     }
 
@@ -237,7 +237,7 @@ class Settings {
     //!
     //! @return The validated 4 digit string.
     //
-    private static function validatePin() as Lang.String or Null {
+    private static function validatePin() as Lang.String? {
         var pin = Properties.getValue("pin");
         if (pin.toNumber() == null || pin.length() != 4) {
             return null;

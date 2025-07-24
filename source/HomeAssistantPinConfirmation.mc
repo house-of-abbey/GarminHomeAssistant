@@ -83,16 +83,16 @@ class PinDigit extends WatchUi.Selectable {
         //! Class Constructor
         //!
         //! @param options See `Drawable.initialize()`, but with `:label` and `:touched` added.<br>
-        //!   &lbrace;<br>
-        //!   &emsp; :label   as Lang.Number,  // The digit 0..9 to display<br>
-        //!   &emsp; :touched as Lang.Boolean, // Should the digit be filled to indicate it has been pressed?<br>
+        //!   `{`<br>
+        //!   &emsp; `:label   as Lang.Number,`  // The digit 0..9 to display<br>
+        //!   &emsp; `:touched as Lang.Boolean,` // Should the digit be filled to indicate it has been pressed?<br>
         //!   &emsp; + those required by `Drawable.initialize()`<br>
-        //!   &rbrace;
+        //!   ``}`
         //
         function initialize(options) {
             Drawable.initialize(options);
-            mText    = options.get(:label);
-            mTouched = options.get(:touched);
+            mText    = options[:label];
+            mTouched = options[:touched];
         }
 
         //! Draw the PIN digit button.
@@ -182,10 +182,10 @@ class HomeAssistantPinConfirmationDelegate extends WatchUi.BehaviorDelegate {
     private var mPin           as Lang.String;
     private var mEnteredPin    as Lang.String;
     private var mConfirmMethod as Method(state as Lang.Boolean) as Void;
-    private var mTimer         as Timer.Timer or Null;
+    private var mTimer         as Timer.Timer?;
     private var mState         as Lang.Boolean;
     private var mFailures      as PinFailures;
-    private var mToggleMethod  as Method(state as Lang.Boolean) as Void or Null;
+    private var mToggleMethod  as Method(state as Lang.Boolean) as Void?;
     private var mView          as HomeAssistantPinConfirmationView;
 
     //! Class Constructor
@@ -202,7 +202,7 @@ class HomeAssistantPinConfirmationDelegate extends WatchUi.BehaviorDelegate {
         :pin            as Lang.String,
         :state          as Lang.Boolean,
         :view           as HomeAssistantPinConfirmationView,
-        :toggleMethod   as (Method(state as Lang.Boolean) as Void) or Null,
+        :toggleMethod   as (Method(state as Lang.Boolean) as Void)?,
     }) {
         BehaviorDelegate.initialize();
         mFailures      = new PinFailures();
@@ -334,7 +334,7 @@ class PinFailures {
     const STORAGE_KEY_LOCKED   as Lang.String = "pin_locked";
     
     private var mFailures    as Lang.Array<Lang.Number>;
-    private var mLockedUntil as Lang.Number or Null;
+    private var mLockedUntil as Lang.Number?;
 
     //! Class Constructor
     //

@@ -21,11 +21,11 @@ using Toybox.Graphics;
 //
 class HomeAssistantTapMenuItem extends HomeAssistantMenuItem {
     private var mHomeAssistantService as HomeAssistantService;
-    private var mService              as Lang.String     or Null;
+    private var mService              as Lang.String?;
     private var mConfirm              as Lang.Boolean;
     private var mExit                 as Lang.Boolean;
     private var mPin                  as Lang.Boolean;
-    private var mData                 as Lang.Dictionary or Null;
+    private var mData                 as Lang.Dictionary?;
 
     //! Class Constructor
     //!
@@ -42,34 +42,34 @@ class HomeAssistantTapMenuItem extends HomeAssistantMenuItem {
     //!                  one of these objects is created for all menu items to re-use.
     //
     function initialize(
-        label     as Lang.String     or Lang.Symbol,
+        label     as Lang.String or Lang.Symbol,
         template  as Lang.String,
-        service   as Lang.String     or Null,
-        data      as Lang.Dictionary or Null,
+        service   as Lang.String?,
+        data      as Lang.Dictionary?,
         options   as {
             :alignment as WatchUi.MenuItem.Alignment,
             :icon      as Graphics.BitmapType or WatchUi.Drawable or Lang.Symbol,
             :exit      as Lang.Boolean,
             :confirm   as Lang.Boolean,
             :pin       as Lang.Boolean
-        } or Null,
+        }?,
         haService as HomeAssistantService
     ) {
         HomeAssistantMenuItem.initialize(
             label,
             template,
             {
-                :alignment => options.get(:alignment),
-                :icon      => options.get(:icon)
+                :alignment => options[:alignment],
+                :icon      => options[:icon]
             } 
         );
 
         mHomeAssistantService = haService;
         mService              = service;
         mData                 = data;
-        mExit                 = options.get(:exit);
-        mConfirm              = options.get(:confirm);
-        mPin                  = options.get(:pin);
+        mExit                 = options[:exit];
+        mConfirm              = options[:confirm];
+        mPin                  = options[:pin];
     }
 
     //! Call a Home Assistant service only after checks have been done for confirmation or PIN entry.
@@ -92,7 +92,7 @@ class HomeAssistantTapMenuItem extends HomeAssistantMenuItem {
                 );
             }
         } else if (mConfirm) {
-            var phoneConnected = System.getDeviceSettings().phoneConnected;
+            var phoneConnected    = System.getDeviceSettings().phoneConnected;
             var internetAvailable = System.getDeviceSettings().connectionAvailable;
             if ((! phoneConnected || ! internetAvailable) && Settings.getWifiLteExecutionEnabled()) {
                 var dialogMsg = WatchUi.loadResource($.Rez.Strings.WifiLtePrompt) as Lang.String;

@@ -71,7 +71,7 @@ class WebhookManager {
 
             case 200:
             case 201:
-                var id = data.get("webhook_id") as Lang.String or Null;
+                var id = data.get("webhook_id") as Lang.String?;
                 if (id != null) {
                     Settings.setWebhookId(id);
                     // System.println("WebhookManager onReturnRegisterWebhookSensor(): Registering first sensor: Battery Level");
@@ -177,7 +177,7 @@ class WebhookManager {
             case 201:
                 if (data instanceof Lang.Dictionary) {
                     var d = data as Lang.Dictionary;
-                    var b = d.get("success") as Lang.Boolean or Null;
+                    var b = d.get("success") as Lang.Boolean?;
                     if (b != null and b != false) {
                         if (sensors.size() == 0) {
                             getApp().startUpdates();

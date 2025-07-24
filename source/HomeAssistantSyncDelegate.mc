@@ -16,31 +16,35 @@
 using Toybox.Communications;
 using Toybox.Lang;
 
-// SyncDelegate to execute single command via POST request to Home Assistant
+//! SyncDelegate to execute single command via POST request to the Home Assistant
+//! server.
 //
 class HomeAssistantSyncDelegate extends Communications.SyncDelegate {
-    private static var syncError as Lang.String or Null;
+    //! Retain the last synchronisation error.
+    private static var syncError as Lang.String?;
 
-    // Initialize an instance of this delegate
+    //! Class Constructor
+    //
     public function initialize() {
         SyncDelegate.initialize();
     }
 
-    //! Called by the system to determine if a sync is needed
+    //! Called by the system to determine if a synchronisation is needed
+    //
     public function isSyncNeeded() as Lang.Boolean {
         return true;
     }
 
-    //! Called by the system when starting a bulk sync.
+    //! Called by the system when starting a bulk synchronisation.
+    //
     public function onStartSync() as Void {
         syncError = null;
-        
         if (WifiLteExecutionConfirmDelegate.mCommandData == null) {
             syncError = WatchUi.loadResource($.Rez.Strings.WifiLteExecutionDataError) as Lang.String;
             onStopSync();
             return;
         }
-        
+
         var type = WifiLteExecutionConfirmDelegate.mCommandData[:type];
         var data = WifiLteExecutionConfirmDelegate.mCommandData[:data];
         var url;
@@ -65,8 +69,13 @@ class HomeAssistantSyncDelegate extends Communications.SyncDelegate {
         }
     }
 
-    // Performs a POST request to Hass with a given payload and URL, and calls haCallback
-    private function performRequest(url as Lang.String, data as Lang.Dictionary or Null) {
+    //! Performs a POST request to the Home Assistant server with a given payload and URL, and calls
+    //! haCallback.
+    //!
+    //! @param url  URL for the API call.
+    //! @param data Data to be supplied to the API call.
+    //
+    private function performRequest(url as Lang.String, data as Lang.Dictionary?) {
         Communications.makeWebRequest(
             url,
             data, // May include {"entity_id": xxxx} for service calls
@@ -83,12 +92,16 @@ class HomeAssistantSyncDelegate extends Communications.SyncDelegate {
     }
 
     //! Handle callback from request
-    public function haCallback(code as Lang.Number, data as Null or Lang.Dictionary) as Void {
+    //!
+    //! @param responseCode Response code.
+    //! @param data         Response data.
+    //
+    public function haCallback(code as Lang.Number, data as Lang.Dictionary?) as Void {
         Communications.notifySyncProgress(100);
         if (code == 200) {
             syncError = null;
             if (WifiLteExecutionConfirmDelegate.mCommandData[:type].equals("entity")) {
-                var callbackMethod = WifiLteExecutionConfirmDelegate.mCommandData[:callback];               
+                var callbackMethod = WifiLteExecutionConfirmDelegate.mCommandData[:callback];
                 if (callbackMethod != null) {
                     var d = data as Lang.Array;
                     callbackMethod.invoke(d);
@@ -115,11 +128,11 @@ class HomeAssistantSyncDelegate extends Communications.SyncDelegate {
     }
 
     //! Clean up
+    //
     public function onStopSync() as Void {
         if (WifiLteExecutionConfirmDelegate.mCommandData[:exit]) {
             System.exit();
         }
-        
         Communications.cancelAllRequests();
         Communications.notifySyncComplete(syncError);
     }

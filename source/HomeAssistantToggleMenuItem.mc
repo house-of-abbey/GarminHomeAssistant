@@ -39,14 +39,14 @@ class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
     function initialize(
         label    as Lang.String or Lang.Symbol,
         template as Lang.String,
-        data     as Lang.Dictionary or Null,
+        data     as Lang.Dictionary?,
         options  as {
             :alignment as WatchUi.MenuItem.Alignment,
             :icon      as Graphics.BitmapType or WatchUi.Drawable or Lang.Symbol,
             :exit      as Lang.Boolean,
             :confirm   as Lang.Boolean,
             :pin       as Lang.Boolean
-        } or Null
+        }?
     ) {
         WatchUi.ToggleMenuItem.initialize(
             label,
@@ -54,8 +54,8 @@ class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
             null,
             false,
             {
-                :alignment => options.get(:alignment),
-                :icon      => options.get(:icon)
+                :alignment => options[:alignment],
+                :icon      => options[:icon]
             }
         );
         if (Attention has :vibrate) {
@@ -63,9 +63,9 @@ class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
         }
         mData     = data;
         mTemplate = template;
-        mExit     = options.get(:exit);
-        mConfirm  = options.get(:confirm);
-        mPin      = options.get(:pin);
+        mExit     = options[:exit];
+        mConfirm  = options[:confirm];
+        mPin      = options[:pin];
     }
 
     //! Set the state of a toggle menu item.
@@ -82,17 +82,17 @@ class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
 
     //! Return the menu item's template.
     //!
-    //! @return A string with the menu item's template definition.
+    //! @return A string with the menu item's template definition (or null).
     //
-    function getTemplate() as Lang.String or Null {
+    function getTemplate() as Lang.String? {
         return mTemplate;
     }
 
     //! Return a toggle menu item's state template.
     //!
-    //! @return A string with the menu item's template definition.
+    //! @return A string with the menu item's template definition (or null).
     //
-    function getToggleTemplate() as Lang.String or Null {
+    function getToggleTemplate() as Lang.String? {
         return "{{states('" + mData.get("entity_id") + "')}}";
     }
 
@@ -218,7 +218,7 @@ class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
     //! @param data An array of dictionaries, each representing a Home Assistant entity state.
     //
     function setToggleStateWithData(data as Lang.Array) {
-        // if there's no response body, let's assume that what we did, happened, and flip the toggle
+        // If there's no response body, let's assume that what we did actually happened and flip the toggle.
         if (data.size() == 0) {
             setEnabled(!isEnabled());
         }
@@ -267,8 +267,8 @@ class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
                 url,
                 mData,
                 {
-                    :method  => Communications.HTTP_REQUEST_METHOD_POST,
-                    :headers => {
+                    :method       => Communications.HTTP_REQUEST_METHOD_POST,
+                    :headers      => {
                         "Content-Type"  => Communications.REQUEST_CONTENT_TYPE_JSON,
                         "Authorization" => "Bearer " + Settings.getApiKey()
                     },
@@ -348,11 +348,10 @@ class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
     //! @param s Desired state: `true` to turn on, `false` to turn off.
     //
     private function wifiPrompt(s as Lang.Boolean) as Void {
-        var id  = mData.get("entity_id") as Lang.String;
-        var url = getUrl(id, s);
-
+        var id        = mData.get("entity_id") as Lang.String;
+        var url       = getUrl(id, s);
         var dialogMsg = WatchUi.loadResource($.Rez.Strings.WifiLtePrompt) as Lang.String;
-        var dialog = new WatchUi.Confirmation(dialogMsg);
+        var dialog    = new WatchUi.Confirmation(dialogMsg);
         WatchUi.pushView(
             dialog,
             new WifiLteExecutionConfirmDelegate({
@@ -374,7 +373,7 @@ class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
     //!
     //! @return Full service URL string.
     //
-    private function getUrl(id as Lang.String, s as Lang.Boolean) as Lang.String {
+    private static function getUrl(id as Lang.String, s as Lang.Boolean) as Lang.String {
         var url = Settings.getApiUrl() + "/services/";
         if (s) {
             url = url + id.substring(0, id.find(".")) + "/turn_on";

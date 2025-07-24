@@ -20,7 +20,7 @@ using Toybox.Graphics;
 //! Generic menu button with an icon that optionally renders a Home Assistant Template.
 //
 class HomeAssistantMenuItem extends WatchUi.IconMenuItem {
-    private var mTemplate as Lang.String or Null;
+    private var mTemplate as Lang.String?;
 
     //! Class Constructor
     //!
@@ -34,13 +34,13 @@ class HomeAssistantMenuItem extends WatchUi.IconMenuItem {
         options  as {
             :alignment as WatchUi.MenuItem.Alignment,
             :icon      as Graphics.BitmapType or WatchUi.Drawable or Lang.Symbol
-        } or Null
+        }?
     ) {
         WatchUi.IconMenuItem.initialize(
             label,
             null,
             null,
-            options.get(:icon),
+            options[:icon],
             options
         );
         mTemplate = template;
@@ -56,9 +56,9 @@ class HomeAssistantMenuItem extends WatchUi.IconMenuItem {
 
     //! Return the menu item's template.
     //!
-    //! @return A string with the menu item's template definition.
+    //! @return A string with the menu item's template definition (or null).
     //
-    function getTemplate() as Lang.String or Null {
+    function getTemplate() as Lang.String? {
         return mTemplate;
     }
 

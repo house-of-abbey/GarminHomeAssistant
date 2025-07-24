@@ -35,38 +35,38 @@ class Alert extends WatchUi.View {
 
     //! Class Constructor
     //! @param params A dictionary object as follows:<br>
-    //!   &lbrace;<br>
-    //!   &emsp; :timeout as Lang.Number,        // Timeout in millseconds<br>
-    //!   &emsp; :font    as Graphics.FontType,  // Text font size<br>
-    //!   &emsp; :text    as Lang.String,        // Text to display<br>
-    //!   &emsp; :fgcolor as Graphics.ColorType, // Foreground Colour<br>
-    //!   &emsp; :bgcolor as Graphics.ColorType  // Background Colour<br>
-    //!   &rbrace;
+    //!   `{`<br>
+    //!   &emsp; `:timeout as Lang.Number,`        // Timeout in millseconds<br>
+    //!   &emsp; `:font    as Graphics.FontType,`  // Text font size<br>
+    //!   &emsp; `:text    as Lang.String,`        // Text to display<br>
+    //!   &emsp; `:fgcolor as Graphics.ColorType,` // Foreground Colour<br>
+    //!   &emsp; `:bgcolor as Graphics.ColorType`  // Background Colour<br>
+    //!   `}`
     //
     function initialize(params as Lang.Dictionary) {
         View.initialize();
 
-        mText = params.get(:text) as Lang.String;
+        mText = params[:text] as Lang.String;
         if (mText == null) {
             mText = "Alert";
         }
 
-        mFont = params.get(:font) as Graphics.FontType;
+        mFont = params[:font] as Graphics.FontType;
         if (mFont == null) {
             mFont = Graphics.FONT_MEDIUM;
         }
 
-        mFgcolor = params.get(:fgcolor) as Graphics.ColorType;
+        mFgcolor = params[:fgcolor] as Graphics.ColorType;
         if (mFgcolor == null) {
             mFgcolor = Graphics.COLOR_BLACK;
         }
 
-        mBgcolor = params.get(:bgcolor) as Graphics.ColorType;
+        mBgcolor = params[:bgcolor] as Graphics.ColorType;
         if (mBgcolor == null) {
             mBgcolor = Graphics.COLOR_WHITE;
         }
 
-        mTimeout = params.get(:timeout) as Lang.Number;
+        mTimeout = params[:timeout] as Lang.Number;
         if (mTimeout == null) {
             mTimeout = 2000;
         }
