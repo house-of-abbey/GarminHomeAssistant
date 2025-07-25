@@ -42,8 +42,6 @@ class HomeAssistantApp extends Application.AppBase {
     private var mTemplates      as Lang.Dictionary = {};
     private var mNotifiedNoBle  as Lang.Boolean    = false;
 
-    private const wifiPollDelayMs = 2000;
-
     //! Class Constructor
     //
     function initialize() {
@@ -385,7 +383,7 @@ class HomeAssistantApp extends Application.AppBase {
                 // System.println("HomeAssistantApp onReturnUpdateMenuItems() Response Code: NETWORK_RESPONSE_OUT_OF_MEMORY, are we going too fast?");
                 var myTimer = new Timer.Timer();
                 // Now this feels very "closely coupled" to the application, but it is the most reliable method instead of using a timer.
-                myTimer.start(method(:updateMenuItems), Globals.scApiBackoff, false);
+                myTimer.start(method(:updateMenuItems), Globals.scApiBackoffMs, false);
                 // Revert status
                 status = getApiStatus();
                 break;
@@ -447,7 +445,7 @@ class HomeAssistantApp extends Application.AppBase {
                     WatchUi.showToast(toast, null);
                 } else {
                     new Alert({
-                        :timeout => Globals.scAlertTimeout,
+                        :timeout => Globals.scAlertTimeoutMs,
                         :font    => Graphics.FONT_MEDIUM,
                         :text    => toast,
                         :fgcolor => Graphics.COLOR_WHITE,
@@ -458,7 +456,7 @@ class HomeAssistantApp extends Application.AppBase {
 
             mNotifiedNoBle = true;
             setApiStatus(WatchUi.loadResource($.Rez.Strings.Unavailable) as Lang.String);
-            mUpdateTimer.start(method(:startUpdates), wifiPollDelayMs, false);
+            mUpdateTimer.start(method(:startUpdates), Globals.wifiPollResumeDelayMs, false);
 
             mUpdating = false;
             return;
@@ -807,7 +805,7 @@ class HomeAssistantApp extends Application.AppBase {
         Settings.update();
         updateStatus();
         mGlanceTimer = new Timer.Timer();
-        mGlanceTimer.start(method(:updateStatus), Globals.scApiBackoff, true);
+        mGlanceTimer.start(method(:updateStatus), Globals.scApiBackoffMs, true);
         return [new HomeAssistantGlanceView(self)];
     }
 

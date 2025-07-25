@@ -100,7 +100,7 @@ class HomeAssistantService {
                     WatchUi.showToast(toast, null);
                 } else {
                     new Alert({
-                        :timeout => Globals.scAlertTimeout,
+                        :timeout => Globals.scAlertTimeoutMs,
                         :font    => Graphics.FONT_MEDIUM,
                         :text    => toast,
                         :fgcolor => Graphics.COLOR_WHITE,
