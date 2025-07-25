@@ -1,4 +1,4 @@
-[Home](README.md) | [Switches](examples/Switches.md) | [Actions](examples/Actions.md) | [Templates](examples/Templates.md) | [Glance](examples/Glance.md) | [Background Service](BackgroundService.md) | [Trouble Shooting](TroubleShooting.md) | [Version History](HISTORY.md)
+[Home](README.md) | [Switches](examples/Switches.md) | [Actions](examples/Actions.md) | [Templates](examples/Templates.md) | [Glance](examples/Glance.md) | [Background Service](BackgroundService.md) | [Wi-Fi](Wi-Fi.md) | [Trouble Shooting](TroubleShooting.md) | [Version History](HISTORY.md)
 
 # GarminHomeAssistant
 
@@ -10,13 +10,18 @@ The application is designed around a simple scrollable menu where menu items hav
 
 **The intended audience for this application are those comfortable with configuring a Home Assistant** (e.g. editing the YAML configuration files) and debugging why URLs don't work. It does not require programming skills, but the menu is configured via JSON which feels like "coding" (more like "describing"). If you are not comfortable with this relatively low level of configuration, you may like to try other Garmin applications instead.
 
+**If you are struggling with getting the application to work, please consult the [troubleshooting guide](TroubleShooting.md#menu-configuration-url) first.**
+
+## No HTTPS?
+
 > [!IMPORTANT]
 > The Garmin SDK allows HTTP requests only to a limited number of domains specified in their app. Therefore, for your Garmin to communicate with your Home Assistant instance, your Home Assistant instance must be accessible via HTTPS (with a public certificate!) or through a local DNS server that overrides one of the whitelisted domains to communicate using HTTP.
+>
 > To make your Home Assistant instance accessible via HTTPS, you will need a public certificate. You can get one for free from [Let's Encrypt](https://letsencrypt.org/) or you can pay for [Home Assistant cloud](https://www.nabucasa.com/). (You can install a local [Nginx proxy server](https://my.home-assistant.io/redirect/supervisor_addon/?addon=a0d7b954_nginxproxymanager) to manage Let's Encrypt certificates.)
-> If you use a local DNS server (like [Pi-Hole](https://pi-hole.net/)), you can create a local DNS record for the domain `garmincdn.com` (which is allowed for HTTP in the Garmin SDK) and map it to your Home Assistant instance's IP. You can find additional workarounds for HTTP request restrictions in the Garmin SDK [here](https://www.instructables.com/About-Communication-Between-Garmin-SDK-and-a-Raspb/).
-
-**If you are struggling with getting the application to work, please consult the [trouble shooting](TroubleShooting.md#menu-configuration-url) guide first.**
-
+>
+> If you use a local DNS server (like [Pi-Hole](https://pi-hole.net/)), you can create a local DNS record for the domain `garmincdn.com` (which is allowed for HTTP in the Garmin SDK) and map it to your Home Assistant instance's IP. "_[About Communication Between Garmin SDK and a Raspberry Pi](https://www.instructables.com/About-Communication-Between-Garmin-SDK-and-a-Raspb/)_" provides additional workarounds for HTTP request restrictions in the Garmin SDK.
+>
+> **No support is offered to those circumventing the HTTPS restriction of the Connect IQ SDK.** You are supporting yourself!
 
 ## Widget or Application?
 
@@ -266,7 +271,7 @@ The application timeout prevents the HomeAssistant App running on your watch whe
 |          0          |    > 0     | Permanently open, but poll more gently to save battery. |
 |         > 0         |    > 0     | Temporarily open, poll more gently to save battery, but the application closes before the benefit is realised. Not recommended. |
 
-There is a second timeout value for confirmation views. This is intended for use with more sensitive toggles so that the confirmation view is not left open and forgotten and then confirmed accidentally without you noticing. **We cannot advise you this is safe, be careful what you toggle with the watch application!**
+There is a second timeout value for confirmation views. This is intended for use with more sensitive toggles so that the confirmation view is not left open and forgotten and then confirmed accidentally without you noticing. **We cannot advise you this is safe, be careful what you toggle with the watch application!** _The developers will not be held responsible for any insecurities resulting from using this feature, including any inadvertent code changes that cause the PIN feature to not work._
 
 The confirmation timeout is also used for the maximum time between clicks in the PIN confirmation dialog. The PIN confirmation provides a more secure alternative for toggling security-sensitive actions.
 

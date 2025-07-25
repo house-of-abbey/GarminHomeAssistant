@@ -33,6 +33,7 @@
       "Monkey C: Edit Products" - Lets you add or remove any product
     -->
     <iq:products>
+<!--
       <iq:product id="approachs50"/>
       <iq:product id="approachs7042mm"/>
       <iq:product id="approachs7047mm"/>
@@ -142,7 +143,9 @@
       <iq:product id="marqgolfer"/>
       <iq:product id="montana7xx"/>
       <iq:product id="venu"/>
+-->
       <iq:product id="venu2"/>
+<!--
       <iq:product id="venu2plus"/>
       <iq:product id="venu2s"/>
       <iq:product id="venu3"/>
@@ -159,6 +162,7 @@
       <iq:product id="vivoactive4s"/>
       <iq:product id="vivoactive5"/>
       <iq:product id="vivoactive6"/>
+-->
     </iq:products>
     <!--
       Use "Monkey C: Edit Permissions" from the Visual Studio Code command
