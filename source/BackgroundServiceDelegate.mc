@@ -45,10 +45,10 @@ class BackgroundServiceDelegate extends System.ServiceDelegate {
     //! Called on completion of an activity.
     //!
     //! @param activity Specified as a Dictionary with two items.<br>
-    //!   &lbrace;<br>
-    //!   &emsp; :sport    as Activity.Sport<br>
-    //!   &emsp; :subSport as Activity.SubSport<br>
-    //!   &rbrace;
+    //!   `{`<br>
+    //!   &emsp; `:sport    as Activity.Sport`<br>
+    //!   &emsp; `:subSport as Activity.SubSport`<br>
+    //!   `}`
     //
     function onActivityCompleted(
         activity as {
@@ -101,8 +101,8 @@ class BackgroundServiceDelegate extends System.ServiceDelegate {
     //! @param sub_activity Activity.SubSport
     //
     private function doUpdate(
-        activity     as Lang.Number or Null,
-        sub_activity as Lang.Number or Null
+        activity     as Lang.Number?,
+        sub_activity as Lang.Number?
     ) {
         // System.println("BackgroundServiceDelegate onTemporalEvent(): Making API call.");
         var position = Position.getInfo();
@@ -154,7 +154,7 @@ class BackgroundServiceDelegate extends System.ServiceDelegate {
                 (Properties.getValue("api_url") as Lang.String) + "/webhook/" + (Properties.getValue("webhook_id") as Lang.String),
                 {
                     "type" => "update_location",
-                    "data" => data,
+                    "data" => data
                 },
                 {
                     :method       => Communications.HTTP_REQUEST_METHOD_POST,

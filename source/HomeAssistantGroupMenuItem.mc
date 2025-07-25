@@ -30,7 +30,7 @@ class HomeAssistantGroupMenuItem extends HomeAssistantMenuItem {
         icon       as WatchUi.Drawable,
         options    as {
             :alignment as WatchUi.MenuItem.Alignment
-        } or Null
+        }?
     ) {
         if (options != null) {
             options.put(:icon, icon);

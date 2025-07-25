@@ -9,7 +9,7 @@
    tested on a Venu 2 device. The source code is provided at:
               https://github.com/house-of-abbey/GarminHomeAssistant.
 
-   P A Abbey & J D Abbey & Someone0nEarth, 31 October 2023
+   P A Abbey & J D Abbey & Someone0nEarth & vincentezw, 31 October 2023
 
 -->
 
@@ -19,13 +19,13 @@
 -->
 
 <strings>
-  <string id="ApiFlood">Las llamadas a la API son demasiado rápidas. Reduzca la velocidad de sus solicitudes.</string>
-  <string id="ApiUrlNotFound">URL no encontrada. Posible error de URL de API en la configuración.</string>
+  <string id="ApiFlood">API llama demasiado rápido. Reduzca sus solicitudes.</string>
+  <string id="ApiUrlNotFound">URL no encontrada. Error de URL de API potencial en la configuración.</string>
   <string id="AppName" scope="glance">HomeAssistant</string>
   <string id="Available" scope="glance">Disponible</string>
   <string id="Cached" scope="glance">En caché</string>
   <string id="Checking" scope="glance">De cheques...</string>
-  <string id="ConfigUrlNotFound">URL no encontrada. Posible error de configuración de URL en los ajustes.</string>
+  <string id="ConfigUrlNotFound">URL no encontrada. Error de URL de configuración potencial en la configuración.</string>
   <string id="Confirm">¿Seguro?</string>
   <string id="Empty">Vacío</string>
   <string id="Executed" scope="glance">Confirmado</string>
@@ -35,38 +35,47 @@
   <string id="NoApiUrl" scope="glance">No hay URL de API en la configuración de la aplicación.</string>
   <string id="NoConfigUrl" scope="glance">No hay URL de configuración en la configuración de la aplicación.</string>
   <string id="NoInternet">Sin conexión a Internet.</string>
-  <string id="NoJson">No se devolvió JSON de la solicitud HTTP.</string>
+  <string id="NoJson">No JSON regresó de la solicitud HTTP.</string>
   <string id="NoPhone" scope="glance">Sin conexión telefónica.</string>
+  <string id="NoPhoneNoCache" scope="glance">Sin conexión telefónica, sin menú en caché.</string>
   <string id="NoResponse">Sin respuesta, verifique la conexión a Internet</string>
-  <string id="PinInputLocked">Entrada de PIN bloqueada para</string>
+  <string id="TimedOut">Solicitar el tiempo de tiempo fuera</string>
+  <string id="PinInputLocked">Entrada de pasador bloqueada para</string>
   <string id="PotentialError">Error potencial</string>
   <string id="Seconds">artículos de segunda clase</string>
   <string id="TemplateError">Error de plantilla</string>
-  <string id="TrailingSlashErr">La URL de la API no debe tener una barra diagonal final '/'.</string>
+  <string id="TrailingSlashErr">La URL de la API no debe tener una barra de corte '/'.</string>
   <string id="Unavailable" scope="glance">Indisponible</string>
-  <string id="Unconfigured" scope="glance">Sin configurar</string>
-  <string id="UnhandledHttpErr">La solicitud HTTP devolvió el código de error =</string>
-  <string id="WebhookFailed">Error al registrar el Webhook</string>
-  <string id="WrongPin">PIN incorrecto</string>
-  <!-- Para la configuración GUI, las cadenas deben estar en el orden en que se utilizan. -->
+  <string id="Unconfigured" scope="glance">No configurado</string>
+  <string id="UnhandledHttpErr">HTTP Solicitud devuelto código de error =</string>
+  <string id="WebhookFailed">No se pudo registrar webhook</string>
+  <string id="WrongPin">Pin incorrecto</string>
+  <string id="WifiLteNotAvailable">No hay Wi-Fi o LTE disponible</string>
+  <string id="WifiLtePrompt">Ejecutar sobre wi-fi/lte?</string>
+  <string id="WifiLteExecutionTitle">Enviando al asistente de casa.</string>
+  <string id="WifiLteExecutionDataError">No se reciben datos.</string>
+  <!-- Para la GUI de configuración, las cadenas deben estar en el orden en que se usan. -->
   <string id="SettingsSelect">Seleccionar...</string>
-  <string id="SettingsApiKey">Clave API para HomeAssistant.</string>
-  <string id="SettingsApiKeyPrompt">Token de acceso de larga duración.</string>
-  <string id="SettingsApiUrl">URL para la API de HomeAssistant.</string>
+  <string id="SettingsApiKey">Clave API para Homeassistant.</string>
+  <string id="SettingsApiKeyPrompt">Token de acceso de larga vida.</string>
+  <string id="SettingsApiUrl">URL para la API de Homeassistante.</string>
   <string id="SettingsConfigUrl">URL para la configuración del menú (JSON).</string>
-  <string id="SettingsCacheConfig">¿Debe la aplicación almacenar en caché la configuración del menú?</string>
-  <string id="SettingsClearCache">¿La aplicación debe borrar el caché existente la próxima vez que se inicie?</string>
-  <string id="SettingsVibration">¿La aplicación debería proporcionar retroalimentación mediante vibraciones?</string>
-  <string id="SettingsAppTimeout">Tiempo de espera en segundos. Salga de la aplicación después de este período de inactividad para ahorrar batería del dispositivo.</string>
-  <string id="SettingsPollDelay">Retraso de sondeo adicional (en segundos). Agrega un retraso entre la actualización de estado de todos los elementos del menú.</string>
-  <string id="SettingsConfirmTimeout">Después de este tiempo (en segundos), se cierra automáticamente un cuadro de diálogo de confirmación de una acción y se cancela la acción. Establezca en 0 para desactivar el tiempo de espera.</string>
-  <string id="SettingsPin">PIN de 4 dígitos a utilizar para todas las acciones que requieran confirmación (0000-9999).</string>
+  <string id="SettingsCacheConfig">¿Debería la aplicación almacenar en caché la configuración del menú?</string>
+  <string id="SettingsClearCache">¿Debería la aplicación borrar el caché existente la próxima vez que se inicie?</string>
+  <string id="SettingsVibration">¿Debería la aplicación proporcionar comentarios a través de vibraciones?</string>
+  <string id="SettingsAppTimeout">Tiempo de espera en segundos. Salga de la aplicación después de este período de inactividad para guardar la batería del dispositivo.</string>
+  <string id="SettingsPollDelay">Retraso de encuesta adicional (en segundos). Agrega un retraso entre la actualización de estado de todos los elementos del menú.</string>
+  <string id="SettingsConfirmTimeout">Después de este tiempo (en segundos), un diálogo de confirmación para una acción se cierra automáticamente y se cancela la acción. Establecer en 0 para deshabilitar el tiempo de espera.</string>
+  <string id="SettingsPin">Pin de 4 dígitos que se utilizará para todas las acciones que requieren confirmación (0000-9999).</string>
   <string id="SettingsPinError">Configure un PIN numérico válido de 4 dígitos entre 0000 y 9999 en la configuración de la aplicación.</string>
-  <string id="SettingsTextAlign">Alineación del menú izquierda (desactivada) o derecha (activada).</string>
+  <string id="SettingsTextAlign">Alineación del menú izquierda (apagada) o derecha (encendida).</string>
   <string id="LeftToRight">De izquierda a derecha</string>
-  <string id="RightToLeft">De derecha a izquierda</string>
-  <string id="SettingsWidgetStart">(Solo widget) Inicia automáticamente la aplicación desde el widget sin esperar un toque.</string>
-  <string id="SettingsEnableBatteryLevel">Habilite el servicio en segundo plano para enviar el nivel de batería del dispositivo, la ubicación y (si es compatible) los datos de actividad a Home Assistant.</string>
-  <string id="SettingsBatteryLevelRefreshRate">La frecuencia de actualización (en minutos) con la que el servicio en segundo plano debe repetir el envío de datos.</string>
-  <string id="WebhookId">(Solo lectura) El ID del webhook creado por el dispositivo para las actualizaciones del servicio en segundo plano. Es posible que lo necesites para la depuración.</string>
+  <string id="RightToLeft">Derecha a izquierda</string>
+  <string id="SettingsWidgetStart">(Solo widget) Inicie automáticamente la aplicación desde el widget sin esperar un toque.</string>
+  <string id="SettingsEnableBatteryLevel">Habilite el servicio de fondo para enviar el nivel de batería del dispositivo, la ubicación y (si se admiten) datos de actividad al asistente de inicio.</string>
+  <string id="SettingsBatteryLevelRefreshRate">La tasa de actualización (en minutos) en la que el servicio de fondo debe repetir los datos de envío.</string>
+  <string id="WebhookId">(Solo lea) la ID de webhook creada por el dispositivo para actualizaciones del servicio de fondo. Es posible que necesite esto para la depuración.</string>
+  <string id="WifiLteExecution">Modo de ejecución Wi-Fi/LTE.</string>
+  <string id="WifiLteExecutionEnable">Habilite la ejecución de comandos sobre Wi-Fi/LTE.</string>
+  <string id="WifiLteExecutionDescription">Permite que la aplicación comience sin conexión del teléfono (cuando el menú se almacena en caché) y solicite ejecutar el comando a través de Wi-Fi/LTE.</string>
 </strings>
