@@ -9,7 +9,7 @@
 // tested on a Venu 2 device. The source code is provided at:
 //            https://github.com/house-of-abbey/GarminHomeAssistant.
 //
-// P A Abbey & J D Abbey & Someone0nEarth & moesterheld, 31 October 2023
+// P A Abbey & J D Abbey & Someone0nEarth & moesterheld & vincentezw, 31 October 2023
 //
 //-----------------------------------------------------------------------------------
 
@@ -25,24 +25,22 @@ using Toybox.Timer;
 //
 (:glance, :background)
 class HomeAssistantApp extends Application.AppBase {
-    private var mApiStatus      as Lang.String       or Null;
+    private var mApiStatus      as Lang.String?;
     private var mHasToast       as Lang.Boolean = false;
-    private var mMenuStatus     as Lang.String       or Null;
-    private var mHaMenu         as HomeAssistantView or Null;
-    private var mGlanceTemplate as Lang.String       or Null = null;
-    private var mGlanceText     as Lang.String       or Null = null;
-    private var mQuitTimer      as QuitTimer         or Null;
-    private var mGlanceTimer    as Timer.Timer       or Null;
-    private var mUpdateTimer    as Timer.Timer       or Null;
+    private var mMenuStatus     as Lang.String?;
+    private var mHaMenu         as HomeAssistantView?;
+    private var mGlanceTemplate as Lang.String? = null;
+    private var mGlanceText     as Lang.String? = null;
+    private var mQuitTimer      as QuitTimer?;
+    private var mGlanceTimer    as Timer.Timer?;
+    private var mUpdateTimer    as Timer.Timer?;
     // Array initialised by onReturnFetchMenuConfig()
-    private var mItemsToUpdate  as Lang.Array<HomeAssistantToggleMenuItem or HomeAssistantTapMenuItem or HomeAssistantGroupMenuItem> or Null;
+    private var mItemsToUpdate  as Lang.Array<HomeAssistantToggleMenuItem or HomeAssistantTapMenuItem or HomeAssistantGroupMenuItem>?;
     private var mIsGlance       as Lang.Boolean    = false;
     private var mIsApp          as Lang.Boolean    = false; // Or Widget
     private var mUpdating       as Lang.Boolean    = false; // Don't start a second chain of updates
     private var mTemplates      as Lang.Dictionary = {};
-    private var mNotifiedNoBle  as Lang.Boolean = false;
-
-    private const wifiPollDelayMs = 2000;
+    private var mNotifiedNoBle  as Lang.Boolean    = false;
 
     //! Class Constructor
     //
@@ -132,10 +130,10 @@ class HomeAssistantApp extends Application.AppBase {
             // System.println("HomeAssistantApp getInitialView(): No Phone connection, no cached menu, skipping API call.");
             return ErrorView.create(WatchUi.loadResource($.Rez.Strings.NoPhoneNoCache) as Lang.String);
         } else if (! System.getDeviceSettings().phoneConnected and ! Settings.getWifiLteExecutionEnabled()) {
-            // System.println("HomeAssistantApp getInitialView(): No Phone connection and wifi disabled, skipping API call.");
+            // System.println("HomeAssistantApp getInitialView(): No Phone connection and Wi-Fi disabled, skipping API call.");
             return ErrorView.create(WatchUi.loadResource($.Rez.Strings.NoPhone) as Lang.String);
         } else if (! System.getDeviceSettings().connectionAvailable and ! Settings.getWifiLteExecutionEnabled()) {
-            // System.println("HomeAssistantApp getInitialView(): No Internet connection and wifi disabled, skipping API call.");
+            // System.println("HomeAssistantApp getInitialView(): No Internet connection and Wi-Fi disabled, skipping API call.");
             return ErrorView.create(WatchUi.loadResource($.Rez.Strings.NoInternet) as Lang.String);
         } else {
             var isCached = fetchMenuConfig();
@@ -239,15 +237,13 @@ class HomeAssistantApp extends Application.AppBase {
     //! Can we use the cached menu?
     //!
     //! @return Return true if there's a menu in cache, and if the user has enabled the cache and 
-    //! has not requested to have the cache busted.
+    //!         has not requested to have the cache refreshed.
     //
     function hasCachedMenu() as Lang.Boolean {
         if (Settings.getClearCache() || !Settings.getCacheConfig()) {
             return false;
         }
-
-        var menu = Storage.getValue("menu") as Lang.Dictionary;
-        return menu != null;
+        return (Storage.getValue("menu") as Lang.Dictionary) != null;
     }
 
     //! Fetch the menu configuration over HTTPS, which might be locally cached.
@@ -387,7 +383,7 @@ class HomeAssistantApp extends Application.AppBase {
                 // System.println("HomeAssistantApp onReturnUpdateMenuItems() Response Code: NETWORK_RESPONSE_OUT_OF_MEMORY, are we going too fast?");
                 var myTimer = new Timer.Timer();
                 // Now this feels very "closely coupled" to the application, but it is the most reliable method instead of using a timer.
-                myTimer.start(method(:updateMenuItems), Globals.scApiBackoff, false);
+                myTimer.start(method(:updateMenuItems), Globals.scApiBackoffMs, false);
                 // Revert status
                 status = getApiStatus();
                 break;
@@ -436,7 +432,7 @@ class HomeAssistantApp extends Application.AppBase {
         var phoneConnected = System.getDeviceSettings().phoneConnected;
         var connectionAvailable = System.getDeviceSettings().connectionAvailable;
 
-        // In Wifi/LTE execution mode, we should not show an error page but use a toast instead.
+        // In Wi-Fi/LTE execution mode, we should not show an error page but use a toast instead.
         if (Settings.getWifiLteExecutionEnabled() && (! phoneConnected || ! connectionAvailable)) {
             // Notify only once per disconnection cycle
             if (!mNotifiedNoBle) {
@@ -449,7 +445,7 @@ class HomeAssistantApp extends Application.AppBase {
                     WatchUi.showToast(toast, null);
                 } else {
                     new Alert({
-                        :timeout => Globals.scAlertTimeout,
+                        :timeout => Globals.scAlertTimeoutMs,
                         :font    => Graphics.FONT_MEDIUM,
                         :text    => toast,
                         :fgcolor => Graphics.COLOR_WHITE,
@@ -460,7 +456,7 @@ class HomeAssistantApp extends Application.AppBase {
 
             mNotifiedNoBle = true;
             setApiStatus(WatchUi.loadResource($.Rez.Strings.Unavailable) as Lang.String);
-            mUpdateTimer.start(method(:startUpdates), wifiPollDelayMs, false);
+            mUpdateTimer.start(method(:startUpdates), Globals.wifiPollResumeDelayMs, false);
 
             mUpdating = false;
             return;
@@ -757,10 +753,10 @@ class HomeAssistantApp extends Application.AppBase {
     //! Return the optional glance text that overrides the default glance content. This
     //! is derived from the glance template.
     //!
-    //! @return A string derived from the glance template
+    //! @return A string derived from the glance template (or null)
     //
     (:glance)
-    function getGlanceText() as Lang.String or Null {
+    function getGlanceText() as Lang.String? {
         return mGlanceText;
     }
 
@@ -809,7 +805,7 @@ class HomeAssistantApp extends Application.AppBase {
         Settings.update();
         updateStatus();
         mGlanceTimer = new Timer.Timer();
-        mGlanceTimer.start(method(:updateStatus), Globals.scApiBackoff, true);
+        mGlanceTimer.start(method(:updateStatus), Globals.scApiBackoffMs, true);
         return [new HomeAssistantGlanceView(self)];
     }
 

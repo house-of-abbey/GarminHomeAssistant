@@ -39,7 +39,7 @@ class ErrorView extends ScalableView {
     // Vertical spacing between the top of the face and the error icon
     private var mErrorIconMargin as Lang.Number;
     private var mErrorIcon;
-    private var mTextArea        as WatchUi.TextArea or Null;
+    private var mTextArea        as WatchUi.TextArea?;
     private var mAntiAlias       as Lang.Boolean         = false;
 
     private static var instance;
@@ -137,7 +137,7 @@ class ErrorView extends ScalableView {
             // The call to 'updateMenuItems()' must be on another thread so that the view is popped above.
             var myTimer = new Timer.Timer();
             // Now this feels very "closely coupled" to the application, but it is the most reliable method instead of using a timer.
-            myTimer.start(getApp().method(:updateMenuItems), Globals.scApiResume, false);
+            myTimer.start(getApp().method(:updateMenuItems), Globals.scApiResumeMs, false);
             // This must be last to avoid a race condition with show(), where the
             // ErrorView can't be dismissed.
             mShown = false;
@@ -169,7 +169,7 @@ class ErrorDelegate extends WatchUi.BehaviorDelegate {
         WatchUi.BehaviorDelegate.initialize();
     }
 
-    //! Process the event to clear the ErrorView.
+    //! Handle the back button (ESC) to clear the ErrorView.
     //
     function onBack() as Lang.Boolean {
         getApp().getQuitTimer().reset();

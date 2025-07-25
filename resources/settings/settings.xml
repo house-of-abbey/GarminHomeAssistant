@@ -8,7 +8,7 @@
    tested on a Venu 2 device. The source code is provided at:
               https://github.com/house-of-abbey/GarminHomeAssistant.
 
-   P A Abbey & J D Abbey & Someone0nEarth, 31 October 2023
+   P A Abbey & J D Abbey & Someone0nEarth & vincentezw, 31 October 2023
 
 -->
 
@@ -50,6 +50,15 @@
   >
     <settingConfig type="boolean" />
   </setting>
+
+  <group enableIfTrue="@Properties.cache_config" id="wifiLteExection" title="@Strings.WifiLteExecution" description="@Strings.WifiLteExecutionDescription">
+    <setting
+      propertyKey="@Properties.wifi_lte_execution"
+      title="@Strings.WifiLteExecutionEnable"
+    >
+      <settingConfig type="boolean" />
+    </setting>
+  </group>
 
   <setting
     propertyKey="@Properties.enable_vibration"
@@ -117,12 +126,4 @@
     <settingConfig type="alphaNumeric" readonly="true" />
   </setting>
 
-  <group enableIfTrue="@Properties.cache_config" id="wifiLteExection" title="@Strings.WifiLteExecution" description="@Strings.WifiLteExecutionDescription">
-    <setting
-      propertyKey="@Properties.wifi_lte_execution"
-      title="@Strings.WifiLteExecutionEnable"
-    >
-      <settingConfig type="boolean" />
-    </setting>
-  </group>
 </settings>

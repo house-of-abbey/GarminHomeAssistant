@@ -8,7 +8,7 @@
    tested on a Venu 2 device. The source code is provided at:
               https://github.com/house-of-abbey/GarminHomeAssistant.
 
-   P A Abbey & J D Abbey & Someone0nEarth, 31 October 2023
+   P A Abbey & J D Abbey & Someone0nEarth & vincentezw, 31 October 2023
 
 -->
 
@@ -37,6 +37,12 @@
     set this back to false.
   -->
   <property id="clear_cache" type="boolean">false</property>
+
+  <!--
+    Enables the SyncDelegate and prompt to send a command over Wi-Fi/LTE.
+    This will only show when not connected to the user's phone.
+  -->
+  <property id="wifi_lte_execution" type="boolean">false</property>
 
   <!--
     Enable notification via vibrations, typically for confirmation of actions.
@@ -95,10 +101,4 @@
     for trouble shooting.
   -->
   <property id="webhook_id" type="string"></property>
-
-  <!--
-    Enables the SyncDelegate and prompt to send a command over Wifi/LTE.
-    This will only show when not connected to the user's phone.
-  -->
-  <property id="wifi_lte_execution" type="boolean">false</property>
 </properties>

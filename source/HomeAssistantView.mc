@@ -30,7 +30,7 @@ class HomeAssistantView extends WatchUi.Menu2 {
         options as {
             :focus as Lang.Number,
             :icon  as Graphics.BitmapType or WatchUi.Drawable or Lang.Symbol
-        } or Null
+        }?
     ) {
         if (options == null) {
             options = { :title => definition.get("title") as Lang.String };
@@ -42,17 +42,17 @@ class HomeAssistantView extends WatchUi.Menu2 {
         var items = definition.get("items") as Lang.Array<Lang.Dictionary>;
         for (var i = 0; i < items.size(); i++) {
             if (items[i] instanceof(Lang.Dictionary)) {
-                var type       = items[i].get("type")       as Lang.String     or Null;
-                var name       = items[i].get("name")       as Lang.String     or Null;
-                var content    = items[i].get("content")    as Lang.String     or Null;
-                var entity     = items[i].get("entity")     as Lang.String     or Null;
-                var tap_action = items[i].get("tap_action") as Lang.Dictionary or Null;
-                var service    = items[i].get("service")    as Lang.String     or Null; // Deprecated schema
-                var confirm    = false                      as Lang.Boolean    or Null;
-                var pin        = false                      as Lang.Boolean    or Null;
-                var data       = null                       as Lang.Dictionary or Null;
-                var enabled    = true                       as Lang.Boolean    or Null;
-                var exit       = false                      as Lang.Boolean    or Null;
+                var type       = items[i].get("type")       as Lang.String?;
+                var name       = items[i].get("name")       as Lang.String?;
+                var content    = items[i].get("content")    as Lang.String?;
+                var entity     = items[i].get("entity")     as Lang.String?;
+                var tap_action = items[i].get("tap_action") as Lang.Dictionary?;
+                var service    = items[i].get("service")    as Lang.String?; // Deprecated schema
+                var confirm    = false                      as Lang.Boolean?;
+                var pin        = false                      as Lang.Boolean?;
+                var data       = null                       as Lang.Dictionary?;
+                var enabled    = true                       as Lang.Boolean?;
+                var exit       = false                      as Lang.Boolean?;
                 if (items[i].get("enabled") != null) {
                     enabled = items[i].get("enabled");       // Optional
                 }
@@ -207,7 +207,7 @@ class HomeAssistantViewDelegate extends WatchUi.Menu2InputDelegate {
         mTimer          = getApp().getQuitTimer();
     }
 
-    //! Back button event
+    //! Handle the back button (ESC)
     //
     function onBack() {
         mTimer.reset();

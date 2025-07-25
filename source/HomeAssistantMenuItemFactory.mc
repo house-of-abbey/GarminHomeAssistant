@@ -74,8 +74,8 @@ class HomeAssistantMenuItemFactory {
     //
     function toggle(
         label     as Lang.String or Lang.Symbol,
-        entity_id as Lang.String or Null,
-        template  as Lang.String or Null,
+        entity_id as Lang.String?,
+        template  as Lang.String?,
         options   as {
             :exit    as Lang.Boolean,
             :confirm as Lang.Boolean,
@@ -104,11 +104,11 @@ class HomeAssistantMenuItemFactory {
     //! @param options   Menu item options to be passed on, including both SDK and menu options, e.g. exit, confirm & pin.
     //
     function tap(
-        label     as Lang.String     or Lang.Symbol,
-        entity_id as Lang.String     or Null,
-        template  as Lang.String     or Null,
-        service   as Lang.String     or Null,
-        data      as Lang.Dictionary or Null,
+        label     as Lang.String or Lang.Symbol,
+        entity_id as Lang.String?,
+        template  as Lang.String?,
+        service   as Lang.String?,
+        data      as Lang.Dictionary?,
         options   as {
             :exit    as Lang.Boolean,
             :confirm as Lang.Boolean,
@@ -156,7 +156,7 @@ class HomeAssistantMenuItemFactory {
     //
     function group(
         definition as Lang.Dictionary,
-        template   as Lang.String or Null
+        template   as Lang.String?
     ) as WatchUi.MenuItem {
         return new HomeAssistantGroupMenuItem(
             definition,

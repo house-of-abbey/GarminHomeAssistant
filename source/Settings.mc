@@ -9,7 +9,7 @@
 // tested on a Venu 2 device. The source code is provided at:
 //            https://github.com/house-of-abbey/GarminHomeAssistant.
 //
-// P A Abbey & J D Abbey, SomeoneOnEarth & moesterheld, 23 November 2023
+// P A Abbey & J D Abbey, SomeoneOnEarth & moesterheld & vincentezw, 23 November 2023
 //
 //-----------------------------------------------------------------------------------
 
@@ -42,7 +42,7 @@ class Settings {
     private static var mPollDelay             as Lang.Number  = 0;
     //! seconds
     private static var mConfirmTimeout        as Lang.Number  = 3;
-    private static var mPin                   as Lang.String  or Null = "0000";
+    private static var mPin                   as Lang.String? = "0000";
     private static var mMenuAlignment         as Lang.Number  = WatchUi.MenuItem.MENU_ITEM_LABEL_ALIGN_LEFT;
     private static var mIsSensorsLevelEnabled as Lang.Boolean = false;
     //! minutes
@@ -50,7 +50,7 @@ class Settings {
     private static var mIsApp                 as Lang.Boolean = false;
     private static var mHasService            as Lang.Boolean = false;
     //! Must keep the object so it doesn't get garbage collected.
-    private static var mWebhookManager        as WebhookManager or Null;
+    private static var mWebhookManager        as WebhookManager?;
 
     //! Called on application start and then whenever the settings are changed.
     //
@@ -62,6 +62,7 @@ class Settings {
         mConfigUrl             = Properties.getValue("config_url");
         mCacheConfig           = Properties.getValue("cache_config");
         mClearCache            = Properties.getValue("clear_cache");
+        mWifiLteExecution      = Properties.getValue("wifi_lte_execution");
         mVibrate               = Properties.getValue("enable_vibration");
         mAppTimeout            = Properties.getValue("app_timeout");
         mPollDelay             = Properties.getValue("poll_delay_combined");
@@ -70,7 +71,6 @@ class Settings {
         mMenuAlignment         = Properties.getValue("menu_alignment");
         mIsSensorsLevelEnabled = Properties.getValue("enable_battery_level");
         mBatteryRefreshRate    = Properties.getValue("battery_level_refresh_rate");
-        mWifiLteExecution      = Properties.getValue("wifi_lte_execution");
     }
 
     //! A webhook is required for non-privileged API calls.
@@ -193,6 +193,18 @@ class Settings {
         Properties.setValue("clear_cache", mClearCache);
     }
 
+    //! Get the value of the Wi-Fi/LTE toggle in settings.
+    //!
+    //! @return The state of the toggle.
+    //
+    static function getWifiLteExecutionEnabled() as Lang.Boolean {
+        // Wi-Fi/LTE sync execution on a cached menu
+        if (!mCacheConfig) {
+            return false;
+        }
+        return mWifiLteExecution;
+    }
+
     //! Get the vibration Boolean option supplied as part of the Settings.
     //!
     //! @return Boolean for whether vibration is enabled.
@@ -229,7 +241,7 @@ class Settings {
     //!
     //! @return The menu item security PIN.
     //
-    static function getPin() as Lang.String or Null {
+    static function getPin() as Lang.String? {
         return mPin;
     }
 
@@ -237,7 +249,7 @@ class Settings {
     //!
     //! @return The validated 4 digit string.
     //
-    private static function validatePin() as Lang.String or Null {
+    private static function validatePin() as Lang.String? {
         var pin = Properties.getValue("pin");
         if (pin.toNumber() == null || pin.length() != 4) {
             return null;
@@ -270,18 +282,6 @@ class Settings {
             Background.deleteTemporalEvent();
             Background.deleteActivityCompletedEvent();
         }
-    }
-
-    //! Get the value of the WiFi/LTE toggle in settings.
-    //!
-    //! @return The state of the toggle.
-    //
-    static function getWifiLteExecutionEnabled() as Lang.Boolean {
-        // Wifi/LTE sync execution on a cached menu
-        if (!mCacheConfig) {
-            return false;
-        }
-        return mWifiLteExecution;
     }
 
 }

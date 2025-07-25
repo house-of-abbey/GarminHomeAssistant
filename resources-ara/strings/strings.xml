@@ -9,7 +9,7 @@
    tested on a Venu 2 device. The source code is provided at:
               https://github.com/house-of-abbey/GarminHomeAssistant.
 
-   P A Abbey & J D Abbey & Someone0nEarth, 31 October 2023
+   P A Abbey & J D Abbey & Someone0nEarth & vincentezw, 31 October 2023
 
 -->
 
@@ -19,54 +19,63 @@
 -->
 
 <strings>
-  <string id="ApiFlood">مكالمات واجهة برمجة التطبيقات سريعة جدًا. يُرجى إبطاء طلباتك.</string>
-  <string id="ApiUrlNotFound">لم يتم العثور على عنوان URL. قد يكون هناك خطأ في عنوان URL الخاص بواجهة برمجة التطبيقات في الإعدادات.</string>
+  <string id="ApiFlood">API يدعو سريع للغاية. يرجى إبطاء طلباتك.</string>
+  <string id="ApiUrlNotFound">URL لم يتم العثور عليه. خطأ URL API المحتمل في الإعدادات.</string>
   <string id="AppName" scope="glance">HomeAssistant</string>
   <string id="Available" scope="glance">متاح</string>
-  <string id="Cached" scope="glance">مخزن مؤقتا</string>
-  <string id="Checking" scope="glance">جاري التحقق...</string>
-  <string id="ConfigUrlNotFound">لم يتم العثور على عنوان URL. قد يكون هناك خطأ في تكوين عنوان URL في الإعدادات.</string>
+  <string id="Cached" scope="glance">مخبأة</string>
+  <string id="Checking" scope="glance">التحقق ...</string>
+  <string id="ConfigUrlNotFound">URL لم يتم العثور عليه. خطأ في عنوان URL التكوين المحتمل في الإعدادات.</string>
   <string id="Confirm">بالتأكيد؟</string>
   <string id="Empty">فارغ</string>
   <string id="Executed" scope="glance">مؤكد</string>
   <string id="GlanceMenu" scope="glance">قائمة طعام</string>
   <string id="Memory" scope="glance">ذاكرة</string>
-  <string id="NoAPIKey" scope="glance">لا يوجد مفتاح API في إعدادات التطبيق.</string>
-  <string id="NoApiUrl" scope="glance">لا يوجد عنوان URL لـ API في إعدادات التطبيق.</string>
+  <string id="NoAPIKey" scope="glance">لا مفتاح API في إعدادات التطبيق.</string>
+  <string id="NoApiUrl" scope="glance">لا عنوان URL API في إعدادات التطبيق.</string>
   <string id="NoConfigUrl" scope="glance">لا يوجد عنوان URL للتكوين في إعدادات التطبيق.</string>
-  <string id="NoInternet">لا يوجد اتصال بالإنترنت.</string>
-  <string id="NoJson">لم يتم إرجاع JSON من طلب HTTP.</string>
-  <string id="NoPhone" scope="glance">لا يوجد اتصال بالهاتف.</string>
-  <string id="NoResponse">لا يوجد رد، تحقق من اتصال الإنترنت</string>
-  <string id="PinInputLocked">تم قفل مدخل رقم التعريف الشخصي (PIN)</string>
+  <string id="NoInternet">لا اتصال إنترنت.</string>
+  <string id="NoJson">لم يتم إرجاع أي JSON من طلب HTTP.</string>
+  <string id="NoPhone" scope="glance">لا يوجد اتصال هاتفي.</string>
+  <string id="NoPhoneNoCache" scope="glance">لا اتصال الهاتف ، لا توجد قائمة مخبأة.</string>
+  <string id="NoResponse">لا استجابة ، تحقق من اتصال الإنترنت</string>
+  <string id="TimedOut">طلب توقيت الخروج</string>
+  <string id="PinInputLocked">دبوس إدخال مغلق ل</string>
   <string id="PotentialError">خطأ محتمل</string>
-  <string id="Seconds">ثواني</string>
-  <string id="TemplateError">خطأ القالب</string>
-  <string id="TrailingSlashErr">يجب ألا يحتوي عنوان URL الخاص بواجهة برمجة التطبيقات على شرطة مائلة '/' في نهايته.</string>
+  <string id="Seconds">ثوان</string>
+  <string id="TemplateError">خطأ قالب</string>
+  <string id="TrailingSlashErr">يجب ألا يكون URL url API مائلة زائدة "/".</string>
   <string id="Unavailable" scope="glance">غير متاح</string>
-  <string id="Unconfigured" scope="glance">غير مهيأ</string>
-  <string id="UnhandledHttpErr">طلب HTTP أعاد رمز الخطأ =</string>
-  <string id="WebhookFailed">فشل في تسجيل Webhook</string>
-  <string id="WrongPin">رقم التعريف الشخصي خاطئ</string>
-  <!-- بالنسبة لإعدادات واجهة المستخدم الرسومية، يجب أن تكون السلاسل بالترتيب الذي يتم استخدامها به. -->
+  <string id="Unconfigured" scope="glance">غير متكافئ</string>
+  <string id="UnhandledHttpErr">طلب HTTP رمز الخطأ الذي تم إرجاعه =</string>
+  <string id="WebhookFailed">فشل في تسجيل webhook</string>
+  <string id="WrongPin">دبوس خاطئ</string>
+  <string id="WifiLteNotAvailable">لا متوفر Wi-Fi أو LTE</string>
+  <string id="WifiLtePrompt">تنفيذ على Wi-Fi/LTE؟</string>
+  <string id="WifiLteExecutionTitle">إرسال إلى المنزل مساعد.</string>
+  <string id="WifiLteExecutionDataError">لم يتم استلام البيانات.</string>
+  <!-- بالنسبة للإعدادات واجهة المستخدم الرسومية ، يجب أن تكون السلاسل بالترتيب المستخدمة. -->
   <string id="SettingsSelect">يختار...</string>
-  <string id="SettingsApiKey">مفتاح API لـ HomeAssistant.</string>
-  <string id="SettingsApiKeyPrompt">رمز الوصول طويل الأمد.</string>
-  <string id="SettingsApiUrl">عنوان URL لـ API HomeAssistant.</string>
+  <string id="SettingsApiKey">مفتاح API للمثليين.</string>
+  <string id="SettingsApiKeyPrompt">رمز الوصول منذ فترة طويلة.</string>
+  <string id="SettingsApiUrl">عنوان URL لـ HereasSistant API.</string>
   <string id="SettingsConfigUrl">عنوان URL لتكوين القائمة (JSON).</string>
-  <string id="SettingsCacheConfig">هل يجب على التطبيق تخزين تكوين القائمة مؤقتًا؟</string>
-  <string id="SettingsClearCache">هل يجب على التطبيق مسح ذاكرة التخزين المؤقت الموجودة في المرة التالية التي يتم تشغيله فيها؟</string>
-  <string id="SettingsVibration">هل يجب أن يوفر التطبيق ردود الفعل عبر الاهتزازات؟</string>
-  <string id="SettingsAppTimeout">مهلة زمنية بالثواني. قم بالخروج من التطبيق بعد هذه الفترة من عدم النشاط للحفاظ على بطارية الجهاز.</string>
-  <string id="SettingsPollDelay">تأخير إضافي في الاستطلاع (بالثواني). يضيف تأخيرًا بين تحديث حالة جميع عناصر القائمة.</string>
-  <string id="SettingsConfirmTimeout">بعد هذا الوقت (بالثواني)، يتم إغلاق مربع حوار التأكيد الخاص بالإجراء تلقائيًا ويتم إلغاء الإجراء. اضبطه على 0 لتعطيل مهلة الانتظار.</string>
-  <string id="SettingsPin">رقم التعريف الشخصي (PIN) المكون من 4 أرقام الذي سيتم استخدامه لجميع الإجراءات التي تتطلب التأكيد (0000-9999).</string>
-  <string id="SettingsPinError">يرجى تكوين رقم تعريف شخصي صالح مكون من 4 أرقام بين 0000 و9999 في إعدادات التطبيق.</string>
-  <string id="SettingsTextAlign">محاذاة القائمة اليسرى (إيقاف) أو اليمنى (تشغيل).</string>
+  <string id="SettingsCacheConfig">هل يجب أن يقوم تطبيق ذاكرة التخزين المؤقت لتكوين القائمة؟</string>
+  <string id="SettingsClearCache">هل يجب على التطبيق مسح ذاكرة التخزين المؤقت الموجودة في المرة القادمة التي يتم فيها بدء تشغيلها؟</string>
+  <string id="SettingsVibration">هل يجب أن يقدم التطبيق ملاحظات عبر الاهتزازات؟</string>
+  <string id="SettingsAppTimeout">مهلة في ثوان. الخروج من التطبيق بعد هذه الفترة من عدم النشاط لحفظ بطارية الجهاز.</string>
+  <string id="SettingsPollDelay">تأخير استطلاع إضافي (بالثواني). يضيف تأخيرًا بين تحديث الحالة لجميع عناصر القائمة.</string>
+  <string id="SettingsConfirmTimeout">بعد هذا الوقت (بالثواني) ، يتم إغلاق مربع حوار تأكيد لإجراء ما ويتم إلغاء الإجراء. ضبط على 0 لتعطيل المهلة.</string>
+  <string id="SettingsPin">دبوس من 4 أرقام لاستخدامه في جميع الإجراءات التي تتطلب تأكيدًا (0000-9999).</string>
+  <string id="SettingsPinError">يرجى تكوين دبوس رقمي مكون من 4 أرقام بين 0000 و 9999 في إعدادات التطبيق.</string>
+  <string id="SettingsTextAlign">اليسار (قبالة) أو محاذاة القائمة اليمنى (ON).</string>
   <string id="LeftToRight">من اليسار إلى اليمين</string>
   <string id="RightToLeft">من اليمين إلى اليسار</string>
-  <string id="SettingsWidgetStart">(الأداة فقط) قم بتشغيل التطبيق تلقائيًا من الأداة دون انتظار نقرة.</string>
-  <string id="SettingsEnableBatteryLevel">قم بتمكين خدمة الخلفية لإرسال بيانات مستوى بطارية الجهاز وموقعه ونشاطه (إذا كان مدعومًا) إلى Home Assistant.</string>
-  <string id="SettingsBatteryLevelRefreshRate">معدل التحديث (بالدقائق) الذي يجب أن تكرر به الخدمة الخلفية إرسال البيانات.</string>
-  <string id="WebhookId">(للقراءة فقط) معرف Webhook الذي أنشأه الجهاز لتحديثات الخدمة في الخلفية. قد تحتاج إلى هذا من أجل تصحيح الأخطاء.</string>
+  <string id="SettingsWidgetStart">(عنصر واجهة المستخدم فقط) ابدأ التطبيق تلقائيًا من عنصر واجهة المستخدم دون انتظار النقر.</string>
+  <string id="SettingsEnableBatteryLevel">قم بتمكين خدمة الخلفية لإرسال مستوى بطارية الجهاز والموقع و (إذا كان مدعومًا) بيانات النشاط إلى مساعد المنزل.</string>
+  <string id="SettingsBatteryLevelRefreshRate">معدل التحديث (في الدقائق) التي يجب أن تكرر خدمة الخلفية إرسال البيانات.</string>
+  <string id="WebhookId">(اقرأ فقط) معرف WebHook الذي تم إنشاؤه بواسطة الجهاز لتحديثات خدمة الخلفية. قد تطلب هذا لتصحيح الأخطاء.</string>
+  <string id="WifiLteExecution">وضع تنفيذ Wi-Fi/LTE.</string>
+  <string id="WifiLteExecutionEnable">تمكين تنفيذ الأوامر على Wi-Fi/LTE.</string>
+  <string id="WifiLteExecutionDescription">يسمح للتطبيق بالبدء بدون اتصال الهاتف (عند تخزين القائمة) ، والمطالبة بتنفيذ الأمر عبر Wi-Fi/LTE.</string>
 </strings>

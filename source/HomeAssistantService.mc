@@ -9,7 +9,7 @@
 // tested on a Venu 2 device. The source code is provided at:
 //            https://github.com/house-of-abbey/GarminHomeAssistant.
 //
-// P A Abbey & J D Abbey & Someone0nEarth, 19 November 2023
+// P A Abbey & J D Abbey & Someone0nEarth & vincentezw, 19 November 2023
 //
 //-----------------------------------------------------------------------------------
 
@@ -49,8 +49,8 @@ class HomeAssistantService {
         var entity_id;
         var exit = false;
         if (c != null) {
-            entity_id = c.get(:entity_id) as Lang.String;
-            exit      = c.get(:exit)      as Lang.Boolean;
+            entity_id = c[:entity_id] as Lang.String;
+            exit      = c[:exit]      as Lang.Boolean;
         }
         // System.println("HomeAssistantService onReturnCall() Response Code: " + responseCode);
         // System.println("HomeAssistantService onReturnCall() Response Data: " + data);
@@ -100,7 +100,7 @@ class HomeAssistantService {
                     WatchUi.showToast(toast, null);
                 } else {
                     new Alert({
-                        :timeout => Globals.scAlertTimeout,
+                        :timeout => Globals.scAlertTimeoutMs,
                         :font    => Graphics.FONT_MEDIUM,
                         :text    => toast,
                         :fgcolor => Graphics.COLOR_WHITE,
@@ -125,7 +125,7 @@ class HomeAssistantService {
     //
     function call(
         service as Lang.String,
-        data    as Lang.Dictionary or Null,
+        data    as Lang.Dictionary?,
         exit    as Lang.Boolean
     ) as Void {
         var phoneConnected = System.getDeviceSettings().phoneConnected;
