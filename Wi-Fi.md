@@ -20,9 +20,7 @@ With version 3.0 onwards the application now includes the ability to temporarily
 
 This video using will hopefully make it obvious how slow it is to use the Wi-Fi option and illustrate the cautionary notes above.
 
-<video width="100%" controls style="max-width:250px">
-  <source src="./images/wi-fi.mp4" type="video/mp4">
-</video>
+https://github.com/user-attachments/assets/269981e9-12dc-44f2-a28f-b8e844b2b2f8
 
 ### Please Note
 
