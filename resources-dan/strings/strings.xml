@@ -9,7 +9,7 @@
    tested on a Venu 2 device. The source code is provided at:
               https://github.com/house-of-abbey/GarminHomeAssistant.
 
-   P A Abbey & J D Abbey & Someone0nEarth, 31 October 2023
+   P A Abbey & J D Abbey & Someone0nEarth & vincentezw, 31 October 2023
 
 -->
 
@@ -19,54 +19,63 @@
 -->
 
 <strings>
-  <string id="ApiFlood">API-kald for hurtigt. Sænk venligst dine anmodninger.</string>
-  <string id="ApiUrlNotFound">URL ikke fundet. Potentiel API URL-fejl i indstillinger.</string>
+  <string id="ApiFlood">API ringer for hurtig. Sænk venligst dine anmodninger.</string>
+  <string id="ApiUrlNotFound">URL ikke fundet. Potentiel API -URL -fejl i indstillinger.</string>
   <string id="AppName" scope="glance">HomeAssistant</string>
   <string id="Available" scope="glance">Tilgængelig</string>
-  <string id="Cached" scope="glance">Cachelagret</string>
-  <string id="Checking" scope="glance">Tjekker...</string>
-  <string id="ConfigUrlNotFound">URL ikke fundet. Potentiel konfigurations-URL-fejl i indstillinger.</string>
+  <string id="Cached" scope="glance">Cache</string>
+  <string id="Checking" scope="glance">Kontrol ...</string>
+  <string id="ConfigUrlNotFound">URL ikke fundet. Potentiel konfigurations -URL -fejl i indstillinger.</string>
   <string id="Confirm">Sikker?</string>
   <string id="Empty">Tom</string>
   <string id="Executed" scope="glance">Bekræftet</string>
   <string id="GlanceMenu" scope="glance">Menu</string>
   <string id="Memory" scope="glance">Hukommelse</string>
-  <string id="NoAPIKey" scope="glance">Ingen API-nøgle i applikationsindstillingerne.</string>
-  <string id="NoApiUrl" scope="glance">Ingen API-URL i applikationsindstillingerne.</string>
-  <string id="NoConfigUrl" scope="glance">Ingen konfigurations-URL i applikationsindstillingerne.</string>
+  <string id="NoAPIKey" scope="glance">Ingen API -nøgle i applikationsindstillingerne.</string>
+  <string id="NoApiUrl" scope="glance">Ingen API -URL i applikationsindstillingerne.</string>
+  <string id="NoConfigUrl" scope="glance">Ingen konfigurations -URL i applikationsindstillingerne.</string>
   <string id="NoInternet">Ingen internetforbindelse.</string>
-  <string id="NoJson">Ingen JSON returneret fra HTTP-anmodning.</string>
+  <string id="NoJson">Ingen JSON vendte tilbage fra HTTP -anmodning.</string>
   <string id="NoPhone" scope="glance">Ingen telefonforbindelse.</string>
+  <string id="NoPhoneNoCache" scope="glance">Ingen telefonforbindelse, ingen cache -menu.</string>
   <string id="NoResponse">Intet svar, tjek internetforbindelse</string>
-  <string id="PinInputLocked">PIN-indtastning låst for</string>
+  <string id="TimedOut">Anmod om tidsbestemt ud</string>
+  <string id="PinInputLocked">Pin -indgang låst til</string>
   <string id="PotentialError">Potentiel fejl</string>
   <string id="Seconds">sekunder</string>
   <string id="TemplateError">Skabelonfejl</string>
-  <string id="TrailingSlashErr">API-URL må ikke have en efterfølgende skråstreg '/'.</string>
-  <string id="Unavailable" scope="glance">Ikke tilgængelig</string>
+  <string id="TrailingSlashErr">API URL må ikke have en bageste skråstreg '/'.</string>
+  <string id="Unavailable" scope="glance">Utilgængelig</string>
   <string id="Unconfigured" scope="glance">Ukonfigureret</string>
-  <string id="UnhandledHttpErr">HTTP-anmodning returnerede fejlkode =</string>
-  <string id="WebhookFailed">Kunne ikke registrere Webhook</string>
-  <string id="WrongPin">Forkert pinkode</string>
+  <string id="UnhandledHttpErr">HTTP -anmodning returneret fejlkode =</string>
+  <string id="WebhookFailed">Kunne ikke registrere webhook</string>
+  <string id="WrongPin">Forkert pin</string>
+  <string id="WifiLteNotAvailable">Ingen Wi-Fi eller LTE tilgængelig</string>
+  <string id="WifiLtePrompt">Udfør over Wi-Fi/LTE?</string>
+  <string id="WifiLteExecutionTitle">Sender til hjemmeassistent.</string>
+  <string id="WifiLteExecutionDataError">Ingen data modtaget.</string>
   <!-- For indstillingerne GUI skal strenge være i den rækkefølge, de bruges. -->
   <string id="SettingsSelect">Vælge...</string>
-  <string id="SettingsApiKey">API-nøgle til HomeAssistant.</string>
-  <string id="SettingsApiKeyPrompt">Adgangstoken med lang levetid.</string>
-  <string id="SettingsApiUrl">URL til HomeAssistant API.</string>
+  <string id="SettingsApiKey">API -nøgle til homeassistant.</string>
+  <string id="SettingsApiKeyPrompt">Langvarig adgangstoken.</string>
+  <string id="SettingsApiUrl">URL til homeassistant API.</string>
   <string id="SettingsConfigUrl">URL til menukonfiguration (JSON).</string>
-  <string id="SettingsCacheConfig">Skal applikationen cache menukonfigurationen?</string>
-  <string id="SettingsClearCache">Skal applikationen rydde den eksisterende cache næste gang den startes?</string>
-  <string id="SettingsVibration">Skal applikationen give feedback via vibrationer?</string>
-  <string id="SettingsAppTimeout">Timeout i sekunder. Afslut applikationen efter denne periode med inaktivitet for at spare på enhedens batteri.</string>
-  <string id="SettingsPollDelay">Yderligere afstemningsforsinkelse (i sekunder). Tilføjer en forsinkelse mellem statusopdatering af alle menupunkter.</string>
-  <string id="SettingsConfirmTimeout">Efter dette tidspunkt (i sekunder) lukkes en bekræftelsesdialog for en handling automatisk, og handlingen annulleres. Indstil til 0 for at deaktivere timeout.</string>
-  <string id="SettingsPin">4-cifret PIN-kode, der skal bruges til alle handlinger, der kræver bekræftelse (0000-9999).</string>
-  <string id="SettingsPinError">Konfigurer venligst en gyldig 4-cifret numerisk PIN-kode mellem 0000 og 9999 i applikationsindstillingerne.</string>
-  <string id="SettingsTextAlign">Venstre (fra) eller Højre (til) menujustering.</string>
-  <string id="LeftToRight">Venstre mod højre</string>
-  <string id="RightToLeft">Højre til venstre</string>
+  <string id="SettingsCacheConfig">Skal applikationscache menuen Konfiguration?</string>
+  <string id="SettingsClearCache">Bør applikationen rydde den eksisterende cache næste gang den startes?</string>
+  <string id="SettingsVibration">Bør applikationen give feedback via vibrationer?</string>
+  <string id="SettingsAppTimeout">Timeout på få sekunder. Afslut applikationen efter denne periode med inaktivitet for at gemme enhedsbatteriet.</string>
+  <string id="SettingsPollDelay">Yderligere afstemningsforsinkelse (på få sekunder). Tilføjer en forsinkelse mellem statusopdateringen af alle menupunkter.</string>
+  <string id="SettingsConfirmTimeout">Efter denne tid (på få sekunder) lukkes en bekræftelsesdialog for en handling automatisk, og handlingen annulleres. Indstil til 0 for at deaktivere timeout.</string>
+  <string id="SettingsPin">4-cifret pin, der skal bruges til alle handlinger, der kræver bekræftelse (0000-9999).</string>
+  <string id="SettingsPinError">Konfigurer venligst en gyldig 4-cifret numerisk pin mellem 0000 og 9999 i applikationsindstillingerne.</string>
+  <string id="SettingsTextAlign">Venstre (slukket) eller højre (på) menuindretning.</string>
+  <string id="LeftToRight">Venstre til højre</string>
+  <string id="RightToLeft">Ret til venstre</string>
   <string id="SettingsWidgetStart">(Kun widget) Start automatisk applikationen fra widgetten uden at vente på et tryk.</string>
-  <string id="SettingsEnableBatteryLevel">Aktiver baggrundstjenesten for at sende enhedens batteriniveau, placering og (hvis understøttet) aktivitetsdata til Home Assistant.</string>
-  <string id="SettingsBatteryLevelRefreshRate">Opdateringshastigheden (i minutter), hvormed baggrundstjenesten skal gentage afsendelse af data.</string>
-  <string id="WebhookId">(Skrivebeskyttet) Webhook-id'et oprettet af enheden til baggrundstjenesteopdateringer. Du kan kræve dette til fejlretning.</string>
+  <string id="SettingsEnableBatteryLevel">Aktivér baggrundstjenesten til at sende enhedsbatteriniveauet, placering og (hvis understøttes) aktivitetsdata til hjemmeassistent.</string>
+  <string id="SettingsBatteryLevelRefreshRate">Opdateringshastigheden (på få minutter), hvor baggrundstjenesten skal gentage afsendelsesdata.</string>
+  <string id="WebhookId">(Læs kun) Webhook -ID oprettet af enheden til opdateringer af baggrundstjeneste. Du kræver muligvis dette til fejlsøgning.</string>
+  <string id="WifiLteExecution">Wi-Fi/LTE-eksekveringstilstand.</string>
+  <string id="WifiLteExecutionEnable">Aktivér udførelse af kommandoer over Wi-Fi/LTE.</string>
+  <string id="WifiLteExecutionDescription">Tillader appen at starte uden telefonforbindelse (når menuen er cache) og beder om at udføre kommando over Wi-Fi/LTE.</string>
 </strings>

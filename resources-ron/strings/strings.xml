@@ -9,7 +9,7 @@
    tested on a Venu 2 device. The source code is provided at:
               https://github.com/house-of-abbey/GarminHomeAssistant.
 
-   P A Abbey & J D Abbey & Someone0nEarth, 31 October 2023
+   P A Abbey & J D Abbey & Someone0nEarth & vincentezw, 31 October 2023
 
 -->
 
@@ -19,54 +19,63 @@
 -->
 
 <strings>
-  <string id="ApiFlood">Apeluri API prea rapide. Vă rugăm să încetiniți cererile dvs.</string>
-  <string id="ApiUrlNotFound">Adresa URL nu a fost găsită. Potențială eroare URL API în setări.</string>
+  <string id="ApiFlood">API apelează prea rapid. Vă rugăm să încetiniți cererile.</string>
+  <string id="ApiUrlNotFound">URL nu a fost găsit. Eroare potențială URL API în setări.</string>
   <string id="AppName" scope="glance">HomeAssistant</string>
   <string id="Available" scope="glance">Disponibil</string>
   <string id="Cached" scope="glance">În cache</string>
   <string id="Checking" scope="glance">Control...</string>
-  <string id="ConfigUrlNotFound">Adresa URL nu a fost găsită. Potențială eroare URL de configurare în setări.</string>
+  <string id="ConfigUrlNotFound">URL nu a fost găsit. Eroare URL de configurare potențială în setări.</string>
   <string id="Confirm">Sigur?</string>
   <string id="Empty">Gol</string>
   <string id="Executed" scope="glance">Confirmat</string>
   <string id="GlanceMenu" scope="glance">Meniu</string>
   <string id="Memory" scope="glance">Memorie</string>
-  <string id="NoAPIKey" scope="glance">Nicio cheie API în setările aplicației.</string>
-  <string id="NoApiUrl" scope="glance">Nicio adresă URL API în setările aplicației.</string>
-  <string id="NoConfigUrl" scope="glance">Nicio adresă URL de configurare în setările aplicației.</string>
+  <string id="NoAPIKey" scope="glance">Nici o cheie API în setările aplicației.</string>
+  <string id="NoApiUrl" scope="glance">Fără URL API în setările aplicației.</string>
+  <string id="NoConfigUrl" scope="glance">Nici o adresă URL de configurare în setările aplicației.</string>
   <string id="NoInternet">Fără conexiune la internet.</string>
-  <string id="NoJson">Niciun JSON nu a fost returnat de la solicitarea HTTP.</string>
+  <string id="NoJson">Niciun JSON nu a revenit de la cererea HTTP.</string>
   <string id="NoPhone" scope="glance">Fără conexiune telefonică.</string>
-  <string id="NoResponse">Niciun răspuns, verificați conexiunea la internet</string>
-  <string id="PinInputLocked">Introducerea PIN blocată pentru</string>
+  <string id="NoPhoneNoCache" scope="glance">Fără conexiune la telefon, fără meniu în cache.</string>
+  <string id="NoResponse">Fără răspuns, verificați conexiunea la internet</string>
+  <string id="TimedOut">Cererea a fost cronometrată</string>
+  <string id="PinInputLocked">Intrarea pin blocat pentru</string>
   <string id="PotentialError">Eroare potențială</string>
   <string id="Seconds">secunde</string>
   <string id="TemplateError">Eroare de șablon</string>
-  <string id="TrailingSlashErr">Adresa URL API nu trebuie să aibă o bară oblică finală „/”.</string>
+  <string id="TrailingSlashErr">URL -ul API nu trebuie să aibă un slash '/'.</string>
   <string id="Unavailable" scope="glance">Indisponibil</string>
   <string id="Unconfigured" scope="glance">Neconfigurat</string>
-  <string id="UnhandledHttpErr">Solicitarea HTTP a returnat codul de eroare =</string>
-  <string id="WebhookFailed">Nu s-a putut înregistra Webhook</string>
-  <string id="WrongPin">PIN greșit</string>
+  <string id="UnhandledHttpErr">Cererea http returnată cod de eroare =</string>
+  <string id="WebhookFailed">Nu a reușit să înregistrați WebHook</string>
+  <string id="WrongPin">Pin greșit</string>
+  <string id="WifiLteNotAvailable">Nu există Wi-Fi sau LTE disponibile</string>
+  <string id="WifiLtePrompt">Executați peste Wi-Fi/LTE?</string>
+  <string id="WifiLteExecutionTitle">Trimiterea către asistent de acasă.</string>
+  <string id="WifiLteExecutionDataError">Nu au fost primite date.</string>
   <!-- Pentru GUI de setări, șirurile ar trebui să fie în ordinea în care sunt utilizate. -->
   <string id="SettingsSelect">Selecta...</string>
-  <string id="SettingsApiKey">Cheie API pentru HomeAssistant.</string>
-  <string id="SettingsApiKeyPrompt">Token de acces cu viață lungă.</string>
-  <string id="SettingsApiUrl">Adresa URL pentru API-ul HomeAssistant.</string>
-  <string id="SettingsConfigUrl">URL pentru configurarea meniului (JSON).</string>
-  <string id="SettingsCacheConfig">Ar trebui aplicația să memoreze în cache configurația meniului?</string>
-  <string id="SettingsClearCache">Ar trebui aplicația să golească memoria cache existentă data viitoare când este pornită?</string>
-  <string id="SettingsVibration">Ar trebui aplicația să ofere feedback prin vibrații?</string>
-  <string id="SettingsAppTimeout">Timeout în secunde. Ieșiți din aplicație după această perioadă de inactivitate pentru a economisi bateria dispozitivului.</string>
-  <string id="SettingsPollDelay">Întârziere suplimentară a sondajului (în secunde). Adaugă o întârziere între actualizarea stării tuturor elementelor de meniu.</string>
-  <string id="SettingsConfirmTimeout">După acest timp (în secunde), un dialog de confirmare pentru o acțiune este închis automat și acțiunea este anulată. Setați la 0 pentru a dezactiva timeout-ul.</string>
-  <string id="SettingsPin">PIN din 4 cifre care va fi utilizat pentru toate acțiunile care necesită confirmare (0000-9999).</string>
-  <string id="SettingsPinError">Vă rugăm să configurați un PIN numeric valid din 4 cifre între 0000 și 9999 în setările aplicației.</string>
-  <string id="SettingsTextAlign">Alinierea meniului la stânga (dezactivată) sau la dreapta (activată).</string>
+  <string id="SettingsApiKey">Cheie API pentru Homeasssistant.</string>
+  <string id="SettingsApiKeyPrompt">Token de acces de lungă durată.</string>
+  <string id="SettingsApiUrl">URL pentru API -ul Homeassistant.</string>
+  <string id="SettingsConfigUrl">URL pentru configurația meniului (JSON).</string>
+  <string id="SettingsCacheConfig">Aplicația cache ar trebui să fie configurația meniului?</string>
+  <string id="SettingsClearCache">Aplicația ar trebui să șterge cache -ul existent data viitoare când va fi pornită?</string>
+  <string id="SettingsVibration">Aplicația ar trebui să ofere feedback prin vibrații?</string>
+  <string id="SettingsAppTimeout">Timeout în câteva secunde. Ieșiți din aplicație după această perioadă de inactivitate pentru a economisi bateria dispozitivului.</string>
+  <string id="SettingsPollDelay">Întârziere suplimentară a sondajului (în secunde). Adăugă o întârziere între actualizarea de stare a tuturor elementelor din meniu.</string>
+  <string id="SettingsConfirmTimeout">După acest timp (în câteva secunde), un dialog de confirmare pentru o acțiune este închis automat și acțiunea este anulată. Setați la 0 pentru a dezactiva expirarea.</string>
+  <string id="SettingsPin">Pinul de 4 cifre pentru a fi utilizat pentru toate acțiunile care necesită confirmare (0000-9999).</string>
+  <string id="SettingsPinError">Vă rugăm să configurați un pin numeric valid cu 4 cifre între 0000 și 9999 în setările aplicației.</string>
+  <string id="SettingsTextAlign">Alinierea meniului stânga (oprită) sau dreapta (pornită).</string>
   <string id="LeftToRight">De la stânga la dreapta</string>
-  <string id="RightToLeft">De la dreapta la stânga</string>
+  <string id="RightToLeft">Dreapta la stânga</string>
   <string id="SettingsWidgetStart">(Numai widget) Porniți automat aplicația din widget fără a aștepta o atingere.</string>
-  <string id="SettingsEnableBatteryLevel">Activați serviciul de fundal pentru a trimite datele despre nivelul bateriei dispozitivului, locația și (dacă este acceptat) datele de activitate către Home Assistant.</string>
-  <string id="SettingsBatteryLevelRefreshRate">Rata de reîmprospătare (în minute) la care serviciul de fundal ar trebui să repete trimiterea datelor.</string>
-  <string id="WebhookId">(Numai pentru citire) ID-ul Webhook creat de dispozitiv pentru actualizările serviciului de fundal. Este posibil să aveți nevoie de acest lucru pentru depanare.</string>
+  <string id="SettingsEnableBatteryLevel">Permiteți serviciului de fundal să trimită datele bateriei, locația și (dacă este acceptat) date de activitate către asistentul de acasă.</string>
+  <string id="SettingsBatteryLevelRefreshRate">Rata de actualizare (în câteva minute) la care serviciul de fundal ar trebui să repete date de trimitere.</string>
+  <string id="WebhookId">(Numai citiți) ID -ul WebHook creat de dispozitiv pentru actualizări de servicii de fundal. S -ar putea să solicitați acest lucru pentru depanare.</string>
+  <string id="WifiLteExecution">Modul de execuție Wi-Fi/LTE.</string>
+  <string id="WifiLteExecutionEnable">Activați executarea comenzilor prin Wi-Fi/LTE.</string>
+  <string id="WifiLteExecutionDescription">Permite aplicației să înceapă fără conexiune telefonică (când meniul este în cache) și solicită să execute comanda prin Wi-Fi/LTE.</string>
 </strings>

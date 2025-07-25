@@ -9,7 +9,7 @@
    tested on a Venu 2 device. The source code is provided at:
               https://github.com/house-of-abbey/GarminHomeAssistant.
 
-   P A Abbey & J D Abbey & Someone0nEarth, 31 October 2023
+   P A Abbey & J D Abbey & Someone0nEarth & vincentezw, 31 October 2023
 
 -->
 
@@ -19,54 +19,63 @@
 -->
 
 <strings>
-  <string id="ApiFlood">การเรียก API เร็วเกินไป กรุณาลดความเร็วคำขอของคุณลง</string>
-  <string id="ApiUrlNotFound">ไม่พบ URL อาจมีข้อผิดพลาด URL API ในการตั้งค่า</string>
+  <string id="ApiFlood">API เรียกเร็วเกินไป โปรดชะลอคำขอของคุณ</string>
+  <string id="ApiUrlNotFound">ไม่พบ URL ข้อผิดพลาด API URL ที่อาจเกิดขึ้นในการตั้งค่า</string>
   <string id="AppName" scope="glance">HomeAssistant</string>
   <string id="Available" scope="glance">มีอยู่</string>
   <string id="Cached" scope="glance">แคช</string>
-  <string id="Checking" scope="glance">กำลังตรวจสอบ...</string>
-  <string id="ConfigUrlNotFound">ไม่พบ URL อาจมีข้อผิดพลาดเกี่ยวกับ URL การกำหนดค่าในการตั้งค่า</string>
+  <string id="Checking" scope="glance">ตรวจสอบ ...</string>
+  <string id="ConfigUrlNotFound">ไม่พบ URL ข้อผิดพลาด URL การกำหนดค่าที่มีศักยภาพในการตั้งค่า</string>
   <string id="Confirm">แน่นอน?</string>
   <string id="Empty">ว่างเปล่า</string>
-  <string id="Executed" scope="glance">ได้รับการยืนยันแล้ว</string>
+  <string id="Executed" scope="glance">ที่ได้ยืนยันแล้ว</string>
   <string id="GlanceMenu" scope="glance">เมนู</string>
   <string id="Memory" scope="glance">หน่วยความจำ</string>
   <string id="NoAPIKey" scope="glance">ไม่มีคีย์ API ในการตั้งค่าแอปพลิเคชัน</string>
   <string id="NoApiUrl" scope="glance">ไม่มี URL API ในการตั้งค่าแอปพลิเคชัน</string>
   <string id="NoConfigUrl" scope="glance">ไม่มี URL การกำหนดค่าในการตั้งค่าแอปพลิเคชัน</string>
-  <string id="NoInternet">ไม่มีการเชื่อมต่ออินเตอร์เน็ต</string>
-  <string id="NoJson">ไม่มี JSON ที่ส่งคืนจากคำขอ HTTP</string>
+  <string id="NoInternet">ไม่มีการเชื่อมต่ออินเทอร์เน็ต</string>
+  <string id="NoJson">ไม่มี JSON ส่งคืนจากคำขอ HTTP</string>
   <string id="NoPhone" scope="glance">ไม่มีการเชื่อมต่อโทรศัพท์</string>
-  <string id="NoResponse">ไม่มีการตอบสนอง กรุณาตรวจสอบการเชื่อมต่ออินเตอร์เน็ต</string>
-  <string id="PinInputLocked">ล็อคอินพุต PIN สำหรับ</string>
+  <string id="NoPhoneNoCache" scope="glance">ไม่มีการเชื่อมต่อโทรศัพท์ไม่มีเมนูแคช</string>
+  <string id="NoResponse">ไม่มีการตอบกลับตรวจสอบการเชื่อมต่ออินเทอร์เน็ต</string>
+  <string id="TimedOut">ขอหมดเวลา</string>
+  <string id="PinInputLocked">อินพุตพินล็อคสำหรับ</string>
   <string id="PotentialError">ข้อผิดพลาดที่อาจเกิดขึ้น</string>
-  <string id="Seconds">วินาที</string>
+  <string id="Seconds">ไม่กี่วินาที</string>
   <string id="TemplateError">ข้อผิดพลาดเทมเพลต</string>
-  <string id="TrailingSlashErr">URL ของ API จะต้องไม่มีเครื่องหมายทับต่อท้าย '/'</string>
+  <string id="TrailingSlashErr">URL API จะต้องไม่มี Slash ต่อท้าย '/'</string>
   <string id="Unavailable" scope="glance">ไม่สามารถใช้งานได้</string>
   <string id="Unconfigured" scope="glance">ไม่ได้กำหนดค่า</string>
-  <string id="UnhandledHttpErr">คำขอ HTTP ส่งกลับรหัสข้อผิดพลาด =</string>
-  <string id="WebhookFailed">ไม่สามารถลงทะเบียน Webhook ได้</string>
-  <string id="WrongPin">รหัส PIN ผิด</string>
-  <!-- สำหรับ GUI การตั้งค่า สตริงควรอยู่ในลำดับที่ใช้ -->
+  <string id="UnhandledHttpErr">คำขอ http ส่งคืนรหัสข้อผิดพลาด =</string>
+  <string id="WebhookFailed">ไม่สามารถลงทะเบียน webhook</string>
+  <string id="WrongPin">พินผิด</string>
+  <string id="WifiLteNotAvailable">ไม่มี Wi-Fi หรือ LTE</string>
+  <string id="WifiLtePrompt">ดำเนินการผ่าน wi-fi/lte?</string>
+  <string id="WifiLteExecutionTitle">ส่งไปยังผู้ช่วยที่บ้าน</string>
+  <string id="WifiLteExecutionDataError">ไม่ได้รับข้อมูล</string>
+  <!-- สำหรับการตั้งค่า GUI สตริงควรอยู่ในลำดับที่ใช้ -->
   <string id="SettingsSelect">เลือก...</string>
-  <string id="SettingsApiKey">API Key สำหรับ HomeAssistant</string>
-  <string id="SettingsApiKeyPrompt">โทเค็นการเข้าถึงที่มีอายุยืนยาว</string>
-  <string id="SettingsApiUrl">URL สำหรับ HomeAssistant API</string>
+  <string id="SettingsApiKey">คีย์ API สำหรับ HomeAssistant</string>
+  <string id="SettingsApiKeyPrompt">โทเค็นการเข้าถึงมายาวนาน</string>
+  <string id="SettingsApiUrl">URL สำหรับ API homeAssistant</string>
   <string id="SettingsConfigUrl">URL สำหรับการกำหนดค่าเมนู (JSON)</string>
-  <string id="SettingsCacheConfig">แอปพลิเคชันควรแคชการกำหนดค่าเมนูหรือไม่</string>
-  <string id="SettingsClearCache">แอปพลิเคชันควรจะล้างแคชที่มีอยู่บนสุดในครั้งต่อไปที่เริ่มต้นใช้งานหรือไม่</string>
+  <string id="SettingsCacheConfig">แอปพลิเคชันควรแคชการกำหนดค่าเมนูหรือไม่?</string>
+  <string id="SettingsClearCache">แอปพลิเคชันควรล้างแคชที่มีอยู่ครั้งต่อไปในครั้งต่อไปหรือไม่</string>
   <string id="SettingsVibration">แอปพลิเคชันควรให้ข้อเสนอแนะผ่านการสั่นสะเทือนหรือไม่?</string>
-  <string id="SettingsAppTimeout">หมดเวลาในไม่กี่วินาที ออกจากแอปพลิเคชันหลังจากช่วงเวลาที่ไม่ได้ใช้งานเพื่อประหยัดแบตเตอรี่ของอุปกรณ์</string>
-  <string id="SettingsPollDelay">การหน่วงเวลาการสำรวจเพิ่มเติม (เป็นวินาที) เพิ่มการหน่วงเวลาระหว่างการอัปเดตสถานะของรายการเมนูทั้งหมด</string>
-  <string id="SettingsConfirmTimeout">หลังจากเวลาที่กำหนด (เป็นวินาที) กล่องโต้ตอบยืนยันการดำเนินการจะถูกปิดโดยอัตโนมัติและการดำเนินการจะถูกยกเลิก ตั้งค่าเป็น 0 เพื่อปิดใช้งานการหมดเวลา</string>
-  <string id="SettingsPin">รหัส PIN 4 หลักที่จะใช้สำหรับทุกการกระทำที่ต้องได้รับการยืนยัน (0000-9999)</string>
-  <string id="SettingsPinError">กรุณาตั้งค่ารหัส PIN ตัวเลข 4 หลักที่ถูกต้องระหว่าง 0000 ถึง 9999 ในการตั้งค่าแอปพลิเคชัน</string>
-  <string id="SettingsTextAlign">การจัดตำแหน่งเมนูด้านซ้าย (ปิด) หรือด้านขวา (เปิด)</string>
+  <string id="SettingsAppTimeout">หมดเวลาในไม่กี่วินาที ออกจากแอปพลิเคชันหลังจากช่วงเวลาที่ไม่มีการใช้งานเพื่อประหยัดแบตเตอรี่อุปกรณ์</string>
+  <string id="SettingsPollDelay">ความล่าช้าในการสำรวจเพิ่มเติม (ในไม่กี่วินาที) เพิ่มความล่าช้าระหว่างการอัปเดตสถานะของรายการเมนูทั้งหมด</string>
+  <string id="SettingsConfirmTimeout">หลังจากเวลานี้ (ในไม่กี่วินาที) กล่องโต้ตอบยืนยันสำหรับการกระทำจะถูกปิดโดยอัตโนมัติและการดำเนินการจะถูกยกเลิก ตั้งค่าเป็น 0 เพื่อปิดการหมดเวลา</string>
+  <string id="SettingsPin">พิน 4 หลักที่จะใช้สำหรับการกระทำทั้งหมดที่ต้องมีการยืนยัน (0000-9999)</string>
+  <string id="SettingsPinError">โปรดกำหนดค่าพินตัวเลข 4 หลักที่ถูกต้องระหว่าง 0000 ถึง 9999 ในการตั้งค่าแอปพลิเคชัน</string>
+  <string id="SettingsTextAlign">การจัดตำแหน่งเมนูซ้าย (ปิด) หรือขวา (เปิด)</string>
   <string id="LeftToRight">จากซ้ายไปขวา</string>
-  <string id="RightToLeft">จากขวาไปซ้าย</string>
-  <string id="SettingsWidgetStart">(เฉพาะวิดเจ็ต) เริ่มแอปพลิเคชันจากวิดเจ็ตโดยอัตโนมัติโดยไม่ต้องรอแตะ</string>
-  <string id="SettingsEnableBatteryLevel">เปิดใช้งานบริการพื้นหลังเพื่อส่งระดับแบตเตอรี่ของอุปกรณ์ ตำแหน่ง และข้อมูลกิจกรรม (ถ้ารองรับ) ไปยัง Home Assistant</string>
-  <string id="SettingsBatteryLevelRefreshRate">อัตราการรีเฟรช (เป็นนาที) ที่บริการพื้นหลังควรจะส่งข้อมูลซ้ำ</string>
-  <string id="WebhookId">(อ่านอย่างเดียว) ID เว็บฮุกที่สร้างโดยอุปกรณ์สำหรับการอัปเดตบริการเบื้องหลัง คุณอาจต้องใช้สิ่งนี้เพื่อแก้ไขข้อบกพร่อง</string>
+  <string id="RightToLeft">ขวาไปซ้าย</string>
+  <string id="SettingsWidgetStart">(วิดเจ็ตเท่านั้น) เริ่มแอปพลิเคชันจากวิดเจ็ตโดยอัตโนมัติโดยไม่ต้องรอแตะ</string>
+  <string id="SettingsEnableBatteryLevel">เปิดใช้งานบริการพื้นหลังเพื่อส่งระดับแบตเตอรี่ของอุปกรณ์ตำแหน่งและข้อมูลกิจกรรม (ถ้ารองรับ) ไปยังผู้ช่วยที่บ้าน</string>
+  <string id="SettingsBatteryLevelRefreshRate">อัตราการรีเฟรช (ในไม่กี่นาที) ที่บริการพื้นหลังควรส่งข้อมูลซ้ำ</string>
+  <string id="WebhookId">(อ่านเท่านั้น) ID WebHook ที่สร้างโดยอุปกรณ์สำหรับการอัปเดตบริการพื้นหลัง คุณอาจต้องการสิ่งนี้สำหรับการดีบัก</string>
+  <string id="WifiLteExecution">โหมดการดำเนินการ Wi-Fi/LTE</string>
+  <string id="WifiLteExecutionEnable">เปิดใช้งานการดำเนินการคำสั่งผ่าน Wi-Fi/LTE</string>
+  <string id="WifiLteExecutionDescription">อนุญาตให้แอปเริ่มต้นโดยไม่ต้องเชื่อมต่อโทรศัพท์ (เมื่อเมนูถูกแคช) และแจ้งให้เรียกใช้คำสั่งผ่าน Wi-Fi/LTE</string>
 </strings>
