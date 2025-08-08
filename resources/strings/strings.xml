@@ -57,6 +57,9 @@
   <string id="SettingsConfigUrl">URL for menu configuration (JSON).</string>
   <string id="SettingsCacheConfig">Should the application cache the menu configuration?</string>
   <string id="SettingsClearCache">Should the application clear the existing cache next time it is started?</string>
+  <string id="WifiLteExecution">Wi-Fi/LTE execution mode.</string>
+  <string id="WifiLteExecutionEnable">Enable executing commands over Wi-Fi/LTE.</string>
+  <string id="WifiLteExecutionDescription">Allows the app to start without phone connection (when menu is cached), and prompt to execute command over Wi-Fi/LTE.</string>
   <string id="SettingsVibration">Should the application provide feedback via vibrations?</string>
   <string id="SettingsAppTimeout">Timeout in seconds. Exit the application after this period of inactivity to save the device battery.</string>
   <string id="SettingsPollDelay">Additional poll delay (in seconds). Adds a delay between the status update of all menu items.</string>
@@ -69,8 +72,9 @@
   <string id="SettingsWidgetStart">(Widget only) Automatically start the application from the widget without waiting for a tap.</string>
   <string id="SettingsEnableBatteryLevel">Enable the background service to send the device battery level, location and (if supported) activity data to Home Assistant.</string>
   <string id="SettingsBatteryLevelRefreshRate">The refresh rate (in minutes) at which the background service should repeat sending data.</string>
+  <string id="SettingsUserHttpHeader">User supplied HTTP header</string>
+  <string id="SettingsUserHttpHeaderDescription">Some Home Assistant installations require the specification of a custom HTTP header in order to function.</string>
+  <string id="SettingsUserHttpHeaderKey">User supplied HTTP header key.</string>
+  <string id="SettingsUserHttpHeaderValue">User supplied HTTP header value.</string>
   <string id="WebhookId">(Read only) The Webhook ID created by the device for background service updates. You might require this for debugging.</string>
-  <string id="WifiLteExecution">Wi-Fi/LTE execution mode.</string>
-  <string id="WifiLteExecutionEnable">Enable executing commands over Wi-Fi/LTE.</string>
-  <string id="WifiLteExecutionDescription">Allows the app to start without phone connection (when menu is cached), and prompt to execute command over Wi-Fi/LTE.</string>
 </strings>

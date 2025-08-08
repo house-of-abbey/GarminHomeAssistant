@@ -119,6 +119,22 @@
     <settingConfig type="numeric" min="5" />
   </setting>
 
+  <group id="userHttpHeader" title="@Strings.SettingsUserHttpHeader" description="@Strings.SettingsUserHttpHeaderDescription">
+    <setting
+      propertyKey="@Properties.user_http_header_key"
+      title="@Strings.SettingsUserHttpHeaderKey"
+    >
+      <settingConfig type="alphaNumeric" />
+    </setting>
+
+    <setting
+      propertyKey="@Properties.user_http_header_value"
+      title="@Strings.SettingsUserHttpHeaderValue"
+    >
+      <settingConfig type="alphaNumeric" />
+    </setting>
+  </group>
+
   <setting
     propertyKey="@Properties.webhook_id"
     title="@Strings.WebhookId"

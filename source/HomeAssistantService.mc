@@ -168,10 +168,10 @@ class HomeAssistantService {
                 data, // Includes {"entity_id": xxxx}
                 {
                     :method       => Communications.HTTP_REQUEST_METHOD_POST,
-                    :headers      => {
+                    :headers      => Settings.augmentHttpHeaders({
                         "Content-Type"  => Communications.REQUEST_CONTENT_TYPE_JSON,
                         "Authorization" => "Bearer " + Settings.getApiKey()
-                    },
+                    }),
                     :responseType => Communications.HTTP_RESPONSE_CONTENT_TYPE_JSON,
                     :context      => {
                         :entity_id => entity_id,

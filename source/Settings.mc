@@ -47,6 +47,10 @@ class Settings {
     private static var mIsSensorsLevelEnabled as Lang.Boolean = false;
     //! minutes
     private static var mBatteryRefreshRate    as Lang.Number  = 15;
+    //! Additional user configurable HTTP header key
+    private static var mUserHeaderKey         as Lang.String  = "";
+    //! Additional user configurable HTTP header value
+    private static var mUserHeaderValue       as Lang.String  = "";
     private static var mIsApp                 as Lang.Boolean = false;
     private static var mHasService            as Lang.Boolean = false;
     //! Must keep the object so it doesn't get garbage collected.
@@ -71,6 +75,8 @@ class Settings {
         mMenuAlignment         = Properties.getValue("menu_alignment");
         mIsSensorsLevelEnabled = Properties.getValue("enable_battery_level");
         mBatteryRefreshRate    = Properties.getValue("battery_level_refresh_rate");
+        mUserHeaderKey         = Properties.getValue("user_http_header_key");
+        mUserHeaderValue       = Properties.getValue("user_http_header_value");
     }
 
     //! A webhook is required for non-privileged API calls.
@@ -282,6 +288,19 @@ class Settings {
             Background.deleteTemporalEvent();
             Background.deleteActivityCompletedEvent();
         }
+    }
+
+    //! Augment the HTTP header options passed in with the user configurable HTTP header key and value.
+    //!
+    //! @param options The HTTP header options to augment.
+    //!
+    //! @return The augmented HTTP header options.
+    //
+    static function augmentHttpHeaders(options as Lang.Dictionary) {
+        if (mUserHeaderKey != null && mUserHeaderKey != "" && mUserHeaderValue != null && mUserHeaderValue != "") {
+            options[mUserHeaderKey] = mUserHeaderValue;
+        }
+        return options;
     }
 
 }

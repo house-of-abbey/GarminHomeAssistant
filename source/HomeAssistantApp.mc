@@ -287,7 +287,8 @@ class HomeAssistantApp extends Application.AppBase {
                         null,
                         {
                             :method       => Communications.HTTP_REQUEST_METHOD_GET,
-                            :responseType => Communications.HTTP_RESPONSE_CONTENT_TYPE_JSON
+                            :responseType => Communications.HTTP_RESPONSE_CONTENT_TYPE_JSON,
+                            :headers      => Settings.augmentHttpHeaders({})
                         },
                         method(:onReturnFetchMenuConfig)
                     );
@@ -501,9 +502,9 @@ class HomeAssistantApp extends Application.AppBase {
                 },
                 {
                     :method       => Communications.HTTP_REQUEST_METHOD_POST,
-                    :headers      => {
+                    :headers      => Settings.augmentHttpHeaders({
                         "Content-Type" => Communications.REQUEST_CONTENT_TYPE_JSON
-                    },
+                    }),
                     :responseType => Communications.HTTP_RESPONSE_CONTENT_TYPE_JSON
                 },
                 method(:onReturnUpdateMenuItems)
@@ -619,9 +620,9 @@ class HomeAssistantApp extends Application.AppBase {
                     null,
                     {
                         :method       => Communications.HTTP_REQUEST_METHOD_GET,
-                        :headers      => {
+                        :headers      => Settings.augmentHttpHeaders({
                             "Authorization" => "Bearer " + Settings.getApiKey()
-                        },
+                        }),
                         :responseType => Communications.HTTP_RESPONSE_CONTENT_TYPE_JSON
                     },
                     method(:onReturnFetchApiStatus)
@@ -714,9 +715,9 @@ class HomeAssistantApp extends Application.AppBase {
                 },
                 {
                     :method       => Communications.HTTP_REQUEST_METHOD_POST,
-                    :headers      => {
+                    :headers      => Settings.augmentHttpHeaders({
                         "Content-Type" => Communications.REQUEST_CONTENT_TYPE_JSON
-                    },
+                    }),
                     :responseType => Communications.HTTP_RESPONSE_CONTENT_TYPE_JSON
                 },
                 method(:onReturnFetchGlanceContent)
