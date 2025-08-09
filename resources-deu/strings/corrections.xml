@@ -34,9 +34,9 @@
 
   <string id="GlanceMenu" scope="glance">Menü</string>
   <string id="Memory" scope="glance">Speicher</string>
-  <string id="NoAPIKey" scope="glance">Kein API-Schlüssel in den App-Einstellungen vorhanden.</string>
-  <string id="NoApiUrl" scope="glance">Keine API-URL in den App-Einstellungen vorhanden.</string>
-  <string id="NoConfigUrl" scope="glance">Keine Konfigurations-URL in den App-Einstellungen vorhanden.</string>
+  <string id="NoAPIKey" scope="glance">Kein API-Schlüssel in den App-Einstellungen hinterlegt.</string>
+  <string id="NoApiUrl" scope="glance">Keine API-URL in den App-Einstellungen hinterlegt.</string>
+  <string id="NoConfigUrl" scope="glance">Keine Menükonfigurations-URL (JSON) in den App-Einstellungen hinterlegt.</string>
   
   <string id="NoJson">Keine JSON-Datei aus der HTTP-Anfrage zurückbekommen.</string>
   
@@ -80,5 +80,9 @@
   <string id="SettingsWidgetStart">(Nur Widget) App automatisch aus dem Widget starten, ohne auf Tippen zu warten.</string>
   <string id="SettingsEnableBatteryLevel">Hintergrunddienst aktivieren, um Akkustand, Standort und (falls unterstützt) Aktivitätsdaten an Home Assistant zu senden.</string>
   <string id="SettingsBatteryLevelRefreshRate">Intervall (in Minuten), in dem der Hintergrunddienst die Daten erneut senden soll.</string>
+  <string id="SettingsUserHttpHeader">Zusätzlicher HTTP-Header</string>
+  <string id="SettingsUserHttpHeaderDescription">Einige Home Assistant-Installationen erfordern die Angabe eines benutzerdefinierten HTTP-Headers, um zu funktionieren.</string>
+  <string id="SettingsUserHttpHeaderKey">Zusätzlicher HTTP-Header: Key</string>
+  <string id="SettingsUserHttpHeaderValue">Zusätzlicher HTTP-Header: Value</string>
   <string id="WebhookId">(Nur lesen) Die vom Gerät erstellte Webhook-ID für Hintergrund-Updates. Kann zum Debuggen benötigt werden.</string>
 </strings>
