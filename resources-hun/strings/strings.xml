@@ -62,6 +62,9 @@
   <string id="SettingsConfigUrl">URL a menükonfigurációhoz (JSON).</string>
   <string id="SettingsCacheConfig">Az alkalmazásnak gyorsítótáraznia kell a menükonfigurációt?</string>
   <string id="SettingsClearCache">Az alkalmazásnak törölnie kell -e a meglévő gyorsítótárat a következő indításkor?</string>
+  <string id="WifiLteExecution">Wi-Fi/LTE végrehajtási mód.</string>
+  <string id="WifiLteExecutionEnable">Engedélyezze a parancsok végrehajtási végrehajtását a Wi-Fi/LTE-n keresztül.</string>
+  <string id="WifiLteExecutionDescription">Lehetővé teszi az alkalmazás számára, hogy telefonkapcsolat nélkül induljon (amikor a menü gyorsítótárban van), és kérje a parancs végrehajtását a Wi-Fi/LTE-en keresztül.</string>
   <string id="SettingsVibration">Az alkalmazásnak visszacsatolást kell adnia a rezgések révén?</string>
   <string id="SettingsAppTimeout">Időtúllépés másodpercek alatt. Az eszköz akkumulátorának mentése érdekében kilépjen az alkalmazásból az inaktivitás után.</string>
   <string id="SettingsPollDelay">További közvélemény -kutatási késleltetés (másodpercek alatt). Hozzáad egy késleltetést az összes menüelem állapotfrissítése között.</string>
@@ -74,8 +77,9 @@
   <string id="SettingsWidgetStart">(Csak widget) automatikusan indítsa el az alkalmazást a widgetről, anélkül, hogy megérintené a csapot.</string>
   <string id="SettingsEnableBatteryLevel">Engedélyezze, hogy a háttérszolgáltatás az eszköz akkumulátorának szintjét, helyét és (ha támogatott) tevékenységi adatait elküldi az otthoni asszisztensnek.</string>
   <string id="SettingsBatteryLevelRefreshRate">A háttérszolgáltatásnak a küldési adatokkal kell megismételnie a frissítési arányt (percekben).</string>
+  <string id="SettingsUserHttpHeader">A felhasználó szállított HTTP fejléc</string>
+  <string id="SettingsUserHttpHeaderDescription">Néhány otthoni asszisztens telepítéshez a működéshez egyéni HTTP fejléc meghatározására van szükség.</string>
+  <string id="SettingsUserHttpHeaderKey">A felhasználó szállított HTTP fejléc gombot.</string>
+  <string id="SettingsUserHttpHeaderValue">A felhasználó szállított HTTP fejléc értékét.</string>
   <string id="WebhookId">(Csak olvassa el) Az eszköz által létrehozott webhook azonosító a háttérszolgáltatás frissítéseihez. Lehet, hogy ezt a hibakereséshez szükség lehet.</string>
-  <string id="WifiLteExecution">Wi-Fi/LTE végrehajtási mód.</string>
-  <string id="WifiLteExecutionEnable">Engedélyezze a parancsok végrehajtási végrehajtását a Wi-Fi/LTE-n keresztül.</string>
-  <string id="WifiLteExecutionDescription">Lehetővé teszi az alkalmazás számára, hogy telefonkapcsolat nélkül induljon (amikor a menü gyorsítótárban van), és kérje a parancs végrehajtását a Wi-Fi/LTE-en keresztül.</string>
 </strings>

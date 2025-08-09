@@ -62,6 +62,9 @@
   <string id="SettingsConfigUrl">URL for menykonfigurasjon (JSON).</string>
   <string id="SettingsCacheConfig">Bør applikasjonsbufferen menykonfigurasjonen?</string>
   <string id="SettingsClearCache">Bør applikasjonen fjerne den eksisterende cachen neste gang den startes?</string>
+  <string id="WifiLteExecution">Wi-Fi/LTE utførelsesmodus.</string>
+  <string id="WifiLteExecutionEnable">Aktiver utførende kommandoer over Wi-Fi/LTE.</string>
+  <string id="WifiLteExecutionDescription">Lar appen starte uten telefonforbindelse (når menyen er hurtigbufret), og be om å utføre kommando over Wi-Fi/LTE.</string>
   <string id="SettingsVibration">Bør applikasjonen gi tilbakemelding via vibrasjoner?</string>
   <string id="SettingsAppTimeout">Tidsavbrudd på sekunder. Gå ut av applikasjonen etter denne perioden med inaktivitet for å lagre enhetsbatteriet.</string>
   <string id="SettingsPollDelay">Ytterligere avstemningsforsinkelse (på sekunder). Legger til en forsinkelse mellom statusoppdateringen av alle menyelementer.</string>
@@ -74,8 +77,9 @@
   <string id="SettingsWidgetStart">(Bare widget) Start automatisk applikasjonen fra widgeten uten å vente på et trykk.</string>
   <string id="SettingsEnableBatteryLevel">Aktiver bakgrunnstjenesten å sende enhetens batterinivå, plassering og (hvis støttet) aktivitetsdata til hjemmeassistent.</string>
   <string id="SettingsBatteryLevelRefreshRate">Oppdateringsfrekvensen (på få minutter) som bakgrunnstjenesten skal gjenta sendingsdata.</string>
+  <string id="SettingsUserHttpHeader">Bruker levert HTTP -overskrift</string>
+  <string id="SettingsUserHttpHeaderDescription">Noen hjemmeassistentinstallasjoner krever spesifikasjon av en tilpasset HTTP -overskrift for å fungere.</string>
+  <string id="SettingsUserHttpHeaderKey">Bruker levert HTTP -topptast.</string>
+  <string id="SettingsUserHttpHeaderValue">Bruker levert HTTP -overskriftsverdi.</string>
   <string id="WebhookId">(Bare les) Webhook -IDen som er opprettet av enheten for oppdateringer av bakgrunnstjenester. Du kan kreve dette for feilsøking.</string>
-  <string id="WifiLteExecution">Wi-Fi/LTE utførelsesmodus.</string>
-  <string id="WifiLteExecutionEnable">Aktiver utførende kommandoer over Wi-Fi/LTE.</string>
-  <string id="WifiLteExecutionDescription">Lar appen starte uten telefonforbindelse (når menyen er hurtigbufret), og be om å utføre kommando over Wi-Fi/LTE.</string>
 </strings>

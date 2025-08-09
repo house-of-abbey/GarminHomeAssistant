@@ -62,6 +62,9 @@
   <string id="SettingsConfigUrl">URL para configuração de menu (JSON).</string>
   <string id="SettingsCacheConfig">O aplicativo deve cache a configuração do menu?</string>
   <string id="SettingsClearCache">O aplicativo deve limpar o cache existente na próxima vez que for iniciado?</string>
+  <string id="WifiLteExecution">Modo de execução Wi-Fi/LTE.</string>
+  <string id="WifiLteExecutionEnable">Habilite os comandos de execução sobre Wi-Fi/LTE.</string>
+  <string id="WifiLteExecutionDescription">Permite que o aplicativo inicie sem conexão de telefone (quando o menu é armazenado em cache) e solicite a execução do comando sobre Wi-Fi/LTE.</string>
   <string id="SettingsVibration">O aplicativo deve fornecer feedback por meio de vibrações?</string>
   <string id="SettingsAppTimeout">Tempo limite em segundos. Saia do aplicativo após esse período de inatividade para salvar a bateria do dispositivo.</string>
   <string id="SettingsPollDelay">Atraso adicional da pesquisa (em segundos). Adiciona um atraso entre a atualização de status de todos os itens do menu.</string>
@@ -74,8 +77,9 @@
   <string id="SettingsWidgetStart">(Somente widget) Inicie automaticamente o aplicativo do widget sem esperar por um toque.</string>
   <string id="SettingsEnableBatteryLevel">Habilite o serviço em segundo plano para enviar o nível da bateria do dispositivo, localização e (se suportado) dados de atividade para o assistente doméstico.</string>
   <string id="SettingsBatteryLevelRefreshRate">A taxa de atualização (em minutos) na qual o serviço em segundo plano deve repetir os dados de envio.</string>
+  <string id="SettingsUserHttpHeader">Usuário fornecido pelo cabeçalho HTTP</string>
+  <string id="SettingsUserHttpHeaderDescription">Algumas instalações de assistente doméstica exigem a especificação de um cabeçalho HTTP personalizado para funcionar.</string>
+  <string id="SettingsUserHttpHeaderKey">Chave do cabeçalho HTTP fornecido pelo usuário.</string>
+  <string id="SettingsUserHttpHeaderValue">Valor do cabeçalho HTTP fornecido pelo usuário.</string>
   <string id="WebhookId">(Somente leitura) O ID do webhook criado pelo dispositivo para atualizações de serviço em segundo plano. Você pode exigir isso para depuração.</string>
-  <string id="WifiLteExecution">Modo de execução Wi-Fi/LTE.</string>
-  <string id="WifiLteExecutionEnable">Habilite os comandos de execução sobre Wi-Fi/LTE.</string>
-  <string id="WifiLteExecutionDescription">Permite que o aplicativo inicie sem conexão de telefone (quando o menu é armazenado em cache) e solicite a execução do comando sobre Wi-Fi/LTE.</string>
 </strings>

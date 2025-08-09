@@ -62,6 +62,9 @@
   <string id="SettingsConfigUrl">URL untuk Konfigurasi Menu (JSON).</string>
   <string id="SettingsCacheConfig">Sekiranya aplikasi cache konfigurasi menu?</string>
   <string id="SettingsClearCache">Sekiranya permohonan membersihkan cache yang sedia ada pada masa akan datang, ia bermula?</string>
+  <string id="WifiLteExecution">Mod pelaksanaan Wi-Fi/LTE.</string>
+  <string id="WifiLteExecutionEnable">Dayakan perintah melaksanakan melalui Wi-Fi/LTE.</string>
+  <string id="WifiLteExecutionDescription">Membolehkan aplikasi bermula tanpa sambungan telefon (apabila menu di-cache), dan segera untuk melaksanakan perintah melalui Wi-Fi/LTE.</string>
   <string id="SettingsVibration">Sekiranya permohonan memberikan maklum balas melalui getaran?</string>
   <string id="SettingsAppTimeout">Tamat masa dalam beberapa saat. Keluar dari permohonan selepas tempoh tidak aktif ini untuk menyimpan bateri peranti.</string>
   <string id="SettingsPollDelay">Kelewatan tinjauan tambahan (dalam saat). Menambah kelewatan antara kemas kini status semua item menu.</string>
@@ -74,8 +77,9 @@
   <string id="SettingsWidgetStart">(Widget sahaja) Secara automatik memulakan aplikasi dari widget tanpa menunggu ketuk.</string>
   <string id="SettingsEnableBatteryLevel">Dayakan perkhidmatan latar belakang untuk menghantar data aktiviti bateri, lokasi dan (jika disokong) ke Pembantu Rumah.</string>
   <string id="SettingsBatteryLevelRefreshRate">Kadar penyegaran (dalam minit) di mana perkhidmatan latar belakang harus mengulangi data menghantar.</string>
+  <string id="SettingsUserHttpHeader">Pengguna membekalkan header HTTP</string>
+  <string id="SettingsUserHttpHeaderDescription">Sesetengah pemasangan pembantu rumah memerlukan spesifikasi header HTTP tersuai untuk berfungsi.</string>
+  <string id="SettingsUserHttpHeaderKey">Pengguna membekalkan kunci header HTTP.</string>
+  <string id="SettingsUserHttpHeaderValue">Pengguna membekalkan nilai header HTTP.</string>
   <string id="WebhookId">(Baca sahaja) ID Webhook yang dibuat oleh peranti untuk kemas kini perkhidmatan latar belakang. Anda mungkin memerlukan ini untuk debugging.</string>
-  <string id="WifiLteExecution">Mod pelaksanaan Wi-Fi/LTE.</string>
-  <string id="WifiLteExecutionEnable">Dayakan perintah melaksanakan melalui Wi-Fi/LTE.</string>
-  <string id="WifiLteExecutionDescription">Membolehkan aplikasi bermula tanpa sambungan telefon (apabila menu di-cache), dan segera untuk melaksanakan perintah melalui Wi-Fi/LTE.</string>
 </strings>

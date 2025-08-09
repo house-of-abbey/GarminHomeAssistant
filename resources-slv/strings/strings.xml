@@ -62,6 +62,9 @@
   <string id="SettingsConfigUrl">URL za konfiguracijo menija (JSON).</string>
   <string id="SettingsCacheConfig">Ali naj aplikacija predpomni konfiguracija menija?</string>
   <string id="SettingsClearCache">Ali bi morala aplikacija očistiti obstoječi predpomnilnik naslednjič, ko se začne?</string>
+  <string id="WifiLteExecution">Način izvedbe Wi-Fi/LTE.</string>
+  <string id="WifiLteExecutionEnable">Omogoči izvajanje ukazov prek Wi-Fi/LTE.</string>
+  <string id="WifiLteExecutionDescription">Omogoča, da se aplikacija zažene brez telefonske povezave (ko je meni predpomnjen), in poziva, da izvede ukaz prek Wi-Fi/LTE.</string>
   <string id="SettingsVibration">Ali bi morala aplikacija posredovati povratne informacije z vibracijami?</string>
   <string id="SettingsAppTimeout">Časovna omejitev v nekaj sekundah. Po tem obdobju neaktivnosti zapustite aplikacijo, da shranite baterijo naprave.</string>
   <string id="SettingsPollDelay">Dodatna zamuda ankete (v sekundah). Doda zamudo med posodobitvijo stanja vseh elementov menija.</string>
@@ -74,8 +77,9 @@
   <string id="SettingsWidgetStart">(Samo pripomoček) Samodejno zaženite aplikacijo iz pripomočka, ne da bi čakali na pipo.</string>
   <string id="SettingsEnableBatteryLevel">Omogočite, da storitve v ozadju pošljete raven baterije naprave, lokacijo in (če so podprte) podatki o dejavnostih domačemu asistentu.</string>
   <string id="SettingsBatteryLevelRefreshRate">Hitrost osveževanja (v nekaj minutah), pri kateri naj bo storitev v ozadju ponovila podatke za pošiljanje.</string>
+  <string id="SettingsUserHttpHeader">Uporabnik je dobavil Http Header</string>
+  <string id="SettingsUserHttpHeaderDescription">Nekatere namestitve domačega asistenta zahtevajo specifikacijo glave HTTP po meri za delovanje.</string>
+  <string id="SettingsUserHttpHeaderKey">Uporabnik je dobavil ključ HTTP Header.</string>
+  <string id="SettingsUserHttpHeaderValue">Uporabnik je dobavil vrednost HTTP Header.</string>
   <string id="WebhookId">(Samo preberite) ID spletnega mesta, ki ga je ustvarila naprava za posodobitve storitev v ozadju. To boste morda potrebovali za odpravljanje napak.</string>
-  <string id="WifiLteExecution">Način izvedbe Wi-Fi/LTE.</string>
-  <string id="WifiLteExecutionEnable">Omogoči izvajanje ukazov prek Wi-Fi/LTE.</string>
-  <string id="WifiLteExecutionDescription">Omogoča, da se aplikacija zažene brez telefonske povezave (ko je meni predpomnjen), in poziva, da izvede ukaz prek Wi-Fi/LTE.</string>
 </strings>

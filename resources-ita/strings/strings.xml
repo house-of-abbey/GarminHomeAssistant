@@ -62,6 +62,9 @@
   <string id="SettingsConfigUrl">URL per la configurazione del menu (JSON).</string>
   <string id="SettingsCacheConfig">L'applicazione dovrebbe memorizzare la cache della configurazione del menu?</string>
   <string id="SettingsClearCache">L'applicazione dovrebbe cancellare la cache esistente la prossima volta che viene avviata?</string>
+  <string id="WifiLteExecution">Modalità di esecuzione Wi-Fi/LTE.</string>
+  <string id="WifiLteExecutionEnable">Abilita l'esecuzione dei comandi su Wi-Fi/LTE.</string>
+  <string id="WifiLteExecutionDescription">Consente all'app di avviare senza connessione telefonica (quando il menu è memorizzato nella cache) e prompt di eseguire il comando tramite Wi-Fi/LTE.</string>
   <string id="SettingsVibration">L'applicazione dovrebbe fornire feedback tramite vibrazioni?</string>
   <string id="SettingsAppTimeout">Timeout in secondi. Esci dall'applicazione dopo questo periodo di inattività per salvare la batteria del dispositivo.</string>
   <string id="SettingsPollDelay">Ritardo del sondaggio aggiuntivo (in secondi). Aggiunge un ritardo tra l'aggiornamento dello stato di tutte le voci di menu.</string>
@@ -74,8 +77,9 @@
   <string id="SettingsWidgetStart">(Solo widget) Avviare automaticamente l'applicazione dal widget senza aspettare un tocco.</string>
   <string id="SettingsEnableBatteryLevel">Abilita il servizio di fondo per inviare i dati di attività della batteria, posizione e (se supportati) ad Assistente Home Assistant.</string>
   <string id="SettingsBatteryLevelRefreshRate">La frequenza di aggiornamento (in minuti) in cui il servizio di fondo deve ripetere l'invio di dati.</string>
+  <string id="SettingsUserHttpHeader">Intestazione HTTP fornita dall'utente</string>
+  <string id="SettingsUserHttpHeaderDescription">Alcune installazioni di assistenti domestici richiedono la specifica di un'intestazione HTTP personalizzata per funzionare.</string>
+  <string id="SettingsUserHttpHeaderKey">Chiave di intestazione HTTP fornita dall'utente.</string>
+  <string id="SettingsUserHttpHeaderValue">Valore dell'intestazione HTTP fornito dall'utente.</string>
   <string id="WebhookId">(Solo lettura) L'ID WebHook creato dal dispositivo per gli aggiornamenti del servizio in background. Potresti richiederlo per il debug.</string>
-  <string id="WifiLteExecution">Modalità di esecuzione Wi-Fi/LTE.</string>
-  <string id="WifiLteExecutionEnable">Abilita l'esecuzione dei comandi su Wi-Fi/LTE.</string>
-  <string id="WifiLteExecutionDescription">Consente all'app di avviare senza connessione telefonica (quando il menu è memorizzato nella cache) e prompt di eseguire il comando tramite Wi-Fi/LTE.</string>
 </strings>

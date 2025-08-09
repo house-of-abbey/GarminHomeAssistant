@@ -62,6 +62,9 @@
   <string id="SettingsConfigUrl">URL dla konfiguracji menu (JSON).</string>
   <string id="SettingsCacheConfig">Czy aplikacja powinna buforować konfigurację menu?</string>
   <string id="SettingsClearCache">Czy aplikacja powinna wyczyścić istniejącą pamięć podręczną następnym razem, gdy zostanie uruchomiona?</string>
+  <string id="WifiLteExecution">Tryb wykonania Wi-Fi/LTE.</string>
+  <string id="WifiLteExecutionEnable">Włącz wykonywanie poleceń przez Wi-Fi/LTE.</string>
+  <string id="WifiLteExecutionDescription">Umożliwia aplikację uruchamianie bez połączenia telefonicznego (gdy menu jest buforowane) i monit o wykonanie polecenia przez Wi-Fi/LTE.</string>
   <string id="SettingsVibration">Czy aplikacja powinna przekazywać informacje zwrotne za pośrednictwem wibracji?</string>
   <string id="SettingsAppTimeout">Limit czasu w sekundach. Wyjdź z aplikacji po tym okresie bezczynności, aby zapisać akumulator urządzenia.</string>
   <string id="SettingsPollDelay">Dodatkowe opóźnienie ankiety (w sekundach). Dodaje opóźnienie między aktualizacją statusu wszystkich elementów menu.</string>
@@ -74,8 +77,9 @@
   <string id="SettingsWidgetStart">(Tylko widżet) Automatycznie uruchom aplikację z widżetu bez oczekiwania na dotknięcie.</string>
   <string id="SettingsEnableBatteryLevel">Włącz usługę w tle wysyłanie poziomu baterii, lokalizacji i (jeśli jest obsługiwane) dane o aktywności do Asystenta Home.</string>
   <string id="SettingsBatteryLevelRefreshRate">Szybkość odświeżania (w minutach), w której usługa tła powinna powtarzać dane wysyłania.</string>
+  <string id="SettingsUserHttpHeader">Dostarczony przez użytkownika nagłówek HTTP</string>
+  <string id="SettingsUserHttpHeaderDescription">Niektóre instalacje asystentów domowych wymagają specyfikacji niestandardowego nagłówka HTTP w celu funkcjonowania.</string>
+  <string id="SettingsUserHttpHeaderKey">Klucz nagłówka HTTP dostarczony przez użytkownika.</string>
+  <string id="SettingsUserHttpHeaderValue">Dostarczona przez użytkownika wartość nagłówka HTTP.</string>
   <string id="WebhookId">(Tylko odczyt) Identyfikator WebHook utworzony przez urządzenie dla aktualizacji usług w tle. Możesz tego wymagać do debugowania.</string>
-  <string id="WifiLteExecution">Tryb wykonania Wi-Fi/LTE.</string>
-  <string id="WifiLteExecutionEnable">Włącz wykonywanie poleceń przez Wi-Fi/LTE.</string>
-  <string id="WifiLteExecutionDescription">Umożliwia aplikację uruchamianie bez połączenia telefonicznego (gdy menu jest buforowane) i monit o wykonanie polecenia przez Wi-Fi/LTE.</string>
 </strings>

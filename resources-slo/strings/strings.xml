@@ -62,6 +62,9 @@
   <string id="SettingsConfigUrl">URL pre konfiguráciu ponuky (JSON).</string>
   <string id="SettingsCacheConfig">Mala by sa aplikácia vyrovnávať konfiguráciu ponuky?</string>
   <string id="SettingsClearCache">Mala by aplikácia vymazať existujúcu vyrovnávaciu pamäť nabudúce, keď sa začne?</string>
+  <string id="WifiLteExecution">Režim vykonávania Wi-Fi/LTE.</string>
+  <string id="WifiLteExecutionEnable">Povoliť vykonávanie príkazov cez Wi-Fi/LTE.</string>
+  <string id="WifiLteExecutionDescription">Umožňuje aplikácii spustiť bez pripojenia telefónu (keď je ponuka ukladaná do vyrovnávacej pamäte) a výzva na vykonanie príkazu cez Wi-Fi/LTE.</string>
   <string id="SettingsVibration">Mala by aplikácia poskytovať spätnú väzbu prostredníctvom vibrácií?</string>
   <string id="SettingsAppTimeout">Časový limit v sekundách. Opustite aplikáciu po tomto období nečinnosti, aby ste uložili batériu zariadenia.</string>
   <string id="SettingsPollDelay">Ďalšie oneskorenie ankety (v sekundách). Pridáva oneskorenie medzi aktualizáciou stavu všetkých položiek ponuky.</string>
@@ -74,8 +77,9 @@
   <string id="SettingsWidgetStart">(Iba widget) Automaticky spustite aplikáciu z miniaplikácie bez čakania na kohútik.</string>
   <string id="SettingsEnableBatteryLevel">Povoľte službu na pozadí, ktorá bude do Home Assistenta odosielať údaje o stave batérie zariadenia, polohe a (ak je podporované) o aktivite.</string>
   <string id="SettingsBatteryLevelRefreshRate">Rýchlosť obnovenia (v minútach), pri ktorej by služba pozadia mala opakovať odosielanie údajov.</string>
+  <string id="SettingsUserHttpHeader">Hlavička HTTP dodaná používateľom</string>
+  <string id="SettingsUserHttpHeaderDescription">Niektoré inštalácie domáceho asistenta vyžadujú, aby sa na fungovanie špecifikácia vlastnej hlavičky HTTP.</string>
+  <string id="SettingsUserHttpHeaderKey">Kľúč hlavičky HTTP dodávaný používateľom.</string>
+  <string id="SettingsUserHttpHeaderValue">Hodnota hlavičky HTTP dodaná používateľom.</string>
   <string id="WebhookId">(Iba prečítajte) ID WebHook vytvorené zariadením pre aktualizácie služieb na pozadí. Možno to potrebujete na ladenie.</string>
-  <string id="WifiLteExecution">Režim vykonávania Wi-Fi/LTE.</string>
-  <string id="WifiLteExecutionEnable">Povoliť vykonávanie príkazov cez Wi-Fi/LTE.</string>
-  <string id="WifiLteExecutionDescription">Umožňuje aplikácii spustiť bez pripojenia telefónu (keď je ponuka ukladaná do vyrovnávacej pamäte) a výzva na vykonanie príkazu cez Wi-Fi/LTE.</string>
 </strings>

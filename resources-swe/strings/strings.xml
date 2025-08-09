@@ -62,6 +62,9 @@
   <string id="SettingsConfigUrl">URL för menykonfiguration (JSON).</string>
   <string id="SettingsCacheConfig">Bör applikationen cache menykonfigurationen?</string>
   <string id="SettingsClearCache">Bör applikationen rensa den befintliga cachen nästa gång den startas?</string>
+  <string id="WifiLteExecution">Wi-Fi/LTE exekveringsläge.</string>
+  <string id="WifiLteExecutionEnable">Aktivera körkommandon över Wi-Fi/LTE.</string>
+  <string id="WifiLteExecutionDescription">Tillåter appen att starta utan telefonanslutning (när menyn är cachad) och uppmanas att köra kommando över Wi-Fi/LTE.</string>
   <string id="SettingsVibration">Bör applikationen ge feedback via vibrationer?</string>
   <string id="SettingsAppTimeout">Timeout på några sekunder. Avsluta applikationen efter denna inaktivitetsperiod för att spara enhetsbatteriet.</string>
   <string id="SettingsPollDelay">Ytterligare undersökningsfördröjning (på några sekunder). Lägger till en försening mellan statusuppdateringen av alla menyalternativ.</string>
@@ -74,8 +77,9 @@
   <string id="SettingsWidgetStart">(Endast widget) Starta automatiskt applikationen från widgeten utan att vänta på en kran.</string>
   <string id="SettingsEnableBatteryLevel">Aktivera bakgrundstjänsten att skicka enhetens batterinivå, plats och (om stödd) aktivitetsdata till hemassistent.</string>
   <string id="SettingsBatteryLevelRefreshRate">Uppdateringsfrekvensen (på några minuter) där bakgrundstjänsten ska upprepa skicka data.</string>
+  <string id="SettingsUserHttpHeader">Användar levererad HTTP -rubrik</string>
+  <string id="SettingsUserHttpHeaderDescription">Vissa hemassistentinstallationer kräver specifikation av en anpassad HTTP -rubrik för att fungera.</string>
+  <string id="SettingsUserHttpHeaderKey">Användare levererad HTTP -rubriknyckel.</string>
+  <string id="SettingsUserHttpHeaderValue">Användare levererat HTTP -rubrikvärde.</string>
   <string id="WebhookId">(Endast läs) Webhook -ID som skapats av enheten för uppdateringar av bakgrundstjänster. Du kan behöva detta för felsökning.</string>
-  <string id="WifiLteExecution">Wi-Fi/LTE exekveringsläge.</string>
-  <string id="WifiLteExecutionEnable">Aktivera körkommandon över Wi-Fi/LTE.</string>
-  <string id="WifiLteExecutionDescription">Tillåter appen att starta utan telefonanslutning (när menyn är cachad) och uppmanas att köra kommando över Wi-Fi/LTE.</string>
 </strings>

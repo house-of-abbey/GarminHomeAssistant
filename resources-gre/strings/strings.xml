@@ -62,6 +62,9 @@
   <string id="SettingsConfigUrl">URL για διαμόρφωση μενού (JSON).</string>
   <string id="SettingsCacheConfig">Πρέπει η προσωρινή μνήμη εφαρμογής τη διαμόρφωση μενού;</string>
   <string id="SettingsClearCache">Πρέπει η εφαρμογή να διαγράψει την υπάρχουσα μνήμη cache την επόμενη φορά που θα ξεκινήσει;</string>
+  <string id="WifiLteExecution">Λειτουργία εκτέλεσης Wi-Fi/LTE.</string>
+  <string id="WifiLteExecutionEnable">Ενεργοποιήστε τις εντολές εκτέλεσης μέσω Wi-Fi/LTE.</string>
+  <string id="WifiLteExecutionDescription">Επιτρέπει στην εφαρμογή να ξεκινά χωρίς σύνδεση τηλεφώνου (όταν το μενού αποθηκεύεται) και προτρέπεται να εκτελέσει εντολή μέσω Wi-Fi/LTE.</string>
   <string id="SettingsVibration">Πρέπει η εφαρμογή να παρέχει ανατροφοδότηση μέσω δονήσεων;</string>
   <string id="SettingsAppTimeout">Χρονικό όριο σε δευτερόλεπτα. Βγείτε από την εφαρμογή μετά από αυτήν την περίοδο αδράνειας για να αποθηκεύσετε τη μπαταρία της συσκευής.</string>
   <string id="SettingsPollDelay">Πρόσθετη καθυστέρηση δημοσκόπησης (σε δευτερόλεπτα). Προσθέτει μια καθυστέρηση μεταξύ της ενημέρωσης κατάστασης όλων των στοιχείων μενού.</string>
@@ -74,8 +77,9 @@
   <string id="SettingsWidgetStart">(Μόνο widget) Ξεκινήστε αυτόματα την εφαρμογή από το widget χωρίς να περιμένετε μια βρύση.</string>
   <string id="SettingsEnableBatteryLevel">Ενεργοποιήστε την υπηρεσία φόντου για την αποστολή της στάθμης της μπαταρίας της συσκευής, της θέσης και της (αν υποστηριχθεί) δεδομένων δραστηριότητας στον βοηθό στο σπίτι.</string>
   <string id="SettingsBatteryLevelRefreshRate">Ο ρυθμός ανανέωσης (σε λεπτά) κατά τον οποίο η υπηρεσία φόντου πρέπει να επαναλαμβάνει τα δεδομένα αποστολής.</string>
+  <string id="SettingsUserHttpHeader">Παρέχεται η κεφαλίδα HTTP που παρέχεται από τον χρήστη</string>
+  <string id="SettingsUserHttpHeaderDescription">Ορισμένες εγκαταστάσεις βοηθού στο σπίτι απαιτούν την προδιαγραφή μιας προσαρμοσμένης κεφαλίδας HTTP για να λειτουργήσουν.</string>
+  <string id="SettingsUserHttpHeaderKey">Παρέχεται πλήκτρο κεφαλίδας HTTP HTTP.</string>
+  <string id="SettingsUserHttpHeaderValue">Παρέχεται η τιμή κεφαλίδας HTTP HTTP.</string>
   <string id="WebhookId">(Μόνο διαβάστε) Το αναγνωριστικό WebHook που δημιουργήθηκε από τη συσκευή για ενημερώσεις υπηρεσιών φόντου. Μπορεί να το χρειαστείτε για εντοπισμό σφαλμάτων.</string>
-  <string id="WifiLteExecution">Λειτουργία εκτέλεσης Wi-Fi/LTE.</string>
-  <string id="WifiLteExecutionEnable">Ενεργοποιήστε τις εντολές εκτέλεσης μέσω Wi-Fi/LTE.</string>
-  <string id="WifiLteExecutionDescription">Επιτρέπει στην εφαρμογή να ξεκινά χωρίς σύνδεση τηλεφώνου (όταν το μενού αποθηκεύεται) και προτρέπεται να εκτελέσει εντολή μέσω Wi-Fi/LTE.</string>
 </strings>

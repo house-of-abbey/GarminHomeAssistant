@@ -62,6 +62,9 @@
   <string id="SettingsConfigUrl">URL за конфигуриране на менюто (JSON).</string>
   <string id="SettingsCacheConfig">Трябва ли приложението да кешира конфигурацията на менюто?</string>
   <string id="SettingsClearCache">Трябва ли приложението да изчисти съществуващия кеш следващия път, когато е стартиран?</string>
+  <string id="WifiLteExecution">Режим на изпълнение на Wi-Fi/LTE.</string>
+  <string id="WifiLteExecutionEnable">Активиране на изпълнение на команди над Wi-Fi/LTE.</string>
+  <string id="WifiLteExecutionDescription">Позволява на приложението да стартира без телефонна връзка (когато менюто е кеширано) и подкана за изпълнение на команда през Wi-Fi/LTE.</string>
   <string id="SettingsVibration">Трябва ли приложението да предоставя обратна връзка чрез вибрации?</string>
   <string id="SettingsAppTimeout">Време за изчакване за секунди. Излезте от приложението след този период на бездействие, за да запазите батерията на устройството.</string>
   <string id="SettingsPollDelay">Допълнително забавяне на анкетата (за секунди). Добавя забавяне между актуализацията на състоянието на всички елементи от менюто.</string>
@@ -74,8 +77,9 @@
   <string id="SettingsWidgetStart">(Само при джаджа) Автоматично стартирайте приложението от джаджата, без да чакате докосване.</string>
   <string id="SettingsEnableBatteryLevel">Активирайте фоновата услуга за изпращане на нивото на батерията на устройството, местоположението и (ако се поддържа) данни за активност на домашен асистент.</string>
   <string id="SettingsBatteryLevelRefreshRate">Скоростта на опресняване (за минути), при която фоновата услуга трябва да повтори изпращането на данни.</string>
+  <string id="SettingsUserHttpHeader">Потребител, доставен HTTP заглавка</string>
+  <string id="SettingsUserHttpHeaderDescription">Някои инсталации за домашен асистент изискват спецификация на персонализиран HTTP заглавка, за да функционират.</string>
+  <string id="SettingsUserHttpHeaderKey">Потребител, доставен HTTP заглавен ключ.</string>
+  <string id="SettingsUserHttpHeaderValue">Потребител, доставена стойност на заглавката на HTTP.</string>
   <string id="WebhookId">(Само прочетете) Идентификационният номер на WebHook, създаден от устройството за актуализации на фоновите услуги. Може да се наложи това за отстраняване на грешки.</string>
-  <string id="WifiLteExecution">Режим на изпълнение на Wi-Fi/LTE.</string>
-  <string id="WifiLteExecutionEnable">Активиране на изпълнение на команди над Wi-Fi/LTE.</string>
-  <string id="WifiLteExecutionDescription">Позволява на приложението да стартира без телефонна връзка (когато менюто е кеширано) и подкана за изпълнение на команда през Wi-Fi/LTE.</string>
 </strings>

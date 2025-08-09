@@ -62,6 +62,9 @@
   <string id="SettingsConfigUrl">메뉴 구성 (JSON) 용 URL.</string>
   <string id="SettingsCacheConfig">응용 프로그램이 메뉴 구성을 캐시해야합니까?</string>
   <string id="SettingsClearCache">다음에 시작될 때 응용 프로그램이 기존 캐시를 지우려면?</string>
+  <string id="WifiLteExecution">Wi-Fi/LTE 실행 모드.</string>
+  <string id="WifiLteExecutionEnable">Wi-Fi/LTE를 통해 명령을 실행할 수 있습니다.</string>
+  <string id="WifiLteExecutionDescription">전화 연결없이 앱을 시작할 수 있으며 (메뉴가 캐시 될 때) Wi-Fi/LTE를 통해 명령을 실행하라는 메시지가 표시됩니다.</string>
   <string id="SettingsVibration">응용 프로그램이 진동을 통해 피드백을 제공해야합니까?</string>
   <string id="SettingsAppTimeout">시간 초과 시간 초과. 장치 배터리를 저장하기 위해이 비활성 기간 후에 응용 프로그램을 종료하십시오.</string>
   <string id="SettingsPollDelay">추가 폴링 지연 (초). 모든 메뉴 항목의 상태 업데이트 사이에 지연이 추가됩니다.</string>
@@ -74,8 +77,9 @@
   <string id="SettingsWidgetStart">(위젯 만) 탭을 기다리지 않고 위젯에서 응용 프로그램을 자동으로 시작합니다.</string>
   <string id="SettingsEnableBatteryLevel">배경 서비스가 장치 배터리 레벨, 위치 및 (지원되는 경우) 활동 데이터를 홈 비서로 보낼 수 있도록합니다.</string>
   <string id="SettingsBatteryLevelRefreshRate">백그라운드 서비스가 데이터 전송을 반복 해야하는 새로 고침 비율 (분).</string>
+  <string id="SettingsUserHttpHeader">사용자 제공 HTTP 헤더</string>
+  <string id="SettingsUserHttpHeaderDescription">일부 홈 어시스턴트 설치에는 기능을 위해 사용자 정의 HTTP 헤더의 사양이 필요합니다.</string>
+  <string id="SettingsUserHttpHeaderKey">사용자 제공 HTTP 헤더 키.</string>
+  <string id="SettingsUserHttpHeaderValue">사용자 제공 HTTP 헤더 값.</string>
   <string id="WebhookId">(읽기 전용) 배경 서비스 업데이트를 위해 장치에서 만든 WebHook ID. 디버깅을 위해서는이 문제가 필요할 수 있습니다.</string>
-  <string id="WifiLteExecution">Wi-Fi/LTE 실행 모드.</string>
-  <string id="WifiLteExecutionEnable">Wi-Fi/LTE를 통해 명령을 실행할 수 있습니다.</string>
-  <string id="WifiLteExecutionDescription">전화 연결없이 앱을 시작할 수 있으며 (메뉴가 캐시 될 때) Wi-Fi/LTE를 통해 명령을 실행하라는 메시지가 표시됩니다.</string>
 </strings>

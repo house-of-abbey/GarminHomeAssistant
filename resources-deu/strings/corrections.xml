@@ -65,6 +65,9 @@
   <string id="SettingsConfigUrl">URL für die Menükonfiguration (JSON).</string>
   <string id="SettingsCacheConfig">Soll die App die Menükonfiguration cachen?</string>
   <string id="SettingsClearCache">Soll die Anwendung beim nächsten Start den vorhandenen Cache löschen?</string>
+  <string id="WifiLteExecution">Ausführung über WLAN-/LTE einschalten.</string>
+  <string id="WifiLteExecutionEnable">Befehlsausführung über WLAN/LTE aktivieren.</string>
+  <string id="WifiLteExecutionDescription">Ermöglicht das Starten der App ohne Telefonverbindung (bei zwischengespeichertem Menü) und fragt, ob der Befehl über WLAN/LTE ausgeführt werden soll.</string>
   <string id="SettingsVibration">Soll die App Rückmeldung per Vibration geben?</string>
   <string id="SettingsAppTimeout">Timeout in Sekunden. Beendet die App nach dieser Inaktivitätszeit, um Akku zu sparen.</string>
   <string id="SettingsPollDelay">Zusätzliche Abfrageverzögerung (in Sekunden). Fügt zwischen den Status-Updates der Menüeinträge eine Pause ein.</string>
@@ -78,7 +81,4 @@
   <string id="SettingsEnableBatteryLevel">Hintergrunddienst aktivieren, um Akkustand, Standort und (falls unterstützt) Aktivitätsdaten an Home Assistant zu senden.</string>
   <string id="SettingsBatteryLevelRefreshRate">Intervall (in Minuten), in dem der Hintergrunddienst die Daten erneut senden soll.</string>
   <string id="WebhookId">(Nur lesen) Die vom Gerät erstellte Webhook-ID für Hintergrund-Updates. Kann zum Debuggen benötigt werden.</string>
-  <string id="WifiLteExecution">Ausführung über WLAN-/LTE einschalten.</string>
-  <string id="WifiLteExecutionEnable">Befehlsausführung über WLAN/LTE aktivieren.</string>
-  <string id="WifiLteExecutionDescription">Ermöglicht das Starten der App ohne Telefonverbindung (bei zwischengespeichertem Menü) und fragt, ob der Befehl über WLAN/LTE ausgeführt werden soll.</string>
 </strings>

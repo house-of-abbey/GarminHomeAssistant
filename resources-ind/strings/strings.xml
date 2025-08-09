@@ -62,6 +62,9 @@
   <string id="SettingsConfigUrl">URL untuk Konfigurasi Menu (JSON).</string>
   <string id="SettingsCacheConfig">Haruskah Aplikasi Menyimpan Konfigurasi Menu?</string>
   <string id="SettingsClearCache">Haruskah aplikasi menghapus cache yang ada lain kali dimulai?</string>
+  <string id="WifiLteExecution">Mode Eksekusi Wi-Fi/LTE.</string>
+  <string id="WifiLteExecutionEnable">Aktifkan Perintah yang Mengeksekusi melalui Wi-Fi/LTE.</string>
+  <string id="WifiLteExecutionDescription">Memungkinkan aplikasi untuk memulai tanpa koneksi telepon (saat menu di-cache), dan meminta untuk menjalankan perintah melalui Wi-Fi/LTE.</string>
   <string id="SettingsVibration">Haruskah aplikasi memberikan umpan balik melalui getaran?</string>
   <string id="SettingsAppTimeout">Batas waktu dalam hitungan detik. Keluar dari aplikasi setelah periode tidak aktif ini untuk menyimpan baterai perangkat.</string>
   <string id="SettingsPollDelay">Penundaan jajak pendapat tambahan (dalam hitungan detik). Menambahkan penundaan antara pembaruan status semua item menu.</string>
@@ -74,8 +77,9 @@
   <string id="SettingsWidgetStart">(Hanya widget) secara otomatis memulai aplikasi dari widget tanpa menunggu keran.</string>
   <string id="SettingsEnableBatteryLevel">Aktifkan layanan latar belakang untuk mengirim data baterai perangkat, lokasi, dan (jika didukung) data ke rumah asisten.</string>
   <string id="SettingsBatteryLevelRefreshRate">Tingkat refresh (dalam hitungan menit) di mana layanan latar belakang harus mengulang data pengiriman.</string>
+  <string id="SettingsUserHttpHeader">Pengguna yang disediakan header http</string>
+  <string id="SettingsUserHttpHeaderDescription">Beberapa instalasi asisten rumah memerlukan spesifikasi header HTTP khusus untuk berfungsi.</string>
+  <string id="SettingsUserHttpHeaderKey">Kunci header http yang disediakan pengguna.</string>
+  <string id="SettingsUserHttpHeaderValue">Nilai header http yang disediakan pengguna.</string>
   <string id="WebhookId">(Baca saja) ID WebHook yang dibuat oleh perangkat untuk pembaruan layanan latar belakang. Anda mungkin memerlukan ini untuk debugging.</string>
-  <string id="WifiLteExecution">Mode Eksekusi Wi-Fi/LTE.</string>
-  <string id="WifiLteExecutionEnable">Aktifkan Perintah yang Mengeksekusi melalui Wi-Fi/LTE.</string>
-  <string id="WifiLteExecutionDescription">Memungkinkan aplikasi untuk memulai tanpa koneksi telepon (saat menu di-cache), dan meminta untuk menjalankan perintah melalui Wi-Fi/LTE.</string>
 </strings>

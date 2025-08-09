@@ -62,6 +62,9 @@
   <string id="SettingsConfigUrl">URL pour la configuration du menu (JSON).</string>
   <string id="SettingsCacheConfig">L'application devrait-elle mettre en cache la configuration du menu?</string>
   <string id="SettingsClearCache">L'application devrait-elle effacer le cache existant la prochaine fois qu'il sera démarré?</string>
+  <string id="WifiLteExecution">Mode d'exécution Wi-Fi / LTE.</string>
+  <string id="WifiLteExecutionEnable">Activer l'exécution des commandes sur Wi-Fi / LTE.</string>
+  <string id="WifiLteExecutionDescription">Permet à l'application de démarrer sans connexion par téléphone (lorsque le menu est mis en cache) et invite à exécuter la commande via Wi-Fi / LTE.</string>
   <string id="SettingsVibration">L'application devrait-elle fournir des commentaires via des vibrations?</string>
   <string id="SettingsAppTimeout">Timeout en quelques secondes. Quittez l'application après cette période d'inactivité pour enregistrer la batterie de l'appareil.</string>
   <string id="SettingsPollDelay">Délai supplémentaire du scrutin (en secondes). Ajoute un délai entre la mise à jour d'état de tous les éléments de menu.</string>
@@ -74,8 +77,9 @@
   <string id="SettingsWidgetStart">(Widget uniquement) Démarrez automatiquement l'application à partir du widget sans attendre un robinet.</string>
   <string id="SettingsEnableBatteryLevel">Activez le service d'arrière-plan pour envoyer le niveau de la batterie de l'appareil, l'emplacement et (le cas échéant) les données d'activité à l'assistant à domicile.</string>
   <string id="SettingsBatteryLevelRefreshRate">Le taux de rafraîchissement (en minutes) auquel le service d'arrière-plan doit répéter l'envoi de données.</string>
+  <string id="SettingsUserHttpHeader">En-tête HTTP fourni par l'utilisateur</string>
+  <string id="SettingsUserHttpHeaderDescription">Certaines installations d'assistant à domicile nécessitent la spécification d'un en-tête HTTP personnalisé pour fonctionner.</string>
+  <string id="SettingsUserHttpHeaderKey">La touche d'en-tête HTTP fournie par l'utilisateur.</string>
+  <string id="SettingsUserHttpHeaderValue">Valeur d'en-tête HTTP fournie par l'utilisateur.</string>
   <string id="WebhookId">(Lire uniquement) L'ID Webhook créé par l'appareil pour les mises à jour du service d'arrière-plan. Vous pourriez en avoir besoin pour le débogage.</string>
-  <string id="WifiLteExecution">Mode d'exécution Wi-Fi / LTE.</string>
-  <string id="WifiLteExecutionEnable">Activer l'exécution des commandes sur Wi-Fi / LTE.</string>
-  <string id="WifiLteExecutionDescription">Permet à l'application de démarrer sans connexion par téléphone (lorsque le menu est mis en cache) et invite à exécuter la commande via Wi-Fi / LTE.</string>
 </strings>

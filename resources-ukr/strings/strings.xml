@@ -54,7 +54,7 @@
   <string id="WifiLtePrompt">Виконати через Wi-Fi/LTE?</string>
   <string id="WifiLteExecutionTitle">Відправлення домашнього помічника.</string>
   <string id="WifiLteExecutionDataError">Жодних даних не отримано.</string>
-  <!-- Для GUI налаштувань струни повинні бути в тому порядку, в якому вони використовуються. -->
+  <!-- Для графічного інтерфейсу рядків повинні бути в порядку, в якому вони використовуються. -->
   <string id="SettingsSelect">Виберіть ...</string>
   <string id="SettingsApiKey">Ключ API для домашніх систем.</string>
   <string id="SettingsApiKeyPrompt">Довгоживучий маркер доступу.</string>
@@ -62,6 +62,9 @@
   <string id="SettingsConfigUrl">URL -адреса для конфігурації меню (JSON).</string>
   <string id="SettingsCacheConfig">Чи повинен додатковий кеш конфігурації меню?</string>
   <string id="SettingsClearCache">Чи повинен програма очистити існуючий кеш наступного разу, коли він буде запущений?</string>
+  <string id="WifiLteExecution">Режим виконання Wi-Fi/LTE.</string>
+  <string id="WifiLteExecutionEnable">Увімкнути виконання команд над Wi-Fi/LTE.</string>
+  <string id="WifiLteExecutionDescription">Дозволяє додаток починати без підключення до телефону (коли меню кешовано) та підказка виконувати команду через Wi-Fi/LTE.</string>
   <string id="SettingsVibration">Чи повинен програма надавати зворотній зв'язок через вібрації?</string>
   <string id="SettingsAppTimeout">Тайм -аут за лічені секунди. Вийдіть із програми після цього періоду бездіяльності, щоб зберегти акумулятор пристрою.</string>
   <string id="SettingsPollDelay">Додаткова затримка опитування (за лічені секунди). Додає затримку між оновленням статусу всіх пунктів меню.</string>
@@ -74,8 +77,9 @@
   <string id="SettingsWidgetStart">(Тільки віджет) автоматично запустіть програму з віджета, не чекаючи натискання.</string>
   <string id="SettingsEnableBatteryLevel">Увімкніть фонову службу для надсилання рівня акумулятора пристрою, розташування та (за підтримки) даних активності домашньому помічнику.</string>
   <string id="SettingsBatteryLevelRefreshRate">Швидкість оновлення (за лічені хвилини), в якій фонова послуга повинна повторити надсилання даних.</string>
+  <string id="SettingsUserHttpHeader">Користувач постачав HTTP заголовок</string>
+  <string id="SettingsUserHttpHeaderDescription">Деякі установи домашнього помічника потребують специфікації спеціального заголовка HTTP для функціонування.</string>
+  <string id="SettingsUserHttpHeaderKey">Ключ заголовка HTTP надає користувача.</string>
+  <string id="SettingsUserHttpHeaderValue">Значення заголовка HTTP надається користувачем.</string>
   <string id="WebhookId">(Лише читайте) Ідентифікатор WebHook, створений пристроєм для оновлень фонових служб. Вам може знадобитися це для налагодження.</string>
-  <string id="WifiLteExecution">Режим виконання Wi-Fi/LTE.</string>
-  <string id="WifiLteExecutionEnable">Увімкнути виконання команд над Wi-Fi/LTE.</string>
-  <string id="WifiLteExecutionDescription">Дозволяє додаток починати без підключення до телефону (коли меню кешовано) та підказка виконувати команду через Wi-Fi/LTE.</string>
 </strings>

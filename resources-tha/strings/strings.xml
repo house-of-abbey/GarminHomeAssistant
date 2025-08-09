@@ -62,6 +62,9 @@
   <string id="SettingsConfigUrl">URL สำหรับการกำหนดค่าเมนู (JSON)</string>
   <string id="SettingsCacheConfig">แอปพลิเคชันควรแคชการกำหนดค่าเมนูหรือไม่?</string>
   <string id="SettingsClearCache">แอปพลิเคชันควรล้างแคชที่มีอยู่ครั้งต่อไปในครั้งต่อไปหรือไม่</string>
+  <string id="WifiLteExecution">โหมดการดำเนินการ Wi-Fi/LTE</string>
+  <string id="WifiLteExecutionEnable">เปิดใช้งานการดำเนินการคำสั่งผ่าน Wi-Fi/LTE</string>
+  <string id="WifiLteExecutionDescription">อนุญาตให้แอปเริ่มต้นโดยไม่ต้องเชื่อมต่อโทรศัพท์ (เมื่อเมนูถูกแคช) และแจ้งให้เรียกใช้คำสั่งผ่าน Wi-Fi/LTE</string>
   <string id="SettingsVibration">แอปพลิเคชันควรให้ข้อเสนอแนะผ่านการสั่นสะเทือนหรือไม่?</string>
   <string id="SettingsAppTimeout">หมดเวลาในไม่กี่วินาที ออกจากแอปพลิเคชันหลังจากช่วงเวลาที่ไม่มีการใช้งานเพื่อประหยัดแบตเตอรี่อุปกรณ์</string>
   <string id="SettingsPollDelay">ความล่าช้าในการสำรวจเพิ่มเติม (ในไม่กี่วินาที) เพิ่มความล่าช้าระหว่างการอัปเดตสถานะของรายการเมนูทั้งหมด</string>
@@ -74,8 +77,9 @@
   <string id="SettingsWidgetStart">(วิดเจ็ตเท่านั้น) เริ่มแอปพลิเคชันจากวิดเจ็ตโดยอัตโนมัติโดยไม่ต้องรอแตะ</string>
   <string id="SettingsEnableBatteryLevel">เปิดใช้งานบริการพื้นหลังเพื่อส่งระดับแบตเตอรี่ของอุปกรณ์ตำแหน่งและข้อมูลกิจกรรม (ถ้ารองรับ) ไปยังผู้ช่วยที่บ้าน</string>
   <string id="SettingsBatteryLevelRefreshRate">อัตราการรีเฟรช (ในไม่กี่นาที) ที่บริการพื้นหลังควรส่งข้อมูลซ้ำ</string>
+  <string id="SettingsUserHttpHeader">ส่วนหัว HTTP ที่ผู้ใช้จัดหา</string>
+  <string id="SettingsUserHttpHeaderDescription">การติดตั้งผู้ช่วยที่บ้านบางคนต้องการข้อมูลจำเพาะของส่วนหัว HTTP ที่กำหนดเองเพื่อให้สามารถใช้งานได้</string>
+  <string id="SettingsUserHttpHeaderKey">คีย์ส่วนหัว HTTP ที่ผู้ใช้จัดหา</string>
+  <string id="SettingsUserHttpHeaderValue">ค่าส่วนหัว HTTP ที่ผู้ใช้จัดหา</string>
   <string id="WebhookId">(อ่านเท่านั้น) ID WebHook ที่สร้างโดยอุปกรณ์สำหรับการอัปเดตบริการพื้นหลัง คุณอาจต้องการสิ่งนี้สำหรับการดีบัก</string>
-  <string id="WifiLteExecution">โหมดการดำเนินการ Wi-Fi/LTE</string>
-  <string id="WifiLteExecutionEnable">เปิดใช้งานการดำเนินการคำสั่งผ่าน Wi-Fi/LTE</string>
-  <string id="WifiLteExecutionDescription">อนุญาตให้แอปเริ่มต้นโดยไม่ต้องเชื่อมต่อโทรศัพท์ (เมื่อเมนูถูกแคช) และแจ้งให้เรียกใช้คำสั่งผ่าน Wi-Fi/LTE</string>
 </strings>

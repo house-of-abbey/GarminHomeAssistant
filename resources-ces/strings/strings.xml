@@ -62,6 +62,9 @@
   <string id="SettingsConfigUrl">URL pro konfiguraci nabídky (JSON).</string>
   <string id="SettingsCacheConfig">Měla by aplikační mezipaměť konfigurace nabídky?</string>
   <string id="SettingsClearCache">Měla by aplikace vymazat stávající mezipaměť příště, až bude spuštěna?</string>
+  <string id="WifiLteExecution">Režim provádění Wi-Fi/LTE.</string>
+  <string id="WifiLteExecutionEnable">Povolit provádění příkazů přes Wi-Fi/LTE.</string>
+  <string id="WifiLteExecutionDescription">Umožňuje aplikaci začít bez telefonu (když je nabídka v mezipaměti) a výzva k provedení příkazu přes Wi-Fi/LTE.</string>
   <string id="SettingsVibration">Měla by aplikace poskytovat zpětnou vazbu prostřednictvím vibrací?</string>
   <string id="SettingsAppTimeout">Timeout během několika sekund. Po tomto období nečinnosti uložte aplikaci k uložení baterie zařízení.</string>
   <string id="SettingsPollDelay">Další zpoždění hlasování (v sekundách). Přidá zpoždění mezi aktualizací stavu všech položek nabídky.</string>
@@ -74,8 +77,9 @@
   <string id="SettingsWidgetStart">(Pouze widget) automaticky spusťte aplikaci z widgetu bez čekání na klepnutí.</string>
   <string id="SettingsEnableBatteryLevel">Umožněte službě pozadí odesílat úroveň, umístění baterie zařízení a (pokud je podporována) údaje o aktivitě domácímu asistentovi.</string>
   <string id="SettingsBatteryLevelRefreshRate">Obnovová frekvence (v minutách), při kterém by měla služba na pozadí opakovat odesílání dat.</string>
+  <string id="SettingsUserHttpHeader">Uživatel dodaný záhlaví HTTP</string>
+  <string id="SettingsUserHttpHeaderDescription">Některá instalace domácího asistenta vyžadují specifikaci vlastní záhlaví HTTP, aby fungovaly.</string>
+  <string id="SettingsUserHttpHeaderKey">Uživatel dodal klíč záhlaví HTTP.</string>
+  <string id="SettingsUserHttpHeaderValue">Uživatel dodaný HTTP Hodnota záhlaví.</string>
   <string id="WebhookId">(Pouze číst) ID Webhook vytvořené zařízením pro aktualizace služby na pozadí. Možná to budete potřebovat pro ladění.</string>
-  <string id="WifiLteExecution">Režim provádění Wi-Fi/LTE.</string>
-  <string id="WifiLteExecutionEnable">Povolit provádění příkazů přes Wi-Fi/LTE.</string>
-  <string id="WifiLteExecutionDescription">Umožňuje aplikaci začít bez telefonu (když je nabídka v mezipaměti) a výzva k provedení příkazu přes Wi-Fi/LTE.</string>
 </strings>

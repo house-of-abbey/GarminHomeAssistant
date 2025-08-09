@@ -62,6 +62,9 @@
   <string id="SettingsConfigUrl">URL menüü konfiguratsiooni jaoks (JSON).</string>
   <string id="SettingsCacheConfig">Kas rakenduse vahemälu peaks menüü konfiguratsiooni vahemälu vahemälu vahemälu vahemälu vahemälu vahemälu vahemälu vahemälu</string>
   <string id="SettingsClearCache">Kas rakendus peaks olemasoleva vahemälu järgmine kord alustama?</string>
+  <string id="WifiLteExecution">Wi-Fi/LTE täitmisrežiim.</string>
+  <string id="WifiLteExecutionEnable">Luba käskude täitmine Wi-Fi/LTE kaudu.</string>
+  <string id="WifiLteExecutionDescription">Võimaldab rakendusel käivitada ilma telefoniühenduseta (kui menüü on vahemällu salvestatud) ja vihje käsu käivitamiseks Wi-Fi/LTE kaudu.</string>
   <string id="SettingsVibration">Kas rakendus peaks vibratsiooni kaudu tagasisidet andma?</string>
   <string id="SettingsAppTimeout">Aegumine sekunditega. Pärast seda tegevusetuse perioodi seade aku salvestamiseks väljuge rakendusest.</string>
   <string id="SettingsPollDelay">Täiendav küsitluse viivitus (sekundites). Lisab viivituse kõigi menüüelementide olekuvärskenduse vahel.</string>
@@ -74,8 +77,9 @@
   <string id="SettingsWidgetStart">(Ainult vidin) käivitage rakendus vidinast automaatselt ilma kraani ootamata.</string>
   <string id="SettingsEnableBatteryLevel">Luba taustteenus, et saata seadme aku tase, asukoht ja (kui see on toetatud) tegevusandmed koduassistendile.</string>
   <string id="SettingsBatteryLevelRefreshRate">Värskendusmäär (minutites), kus taustteenus peaks andmete saatmist korrata.</string>
+  <string id="SettingsUserHttpHeader">Kasutaja tarnitud HTTP päis</string>
+  <string id="SettingsUserHttpHeaderDescription">Mõned koduassistendi paigaldused vajavad funktsioneerimiseks kohandatud HTTP päise täpsustamist.</string>
+  <string id="SettingsUserHttpHeaderKey">Kasutaja tarnitud HTTP päisevõti.</string>
+  <string id="SettingsUserHttpHeaderValue">Kasutaja tarnitud HTTP päise väärtus.</string>
   <string id="WebhookId">(Loe ainult) WebHooki ID, mille seade on loonud taustteenuse värskenduste jaoks. Võite seda silumiseks nõuda.</string>
-  <string id="WifiLteExecution">Wi-Fi/LTE täitmisrežiim.</string>
-  <string id="WifiLteExecutionEnable">Luba käskude täitmine Wi-Fi/LTE kaudu.</string>
-  <string id="WifiLteExecutionDescription">Võimaldab rakendusel käivitada ilma telefoniühenduseta (kui menüü on vahemällu salvestatud) ja vihje käsu käivitamiseks Wi-Fi/LTE kaudu.</string>
 </strings>

@@ -62,6 +62,9 @@
   <string id="SettingsConfigUrl">Menü yapılandırması için URL (JSON).</string>
   <string id="SettingsCacheConfig">Uygulama menü yapılandırmasını önbelleğe almalı mı?</string>
   <string id="SettingsClearCache">Uygulama bir dahaki sefere başladığında mevcut önbelleği temizlemeli mi?</string>
+  <string id="WifiLteExecution">Wi-Fi/LTE Yürütme Modu.</string>
+  <string id="WifiLteExecutionEnable">Wi-Fi/LTE üzerinden komutların yürütülmesini etkinleştirin.</string>
+  <string id="WifiLteExecutionDescription">Uygulamanın telefon bağlantısı olmadan (menü önbelleğe alındığında) başlamasına izin verir ve Wi-Fi/LTE üzerinden komutu yürütme istemek.</string>
   <string id="SettingsVibration">Uygulama titreşimlerle geri bildirim sağlamalı mı?</string>
   <string id="SettingsAppTimeout">Saniyeler içinde zaman aşımı. Cihaz bataryasını kaydetmek için bu hareketsizlik döneminden sonra uygulamadan çıkın.</string>
   <string id="SettingsPollDelay">Ek anket gecikmesi (saniyeler içinde). Tüm menü öğelerinin durum güncellemesi arasında bir gecikme ekler.</string>
@@ -74,8 +77,9 @@
   <string id="SettingsWidgetStart">(Yalnızca widget) Bir musluk beklemeden uygulamayı widget'tan otomatik olarak başlatın.</string>
   <string id="SettingsEnableBatteryLevel">Arka plan hizmetinin aygıt pil seviyesini, konumunu ve (desteklenirse) etkinlik verilerini ev asistanına göndermesini etkinleştirin.</string>
   <string id="SettingsBatteryLevelRefreshRate">Arka plan hizmetinin veri göndermeyi tekrarlaması gereken yenileme hızı (dakika cinsinden).</string>
+  <string id="SettingsUserHttpHeader">Kullanıcı tarafından sağlanan HTTP başlığı</string>
+  <string id="SettingsUserHttpHeaderDescription">Bazı ev asistanı kurulumları, çalışabilmek için özel bir HTTP başlığının belirtilmesini gerektirir.</string>
+  <string id="SettingsUserHttpHeaderKey">Kullanıcı tarafından sağlanan HTTP başlık anahtarı.</string>
+  <string id="SettingsUserHttpHeaderValue">Kullanıcı tarafından sağlanan HTTP başlık değeri.</string>
   <string id="WebhookId">(Yalnızca okuyun) Arka plan hizmeti güncellemeleri için cihaz tarafından oluşturulan WebHook kimliği. Hata ayıklama için bunu isteyebilirsiniz.</string>
-  <string id="WifiLteExecution">Wi-Fi/LTE Yürütme Modu.</string>
-  <string id="WifiLteExecutionEnable">Wi-Fi/LTE üzerinden komutların yürütülmesini etkinleştirin.</string>
-  <string id="WifiLteExecutionDescription">Uygulamanın telefon bağlantısı olmadan (menü önbelleğe alındığında) başlamasına izin verir ve Wi-Fi/LTE üzerinden komutu yürütme istemek.</string>
 </strings>
