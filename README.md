@@ -1,4 +1,4 @@
-[Home](README.md) | [Switches](examples/Switches.md) | [Actions](examples/Actions.md) | [Templates](examples/Templates.md) | [Glance](examples/Glance.md) | [Background Service](BackgroundService.md) | [Wi-Fi](Wi-Fi.md) | [Trouble Shooting](TroubleShooting.md) | [Version History](HISTORY.md)
+[Home](README.md) | [Switches](examples/Switches.md) | [Actions](examples/Actions.md) | [Templates](examples/Templates.md) | [Glance](examples/Glance.md) | [Background Service](BackgroundService.md) | [Wi-Fi](Wi-Fi.md) | [HTTP Headers](HTTP_Headers.md) | [Trouble Shooting](TroubleShooting.md) | [Version History](HISTORY.md)
 
 # GarminHomeAssistant
 
@@ -339,3 +339,7 @@ The `id` attribute values are taken from the same names used in [`strings.xml`](
 8. There is a [bug in Garmin Express so that when you use that software to amend the application's settings](https://github.com/house-of-abbey/GarminHomeAssistant/issues/194), the page appears in a random language not of your choice. I would like to thank user [heviiguy](https://github.com/heviiguy) for his work researching the issue, leading to these references that indicate the authors of Garmin Home Assistant cannot resolve this issue as its a bug in Garmin Express that Garmin are refusing to believe exists! See these pages for details:
    - [Garmin Express - Wrong Language](https://forums.garmin.com/developer/connect-iq/i/bug-reports/garmin-express---wrong-language)
    - [Incorrect language displayed for custom data fields](https://forums.garmin.com/developer/connect-iq/f/discussion/388137/incorrect-language-displayed-for-custom-data-fields)
+
+# Authors & Contributors
+
+For an up to date list of all authors and contributors, please check the [contributor's page](https://github.com/house-of-abbey/GarminHomeAssistant/graphs/contributors). Thank you all for improving this application.

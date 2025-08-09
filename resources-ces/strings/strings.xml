@@ -32,12 +32,12 @@
   <string id="GlanceMenu" scope="glance">Menu</string>
   <string id="Memory" scope="glance">Paměť</string>
   <string id="NoAPIKey" scope="glance">Žádný klíč API v nastavení aplikace.</string>
-  <string id="NoApiUrl" scope="glance">V nastavení aplikace není žádná URL API.</string>
+  <string id="NoApiUrl" scope="glance">Žádná URL API v nastavení aplikace.</string>
   <string id="NoConfigUrl" scope="glance">V nastavení aplikace není žádná konfigurační adresa URL.</string>
   <string id="NoInternet">Žádné připojení k internetu.</string>
   <string id="NoJson">Žádný JSON se nevrátil z požadavku HTTP.</string>
   <string id="NoPhone" scope="glance">Žádné telefonní připojení.</string>
-  <string id="NoPhoneNoCache" scope="glance">Žádné telefonní připojení, žádné menu v mezipaměti.</string>
+  <string id="NoPhoneNoCache" scope="glance">Žádné připojení telefonu, žádné menu v mezipaměti.</string>
   <string id="NoResponse">Žádná odpověď, zkontrolovat připojení k internetu</string>
   <string id="TimedOut">Požadavek načasovaný</string>
   <string id="PinInputLocked">Vstup kolíku uzamčený pro</string>
@@ -60,7 +60,7 @@
   <string id="SettingsApiKeyPrompt">Dlouhodobý přístupový token.</string>
   <string id="SettingsApiUrl">URL pro domácí API.</string>
   <string id="SettingsConfigUrl">URL pro konfiguraci nabídky (JSON).</string>
-  <string id="SettingsCacheConfig">Měla by aplikační mezipaměť konfigurace nabídky?</string>
+  <string id="SettingsCacheConfig">Měla by aplikace ukládat konfiguraci nabídky?</string>
   <string id="SettingsClearCache">Měla by aplikace vymazat stávající mezipaměť příště, až bude spuštěna?</string>
   <string id="WifiLteExecution">Režim provádění Wi-Fi/LTE.</string>
   <string id="WifiLteExecutionEnable">Povolit provádění příkazů přes Wi-Fi/LTE.</string>
@@ -69,17 +69,17 @@
   <string id="SettingsAppTimeout">Timeout během několika sekund. Po tomto období nečinnosti uložte aplikaci k uložení baterie zařízení.</string>
   <string id="SettingsPollDelay">Další zpoždění hlasování (v sekundách). Přidá zpoždění mezi aktualizací stavu všech položek nabídky.</string>
   <string id="SettingsConfirmTimeout">Po této době (v sekundách) je potvrzovací dialog pro akci automaticky uzavřen a akce je zrušena. Nastavit na 0 pro deaktivaci časového limitu.</string>
-  <string id="SettingsPin">4místný pin, který se má použít pro všechny akce, které vyžadují potvrzení (0000-9999).</string>
+  <string id="SettingsPin">4místný pin, který se má použít pro všechny akce, které to vyžadují (0000-9999).</string>
   <string id="SettingsPinError">Nakonfigurujte prosím platný čtyřmístný číselný pin mezi 0000 a 9999 v nastavení aplikace.</string>
-  <string id="SettingsTextAlign">Zarovnání nabídky vlevo (vypnuto) nebo vpravo (ON).</string>
+  <string id="SettingsTextAlign">Vlevo (vypnuto) nebo vpravo (ON) zarovnání nabídky.</string>
   <string id="LeftToRight">Zleva doprava</string>
   <string id="RightToLeft">Vpravo doleva</string>
   <string id="SettingsWidgetStart">(Pouze widget) automaticky spusťte aplikaci z widgetu bez čekání na klepnutí.</string>
-  <string id="SettingsEnableBatteryLevel">Umožněte službě pozadí odesílat úroveň, umístění baterie zařízení a (pokud je podporována) údaje o aktivitě domácímu asistentovi.</string>
-  <string id="SettingsBatteryLevelRefreshRate">Obnovová frekvence (v minutách), při kterém by měla služba na pozadí opakovat odesílání dat.</string>
+  <string id="SettingsEnableBatteryLevel">Umožněte službě pozadí odeslat úroveň baterie, umístění baterie zařízení a (pokud je podporována) údaje o aktivitě domácímu asistentovi.</string>
+  <string id="SettingsBatteryLevelRefreshRate">Obnovení frekvence (v minutách), při kterém by měla služba na pozadí opakovat odesílání dat.</string>
   <string id="SettingsUserHttpHeader">Uživatel dodaný záhlaví HTTP</string>
   <string id="SettingsUserHttpHeaderDescription">Některá instalace domácího asistenta vyžadují specifikaci vlastní záhlaví HTTP, aby fungovaly.</string>
-  <string id="SettingsUserHttpHeaderKey">Uživatel dodal klíč záhlaví HTTP.</string>
-  <string id="SettingsUserHttpHeaderValue">Uživatel dodaný HTTP Hodnota záhlaví.</string>
+  <string id="SettingsUserHttpHeaderName">Uživatel dodaný HTTP-HEADER: Jméno</string>
+  <string id="SettingsUserHttpHeaderValue">Uživatel dodaný HTTP-HEADER: Hodnota</string>
   <string id="WebhookId">(Pouze číst) ID Webhook vytvořené zařízením pro aktualizace služby na pozadí. Možná to budete potřebovat pro ladění.</string>
 </strings>

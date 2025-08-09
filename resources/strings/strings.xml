@@ -74,7 +74,7 @@
   <string id="SettingsBatteryLevelRefreshRate">The refresh rate (in minutes) at which the background service should repeat sending data.</string>
   <string id="SettingsUserHttpHeader">User supplied HTTP header</string>
   <string id="SettingsUserHttpHeaderDescription">Some Home Assistant installations require the specification of a custom HTTP header in order to function.</string>
-  <string id="SettingsUserHttpHeaderKey">User supplied HTTP header key.</string>
-  <string id="SettingsUserHttpHeaderValue">User supplied HTTP header value.</string>
+  <string id="SettingsUserHttpHeaderName">User supplied HTTP-Header: Name</string>
+  <string id="SettingsUserHttpHeaderValue">User supplied HTTP-Header: Value</string>
   <string id="WebhookId">(Read only) The Webhook ID created by the device for background service updates. You might require this for debugging.</string>
 </strings>

@@ -48,7 +48,7 @@ class Settings {
     //! minutes
     private static var mBatteryRefreshRate    as Lang.Number  = 15;
     //! Additional user configurable HTTP header key
-    private static var mUserHeaderKey         as Lang.String  = "";
+    private static var mUserHeaderName        as Lang.String  = "";
     //! Additional user configurable HTTP header value
     private static var mUserHeaderValue       as Lang.String  = "";
     private static var mIsApp                 as Lang.Boolean = false;
@@ -75,7 +75,7 @@ class Settings {
         mMenuAlignment         = Properties.getValue("menu_alignment");
         mIsSensorsLevelEnabled = Properties.getValue("enable_battery_level");
         mBatteryRefreshRate    = Properties.getValue("battery_level_refresh_rate");
-        mUserHeaderKey         = Properties.getValue("user_http_header_key");
+        mUserHeaderName        = Properties.getValue("user_http_header_name");
         mUserHeaderValue       = Properties.getValue("user_http_header_value");
     }
 
@@ -297,8 +297,8 @@ class Settings {
     //! @return The augmented HTTP header options.
     //
     static function augmentHttpHeaders(options as Lang.Dictionary) {
-        if (mUserHeaderKey != null && mUserHeaderKey != "" && mUserHeaderValue != null && mUserHeaderValue != "") {
-            options[mUserHeaderKey] = mUserHeaderValue;
+        if (mUserHeaderName != null && mUserHeaderName != "" && mUserHeaderValue != null && mUserHeaderValue != "") {
+            options[mUserHeaderName] = mUserHeaderValue;
         }
         return options;
     }

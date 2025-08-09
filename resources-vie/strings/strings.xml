@@ -69,7 +69,7 @@
   <string id="SettingsAppTimeout">Thời gian chờ trong giây. Thoát khỏi ứng dụng sau khoảng thời gian không hoạt động để lưu pin thiết bị.</string>
   <string id="SettingsPollDelay">Độ trễ thăm dò ý kiến bổ sung (tính bằng giây). Thêm độ trễ giữa bản cập nhật trạng thái của tất cả các mục menu.</string>
   <string id="SettingsConfirmTimeout">Sau thời gian này (tính bằng giây), hộp thoại xác nhận cho một hành động sẽ tự động đóng và hành động bị hủy. Đặt thành 0 để vô hiệu hóa thời gian chờ.</string>
-  <string id="SettingsPin">Pin 4 chữ số được sử dụng cho tất cả các hành động yêu cầu xác nhận (0000-9999).</string>
+  <string id="SettingsPin">Pin 4 chữ số được sử dụng cho tất cả các hành động yêu cầu nó (0000-9999).</string>
   <string id="SettingsPinError">Vui lòng định cấu hình chân số 4 chữ số hợp lệ giữa 0000 đến 9999 trong cài đặt ứng dụng.</string>
   <string id="SettingsTextAlign">Bên trái (tắt) hoặc bên phải (trên) căn chỉnh menu.</string>
   <string id="LeftToRight">Trái sang phải</string>
@@ -79,7 +79,7 @@
   <string id="SettingsBatteryLevelRefreshRate">Tốc độ làm mới (tính bằng phút) mà dịch vụ nền sẽ lặp lại gửi dữ liệu.</string>
   <string id="SettingsUserHttpHeader">Tiêu đề HTTP do người dùng cung cấp</string>
   <string id="SettingsUserHttpHeaderDescription">Một số cài đặt trợ lý gia đình yêu cầu đặc điểm kỹ thuật của tiêu đề HTTP tùy chỉnh để hoạt động.</string>
-  <string id="SettingsUserHttpHeaderKey">Người dùng cung cấp khóa tiêu đề HTTP.</string>
-  <string id="SettingsUserHttpHeaderValue">Người dùng cung cấp giá trị tiêu đề HTTP.</string>
+  <string id="SettingsUserHttpHeaderName">Tiêu đề http do người dùng cung cấp: tên</string>
+  <string id="SettingsUserHttpHeaderValue">Tiêu đề HTTP do người dùng cung cấp: Giá trị</string>
   <string id="WebhookId">(Chỉ đọc) ID webhook được tạo bởi thiết bị để cập nhật dịch vụ nền. Bạn có thể yêu cầu điều này để gỡ lỗi.</string>
 </strings>

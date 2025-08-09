@@ -69,17 +69,17 @@
   <string id="SettingsAppTimeout">Saniyeler içinde zaman aşımı. Cihaz bataryasını kaydetmek için bu hareketsizlik döneminden sonra uygulamadan çıkın.</string>
   <string id="SettingsPollDelay">Ek anket gecikmesi (saniyeler içinde). Tüm menü öğelerinin durum güncellemesi arasında bir gecikme ekler.</string>
   <string id="SettingsConfirmTimeout">Bu süreden sonra (saniye cinsinden), bir eylem için bir onay iletişim kutusu otomatik olarak kapatılır ve eylem iptal edilir. Zaman aşımını devre dışı bırakmak için 0 olarak ayarlayın.</string>
-  <string id="SettingsPin">Onay gerektiren tüm eylemler için kullanılacak 4 haneli pim (0000-9999).</string>
+  <string id="SettingsPin">4 basamaklı pim gerektiren tüm eylemler için kullanılacak (0000-9999).</string>
   <string id="SettingsPinError">Lütfen uygulama ayarlarında 0000 ve 9999 arasında geçerli bir 4 haneli sayısal pimi yapılandırın.</string>
   <string id="SettingsTextAlign">Sol (kapalı) veya sağ (açık) menü hizalaması.</string>
   <string id="LeftToRight">Soldan sağa</string>
-  <string id="RightToLeft">Sağ sola</string>
+  <string id="RightToLeft">Sağdan sola</string>
   <string id="SettingsWidgetStart">(Yalnızca widget) Bir musluk beklemeden uygulamayı widget'tan otomatik olarak başlatın.</string>
   <string id="SettingsEnableBatteryLevel">Arka plan hizmetinin aygıt pil seviyesini, konumunu ve (desteklenirse) etkinlik verilerini ev asistanına göndermesini etkinleştirin.</string>
   <string id="SettingsBatteryLevelRefreshRate">Arka plan hizmetinin veri göndermeyi tekrarlaması gereken yenileme hızı (dakika cinsinden).</string>
   <string id="SettingsUserHttpHeader">Kullanıcı tarafından sağlanan HTTP başlığı</string>
   <string id="SettingsUserHttpHeaderDescription">Bazı ev asistanı kurulumları, çalışabilmek için özel bir HTTP başlığının belirtilmesini gerektirir.</string>
-  <string id="SettingsUserHttpHeaderKey">Kullanıcı tarafından sağlanan HTTP başlık anahtarı.</string>
-  <string id="SettingsUserHttpHeaderValue">Kullanıcı tarafından sağlanan HTTP başlık değeri.</string>
+  <string id="SettingsUserHttpHeaderName">Kullanıcı tarafından sağlanan HTTP-Header: Ad</string>
+  <string id="SettingsUserHttpHeaderValue">Kullanıcı tarafından tedarik edilen HTTP-Header: Değer</string>
   <string id="WebhookId">(Yalnızca okuyun) Arka plan hizmeti güncellemeleri için cihaz tarafından oluşturulan WebHook kimliği. Hata ayıklama için bunu isteyebilirsiniz.</string>
 </strings>

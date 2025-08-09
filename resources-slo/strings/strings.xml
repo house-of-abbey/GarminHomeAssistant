@@ -69,7 +69,7 @@
   <string id="SettingsAppTimeout">Časový limit v sekundách. Opustite aplikáciu po tomto období nečinnosti, aby ste uložili batériu zariadenia.</string>
   <string id="SettingsPollDelay">Ďalšie oneskorenie ankety (v sekundách). Pridáva oneskorenie medzi aktualizáciou stavu všetkých položiek ponuky.</string>
   <string id="SettingsConfirmTimeout">Po tomto čase (v sekundách) sa dialógové okno pre akciu automaticky zatvorí a akcia je zrušená. Nastavte na 0, aby ste zakázali časový limit.</string>
-  <string id="SettingsPin">4-ciferníkový kolík, ktorý sa má použiť pre všetky akcie, ktoré si vyžadujú potvrdenie (0000-9999).</string>
+  <string id="SettingsPin">4-ciferníkový kolík, ktorý sa má použiť pre všetky akcie, ktoré to vyžadujú (0000-9999).</string>
   <string id="SettingsPinError">V nastaveniach aplikácie nakonfigurujte platný štvorciferný číselný kolík medzi 0000 a 9999.</string>
   <string id="SettingsTextAlign">Zarovnanie ponuky vľavo (vypnuté) alebo doprava.</string>
   <string id="LeftToRight">Zľava doprava</string>
@@ -79,7 +79,7 @@
   <string id="SettingsBatteryLevelRefreshRate">Rýchlosť obnovenia (v minútach), pri ktorej by služba pozadia mala opakovať odosielanie údajov.</string>
   <string id="SettingsUserHttpHeader">Hlavička HTTP dodaná používateľom</string>
   <string id="SettingsUserHttpHeaderDescription">Niektoré inštalácie domáceho asistenta vyžadujú, aby sa na fungovanie špecifikácia vlastnej hlavičky HTTP.</string>
-  <string id="SettingsUserHttpHeaderKey">Kľúč hlavičky HTTP dodávaný používateľom.</string>
-  <string id="SettingsUserHttpHeaderValue">Hodnota hlavičky HTTP dodaná používateľom.</string>
+  <string id="SettingsUserHttpHeaderName">Užívateľ dodávaný HTTP-Header: názov</string>
+  <string id="SettingsUserHttpHeaderValue">Užívateľ dodávaný HTTP-Header: Hodnota</string>
   <string id="WebhookId">(Iba prečítajte) ID WebHook vytvorené zariadením pre aktualizácie služieb na pozadí. Možno to potrebujete na ladenie.</string>
 </strings>

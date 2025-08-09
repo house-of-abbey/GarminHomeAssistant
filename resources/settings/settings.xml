@@ -121,8 +121,8 @@
 
   <group id="userHttpHeader" title="@Strings.SettingsUserHttpHeader" description="@Strings.SettingsUserHttpHeaderDescription">
     <setting
-      propertyKey="@Properties.user_http_header_key"
-      title="@Strings.SettingsUserHttpHeaderKey"
+      propertyKey="@Properties.user_http_header_name"
+      title="@Strings.SettingsUserHttpHeaderName"
     >
       <settingConfig type="alphaNumeric" />
     </setting>

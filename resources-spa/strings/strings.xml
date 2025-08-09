@@ -69,7 +69,7 @@
   <string id="SettingsAppTimeout">Tiempo de espera en segundos. Salga de la aplicación después de este período de inactividad para guardar la batería del dispositivo.</string>
   <string id="SettingsPollDelay">Retraso de encuesta adicional (en segundos). Agrega un retraso entre la actualización de estado de todos los elementos del menú.</string>
   <string id="SettingsConfirmTimeout">Después de este tiempo (en segundos), un diálogo de confirmación para una acción se cierra automáticamente y se cancela la acción. Establecer en 0 para deshabilitar el tiempo de espera.</string>
-  <string id="SettingsPin">Pin de 4 dígitos que se utilizará para todas las acciones que requieren confirmación (0000-9999).</string>
+  <string id="SettingsPin">Pin de 4 dígitos que se utilizará para todas las acciones que lo requieren (0000-9999).</string>
   <string id="SettingsPinError">Configure un PIN numérico válido de 4 dígitos entre 0000 y 9999 en la configuración de la aplicación.</string>
   <string id="SettingsTextAlign">Alineación del menú izquierda (apagada) o derecha (encendida).</string>
   <string id="LeftToRight">De izquierda a derecha</string>
@@ -79,7 +79,7 @@
   <string id="SettingsBatteryLevelRefreshRate">La tasa de actualización (en minutos) en la que el servicio de fondo debe repetir los datos de envío.</string>
   <string id="SettingsUserHttpHeader">Encabezado HTTP suministrado por el usuario</string>
   <string id="SettingsUserHttpHeaderDescription">Algunas instalaciones de asistente de inicio requieren la especificación de un encabezado HTTP personalizado para funcionar.</string>
-  <string id="SettingsUserHttpHeaderKey">La tecla de encabezado HTTP suministrada por el usuario.</string>
-  <string id="SettingsUserHttpHeaderValue">Valor de encabezado HTTP suministrado por el usuario.</string>
+  <string id="SettingsUserHttpHeaderName">Header HTTP suministrado por el usuario: nombre</string>
+  <string id="SettingsUserHttpHeaderValue">Header HTTP suministrado por el usuario: valor</string>
   <string id="WebhookId">(Solo lea) la ID de webhook creada por el dispositivo para actualizaciones del servicio de fondo. Es posible que necesite esto para la depuración.</string>
 </strings>

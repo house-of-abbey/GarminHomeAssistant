@@ -69,7 +69,7 @@
   <string id="SettingsAppTimeout">Tidsavbrudd på sekunder. Gå ut av applikasjonen etter denne perioden med inaktivitet for å lagre enhetsbatteriet.</string>
   <string id="SettingsPollDelay">Ytterligere avstemningsforsinkelse (på sekunder). Legger til en forsinkelse mellom statusoppdateringen av alle menyelementer.</string>
   <string id="SettingsConfirmTimeout">Etter denne tiden (på sekunder) blir en bekreftelsesdialog for en handling automatisk lukket og handlingen blir kansellert. Sett til 0 for å deaktivere tidsavbruddet.</string>
-  <string id="SettingsPin">4-sifret PIN-kode som skal brukes til alle handlinger som krever bekreftelse (0000-9999).</string>
+  <string id="SettingsPin">4-sifret pinne som skal brukes til alle handlinger som krever det (0000-9999).</string>
   <string id="SettingsPinError">Konfigurer en gyldig 4-sifret numerisk pinne mellom 0000 og 9999 i applikasjonsinnstillingene.</string>
   <string id="SettingsTextAlign">Venstre (av) eller høyre (på) menyjustering.</string>
   <string id="LeftToRight">Fra venstre til høyre</string>
@@ -79,7 +79,7 @@
   <string id="SettingsBatteryLevelRefreshRate">Oppdateringsfrekvensen (på få minutter) som bakgrunnstjenesten skal gjenta sendingsdata.</string>
   <string id="SettingsUserHttpHeader">Bruker levert HTTP -overskrift</string>
   <string id="SettingsUserHttpHeaderDescription">Noen hjemmeassistentinstallasjoner krever spesifikasjon av en tilpasset HTTP -overskrift for å fungere.</string>
-  <string id="SettingsUserHttpHeaderKey">Bruker levert HTTP -topptast.</string>
-  <string id="SettingsUserHttpHeaderValue">Bruker levert HTTP -overskriftsverdi.</string>
+  <string id="SettingsUserHttpHeaderName">Bruker levert http-header: navn</string>
+  <string id="SettingsUserHttpHeaderValue">Bruker levert http-header: verdi</string>
   <string id="WebhookId">(Bare les) Webhook -IDen som er opprettet av enheten for oppdateringer av bakgrunnstjenester. Du kan kreve dette for feilsøking.</string>
 </strings>

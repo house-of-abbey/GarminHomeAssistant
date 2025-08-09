@@ -44,7 +44,7 @@
   <string id="PotentialError">Potentiel fejl</string>
   <string id="Seconds">sekunder</string>
   <string id="TemplateError">Skabelonfejl</string>
-  <string id="TrailingSlashErr">API URL må ikke have en bageste skråstreg '/'.</string>
+  <string id="TrailingSlashErr">API -URL må ikke have en bageste skråstreg '/'.</string>
   <string id="Unavailable" scope="glance">Utilgængelig</string>
   <string id="Unconfigured" scope="glance">Ukonfigureret</string>
   <string id="UnhandledHttpErr">HTTP -anmodning returneret fejlkode =</string>
@@ -69,7 +69,7 @@
   <string id="SettingsAppTimeout">Timeout på få sekunder. Afslut applikationen efter denne periode med inaktivitet for at gemme enhedsbatteriet.</string>
   <string id="SettingsPollDelay">Yderligere afstemningsforsinkelse (på få sekunder). Tilføjer en forsinkelse mellem statusopdateringen af alle menupunkter.</string>
   <string id="SettingsConfirmTimeout">Efter denne tid (på få sekunder) lukkes en bekræftelsesdialog for en handling automatisk, og handlingen annulleres. Indstil til 0 for at deaktivere timeout.</string>
-  <string id="SettingsPin">4-cifret pin, der skal bruges til alle handlinger, der kræver bekræftelse (0000-9999).</string>
+  <string id="SettingsPin">4-cifret pin, der skal bruges til alle handlinger, der kræver det (0000-9999).</string>
   <string id="SettingsPinError">Konfigurer venligst en gyldig 4-cifret numerisk pin mellem 0000 og 9999 i applikationsindstillingerne.</string>
   <string id="SettingsTextAlign">Venstre (slukket) eller højre (på) menuindretning.</string>
   <string id="LeftToRight">Venstre til højre</string>
@@ -79,7 +79,7 @@
   <string id="SettingsBatteryLevelRefreshRate">Opdateringshastigheden (på få minutter), hvor baggrundstjenesten skal gentage afsendelsesdata.</string>
   <string id="SettingsUserHttpHeader">Bruger leveret HTTP -header</string>
   <string id="SettingsUserHttpHeaderDescription">Nogle hjemmeassistentinstallationer kræver specifikation af en brugerdefineret HTTP -header for at fungere.</string>
-  <string id="SettingsUserHttpHeaderKey">Bruger leveret HTTP -headernøgle.</string>
-  <string id="SettingsUserHttpHeaderValue">Bruger leveret HTTP -overskriftsværdi.</string>
+  <string id="SettingsUserHttpHeaderName">Bruger leveret http-header: navn</string>
+  <string id="SettingsUserHttpHeaderValue">Bruger leveret http-header: værdi</string>
   <string id="WebhookId">(Læs kun) Webhook -ID oprettet af enheden til opdateringer af baggrundstjeneste. Du kræver muligvis dette til fejlsøgning.</string>
 </strings>

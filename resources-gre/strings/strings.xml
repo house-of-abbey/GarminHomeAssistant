@@ -44,32 +44,32 @@
   <string id="PotentialError">Πιθανό σφάλμα</string>
   <string id="Seconds">δευτερόλεπτα</string>
   <string id="TemplateError">Σφάλμα προτύπου</string>
-  <string id="TrailingSlashErr">Το API URL δεν πρέπει να έχει μια κλίση "/'.</string>
+  <string id="TrailingSlashErr">Το URL API δεν πρέπει να έχει μια κλίση "/'.</string>
   <string id="Unavailable" scope="glance">Δυσεύρετος</string>
   <string id="Unconfigured" scope="glance">Αδιευκρίνιστος</string>
-  <string id="UnhandledHttpErr">Το αίτημα HTTP επέστρεψε κωδικό σφάλματος =</string>
+  <string id="UnhandledHttpErr">Αίτηση HTTP Επιστρέφεται κωδικός σφάλματος =</string>
   <string id="WebhookFailed">Αποτυχία εγγραφής webhook</string>
   <string id="WrongPin">Λάθος καρφίτσα</string>
-  <string id="WifiLteNotAvailable">Δεν υπάρχει διαθέσιμο Wi-Fi ή LTE</string>
+  <string id="WifiLteNotAvailable">Χωρίς Wi-Fi ή LTE διαθέσιμο</string>
   <string id="WifiLtePrompt">Εκτέλεση μέσω Wi-Fi/LTE;</string>
   <string id="WifiLteExecutionTitle">Αποστολή στον βοηθό στο σπίτι.</string>
   <string id="WifiLteExecutionDataError">Δεν λαμβάνονται δεδομένα.</string>
   <!-- Για τις ρυθμίσεις GUI, οι χορδές πρέπει να είναι με τη σειρά που χρησιμοποιούνται. -->
   <string id="SettingsSelect">Επιλέγω...</string>
   <string id="SettingsApiKey">API κλειδί για το Homeassistant.</string>
-  <string id="SettingsApiKeyPrompt">Διακριτικό πρόσβασης σε μακροχρόνια διάρκεια.</string>
+  <string id="SettingsApiKeyPrompt">Διακριτικό πρόσβαση σε μακροχρόνια διάρκεια.</string>
   <string id="SettingsApiUrl">URL για το Homeassistant API.</string>
   <string id="SettingsConfigUrl">URL για διαμόρφωση μενού (JSON).</string>
   <string id="SettingsCacheConfig">Πρέπει η προσωρινή μνήμη εφαρμογής τη διαμόρφωση μενού;</string>
   <string id="SettingsClearCache">Πρέπει η εφαρμογή να διαγράψει την υπάρχουσα μνήμη cache την επόμενη φορά που θα ξεκινήσει;</string>
   <string id="WifiLteExecution">Λειτουργία εκτέλεσης Wi-Fi/LTE.</string>
   <string id="WifiLteExecutionEnable">Ενεργοποιήστε τις εντολές εκτέλεσης μέσω Wi-Fi/LTE.</string>
-  <string id="WifiLteExecutionDescription">Επιτρέπει στην εφαρμογή να ξεκινά χωρίς σύνδεση τηλεφώνου (όταν το μενού αποθηκεύεται) και προτρέπεται να εκτελέσει εντολή μέσω Wi-Fi/LTE.</string>
+  <string id="WifiLteExecutionDescription">Επιτρέπει στην εφαρμογή να ξεκινά χωρίς σύνδεση τηλεφώνου (όταν το μενού αποθηκεύεται προσωρινά) και προτρέπεται να εκτελέσει εντολή μέσω Wi-Fi/LTE.</string>
   <string id="SettingsVibration">Πρέπει η εφαρμογή να παρέχει ανατροφοδότηση μέσω δονήσεων;</string>
   <string id="SettingsAppTimeout">Χρονικό όριο σε δευτερόλεπτα. Βγείτε από την εφαρμογή μετά από αυτήν την περίοδο αδράνειας για να αποθηκεύσετε τη μπαταρία της συσκευής.</string>
   <string id="SettingsPollDelay">Πρόσθετη καθυστέρηση δημοσκόπησης (σε δευτερόλεπτα). Προσθέτει μια καθυστέρηση μεταξύ της ενημέρωσης κατάστασης όλων των στοιχείων μενού.</string>
   <string id="SettingsConfirmTimeout">Μετά από αυτό το χρονικό διάστημα (σε δευτερόλεπτα), ένα παράθυρο διαλόγου επιβεβαίωσης για μια ενέργεια κλείνει αυτόματα και η ενέργεια ακυρώνεται. Ρυθμίστε στο 0 για να απενεργοποιήσετε το χρονικό όριο.</string>
-  <string id="SettingsPin">4 ψηφία PIN για όλες τις ενέργειες που απαιτούν επιβεβαίωση (0000-9999).</string>
+  <string id="SettingsPin">4-ψηφία PIN που πρέπει να χρησιμοποιηθεί για όλες τις ενέργειες που το απαιτούν (0000-9999).</string>
   <string id="SettingsPinError">Διαμορφώστε έναν έγκυρο τετραψήφιο αριθμητικό πείρο μεταξύ 0000 και 9999 στις ρυθμίσεις εφαρμογής.</string>
   <string id="SettingsTextAlign">Αριστερά (απενεργοποίηση) ή δεξιά (ON) Ευθυγράμμιση μενού.</string>
   <string id="LeftToRight">Από αριστερά προς τα δεξιά</string>
@@ -79,7 +79,7 @@
   <string id="SettingsBatteryLevelRefreshRate">Ο ρυθμός ανανέωσης (σε λεπτά) κατά τον οποίο η υπηρεσία φόντου πρέπει να επαναλαμβάνει τα δεδομένα αποστολής.</string>
   <string id="SettingsUserHttpHeader">Παρέχεται η κεφαλίδα HTTP που παρέχεται από τον χρήστη</string>
   <string id="SettingsUserHttpHeaderDescription">Ορισμένες εγκαταστάσεις βοηθού στο σπίτι απαιτούν την προδιαγραφή μιας προσαρμοσμένης κεφαλίδας HTTP για να λειτουργήσουν.</string>
-  <string id="SettingsUserHttpHeaderKey">Παρέχεται πλήκτρο κεφαλίδας HTTP HTTP.</string>
-  <string id="SettingsUserHttpHeaderValue">Παρέχεται η τιμή κεφαλίδας HTTP HTTP.</string>
+  <string id="SettingsUserHttpHeaderName">Παρέχεται ο χρήστης HTTP-Header: Όνομα</string>
+  <string id="SettingsUserHttpHeaderValue">Παρέχεται ο χρήστης HTTP-Header: Αξία</string>
   <string id="WebhookId">(Μόνο διαβάστε) Το αναγνωριστικό WebHook που δημιουργήθηκε από τη συσκευή για ενημερώσεις υπηρεσιών φόντου. Μπορεί να το χρειαστείτε για εντοπισμό σφαλμάτων.</string>
 </strings>

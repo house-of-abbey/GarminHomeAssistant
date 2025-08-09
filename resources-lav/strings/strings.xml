@@ -33,7 +33,7 @@
   <string id="Memory" scope="glance">Atmiņa</string>
   <string id="NoAPIKey" scope="glance">Lietojumprogrammas iestatījumos nav API atslēgas.</string>
   <string id="NoApiUrl" scope="glance">Lietojumprogrammu iestatījumos nav API URL.</string>
-  <string id="NoConfigUrl" scope="glance">Lietojumprogrammu iestatījumos nav konfigurācijas URL.</string>
+  <string id="NoConfigUrl" scope="glance">Lietojumprogrammas iestatījumos nav konfigurācijas URL.</string>
   <string id="NoInternet">Nav interneta savienojuma.</string>
   <string id="NoJson">Neviens JSON neatgriezās no HTTP pieprasījuma.</string>
   <string id="NoPhone" scope="glance">Nav tālruņa savienojuma.</string>
@@ -54,22 +54,22 @@
   <string id="WifiLtePrompt">Izpildīt pār wi-fi/lte?</string>
   <string id="WifiLteExecutionTitle">Sūtot mājas palīgu.</string>
   <string id="WifiLteExecutionDataError">Dati nav saņemti.</string>
-  <!-- Iestatījumi GUI stīgām jābūt tādā secībā, kādā tās tiek izmantotas. -->
+  <!-- Iestatījumi GUI stīgām jābūt tādā secībā, kādu tie tiek izmantoti. -->
   <string id="SettingsSelect">Atlasiet ...</string>
   <string id="SettingsApiKey">API atslēga Homeassistant.</string>
   <string id="SettingsApiKeyPrompt">Ilgstoša piekļuves marķieris.</string>
   <string id="SettingsApiUrl">URL Homeassistant API.</string>
   <string id="SettingsConfigUrl">URL izvēlnes konfigurācijai (JSON).</string>
-  <string id="SettingsCacheConfig">Vai lietojumprogrammai vajadzētu kešatmiņā saglabāt izvēlnes konfigurāciju?</string>
+  <string id="SettingsCacheConfig">Vai lietojumprogrammai vajadzētu kešatmiņā izvēlnes konfigurāciju?</string>
   <string id="SettingsClearCache">Vai lietojumprogrammai vajadzētu notīrīt esošo kešatmiņu nākamreiz, kad tā tiks sākta?</string>
   <string id="WifiLteExecution">Wi-Fi/LTE izpildes režīms.</string>
   <string id="WifiLteExecutionEnable">Iespējot izpildīt komandas, izmantojot Wi-Fi/LTE.</string>
-  <string id="WifiLteExecutionDescription">Ļauj lietotnei sākt bez tālruņa savienojuma (kad izvēlne ir kešatmiņā), un uzvedne izpildīt komandu, izmantojot Wi-Fi/LTE.</string>
+  <string id="WifiLteExecutionDescription">Ļauj lietotnei sākt bez tālruņa savienojuma (kad izvēlne ir kešatmiņā) un uzvedne izpildīt komandu, izmantojot Wi-Fi/LTE.</string>
   <string id="SettingsVibration">Vai lietojumprogrammai vajadzētu sniegt atgriezenisko saiti, izmantojot vibrācijas?</string>
   <string id="SettingsAppTimeout">Noildze sekundēs. Izejiet no lietojumprogrammas pēc šī bezdarbības perioda, lai saglabātu ierīces akumulatoru.</string>
   <string id="SettingsPollDelay">Papildu aptaujas kavēšanās (sekundēs). Pievieno kavēšanos starp visu izvēlnes vienumu statusa atjauninājumu.</string>
   <string id="SettingsConfirmTimeout">Pēc šī laika (sekundēs) tiek automātiski slēgts apstiprinājuma dialogs darbībai un darbība tiek atcelta. Iestatiet uz 0, lai atspējotu noildzi.</string>
-  <string id="SettingsPin">4 ciparu tapa, kas jāizmanto visām darbībām, kurām nepieciešams apstiprinājums (0000-9999).</string>
+  <string id="SettingsPin">4 ciparu tapa, kas jāizmanto visām darbībām, kurām to nepieciešama (0000-9999).</string>
   <string id="SettingsPinError">Lūdzu, lietojumprogrammu iestatījumos konfigurējiet derīgu četrciparu skaitlisko tapu no 0000 līdz 9999.</string>
   <string id="SettingsTextAlign">Kreisais (izslēgts) vai labais (ieslēgts) izvēlnes izlīdzināšana.</string>
   <string id="LeftToRight">No kreisās uz labo pusi</string>
@@ -79,7 +79,7 @@
   <string id="SettingsBatteryLevelRefreshRate">Atsvaidzināšanas ātrums (minūtēs), kurā fona pakalpojumam vajadzētu atkārtot datu nosūtīšanu.</string>
   <string id="SettingsUserHttpHeader">Lietotājs piegādāja HTTP galveni</string>
   <string id="SettingsUserHttpHeaderDescription">Dažām mājas palīga instalācijām ir nepieciešama pielāgota HTTP galvenes specifikācija, lai darbotos.</string>
-  <string id="SettingsUserHttpHeaderKey">Lietotājs piegādāja HTTP galvenes atslēgu.</string>
-  <string id="SettingsUserHttpHeaderValue">Lietotājs piegādā HTTP galvenes vērtību.</string>
+  <string id="SettingsUserHttpHeaderName">Lietotājs piegādāja HTTP galveni: Vārds</string>
+  <string id="SettingsUserHttpHeaderValue">Lietotājs piegādā HTTP galveni: vērtība</string>
   <string id="WebhookId">(Tikai lasīt) WebHook ID, ko ierīce izveidoja fona pakalpojumu atjauninājumiem. Jūs to varētu pieprasīt atkļūdošanai.</string>
 </strings>

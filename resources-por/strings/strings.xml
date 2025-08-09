@@ -69,7 +69,7 @@
   <string id="SettingsAppTimeout">Tempo limite em segundos. Saia do aplicativo após esse período de inatividade para salvar a bateria do dispositivo.</string>
   <string id="SettingsPollDelay">Atraso adicional da pesquisa (em segundos). Adiciona um atraso entre a atualização de status de todos os itens do menu.</string>
   <string id="SettingsConfirmTimeout">Após esse período (em segundos), uma caixa de diálogo de confirmação para uma ação é fechada automaticamente e a ação é cancelada. Defina como 0 para desativar o tempo limite.</string>
-  <string id="SettingsPin">PIN de 4 dígitos a serem usados para todas as ações que requerem confirmação (0000-9999).</string>
+  <string id="SettingsPin">PIN de 4 dígitos a ser usado para todas as ações que o exigem (0000-9999).</string>
   <string id="SettingsPinError">Configure um pino numérico de 4 dígitos válido entre 0000 e 9999 nas configurações do aplicativo.</string>
   <string id="SettingsTextAlign">Alinhamento do menu esquerdo (desativado) ou direito (on).</string>
   <string id="LeftToRight">Da esquerda para a direita</string>
@@ -79,7 +79,7 @@
   <string id="SettingsBatteryLevelRefreshRate">A taxa de atualização (em minutos) na qual o serviço em segundo plano deve repetir os dados de envio.</string>
   <string id="SettingsUserHttpHeader">Usuário fornecido pelo cabeçalho HTTP</string>
   <string id="SettingsUserHttpHeaderDescription">Algumas instalações de assistente doméstica exigem a especificação de um cabeçalho HTTP personalizado para funcionar.</string>
-  <string id="SettingsUserHttpHeaderKey">Chave do cabeçalho HTTP fornecido pelo usuário.</string>
-  <string id="SettingsUserHttpHeaderValue">Valor do cabeçalho HTTP fornecido pelo usuário.</string>
+  <string id="SettingsUserHttpHeaderName">Usuário fornecido http header: nome</string>
+  <string id="SettingsUserHttpHeaderValue">Usuário fornecido HTTP-Header: Valor</string>
   <string id="WebhookId">(Somente leitura) O ID do webhook criado pelo dispositivo para atualizações de serviço em segundo plano. Você pode exigir isso para depuração.</string>
 </strings>

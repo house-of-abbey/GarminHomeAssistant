@@ -44,7 +44,7 @@
   <string id="PotentialError">Потенциална грешка</string>
   <string id="Seconds">секунди</string>
   <string id="TemplateError">Грешка в шаблона</string>
-  <string id="TrailingSlashErr">URL адресът на API не трябва да има наклонена черта '/'.</string>
+  <string id="TrailingSlashErr">URL адресът на API не трябва да има закъснение '/'.</string>
   <string id="Unavailable" scope="glance">Недостъпни</string>
   <string id="Unconfigured" scope="glance">Неуверен</string>
   <string id="UnhandledHttpErr">HTTP заявка Върната код за грешка =</string>
@@ -56,7 +56,7 @@
   <string id="WifiLteExecutionDataError">Няма получени данни.</string>
   <!-- За GUI на настройките, низовете трябва да са в реда, в който се използват. -->
   <string id="SettingsSelect">Изберете ...</string>
-  <string id="SettingsApiKey">Ключ на API за домашни условия.</string>
+  <string id="SettingsApiKey">Ключ на API за домашно.</string>
   <string id="SettingsApiKeyPrompt">Дълготраен маркер за достъп.</string>
   <string id="SettingsApiUrl">URL за домашен API.</string>
   <string id="SettingsConfigUrl">URL за конфигуриране на менюто (JSON).</string>
@@ -69,7 +69,7 @@
   <string id="SettingsAppTimeout">Време за изчакване за секунди. Излезте от приложението след този период на бездействие, за да запазите батерията на устройството.</string>
   <string id="SettingsPollDelay">Допълнително забавяне на анкетата (за секунди). Добавя забавяне между актуализацията на състоянието на всички елементи от менюто.</string>
   <string id="SettingsConfirmTimeout">След това време (за секунди) диалоговият прозорец за потвърждение за действие автоматично се затваря и действието се отменя. Задайте 0, за да деактивирате изчакване.</string>
-  <string id="SettingsPin">4-цифрен ПИН, който ще се използва за всички действия, които изискват потвърждение (0000-9999).</string>
+  <string id="SettingsPin">4-цифрен ПИН, който ще се използва за всички действия, които го изискват (0000-9999).</string>
   <string id="SettingsPinError">Моля, конфигурирайте валиден 4-цифрен цифров ПИН между 0000 и 9999 в настройките на приложението.</string>
   <string id="SettingsTextAlign">Наляво (изключено) или вдясно (включено) изравняване на менюто.</string>
   <string id="LeftToRight">Отляво надясно</string>
@@ -79,7 +79,7 @@
   <string id="SettingsBatteryLevelRefreshRate">Скоростта на опресняване (за минути), при която фоновата услуга трябва да повтори изпращането на данни.</string>
   <string id="SettingsUserHttpHeader">Потребител, доставен HTTP заглавка</string>
   <string id="SettingsUserHttpHeaderDescription">Някои инсталации за домашен асистент изискват спецификация на персонализиран HTTP заглавка, за да функционират.</string>
-  <string id="SettingsUserHttpHeaderKey">Потребител, доставен HTTP заглавен ключ.</string>
-  <string id="SettingsUserHttpHeaderValue">Потребител, доставена стойност на заглавката на HTTP.</string>
+  <string id="SettingsUserHttpHeaderName">Потребител, доставен http-header: Име</string>
+  <string id="SettingsUserHttpHeaderValue">Потребител, доставен http-header: стойност</string>
   <string id="WebhookId">(Само прочетете) Идентификационният номер на WebHook, създаден от устройството за актуализации на фоновите услуги. Може да се наложи това за отстраняване на грешки.</string>
 </strings>

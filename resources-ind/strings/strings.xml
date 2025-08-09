@@ -46,7 +46,7 @@
   <string id="TemplateError">Kesalahan template</string>
   <string id="TrailingSlashErr">URL API tidak boleh memiliki tebasan trailing '/'.</string>
   <string id="Unavailable" scope="glance">Tidak tersedia</string>
-  <string id="Unconfigured" scope="glance">Tidak dikonfigurasi</string>
+  <string id="Unconfigured" scope="glance">Tidak dikonfigurasikan</string>
   <string id="UnhandledHttpErr">Permintaan HTTP Kode kesalahan dikembalikan =</string>
   <string id="WebhookFailed">Gagal Mendaftar Webhook</string>
   <string id="WrongPin">Pin yang salah</string>
@@ -69,7 +69,7 @@
   <string id="SettingsAppTimeout">Batas waktu dalam hitungan detik. Keluar dari aplikasi setelah periode tidak aktif ini untuk menyimpan baterai perangkat.</string>
   <string id="SettingsPollDelay">Penundaan jajak pendapat tambahan (dalam hitungan detik). Menambahkan penundaan antara pembaruan status semua item menu.</string>
   <string id="SettingsConfirmTimeout">Setelah waktu ini (dalam hitungan detik), dialog konfirmasi untuk suatu tindakan ditutup secara otomatis dan tindakan dibatalkan. Diatur ke 0 untuk menonaktifkan batas waktu.</string>
-  <string id="SettingsPin">PIN 4 digit untuk digunakan untuk semua tindakan yang memerlukan konfirmasi (0000-9999).</string>
+  <string id="SettingsPin">PIN 4 digit untuk digunakan untuk semua tindakan yang memerlukannya (0000-9999).</string>
   <string id="SettingsPinError">Harap konfigurasikan pin numerik 4 digit yang valid antara 0000 dan 9999 di pengaturan aplikasi.</string>
   <string id="SettingsTextAlign">Left (off) atau Alignment Menu Left (Off) atau Right (ON).</string>
   <string id="LeftToRight">Kiri ke kanan</string>
@@ -79,7 +79,7 @@
   <string id="SettingsBatteryLevelRefreshRate">Tingkat refresh (dalam hitungan menit) di mana layanan latar belakang harus mengulang data pengiriman.</string>
   <string id="SettingsUserHttpHeader">Pengguna yang disediakan header http</string>
   <string id="SettingsUserHttpHeaderDescription">Beberapa instalasi asisten rumah memerlukan spesifikasi header HTTP khusus untuk berfungsi.</string>
-  <string id="SettingsUserHttpHeaderKey">Kunci header http yang disediakan pengguna.</string>
-  <string id="SettingsUserHttpHeaderValue">Nilai header http yang disediakan pengguna.</string>
+  <string id="SettingsUserHttpHeaderName">Pengguna yang disediakan http-header: nama</string>
+  <string id="SettingsUserHttpHeaderValue">Pengguna yang disediakan http-header: nilai</string>
   <string id="WebhookId">(Baca saja) ID WebHook yang dibuat oleh perangkat untuk pembaruan layanan latar belakang. Anda mungkin memerlukan ini untuk debugging.</string>
 </strings>

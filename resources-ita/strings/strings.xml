@@ -69,7 +69,7 @@
   <string id="SettingsAppTimeout">Timeout in secondi. Esci dall'applicazione dopo questo periodo di inattività per salvare la batteria del dispositivo.</string>
   <string id="SettingsPollDelay">Ritardo del sondaggio aggiuntivo (in secondi). Aggiunge un ritardo tra l'aggiornamento dello stato di tutte le voci di menu.</string>
   <string id="SettingsConfirmTimeout">Dopo questo periodo (in secondi), una finestra di dialogo di conferma per un'azione viene automaticamente chiusa e l'azione viene annullata. Impostare su 0 per disabilitare il timeout.</string>
-  <string id="SettingsPin">PIN a 4 cifre da utilizzare per tutte le azioni che richiedono conferma (0000-9999).</string>
+  <string id="SettingsPin">Pin a 4 cifre da utilizzare per tutte le azioni che lo richiedono (0000-9999).</string>
   <string id="SettingsPinError">Configurare un pin numerico a 4 cifre valido tra 0000 e 9999 nelle impostazioni dell'applicazione.</string>
   <string id="SettingsTextAlign">Allineamento del menu a sinistra (OFF) o destro (ON).</string>
   <string id="LeftToRight">Da sinistra a destra</string>
@@ -79,7 +79,7 @@
   <string id="SettingsBatteryLevelRefreshRate">La frequenza di aggiornamento (in minuti) in cui il servizio di fondo deve ripetere l'invio di dati.</string>
   <string id="SettingsUserHttpHeader">Intestazione HTTP fornita dall'utente</string>
   <string id="SettingsUserHttpHeaderDescription">Alcune installazioni di assistenti domestici richiedono la specifica di un'intestazione HTTP personalizzata per funzionare.</string>
-  <string id="SettingsUserHttpHeaderKey">Chiave di intestazione HTTP fornita dall'utente.</string>
-  <string id="SettingsUserHttpHeaderValue">Valore dell'intestazione HTTP fornito dall'utente.</string>
+  <string id="SettingsUserHttpHeaderName">Utente fornito HTTP-HEADER: nome</string>
+  <string id="SettingsUserHttpHeaderValue">Utente fornito HTTP-HEADER: valore</string>
   <string id="WebhookId">(Solo lettura) L'ID WebHook creato dal dispositivo per gli aggiornamenti del servizio in background. Potresti richiederlo per il debug.</string>
 </strings>

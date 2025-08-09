@@ -69,7 +69,7 @@
   <string id="SettingsAppTimeout">数秒でタイムアウト。デバイスバッテリーを保存するために、この不活性期間の後にアプリケーションを終了します。</string>
   <string id="SettingsPollDelay">追加の投票遅延（秒単位）。すべてのメニュー項目のステータス更新間に遅延を追加します。</string>
   <string id="SettingsConfirmTimeout">この時間（秒）の後、アクションの確認ダイアログが自動的に閉じられ、アクションがキャンセルされます。タイムアウトを無効にするために0に設定します。</string>
-  <string id="SettingsPin">確認が必要なすべてのアクションに使用される4桁のピン（0000-9999）。</string>
+  <string id="SettingsPin">4桁のピンは、それを必要とするすべてのアクションに使用されます（0000-9999）。</string>
   <string id="SettingsPinError">アプリケーション設定で0000〜9999の間に有効な4桁の数値ピンを構成してください。</string>
   <string id="SettingsTextAlign">左（オフ）または右（オン）メニューアライメント。</string>
   <string id="LeftToRight">左から右</string>
@@ -79,7 +79,7 @@
   <string id="SettingsBatteryLevelRefreshRate">バックグラウンドサービスがデータの送信を繰り返す必要があるリフレッシュレート（数分単位）。</string>
   <string id="SettingsUserHttpHeader">ユーザーが提供したHTTPヘッダー</string>
   <string id="SettingsUserHttpHeaderDescription">一部のホームアシスタントインストールでは、機能するためにカスタムHTTPヘッダーの仕様が必要です。</string>
-  <string id="SettingsUserHttpHeaderKey">ユーザーはHTTPヘッダーキーを提供しました。</string>
-  <string id="SettingsUserHttpHeaderValue">ユーザーはHTTPヘッダー値を提供しました。</string>
+  <string id="SettingsUserHttpHeaderName">ユーザーが提供したhttp-header：name</string>
+  <string id="SettingsUserHttpHeaderValue">ユーザーが提供したhttp-header：value</string>
   <string id="WebhookId">（読み取り専用）バックグラウンドサービスの更新のためにデバイスによって作成されたWebHook ID。デバッグにこれが必要になる場合があります。</string>
 </strings>

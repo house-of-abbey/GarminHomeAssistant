@@ -69,7 +69,7 @@
   <string id="SettingsAppTimeout">หมดเวลาในไม่กี่วินาที ออกจากแอปพลิเคชันหลังจากช่วงเวลาที่ไม่มีการใช้งานเพื่อประหยัดแบตเตอรี่อุปกรณ์</string>
   <string id="SettingsPollDelay">ความล่าช้าในการสำรวจเพิ่มเติม (ในไม่กี่วินาที) เพิ่มความล่าช้าระหว่างการอัปเดตสถานะของรายการเมนูทั้งหมด</string>
   <string id="SettingsConfirmTimeout">หลังจากเวลานี้ (ในไม่กี่วินาที) กล่องโต้ตอบยืนยันสำหรับการกระทำจะถูกปิดโดยอัตโนมัติและการดำเนินการจะถูกยกเลิก ตั้งค่าเป็น 0 เพื่อปิดการหมดเวลา</string>
-  <string id="SettingsPin">พิน 4 หลักที่จะใช้สำหรับการกระทำทั้งหมดที่ต้องมีการยืนยัน (0000-9999)</string>
+  <string id="SettingsPin">พิน 4 หลักที่จะใช้สำหรับการกระทำทั้งหมดที่ต้องการ (0000-9999)</string>
   <string id="SettingsPinError">โปรดกำหนดค่าพินตัวเลข 4 หลักที่ถูกต้องระหว่าง 0000 ถึง 9999 ในการตั้งค่าแอปพลิเคชัน</string>
   <string id="SettingsTextAlign">การจัดตำแหน่งเมนูซ้าย (ปิด) หรือขวา (เปิด)</string>
   <string id="LeftToRight">จากซ้ายไปขวา</string>
@@ -79,7 +79,7 @@
   <string id="SettingsBatteryLevelRefreshRate">อัตราการรีเฟรช (ในไม่กี่นาที) ที่บริการพื้นหลังควรส่งข้อมูลซ้ำ</string>
   <string id="SettingsUserHttpHeader">ส่วนหัว HTTP ที่ผู้ใช้จัดหา</string>
   <string id="SettingsUserHttpHeaderDescription">การติดตั้งผู้ช่วยที่บ้านบางคนต้องการข้อมูลจำเพาะของส่วนหัว HTTP ที่กำหนดเองเพื่อให้สามารถใช้งานได้</string>
-  <string id="SettingsUserHttpHeaderKey">คีย์ส่วนหัว HTTP ที่ผู้ใช้จัดหา</string>
-  <string id="SettingsUserHttpHeaderValue">ค่าส่วนหัว HTTP ที่ผู้ใช้จัดหา</string>
+  <string id="SettingsUserHttpHeaderName">ผู้ใช้ HTTP-Header: ชื่อ</string>
+  <string id="SettingsUserHttpHeaderValue">ผู้ใช้ HTTP-Header: ค่า</string>
   <string id="WebhookId">(อ่านเท่านั้น) ID WebHook ที่สร้างโดยอุปกรณ์สำหรับการอัปเดตบริการพื้นหลัง คุณอาจต้องการสิ่งนี้สำหรับการดีบัก</string>
 </strings>

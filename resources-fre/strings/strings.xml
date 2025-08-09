@@ -69,7 +69,7 @@
   <string id="SettingsAppTimeout">Timeout en quelques secondes. Quittez l'application après cette période d'inactivité pour enregistrer la batterie de l'appareil.</string>
   <string id="SettingsPollDelay">Délai supplémentaire du scrutin (en secondes). Ajoute un délai entre la mise à jour d'état de tous les éléments de menu.</string>
   <string id="SettingsConfirmTimeout">Après ce temps (en quelques secondes), une boîte de dialogue de confirmation pour une action est automatiquement fermée et l'action est annulée. Réglé sur 0 pour désactiver le délai d'attente.</string>
-  <string id="SettingsPin">PIN à 4 chiffres à utiliser pour toutes les actions qui nécessitent une confirmation (0000-9999).</string>
+  <string id="SettingsPin">PIN à 4 chiffres à utiliser pour toutes les actions qui l'exigent (0000-9999).</string>
   <string id="SettingsPinError">Veuillez configurer une broche numérique à 4 chiffres valide entre 0000 et 9999 dans les paramètres de l'application.</string>
   <string id="SettingsTextAlign">Alignement du menu gauche (off) ou droit (on).</string>
   <string id="LeftToRight">De gauche à droite</string>
@@ -79,7 +79,7 @@
   <string id="SettingsBatteryLevelRefreshRate">Le taux de rafraîchissement (en minutes) auquel le service d'arrière-plan doit répéter l'envoi de données.</string>
   <string id="SettingsUserHttpHeader">En-tête HTTP fourni par l'utilisateur</string>
   <string id="SettingsUserHttpHeaderDescription">Certaines installations d'assistant à domicile nécessitent la spécification d'un en-tête HTTP personnalisé pour fonctionner.</string>
-  <string id="SettingsUserHttpHeaderKey">La touche d'en-tête HTTP fournie par l'utilisateur.</string>
-  <string id="SettingsUserHttpHeaderValue">Valeur d'en-tête HTTP fournie par l'utilisateur.</string>
+  <string id="SettingsUserHttpHeaderName">Utilisateur fourni HTTP-Header: Nom</string>
+  <string id="SettingsUserHttpHeaderValue">Utilisateur HTTP-Header: Valeur</string>
   <string id="WebhookId">(Lire uniquement) L'ID Webhook créé par l'appareil pour les mises à jour du service d'arrière-plan. Vous pourriez en avoir besoin pour le débogage.</string>
 </strings>

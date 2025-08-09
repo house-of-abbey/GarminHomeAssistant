@@ -46,14 +46,14 @@
   <string id="TemplateError">Помилка шаблону</string>
   <string id="TrailingSlashErr">URL -адреса API не повинна мати кінцеву косою косою '/'.</string>
   <string id="Unavailable" scope="glance">Недоступний</string>
-  <string id="Unconfigured" scope="glance">Неконфігурований</string>
-  <string id="UnhandledHttpErr">Запит HTTP повернувся код помилки =</string>
+  <string id="Unconfigured" scope="glance">Неінфігурований</string>
+  <string id="UnhandledHttpErr">Запит HTTP Повернувся код помилки =</string>
   <string id="WebhookFailed">Не вдалося зареєструвати WebHook</string>
   <string id="WrongPin">Неправильна шпилька</string>
-  <string id="WifiLteNotAvailable">Немає Wi-Fi або LTE</string>
+  <string id="WifiLteNotAvailable">Відсутність Wi-Fi або LTE</string>
   <string id="WifiLtePrompt">Виконати через Wi-Fi/LTE?</string>
   <string id="WifiLteExecutionTitle">Відправлення домашнього помічника.</string>
-  <string id="WifiLteExecutionDataError">Жодних даних не отримано.</string>
+  <string id="WifiLteExecutionDataError">Не отримані даних.</string>
   <!-- Для графічного інтерфейсу рядків повинні бути в порядку, в якому вони використовуються. -->
   <string id="SettingsSelect">Виберіть ...</string>
   <string id="SettingsApiKey">Ключ API для домашніх систем.</string>
@@ -69,7 +69,7 @@
   <string id="SettingsAppTimeout">Тайм -аут за лічені секунди. Вийдіть із програми після цього періоду бездіяльності, щоб зберегти акумулятор пристрою.</string>
   <string id="SettingsPollDelay">Додаткова затримка опитування (за лічені секунди). Додає затримку між оновленням статусу всіх пунктів меню.</string>
   <string id="SettingsConfirmTimeout">Після цього часу (за лічені секунди) діалогове вікно підтвердження дії автоматично закривається і дія скасовується. Встановіть 0, щоб відключити тайм -аут.</string>
-  <string id="SettingsPin">4-значний PIN-код, який буде використовуватися для всіх дій, які потребують підтвердження (0000-9999).</string>
+  <string id="SettingsPin">4-значний PIN-код, який слід використовувати для всіх дій, які потребують цього (0000-9999).</string>
   <string id="SettingsPinError">Будь ласка, налаштуйте дійсний 4-значний числовий штифт між 0000 та 9999 у налаштуваннях програми.</string>
   <string id="SettingsTextAlign">Зліва (вимкнено) або праворуч (увімкнено) вирівнювання меню.</string>
   <string id="LeftToRight">Зліва направо</string>
@@ -79,7 +79,7 @@
   <string id="SettingsBatteryLevelRefreshRate">Швидкість оновлення (за лічені хвилини), в якій фонова послуга повинна повторити надсилання даних.</string>
   <string id="SettingsUserHttpHeader">Користувач постачав HTTP заголовок</string>
   <string id="SettingsUserHttpHeaderDescription">Деякі установи домашнього помічника потребують специфікації спеціального заголовка HTTP для функціонування.</string>
-  <string id="SettingsUserHttpHeaderKey">Ключ заголовка HTTP надає користувача.</string>
-  <string id="SettingsUserHttpHeaderValue">Значення заголовка HTTP надається користувачем.</string>
+  <string id="SettingsUserHttpHeaderName">Поставлений користувачем HTTP-Header: Ім'я</string>
+  <string id="SettingsUserHttpHeaderValue">Користувач надає HTTP-Header: Значення</string>
   <string id="WebhookId">(Лише читайте) Ідентифікатор WebHook, створений пристроєм для оновлень фонових служб. Вам може знадобитися це для налагодження.</string>
 </strings>

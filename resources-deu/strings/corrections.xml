@@ -26,29 +26,23 @@
 <strings>
   <string id="ApiFlood">Zu viele API-Aufrufe in kurzer Zeit. Bitte verlangsame deine Anfragen.</string>
   <string id="ApiUrlNotFound">URL nicht gefunden. Möglicher Fehler in der API-URL in den Einstellungen.</string>
-
   <string id="Available" scope="glance">OK</string>
   <string id="Cached" scope="glance">gecacht</string>
   <string id="Checking" scope="glance">Prüfe...</string>
   <string id="ConfigUrlNotFound">URL nicht gefunden. Möglicherweise falsche Konfigurations-URL in den Einstellungen.</string>
-
   <string id="GlanceMenu" scope="glance">Menü</string>
   <string id="Memory" scope="glance">Speicher</string>
   <string id="NoAPIKey" scope="glance">Kein API-Schlüssel in den App-Einstellungen hinterlegt.</string>
   <string id="NoApiUrl" scope="glance">Keine API-URL in den App-Einstellungen hinterlegt.</string>
   <string id="NoConfigUrl" scope="glance">Keine Menükonfigurations-URL (JSON) in den App-Einstellungen hinterlegt.</string>
-  
   <string id="NoJson">Keine JSON-Datei aus der HTTP-Anfrage zurückbekommen.</string>
-  
   <string id="NoPhoneNoCache" scope="glance">Keine Telefonverbindung und kein gecachtes Menü.</string>
   <string id="NoResponse">Keine Antwort, bitte Internetverbindung prüfen.</string>
   <string id="TimedOut">Anfragezeit überschritten.</string>
   <string id="PinInputLocked">PIN-Eingabe gesperrt für</string>
   <string id="PotentialError">Möglicher Fehler</string>
-  
   <string id="TemplateError">Template konnte nicht gerendert werden</string>
   <string id="TrailingSlashErr">API-URL darf nicht mit einem Schrägstrich '/' enden.</string>
-  
   <string id="UnhandledHttpErr">Die HTTP-Anfrage gab folgenden Fehlercode zurück = </string>
   <string id="WebhookFailed">Webhook-Registrierung fehlgeschlagen.</string>
   <string id="WrongPin">Falsche PIN.</string>
@@ -82,7 +76,7 @@
   <string id="SettingsBatteryLevelRefreshRate">Intervall (in Minuten), in dem der Hintergrunddienst die Daten erneut senden soll.</string>
   <string id="SettingsUserHttpHeader">Zusätzlicher HTTP-Header</string>
   <string id="SettingsUserHttpHeaderDescription">Einige Home Assistant-Installationen erfordern die Angabe eines benutzerdefinierten HTTP-Headers, um zu funktionieren.</string>
-  <string id="SettingsUserHttpHeaderKey">Zusätzlicher HTTP-Header: Key</string>
+  <string id="SettingsUserHttpHeaderName">Zusätzlicher HTTP-Header: Name</string>
   <string id="SettingsUserHttpHeaderValue">Zusätzlicher HTTP-Header: Value</string>
   <string id="WebhookId">(Nur lesen) Die vom Gerät erstellte Webhook-ID für Hintergrund-Updates. Kann zum Debuggen benötigt werden.</string>
 </strings>
