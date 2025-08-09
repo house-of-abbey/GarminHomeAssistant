@@ -34,9 +34,9 @@
 
   <string id="GlanceMenu" scope="glance">Menü</string>
   <string id="Memory" scope="glance">Speicher</string>
-  <string id="NoAPIKey" scope="glance">Kein API-Schlüssel in den App-Einstellungen vorhanden.</string>
-  <string id="NoApiUrl" scope="glance">Keine API-URL in den App-Einstellungen vorhanden.</string>
-  <string id="NoConfigUrl" scope="glance">Keine Konfigurations-URL in den App-Einstellungen vorhanden.</string>
+  <string id="NoAPIKey" scope="glance">Kein API-Schlüssel in den App-Einstellungen hinterlegt.</string>
+  <string id="NoApiUrl" scope="glance">Keine API-URL in den App-Einstellungen hinterlegt.</string>
+  <string id="NoConfigUrl" scope="glance">Keine Konfigurations-URL (JSON) in den App-Einstellungen hinterlegt.</string>
   
   <string id="NoJson">Keine JSON-Datei aus der HTTP-Anfrage zurückbekommen.</string>
   
