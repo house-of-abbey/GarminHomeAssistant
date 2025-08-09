@@ -69,7 +69,7 @@
   <string id="SettingsAppTimeout">Timeout in Sekunden. Beendet die App nach dieser Inaktivitätszeit, um Akku zu sparen.</string>
   <string id="SettingsPollDelay">Zusätzliche Abfrageverzögerung (in Sekunden). Fügt zwischen den Status-Updates der Menüeinträge eine Pause ein.</string>
   <string id="SettingsConfirmTimeout">Nach dieser Zeit (in Sekunden) wird ein Bestätigungsdialog automatisch geschlossen und die Aktion abgebrochen. Mit 0 deaktivieren.</string>
-  <string id="SettingsPin">4-stellige PIN für alle Aktionen, die eine Bestätigung erfordern (0000-9999).</string>
+  <string id="SettingsPin">4-stellige PIN für alle Aktionen, die diese erfordern (0000-9999).</string>
   <string id="SettingsPinError">Bitte eine gültige 4-stellige numerische PIN in den App Einstellungen eingeben (0000-9999).</string>
   <string id="SettingsTextAlign">Menüausrichtung: Links (aus) oder Rechts (ein).</string>
   
