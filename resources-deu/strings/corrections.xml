@@ -16,35 +16,69 @@
 <!--
   Corrections for the German language
   Korrekturen für die deutsche Sprache
+  Contributors: 
+  Someone0nEarth
+  tarekbecker
+  moesterheld
+  tispokes
 -->
 
 <strings>
-  <string id="UnhandledHttpErr">Die HTTP-Anfrage gab folgenden Fehlercode zurück = </string>
+  <string id="ApiFlood">Zu viele API-Aufrufe in kurzer Zeit. Bitte verlangsame deine Anfragen.</string>
+  <string id="ApiUrlNotFound">URL nicht gefunden. Möglicher Fehler in der API-URL in den Einstellungen.</string>
 
-  <string id="ConfigUrlNotFound">URL nicht gefunden. Möglicherweise falsche Konfigurations-URL in den Einstellungen.</string>
-  <string id="TemplateError">Template konnte nicht gerendert werden</string>
   <string id="Available" scope="glance">OK</string>
-  <string id="Checking" scope="glance">Prüfe...</string>
-  <string id="Unconfigured" scope="glance">Nicht konfiguriert</string>
   <string id="Cached" scope="glance">gecacht</string>
+  <string id="Checking" scope="glance">Prüfe...</string>
+  <string id="ConfigUrlNotFound">URL nicht gefunden. Möglicherweise falsche Konfigurations-URL in den Einstellungen.</string>
+
   <string id="GlanceMenu" scope="glance">Menü</string>
   <string id="Memory" scope="glance">Speicher</string>
+  <string id="NoAPIKey" scope="glance">Kein API-Schlüssel in den App-Einstellungen vorhanden.</string>
+  <string id="NoApiUrl" scope="glance">Keine API-URL in den App-Einstellungen vorhanden.</string>
+  <string id="NoConfigUrl" scope="glance">Keine Konfigurations-URL in den App-Einstellungen vorhanden.</string>
+  
+  <string id="NoJson">Keine JSON-Datei aus der HTTP-Anfrage zurückbekommen.</string>
+  
+  <string id="NoPhoneNoCache" scope="glance">Keine Telefonverbindung und kein gecachtes Menü.</string>
+  <string id="NoResponse">Keine Antwort, bitte Internetverbindung prüfen.</string>
+  <string id="TimedOut">Anfragezeit überschritten.</string>
+  <string id="PinInputLocked">PIN-Eingabe gesperrt für</string>
+  <string id="PotentialError">Möglicher Fehler</string>
+  
+  <string id="TemplateError">Template konnte nicht gerendert werden</string>
+  <string id="TrailingSlashErr">API-URL darf nicht mit einem Schrägstrich '/' enden.</string>
+  
+  <string id="UnhandledHttpErr">Die HTTP-Anfrage gab folgenden Fehlercode zurück = </string>
+  <string id="WebhookFailed">Webhook-Registrierung fehlgeschlagen.</string>
+  <string id="WrongPin">Falsche PIN.</string>
+  <string id="WifiLteNotAvailable">Kein WLAN oder LTE verfügbar.</string>
+  <string id="WifiLtePrompt">Über WLAN/LTE ausführen?</string>
+  <string id="WifiLteExecutionTitle">Sende an Home Assistant.</string>
+  <string id="WifiLteExecutionDataError">Keine Daten empfangen.</string>
 
-  <!-- Für die Einstellungs-GUI -->
+  <!-- Für die Einstellungs-GUI: Reihenfolge entspricht der Nutzung -->
+  <string id="SettingsSelect">Auswählen...</string>
+  <string id="SettingsApiKey">API-Schlüssel für HomeAssistant.</string>
+  <string id="SettingsApiKeyPrompt">Langzeit-Zugangstoken.</string>
   <string id="SettingsApiUrl">URL der HomeAssistant-API.</string>
-  <string id="SettingsConfigUrl">URL der Menükonfiguration (JSON).</string>
-  <string id="SettingsCacheConfig">Soll die Anwendung die Menükonfiguration cachen?</string>
+  <string id="SettingsConfigUrl">URL für die Menükonfiguration (JSON).</string>
+  <string id="SettingsCacheConfig">Soll die App die Menükonfiguration cachen?</string>
   <string id="SettingsClearCache">Soll die Anwendung beim nächsten Start den vorhandenen Cache löschen?</string>
-  <string id="SettingsAppTimeout">Die App wird nach Ablauf der Zeit (in Sekunden) bei Inaktivität beendet, um den Akku
-  des Geräts zu schonen.</string>
-  <string id="SettingsConfirmTimeout">Nach dieser Zeit (in Sekunden) wird der Bestätigungsdialog einer Aktion geschlossen und die
-    Aktion abgebrochen. Auf 0 setzen, um den Timeout zu deaktivieren.</string>
-  <string id="SettingsPin">4-stellige PIN für alle Actions mit 'confirm': true (0000-9999).</string>
+  <string id="SettingsVibration">Soll die App Rückmeldung per Vibration geben?</string>
+  <string id="SettingsAppTimeout">Timeout in Sekunden. Beendet die App nach dieser Inaktivitätszeit, um Akku zu sparen.</string>
+  <string id="SettingsPollDelay">Zusätzliche Abfrageverzögerung (in Sekunden). Fügt zwischen den Status-Updates der Menüeinträge eine Pause ein.</string>
+  <string id="SettingsConfirmTimeout">Nach dieser Zeit (in Sekunden) wird ein Bestätigungsdialog automatisch geschlossen und die Aktion abgebrochen. Mit 0 deaktivieren.</string>
+  <string id="SettingsPin">4-stellige PIN für alle Aktionen, die eine Bestätigung erfordern (0000-9999).</string>
   <string id="SettingsPinError">Bitte eine gültige 4-stellige numerische PIN in den App Einstellungen eingeben (0000-9999).</string>
-  <string id="SettingsWidgetStart">(Nur Widget) Anwendung automatisch über das Widget starten ohne drauftippen zu müssen.</string>
-  <string id="SettingsEnableBatteryLevel">Hintergrunddienst aktivieren, um den Ladezustand der Batterie an HomeAssistant zu senden.</string>
-  <string id="SettingsBatteryLevelRefreshRate">Die Aktualisierungsrate (in Minuten) mit der der Ladezustand der Batterie
-    an HomeAssistant gesendet wird.</string>
-  <string id="WebhookId">(Schreibgeschützt) Die von der Uhr erstellte Webhook-ID für Aktualisierungen des Ladezustands der Batterie.
-    Möglicherweise wird dies zum Debuggen benötigt.</string>
+  <string id="SettingsTextAlign">Menüausrichtung: Links (aus) oder Rechts (ein).</string>
+  
+  <string id="RightToLeft">Von rechts nach links</string>
+  <string id="SettingsWidgetStart">(Nur Widget) App automatisch aus dem Widget starten, ohne auf Tippen zu warten.</string>
+  <string id="SettingsEnableBatteryLevel">Hintergrunddienst aktivieren, um Akkustand, Standort und (falls unterstützt) Aktivitätsdaten an Home Assistant zu senden.</string>
+  <string id="SettingsBatteryLevelRefreshRate">Intervall (in Minuten), in dem der Hintergrunddienst die Daten erneut senden soll.</string>
+  <string id="WebhookId">(Nur lesen) Die vom Gerät erstellte Webhook-ID für Hintergrund-Updates. Kann zum Debuggen benötigt werden.</string>
+  <string id="WifiLteExecution">Ausführung über WLAN-/LTE einschalten.</string>
+  <string id="WifiLteExecutionEnable">Befehlsausführung über WLAN/LTE aktivieren.</string>
+  <string id="WifiLteExecutionDescription">Ermöglicht das Starten der App ohne Telefonverbindung (bei zwischengespeichertem Menü) und fragt, ob der Befehl über WLAN/LTE ausgeführt werden soll.</string>
 </strings>
