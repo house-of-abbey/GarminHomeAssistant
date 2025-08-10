@@ -40,4 +40,4 @@ We emphasize that the Wi-Fi/LTE functionality should be viewed as a 'last resort
 
 ## Credits
 
-With thanks to [@vincentezw](https://github.com/vincentezw) for contributing this solution.
+With thanks to Vincent, [@vincentezw](https://github.com/vincentezw) for contributing this solution, and to Ali Alaei, [@aalaei](https://github.com/aalaei) for the finer details on TLS.

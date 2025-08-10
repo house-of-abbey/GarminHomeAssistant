@@ -62,9 +62,7 @@
   <string id="SettingsConfigUrl">Valikkokokoonpanon URL (JSON).</string>
   <string id="SettingsCacheConfig">Pitäisikö sovelluksen välimuistiin valikon kokoonpano?</string>
   <string id="SettingsClearCache">Pitäisikö sovelluksen tyhjentää olemassa oleva välimuisti seuraavalla kerralla?</string>
-  <string id="WifiLteExecution">Wi-Fi/LTE-suoritustila.</string>
   <string id="WifiLteExecutionEnable">Ota komentojen suorittaminen käyttöön Wi-Fi/LTE: n kautta.</string>
-  <string id="WifiLteExecutionDescription">Mahdollistaa sovelluksen käynnistyksen ilman puhelinyhteyttä (kun valikko on välimuisti) ja kehottaa suorittamaan komento Wi-Fi/LTE: n kautta.</string>
   <string id="SettingsVibration">Pitäisikö sovelluksen antaa palautetta värähtelyjen kautta?</string>
   <string id="SettingsAppTimeout">Aikakatkaisu sekunneissa. Poistu sovelluksesta tämän toimettomuuden jälkeen laitteen akun tallentamiseksi.</string>
   <string id="SettingsPollDelay">Lisäkyselyviive (sekunneissa). Lisää viive kaikkien valikkokohteiden tilapäivityksen välillä.</string>

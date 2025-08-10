@@ -62,9 +62,7 @@
   <string id="SettingsConfigUrl">URL za konfiguracijo menija (JSON).</string>
   <string id="SettingsCacheConfig">Ali naj aplikacija predpomni konfiguracija menija?</string>
   <string id="SettingsClearCache">Ali bi morala aplikacija očistiti obstoječi predpomnilnik naslednjič, ko se začne?</string>
-  <string id="WifiLteExecution">Način izvedbe Wi-Fi/LTE.</string>
   <string id="WifiLteExecutionEnable">Omogoči izvajanje ukazov prek Wi-Fi/LTE.</string>
-  <string id="WifiLteExecutionDescription">Omogoča, da se aplikacija zažene brez telefonske povezave (ko je meni predpomnjen), in poziva, da izvede ukaz prek Wi-Fi/LTE.</string>
   <string id="SettingsVibration">Ali bi morala aplikacija posredovati povratne informacije z vibracijami?</string>
   <string id="SettingsAppTimeout">Časovna omejitev v nekaj sekundah. Po tem obdobju neaktivnosti zapustite aplikacijo, da shranite baterijo naprave.</string>
   <string id="SettingsPollDelay">Dodatna zamuda ankete (v sekundah). Doda zamudo med posodobitvijo stanja vseh elementov menija.</string>

@@ -62,9 +62,7 @@
   <string id="SettingsConfigUrl">URL untuk Konfigurasi Menu (JSON).</string>
   <string id="SettingsCacheConfig">Haruskah Aplikasi Menyimpan Konfigurasi Menu?</string>
   <string id="SettingsClearCache">Haruskah aplikasi menghapus cache yang ada lain kali dimulai?</string>
-  <string id="WifiLteExecution">Mode Eksekusi Wi-Fi/LTE.</string>
   <string id="WifiLteExecutionEnable">Aktifkan Perintah yang Mengeksekusi melalui Wi-Fi/LTE.</string>
-  <string id="WifiLteExecutionDescription">Memungkinkan aplikasi untuk memulai tanpa koneksi telepon (saat menu di-cache), dan meminta untuk menjalankan perintah melalui Wi-Fi/LTE.</string>
   <string id="SettingsVibration">Haruskah aplikasi memberikan umpan balik melalui getaran?</string>
   <string id="SettingsAppTimeout">Batas waktu dalam hitungan detik. Keluar dari aplikasi setelah periode tidak aktif ini untuk menyimpan baterai perangkat.</string>
   <string id="SettingsPollDelay">Penundaan jajak pendapat tambahan (dalam hitungan detik). Menambahkan penundaan antara pembaruan status semua item menu.</string>

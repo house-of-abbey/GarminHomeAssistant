@@ -48,9 +48,9 @@ class Settings {
     //! minutes
     private static var mBatteryRefreshRate    as Lang.Number  = 15;
     //! Additional user configurable HTTP header key
-    private static var mUserHeaderName        as Lang.String  = "";
+    private static var mUserHeaderName        as Lang.String? = null;
     //! Additional user configurable HTTP header value
-    private static var mUserHeaderValue       as Lang.String  = "";
+    private static var mUserHeaderValue       as Lang.String? = null;
     private static var mIsApp                 as Lang.Boolean = false;
     private static var mHasService            as Lang.Boolean = false;
     //! Must keep the object so it doesn't get garbage collected.
@@ -297,7 +297,8 @@ class Settings {
     //! @return The augmented HTTP header options.
     //
     static function augmentHttpHeaders(options as Lang.Dictionary) {
-        if (mUserHeaderName != null && mUserHeaderName != "" && mUserHeaderValue != null && mUserHeaderValue != "") {
+        // Use 'm.length() > 0' here in preference to 'm != ""'. The latter makes the app crash on device but not in simulation.
+        if (mUserHeaderName != null && mUserHeaderName.length() > 0 && mUserHeaderValue != null && mUserHeaderValue.length() > 0) {
             options[mUserHeaderName] = mUserHeaderValue;
         }
         return options;

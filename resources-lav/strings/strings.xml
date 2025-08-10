@@ -62,9 +62,7 @@
   <string id="SettingsConfigUrl">URL izvēlnes konfigurācijai (JSON).</string>
   <string id="SettingsCacheConfig">Vai lietojumprogrammai vajadzētu kešatmiņā izvēlnes konfigurāciju?</string>
   <string id="SettingsClearCache">Vai lietojumprogrammai vajadzētu notīrīt esošo kešatmiņu nākamreiz, kad tā tiks sākta?</string>
-  <string id="WifiLteExecution">Wi-Fi/LTE izpildes režīms.</string>
   <string id="WifiLteExecutionEnable">Iespējot izpildīt komandas, izmantojot Wi-Fi/LTE.</string>
-  <string id="WifiLteExecutionDescription">Ļauj lietotnei sākt bez tālruņa savienojuma (kad izvēlne ir kešatmiņā) un uzvedne izpildīt komandu, izmantojot Wi-Fi/LTE.</string>
   <string id="SettingsVibration">Vai lietojumprogrammai vajadzētu sniegt atgriezenisko saiti, izmantojot vibrācijas?</string>
   <string id="SettingsAppTimeout">Noildze sekundēs. Izejiet no lietojumprogrammas pēc šī bezdarbības perioda, lai saglabātu ierīces akumulatoru.</string>
   <string id="SettingsPollDelay">Papildu aptaujas kavēšanās (sekundēs). Pievieno kavēšanos starp visu izvēlnes vienumu statusa atjauninājumu.</string>

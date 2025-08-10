@@ -62,9 +62,7 @@
   <string id="SettingsConfigUrl">メニュー構成用のURL（JSON）。</string>
   <string id="SettingsCacheConfig">アプリケーションはメニュー構成をキャッシュする必要がありますか？</string>
   <string id="SettingsClearCache">次回開始時にアプリケーションが既存のキャッシュをクリアする必要がありますか？</string>
-  <string id="WifiLteExecution">Wi-Fi/LTE実行モード。</string>
   <string id="WifiLteExecutionEnable">Wi-Fi/LTEを介してコマンドを実行できるようにします。</string>
-  <string id="WifiLteExecutionDescription">電話接続なしでアプリを起動することができます（メニューがキャッシュされている場合）、Wi-Fi/LTEを介してコマンドを実行するように求められます。</string>
   <string id="SettingsVibration">アプリケーションは振動を介してフィードバックを提供する必要がありますか？</string>
   <string id="SettingsAppTimeout">数秒でタイムアウト。デバイスバッテリーを保存するために、この不活性期間の後にアプリケーションを終了します。</string>
   <string id="SettingsPollDelay">追加の投票遅延（秒単位）。すべてのメニュー項目のステータス更新間に遅延を追加します。</string>

@@ -62,9 +62,7 @@
   <string id="SettingsConfigUrl">URL pentru configurația meniului (JSON).</string>
   <string id="SettingsCacheConfig">Aplicația cache ar trebui să fie configurația meniului?</string>
   <string id="SettingsClearCache">Aplicația ar trebui să șterge cache -ul existent data viitoare când va fi pornită?</string>
-  <string id="WifiLteExecution">Modul de execuție Wi-Fi/LTE.</string>
   <string id="WifiLteExecutionEnable">Activați executarea comenzilor prin Wi-Fi/LTE.</string>
-  <string id="WifiLteExecutionDescription">Permite aplicației să înceapă fără conexiune telefonică (când meniul este în cache) și solicită să execute comanda prin Wi-Fi/LTE.</string>
   <string id="SettingsVibration">Aplicația ar trebui să ofere feedback prin vibrații?</string>
   <string id="SettingsAppTimeout">Timeout în câteva secunde. Ieșiți din aplicație după această perioadă de inactivitate pentru a economisi bateria dispozitivului.</string>
   <string id="SettingsPollDelay">Întârziere suplimentară a sondajului (în secunde). Adăugă o întârziere între actualizarea de stare a tuturor elementelor din meniu.</string>

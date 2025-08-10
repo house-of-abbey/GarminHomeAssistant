@@ -62,9 +62,7 @@
   <string id="SettingsConfigUrl">菜单配置的URL（JSON）。</string>
   <string id="SettingsCacheConfig">应用程序缓存菜单配置应该缓存吗？</string>
   <string id="SettingsClearCache">应用程序下次启动时是否应该清除现有的高速缓存？</string>
-  <string id="WifiLteExecution">Wi-Fi/LTE执行模式。</string>
   <string id="WifiLteExecutionEnable">在Wi-Fi/LTE上启用执行命令。</string>
-  <string id="WifiLteExecutionDescription">允许该应用在没有电话连接的情况下启动（菜单被缓存时），并提示通过Wi-Fi/LTE执行命令。</string>
   <string id="SettingsVibration">应用程序是否应该通过振动提供反馈？</string>
   <string id="SettingsAppTimeout">超时几秒钟。在此不活动期间退出应用程序以节省设备电池。</string>
   <string id="SettingsPollDelay">额外的民意调查延迟（以秒为单位）。在所有菜单项的状态更新之间添加延迟。</string>

@@ -62,9 +62,7 @@
   <string id="SettingsConfigUrl">כתובת אתר לתצורת תפריט (JSON).</string>
   <string id="SettingsCacheConfig">האם על היישום למנוע את תצורת התפריט?</string>
   <string id="SettingsClearCache">האם על היישום לנקות את המטמון הקיים בפעם הבאה שהוא מתחיל?</string>
-  <string id="WifiLteExecution">מצב ביצוע Wi-Fi/LTE.</string>
   <string id="WifiLteExecutionEnable">אפשר לבצע פקודות דרך Wi-Fi/LTE.</string>
-  <string id="WifiLteExecutionDescription">מאפשר לאפליקציה להתחיל ללא חיבור טלפון (כאשר התפריט מטמון), ולבקש לבצע פקודה דרך Wi-Fi/LTE.</string>
   <string id="SettingsVibration">האם על היישום לספק משוב באמצעות תנודות?</string>
   <string id="SettingsAppTimeout">פסק זמן בשניות. צא מהיישום לאחר תקופת חוסר פעילות זו כדי לחסוך את סוללת ההתקן.</string>
   <string id="SettingsPollDelay">עיכוב נוסף בסקר (תוך שניות). מוסיף עיכוב בין עדכון הסטטוס של כל פריטי התפריט.</string>

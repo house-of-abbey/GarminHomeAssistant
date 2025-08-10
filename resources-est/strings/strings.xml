@@ -62,9 +62,7 @@
   <string id="SettingsConfigUrl">URL menüü konfiguratsiooni jaoks (JSON).</string>
   <string id="SettingsCacheConfig">Kas rakenduse vahemälu peaks menüü konfiguratsiooni vahemälu vahemälu vahemälu vahemälu vahemälu vahemälu vahemälu vahemälu</string>
   <string id="SettingsClearCache">Kas rakendus peaks olemasoleva vahemälu järgmine kord alustama?</string>
-  <string id="WifiLteExecution">Wi-Fi/LTE täitmisrežiim.</string>
   <string id="WifiLteExecutionEnable">Luba käskude täitmine Wi-Fi/LTE kaudu.</string>
-  <string id="WifiLteExecutionDescription">Võimaldab rakendusel käivitada ilma telefoniühenduseta (kui menüü on vahemällu salvestatud) ja vihje käsu käivitamiseks Wi-Fi/LTE kaudu.</string>
   <string id="SettingsVibration">Kas rakendus peaks vibratsiooni kaudu tagasisidet andma?</string>
   <string id="SettingsAppTimeout">Aegumine sekunditega. Pärast seda tegevusetuse perioodi seade aku salvestamiseks väljuge rakendusest.</string>
   <string id="SettingsPollDelay">Täiendav küsitluse viivitus (sekundites). Lisab viivituse kõigi menüüelementide olekuvärskenduse vahel.</string>

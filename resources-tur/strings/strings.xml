@@ -62,9 +62,7 @@
   <string id="SettingsConfigUrl">Menü yapılandırması için URL (JSON).</string>
   <string id="SettingsCacheConfig">Uygulama menü yapılandırmasını önbelleğe almalı mı?</string>
   <string id="SettingsClearCache">Uygulama bir dahaki sefere başladığında mevcut önbelleği temizlemeli mi?</string>
-  <string id="WifiLteExecution">Wi-Fi/LTE Yürütme Modu.</string>
   <string id="WifiLteExecutionEnable">Wi-Fi/LTE üzerinden komutların yürütülmesini etkinleştirin.</string>
-  <string id="WifiLteExecutionDescription">Uygulamanın telefon bağlantısı olmadan (menü önbelleğe alındığında) başlamasına izin verir ve Wi-Fi/LTE üzerinden komutu yürütme istemek.</string>
   <string id="SettingsVibration">Uygulama titreşimlerle geri bildirim sağlamalı mı?</string>
   <string id="SettingsAppTimeout">Saniyeler içinde zaman aşımı. Cihaz bataryasını kaydetmek için bu hareketsizlik döneminden sonra uygulamadan çıkın.</string>
   <string id="SettingsPollDelay">Ek anket gecikmesi (saniyeler içinde). Tüm menü öğelerinin durum güncellemesi arasında bir gecikme ekler.</string>

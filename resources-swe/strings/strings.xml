@@ -62,9 +62,7 @@
   <string id="SettingsConfigUrl">URL för menykonfiguration (JSON).</string>
   <string id="SettingsCacheConfig">Bör applikationen cache menykonfigurationen?</string>
   <string id="SettingsClearCache">Bör applikationen rensa den befintliga cachen nästa gång den startas?</string>
-  <string id="WifiLteExecution">Wi-Fi/LTE exekveringsläge.</string>
   <string id="WifiLteExecutionEnable">Aktivera körkommandon över Wi-Fi/LTE.</string>
-  <string id="WifiLteExecutionDescription">Tillåter appen att starta utan telefonanslutning (när menyn är cachad) och uppmanas att köra kommando över Wi-Fi/LTE.</string>
   <string id="SettingsVibration">Bör applikationen ge feedback via vibrationer?</string>
   <string id="SettingsAppTimeout">Timeout på några sekunder. Exit the application after this period of inactivity to save the device battery.</string>
   <string id="SettingsPollDelay">Ytterligare undersökningsfördröjning (på några sekunder). Lägger till en försening mellan statusuppdateringen av alla menyalternativ.</string>

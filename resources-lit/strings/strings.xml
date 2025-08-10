@@ -62,9 +62,7 @@
   <string id="SettingsConfigUrl">URL meniu konfigūracijai (JSON).</string>
   <string id="SettingsCacheConfig">Ar programos talpykla turėtų talpinti meniu konfigūraciją?</string>
   <string id="SettingsClearCache">Ar programa turėtų išvalyti esamą talpyklą kitą kartą, kai ji bus paleista?</string>
-  <string id="WifiLteExecution">„Wi-Fi“/LTE vykdymo režimas.</string>
   <string id="WifiLteExecutionEnable">Įgalinti komandas vykdant „Wi-Fi“/LTE.</string>
-  <string id="WifiLteExecutionDescription">Leidžia programai paleisti be telefono ryšio (kai meniu yra talpykloje), ir raginkite vykdyti komandą per „Wi-Fi/LTE“.</string>
   <string id="SettingsVibration">Ar programa turėtų pateikti grįžtamąjį ryšį per vibracijas?</string>
   <string id="SettingsAppTimeout">Laikas per kelias sekundes. Išeikite iš programos po šio neveiklumo laikotarpio, kad išsaugotumėte įrenginio akumuliatorių.</string>
   <string id="SettingsPollDelay">Papildomas apklausos vėlavimas (per kelias sekundes). Prideda vėlavimą tarp visų meniu elementų būsenos atnaujinimo.</string>

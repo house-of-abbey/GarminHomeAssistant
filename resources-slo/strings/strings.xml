@@ -62,9 +62,7 @@
   <string id="SettingsConfigUrl">URL pre konfiguráciu ponuky (JSON).</string>
   <string id="SettingsCacheConfig">Mala by sa aplikácia vyrovnávať konfiguráciu ponuky?</string>
   <string id="SettingsClearCache">Mala by aplikácia vymazať existujúcu vyrovnávaciu pamäť nabudúce, keď sa začne?</string>
-  <string id="WifiLteExecution">Režim vykonávania Wi-Fi/LTE.</string>
   <string id="WifiLteExecutionEnable">Povoliť vykonávanie príkazov cez Wi-Fi/LTE.</string>
-  <string id="WifiLteExecutionDescription">Umožňuje aplikácii spustiť bez pripojenia telefónu (keď je ponuka ukladaná do vyrovnávacej pamäte) a výzva na vykonanie príkazu cez Wi-Fi/LTE.</string>
   <string id="SettingsVibration">Mala by aplikácia poskytovať spätnú väzbu prostredníctvom vibrácií?</string>
   <string id="SettingsAppTimeout">Časový limit v sekundách. Opustite aplikáciu po tomto období nečinnosti, aby ste uložili batériu zariadenia.</string>
   <string id="SettingsPollDelay">Ďalšie oneskorenie ankety (v sekundách). Pridáva oneskorenie medzi aktualizáciou stavu všetkých položiek ponuky.</string>

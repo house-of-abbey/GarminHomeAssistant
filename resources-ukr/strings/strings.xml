@@ -62,9 +62,7 @@
   <string id="SettingsConfigUrl">URL -адреса для конфігурації меню (JSON).</string>
   <string id="SettingsCacheConfig">Чи повинен додатковий кеш конфігурації меню?</string>
   <string id="SettingsClearCache">Чи повинен програма очистити існуючий кеш наступного разу, коли він буде запущений?</string>
-  <string id="WifiLteExecution">Режим виконання Wi-Fi/LTE.</string>
   <string id="WifiLteExecutionEnable">Увімкнути виконання команд над Wi-Fi/LTE.</string>
-  <string id="WifiLteExecutionDescription">Дозволяє додаток починати без підключення до телефону (коли меню кешовано) та підказка виконувати команду через Wi-Fi/LTE.</string>
   <string id="SettingsVibration">Чи повинен програма надавати зворотній зв'язок через вібрації?</string>
   <string id="SettingsAppTimeout">Тайм -аут за лічені секунди. Вийдіть із програми після цього періоду бездіяльності, щоб зберегти акумулятор пристрою.</string>
   <string id="SettingsPollDelay">Додаткова затримка опитування (за лічені секунди). Додає затримку між оновленням статусу всіх пунктів меню.</string>

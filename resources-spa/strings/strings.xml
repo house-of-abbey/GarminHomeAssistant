@@ -62,9 +62,7 @@
   <string id="SettingsConfigUrl">URL para la configuración del menú (JSON).</string>
   <string id="SettingsCacheConfig">¿Debería la aplicación almacenar en caché la configuración del menú?</string>
   <string id="SettingsClearCache">¿Debería la aplicación borrar el caché existente la próxima vez que se inicie?</string>
-  <string id="WifiLteExecution">Modo de ejecución Wi-Fi/LTE.</string>
   <string id="WifiLteExecutionEnable">Habilite la ejecución de comandos sobre Wi-Fi/LTE.</string>
-  <string id="WifiLteExecutionDescription">Permite que la aplicación comience sin conexión del teléfono (cuando el menú se almacena en caché) y solicite ejecutar el comando a través de Wi-Fi/LTE.</string>
   <string id="SettingsVibration">¿Debería la aplicación proporcionar comentarios a través de vibraciones?</string>
   <string id="SettingsAppTimeout">Tiempo de espera en segundos. Salga de la aplicación después de este período de inactividad para guardar la batería del dispositivo.</string>
   <string id="SettingsPollDelay">Retraso de encuesta adicional (en segundos). Agrega un retraso entre la actualización de estado de todos los elementos del menú.</string>

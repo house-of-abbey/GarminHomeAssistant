@@ -62,9 +62,7 @@
   <string id="SettingsConfigUrl">菜單配置的URL（JSON）。</string>
   <string id="SettingsCacheConfig">應用程序緩存菜單配置應該緩存嗎？</string>
   <string id="SettingsClearCache">應用程序下次啟動時是否應該清除現有的高速緩存？</string>
-  <string id="WifiLteExecution">Wi-Fi/LTE執行模式。</string>
   <string id="WifiLteExecutionEnable">在Wi-Fi/LTE上啟用執行命令。</string>
-  <string id="WifiLteExecutionDescription">允許該應用在沒有電話連接的情況下啟動（菜單被緩存時），並提示通過Wi-Fi/LTE執行命令。</string>
   <string id="SettingsVibration">應用程序是否應該通過振動提供反饋？</string>
   <string id="SettingsAppTimeout">超時幾秒鐘。在此不活動期間退出應用程序以節省設備電池。</string>
   <string id="SettingsPollDelay">額外的民意調查延遲（以秒為單位）。在所有菜單項的狀態更新之間添加延遲。</string>

@@ -62,9 +62,7 @@
   <string id="SettingsConfigUrl">URL cho cấu hình menu (JSON).</string>
   <string id="SettingsCacheConfig">Bộ đệm ứng dụng có nên cấu hình menu không?</string>
   <string id="SettingsClearCache">Ứng dụng có nên xóa bộ đệm hiện tại vào lần tới khi nó được bắt đầu không?</string>
-  <string id="WifiLteExecution">Chế độ thực hiện Wi-Fi/LTE.</string>
   <string id="WifiLteExecutionEnable">Bật các lệnh thực thi qua Wi-Fi/LTE.</string>
-  <string id="WifiLteExecutionDescription">Cho phép ứng dụng bắt đầu mà không cần kết nối điện thoại (khi menu được lưu trữ) và nhắc nhở thực thi lệnh qua Wi-Fi/LTE.</string>
   <string id="SettingsVibration">Ứng dụng có nên cung cấp phản hồi thông qua các rung động?</string>
   <string id="SettingsAppTimeout">Thời gian chờ trong giây. Thoát khỏi ứng dụng sau khoảng thời gian không hoạt động để lưu pin thiết bị.</string>
   <string id="SettingsPollDelay">Độ trễ thăm dò ý kiến bổ sung (tính bằng giây). Thêm độ trễ giữa bản cập nhật trạng thái của tất cả các mục menu.</string>

@@ -62,9 +62,7 @@
   <string id="SettingsConfigUrl">URL pro konfiguraci nabídky (JSON).</string>
   <string id="SettingsCacheConfig">Měla by aplikace ukládat konfiguraci nabídky?</string>
   <string id="SettingsClearCache">Měla by aplikace vymazat stávající mezipaměť příště, až bude spuštěna?</string>
-  <string id="WifiLteExecution">Režim provádění Wi-Fi/LTE.</string>
   <string id="WifiLteExecutionEnable">Povolit provádění příkazů přes Wi-Fi/LTE.</string>
-  <string id="WifiLteExecutionDescription">Umožňuje aplikaci začít bez telefonu (když je nabídka v mezipaměti) a výzva k provedení příkazu přes Wi-Fi/LTE.</string>
   <string id="SettingsVibration">Měla by aplikace poskytovat zpětnou vazbu prostřednictvím vibrací?</string>
   <string id="SettingsAppTimeout">Timeout během několika sekund. Po tomto období nečinnosti uložte aplikaci k uložení baterie zařízení.</string>
   <string id="SettingsPollDelay">Další zpoždění hlasování (v sekundách). Přidá zpoždění mezi aktualizací stavu všech položek nabídky.</string>

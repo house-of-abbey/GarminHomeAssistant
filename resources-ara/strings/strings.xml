@@ -62,9 +62,7 @@
   <string id="SettingsConfigUrl">عنوان URL لتكوين القائمة (JSON).</string>
   <string id="SettingsCacheConfig">هل يجب أن يقوم تطبيق ذاكرة التخزين المؤقت لتكوين القائمة؟</string>
   <string id="SettingsClearCache">هل يجب على التطبيق مسح ذاكرة التخزين المؤقت الموجودة في المرة القادمة التي يتم فيها بدء تشغيلها؟</string>
-  <string id="WifiLteExecution">وضع تنفيذ Wi-Fi/LTE.</string>
   <string id="WifiLteExecutionEnable">تمكين تنفيذ الأوامر على Wi-Fi/LTE.</string>
-  <string id="WifiLteExecutionDescription">يسمح للتطبيق بالبدء بدون اتصال الهاتف (عند تخزين القائمة) ، والمطالبة بتنفيذ الأمر عبر Wi-Fi/LTE.</string>
   <string id="SettingsVibration">هل يجب أن يقدم التطبيق ملاحظات عبر الاهتزازات؟</string>
   <string id="SettingsAppTimeout">مهلة في ثوان. الخروج من التطبيق بعد هذه الفترة من عدم النشاط لحفظ بطارية الجهاز.</string>
   <string id="SettingsPollDelay">تأخير استطلاع إضافي (بالثواني). يضيف تأخيرًا بين تحديث الحالة لجميع عناصر القائمة.</string>

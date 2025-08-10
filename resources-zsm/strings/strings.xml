@@ -62,9 +62,7 @@
   <string id="SettingsConfigUrl">URL untuk Konfigurasi Menu (JSON).</string>
   <string id="SettingsCacheConfig">Sekiranya aplikasi cache konfigurasi menu?</string>
   <string id="SettingsClearCache">Sekiranya permohonan membersihkan cache yang sedia ada pada masa akan datang, ia bermula?</string>
-  <string id="WifiLteExecution">Mod pelaksanaan Wi-Fi/LTE.</string>
   <string id="WifiLteExecutionEnable">Dayakan perintah melaksanakan melalui Wi-Fi/LTE.</string>
-  <string id="WifiLteExecutionDescription">Membolehkan aplikasi bermula tanpa sambungan telefon (apabila menu di-cache), dan segera untuk melaksanakan perintah melalui Wi-Fi/LTE.</string>
   <string id="SettingsVibration">Sekiranya permohonan memberikan maklum balas melalui getaran?</string>
   <string id="SettingsAppTimeout">Tamat masa dalam beberapa saat. Keluar dari permohonan selepas tempoh tidak aktif ini untuk menyimpan bateri peranti.</string>
   <string id="SettingsPollDelay">Kelewatan tinjauan tambahan (dalam saat). Menambah kelewatan antara kemas kini status semua item menu.</string>

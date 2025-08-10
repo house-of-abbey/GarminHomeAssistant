@@ -62,9 +62,7 @@
   <string id="SettingsConfigUrl">URL voor menuconfiguratie (JSON).</string>
   <string id="SettingsCacheConfig">Moet de toepassingscache de menu -configuratie?</string>
   <string id="SettingsClearCache">Moet de toepassing de bestaande cache wissen de volgende keer dat deze wordt gestart?</string>
-  <string id="WifiLteExecution">Wi-Fi/LTE-uitvoeringsmodus.</string>
   <string id="WifiLteExecutionEnable">Schakel opdrachten uit via Wi-Fi/LTE.</string>
-  <string id="WifiLteExecutionDescription">Hiermee kan de app starten zonder telefoonverbinding (wanneer het menu in de cache wordt opgeslagen) en de opdracht uitvoeren via Wi-Fi/LTE uit te voeren.</string>
   <string id="SettingsVibration">Moet de applicatie feedback geven via trillingen?</string>
   <string id="SettingsAppTimeout">Time -out in seconden. Verlaat de toepassing na deze periode van inactiviteit om de apparaatbatterij op te slaan.</string>
   <string id="SettingsPollDelay">Aanvullende peilvertraging (in seconden). Voegt een vertraging toe tussen de statusupdate van alle menu -items.</string>
