@@ -230,7 +230,7 @@ Make sure you can browse to the URL of your JSON file in a standard web browser 
 
 ## API Key Creation
 
-Having created your JSON definition for your dashboard, you need to create an API key for your personal account on Home Assistant. You will need a [Long-Lived Access Token](https://developers.home-assistant.io/docs/auth_api/#long-lived-access-token). This is not obvious to find and is bound to your own Home Assistant account. Follow the menu sequence: `HA -> user profile -> Long-lived access tokens`. Make sure you save the generated token before dismissing it.
+Having created your JSON definition for your dashboard, you need to create an API key for your personal account on Home Assistant. You will need a [Long-Lived Access Token](https://developers.home-assistant.io/docs/auth_api/#long-lived-access-token). This is not obvious to find and is bound to your own Home Assistant account. Follow the menu sequence: `HA -> User Profile -> "Security" tab -> Long-lived access tokens`. Make sure you save the generated token before dismissing it.
 
 ![Long-Lived Access Token](images/Long_Lived_Access_Tokens.png)
 
