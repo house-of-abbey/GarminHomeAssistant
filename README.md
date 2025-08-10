@@ -17,6 +17,8 @@ The application is designed around a simple scrollable menu where menu items hav
 > [!IMPORTANT]
 > The Garmin SDK allows HTTP requests only to a limited number of domains specified in their app. Therefore, for your Garmin to communicate with your Home Assistant instance, your Home Assistant instance must be accessible via HTTPS (with a public certificate!) or through a local DNS server that overrides one of the whitelisted domains to communicate using HTTP.
 >
+>New with version 3.1, you can use [Cloudflared](https://github.com/brenner-tobias/addon-cloudflared) plug-in in combination with a [custom HTTP header](HTTP_Headers.md) and do not need a public certificate for HTTPS.
+>
 > To make your Home Assistant instance accessible via HTTPS, you will need a public certificate. You can get one for free from [Let's Encrypt](https://letsencrypt.org/) or you can pay for [Home Assistant cloud](https://www.nabucasa.com/). (You can install a local [Nginx proxy server](https://my.home-assistant.io/redirect/supervisor_addon/?addon=a0d7b954_nginxproxymanager) to manage Let's Encrypt certificates.)
 >
 > If you use a local DNS server (like [Pi-Hole](https://pi-hole.net/)), you can create a local DNS record for the domain `garmincdn.com` (which is allowed for HTTP in the Garmin SDK) and map it to your Home Assistant instance's IP. "_[About Communication Between Garmin SDK and a Raspberry Pi](https://www.instructables.com/About-Communication-Between-Garmin-SDK-and-a-Raspb/)_" provides additional workarounds for HTTP request restrictions in the Garmin SDK.
