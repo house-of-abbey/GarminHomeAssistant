@@ -430,85 +430,87 @@ class HomeAssistantApp extends Application.AppBase {
     //! Construct the GET request to update all menu items.
     //
     function updateMenuItems() as Void {
-        var phoneConnected = System.getDeviceSettings().phoneConnected;
-        var connectionAvailable = System.getDeviceSettings().connectionAvailable;
+        if (mUpdating) {
+            var phoneConnected      = System.getDeviceSettings().phoneConnected;
+            var connectionAvailable = System.getDeviceSettings().connectionAvailable;
 
-        // In Wi-Fi/LTE execution mode, we should not show an error page but use a toast instead.
-        if (Settings.getWifiLteExecutionEnabled() && (! phoneConnected || ! connectionAvailable)) {
-            // Notify only once per disconnection cycle
-            if (!mNotifiedNoBle) {
-                var toast = WatchUi.loadResource($.Rez.Strings.NoPhone);
-                if (!connectionAvailable) {
-                    toast = WatchUi.loadResource($.Rez.Strings.NoInternet);
+            // In Wi-Fi/LTE execution mode, we should not show an error page but use a toast instead.
+            if (Settings.getWifiLteExecutionEnabled() && (! phoneConnected || ! connectionAvailable)) {
+                // Notify only once per disconnection cycle
+                if (!mNotifiedNoBle) {
+                    var toast = WatchUi.loadResource($.Rez.Strings.NoPhone);
+                    if (!connectionAvailable) {
+                        toast = WatchUi.loadResource($.Rez.Strings.NoInternet);
+                    }
+
+                    if (mHasToast) {
+                        WatchUi.showToast(toast, null);
+                    } else {
+                        new Alert({
+                            :timeout => Globals.scAlertTimeoutMs,
+                            :font    => Graphics.FONT_MEDIUM,
+                            :text    => toast,
+                            :fgcolor => Graphics.COLOR_WHITE,
+                            :bgcolor => Graphics.COLOR_BLACK
+                        }).pushView(WatchUi.SLIDE_IMMEDIATE);
+                    }
                 }
 
-                if (mHasToast) {
-                    WatchUi.showToast(toast, null);
-                } else {
-                    new Alert({
-                        :timeout => Globals.scAlertTimeoutMs,
-                        :font    => Graphics.FONT_MEDIUM,
-                        :text    => toast,
-                        :fgcolor => Graphics.COLOR_WHITE,
-                        :bgcolor => Graphics.COLOR_BLACK
-                    }).pushView(WatchUi.SLIDE_IMMEDIATE);
-                }
+                mNotifiedNoBle = true;
+                setApiStatus(WatchUi.loadResource($.Rez.Strings.Unavailable) as Lang.String);
+                mUpdateTimer.start(method(:startUpdates), Globals.wifiPollResumeDelayMs, false);
+
+                mUpdating = false;
+                return;
             }
 
-            mNotifiedNoBle = true;
-            setApiStatus(WatchUi.loadResource($.Rez.Strings.Unavailable) as Lang.String);
-            mUpdateTimer.start(method(:startUpdates), Globals.wifiPollResumeDelayMs, false);
+            if (! phoneConnected) {
+                // System.println("HomeAssistantApp updateMenuItems(): No Phone connection, skipping API call.");
+                ErrorView.show(WatchUi.loadResource($.Rez.Strings.NoPhone) as Lang.String);
+                setApiStatus(WatchUi.loadResource($.Rez.Strings.Unavailable) as Lang.String);
+            } else if (! connectionAvailable) {
+                // System.println("HomeAssistantApp updateMenuItems(): No Internet connection, skipping API call.");
+                ErrorView.show(WatchUi.loadResource($.Rez.Strings.NoInternet) as Lang.String);
+                setApiStatus(WatchUi.loadResource($.Rez.Strings.Unavailable) as Lang.String);
+            } else {
+                mNotifiedNoBle = false;
 
-            mUpdating = false;
-            return;
-        }
-
-        if (! phoneConnected) {
-            // System.println("HomeAssistantApp updateMenuItems(): No Phone connection, skipping API call.");
-            ErrorView.show(WatchUi.loadResource($.Rez.Strings.NoPhone) as Lang.String);
-            setApiStatus(WatchUi.loadResource($.Rez.Strings.Unavailable) as Lang.String);
-        } else if (! connectionAvailable) {
-            // System.println("HomeAssistantApp updateMenuItems(): No Internet connection, skipping API call.");
-            ErrorView.show(WatchUi.loadResource($.Rez.Strings.NoInternet) as Lang.String);
-            setApiStatus(WatchUi.loadResource($.Rez.Strings.Unavailable) as Lang.String);
-        } else {
-            mNotifiedNoBle = false;
-
-            if (mItemsToUpdate == null or mTemplates == null) {
-                mItemsToUpdate = mHaMenu.getItemsToUpdate();
-                mTemplates = {};
-                for (var i = 0; i < mItemsToUpdate.size(); i++) {
-                    var item = mItemsToUpdate[i];
-                    var template = item.getTemplate();
-                    if (template != null) {
-                        mTemplates.put(i.toString(), {
-                            "template" => template
+                if (mItemsToUpdate == null or mTemplates == null) {
+                    mItemsToUpdate = mHaMenu.getItemsToUpdate();
+                    mTemplates = {};
+                    for (var i = 0; i < mItemsToUpdate.size(); i++) {
+                        var item = mItemsToUpdate[i];
+                        var template = item.getTemplate();
+                        if (template != null) {
+                            mTemplates.put(i.toString(), {
+                                "template" => template
+                            });
+                        }
+                    if (item instanceof HomeAssistantToggleMenuItem) {
+                        mTemplates.put(i.toString() + "t", {
+                            "template" => (item as HomeAssistantToggleMenuItem).getToggleTemplate()
                         });
                     }
-                   if (item instanceof HomeAssistantToggleMenuItem) {
-                       mTemplates.put(i.toString() + "t", {
-                           "template" => (item as HomeAssistantToggleMenuItem).getToggleTemplate()
-                       });
-                   }
+                    }
                 }
+                // https://developers.home-assistant.io/docs/api/native-app-integration/sending-data/#render-templates
+                // System.println("HomeAssistantApp updateMenuItems() URL=" + url + ", Template='" + mTemplate + "'");
+                Communications.makeWebRequest(
+                    Settings.getApiUrl() + "/webhook/" + Settings.getWebhookId(),
+                    {
+                        "type" => "render_template",
+                        "data" => mTemplates
+                    },
+                    {
+                        :method       => Communications.HTTP_REQUEST_METHOD_POST,
+                        :headers      => Settings.augmentHttpHeaders({
+                            "Content-Type" => Communications.REQUEST_CONTENT_TYPE_JSON
+                        }),
+                        :responseType => Communications.HTTP_RESPONSE_CONTENT_TYPE_JSON
+                    },
+                    method(:onReturnUpdateMenuItems)
+                );
             }
-            // https://developers.home-assistant.io/docs/api/native-app-integration/sending-data/#render-templates
-            // System.println("HomeAssistantApp updateMenuItems() URL=" + url + ", Template='" + mTemplate + "'");
-            Communications.makeWebRequest(
-                Settings.getApiUrl() + "/webhook/" + Settings.getWebhookId(),
-                {
-                    "type" => "render_template",
-                    "data" => mTemplates
-                },
-                {
-                    :method       => Communications.HTTP_REQUEST_METHOD_POST,
-                    :headers      => Settings.augmentHttpHeaders({
-                        "Content-Type" => Communications.REQUEST_CONTENT_TYPE_JSON
-                    }),
-                    :responseType => Communications.HTTP_RESPONSE_CONTENT_TYPE_JSON
-                },
-                method(:onReturnUpdateMenuItems)
-            );
         }
     }
 
