@@ -8,13 +8,11 @@ Please let us know if this solution is found to be useful for other situations.
 
 ## Setup
 
-The main settings includes a sub-menu for the user supplied HTTP header.
-
-<img src="images/http_header_submenu_item.png" width="400" title="Application Settings"/>
-
-The sub-menu contains two options for users to specify both the HTTP header name and the value as two free form strings.
+The settings contain two options for users to specify both the HTTP header name and the value as two free form strings.
 
 <img src="images/http_header_settings.png" width="400" title="Application Settings"/>
+
+If you don't know why you need these, leave them empty and ignore.
 
 ## Support
 
