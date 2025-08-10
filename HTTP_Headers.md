@@ -2,7 +2,7 @@
 
 # User Specified Custom HTTP Headers
 
-Principally for those who use Home Assistant add-on [Cloudflared](https://github.com/brenner-tobias/addon-cloudflared) in order to provide additional security via Cloudflare's Web Application Firewall (WAF). But the solution is generic enough for other use cases.
+Principally for those who use Home Assistant add-on [Cloudflared](https://github.com/brenner-tobias/addon-cloudflared) in order to provide additional security via Cloudflare's Web Application Firewall (WAF). But Garmin does not support certificates in requests. And the solution is generic enough for other use cases.
 
 Please let us know if this solution is found to be useful for other situations.
 
@@ -13,6 +13,12 @@ The settings contain two options for users to specify both the HTTP header name 
 <img src="images/http_header_settings.png" width="400" title="Application Settings"/>
 
 If you don't know why you need these, leave them empty and ignore.
+
+### Cloudflare WAF rule example
+
+`(any(http.request.headers["your-header-name"][*] eq "your-header-key"))`
+
+Make the key strong enough!
 
 ## Support
 
