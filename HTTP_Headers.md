@@ -29,3 +29,9 @@ The authors of the Garmin Home Assistant application do not use, and hence do no
 ## Credits
 
 With thanks to Lars Pöpperl ([@tispokes](https://github.com/tispokes)) for contributing to this solution.
+
+
+## References
+
+* [Using Cloudflare ZeroTrust and mTLS to securely access Home Assistant via the internet](https://kcore.org/2024/06/28/using-cloudflare-zerotrust-and-mtls-with-home-assistant-via-the-internet/)
+* [Home Assistant Add-on: Cloudflared](https://github.com/brenner-tobias/addon-cloudflared)
