@@ -119,7 +119,7 @@ class Settings {
             } else {
                 // Explicitly disable the background event which persists when the application closes.
                 // If !mHasService disable the Settings option as user feedback
-                unsetIsSensorsLevelEnabled();
+                unsetIsSensorsEnabled();
                 unsetWebhookId();
             }
         }
@@ -280,13 +280,13 @@ class Settings {
     //!
     //! @return Boolean for whether logging of the watch sensors is enabled.
     //
-    static function isSensorsLevelEnabled() as Lang.Boolean {
+    static function IsSensorsEnabled() as Lang.Boolean {
         return mIsSensorsEnabled;
     }
 
     //! Disable logging of the watch's sensors.
     //
-    static function unsetIsSensorsLevelEnabled() {
+    static function unsetIsSensorsEnabled() {
         mIsSensorsEnabled = false;
         Properties.setValue("enable_battery_level", mIsSensorsEnabled);
         if (mHasService and (Background.getTemporalEventRegisteredTime() != null)) {

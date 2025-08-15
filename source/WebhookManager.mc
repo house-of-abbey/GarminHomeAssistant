@@ -61,13 +61,13 @@ class WebhookManager {
                 break;
             case Communications.INVALID_HTTP_BODY_IN_NETWORK_RESPONSE:
                 // System.println("WebhookManager onReturnRequestWebhookId() Response Code: INVALID_HTTP_BODY_IN_NETWORK_RESPONSE, check JSON is returned.");
-                Settings.unsetIsSensorsLevelEnabled();
+                Settings.unsetIsSensorsEnabled();
                 ErrorView.show(WatchUi.loadResource($.Rez.Strings.WebhookFailed) as Lang.String + "\n" + WatchUi.loadResource($.Rez.Strings.NoJson) as Lang.String);
                 break;
 
             case 404:
                 // System.println("WebhookManager onReturnRequestWebhookId() Response Code: 404, page not found. Check API URL setting.");
-                Settings.unsetIsSensorsLevelEnabled();
+                Settings.unsetIsSensorsEnabled();
                 ErrorView.show(WatchUi.loadResource($.Rez.Strings.WebhookFailed) as Lang.String + "\n" + WatchUi.loadResource($.Rez.Strings.ApiUrlNotFound) as Lang.String);
                 break;
 
@@ -80,14 +80,14 @@ class WebhookManager {
                     registerWebhookSensors();
                 } else {
                     // System.println("WebhookManager onReturnRequestWebhookId(): No webhook id in response data.");
-                    Settings.unsetIsSensorsLevelEnabled();
+                    Settings.unsetIsSensorsEnabled();
                     ErrorView.show(WatchUi.loadResource($.Rez.Strings.WebhookFailed) as Lang.String + ".");
                 }
                 break;
 
             default:
                 // System.println("WebhookManager onReturnRequestWebhookId(): Unhandled HTTP response code = " + responseCode);
-                Settings.unsetIsSensorsLevelEnabled();
+                Settings.unsetIsSensorsEnabled();
                 ErrorView.show(WatchUi.loadResource($.Rez.Strings.WebhookFailed) as Lang.String + "\n" + WatchUi.loadResource($.Rez.Strings.UnhandledHttpErr) as Lang.String + responseCode);
         }
     }
@@ -186,7 +186,7 @@ class WebhookManager {
                     } else {
                         // System.println("WebhookManager onReturnRegisterWebhookSensor(): Failure, no 'success'.");
                         Settings.unsetWebhookId();
-                        Settings.unsetIsSensorsLevelEnabled();
+                        Settings.unsetIsSensorsEnabled();
                         ErrorView.show(WatchUi.loadResource($.Rez.Strings.WebhookFailed) as Lang.String + ".");
                     }
                 } else {
@@ -194,7 +194,7 @@ class WebhookManager {
                     // System.println("WebhookManager onReturnRegisterWebhookSensor(): Failure, not a Lang.Dict");
                     // Webhook ID might have been deleted on Home Assistant server and a Lang.String is trying to tell us an error message
                     Settings.unsetWebhookId();
-                    Settings.unsetIsSensorsLevelEnabled();
+                    Settings.unsetIsSensorsEnabled();
                     if (data == null) {
                         ErrorView.show(WatchUi.loadResource($.Rez.Strings.WebhookFailed) as Lang.String + "\nNull data");
                     } else {
@@ -207,7 +207,7 @@ class WebhookManager {
             default:
                 // System.println("WebhookManager onReturnRequestWebhookId(): Unhandled HTTP response code = " + responseCode);
                 Settings.unsetWebhookId();
-                Settings.unsetIsSensorsLevelEnabled();
+                Settings.unsetIsSensorsEnabled();
                 ErrorView.show(WatchUi.loadResource($.Rez.Strings.WebhookFailed) as Lang.String + "\n" + WatchUi.loadResource($.Rez.Strings.UnhandledHttpErr) as Lang.String + " " + responseCode);
         }
     }
@@ -253,7 +253,7 @@ class WebhookManager {
                 "unit_of_measurement" => "%",
                 "state_class"         => "measurement",
                 "entity_category"     => "diagnostic",
-                "disabled"            => !Settings.isSensorsLevelEnabled()
+                "disabled"            => !Settings.IsSensorsEnabled()
             },
             {
                 "device_class"        => "battery_charging",
@@ -263,7 +263,7 @@ class WebhookManager {
                 "unique_id"           => "battery_is_charging",
                 "icon"                => System.getSystemStats().charging ? "mdi:battery-plus" : "mdi:battery-minus",
                 "entity_category"     => "diagnostic",
-                "disabled"            => !Settings.isSensorsLevelEnabled()
+                "disabled"            => !Settings.IsSensorsEnabled()
             },
             {
                 "name"                => "Heart rate",
@@ -273,7 +273,7 @@ class WebhookManager {
                 "icon"                => "mdi:heart-pulse",
                 "unit_of_measurement" => "bpm",
                 "state_class"         => "measurement",
-                "disabled"            => !Settings.isSensorsLevelEnabled()
+                "disabled"            => !Settings.IsSensorsEnabled()
             }
         ];
 
@@ -287,7 +287,7 @@ class WebhookManager {
                 "unique_id"           => "steps_today",
                 "icon"                => "mdi:walk",
                 "state_class"         => "total",
-                "disabled"            => !Settings.isSensorsLevelEnabled()
+                "disabled"            => !Settings.IsSensorsEnabled()
             });
 
             if (ActivityMonitor.Info has :floorsClimbed) {
@@ -298,7 +298,7 @@ class WebhookManager {
                     "unique_id"           => "floors_climbed_today",
                     "icon"                => "mdi:stairs-up",
                     "state_class"         => "total",
-                    "disabled"            => !Settings.isSensorsLevelEnabled()
+                    "disabled"            => !Settings.IsSensorsEnabled()
                 });
             }
 
@@ -310,7 +310,7 @@ class WebhookManager {
                     "unique_id"           => "floors_descended_today",
                     "icon"                => "mdi:stairs-down",
                     "state_class"         => "total",
-                    "disabled"            => !Settings.isSensorsLevelEnabled()
+                    "disabled"            => !Settings.IsSensorsEnabled()
                 });
             }
 
@@ -323,7 +323,7 @@ class WebhookManager {
                     "icon"                => "mdi:lungs",
                     "unit_of_measurement" => "bpm",
                     "state_class"         => "measurement",
-                    "disabled"            => !Settings.isSensorsLevelEnabled()
+                    "disabled"            => !Settings.IsSensorsEnabled()
                 });
             }
         } else {
@@ -347,14 +347,14 @@ class WebhookManager {
                 "state"     => activity,
                 "type"      => "sensor",
                 "unique_id" => "activity",
-                "disabled"  => !Settings.isSensorsLevelEnabled()
+                "disabled"  => !Settings.IsSensorsEnabled()
             });
             mSensors.add({
                 "name"      => "Sub-activity",
                 "state"     => sub_activity,
                 "type"      => "sensor",
                 "unique_id" => "sub_activity",
-                "disabled"  => !Settings.isSensorsLevelEnabled()
+                "disabled"  => !Settings.IsSensorsEnabled()
             });
         }
 
