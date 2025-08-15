@@ -62,20 +62,22 @@
   <string id="SettingsConfigUrl">URL voor menuconfiguratie (JSON).</string>
   <string id="SettingsCacheConfig">Moet de toepassingscache de menu -configuratie?</string>
   <string id="SettingsClearCache">Moet de toepassing de bestaande cache wissen de volgende keer dat deze wordt gestart?</string>
+  <string id="WifiLteExecutionEnable">Schakel opdrachten uit via Wi-Fi/LTE.</string>
   <string id="SettingsVibration">Moet de applicatie feedback geven via trillingen?</string>
   <string id="SettingsAppTimeout">Time -out in seconden. Verlaat de toepassing na deze periode van inactiviteit om de apparaatbatterij op te slaan.</string>
   <string id="SettingsPollDelay">Aanvullende peilvertraging (in seconden). Voegt een vertraging toe tussen de statusupdate van alle menu -items.</string>
   <string id="SettingsConfirmTimeout">Na deze tijd (in seconden) wordt een bevestigingsdialoogvenster voor een actie automatisch gesloten en wordt de actie geannuleerd. Ingesteld op 0 om de time -out uit te schakelen.</string>
-  <string id="SettingsPin">4-cijferige pin die moet worden gebruikt voor alle acties die bevestiging vereisen (0000-9999).</string>
-  <string id="SettingsPinError">Configureer een geldige 4-cijferige numerieke pin tussen 0000 en 9999 in de applicatie-instellingen.</string>
+  <string id="SettingsPin">4-cijferige pin die moet worden gebruikt voor alle acties die dit vereisen (0000-9999).</string>
+  <string id="SettingsPinError">Configureer een geldige 4-cijferige numerieke pin tussen 0000 en 9999 in de toepassingsinstellingen.</string>
   <string id="SettingsTextAlign">Links (uit) of rechts (AAN) menu -uitlijning.</string>
   <string id="LeftToRight">Van links naar rechts</string>
   <string id="RightToLeft">Van rechts naar links</string>
   <string id="SettingsWidgetStart">(Alleen widget) Start de toepassing automatisch vanuit de widget zonder te wachten op een tik.</string>
   <string id="SettingsEnableBatteryLevel">Schakel de achtergrondservice in om het batterijdniveau van het apparaat, de locatie en (indien ondersteunde) activiteitsgegevens naar Home Assistant te verzenden.</string>
   <string id="SettingsBatteryLevelRefreshRate">De verversingssnelheid (in minuten) waarbij de achtergrondservice het verzenden van gegevens moet herhalen.</string>
+  <string id="SettingsUserHttpHeader">Gebruiker heeft de HTTP -header geleverd</string>
+  <string id="SettingsUserHttpHeaderDescription">Sommige installaties voor thuisassistent vereisen de specificatie van een aangepaste HTTP -header om te functioneren.</string>
+  <string id="SettingsUserHttpHeaderName">Gebruiker geleverd http-header: naam</string>
+  <string id="SettingsUserHttpHeaderValue">Gebruiker geleverd http-header: waarde</string>
   <string id="WebhookId">(Alleen lezen) De webhook -ID die door het apparaat is gemaakt voor updates van de achtergrondservice. Misschien heeft u dit nodig voor foutopsporing.</string>
-  <string id="WifiLteExecution">Wi-Fi/LTE-uitvoeringsmodus.</string>
-  <string id="WifiLteExecutionEnable">Schakel opdrachten uit via Wi-Fi/LTE.</string>
-  <string id="WifiLteExecutionDescription">Hiermee kan de app starten zonder telefoonaansluiting (wanneer het menu wordt gecacheerd) en de opdracht uitvoeren via Wi-Fi/LTE uit te voeren.</string>
 </strings>

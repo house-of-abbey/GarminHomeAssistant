@@ -38,7 +38,7 @@
   <string id="NoJson">Tiada JSON kembali dari permintaan HTTP.</string>
   <string id="NoPhone" scope="glance">Tiada sambungan telefon.</string>
   <string id="NoPhoneNoCache" scope="glance">Tiada sambungan telefon, tiada menu cache.</string>
-  <string id="NoResponse">Tiada respons, periksa sambungan internet</string>
+  <string id="NoResponse">Tiada Respons, Periksa Sambungan Internet</string>
   <string id="TimedOut">Meminta tamat masa</string>
   <string id="PinInputLocked">Input pin terkunci untuk</string>
   <string id="PotentialError">Kesalahan yang berpotensi</string>
@@ -62,20 +62,22 @@
   <string id="SettingsConfigUrl">URL untuk Konfigurasi Menu (JSON).</string>
   <string id="SettingsCacheConfig">Sekiranya aplikasi cache konfigurasi menu?</string>
   <string id="SettingsClearCache">Sekiranya permohonan membersihkan cache yang sedia ada pada masa akan datang, ia bermula?</string>
+  <string id="WifiLteExecutionEnable">Dayakan perintah melaksanakan melalui Wi-Fi/LTE.</string>
   <string id="SettingsVibration">Sekiranya permohonan memberikan maklum balas melalui getaran?</string>
   <string id="SettingsAppTimeout">Tamat masa dalam beberapa saat. Keluar dari permohonan selepas tempoh tidak aktif ini untuk menyimpan bateri peranti.</string>
   <string id="SettingsPollDelay">Kelewatan tinjauan tambahan (dalam saat). Menambah kelewatan antara kemas kini status semua item menu.</string>
   <string id="SettingsConfirmTimeout">Selepas masa ini (dalam saat), dialog pengesahan untuk tindakan ditutup secara automatik dan tindakan dibatalkan. Tetapkan ke 0 untuk melumpuhkan masa tamat.</string>
-  <string id="SettingsPin">PIN 4 digit untuk digunakan untuk semua tindakan yang memerlukan pengesahan (0000-9999).</string>
-  <string id="SettingsPinError">Sila konfigurasikan pin angka 4 digit yang sah antara 0000 dan 9999 dalam tetapan aplikasi.</string>
+  <string id="SettingsPin">Pin 4 digit untuk digunakan untuk semua tindakan yang memerlukannya (0000-9999).</string>
+  <string id="SettingsPinError">Sila konfigurasikan pin angka 4 digit yang sah antara 0000 dan 9999 dalam tetapan permohonan.</string>
   <string id="SettingsTextAlign">Penjajaran menu kiri (off) atau kanan (ON).</string>
   <string id="LeftToRight">Kiri ke kanan</string>
   <string id="RightToLeft">Kanan ke kiri</string>
   <string id="SettingsWidgetStart">(Widget sahaja) Secara automatik memulakan aplikasi dari widget tanpa menunggu ketuk.</string>
   <string id="SettingsEnableBatteryLevel">Dayakan perkhidmatan latar belakang untuk menghantar data aktiviti bateri, lokasi dan (jika disokong) ke Pembantu Rumah.</string>
-  <string id="SettingsBatteryLevelRefreshRate">Kadar penyegaran (dalam minit) di mana perkhidmatan latar belakang harus mengulangi data menghantar.</string>
+  <string id="SettingsBatteryLevelRefreshRate">Kadar penyegaran (dalam minit) di mana perkhidmatan latar belakang harus mengulangi data penghantaran.</string>
+  <string id="SettingsUserHttpHeader">Pengguna membekalkan header HTTP</string>
+  <string id="SettingsUserHttpHeaderDescription">Sesetengah pemasangan pembantu rumah memerlukan spesifikasi header HTTP tersuai untuk berfungsi.</string>
+  <string id="SettingsUserHttpHeaderName">Pengguna yang dibekalkan HTTP-HEADER: Nama</string>
+  <string id="SettingsUserHttpHeaderValue">Pengguna yang dibekalkan HTTP-HEADER: Nilai</string>
   <string id="WebhookId">(Baca sahaja) ID Webhook yang dibuat oleh peranti untuk kemas kini perkhidmatan latar belakang. Anda mungkin memerlukan ini untuk debugging.</string>
-  <string id="WifiLteExecution">Mod pelaksanaan Wi-Fi/LTE.</string>
-  <string id="WifiLteExecutionEnable">Dayakan perintah melaksanakan melalui Wi-Fi/LTE.</string>
-  <string id="WifiLteExecutionDescription">Membolehkan aplikasi bermula tanpa sambungan telefon (apabila menu di-cache), dan segera untuk melaksanakan perintah melalui Wi-Fi/LTE.</string>
 </strings>

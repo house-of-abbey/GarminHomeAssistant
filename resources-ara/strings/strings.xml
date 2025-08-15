@@ -62,11 +62,12 @@
   <string id="SettingsConfigUrl">عنوان URL لتكوين القائمة (JSON).</string>
   <string id="SettingsCacheConfig">هل يجب أن يقوم تطبيق ذاكرة التخزين المؤقت لتكوين القائمة؟</string>
   <string id="SettingsClearCache">هل يجب على التطبيق مسح ذاكرة التخزين المؤقت الموجودة في المرة القادمة التي يتم فيها بدء تشغيلها؟</string>
+  <string id="WifiLteExecutionEnable">تمكين تنفيذ الأوامر على Wi-Fi/LTE.</string>
   <string id="SettingsVibration">هل يجب أن يقدم التطبيق ملاحظات عبر الاهتزازات؟</string>
   <string id="SettingsAppTimeout">مهلة في ثوان. الخروج من التطبيق بعد هذه الفترة من عدم النشاط لحفظ بطارية الجهاز.</string>
   <string id="SettingsPollDelay">تأخير استطلاع إضافي (بالثواني). يضيف تأخيرًا بين تحديث الحالة لجميع عناصر القائمة.</string>
   <string id="SettingsConfirmTimeout">بعد هذا الوقت (بالثواني) ، يتم إغلاق مربع حوار تأكيد لإجراء ما ويتم إلغاء الإجراء. ضبط على 0 لتعطيل المهلة.</string>
-  <string id="SettingsPin">دبوس من 4 أرقام لاستخدامه في جميع الإجراءات التي تتطلب تأكيدًا (0000-9999).</string>
+  <string id="SettingsPin">دبوس من 4 أرقام لاستخدامه في جميع الإجراءات التي تتطلب ذلك (0000-9999).</string>
   <string id="SettingsPinError">يرجى تكوين دبوس رقمي مكون من 4 أرقام بين 0000 و 9999 في إعدادات التطبيق.</string>
   <string id="SettingsTextAlign">اليسار (قبالة) أو محاذاة القائمة اليمنى (ON).</string>
   <string id="LeftToRight">من اليسار إلى اليمين</string>
@@ -74,8 +75,9 @@
   <string id="SettingsWidgetStart">(عنصر واجهة المستخدم فقط) ابدأ التطبيق تلقائيًا من عنصر واجهة المستخدم دون انتظار النقر.</string>
   <string id="SettingsEnableBatteryLevel">قم بتمكين خدمة الخلفية لإرسال مستوى بطارية الجهاز والموقع و (إذا كان مدعومًا) بيانات النشاط إلى مساعد المنزل.</string>
   <string id="SettingsBatteryLevelRefreshRate">معدل التحديث (في الدقائق) التي يجب أن تكرر خدمة الخلفية إرسال البيانات.</string>
+  <string id="SettingsUserHttpHeader">قام المستخدم بتزويد المستخدم HTTP</string>
+  <string id="SettingsUserHttpHeaderDescription">تتطلب بعض عمليات تثبيت المساعدين المنزلي مواصفات رأس HTTP مخصص من أجل العمل.</string>
+  <string id="SettingsUserHttpHeaderName">قام المستخدم بتزويد HTTP Header: الاسم</string>
+  <string id="SettingsUserHttpHeaderValue">قام المستخدم بتزويد HTTP Header: Value</string>
   <string id="WebhookId">(اقرأ فقط) معرف WebHook الذي تم إنشاؤه بواسطة الجهاز لتحديثات خدمة الخلفية. قد تطلب هذا لتصحيح الأخطاء.</string>
-  <string id="WifiLteExecution">وضع تنفيذ Wi-Fi/LTE.</string>
-  <string id="WifiLteExecutionEnable">تمكين تنفيذ الأوامر على Wi-Fi/LTE.</string>
-  <string id="WifiLteExecutionDescription">يسمح للتطبيق بالبدء بدون اتصال الهاتف (عند تخزين القائمة) ، والمطالبة بتنفيذ الأمر عبر Wi-Fi/LTE.</string>
 </strings>

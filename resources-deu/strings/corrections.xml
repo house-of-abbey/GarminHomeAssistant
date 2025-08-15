@@ -26,29 +26,23 @@
 <strings>
   <string id="ApiFlood">Zu viele API-Aufrufe in kurzer Zeit. Bitte verlangsame deine Anfragen.</string>
   <string id="ApiUrlNotFound">URL nicht gefunden. Möglicher Fehler in der API-URL in den Einstellungen.</string>
-
   <string id="Available" scope="glance">OK</string>
   <string id="Cached" scope="glance">gecacht</string>
   <string id="Checking" scope="glance">Prüfe...</string>
   <string id="ConfigUrlNotFound">URL nicht gefunden. Möglicherweise falsche Konfigurations-URL in den Einstellungen.</string>
-
   <string id="GlanceMenu" scope="glance">Menü</string>
   <string id="Memory" scope="glance">Speicher</string>
-  <string id="NoAPIKey" scope="glance">Kein API-Schlüssel in den App-Einstellungen vorhanden.</string>
-  <string id="NoApiUrl" scope="glance">Keine API-URL in den App-Einstellungen vorhanden.</string>
-  <string id="NoConfigUrl" scope="glance">Keine Konfigurations-URL in den App-Einstellungen vorhanden.</string>
-  
+  <string id="NoAPIKey" scope="glance">Kein API-Schlüssel in den App-Einstellungen hinterlegt.</string>
+  <string id="NoApiUrl" scope="glance">Keine API-URL in den App-Einstellungen hinterlegt.</string>
+  <string id="NoConfigUrl" scope="glance">Keine Menükonfigurations-URL (JSON) in den App-Einstellungen hinterlegt.</string>
   <string id="NoJson">Keine JSON-Datei aus der HTTP-Anfrage zurückbekommen.</string>
-  
   <string id="NoPhoneNoCache" scope="glance">Keine Telefonverbindung und kein gecachtes Menü.</string>
   <string id="NoResponse">Keine Antwort, bitte Internetverbindung prüfen.</string>
   <string id="TimedOut">Anfragezeit überschritten.</string>
   <string id="PinInputLocked">PIN-Eingabe gesperrt für</string>
   <string id="PotentialError">Möglicher Fehler</string>
-  
   <string id="TemplateError">Template konnte nicht gerendert werden</string>
   <string id="TrailingSlashErr">API-URL darf nicht mit einem Schrägstrich '/' enden.</string>
-  
   <string id="UnhandledHttpErr">Die HTTP-Anfrage gab folgenden Fehlercode zurück = </string>
   <string id="WebhookFailed">Webhook-Registrierung fehlgeschlagen.</string>
   <string id="WrongPin">Falsche PIN.</string>
@@ -65,11 +59,12 @@
   <string id="SettingsConfigUrl">URL für die Menükonfiguration (JSON).</string>
   <string id="SettingsCacheConfig">Soll die App die Menükonfiguration cachen?</string>
   <string id="SettingsClearCache">Soll die Anwendung beim nächsten Start den vorhandenen Cache löschen?</string>
+  <string id="WifiLteExecutionEnable">Befehlsausführung über WLAN/LTE aktivieren.</string>
   <string id="SettingsVibration">Soll die App Rückmeldung per Vibration geben?</string>
   <string id="SettingsAppTimeout">Timeout in Sekunden. Beendet die App nach dieser Inaktivitätszeit, um Akku zu sparen.</string>
   <string id="SettingsPollDelay">Zusätzliche Abfrageverzögerung (in Sekunden). Fügt zwischen den Status-Updates der Menüeinträge eine Pause ein.</string>
   <string id="SettingsConfirmTimeout">Nach dieser Zeit (in Sekunden) wird ein Bestätigungsdialog automatisch geschlossen und die Aktion abgebrochen. Mit 0 deaktivieren.</string>
-  <string id="SettingsPin">4-stellige PIN für alle Aktionen, die eine Bestätigung erfordern (0000-9999).</string>
+  <string id="SettingsPin">4-stellige PIN für alle Aktionen, die diese erfordern (0000-9999).</string>
   <string id="SettingsPinError">Bitte eine gültige 4-stellige numerische PIN in den App Einstellungen eingeben (0000-9999).</string>
   <string id="SettingsTextAlign">Menüausrichtung: Links (aus) oder Rechts (ein).</string>
   
@@ -77,8 +72,9 @@
   <string id="SettingsWidgetStart">(Nur Widget) App automatisch aus dem Widget starten, ohne auf Tippen zu warten.</string>
   <string id="SettingsEnableBatteryLevel">Hintergrunddienst aktivieren, um Akkustand, Standort und (falls unterstützt) Aktivitätsdaten an Home Assistant zu senden.</string>
   <string id="SettingsBatteryLevelRefreshRate">Intervall (in Minuten), in dem der Hintergrunddienst die Daten erneut senden soll.</string>
+  <string id="SettingsUserHttpHeader">Zusätzlicher HTTP-Header</string>
+  <string id="SettingsUserHttpHeaderDescription">Einige Home Assistant-Installationen erfordern die Angabe eines benutzerdefinierten HTTP-Headers, um zu funktionieren.</string>
+  <string id="SettingsUserHttpHeaderName">Zusätzlicher HTTP-Header: Name</string>
+  <string id="SettingsUserHttpHeaderValue">Zusätzlicher HTTP-Header: Value</string>
   <string id="WebhookId">(Nur lesen) Die vom Gerät erstellte Webhook-ID für Hintergrund-Updates. Kann zum Debuggen benötigt werden.</string>
-  <string id="WifiLteExecution">Ausführung über WLAN-/LTE einschalten.</string>
-  <string id="WifiLteExecutionEnable">Befehlsausführung über WLAN/LTE aktivieren.</string>
-  <string id="WifiLteExecutionDescription">Ermöglicht das Starten der App ohne Telefonverbindung (bei zwischengespeichertem Menü) und fragt, ob der Befehl über WLAN/LTE ausgeführt werden soll.</string>
 </strings>

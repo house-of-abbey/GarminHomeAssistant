@@ -62,11 +62,12 @@
   <string id="SettingsConfigUrl">菜单配置的URL（JSON）。</string>
   <string id="SettingsCacheConfig">应用程序缓存菜单配置应该缓存吗？</string>
   <string id="SettingsClearCache">应用程序下次启动时是否应该清除现有的高速缓存？</string>
+  <string id="WifiLteExecutionEnable">在Wi-Fi/LTE上启用执行命令。</string>
   <string id="SettingsVibration">应用程序是否应该通过振动提供反馈？</string>
   <string id="SettingsAppTimeout">超时几秒钟。在此不活动期间退出应用程序以节省设备电池。</string>
   <string id="SettingsPollDelay">额外的民意调查延迟（以秒为单位）。在所有菜单项的状态更新之间添加延迟。</string>
   <string id="SettingsConfirmTimeout">在此时间（以秒为单位）之后，将自动关闭操作的确认对话框，并取消操作。设置为0以禁用超时。</string>
-  <string id="SettingsPin">4位PIN用于所有需要确认的动作（0000-9999）。</string>
+  <string id="SettingsPin">4位PIN用于所有需要它的动作（0000-9999）。</string>
   <string id="SettingsPinError">请在应用程序设置中配置有效的4位数字引脚。</string>
   <string id="SettingsTextAlign">左（关闭）或右（ON）菜单对齐。</string>
   <string id="LeftToRight">从左到右</string>
@@ -74,8 +75,9 @@
   <string id="SettingsWidgetStart">（仅小部件）自动从小部件启动应用程序，而无需等待点击。</string>
   <string id="SettingsEnableBatteryLevel">使背景服务能够将设备电池电量，位置以及（如果支持）将活动数据发送给家庭助手。</string>
   <string id="SettingsBatteryLevelRefreshRate">背景服务应重复发送数据的刷新率（分钟为几分钟）。</string>
+  <string id="SettingsUserHttpHeader">用户提供的HTTP标头</string>
+  <string id="SettingsUserHttpHeaderDescription">一些家庭助理安装需要定义自定义HTTP标头的规格才能运行。</string>
+  <string id="SettingsUserHttpHeaderName">用户提供的http-header：名称</string>
+  <string id="SettingsUserHttpHeaderValue">用户提供的HTTP头：值</string>
   <string id="WebhookId">（仅读）设备创建的Webhook ID用于背景服务更新。您可能需要此次调试。</string>
-  <string id="WifiLteExecution">Wi-Fi/LTE执行模式。</string>
-  <string id="WifiLteExecutionEnable">在Wi-Fi/LTE上启用执行命令。</string>
-  <string id="WifiLteExecutionDescription">允许该应用在没有电话连接的情况下启动（菜单被缓存时），并提示通过Wi-Fi/LTE执行命令。</string>
 </strings>

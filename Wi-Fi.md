@@ -1,4 +1,4 @@
-[Home](README.md) | [Switches](examples/Switches.md) | [Actions](examples/Actions.md) | [Templates](examples/Templates.md) | [Glance](examples/Glance.md) | [Background Service](BackgroundService.md) | [Wi-Fi](Wi-Fi.md) | [Trouble Shooting](TroubleShooting.md) | [Version History](HISTORY.md)
+[Home](README.md) | [Switches](examples/Switches.md) | [Actions](examples/Actions.md) | [Templates](examples/Templates.md) | [Glance](examples/Glance.md) | [Background Service](BackgroundService.md) | [Wi-Fi](Wi-Fi.md) | [HTTP Headers](HTTP_Headers.md) | [Trouble Shooting](TroubleShooting.md) | [Version History](HISTORY.md)
 
 # Wi-Fi & LTE
 
@@ -17,14 +17,17 @@ With version 3.0 onwards the application now includes the ability to temporarily
 4. Remember that you need to be within range of your watch's configured Wi-Fi access point to utilize this functionality. If supported by your device, LTE offers a longer range, but network charges may apply.
 
 5. On some Garmin devices, the HTTPS handshake is performed using **TLS 1.2**. If your server or proxy enforces a higher minimum (e.g., TLS 1.3), you will encounter an SSL handshake error with the message:  
+
    ```
    HTTP request returned error code = 0
    ```
+
    This limitation only affects **Wi-Fi/LTE connections**. When connected over **Bluetooth**, the watch routes requests through the paired phone, which handles the TLS handshake and supports newer TLS versions (such as 1.3) without issue.  
 
    To fix this, lower the minimum TLS setting to allow TLS 1.2. For example, if you are using **Cloudflare Tunneling**, go to:  
    `SSL/TLS → Edge Certificates → Minimum TLS Version`  
    and set it to **at most TLS 1.2**. _Reducing below TLS 1.2 is not recommended due to security risks._
+
 ## Video
 
 This video using will hopefully make it obvious how slow it is to use the Wi-Fi option and illustrate the cautionary notes above.
@@ -37,4 +40,4 @@ We emphasize that the Wi-Fi/LTE functionality should be viewed as a 'last resort
 
 ## Credits
 
-With thanks to [@vincentezw](https://github.com/vincentezw) for contributing this solution.
+With thanks to Vincent, [@vincentezw](https://github.com/vincentezw) for contributing this solution, and to Ali Alaei, [@aalaei](https://github.com/aalaei) for the finer details on TLS.

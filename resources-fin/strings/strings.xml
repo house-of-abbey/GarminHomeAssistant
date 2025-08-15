@@ -62,20 +62,22 @@
   <string id="SettingsConfigUrl">Valikkokokoonpanon URL (JSON).</string>
   <string id="SettingsCacheConfig">Pitäisikö sovelluksen välimuistiin valikon kokoonpano?</string>
   <string id="SettingsClearCache">Pitäisikö sovelluksen tyhjentää olemassa oleva välimuisti seuraavalla kerralla?</string>
+  <string id="WifiLteExecutionEnable">Ota komentojen suorittaminen käyttöön Wi-Fi/LTE: n kautta.</string>
   <string id="SettingsVibration">Pitäisikö sovelluksen antaa palautetta värähtelyjen kautta?</string>
   <string id="SettingsAppTimeout">Aikakatkaisu sekunneissa. Poistu sovelluksesta tämän toimettomuuden jälkeen laitteen akun tallentamiseksi.</string>
   <string id="SettingsPollDelay">Lisäkyselyviive (sekunneissa). Lisää viive kaikkien valikkokohteiden tilapäivityksen välillä.</string>
   <string id="SettingsConfirmTimeout">Tämän ajan jälkeen (sekunneissa) toiminnan vahvistusvalintaikkuna suljetaan automaattisesti ja toiminto peruutetaan. Aseta arvoon 0 poistamaan aikakatkaisu käytöstä.</string>
-  <string id="SettingsPin">4-numeroinen PIN-koodi kaikissa toimissa, jotka vaativat vahvistusta (0000-9999).</string>
+  <string id="SettingsPin">4-numeroinen PIN-koodi, jota käytetään kaikkiin sitä vaativiin toimiin (0000-9999).</string>
   <string id="SettingsPinError">Määritä kelvollinen 4-numeroinen numeerinen PIN-arvo välillä 0000-9999 sovellusasetuksissa.</string>
   <string id="SettingsTextAlign">Vasen (pois päältä) tai oikea (on) valikon kohdistus.</string>
   <string id="LeftToRight">Vasemmalta oikealle</string>
   <string id="RightToLeft">Vasemmalle</string>
-  <string id="SettingsWidgetStart">(Vain widget) Käynnistä sovellus automaattisesti widgetistä odottamatta napautta.</string>
+  <string id="SettingsWidgetStart">(Vain widget) Käynnistä sovellus automaattisesti widgetistä odottamatta napautusta.</string>
   <string id="SettingsEnableBatteryLevel">Ota taustapalvelu käyttöön laitteen akkutason, sijainnin ja (jos tuetun) aktiviteettitietojen lähettämiseksi kodin avustajalle.</string>
   <string id="SettingsBatteryLevelRefreshRate">Päivitysnopeus (muutamassa minuutissa), jossa taustapalvelun tulisi toistaa tietojen lähettäminen.</string>
+  <string id="SettingsUserHttpHeader">Käyttäjä toimitti HTTP -otsikon</string>
+  <string id="SettingsUserHttpHeaderDescription">Jotkut kodin avustajaasennukset vaativat mukautetun HTTP -otsikon määrittelyn toiminnan varten.</string>
+  <string id="SettingsUserHttpHeaderName">Käyttäjä toimitti http-header: Nimi</string>
+  <string id="SettingsUserHttpHeaderValue">Käyttäjä toimitti HTTP-otsikon: arvo</string>
   <string id="WebhookId">(Vain lue) laitteen luoma webhook -tunnus taustapalvelupäivityksiin. Saatat tarvita tätä virheenkorjausta varten.</string>
-  <string id="WifiLteExecution">Wi-Fi/LTE-suoritustila.</string>
-  <string id="WifiLteExecutionEnable">Ota komentojen suorittaminen käyttöön Wi-Fi/LTE: n kautta.</string>
-  <string id="WifiLteExecutionDescription">Mahdollistaa sovelluksen käynnistyksen ilman puhelinyhteyttä (kun valikko on välimuisti) ja kehottaa suorittamaan komento Wi-Fi/LTE: n kautta.</string>
 </strings>

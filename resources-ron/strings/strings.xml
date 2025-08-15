@@ -33,7 +33,7 @@
   <string id="Memory" scope="glance">Memorie</string>
   <string id="NoAPIKey" scope="glance">Nici o cheie API în setările aplicației.</string>
   <string id="NoApiUrl" scope="glance">Fără URL API în setările aplicației.</string>
-  <string id="NoConfigUrl" scope="glance">Nici o adresă URL de configurare în setările aplicației.</string>
+  <string id="NoConfigUrl" scope="glance">Fără URL de configurare în setările aplicației.</string>
   <string id="NoInternet">Fără conexiune la internet.</string>
   <string id="NoJson">Niciun JSON nu a revenit de la cererea HTTP.</string>
   <string id="NoPhone" scope="glance">Fără conexiune telefonică.</string>
@@ -62,11 +62,12 @@
   <string id="SettingsConfigUrl">URL pentru configurația meniului (JSON).</string>
   <string id="SettingsCacheConfig">Aplicația cache ar trebui să fie configurația meniului?</string>
   <string id="SettingsClearCache">Aplicația ar trebui să șterge cache -ul existent data viitoare când va fi pornită?</string>
+  <string id="WifiLteExecutionEnable">Activați executarea comenzilor prin Wi-Fi/LTE.</string>
   <string id="SettingsVibration">Aplicația ar trebui să ofere feedback prin vibrații?</string>
   <string id="SettingsAppTimeout">Timeout în câteva secunde. Ieșiți din aplicație după această perioadă de inactivitate pentru a economisi bateria dispozitivului.</string>
   <string id="SettingsPollDelay">Întârziere suplimentară a sondajului (în secunde). Adăugă o întârziere între actualizarea de stare a tuturor elementelor din meniu.</string>
   <string id="SettingsConfirmTimeout">După acest timp (în câteva secunde), un dialog de confirmare pentru o acțiune este închis automat și acțiunea este anulată. Setați la 0 pentru a dezactiva expirarea.</string>
-  <string id="SettingsPin">Pinul de 4 cifre pentru a fi utilizat pentru toate acțiunile care necesită confirmare (0000-9999).</string>
+  <string id="SettingsPin">Pinul de 4 cifre pentru a fi utilizat pentru toate acțiunile care îl necesită (0000-9999).</string>
   <string id="SettingsPinError">Vă rugăm să configurați un pin numeric valid cu 4 cifre între 0000 și 9999 în setările aplicației.</string>
   <string id="SettingsTextAlign">Alinierea meniului stânga (oprită) sau dreapta (pornită).</string>
   <string id="LeftToRight">De la stânga la dreapta</string>
@@ -74,8 +75,9 @@
   <string id="SettingsWidgetStart">(Numai widget) Porniți automat aplicația din widget fără a aștepta o atingere.</string>
   <string id="SettingsEnableBatteryLevel">Permiteți serviciului de fundal să trimită datele bateriei, locația și (dacă este acceptat) date de activitate către asistentul de acasă.</string>
   <string id="SettingsBatteryLevelRefreshRate">Rata de actualizare (în câteva minute) la care serviciul de fundal ar trebui să repete date de trimitere.</string>
+  <string id="SettingsUserHttpHeader">Antetul HTTP furnizat de utilizator</string>
+  <string id="SettingsUserHttpHeaderDescription">Unele instalații de asistent la domiciliu necesită specificarea unui antet HTTP personalizat pentru a funcționa.</string>
+  <string id="SettingsUserHttpHeaderName">HTTP-HEADER furnizat de utilizator: Nume</string>
+  <string id="SettingsUserHttpHeaderValue">HTTP-HEADER furnizat de utilizator: valoare</string>
   <string id="WebhookId">(Numai citiți) ID -ul WebHook creat de dispozitiv pentru actualizări de servicii de fundal. S -ar putea să solicitați acest lucru pentru depanare.</string>
-  <string id="WifiLteExecution">Modul de execuție Wi-Fi/LTE.</string>
-  <string id="WifiLteExecutionEnable">Activați executarea comenzilor prin Wi-Fi/LTE.</string>
-  <string id="WifiLteExecutionDescription">Permite aplicației să înceapă fără conexiune telefonică (când meniul este în cache) și solicită să execute comanda prin Wi-Fi/LTE.</string>
 </strings>

@@ -44,7 +44,7 @@
   <string id="PotentialError">שגיאה פוטנציאלית</string>
   <string id="Seconds">שניות</string>
   <string id="TemplateError">שגיאת תבנית</string>
-  <string id="TrailingSlashErr">אסור לכתובת API להיות סלאש נגרר '/'.</string>
+  <string id="TrailingSlashErr">כתובת API אסור שיהיה לו סלאש נגרר '/'.</string>
   <string id="Unavailable" scope="glance">לא זמין</string>
   <string id="Unconfigured" scope="glance">לא מוגדר</string>
   <string id="UnhandledHttpErr">בקשת HTTP קוד שגיאה שהוחזר =</string>
@@ -54,19 +54,20 @@
   <string id="WifiLtePrompt">להורג באמצעות Wi-Fi/LTE?</string>
   <string id="WifiLteExecutionTitle">שולח לעוזר הבית.</string>
   <string id="WifiLteExecutionDataError">לא התקבלו נתונים.</string>
-  <!-- עבור GUI של הגדרות, המיתרים צריכים להיות בסדר שהם משמשים. -->
+  <!-- עבור ה- GUI של הגדרות, המיתרים צריכים להיות בסדר שהם משתמשים בהם. -->
   <string id="SettingsSelect">לִבחוֹר...</string>
-  <string id="SettingsApiKey">מפתח API עבור HomeAsstant.</string>
+  <string id="SettingsApiKey">מפתח API עבור HomeAssistant.</string>
   <string id="SettingsApiKeyPrompt">אסימון גישה ארוכת שנים.</string>
   <string id="SettingsApiUrl">כתובת URL לממשק API עמדתי.</string>
   <string id="SettingsConfigUrl">כתובת אתר לתצורת תפריט (JSON).</string>
   <string id="SettingsCacheConfig">האם על היישום למנוע את תצורת התפריט?</string>
   <string id="SettingsClearCache">האם על היישום לנקות את המטמון הקיים בפעם הבאה שהוא מתחיל?</string>
+  <string id="WifiLteExecutionEnable">אפשר לבצע פקודות דרך Wi-Fi/LTE.</string>
   <string id="SettingsVibration">האם על היישום לספק משוב באמצעות תנודות?</string>
   <string id="SettingsAppTimeout">פסק זמן בשניות. צא מהיישום לאחר תקופת חוסר פעילות זו כדי לחסוך את סוללת ההתקן.</string>
   <string id="SettingsPollDelay">עיכוב נוסף בסקר (תוך שניות). מוסיף עיכוב בין עדכון הסטטוס של כל פריטי התפריט.</string>
   <string id="SettingsConfirmTimeout">לאחר זמן זה (תוך שניות), דיאלוג אישור לפעולה נסגר אוטומטית והפעולה מבוטלת. מוגדר ל 0 כדי להשבית את פסק הזמן.</string>
-  <string id="SettingsPin">סיכה 4 ספרות שישמשו לכל הפעולות הדורשות אישור (0000-9999).</string>
+  <string id="SettingsPin">סיכה עם 4 ספרות שישמשו לכל הפעולות הדורשות אותה (0000-9999).</string>
   <string id="SettingsPinError">אנא קבע את התצורה של סיכה מספרית תקפה בת 4 ספרות בין 0000 ל- 9999 בהגדרות היישום.</string>
   <string id="SettingsTextAlign">יישור תפריט משמאל (כבוי) או ימין (ON).</string>
   <string id="LeftToRight">משמאל לימין</string>
@@ -74,8 +75,9 @@
   <string id="SettingsWidgetStart">(ווידג'ט בלבד) הפעל אוטומטית את היישום מהווידג'ט מבלי לחכות לברז.</string>
   <string id="SettingsEnableBatteryLevel">אפשר לשירות הרקע לשלוח את רמת סוללת המכשיר, מיקום ו (אם נתמך) נתוני פעילות לעוזר הבית.</string>
   <string id="SettingsBatteryLevelRefreshRate">קצב הרענון (בדקות) בו שירות הרקע צריך לחזור על שליחת נתונים.</string>
+  <string id="SettingsUserHttpHeader">כותרת HTTP סיפקה למשתמש</string>
+  <string id="SettingsUserHttpHeaderDescription">כמה התקנות עוזרות ביתיות דורשות מפרט של כותרת HTTP מותאמת אישית כדי לתפקד.</string>
+  <string id="SettingsUserHttpHeaderName">המשתמש סיפק HTTP-HEADER: שם</string>
+  <string id="SettingsUserHttpHeaderValue">המשתמש סיפק HTTP-HEADER: ערך</string>
   <string id="WebhookId">(קרא בלבד) מזהה WebHook שנוצר על ידי המכשיר לעדכוני שירות רקע. אתה עשוי לדרוש זאת לצורך ניפוי באגים.</string>
-  <string id="WifiLteExecution">מצב ביצוע Wi-Fi/LTE.</string>
-  <string id="WifiLteExecutionEnable">אפשר לבצע פקודות דרך Wi-Fi/LTE.</string>
-  <string id="WifiLteExecutionDescription">מאפשר לאפליקציה להתחיל ללא חיבור טלפון (כאשר התפריט מטמון), ולבקש לבצע פקודה דרך Wi-Fi/LTE.</string>
 </strings>

@@ -1,4 +1,4 @@
-[Home](README.md) | [Switches](examples/Switches.md) | [Actions](examples/Actions.md) | [Templates](examples/Templates.md) | [Glance](examples/Glance.md) | [Background Service](BackgroundService.md) | [Wi-Fi](Wi-Fi.md) | [Trouble Shooting](TroubleShooting.md) | [Version History](HISTORY.md)
+[Home](README.md) | [Switches](examples/Switches.md) | [Actions](examples/Actions.md) | [Templates](examples/Templates.md) | [Glance](examples/Glance.md) | [Background Service](BackgroundService.md) | [Wi-Fi](Wi-Fi.md) | [HTTP Headers](HTTP_Headers.md) | [Trouble Shooting](TroubleShooting.md) | [Version History](HISTORY.md)
 
 # GarminHomeAssistant
 
@@ -16,6 +16,8 @@ The application is designed around a simple scrollable menu where menu items hav
 
 > [!IMPORTANT]
 > The Garmin SDK allows HTTP requests only to a limited number of domains specified in their app. Therefore, for your Garmin to communicate with your Home Assistant instance, your Home Assistant instance must be accessible via HTTPS (with a public certificate!) or through a local DNS server that overrides one of the whitelisted domains to communicate using HTTP.
+>
+>New with version 3.1, you can use [Cloudflared](https://github.com/brenner-tobias/addon-cloudflared) plug-in in combination with a [custom HTTP header](HTTP_Headers.md) and do not need a public certificate for HTTPS.
 >
 > To make your Home Assistant instance accessible via HTTPS, you will need a public certificate. You can get one for free from [Let's Encrypt](https://letsencrypt.org/) or you can pay for [Home Assistant cloud](https://www.nabucasa.com/). (You can install a local [Nginx proxy server](https://my.home-assistant.io/redirect/supervisor_addon/?addon=a0d7b954_nginxproxymanager) to manage Let's Encrypt certificates.)
 >
@@ -230,7 +232,7 @@ Make sure you can browse to the URL of your JSON file in a standard web browser 
 
 ## API Key Creation
 
-Having created your JSON definition for your dashboard, you need to create an API key for your personal account on Home Assistant. You will need a [Long-Lived Access Token](https://developers.home-assistant.io/docs/auth_api/#long-lived-access-token). This is not obvious to find and is bound to your own Home Assistant account. Follow the menu sequence: `HA -> user profile -> Long-lived access tokens`. Make sure you save the generated token before dismissing it.
+Having created your JSON definition for your dashboard, you need to create an API key for your personal account on Home Assistant. You will need a [Long-Lived Access Token](https://developers.home-assistant.io/docs/auth_api/#long-lived-access-token). This is not obvious to find and is bound to your own Home Assistant account. Follow the menu sequence: `HA -> User Profile -> "Security" tab -> Long-lived access tokens`. Make sure you save the generated token before dismissing it.
 
 ![Long-Lived Access Token](images/Long_Lived_Access_Tokens.png)
 
@@ -339,3 +341,7 @@ The `id` attribute values are taken from the same names used in [`strings.xml`](
 8. There is a [bug in Garmin Express so that when you use that software to amend the application's settings](https://github.com/house-of-abbey/GarminHomeAssistant/issues/194), the page appears in a random language not of your choice. I would like to thank user [heviiguy](https://github.com/heviiguy) for his work researching the issue, leading to these references that indicate the authors of Garmin Home Assistant cannot resolve this issue as its a bug in Garmin Express that Garmin are refusing to believe exists! See these pages for details:
    - [Garmin Express - Wrong Language](https://forums.garmin.com/developer/connect-iq/i/bug-reports/garmin-express---wrong-language)
    - [Incorrect language displayed for custom data fields](https://forums.garmin.com/developer/connect-iq/f/discussion/388137/incorrect-language-displayed-for-custom-data-fields)
+
+# Authors & Contributors
+
+For an up to date list of all authors and contributors, please check the [contributor's page](https://github.com/house-of-abbey/GarminHomeAssistant/graphs/contributors). Thank you all for improving this application.

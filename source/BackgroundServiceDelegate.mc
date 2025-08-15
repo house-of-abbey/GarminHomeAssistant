@@ -158,9 +158,9 @@ class BackgroundServiceDelegate extends System.ServiceDelegate {
                 },
                 {
                     :method       => Communications.HTTP_REQUEST_METHOD_POST,
-                    :headers      => {
+                    :headers      => Settings.augmentHttpHeaders({
                         "Content-Type" => Communications.REQUEST_CONTENT_TYPE_JSON
-                    },
+                    }),
                     :responseType => Communications.HTTP_RESPONSE_CONTENT_TYPE_JSON
                 },
                 method(:onReturnDoUpdate)
@@ -244,9 +244,9 @@ class BackgroundServiceDelegate extends System.ServiceDelegate {
             },
             {
                 :method       => Communications.HTTP_REQUEST_METHOD_POST,
-                :headers      => {
+                :headers      => Settings.augmentHttpHeaders({
                     "Content-Type" => Communications.REQUEST_CONTENT_TYPE_JSON
-                },
+                }),
                 :responseType => Communications.HTTP_RESPONSE_CONTENT_TYPE_JSON
             },
             method(:onReturnDoUpdate)

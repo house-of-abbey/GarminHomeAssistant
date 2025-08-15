@@ -4,6 +4,8 @@
     "Venu"
   ],
   "files.exclude": {
-    "resources-*": true
+    "resources-*": true,
+    "bin": true,
+    "export": true
   }
 }

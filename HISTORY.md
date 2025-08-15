@@ -1,4 +1,4 @@
-[Home](README.md) | [Switches](examples/Switches.md) | [Actions](examples/Actions.md) | [Templates](examples/Templates.md) | [Glance](examples/Glance.md) | [Background Service](BackgroundService.md) | [Wi-Fi](Wi-Fi.md) | [Trouble Shooting](TroubleShooting.md) | [Version History](HISTORY.md)
+[Home](README.md) | [Switches](examples/Switches.md) | [Actions](examples/Actions.md) | [Templates](examples/Templates.md) | [Glance](examples/Glance.md) | [Background Service](BackgroundService.md) | [Wi-Fi](Wi-Fi.md) | [HTTP Headers](HTTP_Headers.md) | [Trouble Shooting](TroubleShooting.md) | [Version History](HISTORY.md)
 
 # Version History
 
@@ -46,3 +46,4 @@
 |   2.31  | Adding [two new options](./examples/Actions.md#exit-on-tap) to the menu items: 1) The ability to disable a menu item, e.g. temporarily for seasonal changes, 2) The option to exit after a menu item has been select. |
 |   2.32  | Bug fix for a breaking change extracting options caused by the need to rearrange function parameters for an [annoying compiler error](https://github.com/house-of-abbey/GarminHomeAssistant/issues/253). |
 |   3.0   | First version with the ability to use [Wi-Fi or LTE](Wi-Fi.md) instead of Bluetooth but with limited functionality, thanks to [@vincentezw](https://github.com/vincentezw). |
+|   3.1   | Added the ability for users to provide custom HTTP headers for their Home Assistant server. Improved German language translations. Removed all groups in settings as the SDK is buggy. |

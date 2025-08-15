@@ -18,7 +18,7 @@
     title="@Strings.SettingsApiKey"
     prompt="@Strings.SettingsApiKeyPrompt"
   >
-    <settingConfig type="alphaNumeric" />
+    <settingConfig type="alphaNumeric" required="true" />
   </setting>
 
   <setting
@@ -26,7 +26,7 @@
     title="@Strings.SettingsApiUrl"
     prompt="https://homeassistant.local/api"
   >
-    <settingConfig type="alphaNumeric" />
+    <settingConfig type="alphaNumeric" required="true" />
   </setting>
 
   <setting
@@ -34,7 +34,7 @@
     title="@Strings.SettingsConfigUrl"
     prompt="https://homeassistant.local/local/garmin/menu.json"
   >
-    <settingConfig type="alphaNumeric" />
+    <settingConfig type="alphaNumeric" required="true" />
   </setting>
 
   <setting
@@ -51,14 +51,12 @@
     <settingConfig type="boolean" />
   </setting>
 
-  <group enableIfTrue="@Properties.cache_config" id="wifiLteExection" title="@Strings.WifiLteExecution" description="@Strings.WifiLteExecutionDescription">
-    <setting
-      propertyKey="@Properties.wifi_lte_execution"
-      title="@Strings.WifiLteExecutionEnable"
-    >
-      <settingConfig type="boolean" />
-    </setting>
-  </group>
+  <setting
+    propertyKey="@Properties.wifi_lte_execution"
+    title="@Strings.WifiLteExecutionEnable"
+  >
+    <settingConfig type="boolean" />
+  </setting>
 
   <setting
     propertyKey="@Properties.enable_vibration"
@@ -92,7 +90,7 @@
     propertyKey="@Properties.pin"
     title="@Strings.SettingsPin"
   >
-    <settingConfig type="alphaNumeric" />
+    <settingConfig type="alphaNumeric" maxLength="4" />
   </setting>
 
   <setting
@@ -119,6 +117,22 @@
     <settingConfig type="numeric" min="5" />
   </setting>
 
+  <setting
+    propertyKey="@Properties.user_http_header_name"
+    title="@Strings.SettingsUserHttpHeaderName"
+  >
+    <settingConfig type="alphaNumeric" />
+  </setting>
+  <setting
+    propertyKey="@Properties.user_http_header_value"
+    title="@Strings.SettingsUserHttpHeaderValue"
+  >
+    <settingConfig type="alphaNumeric" />
+  </setting>
+<!--
+  <group id="userHttpHeader" title="@Strings.SettingsUserHttpHeader" description="@Strings.SettingsUserHttpHeaderDescription">
+  </group>
+-->
   <setting
     propertyKey="@Properties.webhook_id"
     title="@Strings.WebhookId"

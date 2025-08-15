@@ -62,11 +62,12 @@
   <string id="SettingsConfigUrl">URL pour la configuration du menu (JSON).</string>
   <string id="SettingsCacheConfig">L'application devrait-elle mettre en cache la configuration du menu?</string>
   <string id="SettingsClearCache">L'application devrait-elle effacer le cache existant la prochaine fois qu'il sera démarré?</string>
+  <string id="WifiLteExecutionEnable">Activer l'exécution des commandes sur Wi-Fi / LTE.</string>
   <string id="SettingsVibration">L'application devrait-elle fournir des commentaires via des vibrations?</string>
   <string id="SettingsAppTimeout">Timeout en quelques secondes. Quittez l'application après cette période d'inactivité pour enregistrer la batterie de l'appareil.</string>
   <string id="SettingsPollDelay">Délai supplémentaire du scrutin (en secondes). Ajoute un délai entre la mise à jour d'état de tous les éléments de menu.</string>
   <string id="SettingsConfirmTimeout">Après ce temps (en quelques secondes), une boîte de dialogue de confirmation pour une action est automatiquement fermée et l'action est annulée. Réglé sur 0 pour désactiver le délai d'attente.</string>
-  <string id="SettingsPin">PIN à 4 chiffres à utiliser pour toutes les actions qui nécessitent une confirmation (0000-9999).</string>
+  <string id="SettingsPin">PIN à 4 chiffres à utiliser pour toutes les actions qui l'exigent (0000-9999).</string>
   <string id="SettingsPinError">Veuillez configurer une broche numérique à 4 chiffres valide entre 0000 et 9999 dans les paramètres de l'application.</string>
   <string id="SettingsTextAlign">Alignement du menu gauche (off) ou droit (on).</string>
   <string id="LeftToRight">De gauche à droite</string>
@@ -74,8 +75,9 @@
   <string id="SettingsWidgetStart">(Widget uniquement) Démarrez automatiquement l'application à partir du widget sans attendre un robinet.</string>
   <string id="SettingsEnableBatteryLevel">Activez le service d'arrière-plan pour envoyer le niveau de la batterie de l'appareil, l'emplacement et (le cas échéant) les données d'activité à l'assistant à domicile.</string>
   <string id="SettingsBatteryLevelRefreshRate">Le taux de rafraîchissement (en minutes) auquel le service d'arrière-plan doit répéter l'envoi de données.</string>
+  <string id="SettingsUserHttpHeader">En-tête HTTP fourni par l'utilisateur</string>
+  <string id="SettingsUserHttpHeaderDescription">Certaines installations d'assistant à domicile nécessitent la spécification d'un en-tête HTTP personnalisé pour fonctionner.</string>
+  <string id="SettingsUserHttpHeaderName">Utilisateur fourni HTTP-Header: Nom</string>
+  <string id="SettingsUserHttpHeaderValue">Utilisateur HTTP-Header: Valeur</string>
   <string id="WebhookId">(Lire uniquement) L'ID Webhook créé par l'appareil pour les mises à jour du service d'arrière-plan. Vous pourriez en avoir besoin pour le débogage.</string>
-  <string id="WifiLteExecution">Mode d'exécution Wi-Fi / LTE.</string>
-  <string id="WifiLteExecutionEnable">Activer l'exécution des commandes sur Wi-Fi / LTE.</string>
-  <string id="WifiLteExecutionDescription">Permet à l'application de démarrer sans connexion par téléphone (lorsque le menu est mis en cache) et invite à exécuter la commande via Wi-Fi / LTE.</string>
 </strings>
