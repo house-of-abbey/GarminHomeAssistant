@@ -62,7 +62,7 @@
   <string id="SettingsConfigUrl">URL cho cấu hình menu (JSON).</string>
   <string id="SettingsCacheConfig">Bộ đệm ứng dụng có nên cấu hình menu không?</string>
   <string id="SettingsClearCache">Ứng dụng có nên xóa bộ đệm hiện tại vào lần tới khi nó được bắt đầu không?</string>
-  <string id="WifiLteExecutionEnable">Bật các lệnh thực thi qua Wi-Fi/LTE.</string>
+  <string id="SettingsWifiLteExecutionEnable">Bật các lệnh thực thi qua Wi-Fi/LTE.</string>
   <string id="SettingsVibration">Ứng dụng có nên cung cấp phản hồi thông qua các rung động?</string>
   <string id="SettingsAppTimeout">Thời gian chờ trong giây. Thoát khỏi ứng dụng sau khoảng thời gian không hoạt động để lưu pin thiết bị.</string>
   <string id="SettingsPollDelay">Độ trễ thăm dò ý kiến bổ sung (tính bằng giây). Thêm độ trễ giữa bản cập nhật trạng thái của tất cả các mục menu.</string>
@@ -70,8 +70,8 @@
   <string id="SettingsPin">Pin 4 chữ số được sử dụng cho tất cả các hành động yêu cầu nó (0000-9999).</string>
   <string id="SettingsPinError">Vui lòng định cấu hình chân số 4 chữ số hợp lệ giữa 0000 đến 9999 trong cài đặt ứng dụng.</string>
   <string id="SettingsTextAlign">Bên trái (tắt) hoặc bên phải (trên) căn chỉnh menu.</string>
-  <string id="LeftToRight">Trái sang phải</string>
-  <string id="RightToLeft">Phải sang trái</string>
+  <string id="SettingsLeftToRight">Trái sang phải</string>
+  <string id="SettingsRightToLeft">Phải sang trái</string>
   <string id="SettingsWidgetStart">(Chỉ Widget) Tự động khởi động ứng dụng từ tiện ích mà không cần chờ vòi.</string>
   <string id="SettingsEnableBatteryLevel">Cho phép dịch vụ nền để gửi dữ liệu hoạt động, vị trí và (nếu được hỗ trợ) của thiết bị đến trợ lý nhà.</string>
   <string id="SettingsBatteryLevelRefreshRate">Tốc độ làm mới (tính bằng phút) mà dịch vụ nền sẽ lặp lại gửi dữ liệu.</string>
@@ -79,5 +79,6 @@
   <string id="SettingsUserHttpHeaderDescription">Một số cài đặt trợ lý gia đình yêu cầu đặc điểm kỹ thuật của tiêu đề HTTP tùy chỉnh để hoạt động.</string>
   <string id="SettingsUserHttpHeaderName">Tiêu đề http do người dùng cung cấp: tên</string>
   <string id="SettingsUserHttpHeaderValue">Tiêu đề HTTP do người dùng cung cấp: Giá trị</string>
-  <string id="WebhookId">(Chỉ đọc) ID webhook được tạo bởi thiết bị để cập nhật dịch vụ nền. Bạn có thể yêu cầu điều này để gỡ lỗi.</string>
+  <string id="SettingsClearWebhookId">Kết nối lại với Trợ lý nhà (Xóa ID Webhook, xem Hướng dẫn khắc phục sự cố).</string>
+  <string id="SettingsWebhookId">(Chỉ đọc) ID webhook được tạo bởi thiết bị để cập nhật dịch vụ nền. Bạn có thể yêu cầu điều này để gỡ lỗi.</string>
 </strings>

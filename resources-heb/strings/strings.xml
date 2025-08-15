@@ -62,7 +62,7 @@
   <string id="SettingsConfigUrl">כתובת אתר לתצורת תפריט (JSON).</string>
   <string id="SettingsCacheConfig">האם על היישום למנוע את תצורת התפריט?</string>
   <string id="SettingsClearCache">האם על היישום לנקות את המטמון הקיים בפעם הבאה שהוא מתחיל?</string>
-  <string id="WifiLteExecutionEnable">אפשר לבצע פקודות דרך Wi-Fi/LTE.</string>
+  <string id="SettingsWifiLteExecutionEnable">אפשר לבצע פקודות דרך Wi-Fi/LTE.</string>
   <string id="SettingsVibration">האם על היישום לספק משוב באמצעות תנודות?</string>
   <string id="SettingsAppTimeout">פסק זמן בשניות. צא מהיישום לאחר תקופת חוסר פעילות זו כדי לחסוך את סוללת ההתקן.</string>
   <string id="SettingsPollDelay">עיכוב נוסף בסקר (תוך שניות). מוסיף עיכוב בין עדכון הסטטוס של כל פריטי התפריט.</string>
@@ -70,8 +70,8 @@
   <string id="SettingsPin">סיכה עם 4 ספרות שישמשו לכל הפעולות הדורשות אותה (0000-9999).</string>
   <string id="SettingsPinError">אנא קבע את התצורה של סיכה מספרית תקפה בת 4 ספרות בין 0000 ל- 9999 בהגדרות היישום.</string>
   <string id="SettingsTextAlign">יישור תפריט משמאל (כבוי) או ימין (ON).</string>
-  <string id="LeftToRight">משמאל לימין</string>
-  <string id="RightToLeft">ימין לשמאל</string>
+  <string id="SettingsLeftToRight">משמאל לימין</string>
+  <string id="SettingsRightToLeft">ימין לשמאל</string>
   <string id="SettingsWidgetStart">(ווידג'ט בלבד) הפעל אוטומטית את היישום מהווידג'ט מבלי לחכות לברז.</string>
   <string id="SettingsEnableBatteryLevel">אפשר לשירות הרקע לשלוח את רמת סוללת המכשיר, מיקום ו (אם נתמך) נתוני פעילות לעוזר הבית.</string>
   <string id="SettingsBatteryLevelRefreshRate">קצב הרענון (בדקות) בו שירות הרקע צריך לחזור על שליחת נתונים.</string>
@@ -79,5 +79,6 @@
   <string id="SettingsUserHttpHeaderDescription">כמה התקנות עוזרות ביתיות דורשות מפרט של כותרת HTTP מותאמת אישית כדי לתפקד.</string>
   <string id="SettingsUserHttpHeaderName">המשתמש סיפק HTTP-HEADER: שם</string>
   <string id="SettingsUserHttpHeaderValue">המשתמש סיפק HTTP-HEADER: ערך</string>
-  <string id="WebhookId">(קרא בלבד) מזהה WebHook שנוצר על ידי המכשיר לעדכוני שירות רקע. אתה עשוי לדרוש זאת לצורך ניפוי באגים.</string>
+  <string id="SettingsClearWebhookId">התחבר מחדש לעוזר הבית (נקה מזהה WebHook, ראה מדריך לפתרון בעיות).</string>
+  <string id="SettingsWebhookId">(קרא בלבד) מזהה WebHook שנוצר על ידי המכשיר לעדכוני שירות רקע. אתה עשוי לדרוש זאת לצורך ניפוי באגים.</string>
 </strings>

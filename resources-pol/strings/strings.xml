@@ -62,7 +62,7 @@
   <string id="SettingsConfigUrl">URL dla konfiguracji menu (JSON).</string>
   <string id="SettingsCacheConfig">Czy aplikacja powinna buforować konfigurację menu?</string>
   <string id="SettingsClearCache">Czy aplikacja powinna wyczyścić istniejącą pamięć podręczną następnym razem, gdy zostanie uruchomiona?</string>
-  <string id="WifiLteExecutionEnable">Włącz wykonywanie poleceń przez Wi-Fi/LTE.</string>
+  <string id="SettingsWifiLteExecutionEnable">Włącz wykonywanie poleceń przez Wi-Fi/LTE.</string>
   <string id="SettingsVibration">Czy aplikacja powinna przekazywać informacje zwrotne za pośrednictwem wibracji?</string>
   <string id="SettingsAppTimeout">Limit czasu w sekundach. Wyjdź z aplikacji po tym okresie bezczynności, aby zapisać akumulator urządzenia.</string>
   <string id="SettingsPollDelay">Dodatkowe opóźnienie ankiety (w sekundach). Dodaje opóźnienie między aktualizacją statusu wszystkich elementów menu.</string>
@@ -70,8 +70,8 @@
   <string id="SettingsPin">4-cyfrowy szpilka do użycia do wszystkich działań, które go wymagają (0000-9999).</string>
   <string id="SettingsPinError">W ustawieniach aplikacji skonfiguruj prawidłowy 4-cyfrowy pin liczbowy między 0000 a 9999.</string>
   <string id="SettingsTextAlign">Lewy (wyłączony) lub w prawo (na) wyrównanie menu.</string>
-  <string id="LeftToRight">Od lewej do prawej</string>
-  <string id="RightToLeft">Od prawej do lewej</string>
+  <string id="SettingsLeftToRight">Od lewej do prawej</string>
+  <string id="SettingsRightToLeft">Od prawej do lewej</string>
   <string id="SettingsWidgetStart">(Tylko widżet) Automatycznie uruchom aplikację z widżetu bez oczekiwania na dotknięcie.</string>
   <string id="SettingsEnableBatteryLevel">Włącz usługę w tle wysyłanie poziomu baterii, lokalizacji i (jeśli jest obsługiwane) dane o aktywności do Asystenta Home.</string>
   <string id="SettingsBatteryLevelRefreshRate">Szybkość odświeżania (w minutach), w której usługa tła powinna powtarzać dane wysyłania.</string>
@@ -79,5 +79,6 @@
   <string id="SettingsUserHttpHeaderDescription">Niektóre instalacje asystentów domowych wymagają specyfikacji niestandardowego nagłówka HTTP w celu funkcjonowania.</string>
   <string id="SettingsUserHttpHeaderName">Dostarczony przez użytkownika HTTP-Header: Nazwa</string>
   <string id="SettingsUserHttpHeaderValue">Dostarczony przez użytkownika HTTP-Header: Wartość</string>
-  <string id="WebhookId">(Tylko odczyt) Identyfikator WebHook utworzony przez urządzenie dla aktualizacji usług w tle. Możesz tego wymagać do debugowania.</string>
+  <string id="SettingsClearWebhookId">Ponowne połączenie z Asystentem Home (Clear Webhook ID, patrz Przewodnik po rozwiązywaniu problemów).</string>
+  <string id="SettingsWebhookId">(Tylko odczyt) Identyfikator WebHook utworzony przez urządzenie dla aktualizacji usług w tle. Możesz tego wymagać do debugowania.</string>
 </strings>

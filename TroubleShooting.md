@@ -311,6 +311,12 @@ JSON for copy & paste:
 }
 ```
 
+# Failed API Calls
+
+![No JSON](images/NoJson.png)
+
+When the application persists in reporting "No JSON returned from HTTP request." this might be due to a mismatch between the Webhook ID and the device settings on the Home Assistant server. The application options include the ability to clear the Webhook ID in the application forcing a new one to be set up.
+
 # Debug Logs
 
 As a desperate measure to assist with debugging the Home Assistant Application, you might be asked to send the authors a debug log.

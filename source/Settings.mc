@@ -15,6 +15,7 @@
 
 using Toybox.Lang;
 using Toybox.Application.Properties;
+using Toybox.Application.Storage;
 using Toybox.WatchUi;
 using Toybox.System;
 // Battery Level Reporting
@@ -44,13 +45,14 @@ class Settings {
     private static var mConfirmTimeout        as Lang.Number  = 3;
     private static var mPin                   as Lang.String? = "0000";
     private static var mMenuAlignment         as Lang.Number  = WatchUi.MenuItem.MENU_ITEM_LABEL_ALIGN_LEFT;
-    private static var mIsSensorsLevelEnabled as Lang.Boolean = false;
+    private static var mIsSensorsEnabled      as Lang.Boolean = false;
     //! minutes
     private static var mBatteryRefreshRate    as Lang.Number  = 15;
     //! Additional user configurable HTTP header key
     private static var mUserHeaderName        as Lang.String? = null;
     //! Additional user configurable HTTP header value
     private static var mUserHeaderValue       as Lang.String? = null;
+    private static var mClearWebhookId        as Lang.Boolean = false;
     private static var mIsApp                 as Lang.Boolean = false;
     private static var mHasService            as Lang.Boolean = false;
     //! Must keep the object so it doesn't get garbage collected.
@@ -73,10 +75,11 @@ class Settings {
         mConfirmTimeout        = Properties.getValue("confirm_timeout");
         mPin                   = validatePin();
         mMenuAlignment         = Properties.getValue("menu_alignment");
-        mIsSensorsLevelEnabled = Properties.getValue("enable_battery_level");
+        mIsSensorsEnabled      = Properties.getValue("enable_battery_level");
         mBatteryRefreshRate    = Properties.getValue("battery_level_refresh_rate");
         mUserHeaderName        = Properties.getValue("user_http_header_name");
         mUserHeaderValue       = Properties.getValue("user_http_header_value");
+        mClearWebhookId        = Properties.getValue("clear_webhook_id");
     }
 
     //! A webhook is required for non-privileged API calls.
@@ -90,6 +93,9 @@ class Settings {
         if (mIsApp) {
             if (mHasService) {
                 if (System.getDeviceSettings().phoneConnected) {
+                    if (getClearWebhookId()) {
+                        clearWebhookId();
+                    }
                     mWebhookManager = new WebhookManager();
                     if (getWebhookId().equals("")) {
                         // System.println("Settings update(): Doing full webhook & sensor creation.");
@@ -97,9 +103,13 @@ class Settings {
                     } else {
                         // System.println("Settings update(): Doing just sensor creation.");
                         // We already have a Webhook ID, so just enable or disable the sensor in Home Assistant.
-                        mWebhookManager.registerWebhookSensors();
+                        // Storage.getValue("sensors_enabled") returns true, false, or null
+                        if (mIsSensorsEnabled != Storage.getValue("sensors_enabled")) {
+                            Storage.setValue("sensors_enabled", mIsSensorsEnabled);
+                            mWebhookManager.registerWebhookSensors();
+                        }
                     }
-                    if (mIsSensorsLevelEnabled) {
+                    if (mIsSensorsEnabled) {
                         // Create the timed activity
                         if ((Background.getTemporalEventRegisteredTime() == null) or
                             (Background.getTemporalEventRegisteredTime() != (mBatteryRefreshRate * 60))) {
@@ -114,7 +124,7 @@ class Settings {
             } else {
                 // Explicitly disable the background event which persists when the application closes.
                 // If !mHasService disable the Settings option as user feedback
-                unsetIsSensorsLevelEnabled();
+                unsetIsSensorsEnabled();
                 unsetWebhookId();
             }
         }
@@ -131,7 +141,11 @@ class Settings {
     //! @return The API Key
     //
     static function getApiKey() as Lang.String {
-        return mApiKey;
+        if (mApiKey == null) {
+            return "";
+        } else {
+            return mApiKey;
+        }
     }
 
     //! Get the Webhook ID supplied as part of the Settings.
@@ -139,7 +153,11 @@ class Settings {
     //! @return The Webhook ID
     //
     static function getWebhookId() as Lang.String {
-        return mWebhookId;
+        if (mWebhookId == null) {
+            return "";
+        } else {
+            return mWebhookId;
+        }
     }
 
     //! Set the Webhook ID supplied as part of the Settings.
@@ -163,7 +181,11 @@ class Settings {
     //! @return The API URL
     //
     static function getApiUrl() as Lang.String {
-        return mApiUrl;
+        if (mApiUrl == null) {
+            return "";
+        } else {
+            return mApiUrl;
+        }
     }
 
     //! Get the menu configuration URL supplied as part of the Settings.
@@ -171,7 +193,11 @@ class Settings {
     //! @return The menu configuration URL
     //
     static function getConfigUrl() as Lang.String {
-        return mConfigUrl;
+        if (mConfigUrl == null) {
+            return "";
+        } else {
+            return mConfigUrl;
+        }
     }
 
     //! Get the menu cache Boolean option supplied as part of the Settings.
@@ -275,15 +301,15 @@ class Settings {
     //!
     //! @return Boolean for whether logging of the watch sensors is enabled.
     //
-    static function isSensorsLevelEnabled() as Lang.Boolean {
-        return mIsSensorsLevelEnabled;
+    static function IsSensorsEnabled() as Lang.Boolean {
+        return mIsSensorsEnabled;
     }
 
     //! Disable logging of the watch's sensors.
     //
-    static function unsetIsSensorsLevelEnabled() {
-        mIsSensorsLevelEnabled = false;
-        Properties.setValue("enable_battery_level", mIsSensorsLevelEnabled);
+    static function unsetIsSensorsEnabled() {
+        mIsSensorsEnabled = false;
+        Properties.setValue("enable_battery_level", mIsSensorsEnabled);
         if (mHasService and (Background.getTemporalEventRegisteredTime() != null)) {
             Background.deleteTemporalEvent();
             Background.deleteActivityCompletedEvent();
@@ -302,6 +328,25 @@ class Settings {
             options[mUserHeaderName] = mUserHeaderValue;
         }
         return options;
+    }
+
+    //! Get the clear cache Boolean option supplied as part of the Settings.
+    //!
+    //! @return Boolean for whether the cache should be cleared next time the
+    //!         application is started, forcing a menu refresh.
+    //
+    static function getClearWebhookId() as Lang.Boolean {
+        return mClearWebhookId;
+    }
+
+    //! Unset the clear Webhook ID Boolean option supplied and the Webhook ID string as part of
+    //! the Settings.
+    //
+    static function clearWebhookId() {
+        mClearWebhookId = false;
+        mWebhookId      = "";
+        Properties.setValue("clear_webhook_id", mClearWebhookId);
+        Properties.setValue("webhook_id", mWebhookId);
     }
 
 }

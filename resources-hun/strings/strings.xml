@@ -62,7 +62,7 @@
   <string id="SettingsConfigUrl">URL a menükonfigurációhoz (JSON).</string>
   <string id="SettingsCacheConfig">Az alkalmazásnak gyorsítótáraznia kell a menükonfigurációt?</string>
   <string id="SettingsClearCache">Az alkalmazásnak törölnie kell -e a meglévő gyorsítótárat a következő indításkor?</string>
-  <string id="WifiLteExecutionEnable">Engedélyezze a parancsok végrehajtási végrehajtását a Wi-Fi/LTE-n keresztül.</string>
+  <string id="SettingsWifiLteExecutionEnable">Engedélyezze a parancsok végrehajtási végrehajtását a Wi-Fi/LTE-n keresztül.</string>
   <string id="SettingsVibration">Az alkalmazásnak visszacsatolást kell adnia a rezgések révén?</string>
   <string id="SettingsAppTimeout">Időtúllépés másodpercek alatt. Az eszköz akkumulátorának mentése érdekében kilépjen az alkalmazásból az inaktivitás után.</string>
   <string id="SettingsPollDelay">További közvélemény -kutatási késleltetés (másodpercek alatt). Hozzáad egy késleltetést az összes menüelem állapotfrissítése között.</string>
@@ -70,8 +70,8 @@
   <string id="SettingsPin">4 számjegyű PIN-kódot, amelyet minden szükséges művelethez használni kell (0000-9999).</string>
   <string id="SettingsPinError">Kérjük, konfiguráljon egy érvényes négyjegyű numerikus csapot 0000 és 9999 között az alkalmazás beállításaiban.</string>
   <string id="SettingsTextAlign">Balra (ki) vagy jobb (be (be) menü igazítás.</string>
-  <string id="LeftToRight">Balról jobbra</string>
-  <string id="RightToLeft">Jobbról balra</string>
+  <string id="SettingsLeftToRight">Balról jobbra</string>
+  <string id="SettingsRightToLeft">Jobbról balra</string>
   <string id="SettingsWidgetStart">(Csak widget) automatikusan indítsa el az alkalmazást a widgetről, anélkül, hogy megérintené a csapot.</string>
   <string id="SettingsEnableBatteryLevel">Engedélyezze, hogy a háttérszolgáltatás az eszköz akkumulátorának szintjét, helyét és (ha támogatott) tevékenységi adatait elküldje az otthoni asszisztensnek.</string>
   <string id="SettingsBatteryLevelRefreshRate">A háttérszolgáltatásnak a küldési adatokkal kell megismételnie a frissítési arányt (percekben).</string>
@@ -79,5 +79,6 @@
   <string id="SettingsUserHttpHeaderDescription">Néhány otthoni asszisztens telepítéshez a működéshez egyéni HTTP fejléc meghatározására van szükség.</string>
   <string id="SettingsUserHttpHeaderName">A felhasználó szállított HTTP-fejléc: Név</string>
   <string id="SettingsUserHttpHeaderValue">A felhasználó szállított HTTP-fejléc: Érték</string>
-  <string id="WebhookId">(Csak olvassa el) Az eszköz által létrehozott webhook azonosító a háttérszolgáltatás frissítéseihez. Lehet, hogy ezt a hibakereséshez szükség lehet.</string>
+  <string id="SettingsClearWebhookId">Csatlakozzon újra az otthoni asszisztenshez (törölje a WebHook azonosítóját, lásd a hibaelhárítási útmutatót).</string>
+  <string id="SettingsWebhookId">(Csak olvassa el) Az eszköz által létrehozott webhook azonosító a háttérszolgáltatás frissítéseihez. Lehet, hogy ezt a hibakereséshez szükség lehet.</string>
 </strings>

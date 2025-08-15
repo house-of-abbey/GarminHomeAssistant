@@ -62,7 +62,7 @@
   <string id="SettingsConfigUrl">URL สำหรับการกำหนดค่าเมนู (JSON)</string>
   <string id="SettingsCacheConfig">แอปพลิเคชันควรแคชการกำหนดค่าเมนูหรือไม่?</string>
   <string id="SettingsClearCache">แอปพลิเคชันควรล้างแคชที่มีอยู่ครั้งต่อไปในครั้งต่อไปหรือไม่</string>
-  <string id="WifiLteExecutionEnable">เปิดใช้งานการดำเนินการคำสั่งผ่าน Wi-Fi/LTE</string>
+  <string id="SettingsWifiLteExecutionEnable">เปิดใช้งานการดำเนินการคำสั่งผ่าน Wi-Fi/LTE</string>
   <string id="SettingsVibration">แอปพลิเคชันควรให้ข้อเสนอแนะผ่านการสั่นสะเทือนหรือไม่?</string>
   <string id="SettingsAppTimeout">หมดเวลาในไม่กี่วินาที ออกจากแอปพลิเคชันหลังจากช่วงเวลาที่ไม่มีการใช้งานเพื่อประหยัดแบตเตอรี่อุปกรณ์</string>
   <string id="SettingsPollDelay">ความล่าช้าในการสำรวจเพิ่มเติม (ในไม่กี่วินาที) เพิ่มความล่าช้าระหว่างการอัปเดตสถานะของรายการเมนูทั้งหมด</string>
@@ -70,8 +70,8 @@
   <string id="SettingsPin">พิน 4 หลักที่จะใช้สำหรับการกระทำทั้งหมดที่ต้องการ (0000-9999)</string>
   <string id="SettingsPinError">โปรดกำหนดค่าพินตัวเลข 4 หลักที่ถูกต้องระหว่าง 0000 ถึง 9999 ในการตั้งค่าแอปพลิเคชัน</string>
   <string id="SettingsTextAlign">การจัดตำแหน่งเมนูซ้าย (ปิด) หรือขวา (เปิด)</string>
-  <string id="LeftToRight">จากซ้ายไปขวา</string>
-  <string id="RightToLeft">ขวาไปซ้าย</string>
+  <string id="SettingsLeftToRight">จากซ้ายไปขวา</string>
+  <string id="SettingsRightToLeft">ขวาไปซ้าย</string>
   <string id="SettingsWidgetStart">(วิดเจ็ตเท่านั้น) เริ่มแอปพลิเคชันจากวิดเจ็ตโดยอัตโนมัติโดยไม่ต้องรอแตะ</string>
   <string id="SettingsEnableBatteryLevel">เปิดใช้งานบริการพื้นหลังเพื่อส่งระดับแบตเตอรี่ของอุปกรณ์ตำแหน่งและข้อมูลกิจกรรม (ถ้ารองรับ) ไปยังผู้ช่วยที่บ้าน</string>
   <string id="SettingsBatteryLevelRefreshRate">อัตราการรีเฟรช (ในไม่กี่นาที) ที่บริการพื้นหลังควรส่งข้อมูลซ้ำ</string>
@@ -79,5 +79,6 @@
   <string id="SettingsUserHttpHeaderDescription">การติดตั้งผู้ช่วยที่บ้านบางคนต้องการข้อมูลจำเพาะของส่วนหัว HTTP ที่กำหนดเองเพื่อให้สามารถใช้งานได้</string>
   <string id="SettingsUserHttpHeaderName">ผู้ใช้ HTTP-Header: ชื่อ</string>
   <string id="SettingsUserHttpHeaderValue">ผู้ใช้ HTTP-Header: ค่า</string>
-  <string id="WebhookId">(อ่านเท่านั้น) ID WebHook ที่สร้างโดยอุปกรณ์สำหรับการอัปเดตบริการพื้นหลัง คุณอาจต้องการสิ่งนี้สำหรับการดีบัก</string>
+  <string id="SettingsClearWebhookId">เชื่อมต่อกับผู้ช่วยที่บ้าน (Clear Webhook ID ดูคู่มือการแก้ไขปัญหา)</string>
+  <string id="SettingsWebhookId">(อ่านเท่านั้น) ID WebHook ที่สร้างโดยอุปกรณ์สำหรับการอัปเดตบริการพื้นหลัง คุณอาจต้องการสิ่งนี้สำหรับการดีบัก</string>
 </strings>

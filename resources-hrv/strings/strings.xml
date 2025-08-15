@@ -62,7 +62,7 @@
   <string id="SettingsConfigUrl">URL za konfiguraciju izbornika (JSON).</string>
   <string id="SettingsCacheConfig">Treba li aplikacija predmemorirati konfiguraciju izbornika?</string>
   <string id="SettingsClearCache">Treba li aplikacija očistiti postojeću predmemoriju sljedeći put kad se pokrene?</string>
-  <string id="WifiLteExecutionEnable">Omogući izvršavanje naredbi preko Wi-Fi/LTE.</string>
+  <string id="SettingsWifiLteExecutionEnable">Omogući izvršavanje naredbi preko Wi-Fi/LTE.</string>
   <string id="SettingsVibration">Treba li aplikacija davati povratne informacije putem vibracija?</string>
   <string id="SettingsAppTimeout">Timeout u sekundi. Izađite iz aplikacije nakon ovog razdoblja neaktivnosti kako biste uštedjeli bateriju uređaja.</string>
   <string id="SettingsPollDelay">Dodatno kašnjenje ankete (u sekundi). Dodaje kašnjenje između ažuriranja statusa svih stavki izbornika.</string>
@@ -70,8 +70,8 @@
   <string id="SettingsPin">Četveroznamenkasti pin koji će se koristiti za sve radnje koje zahtijevaju (0000-9999).</string>
   <string id="SettingsPinError">Konfigurirajte valjani četveroznamenkasti numerički pin između 0000 i 9999 u postavkama aplikacije.</string>
   <string id="SettingsTextAlign">Lijevo (isključeno) ili desno (ON) Poravnavanje izbornika.</string>
-  <string id="LeftToRight">Slijeva na desno</string>
-  <string id="RightToLeft">Desno lijevo</string>
+  <string id="SettingsLeftToRight">Slijeva na desno</string>
+  <string id="SettingsRightToLeft">Desno lijevo</string>
   <string id="SettingsWidgetStart">(Samo widget) Automatski pokrenite aplikaciju iz widgeta bez čekanja na dodir.</string>
   <string id="SettingsEnableBatteryLevel">Omogućite pozadinsku uslugu da pošalje podatke o bateriji uređaja, lokaciji i (ako su podržani) podatke o aktivnostima kod kuće.</string>
   <string id="SettingsBatteryLevelRefreshRate">Brzina osvježavanja (u minutama) u kojoj bi pozadinska usluga trebala ponoviti slanje podataka.</string>
@@ -79,5 +79,6 @@
   <string id="SettingsUserHttpHeaderDescription">Neke instalacije kod kuće zahtijevaju specifikaciju prilagođenog HTTP zaglavlja kako bi funkcionirale.</string>
   <string id="SettingsUserHttpHeaderName">Korisnik isporučen HTTP-Header: Ime</string>
   <string id="SettingsUserHttpHeaderValue">Korisnik isporučen http-glava: Vrijednost</string>
-  <string id="WebhookId">(Samo pročitajte) ID Webhooka stvorio je uređaj za ažuriranja pozadine. Možda će vam to trebati za uklanjanje pogrešaka.</string>
+  <string id="SettingsClearWebhookId">Ponovno se povežite s kućnim pomoćnikom (Clear Webhook ID, pogledajte vodič za rješavanje problema).</string>
+  <string id="SettingsWebhookId">(Samo pročitajte) ID Webhooka stvorio je uređaj za ažuriranja pozadine. Možda će vam to trebati za uklanjanje pogrešaka.</string>
 </strings>
