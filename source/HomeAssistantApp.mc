@@ -311,7 +311,7 @@ class HomeAssistantApp extends Application.AppBase {
     private function buildMenu(menu as Lang.Dictionary) {
         mHaMenu = new HomeAssistantView(menu, null);
         mQuitTimer.begin();
-        if (!Settings.getWebhookId().equals("")) {
+        if (!Settings.getWebhookId().equals("") && !Settings.getClearWebhookId()) {
             startUpdates();
         } // If not, this will be done via a chain in Settings.webhook() and mWebhookManager.requestWebhookId() that registers the sensors.
     }
@@ -399,20 +399,25 @@ class HomeAssistantApp extends Application.AppBase {
             case 200:
                 status = WatchUi.loadResource($.Rez.Strings.Available) as Lang.String;
                 // System.println("mItemsToUpdate: " + mItemsToUpdate);
-                if (mItemsToUpdate != null) {
-                    for (var i = 0; i < mItemsToUpdate.size(); i++) {
-                        var item = mItemsToUpdate[i];
-                        var state = data.get(i.toString());
-                        item.updateState(state);
-                        if (item instanceof HomeAssistantToggleMenuItem) {
-                            (item as HomeAssistantToggleMenuItem).updateToggleState(data.get(i.toString() + "t"));
+                if (data == null) {
+                    // Simulation and real device behave differently, hence 2nd NoJson error message for "data == null".
+                    ErrorView.show(WatchUi.loadResource($.Rez.Strings.NoJson) as Lang.String);
+                } else {
+                    if (mItemsToUpdate != null) {
+                        for (var i = 0; i < mItemsToUpdate.size(); i++) {
+                            var item = mItemsToUpdate[i];
+                            var state = data.get(i.toString());
+                            item.updateState(state);
+                            if (item instanceof HomeAssistantToggleMenuItem) {
+                                (item as HomeAssistantToggleMenuItem).updateToggleState(data.get(i.toString() + "t"));
+                            }
                         }
-                    }
-                    var delay = Settings.getPollDelay();
-                    if (delay > 0) {
-                        mUpdateTimer.start(method(:updateMenuItems), delay, false);
-                    } else {
-                        updateMenuItems();
+                        var delay = Settings.getPollDelay();
+                        if (delay > 0) {
+                            mUpdateTimer.start(method(:updateMenuItems), delay, false);
+                        } else {
+                            updateMenuItems();
+                        }
                     }
                 }
                 break;
@@ -816,7 +821,7 @@ class HomeAssistantApp extends Application.AppBase {
         mGlanceTimer = null;
         fetchMenuConfig();
         fetchApiStatus();
-        if (Settings.getWebhookId() != null && !Settings.getWebhookId().equals("")) {
+        if (!Settings.getWebhookId().equals("") && !Settings.getClearWebhookId()) {
             fetchGlanceContent();
         }
     }

@@ -141,7 +141,11 @@ class Settings {
     //! @return The API Key
     //
     static function getApiKey() as Lang.String {
-        return mApiKey;
+        if (mApiKey == null) {
+            return "";
+        } else {
+            return mApiKey;
+        }
     }
 
     //! Get the Webhook ID supplied as part of the Settings.
@@ -149,7 +153,11 @@ class Settings {
     //! @return The Webhook ID
     //
     static function getWebhookId() as Lang.String {
-        return mWebhookId;
+        if (mWebhookId == null) {
+            return "";
+        } else {
+            return mWebhookId;
+        }
     }
 
     //! Set the Webhook ID supplied as part of the Settings.
@@ -173,7 +181,11 @@ class Settings {
     //! @return The API URL
     //
     static function getApiUrl() as Lang.String {
-        return mApiUrl;
+        if (mApiUrl == null) {
+            return "";
+        } else {
+            return mApiUrl;
+        }
     }
 
     //! Get the menu configuration URL supplied as part of the Settings.
@@ -181,7 +193,11 @@ class Settings {
     //! @return The menu configuration URL
     //
     static function getConfigUrl() as Lang.String {
-        return mConfigUrl;
+        if (mConfigUrl == null) {
+            return "";
+        } else {
+            return mConfigUrl;
+        }
     }
 
     //! Get the menu cache Boolean option supplied as part of the Settings.
