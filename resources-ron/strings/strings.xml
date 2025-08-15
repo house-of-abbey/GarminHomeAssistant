@@ -62,7 +62,7 @@
   <string id="SettingsConfigUrl">URL pentru configurația meniului (JSON).</string>
   <string id="SettingsCacheConfig">Aplicația cache ar trebui să fie configurația meniului?</string>
   <string id="SettingsClearCache">Aplicația ar trebui să șterge cache -ul existent data viitoare când va fi pornită?</string>
-  <string id="WifiLteExecutionEnable">Activați executarea comenzilor prin Wi-Fi/LTE.</string>
+  <string id="SettingsWifiLteExecutionEnable">Activați executarea comenzilor prin Wi-Fi/LTE.</string>
   <string id="SettingsVibration">Aplicația ar trebui să ofere feedback prin vibrații?</string>
   <string id="SettingsAppTimeout">Timeout în câteva secunde. Ieșiți din aplicație după această perioadă de inactivitate pentru a economisi bateria dispozitivului.</string>
   <string id="SettingsPollDelay">Întârziere suplimentară a sondajului (în secunde). Adăugă o întârziere între actualizarea de stare a tuturor elementelor din meniu.</string>
@@ -70,8 +70,8 @@
   <string id="SettingsPin">Pinul de 4 cifre pentru a fi utilizat pentru toate acțiunile care îl necesită (0000-9999).</string>
   <string id="SettingsPinError">Vă rugăm să configurați un pin numeric valid cu 4 cifre între 0000 și 9999 în setările aplicației.</string>
   <string id="SettingsTextAlign">Alinierea meniului stânga (oprită) sau dreapta (pornită).</string>
-  <string id="LeftToRight">De la stânga la dreapta</string>
-  <string id="RightToLeft">Dreapta la stânga</string>
+  <string id="SettingsLeftToRight">De la stânga la dreapta</string>
+  <string id="SettingsRightToLeft">Dreapta la stânga</string>
   <string id="SettingsWidgetStart">(Numai widget) Porniți automat aplicația din widget fără a aștepta o atingere.</string>
   <string id="SettingsEnableBatteryLevel">Permiteți serviciului de fundal să trimită datele bateriei, locația și (dacă este acceptat) date de activitate către asistentul de acasă.</string>
   <string id="SettingsBatteryLevelRefreshRate">Rata de actualizare (în câteva minute) la care serviciul de fundal ar trebui să repete date de trimitere.</string>
@@ -79,5 +79,6 @@
   <string id="SettingsUserHttpHeaderDescription">Unele instalații de asistent la domiciliu necesită specificarea unui antet HTTP personalizat pentru a funcționa.</string>
   <string id="SettingsUserHttpHeaderName">HTTP-HEADER furnizat de utilizator: Nume</string>
   <string id="SettingsUserHttpHeaderValue">HTTP-HEADER furnizat de utilizator: valoare</string>
-  <string id="WebhookId">(Numai citiți) ID -ul WebHook creat de dispozitiv pentru actualizări de servicii de fundal. S -ar putea să solicitați acest lucru pentru depanare.</string>
+  <string id="SettingsClearWebhookId">Reconectați -vă la asistentul de acasă (Clear Webhook ID, consultați Ghidul de depanare).</string>
+  <string id="SettingsWebhookId">(Numai citiți) ID -ul WebHook creat de dispozitiv pentru actualizări de servicii de fundal. S -ar putea să solicitați acest lucru pentru depanare.</string>
 </strings>

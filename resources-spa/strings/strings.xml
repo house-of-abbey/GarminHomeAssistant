@@ -62,7 +62,7 @@
   <string id="SettingsConfigUrl">URL para la configuración del menú (JSON).</string>
   <string id="SettingsCacheConfig">¿Debería la aplicación almacenar en caché la configuración del menú?</string>
   <string id="SettingsClearCache">¿Debería la aplicación borrar el caché existente la próxima vez que se inicie?</string>
-  <string id="WifiLteExecutionEnable">Habilite la ejecución de comandos sobre Wi-Fi/LTE.</string>
+  <string id="SettingsWifiLteExecutionEnable">Habilite la ejecución de comandos sobre Wi-Fi/LTE.</string>
   <string id="SettingsVibration">¿Debería la aplicación proporcionar comentarios a través de vibraciones?</string>
   <string id="SettingsAppTimeout">Tiempo de espera en segundos. Salga de la aplicación después de este período de inactividad para guardar la batería del dispositivo.</string>
   <string id="SettingsPollDelay">Retraso de encuesta adicional (en segundos). Agrega un retraso entre la actualización de estado de todos los elementos del menú.</string>
@@ -70,8 +70,8 @@
   <string id="SettingsPin">Pin de 4 dígitos que se utilizará para todas las acciones que lo requieren (0000-9999).</string>
   <string id="SettingsPinError">Configure un PIN numérico válido de 4 dígitos entre 0000 y 9999 en la configuración de la aplicación.</string>
   <string id="SettingsTextAlign">Alineación del menú izquierda (apagada) o derecha (encendida).</string>
-  <string id="LeftToRight">De izquierda a derecha</string>
-  <string id="RightToLeft">Derecha a izquierda</string>
+  <string id="SettingsLeftToRight">De izquierda a derecha</string>
+  <string id="SettingsRightToLeft">Derecha a izquierda</string>
   <string id="SettingsWidgetStart">(Solo widget) Inicie automáticamente la aplicación desde el widget sin esperar un toque.</string>
   <string id="SettingsEnableBatteryLevel">Habilite el servicio de fondo para enviar el nivel de batería del dispositivo, la ubicación y (si se admiten) datos de actividad al asistente de inicio.</string>
   <string id="SettingsBatteryLevelRefreshRate">La tasa de actualización (en minutos) en la que el servicio de fondo debe repetir los datos de envío.</string>
@@ -79,5 +79,6 @@
   <string id="SettingsUserHttpHeaderDescription">Algunas instalaciones de asistente de inicio requieren la especificación de un encabezado HTTP personalizado para funcionar.</string>
   <string id="SettingsUserHttpHeaderName">Header HTTP suministrado por el usuario: nombre</string>
   <string id="SettingsUserHttpHeaderValue">Header HTTP suministrado por el usuario: valor</string>
-  <string id="WebhookId">(Solo lea) la ID de webhook creada por el dispositivo para actualizaciones del servicio de fondo. Es posible que necesite esto para la depuración.</string>
+  <string id="SettingsClearWebhookId">Vuelva a conectar al Asistente de inicio (claro ID de webhook, consulte la Guía de solución de problemas).</string>
+  <string id="SettingsWebhookId">(Solo lea) la ID de webhook creada por el dispositivo para actualizaciones del servicio de fondo. Es posible que necesite esto para la depuración.</string>
 </strings>

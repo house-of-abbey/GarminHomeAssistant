@@ -54,7 +54,7 @@
   <string id="WifiLtePrompt">Izvedite preko Wi-Fi/LTE?</string>
   <string id="WifiLteExecutionTitle">Pošiljanje domačemu asistentu.</string>
   <string id="WifiLteExecutionDataError">Brez prejetih podatkov.</string>
-  <!-- Za GUI nastavitve naj bodo strune v vrstnem redu, ki ga uporabljajo. -->
+  <!-- Za nastavitve GUI bi morale biti strune v vrstnem redu, ki ga uporabljajo. -->
   <string id="SettingsSelect">Izberite ...</string>
   <string id="SettingsApiKey">Ključ API za Homeassistant.</string>
   <string id="SettingsApiKeyPrompt">Dolgotrajni žeton dostopa.</string>
@@ -62,7 +62,7 @@
   <string id="SettingsConfigUrl">URL za konfiguracijo menija (JSON).</string>
   <string id="SettingsCacheConfig">Ali naj aplikacija predpomni konfiguracija menija?</string>
   <string id="SettingsClearCache">Ali bi morala aplikacija očistiti obstoječi predpomnilnik naslednjič, ko se začne?</string>
-  <string id="WifiLteExecutionEnable">Omogoči izvajanje ukazov prek Wi-Fi/LTE.</string>
+  <string id="SettingsWifiLteExecutionEnable">Omogoči izvajanje ukazov prek Wi-Fi/LTE.</string>
   <string id="SettingsVibration">Ali bi morala aplikacija posredovati povratne informacije z vibracijami?</string>
   <string id="SettingsAppTimeout">Časovna omejitev v nekaj sekundah. Po tem obdobju neaktivnosti zapustite aplikacijo, da shranite baterijo naprave.</string>
   <string id="SettingsPollDelay">Dodatna zamuda ankete (v sekundah). Doda zamudo med posodobitvijo stanja vseh elementov menija.</string>
@@ -70,8 +70,8 @@
   <string id="SettingsPin">4-mestni zatič, ki ga je treba uporabiti za vsa dejanja, ki ga zahtevajo (0000-9999).</string>
   <string id="SettingsPinError">V nastavitvah aplikacije konfigurirajte veljaven 4-mestni številčni zatič med 0000 in 9999.</string>
   <string id="SettingsTextAlign">Levo (izklopljeno) ali desno (vklopljeno) poravnavo menija.</string>
-  <string id="LeftToRight">Levo proti desni</string>
-  <string id="RightToLeft">Desno na levo</string>
+  <string id="SettingsLeftToRight">Levo proti desni</string>
+  <string id="SettingsRightToLeft">Desno na levo</string>
   <string id="SettingsWidgetStart">(Samo pripomoček) Samodejno zaženite aplikacijo iz pripomočka, ne da bi čakali na pipo.</string>
   <string id="SettingsEnableBatteryLevel">Omogočite storitve v ozadju, da pošlje nivo baterije, lokacijo in (če je podprta) podatke o dejavnostih domačemu asistentu.</string>
   <string id="SettingsBatteryLevelRefreshRate">Stopnja osveževanja (v nekaj minutah), pri kateri naj bi storitev v ozadju ponovila podatke za pošiljanje.</string>
@@ -79,5 +79,6 @@
   <string id="SettingsUserHttpHeaderDescription">Nekatere namestitve domačega asistenta zahtevajo specifikacijo glave HTTP po meri za delovanje.</string>
   <string id="SettingsUserHttpHeaderName">Uporabnik dobavljen http-header: ime</string>
   <string id="SettingsUserHttpHeaderValue">Uporabnik dobavljen http-header: vrednost</string>
-  <string id="WebhookId">(Samo preberite) ID spletnega mesta, ki ga je ustvarila naprava za posodobitve storitev v ozadju. To boste morda potrebovali za odpravljanje napak.</string>
+  <string id="SettingsClearWebhookId">Ponovno povežite na domačega pomočnika (Clear Webhook ID, glejte Vodnik za odpravljanje težav).</string>
+  <string id="SettingsWebhookId">(Samo preberite) ID spletnega mesta, ki ga je ustvarila naprava za posodobitve storitev v ozadju. To boste morda potrebovali za odpravljanje napak.</string>
 </strings>

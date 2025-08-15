@@ -52,6 +52,7 @@ class Settings {
     private static var mUserHeaderName        as Lang.String? = null;
     //! Additional user configurable HTTP header value
     private static var mUserHeaderValue       as Lang.String? = null;
+    private static var mClearWebhookId        as Lang.Boolean = false;
     private static var mIsApp                 as Lang.Boolean = false;
     private static var mHasService            as Lang.Boolean = false;
     //! Must keep the object so it doesn't get garbage collected.
@@ -74,10 +75,11 @@ class Settings {
         mConfirmTimeout        = Properties.getValue("confirm_timeout");
         mPin                   = validatePin();
         mMenuAlignment         = Properties.getValue("menu_alignment");
-        mIsSensorsEnabled = Properties.getValue("enable_battery_level");
+        mIsSensorsEnabled      = Properties.getValue("enable_battery_level");
         mBatteryRefreshRate    = Properties.getValue("battery_level_refresh_rate");
         mUserHeaderName        = Properties.getValue("user_http_header_name");
         mUserHeaderValue       = Properties.getValue("user_http_header_value");
+        mClearWebhookId        = Properties.getValue("clear_webhook_id");
     }
 
     //! A webhook is required for non-privileged API calls.
@@ -91,6 +93,9 @@ class Settings {
         if (mIsApp) {
             if (mHasService) {
                 if (System.getDeviceSettings().phoneConnected) {
+                    if (getClearWebhookId()) {
+                        clearWebhookId();
+                    }
                     mWebhookManager = new WebhookManager();
                     if (getWebhookId().equals("")) {
                         // System.println("Settings update(): Doing full webhook & sensor creation.");
@@ -307,6 +312,25 @@ class Settings {
             options[mUserHeaderName] = mUserHeaderValue;
         }
         return options;
+    }
+
+    //! Get the clear cache Boolean option supplied as part of the Settings.
+    //!
+    //! @return Boolean for whether the cache should be cleared next time the
+    //!         application is started, forcing a menu refresh.
+    //
+    static function getClearWebhookId() as Lang.Boolean {
+        return mClearWebhookId;
+    }
+
+    //! Unset the clear Webhook ID Boolean option supplied and the Webhook ID string as part of
+    //! the Settings.
+    //
+    static function clearWebhookId() {
+        mClearWebhookId = false;
+        mWebhookId      = "";
+        Properties.setValue("clear_webhook_id", mClearWebhookId);
+        Properties.setValue("webhook_id", mWebhookId);
     }
 
 }

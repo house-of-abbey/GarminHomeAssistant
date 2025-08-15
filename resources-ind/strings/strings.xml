@@ -62,7 +62,7 @@
   <string id="SettingsConfigUrl">URL untuk Konfigurasi Menu (JSON).</string>
   <string id="SettingsCacheConfig">Haruskah Aplikasi Menyimpan Konfigurasi Menu?</string>
   <string id="SettingsClearCache">Haruskah aplikasi menghapus cache yang ada lain kali dimulai?</string>
-  <string id="WifiLteExecutionEnable">Aktifkan Perintah yang Mengeksekusi melalui Wi-Fi/LTE.</string>
+  <string id="SettingsWifiLteExecutionEnable">Aktifkan Perintah yang Mengeksekusi melalui Wi-Fi/LTE.</string>
   <string id="SettingsVibration">Haruskah aplikasi memberikan umpan balik melalui getaran?</string>
   <string id="SettingsAppTimeout">Batas waktu dalam hitungan detik. Keluar dari aplikasi setelah periode tidak aktif ini untuk menyimpan baterai perangkat.</string>
   <string id="SettingsPollDelay">Penundaan jajak pendapat tambahan (dalam hitungan detik). Menambahkan penundaan antara pembaruan status semua item menu.</string>
@@ -70,8 +70,8 @@
   <string id="SettingsPin">PIN 4 digit untuk digunakan untuk semua tindakan yang memerlukannya (0000-9999).</string>
   <string id="SettingsPinError">Harap konfigurasikan pin numerik 4 digit yang valid antara 0000 dan 9999 di pengaturan aplikasi.</string>
   <string id="SettingsTextAlign">Left (off) atau Alignment Menu Left (Off) atau Right (ON).</string>
-  <string id="LeftToRight">Kiri ke kanan</string>
-  <string id="RightToLeft">Kanan ke kiri</string>
+  <string id="SettingsLeftToRight">Kiri ke kanan</string>
+  <string id="SettingsRightToLeft">Kanan ke kiri</string>
   <string id="SettingsWidgetStart">(Hanya widget) secara otomatis memulai aplikasi dari widget tanpa menunggu keran.</string>
   <string id="SettingsEnableBatteryLevel">Aktifkan layanan latar belakang untuk mengirim data baterai perangkat, lokasi, dan (jika didukung) data ke rumah asisten.</string>
   <string id="SettingsBatteryLevelRefreshRate">Tingkat refresh (dalam hitungan menit) di mana layanan latar belakang harus mengulang data pengiriman.</string>
@@ -79,5 +79,6 @@
   <string id="SettingsUserHttpHeaderDescription">Beberapa instalasi asisten rumah memerlukan spesifikasi header HTTP khusus untuk berfungsi.</string>
   <string id="SettingsUserHttpHeaderName">Pengguna yang disediakan http-header: nama</string>
   <string id="SettingsUserHttpHeaderValue">Pengguna yang disediakan http-header: nilai</string>
-  <string id="WebhookId">(Baca saja) ID WebHook yang dibuat oleh perangkat untuk pembaruan layanan latar belakang. Anda mungkin memerlukan ini untuk debugging.</string>
+  <string id="SettingsClearWebhookId">Terhubung kembali ke asisten rumah (Clear Webhook ID, lihat Panduan Pemecahan Masalah).</string>
+  <string id="SettingsWebhookId">(Baca saja) ID WebHook yang dibuat oleh perangkat untuk pembaruan layanan latar belakang. Anda mungkin memerlukan ini untuk debugging.</string>
 </strings>

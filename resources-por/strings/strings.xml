@@ -62,7 +62,7 @@
   <string id="SettingsConfigUrl">URL para configuração de menu (JSON).</string>
   <string id="SettingsCacheConfig">O aplicativo deve cache a configuração do menu?</string>
   <string id="SettingsClearCache">O aplicativo deve limpar o cache existente na próxima vez que for iniciado?</string>
-  <string id="WifiLteExecutionEnable">Habilite os comandos de execução sobre Wi-Fi/LTE.</string>
+  <string id="SettingsWifiLteExecutionEnable">Habilite os comandos de execução sobre Wi-Fi/LTE.</string>
   <string id="SettingsVibration">O aplicativo deve fornecer feedback por meio de vibrações?</string>
   <string id="SettingsAppTimeout">Tempo limite em segundos. Saia do aplicativo após esse período de inatividade para salvar a bateria do dispositivo.</string>
   <string id="SettingsPollDelay">Atraso adicional da pesquisa (em segundos). Adiciona um atraso entre a atualização de status de todos os itens do menu.</string>
@@ -70,8 +70,8 @@
   <string id="SettingsPin">PIN de 4 dígitos a ser usado para todas as ações que o exigem (0000-9999).</string>
   <string id="SettingsPinError">Configure um pino numérico de 4 dígitos válido entre 0000 e 9999 nas configurações do aplicativo.</string>
   <string id="SettingsTextAlign">Alinhamento do menu esquerdo (desativado) ou direito (on).</string>
-  <string id="LeftToRight">Da esquerda para a direita</string>
-  <string id="RightToLeft">Direita para a esquerda</string>
+  <string id="SettingsLeftToRight">Da esquerda para a direita</string>
+  <string id="SettingsRightToLeft">Direita para a esquerda</string>
   <string id="SettingsWidgetStart">(Somente widget) Inicie automaticamente o aplicativo do widget sem esperar por um toque.</string>
   <string id="SettingsEnableBatteryLevel">Habilite o serviço em segundo plano para enviar o nível da bateria do dispositivo, localização e (se suportado) dados de atividade para o assistente doméstico.</string>
   <string id="SettingsBatteryLevelRefreshRate">A taxa de atualização (em minutos) na qual o serviço em segundo plano deve repetir os dados de envio.</string>
@@ -79,5 +79,6 @@
   <string id="SettingsUserHttpHeaderDescription">Algumas instalações de assistente doméstica exigem a especificação de um cabeçalho HTTP personalizado para funcionar.</string>
   <string id="SettingsUserHttpHeaderName">Usuário fornecido http header: nome</string>
   <string id="SettingsUserHttpHeaderValue">Usuário fornecido HTTP-Header: Valor</string>
-  <string id="WebhookId">(Somente leitura) O ID do webhook criado pelo dispositivo para atualizações de serviço em segundo plano. Você pode exigir isso para depuração.</string>
+  <string id="SettingsClearWebhookId">Reconecte -se ao assistente doméstico (ID da WebHook limpa, consulte o Guia de Solução de Problemas).</string>
+  <string id="SettingsWebhookId">(Somente leitura) O ID do webhook criado pelo dispositivo para atualizações de serviço em segundo plano. Você pode exigir isso para depuração.</string>
 </strings>

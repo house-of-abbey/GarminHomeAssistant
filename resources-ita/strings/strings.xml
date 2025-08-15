@@ -62,7 +62,7 @@
   <string id="SettingsConfigUrl">URL per la configurazione del menu (JSON).</string>
   <string id="SettingsCacheConfig">L'applicazione dovrebbe memorizzare la cache della configurazione del menu?</string>
   <string id="SettingsClearCache">L'applicazione dovrebbe cancellare la cache esistente la prossima volta che viene avviata?</string>
-  <string id="WifiLteExecutionEnable">Abilita l'esecuzione dei comandi su Wi-Fi/LTE.</string>
+  <string id="SettingsWifiLteExecutionEnable">Abilita l'esecuzione dei comandi su Wi-Fi/LTE.</string>
   <string id="SettingsVibration">L'applicazione dovrebbe fornire feedback tramite vibrazioni?</string>
   <string id="SettingsAppTimeout">Timeout in secondi. Esci dall'applicazione dopo questo periodo di inattività per salvare la batteria del dispositivo.</string>
   <string id="SettingsPollDelay">Ritardo del sondaggio aggiuntivo (in secondi). Aggiunge un ritardo tra l'aggiornamento dello stato di tutte le voci di menu.</string>
@@ -70,8 +70,8 @@
   <string id="SettingsPin">Pin a 4 cifre da utilizzare per tutte le azioni che lo richiedono (0000-9999).</string>
   <string id="SettingsPinError">Configurare un pin numerico a 4 cifre valido tra 0000 e 9999 nelle impostazioni dell'applicazione.</string>
   <string id="SettingsTextAlign">Allineamento del menu a sinistra (OFF) o destro (ON).</string>
-  <string id="LeftToRight">Da sinistra a destra</string>
-  <string id="RightToLeft">Da destra a sinistra</string>
+  <string id="SettingsLeftToRight">Da sinistra a destra</string>
+  <string id="SettingsRightToLeft">Da destra a sinistra</string>
   <string id="SettingsWidgetStart">(Solo widget) Avviare automaticamente l'applicazione dal widget senza aspettare un tocco.</string>
   <string id="SettingsEnableBatteryLevel">Abilita il servizio di fondo per inviare i dati di attività della batteria, posizione e (se supportati) ad Assistente Home Assistant.</string>
   <string id="SettingsBatteryLevelRefreshRate">La frequenza di aggiornamento (in minuti) in cui il servizio di fondo deve ripetere l'invio di dati.</string>
@@ -79,5 +79,6 @@
   <string id="SettingsUserHttpHeaderDescription">Alcune installazioni di assistenti domestici richiedono la specifica di un'intestazione HTTP personalizzata per funzionare.</string>
   <string id="SettingsUserHttpHeaderName">Utente fornito HTTP-HEADER: nome</string>
   <string id="SettingsUserHttpHeaderValue">Utente fornito HTTP-HEADER: valore</string>
-  <string id="WebhookId">(Solo lettura) L'ID WebHook creato dal dispositivo per gli aggiornamenti del servizio in background. Potresti richiederlo per il debug.</string>
+  <string id="SettingsClearWebhookId">Riconnettiti a Home Assistant (Clear Webhook ID, vedi Guida alla risoluzione dei problemi).</string>
+  <string id="SettingsWebhookId">(Solo lettura) L'ID WebHook creato dal dispositivo per gli aggiornamenti del servizio in background. Potresti richiederlo per il debug.</string>
 </strings>

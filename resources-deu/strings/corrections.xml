@@ -59,7 +59,7 @@
   <string id="SettingsConfigUrl">URL für die Menükonfiguration (JSON).</string>
   <string id="SettingsCacheConfig">Soll die App die Menükonfiguration cachen?</string>
   <string id="SettingsClearCache">Soll die Anwendung beim nächsten Start den vorhandenen Cache löschen?</string>
-  <string id="WifiLteExecutionEnable">Befehlsausführung über WLAN/LTE aktivieren.</string>
+  <string id="SettingsWifiLteExecutionEnable">Befehlsausführung über WLAN/LTE aktivieren.</string>
   <string id="SettingsVibration">Soll die App Rückmeldung per Vibration geben?</string>
   <string id="SettingsAppTimeout">Timeout in Sekunden. Beendet die App nach dieser Inaktivitätszeit, um Akku zu sparen.</string>
   <string id="SettingsPollDelay">Zusätzliche Abfrageverzögerung (in Sekunden). Fügt zwischen den Status-Updates der Menüeinträge eine Pause ein.</string>
@@ -68,7 +68,7 @@
   <string id="SettingsPinError">Bitte eine gültige 4-stellige numerische PIN in den App Einstellungen eingeben (0000-9999).</string>
   <string id="SettingsTextAlign">Menüausrichtung: Links (aus) oder Rechts (ein).</string>
   
-  <string id="RightToLeft">Von rechts nach links</string>
+  <string id="SettingsRightToLeft">Von rechts nach links</string>
   <string id="SettingsWidgetStart">(Nur Widget) App automatisch aus dem Widget starten, ohne auf Tippen zu warten.</string>
   <string id="SettingsEnableBatteryLevel">Hintergrunddienst aktivieren, um Akkustand, Standort und (falls unterstützt) Aktivitätsdaten an Home Assistant zu senden.</string>
   <string id="SettingsBatteryLevelRefreshRate">Intervall (in Minuten), in dem der Hintergrunddienst die Daten erneut senden soll.</string>
@@ -76,5 +76,5 @@
   <string id="SettingsUserHttpHeaderDescription">Einige Home Assistant-Installationen erfordern die Angabe eines benutzerdefinierten HTTP-Headers, um zu funktionieren.</string>
   <string id="SettingsUserHttpHeaderName">Zusätzlicher HTTP-Header: Name</string>
   <string id="SettingsUserHttpHeaderValue">Zusätzlicher HTTP-Header: Value</string>
-  <string id="WebhookId">(Nur lesen) Die vom Gerät erstellte Webhook-ID für Hintergrund-Updates. Kann zum Debuggen benötigt werden.</string>
+  <string id="SettingsWebhookId">(Nur lesen) Die vom Gerät erstellte Webhook-ID für Hintergrund-Updates. Kann zum Debuggen benötigt werden.</string>
 </strings>

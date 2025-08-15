@@ -62,7 +62,7 @@
   <string id="SettingsConfigUrl">URL meniu konfigūracijai (JSON).</string>
   <string id="SettingsCacheConfig">Ar programos talpykla turėtų talpinti meniu konfigūraciją?</string>
   <string id="SettingsClearCache">Ar programa turėtų išvalyti esamą talpyklą kitą kartą, kai ji bus paleista?</string>
-  <string id="WifiLteExecutionEnable">Įgalinti komandas vykdant „Wi-Fi“/LTE.</string>
+  <string id="SettingsWifiLteExecutionEnable">Įgalinti komandas vykdant „Wi-Fi“/LTE.</string>
   <string id="SettingsVibration">Ar programa turėtų pateikti grįžtamąjį ryšį per vibracijas?</string>
   <string id="SettingsAppTimeout">Laikas per kelias sekundes. Išeikite iš programos po šio neveiklumo laikotarpio, kad išsaugotumėte įrenginio akumuliatorių.</string>
   <string id="SettingsPollDelay">Papildomas apklausos vėlavimas (per kelias sekundes). Prideda vėlavimą tarp visų meniu elementų būsenos atnaujinimo.</string>
@@ -70,8 +70,8 @@
   <string id="SettingsPin">4 skaitmenų kaištis, naudojamas visiems veiksmams, kuriems to reikia (0000–9999).</string>
   <string id="SettingsPinError">Programos nustatymuose prašome sukonfigūruoti galiojantį 4 skaitmenų skaitinį PIN tarp 0000 ir 9999.</string>
   <string id="SettingsTextAlign">Kairėje (išjungta) arba dešinėje (įjungta) meniu suderinimas.</string>
-  <string id="LeftToRight">Iš kairės į dešinę</string>
-  <string id="RightToLeft">Į dešinę į kairę</string>
+  <string id="SettingsLeftToRight">Iš kairės į dešinę</string>
+  <string id="SettingsRightToLeft">Į dešinę į kairę</string>
   <string id="SettingsWidgetStart">(Tik valdiklis) Automatiškai paleiskite programą iš valdiklio nelaukdamas čiaupo.</string>
   <string id="SettingsEnableBatteryLevel">Įgalinkite fono paslaugą siųsti įrenginio akumuliatoriaus lygį, vietą ir (jei palaikoma) veiklos duomenis namų asistentui.</string>
   <string id="SettingsBatteryLevelRefreshRate">Atnaujinimo norma (minutėmis), kuriai fono paslauga turėtų pakartoti siuntimo duomenis.</string>
@@ -79,5 +79,6 @@
   <string id="SettingsUserHttpHeaderDescription">Kai kuriems namų asistento diegimui reikalinga specifikacija pagal pasirinktinę HTTP antraštę, kad ji veiktų.</string>
   <string id="SettingsUserHttpHeaderName">Vartotojo tiekiamas HTTP-HEADER: Vardas</string>
   <string id="SettingsUserHttpHeaderValue">Vartotojo tiekiamas HTTP-HEADER: reikšmė</string>
-  <string id="WebhookId">(Skaitykite tik) „WebHook“ ID, kurį įrenginys sukūrė foninių paslaugų atnaujinimams. Jums gali prireikti derinimo.</string>
+  <string id="SettingsClearWebhookId">Prijunkite prie namų asistento („Clear WebHook ID“, žr. Trikčių šalinimo vadovą).</string>
+  <string id="SettingsWebhookId">(Skaitykite tik) „WebHook“ ID, kurį įrenginys sukūrė foninių paslaugų atnaujinimams. Jums gali prireikti derinimo.</string>
 </strings>

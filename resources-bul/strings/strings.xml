@@ -62,7 +62,7 @@
   <string id="SettingsConfigUrl">URL за конфигуриране на менюто (JSON).</string>
   <string id="SettingsCacheConfig">Трябва ли приложението да кешира конфигурацията на менюто?</string>
   <string id="SettingsClearCache">Трябва ли приложението да изчисти съществуващия кеш следващия път, когато е стартиран?</string>
-  <string id="WifiLteExecutionEnable">Активиране на изпълнение на команди над Wi-Fi/LTE.</string>
+  <string id="SettingsWifiLteExecutionEnable">Активиране на изпълнение на команди над Wi-Fi/LTE.</string>
   <string id="SettingsVibration">Трябва ли приложението да предоставя обратна връзка чрез вибрации?</string>
   <string id="SettingsAppTimeout">Време за изчакване за секунди. Излезте от приложението след този период на бездействие, за да запазите батерията на устройството.</string>
   <string id="SettingsPollDelay">Допълнително забавяне на анкетата (за секунди). Добавя забавяне между актуализацията на състоянието на всички елементи от менюто.</string>
@@ -70,8 +70,8 @@
   <string id="SettingsPin">4-цифрен ПИН, който ще се използва за всички действия, които го изискват (0000-9999).</string>
   <string id="SettingsPinError">Моля, конфигурирайте валиден 4-цифрен цифров ПИН между 0000 и 9999 в настройките на приложението.</string>
   <string id="SettingsTextAlign">Наляво (изключено) или вдясно (включено) изравняване на менюто.</string>
-  <string id="LeftToRight">Отляво надясно</string>
-  <string id="RightToLeft">Отдясно наляво</string>
+  <string id="SettingsLeftToRight">Отляво надясно</string>
+  <string id="SettingsRightToLeft">Отдясно наляво</string>
   <string id="SettingsWidgetStart">(Само при джаджа) Автоматично стартирайте приложението от джаджата, без да чакате докосване.</string>
   <string id="SettingsEnableBatteryLevel">Активирайте фоновата услуга за изпращане на нивото на батерията на устройството, местоположението и (ако се поддържа) данни за активност на домашен асистент.</string>
   <string id="SettingsBatteryLevelRefreshRate">Скоростта на опресняване (за минути), при която фоновата услуга трябва да повтори изпращането на данни.</string>
@@ -79,5 +79,6 @@
   <string id="SettingsUserHttpHeaderDescription">Някои инсталации за домашен асистент изискват спецификация на персонализиран HTTP заглавка, за да функционират.</string>
   <string id="SettingsUserHttpHeaderName">Потребител, доставен http-header: Име</string>
   <string id="SettingsUserHttpHeaderValue">Потребител, доставен http-header: стойност</string>
-  <string id="WebhookId">(Само прочетете) Идентификационният номер на WebHook, създаден от устройството за актуализации на фоновите услуги. Може да се наложи това за отстраняване на грешки.</string>
+  <string id="SettingsClearWebhookId">Свържете се отново с домашния асистент (Clear Webhook ID, вижте Ръководство за отстраняване на неизправности).</string>
+  <string id="SettingsWebhookId">(Само прочетете) Идентификационният номер на WebHook, създаден от устройството за актуализации на фоновите услуги. Може да се наложи това за отстраняване на грешки.</string>
 </strings>

@@ -62,7 +62,7 @@
   <string id="SettingsConfigUrl">メニュー構成用のURL（JSON）。</string>
   <string id="SettingsCacheConfig">アプリケーションはメニュー構成をキャッシュする必要がありますか？</string>
   <string id="SettingsClearCache">次回開始時にアプリケーションが既存のキャッシュをクリアする必要がありますか？</string>
-  <string id="WifiLteExecutionEnable">Wi-Fi/LTEを介してコマンドを実行できるようにします。</string>
+  <string id="SettingsWifiLteExecutionEnable">Wi-Fi/LTEを介してコマンドを実行できるようにします。</string>
   <string id="SettingsVibration">アプリケーションは振動を介してフィードバックを提供する必要がありますか？</string>
   <string id="SettingsAppTimeout">数秒でタイムアウト。デバイスバッテリーを保存するために、この不活性期間の後にアプリケーションを終了します。</string>
   <string id="SettingsPollDelay">追加の投票遅延（秒単位）。すべてのメニュー項目のステータス更新間に遅延を追加します。</string>
@@ -70,8 +70,8 @@
   <string id="SettingsPin">4桁のピンは、それを必要とするすべてのアクションに使用されます（0000-9999）。</string>
   <string id="SettingsPinError">アプリケーション設定で0000〜9999の間に有効な4桁の数値ピンを構成してください。</string>
   <string id="SettingsTextAlign">左（オフ）または右（オン）メニューアライメント。</string>
-  <string id="LeftToRight">左から右</string>
-  <string id="RightToLeft">右から左</string>
+  <string id="SettingsLeftToRight">左から右</string>
+  <string id="SettingsRightToLeft">右から左</string>
   <string id="SettingsWidgetStart">（ウィジェットのみ）タップを待たずにウィジェットからアプリケーションを自動的に起動します。</string>
   <string id="SettingsEnableBatteryLevel">バックグラウンドサービスがデバイスのバッテリーレベル、場所、および（サポートされている場合）アクティビティデータをホームアシスタントに送信できるようにします。</string>
   <string id="SettingsBatteryLevelRefreshRate">バックグラウンドサービスがデータの送信を繰り返す必要があるリフレッシュレート（数分単位）。</string>
@@ -79,5 +79,6 @@
   <string id="SettingsUserHttpHeaderDescription">一部のホームアシスタントインストールでは、機能するためにカスタムHTTPヘッダーの仕様が必要です。</string>
   <string id="SettingsUserHttpHeaderName">ユーザーが提供したhttp-header：name</string>
   <string id="SettingsUserHttpHeaderValue">ユーザーが提供したhttp-header：value</string>
-  <string id="WebhookId">（読み取り専用）バックグラウンドサービスの更新のためにデバイスによって作成されたWebHook ID。デバッグにこれが必要になる場合があります。</string>
+  <string id="SettingsClearWebhookId">ホームアシスタントに再接続します（Clear WebHook ID、トラブルシューティングガイドを参照）。</string>
+  <string id="SettingsWebhookId">（読み取り専用）バックグラウンドサービスの更新のためにデバイスによって作成されたWebHook ID。デバッグにこれが必要になる場合があります。</string>
 </strings>

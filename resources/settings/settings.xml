@@ -53,7 +53,7 @@
 
   <setting
     propertyKey="@Properties.wifi_lte_execution"
-    title="@Strings.WifiLteExecutionEnable"
+    title="@Strings.SettingsWifiLteExecutionEnable"
   >
     <settingConfig type="boolean" />
   </setting>
@@ -98,8 +98,8 @@
     title="@Strings.SettingsTextAlign"
   >
     <settingConfig type="list">
-      <listEntry value="1">@Strings.LeftToRight</listEntry>
-      <listEntry value="0">@Strings.RightToLeft</listEntry>
+      <listEntry value="1">@Strings.SettingsLeftToRight</listEntry>
+      <listEntry value="0">@Strings.SettingsRightToLeft</listEntry>
     </settingConfig>
   </setting>
 
@@ -129,13 +129,17 @@
   >
     <settingConfig type="alphaNumeric" />
   </setting>
-<!--
-  <group id="userHttpHeader" title="@Strings.SettingsUserHttpHeader" description="@Strings.SettingsUserHttpHeaderDescription">
-  </group>
--->
+
+  <setting
+    propertyKey="@Properties.clear_webhook_id"
+    title="@Strings.SettingsClearWebhookId"
+  >
+    <settingConfig type="boolean" />
+  </setting>
+
   <setting
     propertyKey="@Properties.webhook_id"
-    title="@Strings.WebhookId"
+    title="@Strings.SettingsWebhookId"
   >
     <settingConfig type="alphaNumeric" readonly="true" />
   </setting>

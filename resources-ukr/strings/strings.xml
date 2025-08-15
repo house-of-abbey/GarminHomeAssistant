@@ -62,7 +62,7 @@
   <string id="SettingsConfigUrl">URL -адреса для конфігурації меню (JSON).</string>
   <string id="SettingsCacheConfig">Чи повинен додатковий кеш конфігурації меню?</string>
   <string id="SettingsClearCache">Чи повинен програма очистити існуючий кеш наступного разу, коли він буде запущений?</string>
-  <string id="WifiLteExecutionEnable">Увімкнути виконання команд над Wi-Fi/LTE.</string>
+  <string id="SettingsWifiLteExecutionEnable">Увімкнути виконання команд над Wi-Fi/LTE.</string>
   <string id="SettingsVibration">Чи повинен програма надавати зворотній зв'язок через вібрації?</string>
   <string id="SettingsAppTimeout">Тайм -аут за лічені секунди. Вийдіть із програми після цього періоду бездіяльності, щоб зберегти акумулятор пристрою.</string>
   <string id="SettingsPollDelay">Додаткова затримка опитування (за лічені секунди). Додає затримку між оновленням статусу всіх пунктів меню.</string>
@@ -70,8 +70,8 @@
   <string id="SettingsPin">4-значний PIN-код, який слід використовувати для всіх дій, які потребують цього (0000-9999).</string>
   <string id="SettingsPinError">Будь ласка, налаштуйте дійсний 4-значний числовий штифт між 0000 та 9999 у налаштуваннях програми.</string>
   <string id="SettingsTextAlign">Зліва (вимкнено) або праворуч (увімкнено) вирівнювання меню.</string>
-  <string id="LeftToRight">Зліва направо</string>
-  <string id="RightToLeft">Праворуч зліва</string>
+  <string id="SettingsLeftToRight">Зліва направо</string>
+  <string id="SettingsRightToLeft">Праворуч зліва</string>
   <string id="SettingsWidgetStart">(Тільки віджет) автоматично запустіть програму з віджета, не чекаючи натискання.</string>
   <string id="SettingsEnableBatteryLevel">Увімкніть фонову службу для надсилання рівня акумулятора пристрою, розташування та (за підтримки) даних активності домашньому помічнику.</string>
   <string id="SettingsBatteryLevelRefreshRate">Швидкість оновлення (за лічені хвилини), в якій фонова послуга повинна повторити надсилання даних.</string>
@@ -79,5 +79,6 @@
   <string id="SettingsUserHttpHeaderDescription">Деякі установи домашнього помічника потребують специфікації спеціального заголовка HTTP для функціонування.</string>
   <string id="SettingsUserHttpHeaderName">Поставлений користувачем HTTP-Header: Ім'я</string>
   <string id="SettingsUserHttpHeaderValue">Користувач надає HTTP-Header: Значення</string>
-  <string id="WebhookId">(Лише читайте) Ідентифікатор WebHook, створений пристроєм для оновлень фонових служб. Вам може знадобитися це для налагодження.</string>
+  <string id="SettingsClearWebhookId">Повторно підключіться до домашнього помічника (Clear Webhook Id, див. Посібник з усунення несправностей).</string>
+  <string id="SettingsWebhookId">(Лише читайте) Ідентифікатор WebHook, створений пристроєм для оновлень фонових служб. Вам може знадобитися це для налагодження.</string>
 </strings>

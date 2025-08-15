@@ -62,7 +62,7 @@
   <string id="SettingsConfigUrl">URL menüü konfiguratsiooni jaoks (JSON).</string>
   <string id="SettingsCacheConfig">Kas rakenduse vahemälu peaks menüü konfiguratsiooni vahemälu vahemälu vahemälu vahemälu vahemälu vahemälu vahemälu vahemälu</string>
   <string id="SettingsClearCache">Kas rakendus peaks olemasoleva vahemälu järgmine kord alustama?</string>
-  <string id="WifiLteExecutionEnable">Luba käskude täitmine Wi-Fi/LTE kaudu.</string>
+  <string id="SettingsWifiLteExecutionEnable">Luba käskude täitmine Wi-Fi/LTE kaudu.</string>
   <string id="SettingsVibration">Kas rakendus peaks vibratsiooni kaudu tagasisidet andma?</string>
   <string id="SettingsAppTimeout">Aegumine sekunditega. Pärast seda tegevusetuse perioodi seade aku salvestamiseks väljuge rakendusest.</string>
   <string id="SettingsPollDelay">Täiendav küsitluse viivitus (sekundites). Lisab viivituse kõigi menüüelementide olekuvärskenduse vahel.</string>
@@ -70,8 +70,8 @@
   <string id="SettingsPin">4-kohaline tihvt, mida kasutatakse kõigi seda vajavate toimingute jaoks (0000-9999).</string>
   <string id="SettingsPinError">Konfigureerige rakenduse seadetes kehtiv 4-kohaline numbriline nööpnõel vahemikus 0000 kuni 9999.</string>
   <string id="SettingsTextAlign">Vasak (välja lülitatud) või parem (ON) menüü joondamine.</string>
-  <string id="LeftToRight">Vasakult paremale</string>
-  <string id="RightToLeft">Paremale vasakule</string>
+  <string id="SettingsLeftToRight">Vasakult paremale</string>
+  <string id="SettingsRightToLeft">Paremale vasakule</string>
   <string id="SettingsWidgetStart">(Ainult vidin) käivitage rakendus vidinast automaatselt ilma kraani ootamata.</string>
   <string id="SettingsEnableBatteryLevel">Luba taustteenus seadme aku taseme, asukoha ja (kui see on toetatud) tegevusandmete saatmine koduassistendile.</string>
   <string id="SettingsBatteryLevelRefreshRate">Värskendusmäär (minutites), kus taustteenus peaks andmete saatmist korrata.</string>
@@ -79,5 +79,6 @@
   <string id="SettingsUserHttpHeaderDescription">Mõned koduassistendi paigaldused vajavad funktsioneerimiseks kohandatud HTTP päise täpsustamist.</string>
   <string id="SettingsUserHttpHeaderName">Kasutaja tarnitud HTTP-pea: nimi</string>
   <string id="SettingsUserHttpHeaderValue">Kasutaja tarnitud HTTP-pea: väärtus</string>
-  <string id="WebhookId">(Loe ainult) WebHooki ID, mille seade on loonud taustteenuse värskenduste jaoks. Võite seda silumiseks nõuda.</string>
+  <string id="SettingsClearWebhookId">Ühendage uuesti koduassistendiga (selge Webhooki ID, vt tõrkeotsingu juhend).</string>
+  <string id="SettingsWebhookId">(Loe ainult) WebHooki ID, mille seade on loonud taustteenuse värskenduste jaoks. Võite seda silumiseks nõuda.</string>
 </strings>
