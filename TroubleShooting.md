@@ -315,7 +315,11 @@ JSON for copy & paste:
 
 ![No JSON](images/NoJson.png)
 
-When the application persists in reporting "No JSON returned from HTTP request." this might be due to a mismatch between the Webhook ID and the device settings on the Home Assistant server. The application options include the ability to clear the Webhook ID in the application forcing a new one to be set up.
+When the application persists in reporting "No JSON returned from HTTP request." this might be due to a mismatch between the Webhook ID and the device settings on the Home Assistant server. We have discovered that the Webhook ID is required for Home Assistant API calls with templates in order to work in a non-privileged account. The application options include the ability to clear the Webhook ID in the application forcing a new one to be set up. This should prevent the above error being shown on startup.
+
+Look for this option in the application settings:
+
+![Nabu Casa Setup](images/delete_webhook_id.png)
 
 # Debug Logs
 
