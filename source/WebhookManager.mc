@@ -25,7 +25,9 @@ using Toybox.WatchUi;
 //!
 //! Reference: https://developers.home-assistant.io/docs/api/native-app-integration
 //
+(:glance)
 class WebhookManager {
+    private var mSensors as Lang.Array<Lang.Object> = [];
 
     //! Callback for requesting a Webhook ID.
     //!
@@ -130,11 +132,7 @@ class WebhookManager {
     //! @param sensors      The remaining sensors to be processed. The list of sensors is iterated through
     //!                     until empty. Each POST request creating one sensor on the local Home Assistant.
     //
-    function onReturnRegisterWebhookSensor(
-        responseCode as Lang.Number,
-        data         as Null or Lang.Dictionary or Lang.String,
-        sensors      as Lang.Array<Lang.Object>
-    ) as Void {
+    function onReturnRegisterWebhookSensor(responseCode as Lang.Number, data as Null or Lang.Dictionary or Lang.String) as Void {
         switch (responseCode) {
             case Communications.BLE_HOST_TIMEOUT:
             case Communications.BLE_CONNECTION_UNAVAILABLE:
@@ -176,13 +174,14 @@ class WebhookManager {
             case 200:
             case 201:
                 if (data instanceof Lang.Dictionary) {
-                    var d = data as Lang.Dictionary;
+                    var d = data             as Lang.Dictionary;
                     var b = d.get("success") as Lang.Boolean?;
                     if (b != null and b != false) {
-                        if (sensors.size() == 0) {
+                        mSensors = mSensors.slice(1, null);
+                        if (mSensors.size() == 0) {
                             getApp().startUpdates();
                         } else {
-                            registerWebhookSensor(sensors);
+                            registerWebhookSensor();
                         }
                     } else {
                         // System.println("WebhookManager onReturnRegisterWebhookSensor(): Failure, no 'success'.");
@@ -213,11 +212,10 @@ class WebhookManager {
         }
     }
 
-    //! Local method to send the POST request to register a number of sensors.
-    //!
-    //! @param sensors An array of sensors, e.g. As created by `registerWebhookSensors()`.
+    //! Local method to send the POST request to register a number of sensors. The sensors are taken from the class variable
+    //! mSensors created by registerWebhookSensors().
     //
-    private function registerWebhookSensor(sensors as Lang.Array<Lang.Object>) {
+    private function registerWebhookSensor() {
         var url = Settings.getApiUrl() + "/webhook/" + Settings.getWebhookId();
         // System.println("WebhookManager registerWebhookSensor(): Registering webhook sensor: " + sensor.toString());
         // System.println("WebhookManager registerWebhookSensor(): URL=" + url);
@@ -226,15 +224,14 @@ class WebhookManager {
             url,
             {
                 "type" => "register_sensor",
-                "data" => sensors[0]
+                "data" => mSensors[0]
             },
             {
                 :method       => Communications.HTTP_REQUEST_METHOD_POST,
                 :headers      => Settings.augmentHttpHeaders({
                     "Content-Type" => Communications.REQUEST_CONTENT_TYPE_JSON
                 }),
-                :responseType => Communications.HTTP_RESPONSE_CONTENT_TYPE_JSON,
-                :context      => sensors.slice(1, null)
+                :responseType => Communications.HTTP_RESPONSE_CONTENT_TYPE_JSON
             },
             method(:onReturnRegisterWebhookSensor)
         );
@@ -245,7 +242,7 @@ class WebhookManager {
     function registerWebhookSensors() {
         var heartRate = Activity.getActivityInfo().currentHeartRate;
 
-        var sensors = [
+        mSensors = [
             {
                 "device_class"        => "battery",
                 "name"                => "Battery Level",
@@ -283,7 +280,7 @@ class WebhookManager {
         if (Toybox has :ActivityMonitor) {
             // System.println("WebhookManager registerWebhookSensors(): has ActivityMonitor class");
             var activityInfo = ActivityMonitor.getInfo();
-            sensors.add({
+            mSensors.add({
                 "name"                => "Steps today",
                 "state"               => activityInfo.steps == null ? "unknown" : activityInfo.steps,
                 "type"                => "sensor",
@@ -294,7 +291,7 @@ class WebhookManager {
             });
 
             if (ActivityMonitor.Info has :floorsClimbed) {
-                sensors.add({
+                mSensors.add({
                     "name"                => "Floors climbed today",
                     "state"               => activityInfo.floorsClimbed == null ? "unknown" : activityInfo.floorsClimbed,
                     "type"                => "sensor",
@@ -306,7 +303,7 @@ class WebhookManager {
             }
 
             if (ActivityMonitor.Info has :floorsDescended) {
-                sensors.add({
+                mSensors.add({
                     "name"                => "Floors descended today",
                     "state"               => activityInfo.floorsDescended == null ? "unknown" : activityInfo.floorsDescended,
                     "type"                => "sensor",
@@ -318,7 +315,7 @@ class WebhookManager {
             }
 
             if (ActivityMonitor.Info has :respirationRate) {
-                sensors.add({
+                mSensors.add({
                     "name"                => "Respiration rate",
                     "state"               => activityInfo.respirationRate == null ? "unknown" : activityInfo.respirationRate,
                     "type"                => "sensor",
@@ -345,14 +342,14 @@ class WebhookManager {
                 activity     = -1;
                 sub_activity = -1;
             }
-            sensors.add({
+            mSensors.add({
                 "name"      => "Activity",
                 "state"     => activity,
                 "type"      => "sensor",
                 "unique_id" => "activity",
                 "disabled"  => !Settings.isSensorsLevelEnabled()
             });
-            sensors.add({
+            mSensors.add({
                 "name"      => "Sub-activity",
                 "state"     => sub_activity,
                 "type"      => "sensor",
@@ -361,7 +358,7 @@ class WebhookManager {
             });
         }
 
-        registerWebhookSensor(sensors);
+        registerWebhookSensor();
     }
 
 }

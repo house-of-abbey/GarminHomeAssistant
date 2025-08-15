@@ -297,7 +297,7 @@ class Settings {
     //! @return The augmented HTTP header options.
     //
     static function augmentHttpHeaders(options as Lang.Dictionary) {
-        // Use 'm.length() > 0' here in preference to 'm != ""'. The latter makes the app crash on device but not in simulation.
+        // Use 'm.length() > 0' here in preference to 'm != ""' or '.equals("")'. They make the App crash on device but not in simulation.
         if (mUserHeaderName != null && mUserHeaderName.length() > 0 && mUserHeaderValue != null && mUserHeaderValue.length() > 0) {
             options[mUserHeaderName] = mUserHeaderValue;
         }
