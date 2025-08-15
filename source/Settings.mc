@@ -15,6 +15,7 @@
 
 using Toybox.Lang;
 using Toybox.Application.Properties;
+using Toybox.Application.Storage;
 using Toybox.WatchUi;
 using Toybox.System;
 // Battery Level Reporting
@@ -44,7 +45,7 @@ class Settings {
     private static var mConfirmTimeout        as Lang.Number  = 3;
     private static var mPin                   as Lang.String? = "0000";
     private static var mMenuAlignment         as Lang.Number  = WatchUi.MenuItem.MENU_ITEM_LABEL_ALIGN_LEFT;
-    private static var mIsSensorsLevelEnabled as Lang.Boolean = false;
+    private static var mIsSensorsEnabled      as Lang.Boolean = false;
     //! minutes
     private static var mBatteryRefreshRate    as Lang.Number  = 15;
     //! Additional user configurable HTTP header key
@@ -73,7 +74,7 @@ class Settings {
         mConfirmTimeout        = Properties.getValue("confirm_timeout");
         mPin                   = validatePin();
         mMenuAlignment         = Properties.getValue("menu_alignment");
-        mIsSensorsLevelEnabled = Properties.getValue("enable_battery_level");
+        mIsSensorsEnabled = Properties.getValue("enable_battery_level");
         mBatteryRefreshRate    = Properties.getValue("battery_level_refresh_rate");
         mUserHeaderName        = Properties.getValue("user_http_header_name");
         mUserHeaderValue       = Properties.getValue("user_http_header_value");
@@ -97,9 +98,13 @@ class Settings {
                     } else {
                         // System.println("Settings update(): Doing just sensor creation.");
                         // We already have a Webhook ID, so just enable or disable the sensor in Home Assistant.
-                        mWebhookManager.registerWebhookSensors();
+                        // Storage.getValue("sensors_enabled") returns true, false, or null
+                        if (mIsSensorsEnabled != Storage.getValue("sensors_enabled")) {
+                            Storage.setValue("sensors_enabled", mIsSensorsEnabled);
+                            mWebhookManager.registerWebhookSensors();
+                        }
                     }
-                    if (mIsSensorsLevelEnabled) {
+                    if (mIsSensorsEnabled) {
                         // Create the timed activity
                         if ((Background.getTemporalEventRegisteredTime() == null) or
                             (Background.getTemporalEventRegisteredTime() != (mBatteryRefreshRate * 60))) {
@@ -276,14 +281,14 @@ class Settings {
     //! @return Boolean for whether logging of the watch sensors is enabled.
     //
     static function isSensorsLevelEnabled() as Lang.Boolean {
-        return mIsSensorsLevelEnabled;
+        return mIsSensorsEnabled;
     }
 
     //! Disable logging of the watch's sensors.
     //
     static function unsetIsSensorsLevelEnabled() {
-        mIsSensorsLevelEnabled = false;
-        Properties.setValue("enable_battery_level", mIsSensorsLevelEnabled);
+        mIsSensorsEnabled = false;
+        Properties.setValue("enable_battery_level", mIsSensorsEnabled);
         if (mHasService and (Background.getTemporalEventRegisteredTime() != null)) {
             Background.deleteTemporalEvent();
             Background.deleteActivityCompletedEvent();
