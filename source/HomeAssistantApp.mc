@@ -143,7 +143,7 @@ class HomeAssistantApp extends Application.AppBase {
             } else {
                 ret = [new WatchUi.View(), new WatchUi.BehaviorDelegate()];
             }
-            // Separated from Settings.update() in order to call after fetchMenuConfig() and not call it on changes settings.
+            // Separated from Settings.update() in order to call after fetchMenuConfig() and not call it on changed settings.
             Settings.webhook();
             return ret;
         }
@@ -488,11 +488,11 @@ class HomeAssistantApp extends Application.AppBase {
                                 "template" => template
                             });
                         }
-                    if (item instanceof HomeAssistantToggleMenuItem) {
-                        mTemplates.put(i.toString() + "t", {
-                            "template" => (item as HomeAssistantToggleMenuItem).getToggleTemplate()
-                        });
-                    }
+                        if (item instanceof HomeAssistantToggleMenuItem) {
+                            mTemplates.put(i.toString() + "t", {
+                                "template" => (item as HomeAssistantToggleMenuItem).getToggleTemplate()
+                            });
+                        }
                     }
                 }
                 // https://developers.home-assistant.io/docs/api/native-app-integration/sending-data/#render-templates

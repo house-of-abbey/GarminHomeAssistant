@@ -100,10 +100,10 @@ class HomeAssistantTapMenuItem extends HomeAssistantMenuItem {
                 WatchUi.pushView(
                     dialog,
                     new WifiLteExecutionConfirmDelegate({
-                        :type => "service",
+                        :type    => "service",
                         :service => mService,
-                        :data => mData,
-                        :exit => mExit,
+                        :data    => mData,
+                        :exit    => mExit,
                     }, dialog),
                     WatchUi.SLIDE_LEFT
                 );
@@ -112,9 +112,9 @@ class HomeAssistantTapMenuItem extends HomeAssistantMenuItem {
                 WatchUi.pushView(
                     view,
                     new HomeAssistantConfirmationDelegate({
-                        :callback       => method(:onConfirm),
+                        :callback         => method(:onConfirm),
                         :confirmationView => view,
-                        :state          => false,
+                        :state            => false,
                     }),
                     WatchUi.SLIDE_IMMEDIATE
                 );
