@@ -48,3 +48,4 @@
 |   3.0   | First version with the ability to use [Wi-Fi or LTE](Wi-Fi.md) instead of Bluetooth but with limited functionality, thanks to [@vincentezw](https://github.com/vincentezw). |
 |   3.1   | Added the ability for users to provide [custom HTTP headers](HTTP_Headers.md) for their Home Assistant server. Improved German language translations. Thanks to [@tispokes](https://github.com/tispokes) for assisting with both of those. Removed all groups in settings as the SDK is buggy. Fixed a bug with templates in glances causing application crash on startup. |
 |   3.2   | Only enable or disable sensors on Home Assistant when the background service options is changed, i.e. do not call the API to enable on start up every time. |
+|   3.3   | Providing automatic detection for menu definition updates, but still requires an application restart. |
