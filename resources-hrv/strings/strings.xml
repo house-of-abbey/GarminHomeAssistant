@@ -31,6 +31,7 @@
   <string id="Executed" scope="glance">Potvrđen</string>
   <string id="GlanceMenu" scope="glance">Jelovnik</string>
   <string id="Memory" scope="glance">Memorija</string>
+  <string id="MenuUpdated">Izbornik Ažurirano, ponovno pokrenite.</string>
   <string id="NoAPIKey" scope="glance">Nema API ključa u postavkama aplikacije.</string>
   <string id="NoApiUrl" scope="glance">Nema URL -a API -ja u postavkama aplikacije.</string>
   <string id="NoConfigUrl" scope="glance">Nema URL -a konfiguracije u postavkama aplikacije.</string>

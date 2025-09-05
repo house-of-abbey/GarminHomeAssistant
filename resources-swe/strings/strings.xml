@@ -31,6 +31,7 @@
   <string id="Executed" scope="glance">Bekräftad</string>
   <string id="GlanceMenu" scope="glance">Meny</string>
   <string id="Memory" scope="glance">Minne</string>
+  <string id="MenuUpdated">Meny Uppdaterad, omstart.</string>
   <string id="NoAPIKey" scope="glance">Ingen API -nyckel i applikationsinställningarna.</string>
   <string id="NoApiUrl" scope="glance">Ingen API -URL i applikationsinställningarna.</string>
   <string id="NoConfigUrl" scope="glance">Ingen konfigurations -URL i applikationsinställningarna.</string>

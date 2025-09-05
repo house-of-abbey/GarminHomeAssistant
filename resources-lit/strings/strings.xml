@@ -31,6 +31,7 @@
   <string id="Executed" scope="glance">Patvirtinta</string>
   <string id="GlanceMenu" scope="glance">Meniu</string>
   <string id="Memory" scope="glance">Atmintis</string>
+  <string id="MenuUpdated">Meniu Atnaujinta, paleiskite iš naujo.</string>
   <string id="NoAPIKey" scope="glance">Nėra API rakto programos nustatymuose.</string>
   <string id="NoApiUrl" scope="glance">Nėra API URL programos nustatymuose.</string>
   <string id="NoConfigUrl" scope="glance">Nėra konfigūracijos URL programos nustatymuose.</string>

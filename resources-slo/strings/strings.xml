@@ -31,6 +31,7 @@
   <string id="Executed" scope="glance">Spustený</string>
   <string id="GlanceMenu" scope="glance">Ponuka</string>
   <string id="Memory" scope="glance">Pamiatka</string>
+  <string id="MenuUpdated">Aktualizované menu, reštart.</string>
   <string id="NoAPIKey" scope="glance">V nastaveniach aplikácie chýba kľúč API</string>
   <string id="NoApiUrl" scope="glance">V nastaveniach aplikácie chýba adresa URL rozhrania API</string>
   <string id="NoConfigUrl" scope="glance">V nastaveniach aplikácie chýba konfiguračná adresa URL</string>

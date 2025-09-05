@@ -128,18 +128,18 @@ class HomeAssistantService {
         data    as Lang.Dictionary?,
         exit    as Lang.Boolean
     ) as Void {
-        var phoneConnected = System.getDeviceSettings().phoneConnected;
+        var phoneConnected    = System.getDeviceSettings().phoneConnected;
         var internetAvailable = System.getDeviceSettings().connectionAvailable;
         if (Settings.getWifiLteExecutionEnabled() && (! phoneConnected || ! internetAvailable)) {
             var dialogMsg = WatchUi.loadResource($.Rez.Strings.WifiLtePrompt) as Lang.String;
-            var dialog = new WatchUi.Confirmation(dialogMsg);
+            var dialog    = new WatchUi.Confirmation(dialogMsg);
             WatchUi.pushView(
                 dialog,
                 new WifiLteExecutionConfirmDelegate({
-                    :type => "service",
+                    :type    => "service",
                     :service => service,
-                    :data => data,
-                    :exit => exit,
+                    :data    => data,
+                    :exit    => exit,
                 }, dialog),
                 WatchUi.SLIDE_LEFT
             );

@@ -31,6 +31,7 @@
   <string id="Executed" scope="glance">Onaylanmış</string>
   <string id="GlanceMenu" scope="glance">Menü</string>
   <string id="Memory" scope="glance">Hafıza</string>
+  <string id="MenuUpdated">Menü güncellendi, yeniden başlat.</string>
   <string id="NoAPIKey" scope="glance">Uygulama ayarlarında API anahtarı yok.</string>
   <string id="NoApiUrl" scope="glance">Uygulama ayarlarında API URL'si yok.</string>
   <string id="NoConfigUrl" scope="glance">Uygulama ayarlarında yapılandırma URL'si yok.</string>

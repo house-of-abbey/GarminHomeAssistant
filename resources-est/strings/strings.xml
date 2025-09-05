@@ -31,6 +31,7 @@
   <string id="Executed" scope="glance">Kinnitatud</string>
   <string id="GlanceMenu" scope="glance">Menüü</string>
   <string id="Memory" scope="glance">Mälu</string>
+  <string id="MenuUpdated">Menüü värskendatud, taaskäivitage.</string>
   <string id="NoAPIKey" scope="glance">Rakenduse seadetes pole API -klahvi.</string>
   <string id="NoApiUrl" scope="glance">Rakenduse seadetes pole API URL -i.</string>
   <string id="NoConfigUrl" scope="glance">Rakenduse sätetes pole konfiguratsiooni URL -i.</string>

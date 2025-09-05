@@ -31,6 +31,7 @@
   <string id="Executed" scope="glance">Megerősített</string>
   <string id="GlanceMenu" scope="glance">Menü</string>
   <string id="Memory" scope="glance">Emlékezet</string>
+  <string id="MenuUpdated">A menü frissítve, indítsa újra.</string>
   <string id="NoAPIKey" scope="glance">Nincs API -kulcs az alkalmazásbeállításokban.</string>
   <string id="NoApiUrl" scope="glance">Nincs API URL az alkalmazás beállításaiban.</string>
   <string id="NoConfigUrl" scope="glance">Nincs konfigurációs URL az alkalmazásbeállításokban.</string>

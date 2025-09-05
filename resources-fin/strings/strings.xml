@@ -31,6 +31,7 @@
   <string id="Executed" scope="glance">Vahvistettu</string>
   <string id="GlanceMenu" scope="glance">Valikko</string>
   <string id="Memory" scope="glance">Muisti</string>
+  <string id="MenuUpdated">Valikko päivitetty, käynnistä uudelleen.</string>
   <string id="NoAPIKey" scope="glance">Ei sovellusliittymää avainta sovellusasetuksissa.</string>
   <string id="NoApiUrl" scope="glance">Ei sovellus -URL -osoitetta sovellusasetuksissa.</string>
   <string id="NoConfigUrl" scope="glance">Ei määritys -URL -osoitetta sovellusasetuksissa.</string>

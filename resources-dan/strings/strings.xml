@@ -31,6 +31,7 @@
   <string id="Executed" scope="glance">Bekræftet</string>
   <string id="GlanceMenu" scope="glance">Menu</string>
   <string id="Memory" scope="glance">Hukommelse</string>
+  <string id="MenuUpdated">Menu opdateret, genstart.</string>
   <string id="NoAPIKey" scope="glance">Ingen API -nøgle i applikationsindstillingerne.</string>
   <string id="NoApiUrl" scope="glance">Ingen API -URL i applikationsindstillingerne.</string>
   <string id="NoConfigUrl" scope="glance">Ingen konfigurations -URL i applikationsindstillingerne.</string>
