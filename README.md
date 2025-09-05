@@ -260,9 +260,12 @@ Unfortunately the Settings dialogue box in the Garmin IQ application "times out"
 
 You should now have a working application on your watch and be able to operate your Home Assistant devices for as long as your watch is within Bluetooth range of your phone.
 
-You may choose to cache your menu definition on your device in order to reduce the delay in showing the menu (as it saves waiting for an HTTP GET request). If you use this option you are responsible for managing the cache when the menu is updated at source. The toggle option below the cache option allows you to choose to refresh the cache the next time the application starts. Once the cache has been cleared, the application will reset this toggle for you, so you do not need to return to the settings to amend it.
+You may choose to cache your menu definition on your device in order to reduce the delay in showing the menu (as it saves waiting for an HTTP GET request). If you use this option you need to be aware of hwo updates to the menu are managed. You may either:
 
-The application uses vibration to confirm the action has been requested, as opposed to the 'toast' appears to show the action has been successfully executed. This is enabled by default but may be turned off if you do not desire this behaviour.
+1. **Choose to have the cache cleared.** The toggle option below the cache option allows you to choose to refresh the cache the next time the application starts. Once the cache has been cleared, the application will reset this toggle for you, so you do not need to return to the settings to amend it.
+2. **Let the application retrieve the menu after starting and setting up the switch states** (including evaluating [templates](examples/Templates.md)), and then verify you have the latest menu. If a newer menu is retrieved you will be notified via a 'toast' or blue screen for devices without a toast in their API. You will be prompted to restart the application in order to build the menu from this latest menu definition. There are no plans to make the menu definition update recreate the rendered menu items because it could change the selected item just as you action it, and because restarting is simple for the user and simpler for the code.
+
+The application uses vibration to confirm the action has been requested, which is different to the 'toast' that appears to show the action has been successfully executed. This is enabled by default but may be turned off if you do not desire this behaviour.
 
 The application timeout prevents the HomeAssistant App running on your watch when you have forgotten to close it. It prevents the refreshing of the menu statuses and therefore excessive wear on your battery level. For those users who prefer to keep the application open all the time for continuous use, they can reduce the battery wear by increasing the "poll delay". This inserts a user configurable number of seconds between each round of item update checks, hence reducing the API access activity. This also reduces the responsive of the statuses displayed when HA devices are switched externally, i.e. by another Home Assistant client, then the watch menu display will not update as quickly. Therefore if you only use the HomeAssistant App briefly now and then, keep this setting at the default 0 seconds. NB. To be clear, all items are updated then a configurable delay is inserted before the next round of all item updates. If your poll delay is greater than zero, then your application timeout should be set to zero, otherwise you will exit the application and negate the value of the poll delay function.
 
@@ -301,7 +304,7 @@ To prevent excessive battery usage, set the application timeout in the settings.
 
 ## Changes to the (JSON) Dashboard Definition
 
-When you change the JSON file defining your dashboard, you must exit the application and the reopen it. It only takes a matter of a few seconds to pick up the new definition, but it is not automatic. *Don't forget* you may need to choose to clear your cached menu.
+When you change the JSON file defining your dashboard, you must exit the application and the reopen it. It only takes a matter of a few seconds to pick up the new definition, but it is not automatic. *Don't forget* you may explicitly choose to clear your cached menu, or wait the application to discover your definition has changed and prompt you to restart. The application check only happens once after startup, rendering menu items and setting the menu item states.
 
 ## Submitting Corrections for Translations
 
