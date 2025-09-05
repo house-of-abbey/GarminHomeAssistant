@@ -262,16 +262,16 @@ class HomeAssistantApp extends Application.AppBase {
                 Settings.unsetClearCache();
             }
             if (menu == null) {
-                var phoneConnected = System.getDeviceSettings().phoneConnected;
+                var phoneConnected    = System.getDeviceSettings().phoneConnected;
                 var internetAvailable = System.getDeviceSettings().connectionAvailable;
                 if (! phoneConnected or ! internetAvailable) {
+                    // System.println("HomeAssistantApp fetchMenuConfig(): No Phone connection, skipping API call.");
                     var errorRez = $.Rez.Strings.NoPhone;
                     if (Settings.getWifiLteExecutionEnabled()) {
                         errorRez = $.Rez.Strings.NoPhoneNoCache;
                     } else if (! internetAvailable) {
                         errorRez = $.Rez.Strings.Unavailable;
                     }
-                    // System.println("HomeAssistantApp fetchMenuConfig(): No Phone connection, skipping API call.");
                     if (!mIsApp) {
                         WatchUi.requestUpdate();
                     } else {
