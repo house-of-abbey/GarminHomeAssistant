@@ -386,37 +386,64 @@ class HomeAssistantApp extends Application.AppBase {
         var keys = a.keys();
         for (var i = 0; i < keys.size(); i++) {
             var key = keys[i];
+            // If the sizes are the same and b contains every item in a,
+            // then a contains every item in b, i.e. the items are the same.
             if (!b.hasKey(key)) {
                 return false;
             }
             var valA = a.get(key);
             var valB = b.get(key);
-            if (valA instanceof Lang.Dictionary and valB instanceof Lang.Dictionary) {
+            if (valA == null && valB == null) {
+                // both null, consider true
+            } else if (valA == null || valB == null) {
+                return false;
+            } else if (valA instanceof Lang.Dictionary and valB instanceof Lang.Dictionary) {
                 if (!structuralEquals(valA, valB)) {
                     return false;
                 }
             } else if (valA instanceof Lang.Array and valB instanceof Lang.Array) {
-                var arrA = valA as Lang.Array;
-                var arrB = valB as Lang.Array;
-                if (arrA.size() != arrB.size()) {
+                if (!arrayEquals(valA, valB)) {
                     return false;
-                }
-                for (var j = 0; j < arrA.size(); j++) {
-                    var itemA = arrA[j];
-                    var itemB = arrB[j];
-                    if (itemA instanceof Lang.Dictionary and itemB instanceof Lang.Dictionary) {
-                        if (!structuralEquals(itemA, itemB)) {
-                            return false;
-                        }
-                    } else if (!itemA.equals(itemB)) {
-                        return false;
-                    }
                 }
             } else if (!valA.equals(valB)) {
                 return false;
             }
         }
         return true;
+    }
+
+    //! Test if two arrays are structurally equal. Used to see if the JSON menu has been
+    //! amended but yet to be updated in the application cache.
+    //!
+    //! @param a First array in the comparison.
+    //! @param b Second array in the comparison.
+    //
+    function arrayEquals(
+        a as Lang.Array,
+        b as Lang.Array
+    ) as Lang.Boolean {
+        if (a.size() != b.size()) {
+            return false;
+        }
+        for (var j = 0; j < a.size(); j++) {
+            var itemA = a[j];
+            var itemB = b[j];
+            if (itemA == null && itemB == null) {
+                // both null, consider true
+            } else if (itemA == null || itemB == null) {
+                return false;
+            } else if (itemA instanceof Lang.Dictionary and itemB instanceof Lang.Dictionary) {
+                if (!structuralEquals(itemA, itemB)) {
+                    return false;
+                }
+            } else if (valA instanceof Lang.Array and valB instanceof Lang.Array) {
+                if (!arrayEquals(valA, valB)) {
+                    return false;
+                }
+            } else if (!itemA.equals(itemB)) {
+                return false;
+            }
+        }
     }
 
     //! Callback function for the menu check GET request.
