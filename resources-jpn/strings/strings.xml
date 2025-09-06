@@ -31,6 +31,7 @@
   <string id="Executed" scope="glance">確認済み</string>
   <string id="GlanceMenu" scope="glance">メニュー</string>
   <string id="Memory" scope="glance">メモリ</string>
+  <string id="MenuUpdated">メニューの更新、再起動。</string>
   <string id="NoAPIKey" scope="glance">アプリケーション設定にAPIキーはありません。</string>
   <string id="NoApiUrl" scope="glance">アプリケーション設定にAPI URLはありません。</string>
   <string id="NoConfigUrl" scope="glance">アプリケーション設定に構成URLはありません。</string>

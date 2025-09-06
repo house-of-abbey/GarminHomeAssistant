@@ -31,6 +31,7 @@
   <string id="Executed" scope="glance">Apstiprināts</string>
   <string id="GlanceMenu" scope="glance">Ēdienkarte</string>
   <string id="Memory" scope="glance">Atmiņa</string>
+  <string id="MenuUpdated">Atjaunināta izvēlne, restartējiet.</string>
   <string id="NoAPIKey" scope="glance">Lietojumprogrammas iestatījumos nav API atslēgas.</string>
   <string id="NoApiUrl" scope="glance">Lietojumprogrammu iestatījumos nav API URL.</string>
   <string id="NoConfigUrl" scope="glance">Lietojumprogrammas iestatījumos nav konfigurācijas URL.</string>
@@ -54,7 +55,7 @@
   <string id="WifiLtePrompt">Izpildīt pār wi-fi/lte?</string>
   <string id="WifiLteExecutionTitle">Sūtot mājas palīgu.</string>
   <string id="WifiLteExecutionDataError">Dati nav saņemti.</string>
-  <!-- Iestatījumi GUI stīgām jābūt tādā secībā, kādā tās tiek izmantotas. -->
+  <!-- Iestatījumi GUI stīgām jābūt tādā secībā, kādu tie tiek izmantoti. -->
   <string id="SettingsSelect">Atlasiet ...</string>
   <string id="SettingsApiKey">API atslēga Homeassistant.</string>
   <string id="SettingsApiKeyPrompt">Ilgstoša piekļuves marķieris.</string>

@@ -31,6 +31,7 @@
   <string id="Executed" scope="glance">Confermato</string>
   <string id="GlanceMenu" scope="glance">Menu</string>
   <string id="Memory" scope="glance">Memoria</string>
+  <string id="MenuUpdated">Menu aggiornato, riavvio.</string>
   <string id="NoAPIKey" scope="glance">Nessuna chiave API nelle impostazioni dell'applicazione.</string>
   <string id="NoApiUrl" scope="glance">Nessun URL API nelle impostazioni dell'applicazione.</string>
   <string id="NoConfigUrl" scope="glance">Nessun URL di configurazione nelle impostazioni dell'applicazione.</string>

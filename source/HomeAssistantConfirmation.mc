@@ -14,8 +14,6 @@
 //-----------------------------------------------------------------------------------
 
 using Toybox.Lang;
-// Required for callback method definition
-typedef Method as Toybox.Lang.Method;
 using Toybox.WatchUi;
 using Toybox.Timer;
 using Toybox.Application.Properties;

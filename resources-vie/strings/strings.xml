@@ -31,6 +31,7 @@
   <string id="Executed" scope="glance">Xác nhận</string>
   <string id="GlanceMenu" scope="glance">Menu</string>
   <string id="Memory" scope="glance">Ký ức</string>
+  <string id="MenuUpdated">Menu được cập nhật, khởi động lại.</string>
   <string id="NoAPIKey" scope="glance">Không có khóa API trong cài đặt ứng dụng.</string>
   <string id="NoApiUrl" scope="glance">Không có URL API trong cài đặt ứng dụng.</string>
   <string id="NoConfigUrl" scope="glance">Không có URL cấu hình trong cài đặt ứng dụng.</string>

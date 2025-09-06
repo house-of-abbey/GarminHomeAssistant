@@ -31,6 +31,7 @@
   <string id="Executed" scope="glance">Dikonfirmasi</string>
   <string id="GlanceMenu" scope="glance">Menu</string>
   <string id="Memory" scope="glance">Ingatan</string>
+  <string id="MenuUpdated">Menu diperbarui, restart.</string>
   <string id="NoAPIKey" scope="glance">Tidak ada kunci API di pengaturan aplikasi.</string>
   <string id="NoApiUrl" scope="glance">Tidak ada URL API di pengaturan aplikasi.</string>
   <string id="NoConfigUrl" scope="glance">Tidak ada URL konfigurasi di pengaturan aplikasi.</string>

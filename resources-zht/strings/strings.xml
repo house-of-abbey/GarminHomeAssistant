@@ -31,6 +31,7 @@
   <string id="Executed" scope="glance">確認的</string>
   <string id="GlanceMenu" scope="glance">菜單</string>
   <string id="Memory" scope="glance">記憶</string>
+  <string id="MenuUpdated">菜單更新，重新啟動。</string>
   <string id="NoAPIKey" scope="glance">應用程序設置中沒有API密鑰。</string>
   <string id="NoApiUrl" scope="glance">應用程序設置中沒有API URL。</string>
   <string id="NoConfigUrl" scope="glance">應用程序設置中沒有配置URL。</string>

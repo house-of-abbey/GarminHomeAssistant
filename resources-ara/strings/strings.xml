@@ -31,6 +31,7 @@
   <string id="Executed" scope="glance">مؤكد</string>
   <string id="GlanceMenu" scope="glance">قائمة طعام</string>
   <string id="Memory" scope="glance">ذاكرة</string>
+  <string id="MenuUpdated">محدثة القائمة ، إعادة التشغيل.</string>
   <string id="NoAPIKey" scope="glance">لا مفتاح API في إعدادات التطبيق.</string>
   <string id="NoApiUrl" scope="glance">لا عنوان URL API في إعدادات التطبيق.</string>
   <string id="NoConfigUrl" scope="glance">لا يوجد عنوان URL للتكوين في إعدادات التطبيق.</string>

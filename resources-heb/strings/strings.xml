@@ -31,6 +31,7 @@
   <string id="Executed" scope="glance">מְאוּשָׁר</string>
   <string id="GlanceMenu" scope="glance">תַפרִיט</string>
   <string id="Memory" scope="glance">זֵכֶר</string>
+  <string id="MenuUpdated">מעודכן בתפריט, הפעל מחדש.</string>
   <string id="NoAPIKey" scope="glance">אין מפתח API בהגדרות היישום.</string>
   <string id="NoApiUrl" scope="glance">אין כתובת URL בהגדרות היישום.</string>
   <string id="NoConfigUrl" scope="glance">אין כתובת אתר תצורה בהגדרות היישום.</string>

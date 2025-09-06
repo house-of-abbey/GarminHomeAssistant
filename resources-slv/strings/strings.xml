@@ -31,6 +31,7 @@
   <string id="Executed" scope="glance">Potrjeno</string>
   <string id="GlanceMenu" scope="glance">Meni</string>
   <string id="Memory" scope="glance">Spomin</string>
+  <string id="MenuUpdated">Meni posodobljen, znova zaženite.</string>
   <string id="NoAPIKey" scope="glance">V nastavitvah aplikacije ni ključa API -ja.</string>
   <string id="NoApiUrl" scope="glance">V nastavitvah aplikacije ni URL API -ja.</string>
   <string id="NoConfigUrl" scope="glance">V nastavitvah aplikacije ni URL konfiguracije.</string>

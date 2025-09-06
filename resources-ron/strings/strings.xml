@@ -31,6 +31,7 @@
   <string id="Executed" scope="glance">Confirmat</string>
   <string id="GlanceMenu" scope="glance">Meniu</string>
   <string id="Memory" scope="glance">Memorie</string>
+  <string id="MenuUpdated">Meniu actualizat, reporniți.</string>
   <string id="NoAPIKey" scope="glance">Nici o cheie API în setările aplicației.</string>
   <string id="NoApiUrl" scope="glance">Fără URL API în setările aplicației.</string>
   <string id="NoConfigUrl" scope="glance">Fără URL de configurare în setările aplicației.</string>

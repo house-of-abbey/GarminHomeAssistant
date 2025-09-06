@@ -16,6 +16,8 @@
 using Toybox.Application;
 using Toybox.Communications;
 using Toybox.Lang;
+// Required for callback method definition
+typedef Method as Toybox.Lang.Method;
 using Toybox.WatchUi;
 using Toybox.System;
 using Toybox.Application.Properties;
@@ -40,6 +42,7 @@ class HomeAssistantApp extends Application.AppBase {
     private var mUpdating       as Lang.Boolean    = false; // Don't start a second chain of updates
     private var mTemplates      as Lang.Dictionary = {};
     private var mNotifiedNoBle  as Lang.Boolean    = false;
+    private var mIsCacheChecked as Lang.Boolean    = false;
 
     //! Class Constructor
     // 
@@ -257,39 +260,14 @@ class HomeAssistantApp extends Application.AppBase {
         } else {
             var menu = Storage.getValue("menu") as Lang.Dictionary;
             if (menu != null and (Settings.getClearCache() || !Settings.getCacheConfig())) {
+                // System.println("HomeAssistantApp fetchMenuConfig(): Clearing cached menu on user request.");
                 Storage.deleteValue("menu");
                 menu = null;
                 Settings.unsetClearCache();
             }
             if (menu == null) {
-                var phoneConnected    = System.getDeviceSettings().phoneConnected;
-                var internetAvailable = System.getDeviceSettings().connectionAvailable;
-                if (! phoneConnected or ! internetAvailable) {
-                    // System.println("HomeAssistantApp fetchMenuConfig(): No Phone connection, skipping API call.");
-                    var errorRez = $.Rez.Strings.NoPhone;
-                    if (Settings.getWifiLteExecutionEnabled()) {
-                        errorRez = $.Rez.Strings.NoPhoneNoCache;
-                    } else if (! internetAvailable) {
-                        errorRez = $.Rez.Strings.Unavailable;
-                    }
-                    if (!mIsApp) {
-                        WatchUi.requestUpdate();
-                    } else {
-                        ErrorView.show(WatchUi.loadResource(errorRez) as Lang.String);
-                    }
-                    mMenuStatus = WatchUi.loadResource(errorRez) as Lang.String;
-                } else {
-                    Communications.makeWebRequest(
-                        Settings.getConfigUrl(),
-                        null,
-                        {
-                            :method       => Communications.HTTP_REQUEST_METHOD_GET,
-                            :responseType => Communications.HTTP_RESPONSE_CONTENT_TYPE_JSON,
-                            :headers      => Settings.augmentHttpHeaders({})
-                        },
-                        method(:onReturnFetchMenuConfig)
-                    );
-                }
+                // System.println("HomeAssistantApp fetchMenuConfig(): Menu not cached, fetching.");
+                fetchMenuConfigBasic(method(:onReturnFetchMenuConfig));
             } else {
                 mMenuStatus = WatchUi.loadResource($.Rez.Strings.Cached) as Lang.String;
                 WatchUi.requestUpdate();
@@ -302,6 +280,56 @@ class HomeAssistantApp extends Application.AppBase {
             }
         }
         return false;
+    }
+
+    //! The basic API call to fetch the menu configuration, with cache management issues managed by external supporting
+    //! code. This is factored out separately so that it can be reused to check and validate the cached menu.
+    //!
+    //! @param responseCallback The method to call on completion of the GET request.
+    //
+    function fetchMenuConfigBasic(
+        responseCallback as (
+            Method(
+                responseCode as Lang.Number,
+                data         as Lang.Dictionary or Lang.String or Null
+            ) as Void
+        ) or (
+            Method(
+                responseCode as Lang.Number,
+                data         as Lang.Dictionary or Lang.String or Null,
+                context      as Lang.Object
+            ) as Void
+        )
+    ) {
+        // System.println("HomeAssistantApp fetchMenuConfigBasic(): Fetching JSON menu.");
+        var phoneConnected    = System.getDeviceSettings().phoneConnected;
+        var internetAvailable = System.getDeviceSettings().connectionAvailable;
+        if (! phoneConnected or ! internetAvailable) {
+            // System.println("HomeAssistantApp fetchMenuConfigBasic(): No Phone connection, skipping API call.");
+            var errorRez = $.Rez.Strings.NoPhone;
+            if (Settings.getWifiLteExecutionEnabled()) {
+                errorRez = $.Rez.Strings.NoPhoneNoCache;
+            } else if (! internetAvailable) {
+                errorRez = $.Rez.Strings.Unavailable;
+            }
+            if (!mIsApp) {
+                WatchUi.requestUpdate();
+            } else {
+                ErrorView.show(WatchUi.loadResource(errorRez) as Lang.String);
+            }
+            mMenuStatus = WatchUi.loadResource(errorRez) as Lang.String;
+        } else {
+            Communications.makeWebRequest(
+                Settings.getConfigUrl(),
+                null,
+                {
+                    :method       => Communications.HTTP_REQUEST_METHOD_GET,
+                    :responseType => Communications.HTTP_RESPONSE_CONTENT_TYPE_JSON,
+                    :headers      => Settings.augmentHttpHeaders({})
+                },
+                responseCallback
+            );
+        }
     }
 
     //! Build the menu and store in `mHaMenu`. Then start updates if necessary.
@@ -339,6 +367,173 @@ class HomeAssistantApp extends Application.AppBase {
                     mGlanceTemplate = null;
                 }
             }
+        }
+    }
+
+    //! Test if two dictionaries are structurally equal. Used to see if the JSON menu has been
+    //! amended but yet to be updated in the application cache.
+    //!
+    //! @param a First dictionary in the comparison.
+    //! @param b Second dictionary in the comparison.
+    //
+    function structuralEquals(
+        a as Lang.Dictionary,
+        b as Lang.Dictionary
+    ) as Lang.Boolean {
+        if (a.size() != b.size()) {
+            return false;
+        }
+        var keys = a.keys();
+        for (var i = 0; i < keys.size(); i++) {
+            var key = keys[i];
+            // If the sizes are the same and b contains every item in a,
+            // then a contains every item in b, i.e. the items are the same.
+            if (!b.hasKey(key)) {
+                return false;
+            }
+            var valA = a.get(key);
+            var valB = b.get(key);
+            if (valA == null && valB == null) {
+                // both null, consider true
+            } else if (valA == null || valB == null) {
+                return false;
+            } else if (valA instanceof Lang.Dictionary and valB instanceof Lang.Dictionary) {
+                if (!structuralEquals(valA, valB)) {
+                    return false;
+                }
+            } else if (valA instanceof Lang.Array and valB instanceof Lang.Array) {
+                if (!arrayEquals(valA, valB)) {
+                    return false;
+                }
+            } else if (!valA.equals(valB)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    //! Test if two arrays are structurally equal. Used to see if the JSON menu has been
+    //! amended but yet to be updated in the application cache.
+    //!
+    //! @param a First array in the comparison.
+    //! @param b Second array in the comparison.
+    //
+    function arrayEquals(
+        a as Lang.Array,
+        b as Lang.Array
+    ) as Lang.Boolean {
+        if (a.size() != b.size()) {
+            return false;
+        }
+        for (var j = 0; j < a.size(); j++) {
+            var itemA = a[j];
+            var itemB = b[j];
+            if (itemA == null && itemB == null) {
+                // both null, consider true
+            } else if (itemA == null || itemB == null) {
+                return false;
+            } else if (itemA instanceof Lang.Dictionary and itemB instanceof Lang.Dictionary) {
+                if (!structuralEquals(itemA, itemB)) {
+                    return false;
+                }
+            } else if (valA instanceof Lang.Array and valB instanceof Lang.Array) {
+                if (!arrayEquals(valA, valB)) {
+                    return false;
+                }
+            } else if (!itemA.equals(itemB)) {
+                return false;
+            }
+        }
+    }
+
+    //! Callback function for the menu check GET request.
+    //!
+    //! @param responseCode Response code.
+    //! @param data         Response data.
+    //
+    function onReturnCheckMenuConfig(
+        responseCode as Lang.Number,
+        data         as Null or Lang.Dictionary
+    ) as Void {
+        // System.println("HomeAssistantApp onReturnCheckMenuConfig() Response Code: " + responseCode);
+        // System.println("HomeAssistantApp onReturnCheckMenuConfig() Response Data: " + data);
+
+        switch (responseCode) {
+            case Communications.BLE_HOST_TIMEOUT:
+            case Communications.BLE_CONNECTION_UNAVAILABLE:
+                // System.println("HomeAssistantApp onReturnCheckMenuConfig() Response Code: BLE_HOST_TIMEOUT or BLE_CONNECTION_UNAVAILABLE, Bluetooth connection severed.");
+                ErrorView.show(WatchUi.loadResource($.Rez.Strings.NoPhone) as Lang.String);
+                break;
+
+            case Communications.BLE_QUEUE_FULL:
+                // System.println("HomeAssistantApp onReturnCheckMenuConfig() Response Code: BLE_QUEUE_FULL, API calls too rapid.");
+                ErrorView.show(WatchUi.loadResource($.Rez.Strings.ApiFlood) as Lang.String);
+                break;
+
+            case Communications.NETWORK_REQUEST_TIMED_OUT:
+                // System.println("HomeAssistantApp onReturnCheckMenuConfig() Response Code: NETWORK_REQUEST_TIMED_OUT, check Internet connection.");
+                ErrorView.show(WatchUi.loadResource($.Rez.Strings.NoResponse) as Lang.String);
+                break;
+
+            case Communications.INVALID_HTTP_BODY_IN_NETWORK_RESPONSE:
+                // System.println("HomeAssistantApp onReturnCheckMenuConfig() Response Code: INVALID_HTTP_BODY_IN_NETWORK_RESPONSE, check JSON is returned.");
+                ErrorView.show(WatchUi.loadResource($.Rez.Strings.NoJson) as Lang.String);
+                break;
+
+            case Communications.NETWORK_RESPONSE_OUT_OF_MEMORY:
+                // System.println("HomeAssistantApp onReturnCheckMenuConfig() Response Code: NETWORK_RESPONSE_OUT_OF_MEMORY, are we going too fast?");
+                var myTimer = new Timer.Timer();
+                // Now this feels very "closely coupled" to the application, but it is the most reliable method instead of using a timer.
+                myTimer.start(method(:updateMenuItems), Globals.scApiBackoffMs, false);
+                break;
+
+            case 404:
+                // System.println("HomeAssistantApp onReturnCheckMenuConfig() Response Code: 404, page not found. Check API URL setting.");
+                ErrorView.show(WatchUi.loadResource($.Rez.Strings.ApiUrlNotFound) as Lang.String);
+                break;
+
+            case 400:
+                // System.println("HomeAssistantApp onReturnCheckMenuConfig() Response Code: 400, bad request. Template error.");
+                ErrorView.show(WatchUi.loadResource($.Rez.Strings.TemplateError) as Lang.String);
+                break;
+
+            case 200:
+                if (data != null) {
+                    // 'menu' will be null if caching has just been enabled, but not yet cached locally.
+                    var menu = Storage.getValue("menu") as Lang.Dictionary;
+                    if (menu == null || !structuralEquals(data, menu)) {
+                        // System.println("HomeAssistantApp onReturnCheckMenuConfig() New menu found.");
+                        Storage.setValue("menu", data as Lang.Dictionary);
+                        if (menu != null) {
+                            // Notify the the user we have just got a newer menu file
+                            var toast = WatchUi.loadResource($.Rez.Strings.MenuUpdated) as Lang.String;
+                            if (mHasToast) {
+                                WatchUi.showToast(toast, null);
+                            } else {
+                                new Alert({
+                                    :timeout => Globals.scAlertTimeoutMs,
+                                    :font    => Graphics.FONT_MEDIUM,
+                                    :text    => toast,
+                                    :fgcolor => Graphics.COLOR_WHITE,
+                                    :bgcolor => Graphics.COLOR_BLACK
+                                }).pushView(WatchUi.SLIDE_IMMEDIATE);
+                            }
+                        }
+                    }
+                    // Prevent checking the cache is up to date again
+                    mIsCacheChecked = true;
+                    var delay = Settings.getPollDelay();
+                    if (delay > 0) {
+                        mUpdateTimer.start(method(:updateMenuItems), delay, false);
+                    } else {
+                        updateMenuItems();
+                    }
+                }
+                break;
+
+            default:
+                // System.println("HomeAssistantApp onReturnCheckMenuConfig(): Unhandled HTTP response code = " + responseCode);
+                ErrorView.show(WatchUi.loadResource($.Rez.Strings.UnhandledHttpErr) as Lang.String + responseCode);
         }
     }
 
@@ -405,18 +600,23 @@ class HomeAssistantApp extends Application.AppBase {
                 } else {
                     if (mItemsToUpdate != null) {
                         for (var i = 0; i < mItemsToUpdate.size(); i++) {
-                            var item = mItemsToUpdate[i];
+                            var item  = mItemsToUpdate[i];
                             var state = data.get(i.toString());
                             item.updateState(state);
                             if (item instanceof HomeAssistantToggleMenuItem) {
                                 (item as HomeAssistantToggleMenuItem).updateToggleState(data.get(i.toString() + "t"));
                             }
                         }
-                        var delay = Settings.getPollDelay();
-                        if (delay > 0) {
-                            mUpdateTimer.start(method(:updateMenuItems), delay, false);
+                        if (Settings.getCacheConfig() && !mIsCacheChecked) {
+                            // We are caching the menu configuration, so let's fetch it and check if its been updated.
+                            fetchMenuConfigBasic(method(:onReturnCheckMenuConfig));
                         } else {
-                            updateMenuItems();
+                            var delay = Settings.getPollDelay();
+                            if (delay > 0) {
+                                mUpdateTimer.start(method(:updateMenuItems), delay, false);
+                            } else {
+                                updateMenuItems();
+                            }
                         }
                     }
                 }
@@ -605,7 +805,6 @@ class HomeAssistantApp extends Application.AppBase {
                 if (!mIsApp) {
                     WatchUi.requestUpdate();
                 } else {
-                    System.println("we here");
                     ErrorView.show(WatchUi.loadResource($.Rez.Strings.NoPhone) as Lang.String);
                 }
             } else if (! connectionAvailable) {

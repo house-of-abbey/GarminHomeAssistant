@@ -31,6 +31,7 @@
   <string id="Executed" scope="glance">Bevestigd</string>
   <string id="GlanceMenu" scope="glance">Menu</string>
   <string id="Memory" scope="glance">Geheugen</string>
+  <string id="MenuUpdated">Menu bijgewerkt, opnieuw opstarten.</string>
   <string id="NoAPIKey" scope="glance">Geen API -toets in de toepassingsinstellingen.</string>
   <string id="NoApiUrl" scope="glance">Geen API -URL in de toepassingsinstellingen.</string>
   <string id="NoConfigUrl" scope="glance">Geen configuratie -URL in de toepassingsinstellingen.</string>

@@ -31,6 +31,7 @@
   <string id="Executed" scope="glance">Επιβεβαιωμένος</string>
   <string id="GlanceMenu" scope="glance">Μενού</string>
   <string id="Memory" scope="glance">Μνήμη</string>
+  <string id="MenuUpdated">Ενημερώθηκε μενού, επανεκκίνηση.</string>
   <string id="NoAPIKey" scope="glance">Δεν υπάρχει κλειδί API στις ρυθμίσεις εφαρμογής.</string>
   <string id="NoApiUrl" scope="glance">Δεν υπάρχει διεύθυνση URL API στις ρυθμίσεις εφαρμογής.</string>
   <string id="NoConfigUrl" scope="glance">Χωρίς διευθύνσεις διαμόρφωσης στις ρυθμίσεις εφαρμογής.</string>

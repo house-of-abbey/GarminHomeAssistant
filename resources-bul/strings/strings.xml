@@ -31,6 +31,7 @@
   <string id="Executed" scope="glance">Потвърдено</string>
   <string id="GlanceMenu" scope="glance">Меню</string>
   <string id="Memory" scope="glance">Памет</string>
+  <string id="MenuUpdated">Менюто актуализирано, рестартиране.</string>
   <string id="NoAPIKey" scope="glance">Няма ключ за API в настройките на приложението.</string>
   <string id="NoApiUrl" scope="glance">Няма URL адрес на API в настройките на приложението.</string>
   <string id="NoConfigUrl" scope="glance">Няма URL адрес на конфигурация в настройките на приложението.</string>
