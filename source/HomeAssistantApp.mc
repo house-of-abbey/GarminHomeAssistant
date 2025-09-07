@@ -38,11 +38,11 @@ class HomeAssistantApp extends Application.AppBase {
     private var mUpdateTimer    as Timer.Timer?;
     // Array initialised by onReturnFetchMenuConfig()
     private var mItemsToUpdate  as Lang.Array<HomeAssistantToggleMenuItem or HomeAssistantTapMenuItem or HomeAssistantGroupMenuItem>?;
-    private var mIsApp          as Lang.Boolean    = false; // Or Widget
-    private var mUpdating       as Lang.Boolean    = false; // Don't start a second chain of updates
-    private var mTemplates      as Lang.Dictionary = {};
-    private var mNotifiedNoBle  as Lang.Boolean    = false;
-    private var mIsCacheChecked as Lang.Boolean    = false;
+    private var mIsApp          as Lang.Boolean     = false; // Or Widget
+    private var mUpdating       as Lang.Boolean     = false; // Don't start a second chain of updates
+    private var mTemplates      as Lang.Dictionary? = null;  // Cache of compiled templates
+    private var mNotifiedNoBle  as Lang.Boolean     = false;
+    private var mIsCacheChecked as Lang.Boolean     = false;
 
     //! Class Constructor
     // 
@@ -358,12 +358,12 @@ class HomeAssistantApp extends Application.AppBase {
     //
     function glanceTemplate(menu as Lang.Dictionary) {
         if (menu != null) {
-            if (menu.get("glance") != null) {
-                var glance = menu.get("glance") as Lang.Dictionary;
-                if (glance.get("type").equals("info")) {
-                    mGlanceTemplate = glance.get("content") as Lang.String;
+            if (menu["glance"] != null) {
+                var glance = menu["glance"] as Lang.Dictionary;
+                if (glance["type"].equals("info")) {
+                    mGlanceTemplate = glance["content"] as Lang.String;
                     // System.println("HomeAssistantApp glanceTemplate() " + mGlanceTemplate);
-                } else { // if glance.get("type").equals("status")
+                } else { // if glance["type"].equals("status")
                     mGlanceTemplate = null;
                 }
             }
@@ -391,8 +391,8 @@ class HomeAssistantApp extends Application.AppBase {
             if (!b.hasKey(key)) {
                 return false;
             }
-            var valA = a.get(key);
-            var valB = b.get(key);
+            var valA = a[key];
+            var valB = b[key];
             if (valA == null && valB == null) {
                 // both null, consider true
             } else if (valA == null || valB == null) {
@@ -425,25 +425,26 @@ class HomeAssistantApp extends Application.AppBase {
         if (a.size() != b.size()) {
             return false;
         }
-        for (var j = 0; j < a.size(); j++) {
-            var itemA = a[j];
-            var itemB = b[j];
+        for (var i = 0; i < a.size(); i++) {
+            var itemA = a[i];
+            var itemB = b[i];
             if (itemA == null && itemB == null) {
-                // both null, consider true
+                // Both null, consider true
             } else if (itemA == null || itemB == null) {
                 return false;
             } else if (itemA instanceof Lang.Dictionary and itemB instanceof Lang.Dictionary) {
                 if (!structuralEquals(itemA, itemB)) {
                     return false;
                 }
-            } else if (valA instanceof Lang.Array and valB instanceof Lang.Array) {
-                if (!arrayEquals(valA, valB)) {
+            } else if (itemA instanceof Lang.Array and itemB instanceof Lang.Array) {
+                if (!arrayEquals(itemA, itemB)) {
                     return false;
                 }
             } else if (!itemA.equals(itemB)) {
                 return false;
             }
         }
+        return true;
     }
 
     //! Callback function for the menu check GET request.
@@ -601,10 +602,12 @@ class HomeAssistantApp extends Application.AppBase {
                     if (mItemsToUpdate != null) {
                         for (var i = 0; i < mItemsToUpdate.size(); i++) {
                             var item  = mItemsToUpdate[i];
-                            var state = data.get(i.toString());
-                            item.updateState(state);
+                            var state = data[i.toString()];
+                            if (item.getTemplate() != null) {
+                                item.updateState(state);
+                            }
                             if (item instanceof HomeAssistantToggleMenuItem) {
-                                (item as HomeAssistantToggleMenuItem).updateToggleState(data.get(i.toString() + "t"));
+                                (item as HomeAssistantToggleMenuItem).updateToggleState(data[i.toString() + "t"]);
                             }
                         }
                         if (Settings.getCacheConfig() && !mIsCacheChecked) {
@@ -681,7 +684,7 @@ class HomeAssistantApp extends Application.AppBase {
                     mItemsToUpdate = mHaMenu.getItemsToUpdate();
                     mTemplates = {};
                     for (var i = 0; i < mItemsToUpdate.size(); i++) {
-                        var item = mItemsToUpdate[i];
+                        var item     = mItemsToUpdate[i];
                         var template = item.getTemplate();
                         if (template != null) {
                             mTemplates.put(i.toString(), {
@@ -767,7 +770,7 @@ class HomeAssistantApp extends Application.AppBase {
                 break;
 
             case 200:
-                if ((data != null) && data.get("message").equals("API running.")) {
+                if ((data != null) && (data instanceof Lang.Dictionary) && data["message"].equals("API running.")) {
                     mApiStatus = WatchUi.loadResource($.Rez.Strings.Available) as Lang.String;
                 } else {
                     if (mIsApp) {
@@ -883,8 +886,8 @@ class HomeAssistantApp extends Application.AppBase {
                 break;
 
             case 200:
-                if (data != null) {
-                    mGlanceText = data.get("glanceTemplate");
+                if ((data != null) && (data instanceof Lang.Dictionary)) {
+                    mGlanceText = data["glanceTemplate"];
                 }
                 break;
 
