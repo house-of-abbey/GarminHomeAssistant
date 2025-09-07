@@ -136,6 +136,9 @@ class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
             setUiToggle(data);
             if (mTemplate == null and data.equals("unavailable")) {
                 setSubLabel($.Rez.Strings.Unavailable);
+            } else {
+                // Needed to revert the sub-label when the entity becomes available again.
+                setSubLabel(null);
             }
         } else if(data instanceof Lang.Dictionary) {
             // System.println("HomeAssistantToggleMenuItem updateState() data = " + data);
