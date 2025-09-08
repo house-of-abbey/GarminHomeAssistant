@@ -327,6 +327,8 @@ The `id` attribute values are taken from the same names used in [`strings.xml`](
 
 ## Known Issues
 
+Check the latest unresolved [issues](https://github.com/house-of-abbey/GarminHomeAssistant/issues) on Github. Otherwise the following are persistent issues with no realistic resolution.
+
 1. There are some cases where the file format may be valid JSON, but invalid against the schema, and the failure to catch this error could cause the application to crash. Whilst we have taken care to manage many issues, there may still be cases that are uncaught. Please verify your JSON schema, see the [trouble shooting guide](TroubleShooting.md).
 
 2. On some (old) devices (e.g. Vivoactive 3, Fenix 5s & Edge 520+), the menu does not update correctly to reflect changes in state effected by an external Home Assistant control. E.g. when the phone application changes the toggle status of a switch, the Garmin application does not reflect that change until the menu is touched or scrolled a little. This is a [known issue](https://forums.garmin.com/developer/connect-iq/i/bug-reports/menu2-doesn-t-allow-live-updates) already reported without a suggested software fix.
