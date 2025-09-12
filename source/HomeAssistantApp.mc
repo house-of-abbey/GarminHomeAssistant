@@ -482,6 +482,8 @@ class HomeAssistantApp extends Application.AppBase {
                 break;
 
             case Communications.NETWORK_RESPONSE_OUT_OF_MEMORY:
+                // As we're out of memory, pretend we've checked and don't try again.
+                mIsCacheChecked = true;
                 // System.println("HomeAssistantApp onReturnCheckMenuConfig() Response Code: NETWORK_RESPONSE_OUT_OF_MEMORY, are we going too fast?");
                 var myTimer = new Timer.Timer();
                 // Now this feels very "closely coupled" to the application, but it is the most reliable method instead of using a timer.

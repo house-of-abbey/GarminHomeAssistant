@@ -49,4 +49,9 @@ class Globals {
     //! After running a task by Wi-Fi/LTE synchronisation the periodic updates need to resume. This
     //! is the delay between synchronisation completion and resumption of updates.
     static const wifiPollResumeDelayMs  = 2000; // ms
+
+    //! After running a task by Wi-Fi/LTE synchronisation the if the menu item requests to quit the
+    //! application, this is the delay to wait after synchronisation completion before quitting.
+    //! Failure to wait causes the transfer to indicate a failure.
+    static const wifiQuitDelayMs        = 5000; // ms
 }

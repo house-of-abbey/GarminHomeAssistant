@@ -347,6 +347,8 @@ Check the latest unresolved [issues](https://github.com/house-of-abbey/GarminHom
    - [Garmin Express - Wrong Language](https://forums.garmin.com/developer/connect-iq/i/bug-reports/garmin-express---wrong-language)
    - [Incorrect language displayed for custom data fields](https://forums.garmin.com/developer/connect-iq/f/discussion/388137/incorrect-language-displayed-for-custom-data-fields)
 
+9. When using Wi-Fi or LTE to toggle a light, the `toggle` will fail when the default or current state of the application's menu does not match the state of the light. The same applies to a cover or other thing that can be toggled. This is because the application is unable to initialise the menu with the current state without Bluetooth. Hence the Wi-Fi/LTE functionality is best used with `tap` items only.
+
 # Authors & Contributors
 
 For an up to date list of all authors and contributors, please check the [contributor's page](https://github.com/house-of-abbey/GarminHomeAssistant/graphs/contributors). Thank you all for improving this application.
