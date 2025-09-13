@@ -32,6 +32,7 @@
   <string id="GlanceMenu" scope="glance">Meny</string>
   <string id="Memory" scope="glance">Hukommelse</string>
   <string id="MenuUpdated">Meny oppdatert, omstart.</string>
+  <string id="MenuCheckDisabled">Menyoppdateringer deaktivert.</string>
   <string id="NoAPIKey" scope="glance">Ingen API -nøkkel i applikasjonsinnstillingene.</string>
   <string id="NoApiUrl" scope="glance">Ingen API -URL i applikasjonsinnstillingene.</string>
   <string id="NoConfigUrl" scope="glance">Ingen konfigurasjons -URL i applikasjonsinnstillingene.</string>
@@ -63,6 +64,7 @@
   <string id="SettingsConfigUrl">URL for menykonfigurasjon (JSON).</string>
   <string id="SettingsCacheConfig">Bør applikasjonsbufferen menykonfigurasjonen?</string>
   <string id="SettingsClearCache">Bør applikasjonen fjerne den eksisterende cachen neste gang den startes?</string>
+  <string id="SettingsEnableMenuUpdateCheck">Se etter menyoppdateringer på applikasjonsstart? MERKNAD: MENU -hurtigbufring må være aktivert. Denne innstillingen kan føre til at eldre enheter med mindre minne krasjer.</string>
   <string id="SettingsWifiLteExecutionEnable">Aktiver utførende kommandoer over Wi-Fi/LTE.</string>
   <string id="SettingsVibration">Bør applikasjonen gi tilbakemelding via vibrasjoner?</string>
   <string id="SettingsAppTimeout">Tidsavbrudd på sekunder. Gå ut av applikasjonen etter denne perioden med inaktivitet for å lagre enhetsbatteriet.</string>

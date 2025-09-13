@@ -32,6 +32,7 @@
   <string id="GlanceMenu" scope="glance">Menu</string>
   <string id="Memory" scope="glance">Ingatan</string>
   <string id="MenuUpdated">Menu diperbarui, restart.</string>
+  <string id="MenuCheckDisabled">Pembaruan menu dinonaktifkan.</string>
   <string id="NoAPIKey" scope="glance">Tidak ada kunci API di pengaturan aplikasi.</string>
   <string id="NoApiUrl" scope="glance">Tidak ada URL API di pengaturan aplikasi.</string>
   <string id="NoConfigUrl" scope="glance">Tidak ada URL konfigurasi di pengaturan aplikasi.</string>
@@ -63,6 +64,7 @@
   <string id="SettingsConfigUrl">URL untuk Konfigurasi Menu (JSON).</string>
   <string id="SettingsCacheConfig">Haruskah Aplikasi Menyimpan Konfigurasi Menu?</string>
   <string id="SettingsClearCache">Haruskah aplikasi menghapus cache yang ada lain kali dimulai?</string>
+  <string id="SettingsEnableMenuUpdateCheck">Periksa pembaruan menu pada aplikasi mulai? Catatan: Caching menu harus diaktifkan. Pengaturan ini dapat menyebabkan perangkat yang lebih tua dengan lebih sedikit memori untuk macet.</string>
   <string id="SettingsWifiLteExecutionEnable">Aktifkan Perintah yang Mengeksekusi melalui Wi-Fi/LTE.</string>
   <string id="SettingsVibration">Haruskah aplikasi memberikan umpan balik melalui getaran?</string>
   <string id="SettingsAppTimeout">Batas waktu dalam hitungan detik. Keluar dari aplikasi setelah periode tidak aktif ini untuk menyimpan baterai perangkat.</string>

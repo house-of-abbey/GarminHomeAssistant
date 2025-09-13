@@ -32,6 +32,7 @@
   <string id="GlanceMenu" scope="glance">Meny</string>
   <string id="Memory" scope="glance">Minne</string>
   <string id="MenuUpdated">Meny Uppdaterad, omstart.</string>
+  <string id="MenuCheckDisabled">Menyuppdateringar inaktiverade.</string>
   <string id="NoAPIKey" scope="glance">Ingen API -nyckel i applikationsinställningarna.</string>
   <string id="NoApiUrl" scope="glance">Ingen API -URL i applikationsinställningarna.</string>
   <string id="NoConfigUrl" scope="glance">Ingen konfigurations -URL i applikationsinställningarna.</string>
@@ -63,6 +64,7 @@
   <string id="SettingsConfigUrl">URL för menykonfiguration (JSON).</string>
   <string id="SettingsCacheConfig">Bör applikationen cache menykonfigurationen?</string>
   <string id="SettingsClearCache">Bör applikationen rensa den befintliga cachen nästa gång den startas?</string>
+  <string id="SettingsEnableMenuUpdateCheck">Kontrollera om menyuppdateringar vid applikationsstart? Obs: Meny Caching måste vara aktiverad. Denna inställning kan orsaka äldre enheter med mindre minne att krascha.</string>
   <string id="SettingsWifiLteExecutionEnable">Aktivera körkommandon över Wi-Fi/LTE.</string>
   <string id="SettingsVibration">Bör applikationen ge feedback via vibrationer?</string>
   <string id="SettingsAppTimeout">Timeout på några sekunder. Exit the application after this period of inactivity to save the device battery.</string>

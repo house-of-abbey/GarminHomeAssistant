@@ -32,6 +32,7 @@
   <string id="GlanceMenu" scope="glance">Меню</string>
   <string id="Memory" scope="glance">Пам'ять</string>
   <string id="MenuUpdated">Меню оновлено, перезапустіть.</string>
+  <string id="MenuCheckDisabled">Оновлення меню вимкнено.</string>
   <string id="NoAPIKey" scope="glance">Немає ключа API в налаштуваннях програми.</string>
   <string id="NoApiUrl" scope="glance">Немає URL -адреси API в налаштуваннях програми.</string>
   <string id="NoConfigUrl" scope="glance">Немає URL -адреси конфігурації в налаштуваннях програми.</string>
@@ -63,6 +64,7 @@
   <string id="SettingsConfigUrl">URL -адреса для конфігурації меню (JSON).</string>
   <string id="SettingsCacheConfig">Чи повинен додатковий кеш конфігурації меню?</string>
   <string id="SettingsClearCache">Чи повинен програма очистити існуючий кеш наступного разу, коли він буде запущений?</string>
+  <string id="SettingsEnableMenuUpdateCheck">Перевірте наявність оновлень меню щодо запуску програми? ПРИМІТКА: Меню кешування необхідно увімкнути. Це налаштування може спричинити аварію старіші пристрої з меншою пам'яттю.</string>
   <string id="SettingsWifiLteExecutionEnable">Увімкнути виконання команд над Wi-Fi/LTE.</string>
   <string id="SettingsVibration">Чи повинен програма надавати зворотній зв'язок через вібрації?</string>
   <string id="SettingsAppTimeout">Тайм -аут за лічені секунди. Вийдіть із програми після цього періоду бездіяльності, щоб зберегти акумулятор пристрою.</string>

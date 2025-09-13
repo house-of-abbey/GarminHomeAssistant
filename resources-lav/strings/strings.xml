@@ -32,6 +32,7 @@
   <string id="GlanceMenu" scope="glance">Ēdienkarte</string>
   <string id="Memory" scope="glance">Atmiņa</string>
   <string id="MenuUpdated">Atjaunināta izvēlne, restartējiet.</string>
+  <string id="MenuCheckDisabled">Izvēlnes atjauninājumi ir atspējoti.</string>
   <string id="NoAPIKey" scope="glance">Lietojumprogrammas iestatījumos nav API atslēgas.</string>
   <string id="NoApiUrl" scope="glance">Lietojumprogrammu iestatījumos nav API URL.</string>
   <string id="NoConfigUrl" scope="glance">Lietojumprogrammas iestatījumos nav konfigurācijas URL.</string>
@@ -63,6 +64,7 @@
   <string id="SettingsConfigUrl">URL izvēlnes konfigurācijai (JSON).</string>
   <string id="SettingsCacheConfig">Vai lietojumprogrammai vajadzētu kešatmiņā izvēlnes konfigurāciju?</string>
   <string id="SettingsClearCache">Vai lietojumprogrammai vajadzētu notīrīt esošo kešatmiņu nākamreiz, kad tā tiks sākta?</string>
+  <string id="SettingsEnableMenuUpdateCheck">Pārbaudiet izvēlnes atjauninājumus lietojumprogrammas sākumā? PIEZĪME: jābūt iespējotai izvēlnei kešatmiņā. Šis iestatījums var izraisīt vecākām ierīcēm ar mazāku atmiņu avāriju.</string>
   <string id="SettingsWifiLteExecutionEnable">Iespējot izpildīt komandas, izmantojot Wi-Fi/LTE.</string>
   <string id="SettingsVibration">Vai lietojumprogrammai vajadzētu sniegt atgriezenisko saiti, izmantojot vibrācijas?</string>
   <string id="SettingsAppTimeout">Noildze sekundēs. Izejiet no lietojumprogrammas pēc šī bezdarbības perioda, lai saglabātu ierīces akumulatoru.</string>

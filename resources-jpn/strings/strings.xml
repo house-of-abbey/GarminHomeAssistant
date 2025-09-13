@@ -32,6 +32,7 @@
   <string id="GlanceMenu" scope="glance">メニュー</string>
   <string id="Memory" scope="glance">メモリ</string>
   <string id="MenuUpdated">メニューの更新、再起動。</string>
+  <string id="MenuCheckDisabled">メニューの更新は無効です。</string>
   <string id="NoAPIKey" scope="glance">アプリケーション設定にAPIキーはありません。</string>
   <string id="NoApiUrl" scope="glance">アプリケーション設定にAPI URLはありません。</string>
   <string id="NoConfigUrl" scope="glance">アプリケーション設定に構成URLはありません。</string>
@@ -63,6 +64,7 @@
   <string id="SettingsConfigUrl">メニュー構成用のURL（JSON）。</string>
   <string id="SettingsCacheConfig">アプリケーションはメニュー構成をキャッシュする必要がありますか？</string>
   <string id="SettingsClearCache">次回開始時にアプリケーションが既存のキャッシュをクリアする必要がありますか？</string>
+  <string id="SettingsEnableMenuUpdateCheck">アプリケーションの開始に関するメニューの更新を確認しますか？注：メニューキャッシングを有効にする必要があります。この設定により、メモリが少ない古いデバイスがクラッシュする可能性があります。</string>
   <string id="SettingsWifiLteExecutionEnable">Wi-Fi/LTEを介してコマンドを実行できるようにします。</string>
   <string id="SettingsVibration">アプリケーションは振動を介してフィードバックを提供する必要がありますか？</string>
   <string id="SettingsAppTimeout">数秒でタイムアウト。デバイスバッテリーを保存するために、この不活性期間の後にアプリケーションを終了します。</string>

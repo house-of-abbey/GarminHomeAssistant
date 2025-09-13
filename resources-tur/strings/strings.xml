@@ -32,6 +32,7 @@
   <string id="GlanceMenu" scope="glance">Menü</string>
   <string id="Memory" scope="glance">Hafıza</string>
   <string id="MenuUpdated">Menü güncellendi, yeniden başlat.</string>
+  <string id="MenuCheckDisabled">Menü güncellemeleri devre dışı.</string>
   <string id="NoAPIKey" scope="glance">Uygulama ayarlarında API anahtarı yok.</string>
   <string id="NoApiUrl" scope="glance">Uygulama ayarlarında API URL'si yok.</string>
   <string id="NoConfigUrl" scope="glance">Uygulama ayarlarında yapılandırma URL'si yok.</string>
@@ -63,6 +64,7 @@
   <string id="SettingsConfigUrl">Menü yapılandırması için URL (JSON).</string>
   <string id="SettingsCacheConfig">Uygulama menü yapılandırmasını önbelleğe almalı mı?</string>
   <string id="SettingsClearCache">Uygulama bir dahaki sefere başladığında mevcut önbelleği temizlemeli mi?</string>
+  <string id="SettingsEnableMenuUpdateCheck">Uygulama başlangıcında menü güncellemelerini kontrol edin? Not: Menü önbellekleme etkinleştirilmelidir. Bu ayar daha az belleğe sahip eski cihazların çökmesine neden olabilir.</string>
   <string id="SettingsWifiLteExecutionEnable">Wi-Fi/LTE üzerinden komutların yürütülmesini etkinleştirin.</string>
   <string id="SettingsVibration">Uygulama titreşimlerle geri bildirim sağlamalı mı?</string>
   <string id="SettingsAppTimeout">Saniyeler içinde zaman aşımı. Cihaz bataryasını kaydetmek için bu hareketsizlik döneminden sonra uygulamadan çıkın.</string>

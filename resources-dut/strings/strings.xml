@@ -32,6 +32,7 @@
   <string id="GlanceMenu" scope="glance">Menu</string>
   <string id="Memory" scope="glance">Geheugen</string>
   <string id="MenuUpdated">Menu bijgewerkt, opnieuw opstarten.</string>
+  <string id="MenuCheckDisabled">Menu -updates uitgeschakeld.</string>
   <string id="NoAPIKey" scope="glance">Geen API -toets in de toepassingsinstellingen.</string>
   <string id="NoApiUrl" scope="glance">Geen API -URL in de toepassingsinstellingen.</string>
   <string id="NoConfigUrl" scope="glance">Geen configuratie -URL in de toepassingsinstellingen.</string>
@@ -63,6 +64,7 @@
   <string id="SettingsConfigUrl">URL voor menuconfiguratie (JSON).</string>
   <string id="SettingsCacheConfig">Moet de toepassingscache de menu -configuratie?</string>
   <string id="SettingsClearCache">Moet de toepassing de bestaande cache wissen de volgende keer dat deze wordt gestart?</string>
+  <string id="SettingsEnableMenuUpdateCheck">Controleer op menu -updates over het starten van de applicatie? Opmerking: menu Caching moet worden ingeschakeld. Deze instelling kan ervoor zorgen dat oudere apparaten met minder geheugen crashen.</string>
   <string id="SettingsWifiLteExecutionEnable">Schakel opdrachten uit via Wi-Fi/LTE.</string>
   <string id="SettingsVibration">Moet de applicatie feedback geven via trillingen?</string>
   <string id="SettingsAppTimeout">Time -out in seconden. Verlaat de toepassing na deze periode van inactiviteit om de apparaatbatterij op te slaan.</string>

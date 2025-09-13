@@ -32,6 +32,7 @@
   <string id="GlanceMenu" scope="glance">Menüü</string>
   <string id="Memory" scope="glance">Mälu</string>
   <string id="MenuUpdated">Menüü värskendatud, taaskäivitage.</string>
+  <string id="MenuCheckDisabled">Menüüvärskendused on keelatud.</string>
   <string id="NoAPIKey" scope="glance">Rakenduse seadetes pole API -klahvi.</string>
   <string id="NoApiUrl" scope="glance">Rakenduse seadetes pole API URL -i.</string>
   <string id="NoConfigUrl" scope="glance">Rakenduse sätetes pole konfiguratsiooni URL -i.</string>
@@ -63,6 +64,7 @@
   <string id="SettingsConfigUrl">URL menüü konfiguratsiooni jaoks (JSON).</string>
   <string id="SettingsCacheConfig">Kas rakenduse vahemälu peaks menüü konfiguratsiooni vahemälu vahemälu vahemälu vahemälu vahemälu vahemälu vahemälu vahemälu</string>
   <string id="SettingsClearCache">Kas rakendus peaks olemasoleva vahemälu järgmine kord alustama?</string>
+  <string id="SettingsEnableMenuUpdateCheck">Kontrollige rakenduse käivitamise menüüuuendusi? MÄRKUS. Menüü vahemällu salvestamine peab olema lubatud. See säte võib põhjustada vanemate seadmete, mille mälu on vähem.</string>
   <string id="SettingsWifiLteExecutionEnable">Luba käskude täitmine Wi-Fi/LTE kaudu.</string>
   <string id="SettingsVibration">Kas rakendus peaks vibratsiooni kaudu tagasisidet andma?</string>
   <string id="SettingsAppTimeout">Aegumine sekunditega. Pärast seda tegevusetuse perioodi seade aku salvestamiseks väljuge rakendusest.</string>

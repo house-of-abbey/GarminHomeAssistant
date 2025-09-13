@@ -39,6 +39,22 @@
   <property id="clear_cache" type="boolean">false</property>
 
   <!--
+    Enables checking of the menu definition URL for updates each time the
+    application is started. Only if menu caching is enabled, then if a menu
+    update is detected, the new menu definition is downloaded and cached ready
+    for an application restart. This menu item will be disabled by the application
+    if:
+      1. The menu caching is disabled or,
+      2. if a `Communications.INVALID_HTTP_BODY_IN_NETWORK_RESPONSE` API response
+         is encountered indicating that the Garmin device is short of memory, or
+      3. The device has < 10% memory left prior to calling the API.
+
+    Off by default due to the chance an old device will crash by default with an
+    "Out of Memory" error. At least let the application work before enabling.
+  -->
+  <property id="enable_menu_update_check" type="boolean">false</property>
+
+  <!--
     Enables the SyncDelegate and prompt to send a command over Wi-Fi/LTE.
     This will only show when not connected to the user's phone.
   -->

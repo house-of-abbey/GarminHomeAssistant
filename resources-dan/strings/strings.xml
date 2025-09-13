@@ -32,6 +32,7 @@
   <string id="GlanceMenu" scope="glance">Menu</string>
   <string id="Memory" scope="glance">Hukommelse</string>
   <string id="MenuUpdated">Menu opdateret, genstart.</string>
+  <string id="MenuCheckDisabled">Menuopdateringer deaktiveret.</string>
   <string id="NoAPIKey" scope="glance">Ingen API -nøgle i applikationsindstillingerne.</string>
   <string id="NoApiUrl" scope="glance">Ingen API -URL i applikationsindstillingerne.</string>
   <string id="NoConfigUrl" scope="glance">Ingen konfigurations -URL i applikationsindstillingerne.</string>
@@ -63,6 +64,7 @@
   <string id="SettingsConfigUrl">URL til menukonfiguration (JSON).</string>
   <string id="SettingsCacheConfig">Skal applikationscache menuen Konfiguration?</string>
   <string id="SettingsClearCache">Bør applikationen rydde den eksisterende cache næste gang den startes?</string>
+  <string id="SettingsEnableMenuUpdateCheck">Kontroller for menuopdateringer på applikationsstart? Bemærk: Menu Cache skal være aktiveret. Denne indstilling kan forårsage, at ældre enheder med mindre hukommelse går ned.</string>
   <string id="SettingsWifiLteExecutionEnable">Aktivér udførelse af kommandoer over Wi-Fi/LTE.</string>
   <string id="SettingsVibration">Bør applikationen give feedback via vibrationer?</string>
   <string id="SettingsAppTimeout">Timeout på få sekunder. Afslut applikationen efter denne periode med inaktivitet for at gemme enhedsbatteriet.</string>

@@ -32,6 +32,7 @@
   <string id="GlanceMenu" scope="glance">Meni</string>
   <string id="Memory" scope="glance">Spomin</string>
   <string id="MenuUpdated">Meni posodobljen, znova zaženite.</string>
+  <string id="MenuCheckDisabled">Posodobitve menija onemogočene.</string>
   <string id="NoAPIKey" scope="glance">V nastavitvah aplikacije ni ključa API -ja.</string>
   <string id="NoApiUrl" scope="glance">V nastavitvah aplikacije ni URL API -ja.</string>
   <string id="NoConfigUrl" scope="glance">V nastavitvah aplikacije ni URL konfiguracije.</string>
@@ -63,6 +64,7 @@
   <string id="SettingsConfigUrl">URL za konfiguracijo menija (JSON).</string>
   <string id="SettingsCacheConfig">Ali naj aplikacija predpomni konfiguracija menija?</string>
   <string id="SettingsClearCache">Ali bi morala aplikacija očistiti obstoječi predpomnilnik naslednjič, ko se začne?</string>
+  <string id="SettingsEnableMenuUpdateCheck">Preverite, ali posodobitve menijev pri zagonu aplikacije? OPOMBA: Omogoči mora biti predpomnjenje menija. Ta nastavitev lahko povzroči, da se starejše naprave z manj pomnilnika zrušijo.</string>
   <string id="SettingsWifiLteExecutionEnable">Omogoči izvajanje ukazov prek Wi-Fi/LTE.</string>
   <string id="SettingsVibration">Ali bi morala aplikacija posredovati povratne informacije z vibracijami?</string>
   <string id="SettingsAppTimeout">Časovna omejitev v nekaj sekundah. Po tem obdobju neaktivnosti zapustite aplikacijo, da shranite baterijo naprave.</string>

@@ -32,6 +32,7 @@
   <string id="GlanceMenu" scope="glance">菜单</string>
   <string id="Memory" scope="glance">记忆</string>
   <string id="MenuUpdated">菜单更新，重新启动。</string>
+  <string id="MenuCheckDisabled">菜单更新禁用。</string>
   <string id="NoAPIKey" scope="glance">应用程序设置中没有API密钥。</string>
   <string id="NoApiUrl" scope="glance">应用程序设置中没有API URL。</string>
   <string id="NoConfigUrl" scope="glance">应用程序设置中没有配置URL。</string>
@@ -63,6 +64,7 @@
   <string id="SettingsConfigUrl">菜单配置的URL（JSON）。</string>
   <string id="SettingsCacheConfig">应用程序缓存菜单配置应该缓存吗？</string>
   <string id="SettingsClearCache">应用程序下次启动时是否应该清除现有的高速缓存？</string>
+  <string id="SettingsEnableMenuUpdateCheck">检查应用程序启动时的菜单更新吗？注意：必须启用菜单缓存。此设置可能会导致较旧的设备，而内存较小。</string>
   <string id="SettingsWifiLteExecutionEnable">在Wi-Fi/LTE上启用执行命令。</string>
   <string id="SettingsVibration">应用程序是否应该通过振动提供反馈？</string>
   <string id="SettingsAppTimeout">超时几秒钟。在此不活动期间退出应用程序以节省设备电池。</string>

@@ -31,8 +31,9 @@ class Globals {
     //! an ErrorView.
     static const scApiResumeMs          = 200;  // ms
 
-    //! Warn the user after fetching the menu if their watch is low on memory before the device crashes.
-    static const scLowMem               = 0.90; // percent as a fraction.
+    //! Threshold of memory usage (guessed) to consider a device unable to automatically check
+    //! for a more recent menu due to insufficient memory.
+    static const scLowMem               = 0.85;  // Fraction of total memory used.
 
     //! Constant for PIN confirmation dialog.<br>
     //! Maximum number of failed PIN confirmation attempts allowed in `scPinMaxFailureMinutes`.

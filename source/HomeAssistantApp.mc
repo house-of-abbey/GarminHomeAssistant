@@ -302,9 +302,8 @@ class HomeAssistantApp extends Application.AppBase {
         )
     ) {
         // System.println("HomeAssistantApp fetchMenuConfigBasic(): Fetching JSON menu.");
-        var phoneConnected    = System.getDeviceSettings().phoneConnected;
         var internetAvailable = System.getDeviceSettings().connectionAvailable;
-        if (! phoneConnected or ! internetAvailable) {
+        if (! System.getDeviceSettings().phoneConnected or ! internetAvailable) {
             // System.println("HomeAssistantApp fetchMenuConfigBasic(): No Phone connection, skipping API call.");
             var errorRez = $.Rez.Strings.NoPhone;
             if (Settings.getWifiLteExecutionEnabled()) {
@@ -447,6 +446,28 @@ class HomeAssistantApp extends Application.AppBase {
         return true;
     }
 
+    //! Takes the actions required to disable the check for an updated menu and notify the user.
+    //
+    function disableMenuCheck() as Void {
+        // As we're out of memory, pretend we've checked and don't try again.
+        mIsCacheChecked = true;
+        // Prevent the menu check happening in future.
+        Settings.unsetMenuCheck();
+        // Tell the user
+        var toast = WatchUi.loadResource($.Rez.Strings.MenuCheckDisabled) as Lang.String;
+        if (mHasToast) {
+            WatchUi.showToast(toast, null);
+        } else {
+            new Alert({
+                :timeout => Globals.scAlertTimeoutMs,
+                :font    => Graphics.FONT_MEDIUM,
+                :text    => toast,
+                :fgcolor => Graphics.COLOR_WHITE,
+                :bgcolor => Graphics.COLOR_BLACK
+            }).pushView(WatchUi.SLIDE_IMMEDIATE);
+        }
+    }
+
     //! Callback function for the menu check GET request.
     //!
     //! @param responseCode Response code.
@@ -482,11 +503,9 @@ class HomeAssistantApp extends Application.AppBase {
                 break;
 
             case Communications.NETWORK_RESPONSE_OUT_OF_MEMORY:
-                // As we're out of memory, pretend we've checked and don't try again.
-                mIsCacheChecked = true;
                 // System.println("HomeAssistantApp onReturnCheckMenuConfig() Response Code: NETWORK_RESPONSE_OUT_OF_MEMORY, are we going too fast?");
+                disableMenuCheck();
                 var myTimer = new Timer.Timer();
-                // Now this feels very "closely coupled" to the application, but it is the most reliable method instead of using a timer.
                 myTimer.start(method(:updateMenuItems), Globals.scApiBackoffMs, false);
                 break;
 
@@ -578,7 +597,6 @@ class HomeAssistantApp extends Application.AppBase {
             case Communications.NETWORK_RESPONSE_OUT_OF_MEMORY:
                 // System.println("HomeAssistantApp onReturnUpdateMenuItems() Response Code: NETWORK_RESPONSE_OUT_OF_MEMORY, are we going too fast?");
                 var myTimer = new Timer.Timer();
-                // Now this feels very "closely coupled" to the application, but it is the most reliable method instead of using a timer.
                 myTimer.start(method(:updateMenuItems), Globals.scApiBackoffMs, false);
                 // Revert status
                 status = getApiStatus();
@@ -612,9 +630,19 @@ class HomeAssistantApp extends Application.AppBase {
                                 (item as HomeAssistantToggleMenuItem).updateToggleState(data[i.toString() + "t"]);
                             }
                         }
-                        if (Settings.getCacheConfig() && !mIsCacheChecked) {
+                        if (Settings.getMenuCheck() && Settings.getCacheConfig() && !mIsCacheChecked) {
                             // We are caching the menu configuration, so let's fetch it and check if its been updated.
-                            fetchMenuConfigBasic(method(:onReturnCheckMenuConfig));
+                            var stats   = System.getSystemStats(); // stats.* values in bytes
+                            // https://developer.garmin.com/connect-iq/core-topics/debugging/, see "Basic Debugging"
+                            // Create a file on the device called /GARMIN/APPS/LOGS/HOMEASSISTANT.TXT in order to log the values here.
+                            System.println("Memory: total=" + stats.totalMemory + ", used=" + stats.usedMemory + ", free=" + stats.freeMemory);
+                            if (stats.usedMemory > (Globals.scLowMem * stats.totalMemory)) {
+                                // Assume insufficient memory
+                                disableMenuCheck();
+                            } else {
+                                // Assume sufficient memory, but the response code might still turn the automatic check off.
+                                fetchMenuConfigBasic(method(:onReturnCheckMenuConfig));
+                            }
                         } else {
                             var delay = Settings.getPollDelay();
                             if (delay > 0) {
@@ -640,9 +668,9 @@ class HomeAssistantApp extends Application.AppBase {
         if (mUpdating) {
             var phoneConnected      = System.getDeviceSettings().phoneConnected;
             var connectionAvailable = System.getDeviceSettings().connectionAvailable;
-
             // In Wi-Fi/LTE execution mode, we should not show an error page but use a toast instead.
-            if (Settings.getWifiLteExecutionEnabled() && (! phoneConnected || ! connectionAvailable)) {
+            if (Settings.getWifiLteExecutionEnabled() &&
+                (! phoneConnected || ! connectionAvailable)) {
                 // Notify only once per disconnection cycle
                 if (!mNotifiedNoBle) {
                     var toast = WatchUi.loadResource($.Rez.Strings.NoPhone);
@@ -662,12 +690,10 @@ class HomeAssistantApp extends Application.AppBase {
                         }).pushView(WatchUi.SLIDE_IMMEDIATE);
                     }
                 }
-
                 mNotifiedNoBle = true;
+                mUpdating      = false;
                 setApiStatus(WatchUi.loadResource($.Rez.Strings.Unavailable) as Lang.String);
                 mUpdateTimer.start(method(:startUpdates), Globals.wifiPollResumeDelayMs, false);
-
-                mUpdating = false;
                 return;
             }
 
@@ -681,7 +707,6 @@ class HomeAssistantApp extends Application.AppBase {
                 setApiStatus(WatchUi.loadResource($.Rez.Strings.Unavailable) as Lang.String);
             } else {
                 mNotifiedNoBle = false;
-
                 if (mItemsToUpdate == null or mTemplates == null) {
                     mItemsToUpdate = mHaMenu.getItemsToUpdate();
                     mTemplates = {};
@@ -801,7 +826,7 @@ class HomeAssistantApp extends Application.AppBase {
             mApiStatus = WatchUi.loadResource($.Rez.Strings.Unconfigured) as Lang.String;
             WatchUi.requestUpdate();
         } else {
-            if ( mIsApp && Settings.getWifiLteExecutionEnabled() && (! phoneConnected || ! connectionAvailable)) {
+            if (mIsApp && Settings.getWifiLteExecutionEnabled() && (! phoneConnected || ! connectionAvailable)) {
                 // System.println("HomeAssistantApp fetchApiStatus(): In-app Wifi mode (No Phone and Internet connection), early return.");
                 return;
             } else if (! phoneConnected) {

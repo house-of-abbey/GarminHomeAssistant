@@ -319,10 +319,9 @@ class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
         } else if (mConfirm) {
             // Undo the toggle
             setEnabled(!isEnabled());
-
-            var phoneConnected = System.getDeviceSettings().phoneConnected;
-            var internetAvailable = System.getDeviceSettings().connectionAvailable;
-            if ((! phoneConnected || ! internetAvailable) && Settings.getWifiLteExecutionEnabled()) {
+            if ((! System.getDeviceSettings().phoneConnected ||
+                 ! System.getDeviceSettings().connectionAvailable) &&
+                Settings.getWifiLteExecutionEnabled()) {
                 wifiPrompt(b);
             } else {
                 var confirmationView = new HomeAssistantConfirmation();
