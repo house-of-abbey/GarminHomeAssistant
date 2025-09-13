@@ -5,7 +5,7 @@
 In order to provide the most functionality possible the content of the menu item comes from a user-defined template (i.e. you generate your own text). This allows you to do some pretty cool things. It also makes the configuration a bit more complicated. This page will help you understand how to use templates.
 
 - In this file anything between `<` and `>` is a placeholder. Replace it with the appropriate value.
-- [Jinja2](https://palletsprojects.com/p/jinja/) syntax is used by Home Assistant [Templates](https://www.home-assistant.io/docs/configuration/templating/). Templates are used to dynamically insert values into the content. The syntax includes:
+- [Jinja2](https://palletsprojects.com/p/jinja/) syntax is used by HomeAssistant [Templates](https://www.home-assistant.io/docs/configuration/templating/). Templates are used to dynamically insert values into the content. The syntax includes:
   - `{%` ... `%}` for Statements
   - `{{` ... `}}` for Expressions to print to the template output
   - `{#` ... `#}` for Comments not included in the template output
