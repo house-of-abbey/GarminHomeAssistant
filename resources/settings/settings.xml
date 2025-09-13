@@ -52,6 +52,13 @@
   </setting>
 
   <setting
+    propertyKey="@Properties.enable_menu_update_check"
+    title="@Strings.SettingsEnableMenuUpdateCheck"
+  >
+    <settingConfig type="boolean" />
+  </setting>
+
+  <setting
     propertyKey="@Properties.wifi_lte_execution"
     title="@Strings.SettingsWifiLteExecutionEnable"
   >

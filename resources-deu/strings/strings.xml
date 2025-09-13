@@ -32,6 +32,7 @@
   <string id="GlanceMenu" scope="glance">Menü</string>
   <string id="Memory" scope="glance">Speicher</string>
   <string id="MenuUpdated">Menü aktualisiert, neu starten.</string>
+  <string id="MenuCheckDisabled">Menü -Updates deaktiviert.</string>
   <string id="NoAPIKey" scope="glance">Kein API-Schlüssel in den App-Einstellungen hinterlegt.</string>
   <string id="NoApiUrl" scope="glance">Keine API-URL in den App-Einstellungen hinterlegt.</string>
   <string id="NoConfigUrl" scope="glance">Keine Menükonfigurations-URL (JSON) in den App-Einstellungen hinterlegt.</string>
@@ -63,6 +64,7 @@
   <string id="SettingsConfigUrl">URL für die Menükonfiguration (JSON).</string>
   <string id="SettingsCacheConfig">Soll die App die Menükonfiguration cachen?</string>
   <string id="SettingsClearCache">Soll die Anwendung beim nächsten Start den vorhandenen Cache löschen?</string>
+  <string id="SettingsEnableMenuUpdateCheck">Überprüfen Sie die Menü -Updates für Anwendungsstart? HINWEIS: Das Menü Caching muss aktiviert sein. Diese Einstellung kann dazu führen, dass ältere Geräte mit weniger Speicher abstürzen.</string>
   <string id="SettingsWifiLteExecutionEnable">Befehlsausführung über WLAN/LTE aktivieren.</string>
   <string id="SettingsVibration">Soll die App Rückmeldung per Vibration geben?</string>
   <string id="SettingsAppTimeout">Timeout in Sekunden. Beendet die App nach dieser Inaktivitätszeit, um Akku zu sparen.</string>

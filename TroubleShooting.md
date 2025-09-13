@@ -6,8 +6,8 @@
 
 Before [raising an issue](https://github.com/house-of-abbey/GarminHomeAssistant/issues) about a possible bug, _please, please_ check your JSON is compliant with both the JSON format and our schema. To do this you have options. The first is what we use.
 
-1. **Best!**  Use the GarminHomeAssistant [Web-based Editor](https://house-of-abbey.github.io/GarminHomeAssistant/web/) which includes `entity` and `service` name completion and validation by fetching data from your own Home Assistant instance. _Pretty  nifty eh?_ The other methods listed below do not add this convenience and checking.
-2. Use the [Studio Code Server](https://community.home-assistant.io/t/home-assistant-community-add-on-visual-studio-code/107863) addon for Home Assistant. You can then edit your JSON file in place.
+1. **Best!**  Use the GarminHomeAssistant [Web-based Editor](https://house-of-abbey.github.io/GarminHomeAssistant/web/) which includes `entity` and `service` name completion and validation by fetching data from your own HomeAssistant instance. _Pretty  nifty eh?_ The other methods listed below do not add this convenience and checking.
+2. Use the [Studio Code Server](https://community.home-assistant.io/t/home-assistant-community-add-on-visual-studio-code/107863) addon for HomeAssistant. You can then edit your JSON file in place.
 3. Locally installed VSCode, or if not installed, try
 4. The on-line version at https://vscode.dev/, which works really well. Paste in your JSON (and change the file type to JSON if not saving), it will then verify your file format and schema for you, highlighting any errors for you to fix.
 
@@ -23,7 +23,7 @@ With either of the following setups, there are inevitably some problems along th
 
 ### Nabu Casa Setup
 
-You can purchase cloud-based access to your Home Assistant from [Nabu Casa](https://www.nabucasa.com/), and then your setup will look something like this.
+You can purchase cloud-based access to your HomeAssistant from [Nabu Casa](https://www.nabucasa.com/), and then your setup will look something like this.
 
 ![Nabu Casa Setup](images/nabu_casa_setup.png)
 
@@ -67,9 +67,9 @@ This URL is very simple, you should be able to read the contents returned in a s
 
 The browser page should then display the JSON string you saved to the file on the web server. The point is this is a simple HTTP GET request with no bells and whistles.
 
-The menu configuration can be hosted anywhere, it does not have to be on the Home Assistant web server. Just as long as it is reachable from your phone from which you Bluetooth connect to your watch, or you watch if it has direct Internet access.
+The menu configuration can be hosted anywhere, it does not have to be on the HomeAssistant web server. Just as long as it is reachable from your phone from which you Bluetooth connect to your watch, or you watch if it has direct Internet access.
 
-### Home Assistant API URL
+### HomeAssistant API URL
 
 This is slightly trickier owning to the need to supply the API key. Here are three ways you can test your API URL is correctly configured. If successful, each of these should produce a JSON string output looking like:
 
@@ -124,8 +124,8 @@ There's an online way of testing the API URL too, thanks to [REQBIN](https://req
 
 With thanks to [@ziceva](https://github.com/ziceva) for solving this problem. The symptoms are:
 1. Using an API URL with SSL (HTTPS), the [web-based editor](https://house-of-abbey.github.io/GarminHomeAssistant/web/) running in a browser on the same phone running Garmin Connect works well.
-2. The exact same configuration is set in the Garmin Home Assistant application.
-3. The Garmin Home Assistant application reports:
+2. The exact same configuration is set in the Garmin HomeAssistant application.
+3. The Garmin HomeAssistant application reports:
 ```
 API: not available
 Menu: not available
@@ -153,7 +153,7 @@ To verify if you have this issue you can use a tool like [SSL Shoppers's SSL Che
 
 ## Watch Battery Level Reporting
 
-For this you will need to have already got the main application or widget working with a menu in order to prove that the API calls are successful. We have proven this works with both our home brew infrastructure as well as Nabu Casa. Now with a script similar to one of the following two, you should be able to fake the watch API call and verify receipt by Home Assistant.
+For this you will need to have already got the main application or widget working with a menu in order to prove that the API calls are successful. We have proven this works with both our home brew infrastructure as well as Nabu Casa. Now with a script similar to one of the following two, you should be able to fake the watch API call and verify receipt by HomeAssistant.
 
 #### Battery: Linux, MacOS, UNIX, Cygwin etc
 
@@ -315,7 +315,7 @@ JSON for copy & paste:
 
 ![No JSON](images/NoJson.png)
 
-When the application persists in reporting "No JSON returned from HTTP request." this might be due to a mismatch between the Webhook ID and the device settings on the Home Assistant server. We have discovered that the Webhook ID is required for Home Assistant API calls with templates in order to work in a non-privileged account. The application options include the ability to clear the Webhook ID in the application forcing a new one to be set up. This should prevent the above error being shown on startup.
+When the application persists in reporting "No JSON returned from HTTP request." this might be due to a mismatch between the Webhook ID and the device settings on the HomeAssistant server. We have discovered that the Webhook ID is required for HomeAssistant API calls with templates in order to work in a non-privileged account. The application options include the ability to clear the Webhook ID in the application forcing a new one to be set up. This should prevent the above error being shown on startup.
 
 Look for this option in the application settings:
 
@@ -323,7 +323,7 @@ Look for this option in the application settings:
 
 # Debug Logs
 
-As a desperate measure to assist with debugging the Home Assistant Application, you might be asked to send the authors a debug log.
+As a desperate measure to assist with debugging the HomeAssistant Application, you might be asked to send the authors a debug log.
 
 ![How to find the debug log file](images/debug_log_location.png)
 

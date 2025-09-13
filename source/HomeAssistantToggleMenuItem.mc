@@ -104,7 +104,11 @@ class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
         if (data == null) {
             setSubLabel(null);
         } else if(data instanceof Lang.String) {
-            setSubLabel(data);
+            // Need to set both labels, you can't just 'setSubLabel(data)' or nothing displays.
+            setSubLabel({
+                :enabled  => data,
+                :disabled => data
+            });
         } else if(data instanceof Lang.Number) {
             var d = data as Lang.Number;
             setSubLabel(d.format("%d"));
@@ -315,10 +319,9 @@ class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
         } else if (mConfirm) {
             // Undo the toggle
             setEnabled(!isEnabled());
-
-            var phoneConnected = System.getDeviceSettings().phoneConnected;
-            var internetAvailable = System.getDeviceSettings().connectionAvailable;
-            if ((! phoneConnected || ! internetAvailable) && Settings.getWifiLteExecutionEnabled()) {
+            if ((! System.getDeviceSettings().phoneConnected ||
+                 ! System.getDeviceSettings().connectionAvailable) &&
+                Settings.getWifiLteExecutionEnabled()) {
                 wifiPrompt(b);
             } else {
                 var confirmationView = new HomeAssistantConfirmation();

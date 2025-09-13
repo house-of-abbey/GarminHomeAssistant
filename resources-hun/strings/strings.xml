@@ -32,6 +32,7 @@
   <string id="GlanceMenu" scope="glance">Menü</string>
   <string id="Memory" scope="glance">Emlékezet</string>
   <string id="MenuUpdated">A menü frissítve, indítsa újra.</string>
+  <string id="MenuCheckDisabled">A menüfrissítések letiltva.</string>
   <string id="NoAPIKey" scope="glance">Nincs API -kulcs az alkalmazásbeállításokban.</string>
   <string id="NoApiUrl" scope="glance">Nincs API URL az alkalmazás beállításaiban.</string>
   <string id="NoConfigUrl" scope="glance">Nincs konfigurációs URL az alkalmazásbeállításokban.</string>
@@ -63,6 +64,7 @@
   <string id="SettingsConfigUrl">URL a menükonfigurációhoz (JSON).</string>
   <string id="SettingsCacheConfig">Az alkalmazásnak gyorsítótáraznia kell a menükonfigurációt?</string>
   <string id="SettingsClearCache">Az alkalmazásnak törölnie kell -e a meglévő gyorsítótárat a következő indításkor?</string>
+  <string id="SettingsEnableMenuUpdateCheck">Ellenőrizze a menüfrissítéseket az alkalmazás indításakor? MEGJEGYZÉS: A menü gyorsítótárazását engedélyezni kell. Ez a beállítás a kevesebb memóriával rendelkező régebbi eszközök összeomlását okozhatja.</string>
   <string id="SettingsWifiLteExecutionEnable">Engedélyezze a parancsok végrehajtási végrehajtását a Wi-Fi/LTE-n keresztül.</string>
   <string id="SettingsVibration">Az alkalmazásnak visszacsatolást kell adnia a rezgések révén?</string>
   <string id="SettingsAppTimeout">Időtúllépés másodpercek alatt. Az eszköz akkumulátorának mentése érdekében kilépjen az alkalmazásból az inaktivitás után.</string>

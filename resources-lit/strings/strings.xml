@@ -32,6 +32,7 @@
   <string id="GlanceMenu" scope="glance">Meniu</string>
   <string id="Memory" scope="glance">Atmintis</string>
   <string id="MenuUpdated">Meniu Atnaujinta, paleiskite iš naujo.</string>
+  <string id="MenuCheckDisabled">Meniu atnaujinimai išjungti.</string>
   <string id="NoAPIKey" scope="glance">Nėra API rakto programos nustatymuose.</string>
   <string id="NoApiUrl" scope="glance">Nėra API URL programos nustatymuose.</string>
   <string id="NoConfigUrl" scope="glance">Nėra konfigūracijos URL programos nustatymuose.</string>
@@ -63,6 +64,7 @@
   <string id="SettingsConfigUrl">URL meniu konfigūracijai (JSON).</string>
   <string id="SettingsCacheConfig">Ar programos talpykla turėtų talpinti meniu konfigūraciją?</string>
   <string id="SettingsClearCache">Ar programa turėtų išvalyti esamą talpyklą kitą kartą, kai ji bus paleista?</string>
+  <string id="SettingsEnableMenuUpdateCheck">Patikrinkite, ar nėra meniu atnaujinimų, pradedant programą? PASTABA: Turi būti įjungtas meniu talpyklos talpykla. Šis nustatymas gali sukelti senesnius įrenginius, turinčius mažiau atminties.</string>
   <string id="SettingsWifiLteExecutionEnable">Įgalinti komandas vykdant „Wi-Fi“/LTE.</string>
   <string id="SettingsVibration">Ar programa turėtų pateikti grįžtamąjį ryšį per vibracijas?</string>
   <string id="SettingsAppTimeout">Laikas per kelias sekundes. Išeikite iš programos po šio neveiklumo laikotarpio, kad išsaugotumėte įrenginio akumuliatorių.</string>

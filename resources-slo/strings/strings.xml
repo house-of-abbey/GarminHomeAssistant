@@ -32,6 +32,7 @@
   <string id="GlanceMenu" scope="glance">Ponuka</string>
   <string id="Memory" scope="glance">Pamiatka</string>
   <string id="MenuUpdated">Aktualizované menu, reštart.</string>
+  <string id="MenuCheckDisabled">Aktualizácie ponuky zakázané.</string>
   <string id="NoAPIKey" scope="glance">V nastaveniach aplikácie chýba kľúč API</string>
   <string id="NoApiUrl" scope="glance">V nastaveniach aplikácie chýba adresa URL rozhrania API</string>
   <string id="NoConfigUrl" scope="glance">V nastaveniach aplikácie chýba konfiguračná adresa URL</string>
@@ -63,6 +64,7 @@
   <string id="SettingsConfigUrl">URL pre konfiguráciu ponuky (JSON).</string>
   <string id="SettingsCacheConfig">Mala by sa aplikácia vyrovnávať konfiguráciu ponuky?</string>
   <string id="SettingsClearCache">Mala by aplikácia vymazať existujúcu vyrovnávaciu pamäť nabudúce, keď sa začne?</string>
+  <string id="SettingsEnableMenuUpdateCheck">Skontrolujte aktualizácie ponuky na spustení aplikácie? Poznámka: Musí sa povoliť ukladanie do vyrovnávacej pamäte ponuky. Toto nastavenie môže spôsobiť staršie zariadenia s menšou pamäťou.</string>
   <string id="SettingsWifiLteExecutionEnable">Povoliť vykonávanie príkazov cez Wi-Fi/LTE.</string>
   <string id="SettingsVibration">Mala by aplikácia poskytovať spätnú väzbu prostredníctvom vibrácií?</string>
   <string id="SettingsAppTimeout">Časový limit v sekundách. Opustite aplikáciu po tomto období nečinnosti, aby ste uložili batériu zariadenia.</string>

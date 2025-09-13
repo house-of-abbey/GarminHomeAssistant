@@ -31,8 +31,9 @@ class Globals {
     //! an ErrorView.
     static const scApiResumeMs          = 200;  // ms
 
-    //! Warn the user after fetching the menu if their watch is low on memory before the device crashes.
-    static const scLowMem               = 0.90; // percent as a fraction.
+    //! Threshold of memory usage (guessed) to consider a device unable to automatically check
+    //! for a more recent menu due to insufficient memory.
+    static const scLowMem               = 0.85;  // Fraction of total memory used.
 
     //! Constant for PIN confirmation dialog.<br>
     //! Maximum number of failed PIN confirmation attempts allowed in `scPinMaxFailureMinutes`.
@@ -49,4 +50,9 @@ class Globals {
     //! After running a task by Wi-Fi/LTE synchronisation the periodic updates need to resume. This
     //! is the delay between synchronisation completion and resumption of updates.
     static const wifiPollResumeDelayMs  = 2000; // ms
+
+    //! After running a task by Wi-Fi/LTE synchronisation the if the menu item requests to quit the
+    //! application, this is the delay to wait after synchronisation completion before quitting.
+    //! Failure to wait causes the transfer to indicate a failure.
+    static const wifiQuitDelayMs        = 5000; // ms
 }

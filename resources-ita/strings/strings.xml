@@ -32,6 +32,7 @@
   <string id="GlanceMenu" scope="glance">Menu</string>
   <string id="Memory" scope="glance">Memoria</string>
   <string id="MenuUpdated">Menu aggiornato, riavvio.</string>
+  <string id="MenuCheckDisabled">Aggiornamenti di menu disabilitati.</string>
   <string id="NoAPIKey" scope="glance">Nessuna chiave API nelle impostazioni dell'applicazione.</string>
   <string id="NoApiUrl" scope="glance">Nessun URL API nelle impostazioni dell'applicazione.</string>
   <string id="NoConfigUrl" scope="glance">Nessun URL di configurazione nelle impostazioni dell'applicazione.</string>
@@ -63,6 +64,7 @@
   <string id="SettingsConfigUrl">URL per la configurazione del menu (JSON).</string>
   <string id="SettingsCacheConfig">L'applicazione dovrebbe memorizzare la cache della configurazione del menu?</string>
   <string id="SettingsClearCache">L'applicazione dovrebbe cancellare la cache esistente la prossima volta che viene avviata?</string>
+  <string id="SettingsEnableMenuUpdateCheck">Controllare gli aggiornamenti del menu all'inizio dell'applicazione? NOTA: la memorizzazione della memorizzazione nella cache dei menu deve essere abilitata. Questa impostazione può causare crash di dispositivi più vecchi con meno memoria.</string>
   <string id="SettingsWifiLteExecutionEnable">Abilita l'esecuzione dei comandi su Wi-Fi/LTE.</string>
   <string id="SettingsVibration">L'applicazione dovrebbe fornire feedback tramite vibrazioni?</string>
   <string id="SettingsAppTimeout">Timeout in secondi. Esci dall'applicazione dopo questo periodo di inattività per salvare la batteria del dispositivo.</string>

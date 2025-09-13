@@ -92,9 +92,9 @@ class HomeAssistantTapMenuItem extends HomeAssistantMenuItem {
                 );
             }
         } else if (mConfirm) {
-            var phoneConnected    = System.getDeviceSettings().phoneConnected;
-            var internetAvailable = System.getDeviceSettings().connectionAvailable;
-            if ((! phoneConnected || ! internetAvailable) && Settings.getWifiLteExecutionEnabled()) {
+            if ((! System.getDeviceSettings().phoneConnected ||
+                 ! System.getDeviceSettings().connectionAvailable) &&
+                Settings.getWifiLteExecutionEnabled()) {
                 var dialogMsg = WatchUi.loadResource($.Rez.Strings.WifiLtePrompt) as Lang.String;
                 var dialog = new WatchUi.Confirmation(dialogMsg);
                 WatchUi.pushView(

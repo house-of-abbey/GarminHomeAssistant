@@ -26,6 +26,7 @@
   <string id="GlanceMenu" scope="glance">Menu</string>
   <string id="Memory" scope="glance">Memory</string>
   <string id="MenuUpdated">Menu updated, restart.</string>
+  <string id="MenuCheckDisabled">Menu updates disabled.</string>
   <string id="NoAPIKey" scope="glance">No API key in the application settings.</string>
   <string id="NoApiUrl" scope="glance">No API URL in the application settings.</string>
   <string id="NoConfigUrl" scope="glance">No configuration URL in the application settings.</string>
@@ -58,6 +59,7 @@
   <string id="SettingsConfigUrl">URL for menu configuration (JSON).</string>
   <string id="SettingsCacheConfig">Should the application cache the menu configuration?</string>
   <string id="SettingsClearCache">Should the application clear the existing cache next time it is started?</string>
+  <string id="SettingsEnableMenuUpdateCheck">Check for menu updates on application start? Note: Menu caching must be enabled.This setting may cause older devices with less memory to crash.</string>
   <string id="SettingsWifiLteExecutionEnable">Enable executing commands over Wi-Fi/LTE.</string>
   <string id="SettingsVibration">Should the application provide feedback via vibrations?</string>
   <string id="SettingsAppTimeout">Timeout in seconds. Exit the application after this period of inactivity to save the device battery.</string>

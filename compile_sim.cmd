@@ -93,7 +93,7 @@ if not exist %DEST% (
 )
 
 echo.
-echo Starting compilation for simulation on %DEVICE%.
+echo Starting compilation for simulation on '%DEVICE%'.
 echo.
 
 rem call %SDK_PATH%\connectiq.bat
@@ -109,8 +109,9 @@ rem Compile PRG for a single device for side loading
   --jungles %SRC%\%JUNGLE% ^
   --private-key %SRC%\..\developer_key ^
   --device %DEVICE%_sim ^
-  --warn ^
-  --release
+  --warn
+
+rem  --release
 
 if %ERRORLEVEL% equ 0 (
   %SDK_PATH%\monkeydo.bat %SRC%\bin\HomeAssistant.prg %DEVICE%

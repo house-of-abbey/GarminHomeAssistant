@@ -21,7 +21,7 @@ using Toybox.Lang;
 //
 class HomeAssistantSyncDelegate extends Communications.SyncDelegate {
     //! Retain the last synchronisation error.
-    private static var syncError as Lang.String?;
+    private static var mSyncError as Lang.String?;
 
     //! Class Constructor
     //
@@ -38,9 +38,9 @@ class HomeAssistantSyncDelegate extends Communications.SyncDelegate {
     //! Called by the system when starting a bulk synchronisation.
     //
     public function onStartSync() as Void {
-        syncError = null;
+        mSyncError = null;
         if (WifiLteExecutionConfirmDelegate.mCommandData == null) {
-            syncError = WatchUi.loadResource($.Rez.Strings.WifiLteExecutionDataError) as Lang.String;
+            mSyncError = WatchUi.loadResource($.Rez.Strings.WifiLteExecutionDataError) as Lang.String;
             onStopSync();
             return;
         }
@@ -98,42 +98,48 @@ class HomeAssistantSyncDelegate extends Communications.SyncDelegate {
     //
     public function haCallback(code as Lang.Number, data as Lang.Dictionary?) as Void {
         Communications.notifySyncProgress(100);
-        if (code == 200) {
-            syncError = null;
-            if (WifiLteExecutionConfirmDelegate.mCommandData[:type].equals("entity")) {
-                var callbackMethod = WifiLteExecutionConfirmDelegate.mCommandData[:callback];
-                if (callbackMethod != null) {
-                    var d = data as Lang.Array;
-                    callbackMethod.invoke(d);
-                }
-            }
-            onStopSync();
-            return;
-        }
-
         switch(code) {
             case Communications.NETWORK_REQUEST_TIMED_OUT:
-                syncError = WatchUi.loadResource($.Rez.Strings.TimedOut) as Lang.String;
+                mSyncError = WatchUi.loadResource($.Rez.Strings.TimedOut);
                 break;
+            case Communications.NETWORK_RESPONSE_OUT_OF_MEMORY:
             case Communications.INVALID_HTTP_BODY_IN_NETWORK_RESPONSE:
-                syncError = WatchUi.loadResource($.Rez.Strings.NoJson) as Lang.String;
-                syncError = "";
+                mSyncError = WatchUi.loadResource($.Rez.Strings.PotentialError);
+                break;
+            case 404:
+                mSyncError = WatchUi.loadResource($.Rez.Strings.ApiUrlNotFound);
+                break;
+            case 200:
+                mSyncError = null;
+                if (WifiLteExecutionConfirmDelegate.mCommandData[:type].equals("entity")) {
+                    var callbackMethod = WifiLteExecutionConfirmDelegate.mCommandData[:callback];
+                    if (callbackMethod != null) {
+                        callbackMethod.invoke(data as Lang.Array);
+                    }
+                }
+                break;
             default:
-                var codeMsg = WatchUi.loadResource($.Rez.Strings.UnhandledHttpErr) as Lang.String;
-                syncError = codeMsg + code;
+                mSyncError = WatchUi.loadResource($.Rez.Strings.UnhandledHttpErr) + code;
                 break;
         }
-
         onStopSync();
     }
 
     //! Clean up
     //
     public function onStopSync() as Void {
-        if (WifiLteExecutionConfirmDelegate.mCommandData[:exit]) {
-            System.exit();
-        }
+        Communications.notifySyncComplete(mSyncError);
         Communications.cancelAllRequests();
-        Communications.notifySyncComplete(syncError);
+        // Need to delay the exit here or the transfer shows as failed (and it might not be).
+        if (WifiLteExecutionConfirmDelegate.mCommandData[:exit]) {
+            var myTimer = new Timer.Timer();
+            myTimer.start(method(:exit), Globals.wifiQuitDelayMs, false);
+        }
+    }
+
+    //! Required for `method(:exit)` to be able to find a method at all.
+    //
+    public function exit() as Void {
+        System.exit();
     }
 }

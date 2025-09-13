@@ -35,6 +35,7 @@ class Settings {
     private static var mConfigUrl             as Lang.String  = "";
     private static var mCacheConfig           as Lang.Boolean = false;
     private static var mClearCache            as Lang.Boolean = false;
+    private static var mMenuCheck             as Lang.Boolean = false;
     private static var mVibrate               as Lang.Boolean = false;
     private static var mWifiLteExecution      as Lang.Boolean = false;
     //! seconds
@@ -68,6 +69,7 @@ class Settings {
         mConfigUrl             = Properties.getValue("config_url");
         mCacheConfig           = Properties.getValue("cache_config");
         mClearCache            = Properties.getValue("clear_cache");
+        mMenuCheck             = Properties.getValue("enable_menu_update_check");
         mWifiLteExecution      = Properties.getValue("wifi_lte_execution");
         mVibrate               = Properties.getValue("enable_vibration");
         mAppTimeout            = Properties.getValue("app_timeout");
@@ -80,6 +82,16 @@ class Settings {
         mUserHeaderName        = Properties.getValue("user_http_header_name");
         mUserHeaderValue       = Properties.getValue("user_http_header_value");
         mClearWebhookId        = Properties.getValue("clear_webhook_id");
+
+        if (mIsApp && mMenuCheck && !mCacheConfig) {
+            unsetMenuCheck();
+            // Tell the user
+            if (WatchUi has :showToast) {
+                WatchUi.showToast(WatchUi.loadResource($.Rez.Strings.MenuCheckDisabled) as Lang.String, null);
+            //} else {
+                // NB. Cannot show an Alert() here.
+            }
+        }
     }
 
     //! A webhook is required for non-privileged API calls.
@@ -223,6 +235,24 @@ class Settings {
     static function unsetClearCache() {
         mClearCache = false;
         Properties.setValue("clear_cache", mClearCache);
+    }
+
+    //! Get the menu check Boolean option supplied as part of the Settings.
+    //!
+    //! @return Boolean for whether the menu should be checked for updates when
+    //!         the application is started, and the cache updated ready for the
+    //!         next time the application is restarted.
+    //
+    static function getMenuCheck() as Lang.Boolean {
+        return mMenuCheck;
+    }
+
+    //! Unset the menu check Boolean option supplied as part of the Settings. This
+    //! option should only be set when the menu definition is cached too.
+    //
+    static function unsetMenuCheck() {
+        mMenuCheck = false;
+        Properties.setValue("enable_menu_update_check", mMenuCheck);
     }
 
     //! Get the value of the Wi-Fi/LTE toggle in settings.

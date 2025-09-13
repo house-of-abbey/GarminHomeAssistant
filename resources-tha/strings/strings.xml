@@ -32,6 +32,7 @@
   <string id="GlanceMenu" scope="glance">เมนู</string>
   <string id="Memory" scope="glance">หน่วยความจำ</string>
   <string id="MenuUpdated">อัปเดตเมนูรีสตาร์ท</string>
+  <string id="MenuCheckDisabled">การอัปเดตเมนูปิดใช้งาน</string>
   <string id="NoAPIKey" scope="glance">ไม่มีคีย์ API ในการตั้งค่าแอปพลิเคชัน</string>
   <string id="NoApiUrl" scope="glance">ไม่มี URL API ในการตั้งค่าแอปพลิเคชัน</string>
   <string id="NoConfigUrl" scope="glance">ไม่มี URL การกำหนดค่าในการตั้งค่าแอปพลิเคชัน</string>
@@ -63,6 +64,7 @@
   <string id="SettingsConfigUrl">URL สำหรับการกำหนดค่าเมนู (JSON)</string>
   <string id="SettingsCacheConfig">แอปพลิเคชันควรแคชการกำหนดค่าเมนูหรือไม่?</string>
   <string id="SettingsClearCache">แอปพลิเคชันควรล้างแคชที่มีอยู่ครั้งต่อไปในครั้งต่อไปหรือไม่</string>
+  <string id="SettingsEnableMenuUpdateCheck">ตรวจสอบการอัปเดตเมนูบนแอปพลิเคชันเริ่มต้นหรือไม่ หมายเหตุ: การแคชเมนูจะต้องเปิดใช้งานการตั้งค่านี้อาจทำให้อุปกรณ์เก่าที่มีหน่วยความจำน้อยลง</string>
   <string id="SettingsWifiLteExecutionEnable">เปิดใช้งานการดำเนินการคำสั่งผ่าน Wi-Fi/LTE</string>
   <string id="SettingsVibration">แอปพลิเคชันควรให้ข้อเสนอแนะผ่านการสั่นสะเทือนหรือไม่?</string>
   <string id="SettingsAppTimeout">หมดเวลาในไม่กี่วินาที ออกจากแอปพลิเคชันหลังจากช่วงเวลาที่ไม่มีการใช้งานเพื่อประหยัดแบตเตอรี่อุปกรณ์</string>

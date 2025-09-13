@@ -32,6 +32,7 @@
   <string id="GlanceMenu" scope="glance">메뉴</string>
   <string id="Memory" scope="glance">메모리</string>
   <string id="MenuUpdated">메뉴가 업데이트되고 다시 시작됩니다.</string>
+  <string id="MenuCheckDisabled">메뉴 업데이트가 비활성화됩니다.</string>
   <string id="NoAPIKey" scope="glance">응용 프로그램 설정에 API 키가 없습니다.</string>
   <string id="NoApiUrl" scope="glance">응용 프로그램 설정에 API URL이 없습니다.</string>
   <string id="NoConfigUrl" scope="glance">응용 프로그램 설정에 구성 URL이 없습니다.</string>
@@ -63,6 +64,7 @@
   <string id="SettingsConfigUrl">메뉴 구성 (JSON) 용 URL.</string>
   <string id="SettingsCacheConfig">응용 프로그램이 메뉴 구성을 캐시해야합니까?</string>
   <string id="SettingsClearCache">다음에 시작될 때 응용 프로그램이 기존 캐시를 지우려면?</string>
+  <string id="SettingsEnableMenuUpdateCheck">애플리케이션 시작에서 메뉴 업데이트를 확인 하시겠습니까? 참고 : 메뉴 캐싱이 활성화되어야합니다.이 설정으로 인해 메모리가 적은 기존 장치가 충돌 할 수 있습니다.</string>
   <string id="SettingsWifiLteExecutionEnable">Wi-Fi/LTE를 통해 명령을 실행할 수 있습니다.</string>
   <string id="SettingsVibration">응용 프로그램이 진동을 통해 피드백을 제공해야합니까?</string>
   <string id="SettingsAppTimeout">시간 초과 시간 초과. 장치 배터리를 저장하기 위해이 비활성 기간 후에 응용 프로그램을 종료하십시오.</string>

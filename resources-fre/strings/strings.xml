@@ -32,6 +32,7 @@
   <string id="GlanceMenu" scope="glance">Menu</string>
   <string id="Memory" scope="glance">Mémoire</string>
   <string id="MenuUpdated">Menu mis à jour, redémarrer.</string>
+  <string id="MenuCheckDisabled">MENU MISE À JOUR Désactivé.</string>
   <string id="NoAPIKey" scope="glance">Aucune clé API dans les paramètres de l'application.</string>
   <string id="NoApiUrl" scope="glance">Aucune URL de l'API dans les paramètres de l'application.</string>
   <string id="NoConfigUrl" scope="glance">Aucune URL de configuration dans les paramètres de l'application.</string>
@@ -63,6 +64,7 @@
   <string id="SettingsConfigUrl">URL pour la configuration du menu (JSON).</string>
   <string id="SettingsCacheConfig">L'application devrait-elle mettre en cache la configuration du menu?</string>
   <string id="SettingsClearCache">L'application devrait-elle effacer le cache existant la prochaine fois qu'il sera démarré?</string>
+  <string id="SettingsEnableMenuUpdateCheck">Vérifiez les mises à jour du menu au démarrage de l'application? Remarque: la mise en cache de menu doit être activée. Ce paramètre peut entraîner un écrasement des appareils plus anciens avec moins de mémoire.</string>
   <string id="SettingsWifiLteExecutionEnable">Activer l'exécution des commandes sur Wi-Fi / LTE.</string>
   <string id="SettingsVibration">L'application devrait-elle fournir des commentaires via des vibrations?</string>
   <string id="SettingsAppTimeout">Timeout en quelques secondes. Quittez l'application après cette période d'inactivité pour enregistrer la batterie de l'appareil.</string>
