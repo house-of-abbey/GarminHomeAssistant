@@ -260,12 +260,27 @@ Unfortunately the Settings dialogue box in the Garmin IQ application "times out"
 
 You should now have a working application on your watch and be able to operate your Home Assistant devices for as long as your watch is within Bluetooth range of your phone.
 
+### Changes to the (JSON) Dashboard Definition & Caching
+
+Without caching enabled, when you change the JSON file defining your dashboard, you must exit the application and the reopen it. It only takes a matter of a few seconds to pick up the new definition.
+
 You may choose to cache your menu definition on your device in order to reduce the delay in showing the menu (as it saves waiting for an HTTP GET request). If you use this option you need to be aware of how updates to the menu are managed. You may either:
 
 1. **Choose to have the cache cleared.** The toggle option below the cache option allows you to choose to refresh the cache the next time the application starts. Once the cache has been cleared, the application will reset this toggle for you, so you do not need to return to the settings to amend it.
-2. **Let the application retrieve the menu after starting and setting up the switch states** (including evaluating [templates](examples/Templates.md)), and then verify you have the latest menu. If a newer menu is retrieved you will be notified via a 'toast' or blue screen for devices without a toast in their API. You will be prompted to restart the application in order to build the menu from this latest menu definition. There are no plans to make the menu definition update recreate the rendered menu items because it could change the selected item just as you action it, and because restarting is simple for the user and simpler for the code. **This method has proven tricky in older devices with less memory.** Hence it can be turned off to avoid "Out of Memory" crashes. The application tries to protect against crashes by detecting insufficient memory and disabling the option (but note that this may require some tuning). Hence this option is off by default in case it causes a crash and new users are unaware of the potential cause.
+2. **Let the application retrieve the menu after starting and setting up the switch states** (including evaluating [templates](examples/Templates.md)), and then verify you have the latest menu. If a newer menu is retrieved you will be notified via a 'toast' or blue screen for devices without a toast in their API. You will be prompted to restart the application in order to build the menu from this latest menu definition. **This method has proven tricky in older devices with less memory.** Hence it can be turned off to avoid "Out of Memory" crashes. The application tries to protect against crashes by detecting insufficient memory and disabling the option (but note that this may require some tuning). Hence this option is off by default in case it causes a crash and new users are unaware of the potential cause.
+
+**Summary:** The two cache options are therefore distinct, the **first is a manual** forced refresh (the old way). The menu is refreshed on start up and no restart is required. The **second enables automatic checking** after starting and after presenting a usable menu with no extra delay but then any detected changes require a restart.
+
+Whilst it would be a smoother experience, there are no plans to make the menu definition update dynamically recreate the rendered menu items without a restart because:
+1. Re-rendering the menu could change the selected item just as you action it.
+2. V3.3 proved that older devices are now reaching their memory limits. If you have an old device with limited memory to spare you will probably find the App disables the automatic method for you. If your device crashes with this option turned on, best turn it off manually and let me know via a [Github issue](https://github.com/house-of-abbey/GarminHomeAssistant/issues). This will allow us to fine tune the conditions for insufficient memory. We will then ask you to perform a [small task to retrieve the debug information](https://developer.garmin.com/connect-iq/core-topics/debugging/) we need about memory usage.
+3. Restarting is simple for the user and simpler for the code.
+
+### Vibration
 
 The application uses vibration to confirm the action has been requested, which is different to the 'toast' that appears to show the action has been successfully executed. This is enabled by default but may be turned off if you do not desire this behaviour.
+
+### Power Management
 
 The application timeout prevents the HomeAssistant App running on your watch when you have forgotten to close it. It prevents the refreshing of the menu statuses and therefore excessive wear on your battery level. For those users who prefer to keep the application open all the time for continuous use, they can reduce the battery wear by increasing the "poll delay". This inserts a user configurable number of seconds between each round of item update checks, hence reducing the API access activity. This also reduces the responsive of the statuses displayed when HA devices are switched externally, i.e. by another Home Assistant client, then the watch menu display will not update as quickly. Therefore if you only use the HomeAssistant App briefly now and then, keep this setting at the default 0 seconds. NB. To be clear, all items are updated then a configurable delay is inserted before the next round of all item updates. If your poll delay is greater than zero, then your application timeout should be set to zero, otherwise you will exit the application and negate the value of the poll delay function.
 
@@ -280,7 +295,11 @@ There is a second timeout value for confirmation views. This is intended for use
 
 The confirmation timeout is also used for the maximum time between clicks in the PIN confirmation dialog. The PIN confirmation provides a more secure alternative for toggling security-sensitive actions.
 
+### Text Alignment
+
 There is a toggle setting for "text alignment" that provides finer adjustment for right-to-left languages. Perhaps this could be made automatic based on device language?
+
+### Background Service
 
 The application and widget both include a background service to report your watch's battery level and charging status. You may enable a background service to report the battery level to your Home Assistant. This is not available over your Bluetooth connection like with other Bluetooth devices as Garmin did not implement it. This no longer requires any setup, and we offer this [trouble shooting](TroubleShooting.md#watch-battery-level-reporting) guide. The last field here is readonly and allows the user to copy & paste the Webhook ID setup by the application when required for this trouble shooting guide.
 
@@ -301,10 +320,6 @@ The per toggle item delay is caused by a queue of responses to web requests. The
 The thinking here is that the watch application will only ever be open briefly not persistently, so the delay in picking up state changes won't be observed often for any race condition between two controllers. As a consequence of this update mechanism, if you request changes too quickly you will be notified that your device cannot keep up with the rate of API responses and you will have to dismiss the error in order to continue. This is a _feature not a bug_! If the application reduces the rate of "round robin" status update requests it becomes less responsive to external changes.
 
 To prevent excessive battery usage, set the application timeout in the settings. This will prevent you from leaving the application open and forgotten when not being used, and the polling mechanism will then cease, saving battery life. Again, the thinking here is that the watch application will only ever be open briefly not persistently, and hence not be a constant source of battery usage unless the [background service](BackgroundService.md) for sending any watch status is used aggressively fast.
-
-## Changes to the (JSON) Dashboard Definition
-
-When you change the JSON file defining your dashboard, you must exit the application and the reopen it. It only takes a matter of a few seconds to pick up the new definition, but it is not automatic. *Don't forget* you may explicitly choose to clear your cached menu, or wait the application to discover your definition has changed and prompt you to restart. The application check only happens once after startup, rendering menu items and setting the menu item states.
 
 ## Submitting Corrections for Translations
 
