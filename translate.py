@@ -30,6 +30,8 @@
 ####################################################################################
 
 import os
+import sys
+import re
 import json
 import argparse
 from typing import Dict, List, Tuple
@@ -205,6 +207,66 @@ Return only valid JSON with this exact structure and nothing else (no markdown f
 - For comments that should remain unchanged based on the rules above, return the existing translation verbatim.
 """.strip()
 
+# ---------------- Language selection helper ----------------
+
+def select_languages_from_arg(spec: str, verbose: bool = False) -> List[Tuple[str, str, str]]:
+    """
+    Parse a language selection spec and return the list of language tuples to process.
+
+    Accepted selectors (case-insensitive, comma or whitespace separated):
+    - Garmin 3-letter codes (e.g., 'deu, fre, spa')
+    - 2-letter codes from the tuple (e.g., 'de, fr, es', 'zh-cn', 'zh-tw', 'iw')
+    - Language names (e.g., 'German, French, Spanish')
+    - '*' or 'all' to select all languages
+
+    Unknown selectors are ignored with a warning.
+    """
+    if not spec:
+        return languages
+
+    tokens = [t for t in re.split(r"[,\s]+", spec.strip()) if t]
+    if not tokens:
+        return languages
+
+    # If any token is '*' or 'all', select all
+    lowered = [t.lower() for t in tokens]
+    if any(t in ("*", "all") for t in lowered):
+        return languages
+
+    # Build lookup maps
+    by_garmin: Dict[str, Tuple[str, str, str]] = {}
+    by_google: Dict[str, Tuple[str, str, str]] = {}
+    by_name: Dict[str, Tuple[str, str, str]] = {}
+    for trip in languages:
+        gar, g2, name = trip
+        if isinstance(gar, str):
+            by_garmin[gar.lower()] = trip
+        if isinstance(g2, str):
+            by_google[g2.lower()] = trip
+        if isinstance(name, str):
+            by_name[name.lower()] = trip
+
+    selected_codes = set()
+    unknown = []
+
+    for t in lowered:
+        t_norm = t.replace("_", "-")
+        if t_norm in by_garmin:
+            selected_codes.add(by_garmin[t_norm][0].lower())
+        elif t_norm in by_google:
+            selected_codes.add(by_google[t_norm][0].lower())
+        elif t_norm in by_name:
+            selected_codes.add(by_name[t_norm][0].lower())
+        else:
+            unknown.append(t)
+
+    if unknown and verbose:
+        print(f"Warning: unknown language selectors ignored: {', '.join(sorted(set(unknown)))}")
+
+    # Preserve original order from 'languages'
+    selected = [trip for trip in languages if trip[0].lower() in selected_codes]
+    return selected
+
 # ---------------- Main translation logic ----------------
 
 def translate_language(
@@ -368,8 +430,23 @@ def translate_language(
 
 def main():
     parser = argparse.ArgumentParser(description="Translate Garmin IQ strings.xml using Gemini.")
-    parser.add_argument("-v", "--verbose", action="store_true", help="Enable verbose debug output (prints prompts and responses)")
-    parser.add_argument("-i", "--improve", action="store_true", help="Improve mode: re-run all strings through translation for potential improvements")
+    parser.add_argument(
+        "-v", "--verbose",
+        action="store_true",
+        help="Enable verbose debug output (prints prompts and responses)"
+    )
+    parser.add_argument(
+        "-i", "--improve",
+        action="store_true",
+        help="Improve mode: re-run all strings through translation for potential improvements"
+    )
+    parser.add_argument(
+        "-l", "--langs",
+        type=str,
+        default=None,
+        help="Limit processed languages. Accepts comma/space separated Garmin codes (e.g., 'deu, fre'), "
+             "2-letter codes (e.g., 'de fr'), or names (e.g., 'German French'). Use '*' or 'all' for all."
+    )
     args = parser.parse_args()
 
     # Init client
@@ -385,8 +462,18 @@ def main():
     english_soup = BeautifulSoup(english_xml, features="xml")
     english_strings = extract_strings(english_soup)
 
-    total_langs = len(languages)
-    for i, lang in enumerate(languages, start=1):
+    # Determine which languages to process
+    selected_languages = select_languages_from_arg(args.langs, verbose=args.verbose)
+    if not selected_languages:
+        print("No valid languages selected. Nothing to do.")
+        sys.exit(0)
+
+    if args.verbose and args.langs:
+        pretty = ", ".join([f"{name} ({code})" for code, _g, name in selected_languages])
+        print(f"Selected languages: {pretty}")
+
+    total_langs = len(selected_languages)
+    for i, lang in enumerate(selected_languages, start=1):
         print(f"{i} of {total_langs}: Translating English to {lang[2]}" + (" [improve]" if args.improve else ""))
         try:
             translate_language(
