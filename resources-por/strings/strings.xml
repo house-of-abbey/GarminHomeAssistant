@@ -53,7 +53,7 @@
   <string id="WrongPin">Pino errado</string>
   <string id="WifiLteNotAvailable">Sem Wi-Fi ou LTE disponível</string>
   <string id="WifiLtePrompt">Executar sobre Wi-Fi/LTE?</string>
-  <string id="WifiLteExecutionTitle">Enviando para o assistente de casa.</string>
+  <string id="WifiLteExecutionTitle">Enviando para o homealsistente.</string>
   <string id="WifiLteExecutionDataError">Nenhum dado recebido.</string>
   <!-- Para a GUI das configurações, as cordas devem estar na ordem em que são usadas. -->
   <string id="SettingsSelect">Selecione ...</string>
@@ -74,12 +74,12 @@
   <string id="SettingsLeftToRight">Da esquerda para a direita</string>
   <string id="SettingsRightToLeft">Direita para a esquerda</string>
   <string id="SettingsWidgetStart">(Somente widget) Inicie automaticamente o aplicativo do widget sem esperar por um toque.</string>
-  <string id="SettingsEnableBatteryLevel">Habilite o serviço em segundo plano para enviar o nível da bateria do dispositivo, localização e (se suportado) dados de atividade para o assistente doméstico.</string>
+  <string id="SettingsEnableBatteryLevel">Ative o serviço de plano de fundo para enviar o nível da bateria do dispositivo, localização e (se suportado) dados de atividade para o homealsista.</string>
   <string id="SettingsBatteryLevelRefreshRate">A taxa de atualização (em minutos) na qual o serviço em segundo plano deve repetir os dados de envio.</string>
   <string id="SettingsUserHttpHeader">Usuário fornecido pelo cabeçalho HTTP</string>
-  <string id="SettingsUserHttpHeaderDescription">Algumas instalações de assistente doméstica exigem a especificação de um cabeçalho HTTP personalizado para funcionar.</string>
+  <string id="SettingsUserHttpHeaderDescription">Algumas instalações homessistantes exigem a especificação de um cabeçalho HTTP personalizado para funcionar.</string>
   <string id="SettingsUserHttpHeaderName">Usuário fornecido http header: nome</string>
   <string id="SettingsUserHttpHeaderValue">Usuário fornecido HTTP-Header: Valor</string>
-  <string id="SettingsClearWebhookId">Reconecte -se ao assistente doméstico (ID da WebHook limpa, consulte o Guia de Solução de Problemas).</string>
+  <string id="SettingsClearWebhookId">Reconecte -se ao HomeSistant (Clear Webhook ID, consulte Guia de Solução de Problemas).</string>
   <string id="SettingsWebhookId">(Somente leitura) O ID do webhook criado pelo dispositivo para atualizações de serviço em segundo plano. Você pode exigir isso para depuração.</string>
 </strings>

@@ -53,7 +53,7 @@
   <string id="WrongPin">Pin sbagliato</string>
   <string id="WifiLteNotAvailable">Nessun Wi-Fi o LTE disponibile</string>
   <string id="WifiLtePrompt">Eseguire su Wi-Fi/LTE?</string>
-  <string id="WifiLteExecutionTitle">Invio all'assistente di casa.</string>
+  <string id="WifiLteExecutionTitle">Invio a HomeAssistant.</string>
   <string id="WifiLteExecutionDataError">Nessun dato ricevuto.</string>
   <!-- Per le impostazioni della GUI, le stringhe dovrebbero essere nell'ordine in cui vengono utilizzate. -->
   <string id="SettingsSelect">Selezionare...</string>
@@ -74,12 +74,12 @@
   <string id="SettingsLeftToRight">Da sinistra a destra</string>
   <string id="SettingsRightToLeft">Da destra a sinistra</string>
   <string id="SettingsWidgetStart">(Solo widget) Avviare automaticamente l'applicazione dal widget senza aspettare un tocco.</string>
-  <string id="SettingsEnableBatteryLevel">Abilita il servizio di fondo per inviare i dati di attività della batteria, posizione e (se supportati) ad Assistente Home Assistant.</string>
+  <string id="SettingsEnableBatteryLevel">Abilita il servizio in background per inviare i dati di attività della batteria, posizione e (se supportati) a HomeAssistant.</string>
   <string id="SettingsBatteryLevelRefreshRate">La frequenza di aggiornamento (in minuti) in cui il servizio di fondo deve ripetere l'invio di dati.</string>
   <string id="SettingsUserHttpHeader">Intestazione HTTP fornita dall'utente</string>
-  <string id="SettingsUserHttpHeaderDescription">Alcune installazioni di assistenti domestici richiedono la specifica di un'intestazione HTTP personalizzata per funzionare.</string>
+  <string id="SettingsUserHttpHeaderDescription">Alcune installazioni HomeAssistant richiedono la specifica di un'intestazione HTTP personalizzata per funzionare.</string>
   <string id="SettingsUserHttpHeaderName">Utente fornito HTTP-HEADER: nome</string>
   <string id="SettingsUserHttpHeaderValue">Utente fornito HTTP-HEADER: valore</string>
-  <string id="SettingsClearWebhookId">Riconnettiti a Home Assistant (Clear Webhook ID, vedi Guida alla risoluzione dei problemi).</string>
+  <string id="SettingsClearWebhookId">Riconnettiti a HomeAssistant (Clear Webhook ID, vedi Guida alla risoluzione dei problemi).</string>
   <string id="SettingsWebhookId">(Solo lettura) L'ID WebHook creato dal dispositivo per gli aggiornamenti del servizio in background. Potresti richiederlo per il debug.</string>
 </strings>

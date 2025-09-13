@@ -53,7 +53,7 @@
   <string id="WrongPin">Forkert pin</string>
   <string id="WifiLteNotAvailable">Ingen Wi-Fi eller LTE tilgængelig</string>
   <string id="WifiLtePrompt">Udfør over Wi-Fi/LTE?</string>
-  <string id="WifiLteExecutionTitle">Sender til hjemmeassistent.</string>
+  <string id="WifiLteExecutionTitle">Sending til HomeAssistant.</string>
   <string id="WifiLteExecutionDataError">Ingen data modtaget.</string>
   <!-- For indstillingerne GUI skal strenge være i den rækkefølge, de bruges. -->
   <string id="SettingsSelect">Vælge...</string>
@@ -74,12 +74,12 @@
   <string id="SettingsLeftToRight">Venstre til højre</string>
   <string id="SettingsRightToLeft">Ret til venstre</string>
   <string id="SettingsWidgetStart">(Kun widget) Start automatisk applikationen fra widgetten uden at vente på et tryk.</string>
-  <string id="SettingsEnableBatteryLevel">Aktivér baggrundstjenesten til at sende enhedsbatteriniveauet, placering og (hvis understøttes) aktivitetsdata til hjemmeassistent.</string>
+  <string id="SettingsEnableBatteryLevel">Aktivér baggrundstjenesten til at sende enhedens batteriniveau, placering og (hvis understøttes) aktivitetsdata til homeassistent.</string>
   <string id="SettingsBatteryLevelRefreshRate">Opdateringshastigheden (på få minutter), hvor baggrundstjenesten skal gentage afsendelsesdata.</string>
   <string id="SettingsUserHttpHeader">Bruger leveret HTTP -header</string>
-  <string id="SettingsUserHttpHeaderDescription">Nogle hjemmeassistentinstallationer kræver specifikation af en brugerdefineret HTTP -header for at fungere.</string>
+  <string id="SettingsUserHttpHeaderDescription">Nogle homeassistante installationer kræver specifikation af en brugerdefineret HTTP -header for at fungere.</string>
   <string id="SettingsUserHttpHeaderName">Bruger leveret http-header: navn</string>
   <string id="SettingsUserHttpHeaderValue">Bruger leveret http-header: værdi</string>
-  <string id="SettingsClearWebhookId">Tilslut igen til hjemmeassistent (Clear WebHook ID, se Guide til fejlfinding).</string>
+  <string id="SettingsClearWebhookId">Tilslut igen til HomeAssistant (Clear WebHook ID, se Guide til fejlfinding).</string>
   <string id="SettingsWebhookId">(Læs kun) Webhook -ID oprettet af enheden til opdateringer af baggrundstjeneste. Du kræver muligvis dette til fejlsøgning.</string>
 </strings>

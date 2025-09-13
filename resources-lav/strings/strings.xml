@@ -53,7 +53,7 @@
   <string id="WrongPin">Nepareiza tapa</string>
   <string id="WifiLteNotAvailable">Nav pieejams bezvadu internets vai LTE</string>
   <string id="WifiLtePrompt">Izpildīt pār wi-fi/lte?</string>
-  <string id="WifiLteExecutionTitle">Sūtot mājas palīgu.</string>
+  <string id="WifiLteExecutionTitle">Sūtīšana uz Homeassistantu.</string>
   <string id="WifiLteExecutionDataError">Dati nav saņemti.</string>
   <!-- Iestatījumi GUI stīgām jābūt tādā secībā, kādu tie tiek izmantoti. -->
   <string id="SettingsSelect">Atlasiet ...</string>
@@ -74,12 +74,12 @@
   <string id="SettingsLeftToRight">No kreisās uz labo pusi</string>
   <string id="SettingsRightToLeft">Pa labi uz kreiso pusi</string>
   <string id="SettingsWidgetStart">(Tikai logrīks) Automātiski sāk lietot lietojumprogrammu no logrīka, negaidot pieskārienu.</string>
-  <string id="SettingsEnableBatteryLevel">Iespējojiet fona pakalpojumu, lai mājas asistentam nosūtītu ierīces akumulatora līmeni, atrašanās vietu un (ja tos atbalstītu) aktivitātes datus.</string>
+  <string id="SettingsEnableBatteryLevel">Iespējojiet fona pakalpojumu, lai ierīces akumulatora līmenis, atrašanās vieta un (ja tās tiek atbalstītas) aktivitātes dati uz Homeassistantu.</string>
   <string id="SettingsBatteryLevelRefreshRate">Atsvaidzināšanas ātrums (minūtēs), kurā fona pakalpojumam vajadzētu atkārtot datu nosūtīšanu.</string>
   <string id="SettingsUserHttpHeader">Lietotājs piegādāja HTTP galveni</string>
-  <string id="SettingsUserHttpHeaderDescription">Dažām mājas palīga instalācijām ir nepieciešama pielāgota HTTP galvenes specifikācija, lai darbotos.</string>
+  <string id="SettingsUserHttpHeaderDescription">Dažām Homeassistant instalācijām ir nepieciešama pielāgota HTTP galvenes specifikācija, lai darbotos.</string>
   <string id="SettingsUserHttpHeaderName">Lietotājs piegādāja HTTP galveni: Vārds</string>
   <string id="SettingsUserHttpHeaderValue">Lietotājs piegādā HTTP galveni: vērtība</string>
-  <string id="SettingsClearWebhookId">Atkārtoti savienojiet mājas palīgu (Clear WebHook ID, skatīt problēmu novēršanas ceļvedis).</string>
+  <string id="SettingsClearWebhookId">Atkārtoti izveidojiet savienojumu ar Homeassistant (Clear WebHook ID, skatīt problēmu novēršanas rokasgrāmatu).</string>
   <string id="SettingsWebhookId">(Tikai lasīt) WebHook ID, ko ierīce izveidoja fona pakalpojumu atjauninājumiem. Jūs to varētu pieprasīt atkļūdošanai.</string>
 </strings>

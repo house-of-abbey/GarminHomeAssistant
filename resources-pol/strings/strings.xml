@@ -53,7 +53,7 @@
   <string id="WrongPin">Niewłaściwy szpilka</string>
   <string id="WifiLteNotAvailable">Brak dostępnych Wi-Fi lub LTE</string>
   <string id="WifiLtePrompt">Wykonaj Wi-Fi/LTE?</string>
-  <string id="WifiLteExecutionTitle">Wysyłanie do asystenta domowego.</string>
+  <string id="WifiLteExecutionTitle">Wysyłanie do Homeassistant.</string>
   <string id="WifiLteExecutionDataError">Brak danych.</string>
   <!-- W przypadku ustawień GUI sznurki powinny znajdować się w kolejności ich używanych. -->
   <string id="SettingsSelect">Wybierać...</string>
@@ -74,12 +74,12 @@
   <string id="SettingsLeftToRight">Od lewej do prawej</string>
   <string id="SettingsRightToLeft">Od prawej do lewej</string>
   <string id="SettingsWidgetStart">(Tylko widżet) Automatycznie uruchom aplikację z widżetu bez oczekiwania na dotknięcie.</string>
-  <string id="SettingsEnableBatteryLevel">Włącz usługę w tle wysyłanie poziomu baterii, lokalizacji i (jeśli jest obsługiwane) dane o aktywności do Asystenta Home.</string>
+  <string id="SettingsEnableBatteryLevel">Włącz usługę tła wysyłanie poziomu baterii, lokalizacji i (jeśli jest obsługiwane) dane dotyczące aktywności do HomeSsistant.</string>
   <string id="SettingsBatteryLevelRefreshRate">Szybkość odświeżania (w minutach), w której usługa tła powinna powtarzać dane wysyłania.</string>
   <string id="SettingsUserHttpHeader">Dostarczony przez użytkownika nagłówek HTTP</string>
-  <string id="SettingsUserHttpHeaderDescription">Niektóre instalacje asystentów domowych wymagają specyfikacji niestandardowego nagłówka HTTP w celu funkcjonowania.</string>
+  <string id="SettingsUserHttpHeaderDescription">Niektóre instalacje oporne na dom, wymagają specyfikacji niestandardowego nagłówka HTTP w celu funkcjonowania.</string>
   <string id="SettingsUserHttpHeaderName">Dostarczony przez użytkownika HTTP-Header: Nazwa</string>
   <string id="SettingsUserHttpHeaderValue">Dostarczony przez użytkownika HTTP-Header: Wartość</string>
-  <string id="SettingsClearWebhookId">Ponowne połączenie z Asystentem Home (Clear Webhook ID, patrz Przewodnik po rozwiązywaniu problemów).</string>
+  <string id="SettingsClearWebhookId">Ponowne połączenie się z Homeassistant (Clear Webhook ID, patrz Przewodnik po rozwiązywaniu problemów).</string>
   <string id="SettingsWebhookId">(Tylko odczyt) Identyfikator WebHook utworzony przez urządzenie dla aktualizacji usług w tle. Możesz tego wymagać do debugowania.</string>
 </strings>

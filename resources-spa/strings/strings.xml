@@ -53,7 +53,7 @@
   <string id="WrongPin">Pin incorrecto</string>
   <string id="WifiLteNotAvailable">No hay Wi-Fi o LTE disponible</string>
   <string id="WifiLtePrompt">Ejecutar sobre wi-fi/lte?</string>
-  <string id="WifiLteExecutionTitle">Enviando al asistente de casa.</string>
+  <string id="WifiLteExecutionTitle">Enviando a Homeassistant.</string>
   <string id="WifiLteExecutionDataError">No se reciben datos.</string>
   <!-- Para la GUI de configuración, las cadenas deben estar en el orden en que se usan. -->
   <string id="SettingsSelect">Seleccionar...</string>
@@ -74,12 +74,12 @@
   <string id="SettingsLeftToRight">De izquierda a derecha</string>
   <string id="SettingsRightToLeft">Derecha a izquierda</string>
   <string id="SettingsWidgetStart">(Solo widget) Inicie automáticamente la aplicación desde el widget sin esperar un toque.</string>
-  <string id="SettingsEnableBatteryLevel">Habilite el servicio de fondo para enviar el nivel de batería del dispositivo, la ubicación y (si se admiten) datos de actividad al asistente de inicio.</string>
+  <string id="SettingsEnableBatteryLevel">Habilite el servicio de fondo para enviar el nivel de batería del dispositivo, la ubicación y (si se admiten) datos de actividad a HOMEASSISTE.</string>
   <string id="SettingsBatteryLevelRefreshRate">La tasa de actualización (en minutos) en la que el servicio de fondo debe repetir los datos de envío.</string>
   <string id="SettingsUserHttpHeader">Encabezado HTTP suministrado por el usuario</string>
-  <string id="SettingsUserHttpHeaderDescription">Algunas instalaciones de asistente de inicio requieren la especificación de un encabezado HTTP personalizado para funcionar.</string>
+  <string id="SettingsUserHttpHeaderDescription">Algunas instalaciones de HOMEASSISTE requieren la especificación de un encabezado HTTP personalizado para funcionar.</string>
   <string id="SettingsUserHttpHeaderName">Header HTTP suministrado por el usuario: nombre</string>
   <string id="SettingsUserHttpHeaderValue">Header HTTP suministrado por el usuario: valor</string>
-  <string id="SettingsClearWebhookId">Vuelva a conectar al Asistente de inicio (claro ID de webhook, consulte la Guía de solución de problemas).</string>
+  <string id="SettingsClearWebhookId">Vuelva a conectarlo a Homeassistant (ID de Webhook Clear, consulte la Guía de solución de problemas).</string>
   <string id="SettingsWebhookId">(Solo lea) la ID de webhook creada por el dispositivo para actualizaciones del servicio de fondo. Es posible que necesite esto para la depuración.</string>
 </strings>

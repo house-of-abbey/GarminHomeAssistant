@@ -53,7 +53,7 @@
   <string id="WrongPin">Mauvaise épingle</string>
   <string id="WifiLteNotAvailable">Pas de Wi-Fi ou LTE disponible</string>
   <string id="WifiLtePrompt">Exécuter sur Wi-Fi / LTE?</string>
-  <string id="WifiLteExecutionTitle">Envoi à l'assistant à domicile.</string>
+  <string id="WifiLteExecutionTitle">Envoi à HomeSSistant.</string>
   <string id="WifiLteExecutionDataError">Aucune donnée reçue.</string>
   <!-- Pour l'interface graphique des paramètres, les cordes doivent être dans l'ordre où elles sont utilisées. -->
   <string id="SettingsSelect">Sélectionner...</string>
@@ -74,12 +74,12 @@
   <string id="SettingsLeftToRight">De gauche à droite</string>
   <string id="SettingsRightToLeft">De la droite à gauche</string>
   <string id="SettingsWidgetStart">(Widget uniquement) Démarrez automatiquement l'application à partir du widget sans attendre un robinet.</string>
-  <string id="SettingsEnableBatteryLevel">Activez le service d'arrière-plan pour envoyer le niveau de la batterie de l'appareil, l'emplacement et (le cas échéant) les données d'activité à l'assistant à domicile.</string>
+  <string id="SettingsEnableBatteryLevel">Activez le service d'arrière-plan pour envoyer le niveau de la batterie de l'appareil, l'emplacement et (le cas échéant) les données d'activité à HomeSSistants.</string>
   <string id="SettingsBatteryLevelRefreshRate">Le taux de rafraîchissement (en minutes) auquel le service d'arrière-plan doit répéter l'envoi de données.</string>
   <string id="SettingsUserHttpHeader">En-tête HTTP fourni par l'utilisateur</string>
-  <string id="SettingsUserHttpHeaderDescription">Certaines installations d'assistant à domicile nécessitent la spécification d'un en-tête HTTP personnalisé pour fonctionner.</string>
+  <string id="SettingsUserHttpHeaderDescription">Certaines installations HomeSSistants nécessitent la spécification d'un en-tête HTTP personnalisé pour fonctionner.</string>
   <string id="SettingsUserHttpHeaderName">Utilisateur fourni HTTP-Header: Nom</string>
   <string id="SettingsUserHttpHeaderValue">Utilisateur HTTP-Header: Valeur</string>
-  <string id="SettingsClearWebhookId">Reconnectez-vous à Home Assistant (Clear WebHook ID, voir Guide de dépannage).</string>
+  <string id="SettingsClearWebhookId">Reconnectez-vous à HomeSSistant (Clear WebHook ID, voir Guide de dépannage).</string>
   <string id="SettingsWebhookId">(Lire uniquement) L'ID Webhook créé par l'appareil pour les mises à jour du service d'arrière-plan. Vous pourriez en avoir besoin pour le débogage.</string>
 </strings>

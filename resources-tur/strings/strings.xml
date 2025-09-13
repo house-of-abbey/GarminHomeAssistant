@@ -53,7 +53,7 @@
   <string id="WrongPin">Yanlış iğne</string>
   <string id="WifiLteNotAvailable">Wi-Fi veya LTE yok</string>
   <string id="WifiLtePrompt">Wi-Fi/LTE üzerinden yürütülüyor mu?</string>
-  <string id="WifiLteExecutionTitle">Ev Asistanı'na gönderiyor.</string>
+  <string id="WifiLteExecutionTitle">HomeasSistant'a gönderme.</string>
   <string id="WifiLteExecutionDataError">Alınan veri yok.</string>
   <!-- Ayarlar GUI için dizeler kullanıldıkları sırayla olmalıdır. -->
   <string id="SettingsSelect">Seçme...</string>
@@ -74,12 +74,12 @@
   <string id="SettingsLeftToRight">Soldan sağa</string>
   <string id="SettingsRightToLeft">Sağdan sola</string>
   <string id="SettingsWidgetStart">(Yalnızca widget) Bir musluk beklemeden uygulamayı widget'tan otomatik olarak başlatın.</string>
-  <string id="SettingsEnableBatteryLevel">Arka plan hizmetinin aygıt pil seviyesini, konumunu ve (desteklenirse) etkinlik verilerini ev asistanına göndermesini etkinleştirin.</string>
+  <string id="SettingsEnableBatteryLevel">Arka plan hizmetinin cihaz pil seviyesini, konumunu ve (desteklenirse) etkinlik verilerini HomeAsSistant'a göndermesini etkinleştirin.</string>
   <string id="SettingsBatteryLevelRefreshRate">Arka plan hizmetinin veri göndermeyi tekrarlaması gereken yenileme hızı (dakika cinsinden).</string>
   <string id="SettingsUserHttpHeader">Kullanıcı tarafından sağlanan HTTP başlığı</string>
-  <string id="SettingsUserHttpHeaderDescription">Bazı ev asistanı kurulumları, çalışabilmek için özel bir HTTP başlığının belirtilmesini gerektirir.</string>
+  <string id="SettingsUserHttpHeaderDescription">Bazı homeAsSistant kurulumları, çalışabilmek için özel bir HTTP başlığının belirtilmesini gerektirir.</string>
   <string id="SettingsUserHttpHeaderName">Kullanıcı tarafından sağlanan HTTP-Header: Ad</string>
   <string id="SettingsUserHttpHeaderValue">Kullanıcı tarafından tedarik edilen HTTP-Header: Değer</string>
-  <string id="SettingsClearWebhookId">Ev Asistanı'na yeniden bağlanın (Webhook kimliğini temizleyin, bkz. Sorun Giderme Kılavuzu).</string>
+  <string id="SettingsClearWebhookId">HomeasSistant'a yeniden bağlanın (Webhook kimliğini temizleyin, bkz. Sorun Giderme Kılavuzu).</string>
   <string id="SettingsWebhookId">(Yalnızca okuyun) Arka plan hizmeti güncellemeleri için cihaz tarafından oluşturulan WebHook kimliği. Hata ayıklama için bunu isteyebilirsiniz.</string>
 </strings>

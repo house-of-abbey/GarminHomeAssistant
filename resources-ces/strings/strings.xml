@@ -53,7 +53,7 @@
   <string id="WrongPin">Špatný špendlík</string>
   <string id="WifiLteNotAvailable">Není k dispozici žádné Wi-Fi nebo LTE</string>
   <string id="WifiLtePrompt">Provést přes Wi-Fi/LTE?</string>
-  <string id="WifiLteExecutionTitle">Odeslání domácímu asistentovi.</string>
+  <string id="WifiLteExecutionTitle">Odeslání do domácí.</string>
   <string id="WifiLteExecutionDataError">Žádná data.</string>
   <!-- Pro GUI nastavení by měly být řetězce v pořadí, které jsou použity. -->
   <string id="SettingsSelect">Vybrat...</string>
@@ -74,12 +74,12 @@
   <string id="SettingsLeftToRight">Zleva doprava</string>
   <string id="SettingsRightToLeft">Vpravo doleva</string>
   <string id="SettingsWidgetStart">(Pouze widget) automaticky spusťte aplikaci z widgetu bez čekání na klepnutí.</string>
-  <string id="SettingsEnableBatteryLevel">Umožněte službě pozadí odeslat úroveň baterie, umístění baterie zařízení a (pokud je podporována) údaje o aktivitě domácímu asistentovi.</string>
+  <string id="SettingsEnableBatteryLevel">Umožněte službě pozadí odeslat úroveň baterie, umístění baterie zařízení a (pokud je podporována) data aktivity na domácí.</string>
   <string id="SettingsBatteryLevelRefreshRate">Obnovení frekvence (v minutách), při kterém by měla služba na pozadí opakovat odesílání dat.</string>
   <string id="SettingsUserHttpHeader">Uživatel dodaný záhlaví HTTP</string>
-  <string id="SettingsUserHttpHeaderDescription">Některá instalace domácího asistenta vyžadují specifikaci vlastní záhlaví HTTP, aby fungovaly.</string>
+  <string id="SettingsUserHttpHeaderDescription">Některé instalace Homeassistant vyžadují, aby se fungovala vlastní záhlaví HTTP.</string>
   <string id="SettingsUserHttpHeaderName">Uživatel dodaný HTTP-HEADER: Jméno</string>
   <string id="SettingsUserHttpHeaderValue">Uživatel dodaný HTTP-HEADER: Hodnota</string>
-  <string id="SettingsClearWebhookId">Znovu se připojte k domácímu asistentovi (Clear Webhook ID, viz příručka pro odstraňování problémů).</string>
+  <string id="SettingsClearWebhookId">Znovu se připojte k domácímu (Clear Webhook ID, viz příručka pro odstraňování problémů).</string>
   <string id="SettingsWebhookId">(Pouze číst) ID Webhook vytvořené zařízením pro aktualizace služby na pozadí. Možná to budete potřebovat pro ladění.</string>
 </strings>

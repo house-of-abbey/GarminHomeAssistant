@@ -53,7 +53,7 @@
   <string id="WrongPin">Neteisingas kaištis</string>
   <string id="WifiLteNotAvailable">„Wi-Fi“ ar „LTE“ nėra</string>
   <string id="WifiLtePrompt">Vykdyti per „Wi-Fi/LTE“?</string>
-  <string id="WifiLteExecutionTitle">Siunčiamas namų asistentui.</string>
+  <string id="WifiLteExecutionTitle">Siunčiamas į „HOMEASISTANT“.</string>
   <string id="WifiLteExecutionDataError">Jokių duomenų.</string>
   <!-- „Nustatymų GUI“ stygos turėtų būti tokia tvarka. -->
   <string id="SettingsSelect">Pasirinkite ...</string>
@@ -74,12 +74,12 @@
   <string id="SettingsLeftToRight">Iš kairės į dešinę</string>
   <string id="SettingsRightToLeft">Į dešinę į kairę</string>
   <string id="SettingsWidgetStart">(Tik valdiklis) Automatiškai paleiskite programą iš valdiklio nelaukdamas čiaupo.</string>
-  <string id="SettingsEnableBatteryLevel">Įgalinkite fono paslaugą siųsti įrenginio akumuliatoriaus lygį, vietą ir (jei palaikoma) veiklos duomenis namų asistentui.</string>
+  <string id="SettingsEnableBatteryLevel">Įgalinkite fono paslaugą siųsti įrenginio akumuliatoriaus lygį, vietą ir (jei palaikoma) veiklos duomenis į „HOMEAsistant“.</string>
   <string id="SettingsBatteryLevelRefreshRate">Atnaujinimo norma (minutėmis), kuriai fono paslauga turėtų pakartoti siuntimo duomenis.</string>
   <string id="SettingsUserHttpHeader">Vartotojas pateikė HTTP antraštę</string>
-  <string id="SettingsUserHttpHeaderDescription">Kai kuriems namų asistento diegimui reikalinga specifikacija pagal pasirinktinę HTTP antraštę, kad ji veiktų.</string>
+  <string id="SettingsUserHttpHeaderDescription">Kai kuriems homeazių įrenginiams reikalinga specialioji HTTP antraštė, kad ji veiktų.</string>
   <string id="SettingsUserHttpHeaderName">Vartotojo tiekiamas HTTP-HEADER: Vardas</string>
   <string id="SettingsUserHttpHeaderValue">Vartotojo tiekiamas HTTP-HEADER: reikšmė</string>
-  <string id="SettingsClearWebhookId">Prijunkite prie namų asistento („Clear WebHook ID“, žr. Trikčių šalinimo vadovą).</string>
+  <string id="SettingsClearWebhookId">Prijunkite prie „HOMEAsSistant“ („Clear WebHook ID“, žr. Trikčių šalinimo vadovą).</string>
   <string id="SettingsWebhookId">(Skaitykite tik) „WebHook“ ID, kurį įrenginys sukūrė foninių paslaugų atnaujinimams. Jums gali prireikti derinimo.</string>
 </strings>

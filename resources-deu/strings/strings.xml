@@ -80,6 +80,6 @@
   <string id="SettingsUserHttpHeaderDescription">Einige Home Assistant-Installationen erfordern die Angabe eines benutzerdefinierten HTTP-Headers, um zu funktionieren.</string>
   <string id="SettingsUserHttpHeaderName">Zusätzlicher HTTP-Header: Name</string>
   <string id="SettingsUserHttpHeaderValue">Zusätzlicher HTTP-Header: Value</string>
-  <string id="SettingsClearWebhookId">Verbinden Sie eine Verbindung zum Home Assistant (Clear Webhook ID, siehe Fehlerbehebungshandbuch).</string>
+  <string id="SettingsClearWebhookId">Verbinden Sie sich wieder mit dem Homasen (Clear Webhook ID, siehe Fehlerbehebungshandbuch).</string>
   <string id="SettingsWebhookId">(Nur lesen) Die vom Gerät erstellte Webhook-ID für Hintergrund-Updates. Kann zum Debuggen benötigt werden.</string>
 </strings>

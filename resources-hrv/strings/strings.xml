@@ -53,9 +53,9 @@
   <string id="WrongPin">Pogrešan pin</string>
   <string id="WifiLteNotAvailable">Nije dostupno Wi-Fi ili LTE</string>
   <string id="WifiLtePrompt">Izvršite preko Wi-Fi/LTE?</string>
-  <string id="WifiLteExecutionTitle">Slanje kod kuće pomoćnika.</string>
+  <string id="WifiLteExecutionTitle">Slanje HomeAssistant -u.</string>
   <string id="WifiLteExecutionDataError">Nema primljenih podataka.</string>
-  <!-- Za postavke GUI, žice bi trebale biti u redoslijedu koji se koriste. -->
+  <!-- Za postavke GUI, nizovi bi trebali biti u redoslijedu koji se koriste. -->
   <string id="SettingsSelect">Odaberite ...</string>
   <string id="SettingsApiKey">Ključ API -ja za HomeAssistant.</string>
   <string id="SettingsApiKeyPrompt">Dugotrajni pristupni token.</string>
@@ -74,12 +74,12 @@
   <string id="SettingsLeftToRight">Slijeva na desno</string>
   <string id="SettingsRightToLeft">Desno lijevo</string>
   <string id="SettingsWidgetStart">(Samo widget) Automatski pokrenite aplikaciju iz widgeta bez čekanja na dodir.</string>
-  <string id="SettingsEnableBatteryLevel">Omogućite pozadinsku uslugu da pošalje podatke o bateriji uređaja, lokaciji i (ako su podržani) podatke o aktivnostima kod kuće.</string>
+  <string id="SettingsEnableBatteryLevel">Omogućite pozadinskoj usluzi da pošalje podatke o bateriji uređaja, lokaciji i (ako je podržana) podacima aktivnosti na homeAssistant.</string>
   <string id="SettingsBatteryLevelRefreshRate">Brzina osvježavanja (u minutama) u kojoj bi pozadinska usluga trebala ponoviti slanje podataka.</string>
   <string id="SettingsUserHttpHeader">Korisnik isporučen HTTP zaglavlje</string>
-  <string id="SettingsUserHttpHeaderDescription">Neke instalacije kod kuće zahtijevaju specifikaciju prilagođenog HTTP zaglavlja kako bi funkcionirale.</string>
+  <string id="SettingsUserHttpHeaderDescription">Neke instalacije HomeAssistant zahtijevaju specifikaciju prilagođenog HTTP zaglavlja kako bi funkcionirale.</string>
   <string id="SettingsUserHttpHeaderName">Korisnik isporučen HTTP-Header: Ime</string>
   <string id="SettingsUserHttpHeaderValue">Korisnik isporučen http-glava: Vrijednost</string>
-  <string id="SettingsClearWebhookId">Ponovno se povežite s kućnim pomoćnikom (Clear Webhook ID, pogledajte vodič za rješavanje problema).</string>
+  <string id="SettingsClearWebhookId">Ponovno se povežite s HomeAssistant (Clear Webhook ID, pogledajte vodič za rješavanje problema).</string>
   <string id="SettingsWebhookId">(Samo pročitajte) ID Webhooka stvorio je uređaj za ažuriranja pozadine. Možda će vam to trebati za uklanjanje pogrešaka.</string>
 </strings>

@@ -53,7 +53,7 @@
   <string id="WrongPin">دبوس خاطئ</string>
   <string id="WifiLteNotAvailable">لا متوفر Wi-Fi أو LTE</string>
   <string id="WifiLtePrompt">تنفيذ على Wi-Fi/LTE؟</string>
-  <string id="WifiLteExecutionTitle">إرسال إلى المنزل مساعد.</string>
+  <string id="WifiLteExecutionTitle">إرسال إلى HereasSistant.</string>
   <string id="WifiLteExecutionDataError">لم يتم استلام البيانات.</string>
   <!-- بالنسبة للإعدادات واجهة المستخدم الرسومية ، يجب أن تكون السلاسل بالترتيب المستخدمة. -->
   <string id="SettingsSelect">يختار...</string>
@@ -74,12 +74,12 @@
   <string id="SettingsLeftToRight">من اليسار إلى اليمين</string>
   <string id="SettingsRightToLeft">من اليمين إلى اليسار</string>
   <string id="SettingsWidgetStart">(عنصر واجهة المستخدم فقط) ابدأ التطبيق تلقائيًا من عنصر واجهة المستخدم دون انتظار النقر.</string>
-  <string id="SettingsEnableBatteryLevel">قم بتمكين خدمة الخلفية لإرسال مستوى بطارية الجهاز والموقع و (إذا كان مدعومًا) بيانات النشاط إلى مساعد المنزل.</string>
+  <string id="SettingsEnableBatteryLevel">تمكين خدمة الخلفية لإرسال مستوى بطارية الجهاز والموقع وبيانات النشاط (إذا كان مدعومًا) إلى HereasSistant.</string>
   <string id="SettingsBatteryLevelRefreshRate">معدل التحديث (في الدقائق) التي يجب أن تكرر خدمة الخلفية إرسال البيانات.</string>
   <string id="SettingsUserHttpHeader">قام المستخدم بتزويد المستخدم HTTP</string>
-  <string id="SettingsUserHttpHeaderDescription">تتطلب بعض عمليات تثبيت المساعدين المنزلي مواصفات رأس HTTP مخصص من أجل العمل.</string>
+  <string id="SettingsUserHttpHeaderDescription">تتطلب بعض المنشآت المتساوية تحديد رأس HTTP المخصص من أجل العمل.</string>
   <string id="SettingsUserHttpHeaderName">قام المستخدم بتزويد HTTP Header: الاسم</string>
   <string id="SettingsUserHttpHeaderValue">قام المستخدم بتزويد HTTP Header: Value</string>
-  <string id="SettingsClearWebhookId">أعد الاتصال بمساعد المنزل (Clear WebHook ID ، انظر دليل استكشاف الأخطاء وإصلاحها).</string>
+  <string id="SettingsClearWebhookId">قم بإعادة الاتصال بـ HomeasSistant (Clear Webhook ID ، انظر دليل استكشاف الأخطاء وإصلاحها).</string>
   <string id="SettingsWebhookId">(اقرأ فقط) معرف WebHook الذي تم إنشاؤه بواسطة الجهاز لتحديثات خدمة الخلفية. قد تطلب هذا لتصحيح الأخطاء.</string>
 </strings>
