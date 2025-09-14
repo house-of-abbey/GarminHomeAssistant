@@ -20,5 +20,12 @@ rem     https://developer.garmin.com/connect-iq/reference-guides/monkey-c-comman
 rem
 rem -----------------------------------------------------------------------------------
 
+rem 'pip' instructs us to add this to the PATH for 'websockets.exe' and 'httpx.exe'
+PATH=%PATH%;%USERPROFILE%\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\Scripts
+rem pip install google-genai beautifulsoup4 lxml
+rem Read the API key from a text file excluded from git.
+rem Copy the API key from your project in https://aistudio.google.com/app/apikey into this file.
+set /p GEMINI_API_KEY=<".\gemini_api_key.txt"
+rem echo Using Gemini API Key: %GEMINI_API_KEY%
 python translate.py
 pause
