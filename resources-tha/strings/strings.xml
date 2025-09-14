@@ -64,6 +64,7 @@
   <string id="SettingsConfigUrl">URL สำหรับการกำหนดค่าเมนู (JSON)</string>
   <string id="SettingsCacheConfig">แอปพลิเคชันควรแคชการกำหนดค่าเมนูหรือไม่?</string>
   <string id="SettingsClearCache">แอปพลิเคชันควรล้างแคชที่มีอยู่ครั้งต่อไปที่เริ่มต้นหรือไม่?</string>
+  <string id="SettingsEnableMenuUpdateCheck">ตรวจสอบการอัปเดตเมนูเมื่อเริ่มต้นแอปพลิเคชันหรือไม่? หมายเหตุ: ต้องเปิดใช้งานการแคชเมนู การตั้งค่านี้อาจทำให้อุปกรณ์รุ่นเก่าที่มีหน่วยความจำน้อยกว่าขัดข้อง</string>
   <string id="SettingsWifiLteExecutionEnable">เปิดใช้งานการดำเนินการคำสั่งผ่าน Wi-Fi/LTE</string>
   <string id="SettingsVibration">แอปพลิเคชันควรให้ข้อเสนอแนะผ่านการสั่นสะเทือนหรือไม่?</string>
   <string id="SettingsAppTimeout">หมดเวลา (วินาที)

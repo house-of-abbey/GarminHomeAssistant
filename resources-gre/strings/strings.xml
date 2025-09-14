@@ -33,6 +33,7 @@
   <string id="GlanceMenu" scope="glance">Μενού</string>
   <string id="Memory" scope="glance">Μνήμη</string>
   <string id="MenuUpdated">Ενημερώθηκε το μενού, επανεκκίνηση.</string>
+  <string id="MenuCheckDisabled">Οι ενημερώσεις μενού απενεργοποιήθηκαν.</string>
   <string id="NoAPIKey" scope="glance">Δεν υπάρχει κλειδί API στις ρυθμίσεις εφαρμογής.</string>
   <string id="NoApiUrl" scope="glance">Δεν υπάρχει διεύθυνση URL API στις ρυθμίσεις εφαρμογής.</string>
   <string id="NoConfigUrl" scope="glance">Δεν υπάρχει διεύθυνση URL διαμόρφωσης στις ρυθμίσεις
@@ -58,7 +59,7 @@
   <string id="WifiLtePrompt">Εκτέλεση μέσω Wi-Fi/LTE;</string>
   <string id="WifiLteExecutionTitle">Αποστολή στο Home Assistant.</string>
   <string id="WifiLteExecutionDataError">Δεν λαμβάνονται δεδομένα.</string>
-  <!-- Για τις ρυθμίσεις GUI, οι χορδές πρέπει να είναι με τη σειρά που χρησιμοποιούνται. -->
+  <!-- Για το GUI ρυθμίσεων, οι συμβολοσειρές πρέπει να είναι με τη σειρά που χρησιμοποιούνται. -->
   <string id="SettingsSelect">Επιλογή...</string>
   <string id="SettingsApiKey">Κλειδί API για το Home Assistant.</string>
   <string id="SettingsApiKeyPrompt">Διακριτικό πρόσβασης μακράς διάρκειας.</string>
@@ -67,6 +68,7 @@
   <string id="SettingsCacheConfig">Να αποθηκεύει προσωρινά η εφαρμογή τη διαμόρφωση του μενού;</string>
   <string id="SettingsClearCache">Πρέπει η εφαρμογή να διαγράψει την υπάρχουσα μνήμη cache την
     επόμενη φορά που θα ξεκινήσει;</string>
+  <string id="SettingsEnableMenuUpdateCheck">Έλεγχος για ενημερώσεις μενού κατά την εκκίνηση της εφαρμογής; Σημείωση: Η προσωρινή αποθήκευση μενού πρέπει να είναι ενεργοποιημένη. Αυτή η ρύθμιση μπορεί να προκαλέσει σφάλματα σε παλαιότερες συσκευές με λιγότερη μνήμη.</string>
   <string id="SettingsWifiLteExecutionEnable">Ενεργοποιήστε την εκτέλεση εντολών μέσω Wi-Fi/LTE.</string>
   <string id="SettingsVibration">Πρέπει η εφαρμογή να παρέχει ανατροφοδότηση μέσω δονήσεων;</string>
   <string id="SettingsAppTimeout">Χρονικό όριο σε δευτερόλεπτα. Η εφαρμογή θα κλείσει μετά από αυτήν

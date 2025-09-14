@@ -32,6 +32,7 @@
   <string id="GlanceMenu" scope="glance">Valikko</string>
   <string id="Memory" scope="glance">Muisti</string>
   <string id="MenuUpdated">Valikko päivitetty, käynnistä uudelleen.</string>
+  <string id="MenuCheckDisabled">Valikkopäivitykset poistettu käytöstä.</string>
   <string id="NoAPIKey" scope="glance">Ei API-avainta sovellusasetuksissa.</string>
   <string id="NoApiUrl" scope="glance">Ei API-URL-osoitetta sovellusasetuksissa.</string>
   <string id="NoConfigUrl" scope="glance">Ei määritys-URL-osoitetta sovellusasetuksissa.</string>
@@ -65,6 +66,7 @@
   <string id="SettingsCacheConfig">Pitäisikö sovelluksen tallentaa valikon kokoonpano välimuistiin?</string>
   <string id="SettingsClearCache">Pitäisikö sovelluksen tyhjentää olemassa oleva välimuisti
     seuraavalla käynnistyksellä?</string>
+  <string id="SettingsEnableMenuUpdateCheck">Tarkistetaanko valikkopäivitykset sovelluksen käynnistyksen yhteydessä? Huomaa: Valikon välimuistiin tallennus on oltava käytössä. Tämä asetus voi aiheuttaa vanhempien, vähemmän muistia omaavien laitteiden kaatumisen.</string>
   <string id="SettingsWifiLteExecutionEnable">Ota komentojen suorittaminen käyttöön
     Wi-Fi/LTE-yhteyden kautta.</string>
   <string id="SettingsVibration">Pitäisikö sovelluksen antaa palautetta värähtelyjen kautta?</string>

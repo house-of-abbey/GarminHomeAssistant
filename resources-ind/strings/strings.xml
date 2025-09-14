@@ -33,6 +33,7 @@
   <string id="GlanceMenu" scope="glance">Menu</string>
   <string id="Memory" scope="glance">Memori</string>
   <string id="MenuUpdated">Menu diperbarui, mulai ulang.</string>
+  <string id="MenuCheckDisabled">Pembaruan menu dinonaktifkan.</string>
   <string id="NoAPIKey" scope="glance">Tidak ada kunci API di pengaturan aplikasi.</string>
   <string id="NoApiUrl" scope="glance">Tidak ada URL API di pengaturan aplikasi.</string>
   <string id="NoConfigUrl" scope="glance">Tidak ada URL konfigurasi di pengaturan aplikasi.</string>
@@ -66,6 +67,7 @@
   <string id="SettingsCacheConfig">Haruskah aplikasi meng-cache konfigurasi menu?</string>
   <string id="SettingsClearCache">Haruskah aplikasi menghapus cache yang ada saat dimulai
     berikutnya?</string>
+  <string id="SettingsEnableMenuUpdateCheck">Periksa pembaruan menu saat aplikasi dimulai? Catatan: Cache menu harus diaktifkan. Pengaturan ini dapat menyebabkan perangkat lama dengan memori lebih sedikit mengalami crash.</string>
   <string id="SettingsWifiLteExecutionEnable">Aktifkan eksekusi perintah melalui Wi-Fi/LTE.</string>
   <string id="SettingsVibration">Haruskah aplikasi memberikan umpan balik melalui getaran?</string>
   <string id="SettingsAppTimeout">Batas waktu dalam detik. Keluar dari aplikasi setelah periode

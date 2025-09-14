@@ -33,6 +33,7 @@
   <string id="GlanceMenu" scope="glance">Meniu</string>
   <string id="Memory" scope="glance">Memorie</string>
   <string id="MenuUpdated">Meniu actualizat, reporniți.</string>
+  <string id="MenuCheckDisabled">Actualizări meniu dezactivate.</string>
   <string id="NoAPIKey" scope="glance">Nicio cheie API în setările aplicației.</string>
   <string id="NoApiUrl" scope="glance">Niciun URL API în setările aplicației.</string>
   <string id="NoConfigUrl" scope="glance">Niciun URL de configurare în setările aplicației.</string>
@@ -65,6 +66,7 @@
   <string id="SettingsCacheConfig">Aplicația ar trebui să memoreze în cache configurația meniului?</string>
   <string id="SettingsClearCache">Aplicația ar trebui să șteargă memoria cache existentă la
     următoarea pornire?</string>
+  <string id="SettingsEnableMenuUpdateCheck">Verificați actualizările meniului la pornirea aplicației? Notă: Memorarea în cache a meniului trebuie să fie activată. Această setare poate cauza blocarea dispozitivelor mai vechi cu mai puțină memorie.</string>
   <string id="SettingsWifiLteExecutionEnable">Activați executarea comenzilor prin Wi-Fi/LTE.</string>
   <string id="SettingsVibration">Aplicația ar trebui să ofere feedback prin vibrații?</string>
   <string id="SettingsAppTimeout">Timp de expirare în secunde. Ieșiți din aplicație după această

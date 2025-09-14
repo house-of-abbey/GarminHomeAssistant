@@ -32,6 +32,7 @@
   <string id="GlanceMenu" scope="glance">Меню</string>
   <string id="Memory" scope="glance">Памет</string>
   <string id="MenuUpdated">Менюто е обновено, рестартирайте.</string>
+  <string id="MenuCheckDisabled">Актуализациите на менюто са деактивирани.</string>
   <string id="NoAPIKey" scope="glance">Няма ключ за API в настройките на приложението.</string>
   <string id="NoApiUrl" scope="glance">Няма URL адрес на API в настройките на приложението.</string>
   <string id="NoConfigUrl" scope="glance">Няма URL адрес за конфигурация в настройките на приложението.</string>
@@ -63,6 +64,7 @@
   <string id="SettingsConfigUrl">URL за конфигуриране на менюто (JSON).</string>
   <string id="SettingsCacheConfig">Трябва ли приложението да кешира конфигурацията на менюто?</string>
   <string id="SettingsClearCache">Трябва ли приложението да изчисти съществуващия кеш следващия път, когато бъде стартирано?</string>
+  <string id="SettingsEnableMenuUpdateCheck">Проверка за актуализации на менюто при стартиране на приложението? Забележка: Кеширането на менюто трябва да е активирано. Тази настройка може да доведе до срив на по-стари устройства с по-малко памет.</string>
   <string id="SettingsWifiLteExecutionEnable">Активиране на изпълнение на команди над Wi-Fi/LTE.</string>
   <string id="SettingsVibration">Трябва ли приложението да предоставя обратна връзка чрез вибрации?</string>
   <string id="SettingsAppTimeout">Време за изчакване в секунди. Излезте от приложението след този период на бездействие, за да запазите батерията на устройството.</string>

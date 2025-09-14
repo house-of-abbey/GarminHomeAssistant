@@ -66,6 +66,7 @@
   <string id="SettingsCacheConfig">Ứng dụng có nên lưu cấu hình menu vào bộ nhớ đệm không?</string>
   <string id="SettingsClearCache">Ứng dụng có nên xóa bộ nhớ đệm hiện có vào lần khởi động tiếp theo
     không?</string>
+  <string id="SettingsEnableMenuUpdateCheck">Kiểm tra cập nhật menu khi khởi động ứng dụng? Lưu ý: Tính năng lưu bộ nhớ đệm menu phải được bật. Cài đặt này có thể khiến các thiết bị cũ hơn với ít bộ nhớ hơn bị treo.</string>
   <string id="SettingsWifiLteExecutionEnable">Bật thực thi lệnh qua Wi-Fi/LTE.</string>
   <string id="SettingsVibration">Ứng dụng có nên cung cấp phản hồi bằng rung không?</string>
   <string id="SettingsAppTimeout">Thời gian chờ trong giây. Thoát khỏi ứng dụng sau khoảng thời gian

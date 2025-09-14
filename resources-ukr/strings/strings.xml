@@ -67,6 +67,7 @@
   <string id="SettingsCacheConfig">Чи повинна програма кешувати конфігурацію меню?</string>
   <string id="SettingsClearCache">Чи повинна програма очистити наявний кеш під час наступного
     запуску?</string>
+  <string id="SettingsEnableMenuUpdateCheck">Перевіряти оновлення меню під час запуску програми? Примітка: Кешування меню має бути увімкнено. Цей параметр може призвести до збоїв на старих пристроях з меншим обсягом пам'яті.</string>
   <string id="SettingsWifiLteExecutionEnable">Увімкнути виконання команд через Wi-Fi/LTE.</string>
   <string id="SettingsVibration">Чи повинна програма надавати зворотний зв'язок за допомогою
     вібрацій?</string>

@@ -32,6 +32,7 @@
   <string id="GlanceMenu" scope="glance">תפריט</string>
   <string id="Memory" scope="glance">זיכרון</string>
   <string id="MenuUpdated">התפריט עודכן, הפעל מחדש.</string>
+  <string id="MenuCheckDisabled">עדכוני תפריט מושבתים.</string>
   <string id="NoAPIKey" scope="glance">אין מפתח API בהגדרות היישום.</string>
   <string id="NoApiUrl" scope="glance">אין כתובת URL של ה-API בהגדרות היישום.</string>
   <string id="NoConfigUrl" scope="glance">אין כתובת URL לתצורה בהגדרות היישום.</string>
@@ -63,6 +64,7 @@
   <string id="SettingsConfigUrl">כתובת URL לתצורת תפריט (JSON).</string>
   <string id="SettingsCacheConfig">האם היישום צריך לשמור את תצורת התפריט במטמון?</string>
   <string id="SettingsClearCache">האם היישום צריך לנקות את המטמון הקיים בהפעלה הבאה?</string>
+  <string id="SettingsEnableMenuUpdateCheck">בדוק עדכוני תפריט בהפעלת היישום? הערה: שמירת תפריט במטמון חייבת להיות מופעלת. הגדרה זו עלולה לגרום למכשירים ישנים יותר עם פחות זיכרון לקרוס.</string>
   <string id="SettingsWifiLteExecutionEnable">אפשר לבצע פקודות דרך Wi-Fi/LTE.</string>
   <string id="SettingsVibration">האם היישום צריך לספק משוב באמצעות רעידות?</string>
   <string id="SettingsAppTimeout">פסק זמן בשניות. היישום ייצא לאחר תקופת חוסר פעילות זו כדי לחסוך

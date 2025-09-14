@@ -33,6 +33,7 @@
   <string id="GlanceMenu" scope="glance">Izbornik</string>
   <string id="Memory" scope="glance">Memorija</string>
   <string id="MenuUpdated">Izbornik ažuriran, ponovno pokrenite.</string>
+  <string id="MenuCheckDisabled">Ažuriranja izbornika onemogućena.</string>
   <string id="NoAPIKey" scope="glance">Nema API ključa u postavkama aplikacije.</string>
   <string id="NoApiUrl" scope="glance">Nema API URL-a u postavkama aplikacije.</string>
   <string id="NoConfigUrl" scope="glance">Nema URL-a konfiguracije u postavkama aplikacije.</string>
@@ -65,6 +66,7 @@
   <string id="SettingsCacheConfig">Treba li aplikacija predmemorirati konfiguraciju izbornika?</string>
   <string id="SettingsClearCache">Treba li aplikacija očistiti postojeću predmemoriju sljedeći put
     kad se pokrene?</string>
+  <string id="SettingsEnableMenuUpdateCheck">Provjeriti ažuriranja izbornika pri pokretanju aplikacije? Napomena: Predmemoriranje izbornika mora biti omogućeno. Ova postavka može uzrokovati rušenje starijih uređaja s manje memorije.</string>
   <string id="SettingsWifiLteExecutionEnable">Omogući izvršavanje naredbi putem Wi-Fi/LTE.</string>
   <string id="SettingsVibration">Treba li aplikacija davati povratne informacije putem vibracija?</string>
   <string id="SettingsAppTimeout">Istek vremena u sekundama. Izađite iz aplikacije nakon ovog

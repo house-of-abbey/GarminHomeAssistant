@@ -32,6 +32,7 @@
   <string id="GlanceMenu" scope="glance">Menu</string>
   <string id="Memory" scope="glance">Paměť</string>
   <string id="MenuUpdated">Menu aktualizováno, restartujte.</string>
+  <string id="MenuCheckDisabled">Aktualizace menu zakázány.</string>
   <string id="NoAPIKey" scope="glance">Žádný klíč API v nastavení aplikace.</string>
   <string id="NoApiUrl" scope="glance">Žádná URL API v nastavení aplikace.</string>
   <string id="NoConfigUrl" scope="glance">Žádná konfigurační URL v nastavení aplikace.</string>
@@ -63,6 +64,7 @@
   <string id="SettingsConfigUrl">URL pro konfiguraci nabídky (JSON).</string>
   <string id="SettingsCacheConfig">Měla by aplikace ukládat konfiguraci nabídky?</string>
   <string id="SettingsClearCache">Měla by aplikace vymazat stávající mezipaměť při příštím spuštění?</string>
+  <string id="SettingsEnableMenuUpdateCheck">Kontrolovat aktualizace menu při spuštění aplikace? Poznámka: Ukládání menu do mezipaměti musí být povoleno. Toto nastavení může způsobit pád starších zařízení s menší pamětí.</string>
   <string id="SettingsWifiLteExecutionEnable">Povolit provádění příkazů přes Wi-Fi/LTE.</string>
   <string id="SettingsVibration">Měla by aplikace poskytovat zpětnou vazbu prostřednictvím vibrací?</string>
   <string id="SettingsAppTimeout">Časový limit v sekundách. Ukončete aplikaci po této době nečinnosti, abyste šetřili baterii zařízení.</string>

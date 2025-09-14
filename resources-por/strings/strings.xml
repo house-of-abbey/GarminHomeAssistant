@@ -34,6 +34,7 @@
   <string id="GlanceMenu" scope="glance">Menu</string>
   <string id="Memory" scope="glance">Memória</string>
   <string id="MenuUpdated">Menu atualizado, reinicie.</string>
+  <string id="MenuCheckDisabled">Atualizações de menu desativadas.</string>
   <string id="NoAPIKey" scope="glance">Nenhuma chave da API nas configurações do aplicativo.</string>
   <string id="NoApiUrl" scope="glance">Nenhum URL da API nas configurações do aplicativo.</string>
   <string id="NoConfigUrl" scope="glance">Nenhum URL de configuração nas configurações do
@@ -67,6 +68,7 @@
   <string id="SettingsCacheConfig">O aplicativo deve armazenar em cache a configuração do menu?</string>
   <string id="SettingsClearCache">O aplicativo deve limpar o cache existente na próxima vez que for
     iniciado?</string>
+  <string id="SettingsEnableMenuUpdateCheck">Verificar atualizações do menu ao iniciar o aplicativo? Nota: O cache do menu deve estar ativado. Esta configuração pode fazer com que dispositivos mais antigos com menos memória travem.</string>
   <string id="SettingsWifiLteExecutionEnable">Ativar execução de comandos via Wi-Fi/LTE.</string>
   <string id="SettingsVibration">O aplicativo deve fornecer feedback por meio de vibrações?</string>
   <string id="SettingsAppTimeout">Tempo limite em segundos. Saia do aplicativo após esse período de

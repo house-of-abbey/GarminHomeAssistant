@@ -69,6 +69,7 @@
     menú?</string>
   <string id="SettingsClearCache">¿Debería la aplicación borrar el caché existente la próxima vez
     que se inicie?</string>
+  <string id="SettingsEnableMenuUpdateCheck">¿Buscar actualizaciones del menú al iniciar la aplicación? Nota: El almacenamiento en caché del menú debe estar habilitado. Esta configuración puede causar que dispositivos más antiguos con menos memoria se bloqueen.</string>
   <string id="SettingsWifiLteExecutionEnable">Habilitar la ejecución de comandos a través de
     Wi-Fi/LTE.</string>
   <string id="SettingsVibration">¿Debería la aplicación proporcionar retroalimentación mediante

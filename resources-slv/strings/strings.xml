@@ -65,6 +65,7 @@
   <string id="SettingsCacheConfig">Ali naj aplikacija predpomni konfiguracijo menija?</string>
   <string id="SettingsClearCache">Ali naj aplikacija počisti obstoječi predpomnilnik ob naslednjem
     zagonu?</string>
+  <string id="SettingsEnableMenuUpdateCheck">Ali naj aplikacija preveri posodobitve menija ob zagonu? Opomba: Predpomnjenje menija mora biti omogočeno. Ta nastavitev lahko povzroči, da se starejše naprave z manj pomnilnika zrušijo.</string>
   <string id="SettingsWifiLteExecutionEnable">Omogoči izvajanje ukazov prek Wi-Fi/LTE.</string>
   <string id="SettingsVibration">Ali naj aplikacija zagotavlja povratne informacije z vibracijami?</string>
   <string id="SettingsAppTimeout">Časovna omejitev v sekundah. Aplikacija se po tem obdobju
