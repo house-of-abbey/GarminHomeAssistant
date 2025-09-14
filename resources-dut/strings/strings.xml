@@ -54,7 +54,7 @@
   <string id="WrongPin">Verkeerde pin</string>
   <string id="WifiLteNotAvailable">Geen wifi of LTE beschikbaar</string>
   <string id="WifiLtePrompt">Uitvoeren via Wi-Fi/LTE?</string>
-  <string id="WifiLteExecutionTitle">Verzenden naar Home Assistant.</string>
+  <string id="WifiLteExecutionTitle">Verzenden naar homeassistent.</string>
   <string id="WifiLteExecutionDataError">Geen gegevens ontvangen.</string>
   <!-- Voor de instellingen GUI moeten strings in de volgorde zijn die ze worden gebruikt. -->
   <string id="SettingsSelect">Selecteer ...</string>
@@ -76,12 +76,12 @@
   <string id="SettingsLeftToRight">Van links naar rechts</string>
   <string id="SettingsRightToLeft">Van rechts naar links</string>
   <string id="SettingsWidgetStart">(Alleen widget) Start de toepassing automatisch vanuit de widget zonder te wachten op een tik.</string>
-  <string id="SettingsEnableBatteryLevel">Schakel de achtergrondservice in om het batterijdniveau van het apparaat, de locatie en (indien ondersteunde) activiteitsgegevens naar Home Assistant te verzenden.</string>
+  <string id="SettingsEnableBatteryLevel">Schakel de achtergrondservice in om het apparaatbatterijniveau, de locatie en (indien ondersteunde) activiteitsgegevens te verzenden naar homeassistant.</string>
   <string id="SettingsBatteryLevelRefreshRate">De verversingssnelheid (in minuten) waarbij de achtergrondservice het verzenden van gegevens moet herhalen.</string>
   <string id="SettingsUserHttpHeader">Gebruiker heeft de HTTP -header geleverd</string>
-  <string id="SettingsUserHttpHeaderDescription">Sommige installaties voor thuisassistent vereisen de specificatie van een aangepaste HTTP -header om te functioneren.</string>
+  <string id="SettingsUserHttpHeaderDescription">Sommige homeasstaande installaties vereisen de specificatie van een aangepaste HTTP -header om te functioneren.</string>
   <string id="SettingsUserHttpHeaderName">Gebruiker geleverd http-header: naam</string>
   <string id="SettingsUserHttpHeaderValue">Gebruiker geleverd http-header: waarde</string>
-  <string id="SettingsClearWebhookId">Verbinding maken met Home Assistant (Clear WebHook ID, zie Problemen oplossende gids).</string>
+  <string id="SettingsClearWebhookId">Maak opnieuw verbinding met homeassistent (Clear WebHook ID, zie PROBLEEMOPLOSSING GIDS).</string>
   <string id="SettingsWebhookId">(Alleen lezen) De webhook -ID die door het apparaat is gemaakt voor updates van de achtergrondservice. Misschien heeft u dit nodig voor foutopsporing.</string>
 </strings>

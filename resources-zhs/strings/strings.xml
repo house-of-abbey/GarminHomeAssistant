@@ -54,7 +54,7 @@
   <string id="WrongPin">PIN错误</string>
   <string id="WifiLteNotAvailable">没有Wi-Fi或LTE</string>
   <string id="WifiLtePrompt">执行Wi-Fi/LTE？</string>
-  <string id="WifiLteExecutionTitle">发送给家庭助理。</string>
+  <string id="WifiLteExecutionTitle">发送给乡亲。</string>
   <string id="WifiLteExecutionDataError">没有收到数据。</string>
   <!-- 对于GUI设置，应按照使用顺序使用。 -->
   <string id="SettingsSelect">选择...</string>
@@ -76,12 +76,12 @@
   <string id="SettingsLeftToRight">从左到右</string>
   <string id="SettingsRightToLeft">向左到左</string>
   <string id="SettingsWidgetStart">（仅小部件）自动从小部件启动应用程序，而无需等待点击。</string>
-  <string id="SettingsEnableBatteryLevel">使背景服务能够将设备电池电量，位置以及（如果支持）将活动数据发送给家庭助手。</string>
+  <string id="SettingsEnableBatteryLevel">启用背景服务可以将设备电池电量，位置以及（如果受支持）将活动数据发送到乡亲。</string>
   <string id="SettingsBatteryLevelRefreshRate">背景服务应重复发送数据的刷新率（分钟为几分钟）。</string>
   <string id="SettingsUserHttpHeader">用户提供的HTTP标头</string>
-  <string id="SettingsUserHttpHeaderDescription">一些家庭助理安装需要定义自定义HTTP标头的规格才能运行。</string>
+  <string id="SettingsUserHttpHeaderDescription">某些荷耐安装需要定义自定义HTTP标头的规格才能运行。</string>
   <string id="SettingsUserHttpHeaderName">用户提供的http-header：名称</string>
   <string id="SettingsUserHttpHeaderValue">用户提供的HTTP头：值</string>
-  <string id="SettingsClearWebhookId">重新连接家庭助理（清除Webhook ID，请参阅故障排除指南）。</string>
+  <string id="SettingsClearWebhookId">重新连接与乡亲（清晰的Webhook ID，请参见故障排除指南）。</string>
   <string id="SettingsWebhookId">（仅读）设备创建的Webhook ID用于背景服务更新。您可能需要此次调试。</string>
 </strings>

@@ -54,7 +54,7 @@
   <string id="WrongPin">Pin yang salah</string>
   <string id="WifiLteNotAvailable">Tidak ada Wi-Fi atau LTE yang tersedia</string>
   <string id="WifiLtePrompt">Jalankan melalui Wi-Fi/LTE?</string>
-  <string id="WifiLteExecutionTitle">Mengirim ke asisten rumah.</string>
+  <string id="WifiLteExecutionTitle">Mengirim ke homeassistant.</string>
   <string id="WifiLteExecutionDataError">Tidak ada data yang diterima.</string>
   <!-- Untuk pengaturan GUI, string harus sesuai urutan yang digunakan. -->
   <string id="SettingsSelect">Memilih...</string>
@@ -76,12 +76,12 @@
   <string id="SettingsLeftToRight">Kiri ke kanan</string>
   <string id="SettingsRightToLeft">Kanan ke kiri</string>
   <string id="SettingsWidgetStart">(Hanya widget) secara otomatis memulai aplikasi dari widget tanpa menunggu keran.</string>
-  <string id="SettingsEnableBatteryLevel">Aktifkan layanan latar belakang untuk mengirim data baterai perangkat, lokasi, dan (jika didukung) data ke rumah asisten.</string>
+  <string id="SettingsEnableBatteryLevel">Aktifkan layanan latar belakang untuk mengirim level baterai perangkat, lokasi dan (jika didukung) data aktivitas ke homeassistant.</string>
   <string id="SettingsBatteryLevelRefreshRate">Tingkat refresh (dalam hitungan menit) di mana layanan latar belakang harus mengulang data pengiriman.</string>
   <string id="SettingsUserHttpHeader">Pengguna yang disediakan header http</string>
-  <string id="SettingsUserHttpHeaderDescription">Beberapa instalasi asisten rumah memerlukan spesifikasi header HTTP khusus untuk berfungsi.</string>
+  <string id="SettingsUserHttpHeaderDescription">Beberapa instalasi homeassistant memerlukan spesifikasi header HTTP khusus untuk berfungsi.</string>
   <string id="SettingsUserHttpHeaderName">Pengguna yang disediakan http-header: nama</string>
   <string id="SettingsUserHttpHeaderValue">Pengguna yang disediakan http-header: nilai</string>
-  <string id="SettingsClearWebhookId">Terhubung kembali ke asisten rumah (Clear Webhook ID, lihat Panduan Pemecahan Masalah).</string>
+  <string id="SettingsClearWebhookId">Terhubung kembali ke homeassistant (Clear WebHook ID, lihat Panduan Pemecahan Masalah).</string>
   <string id="SettingsWebhookId">(Baca saja) ID WebHook yang dibuat oleh perangkat untuk pembaruan layanan latar belakang. Anda mungkin memerlukan ini untuk debugging.</string>
 </strings>

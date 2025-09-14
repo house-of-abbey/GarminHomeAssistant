@@ -54,7 +54,7 @@
   <string id="WrongPin">Грешен щифт</string>
   <string id="WifiLteNotAvailable">Няма налични Wi-Fi или LTE</string>
   <string id="WifiLtePrompt">Изпълнете над Wi-Fi/LTE?</string>
-  <string id="WifiLteExecutionTitle">Изпращане до домашен асистент.</string>
+  <string id="WifiLteExecutionTitle">Изпращане до Homeassistant.</string>
   <string id="WifiLteExecutionDataError">Няма получени данни.</string>
   <!-- За GUI на настройките, низовете трябва да са в реда, в който се използват. -->
   <string id="SettingsSelect">Изберете ...</string>
@@ -76,12 +76,12 @@
   <string id="SettingsLeftToRight">Отляво надясно</string>
   <string id="SettingsRightToLeft">Отдясно наляво</string>
   <string id="SettingsWidgetStart">(Само при джаджа) Автоматично стартирайте приложението от джаджата, без да чакате докосване.</string>
-  <string id="SettingsEnableBatteryLevel">Активирайте фоновата услуга за изпращане на нивото на батерията на устройството, местоположението и (ако се поддържа) данни за активност на домашен асистент.</string>
+  <string id="SettingsEnableBatteryLevel">Активирайте фоновата услуга за изпращане на нивото на батерията на устройството, местоположението и (ако се поддържа) данни за активността на HomeasSistant.</string>
   <string id="SettingsBatteryLevelRefreshRate">Скоростта на опресняване (за минути), при която фоновата услуга трябва да повтори изпращането на данни.</string>
   <string id="SettingsUserHttpHeader">Потребител, доставен HTTP заглавка</string>
-  <string id="SettingsUserHttpHeaderDescription">Някои инсталации за домашен асистент изискват спецификация на персонализиран HTTP заглавка, за да функционират.</string>
+  <string id="SettingsUserHttpHeaderDescription">Някои домашни инсталации изискват спецификация на персонализирана HTTP заглавка, за да функционират.</string>
   <string id="SettingsUserHttpHeaderName">Потребител, доставен http-header: Име</string>
   <string id="SettingsUserHttpHeaderValue">Потребител, доставен http-header: стойност</string>
-  <string id="SettingsClearWebhookId">Свържете се отново с домашния асистент (Clear Webhook ID, вижте Ръководство за отстраняване на неизправности).</string>
+  <string id="SettingsClearWebhookId">Свържете се отново с HomeasSistant (Clear WebHook ID, вижте Ръководство за отстраняване на неизправности).</string>
   <string id="SettingsWebhookId">(Само прочетете) Идентификационният номер на WebHook, създаден от устройството за актуализации на фоновите услуги. Може да се наложи това за отстраняване на грешки.</string>
 </strings>

@@ -54,7 +54,7 @@
   <string id="WrongPin">PIN sai</string>
   <string id="WifiLteNotAvailable">Không có Wi-Fi hoặc LTE có sẵn</string>
   <string id="WifiLtePrompt">Thực hiện qua Wi-Fi/LTE?</string>
-  <string id="WifiLteExecutionTitle">Gửi đến trợ lý nhà.</string>
+  <string id="WifiLteExecutionTitle">Gửi đến HomeAssistant.</string>
   <string id="WifiLteExecutionDataError">Không nhận được dữ liệu.</string>
   <!-- Đối với GUI cài đặt, các chuỗi phải theo thứ tự chúng được sử dụng. -->
   <string id="SettingsSelect">Lựa chọn...</string>
@@ -76,12 +76,12 @@
   <string id="SettingsLeftToRight">Trái sang phải</string>
   <string id="SettingsRightToLeft">Phải sang trái</string>
   <string id="SettingsWidgetStart">(Chỉ Widget) Tự động khởi động ứng dụng từ tiện ích mà không cần chờ vòi.</string>
-  <string id="SettingsEnableBatteryLevel">Cho phép dịch vụ nền để gửi dữ liệu hoạt động, vị trí và (nếu được hỗ trợ) của thiết bị đến trợ lý nhà.</string>
+  <string id="SettingsEnableBatteryLevel">Cho phép dịch vụ nền gửi dữ liệu hoạt động, vị trí và (nếu được hỗ trợ) của thiết bị đến HomeAssistant.</string>
   <string id="SettingsBatteryLevelRefreshRate">Tốc độ làm mới (tính bằng phút) mà dịch vụ nền sẽ lặp lại gửi dữ liệu.</string>
   <string id="SettingsUserHttpHeader">Tiêu đề HTTP do người dùng cung cấp</string>
-  <string id="SettingsUserHttpHeaderDescription">Một số cài đặt trợ lý gia đình yêu cầu đặc điểm kỹ thuật của tiêu đề HTTP tùy chỉnh để hoạt động.</string>
+  <string id="SettingsUserHttpHeaderDescription">Một số cài đặt homeassistant yêu cầu đặc điểm kỹ thuật của tiêu đề HTTP tùy chỉnh để hoạt động.</string>
   <string id="SettingsUserHttpHeaderName">Tiêu đề http do người dùng cung cấp: tên</string>
   <string id="SettingsUserHttpHeaderValue">Tiêu đề HTTP do người dùng cung cấp: Giá trị</string>
-  <string id="SettingsClearWebhookId">Kết nối lại với Trợ lý nhà (Xóa ID Webhook, xem Hướng dẫn khắc phục sự cố).</string>
+  <string id="SettingsClearWebhookId">Kết nối lại với HomeAssistant (rõ ràng ID Webhook, xem Hướng dẫn khắc phục sự cố).</string>
   <string id="SettingsWebhookId">(Chỉ đọc) ID webhook được tạo bởi thiết bị để cập nhật dịch vụ nền. Bạn có thể yêu cầu điều này để gỡ lỗi.</string>
 </strings>

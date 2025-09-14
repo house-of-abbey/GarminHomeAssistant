@@ -54,9 +54,9 @@
   <string id="WrongPin">סיכה שגויה</string>
   <string id="WifiLteNotAvailable">אין Wi-Fi או LTE זמינים</string>
   <string id="WifiLtePrompt">להורג באמצעות Wi-Fi/LTE?</string>
-  <string id="WifiLteExecutionTitle">שולח לעוזר הבית.</string>
+  <string id="WifiLteExecutionTitle">שולח לעמידה הביתה.</string>
   <string id="WifiLteExecutionDataError">לא התקבלו נתונים.</string>
-  <!-- עבור ה- GUI של הגדרות, המיתרים צריכים להיות בסדר שהם משתמשים בהם. -->
+  <!-- עבור ה- GUI של הגדרות, המיתרים צריכים להיות בסדר שהם משמשים. -->
   <string id="SettingsSelect">לִבחוֹר...</string>
   <string id="SettingsApiKey">מפתח API עבור HomeAssistant.</string>
   <string id="SettingsApiKeyPrompt">אסימון גישה ארוכת שנים.</string>
@@ -76,12 +76,12 @@
   <string id="SettingsLeftToRight">משמאל לימין</string>
   <string id="SettingsRightToLeft">ימין לשמאל</string>
   <string id="SettingsWidgetStart">(ווידג'ט בלבד) הפעל אוטומטית את היישום מהווידג'ט מבלי לחכות לברז.</string>
-  <string id="SettingsEnableBatteryLevel">אפשר לשירות הרקע לשלוח את רמת סוללת המכשיר, מיקום ו (אם נתמך) נתוני פעילות לעוזר הבית.</string>
+  <string id="SettingsEnableBatteryLevel">אפשר לשירות הרקע לשלוח את רמת הסוללה של המכשיר, מיקום ו (אם נתמך) נתוני פעילות לתיאום Homeasstant.</string>
   <string id="SettingsBatteryLevelRefreshRate">קצב הרענון (בדקות) בו שירות הרקע צריך לחזור על שליחת נתונים.</string>
   <string id="SettingsUserHttpHeader">כותרת HTTP סיפקה למשתמש</string>
-  <string id="SettingsUserHttpHeaderDescription">כמה התקנות עוזרות ביתיות דורשות מפרט של כותרת HTTP מותאמת אישית כדי לתפקד.</string>
+  <string id="SettingsUserHttpHeaderDescription">כמה מתקנים עמידים הביתה דורשים מפרט של כותרת HTTP מותאמת אישית כדי לתפקד.</string>
   <string id="SettingsUserHttpHeaderName">המשתמש סיפק HTTP-HEADER: שם</string>
   <string id="SettingsUserHttpHeaderValue">המשתמש סיפק HTTP-HEADER: ערך</string>
-  <string id="SettingsClearWebhookId">התחבר מחדש לעוזר הבית (נקה מזהה WebHook, ראה מדריך לפתרון בעיות).</string>
+  <string id="SettingsClearWebhookId">התחבר מחדש ל- HomeAssantant (מזהה WebHook ברור, ראה מדריך לפתרון בעיות).</string>
   <string id="SettingsWebhookId">(קרא בלבד) מזהה WebHook שנוצר על ידי המכשיר לעדכוני שירות רקע. אתה עשוי לדרוש זאת לצורך ניפוי באגים.</string>
 </strings>

@@ -54,7 +54,7 @@
   <string id="WrongPin">間違ったピン</string>
   <string id="WifiLteNotAvailable">Wi-FiまたはLTEは利用できません</string>
   <string id="WifiLtePrompt">wi-fi/lte経由で実行しますか？</string>
-  <string id="WifiLteExecutionTitle">ホームアシスタントに送る。</string>
+  <string id="WifiLteExecutionTitle">Homeassistantに送る。</string>
   <string id="WifiLteExecutionDataError">受信したデータはありません。</string>
   <!-- 設定GUIの場合、文字列は使用される順序である必要があります。 -->
   <string id="SettingsSelect">選択...</string>
@@ -76,12 +76,12 @@
   <string id="SettingsLeftToRight">左から右</string>
   <string id="SettingsRightToLeft">右から左</string>
   <string id="SettingsWidgetStart">（ウィジェットのみ）タップを待たずにウィジェットからアプリケーションを自動的に起動します。</string>
-  <string id="SettingsEnableBatteryLevel">バックグラウンドサービスがデバイスのバッテリーレベル、場所、および（サポートされている場合）アクティビティデータをホームアシスタントに送信できるようにします。</string>
+  <string id="SettingsEnableBatteryLevel">バックグラウンドサービスがデバイスのバッテリーレベル、場所、および（サポートされている場合）アクティビティデータをHomeasSistantに送信できるようにします。</string>
   <string id="SettingsBatteryLevelRefreshRate">バックグラウンドサービスがデータの送信を繰り返す必要があるリフレッシュレート（数分単位）。</string>
   <string id="SettingsUserHttpHeader">ユーザーが提供したHTTPヘッダー</string>
-  <string id="SettingsUserHttpHeaderDescription">一部のホームアシスタントインストールでは、機能するためにカスタムHTTPヘッダーの仕様が必要です。</string>
+  <string id="SettingsUserHttpHeaderDescription">いくつかのHomeassistantインストールでは、機能するためにカスタムHTTPヘッダーの仕様が必要です。</string>
   <string id="SettingsUserHttpHeaderName">ユーザーが提供したhttp-header：name</string>
   <string id="SettingsUserHttpHeaderValue">ユーザーが提供したhttp-header：value</string>
-  <string id="SettingsClearWebhookId">ホームアシスタントに再接続します（Clear WebHook ID、トラブルシューティングガイドを参照）。</string>
+  <string id="SettingsClearWebhookId">Homeassistantに再接続します（Clear webhook ID、トラブルシューティングガイドを参照）。</string>
   <string id="SettingsWebhookId">（読み取り専用）バックグラウンドサービスの更新のためにデバイスによって作成されたWebHook ID。デバッグにこれが必要になる場合があります。</string>
 </strings>

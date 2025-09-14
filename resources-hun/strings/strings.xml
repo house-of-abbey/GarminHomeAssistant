@@ -54,7 +54,7 @@
   <string id="WrongPin">Rossz csap</string>
   <string id="WifiLteNotAvailable">Nincs elérhető Wi-Fi vagy LTE</string>
   <string id="WifiLtePrompt">Végrehajtás a Wi-Fi/LTE-n keresztül?</string>
-  <string id="WifiLteExecutionTitle">Küldés otthoni asszisztensnek.</string>
+  <string id="WifiLteExecutionTitle">Küldés a Homeassistant -ba.</string>
   <string id="WifiLteExecutionDataError">Nincs adat.</string>
   <!-- A beállítások GUI -jához a karakterláncoknak a használt sorrendben kell lenniük. -->
   <string id="SettingsSelect">Válassza ki ...</string>
@@ -76,12 +76,12 @@
   <string id="SettingsLeftToRight">Balról jobbra</string>
   <string id="SettingsRightToLeft">Jobbról balra</string>
   <string id="SettingsWidgetStart">(Csak widget) automatikusan indítsa el az alkalmazást a widgetről, anélkül, hogy megérintené a csapot.</string>
-  <string id="SettingsEnableBatteryLevel">Engedélyezze, hogy a háttérszolgáltatás az eszköz akkumulátorának szintjét, helyét és (ha támogatott) tevékenységi adatait elküldje az otthoni asszisztensnek.</string>
+  <string id="SettingsEnableBatteryLevel">Engedélyezze, hogy a háttérszolgáltatás az eszköz akkumulátorának szintjét, helyét és (ha támogatott) tevékenységi adatait a HomeAssistant -nak küldje el.</string>
   <string id="SettingsBatteryLevelRefreshRate">A háttérszolgáltatásnak a küldési adatokkal kell megismételnie a frissítési arányt (percekben).</string>
   <string id="SettingsUserHttpHeader">A felhasználó szállított HTTP fejléc</string>
-  <string id="SettingsUserHttpHeaderDescription">Néhány otthoni asszisztens telepítéshez a működéshez egyéni HTTP fejléc meghatározására van szükség.</string>
+  <string id="SettingsUserHttpHeaderDescription">Egyes homeassistanti telepítésekhez a működéshez egyéni HTTP fejléc specifikációját igényli.</string>
   <string id="SettingsUserHttpHeaderName">A felhasználó szállított HTTP-fejléc: Név</string>
   <string id="SettingsUserHttpHeaderValue">A felhasználó szállított HTTP-fejléc: Érték</string>
-  <string id="SettingsClearWebhookId">Csatlakozzon újra az otthoni asszisztenshez (törölje a WebHook azonosítóját, lásd a hibaelhárítási útmutatót).</string>
+  <string id="SettingsClearWebhookId">Csatlakozzon újra a HomeAssistant -hoz (törölje a WebHook azonosítóját, lásd a hibaelhárítási útmutatót).</string>
   <string id="SettingsWebhookId">(Csak olvassa el) Az eszköz által létrehozott webhook azonosító a háttérszolgáltatás frissítéseihez. Lehet, hogy ezt a hibakereséshez szükség lehet.</string>
 </strings>

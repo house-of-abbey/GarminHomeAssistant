@@ -54,7 +54,7 @@
   <string id="WrongPin">Vika</string>
   <string id="WifiLteNotAvailable">Ei Wi-Fi: tä tai LTE: tä käytettävissä</string>
   <string id="WifiLtePrompt">Suorita Wi-Fi/LTE: n kautta?</string>
-  <string id="WifiLteExecutionTitle">Lähetetään koti -avustajalle.</string>
+  <string id="WifiLteExecutionTitle">Lähetetään Homeasistille.</string>
   <string id="WifiLteExecutionDataError">Tietoja ei vastaanotettu.</string>
   <!-- Asetusten käyttöliittymän osalta jousien tulisi olla siinä järjestyksessä, jossa niitä käytetään. -->
   <string id="SettingsSelect">Valitse ...</string>
@@ -76,12 +76,12 @@
   <string id="SettingsLeftToRight">Vasemmalta oikealle</string>
   <string id="SettingsRightToLeft">Vasemmalle</string>
   <string id="SettingsWidgetStart">(Vain widget) Käynnistä sovellus automaattisesti widgetistä odottamatta napautusta.</string>
-  <string id="SettingsEnableBatteryLevel">Ota taustapalvelu käyttöön laitteen akkutason, sijainnin ja (jos tuetun) aktiviteettitietojen lähettämiseksi kodin avustajalle.</string>
+  <string id="SettingsEnableBatteryLevel">Ota taustapalvelu käyttöön laitteen akkutason, sijainnin ja (jos tuetun) aktiviteettitietojen lähettämiseksi uudelleen.</string>
   <string id="SettingsBatteryLevelRefreshRate">Päivitysnopeus (muutamassa minuutissa), jossa taustapalvelun tulisi toistaa tietojen lähettäminen.</string>
   <string id="SettingsUserHttpHeader">Käyttäjä toimitti HTTP -otsikon</string>
-  <string id="SettingsUserHttpHeaderDescription">Jotkut kodin avustajaasennukset vaativat mukautetun HTTP -otsikon määrittelyn toiminnan varten.</string>
+  <string id="SettingsUserHttpHeaderDescription">Jotkut regsistent -asennukset vaativat mukautetun HTTP -otsikon määrittelyä toimimaan.</string>
   <string id="SettingsUserHttpHeaderName">Käyttäjä toimitti http-header: Nimi</string>
   <string id="SettingsUserHttpHeaderValue">Käyttäjä toimitti HTTP-otsikon: arvo</string>
-  <string id="SettingsClearWebhookId">Ota yhteys kodin avustajaan (selkeä Webhook ID, katso vianetsintäopas).</string>
+  <string id="SettingsClearWebhookId">Ota yhteys uudelleen HomeSistentiin (selkeä Webhook ID, katso vianetsintäopas).</string>
   <string id="SettingsWebhookId">(Vain lue) laitteen luoma webhook -tunnus taustapalvelupäivityksiin. Saatat tarvita tätä virheenkorjausta varten.</string>
 </strings>

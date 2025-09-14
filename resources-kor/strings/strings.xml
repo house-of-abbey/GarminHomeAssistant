@@ -54,7 +54,7 @@
   <string id="WrongPin">잘못된 핀</string>
   <string id="WifiLteNotAvailable">Wi-Fi 또는 LTE를 사용할 수 없습니다</string>
   <string id="WifiLtePrompt">Wi-Fi/LTE를 통해 실행 하시겠습니까?</string>
-  <string id="WifiLteExecutionTitle">홈 조수에게 보내기.</string>
+  <string id="WifiLteExecutionTitle">HomeAssistant로 보내기.</string>
   <string id="WifiLteExecutionDataError">받은 데이터가 없습니다.</string>
   <!-- 설정 GUI의 경우 문자열이 사용되는 순서대로해야합니다. -->
   <string id="SettingsSelect">선택하다...</string>
@@ -76,12 +76,12 @@
   <string id="SettingsLeftToRight">왼쪽에서 오른쪽</string>
   <string id="SettingsRightToLeft">오른쪽에서 왼쪽</string>
   <string id="SettingsWidgetStart">(위젯 만) 탭을 기다리지 않고 위젯에서 응용 프로그램을 자동으로 시작합니다.</string>
-  <string id="SettingsEnableBatteryLevel">배경 서비스가 장치 배터리 레벨, 위치 및 (지원되는 경우) 활동 데이터를 홈 비서로 보낼 수 있도록합니다.</string>
+  <string id="SettingsEnableBatteryLevel">백그라운드 서비스가 장치 배터리 레벨, 위치 및 (지원되는 경우) 활동 데이터를 HomeAssistant로 보낼 수 있도록합니다.</string>
   <string id="SettingsBatteryLevelRefreshRate">백그라운드 서비스가 데이터 전송을 반복 해야하는 새로 고침 비율 (분).</string>
   <string id="SettingsUserHttpHeader">사용자 제공 HTTP 헤더</string>
-  <string id="SettingsUserHttpHeaderDescription">일부 홈 어시스턴트 설치에는 기능을 위해 사용자 정의 HTTP 헤더의 사양이 필요합니다.</string>
+  <string id="SettingsUserHttpHeaderDescription">일부 HomeAssistant 설치에는 작동하려면 사용자 정의 HTTP 헤더의 사양이 필요합니다.</string>
   <string id="SettingsUserHttpHeaderName">사용자 제공 http-header : name</string>
   <string id="SettingsUserHttpHeaderValue">사용자 제공 http-header : value</string>
-  <string id="SettingsClearWebhookId">Home Assistant에 다시 연결하십시오 (Clear Webhook ID, 문제 해결 안내서 참조).</string>
+  <string id="SettingsClearWebhookId">HomeAssistant에 다시 연결하십시오 (Clear Webhook ID, 문제 해결 안내서 참조).</string>
   <string id="SettingsWebhookId">(읽기 전용) 배경 서비스 업데이트를 위해 장치에서 만든 WebHook ID. 디버깅을 위해서는이 문제가 필요할 수 있습니다.</string>
 </strings>

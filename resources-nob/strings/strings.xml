@@ -54,7 +54,7 @@
   <string id="WrongPin">Feil pinne</string>
   <string id="WifiLteNotAvailable">Ingen Wi-Fi eller LTE tilgjengelig</string>
   <string id="WifiLtePrompt">Utføre over Wi-Fi/LTE?</string>
-  <string id="WifiLteExecutionTitle">Sending til hjemmeassistent.</string>
+  <string id="WifiLteExecutionTitle">Sending til HomeAssistant.</string>
   <string id="WifiLteExecutionDataError">Ingen data mottatt.</string>
   <!-- For innstillinger GUI skal strengene være i den rekkefølgen de brukes. -->
   <string id="SettingsSelect">Velge...</string>
@@ -76,12 +76,12 @@
   <string id="SettingsLeftToRight">Fra venstre til høyre</string>
   <string id="SettingsRightToLeft">Høyre til venstre</string>
   <string id="SettingsWidgetStart">(Bare widget) Start automatisk applikasjonen fra widgeten uten å vente på et trykk.</string>
-  <string id="SettingsEnableBatteryLevel">Aktiver bakgrunnstjenesten å sende enhetens batterinivå, plassering og (hvis støttet) aktivitetsdata til hjemmeassistent.</string>
+  <string id="SettingsEnableBatteryLevel">Aktiver bakgrunnstjenesten å sende enhetens batterinivå, plassering og (hvis støttet) aktivitetsdata til homeAssistant.</string>
   <string id="SettingsBatteryLevelRefreshRate">Oppdateringsfrekvensen (på få minutter) som bakgrunnstjenesten skal gjenta sendingsdata.</string>
   <string id="SettingsUserHttpHeader">Bruker levert HTTP -overskrift</string>
-  <string id="SettingsUserHttpHeaderDescription">Noen hjemmeassistentinstallasjoner krever spesifikasjon av en tilpasset HTTP -overskrift for å fungere.</string>
+  <string id="SettingsUserHttpHeaderDescription">Noen homeAssistant installasjoner krever spesifikasjon av en tilpasset HTTP -overskrift for å fungere.</string>
   <string id="SettingsUserHttpHeaderName">Bruker levert http-header: navn</string>
   <string id="SettingsUserHttpHeaderValue">Bruker levert http-header: verdi</string>
-  <string id="SettingsClearWebhookId">Koble til hjemmeassistent (Clear WebHook ID, se Feilsøkingsveiledning).</string>
+  <string id="SettingsClearWebhookId">Koble til HomeAssistant (Clear WebHook ID, se Feilsøkingsveiledning).</string>
   <string id="SettingsWebhookId">(Bare les) Webhook -IDen som er opprettet av enheten for oppdateringer av bakgrunnstjenester. Du kan kreve dette for feilsøking.</string>
 </strings>

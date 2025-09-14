@@ -54,7 +54,7 @@
   <string id="WrongPin">Nesprávny kolík</string>
   <string id="WifiLteNotAvailable">Nie sú k dispozícii žiadne Wi-Fi alebo LTE</string>
   <string id="WifiLtePrompt">Vykonajte cez Wi-Fi/LTE?</string>
-  <string id="WifiLteExecutionTitle">Posielanie domáceho asistenta.</string>
+  <string id="WifiLteExecutionTitle">Posielanie Homeassistant.</string>
   <string id="WifiLteExecutionDataError">Žiadne prijaté údaje.</string>
   <!-- V prípade nastavení GUI by mali byť reťazce v poradí, v akom sa používajú. -->
   <string id="SettingsSelect">Vyberte ...</string>
@@ -79,9 +79,9 @@
   <string id="SettingsEnableBatteryLevel">Povoľte službu na pozadí, ktorá bude do Home Assistenta odosielať údaje o stave batérie zariadenia, polohe a (ak je podporované) o aktivite.</string>
   <string id="SettingsBatteryLevelRefreshRate">Rýchlosť obnovenia (v minútach), pri ktorej by služba pozadia mala opakovať odosielanie údajov.</string>
   <string id="SettingsUserHttpHeader">Hlavička HTTP dodaná používateľom</string>
-  <string id="SettingsUserHttpHeaderDescription">Niektoré inštalácie domáceho asistenta vyžadujú, aby sa na fungovanie špecifikácia vlastnej hlavičky HTTP.</string>
+  <string id="SettingsUserHttpHeaderDescription">Niektoré inštalácie HOMEASSistant vyžadujú, aby fungovali špecifikácia vlastnej hlavičky HTTP.</string>
   <string id="SettingsUserHttpHeaderName">Užívateľ dodávaný HTTP-Header: názov</string>
   <string id="SettingsUserHttpHeaderValue">Užívateľ dodávaný HTTP-Header: Hodnota</string>
-  <string id="SettingsClearWebhookId">Pripojte sa s domácim asistentom (Clear WebHook ID, pozri Sprievodca riešením problémov).</string>
+  <string id="SettingsClearWebhookId">Pripojte sa k HOMEASSistant (Clear WebHook ID, pozri Sprievodcu riešením problémov).</string>
   <string id="SettingsWebhookId">(Iba prečítajte) ID WebHook vytvorené zariadením pre aktualizácie služieb na pozadí. Možno to potrebujete na ladenie.</string>
 </strings>

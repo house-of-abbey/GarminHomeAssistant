@@ -54,7 +54,7 @@
   <string id="WrongPin">Λάθος καρφίτσα</string>
   <string id="WifiLteNotAvailable">Χωρίς Wi-Fi ή LTE διαθέσιμο</string>
   <string id="WifiLtePrompt">Εκτέλεση μέσω Wi-Fi/LTE;</string>
-  <string id="WifiLteExecutionTitle">Αποστολή στον βοηθό στο σπίτι.</string>
+  <string id="WifiLteExecutionTitle">Αποστολή στο Homeassistant.</string>
   <string id="WifiLteExecutionDataError">Δεν λαμβάνονται δεδομένα.</string>
   <!-- Για τις ρυθμίσεις GUI, οι χορδές πρέπει να είναι με τη σειρά που χρησιμοποιούνται. -->
   <string id="SettingsSelect">Επιλέγω...</string>
@@ -76,12 +76,12 @@
   <string id="SettingsLeftToRight">Από αριστερά προς τα δεξιά</string>
   <string id="SettingsRightToLeft">Δεξιά προς τα αριστερά</string>
   <string id="SettingsWidgetStart">(Μόνο widget) Ξεκινήστε αυτόματα την εφαρμογή από το widget χωρίς να περιμένετε μια βρύση.</string>
-  <string id="SettingsEnableBatteryLevel">Ενεργοποιήστε την υπηρεσία φόντου για την αποστολή της στάθμης της μπαταρίας της συσκευής, της θέσης και της (αν υποστηριχθεί) δεδομένων δραστηριότητας στον βοηθό στο σπίτι.</string>
+  <string id="SettingsEnableBatteryLevel">Ενεργοποιήστε την υπηρεσία φόντου για την αποστολή της στάθμης της μπαταρίας της συσκευής, της θέσης και της (αν υποστηριχθεί) δεδομένων δραστηριότητας στο HomeAssistant.</string>
   <string id="SettingsBatteryLevelRefreshRate">Ο ρυθμός ανανέωσης (σε λεπτά) κατά τον οποίο η υπηρεσία φόντου πρέπει να επαναλαμβάνει τα δεδομένα αποστολής.</string>
   <string id="SettingsUserHttpHeader">Παρέχεται η κεφαλίδα HTTP που παρέχεται από τον χρήστη</string>
-  <string id="SettingsUserHttpHeaderDescription">Ορισμένες εγκαταστάσεις βοηθού στο σπίτι απαιτούν την προδιαγραφή μιας προσαρμοσμένης κεφαλίδας HTTP για να λειτουργήσουν.</string>
+  <string id="SettingsUserHttpHeaderDescription">Ορισμένες εγκαταστάσεις Homeassistant απαιτούν την προδιαγραφή μιας προσαρμοσμένης κεφαλίδας HTTP για να λειτουργήσουν.</string>
   <string id="SettingsUserHttpHeaderName">Παρέχεται ο χρήστης HTTP-Header: Όνομα</string>
   <string id="SettingsUserHttpHeaderValue">Παρέχεται ο χρήστης HTTP-Header: Αξία</string>
-  <string id="SettingsClearWebhookId">Επανασυνδέστε τον βοηθό στο σπίτι (Clear Webhook ID, δείτε τον οδηγό αντιμετώπισης προβλημάτων).</string>
+  <string id="SettingsClearWebhookId">Επανασυνδέστε το HomeAsSistant (Clear Webhook ID, δείτε τον οδηγό αντιμετώπισης προβλημάτων).</string>
   <string id="SettingsWebhookId">(Μόνο διαβάστε) Το αναγνωριστικό WebHook που δημιουργήθηκε από τη συσκευή για ενημερώσεις υπηρεσιών φόντου. Μπορεί να το χρειαστείτε για εντοπισμό σφαλμάτων.</string>
 </strings>

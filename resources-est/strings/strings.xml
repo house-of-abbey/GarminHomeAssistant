@@ -54,7 +54,7 @@
   <string id="WrongPin">Vale tihvt</string>
   <string id="WifiLteNotAvailable">Wi-Fi ega LTE pole saadaval</string>
   <string id="WifiLtePrompt">Täita üle wi-fi/lte?</string>
-  <string id="WifiLteExecutionTitle">Koduassistendile saatmine.</string>
+  <string id="WifiLteExecutionTitle">Saatmine homeassistandile.</string>
   <string id="WifiLteExecutionDataError">Andmeid pole laekunud.</string>
   <!-- Seadete GUI jaoks peaksid keelpillid olema kasutatud järjekorras. -->
   <string id="SettingsSelect">Valige ...</string>
@@ -76,12 +76,12 @@
   <string id="SettingsLeftToRight">Vasakult paremale</string>
   <string id="SettingsRightToLeft">Paremale vasakule</string>
   <string id="SettingsWidgetStart">(Ainult vidin) käivitage rakendus vidinast automaatselt ilma kraani ootamata.</string>
-  <string id="SettingsEnableBatteryLevel">Luba taustteenus seadme aku taseme, asukoha ja (kui see on toetatud) tegevusandmete saatmine koduassistendile.</string>
+  <string id="SettingsEnableBatteryLevel">Luba taustteenus seadme aku taseme, asukoha ja (toetatud) tegevusandmete saatmiseks homoassistant.</string>
   <string id="SettingsBatteryLevelRefreshRate">Värskendusmäär (minutites), kus taustteenus peaks andmete saatmist korrata.</string>
   <string id="SettingsUserHttpHeader">Kasutaja tarnitud HTTP päis</string>
-  <string id="SettingsUserHttpHeaderDescription">Mõned koduassistendi paigaldused vajavad funktsioneerimiseks kohandatud HTTP päise täpsustamist.</string>
+  <string id="SettingsUserHttpHeaderDescription">Mõned homeassistantsed installatsioonid nõuavad funktsioneerimiseks kohandatud HTTP päise täpsustamist.</string>
   <string id="SettingsUserHttpHeaderName">Kasutaja tarnitud HTTP-pea: nimi</string>
   <string id="SettingsUserHttpHeaderValue">Kasutaja tarnitud HTTP-pea: väärtus</string>
-  <string id="SettingsClearWebhookId">Ühendage uuesti koduassistendiga (selge Webhooki ID, vt tõrkeotsingu juhend).</string>
+  <string id="SettingsClearWebhookId">Ühendage uuesti homeassistant (selge Webhooki ID, vt tõrkeotsingu juhend).</string>
   <string id="SettingsWebhookId">(Loe ainult) WebHooki ID, mille seade on loonud taustteenuse värskenduste jaoks. Võite seda silumiseks nõuda.</string>
 </strings>

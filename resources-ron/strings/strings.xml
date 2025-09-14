@@ -54,7 +54,7 @@
   <string id="WrongPin">Pin greșit</string>
   <string id="WifiLteNotAvailable">Nu există Wi-Fi sau LTE disponibile</string>
   <string id="WifiLtePrompt">Executați peste Wi-Fi/LTE?</string>
-  <string id="WifiLteExecutionTitle">Trimiterea către asistent de acasă.</string>
+  <string id="WifiLteExecutionTitle">Trimiterea către Homeasssistant.</string>
   <string id="WifiLteExecutionDataError">Nu au fost primite date.</string>
   <!-- Pentru GUI de setări, șirurile ar trebui să fie în ordinea în care sunt utilizate. -->
   <string id="SettingsSelect">Selecta...</string>
@@ -76,12 +76,12 @@
   <string id="SettingsLeftToRight">De la stânga la dreapta</string>
   <string id="SettingsRightToLeft">Dreapta la stânga</string>
   <string id="SettingsWidgetStart">(Numai widget) Porniți automat aplicația din widget fără a aștepta o atingere.</string>
-  <string id="SettingsEnableBatteryLevel">Permiteți serviciului de fundal să trimită datele bateriei, locația și (dacă este acceptat) date de activitate către asistentul de acasă.</string>
+  <string id="SettingsEnableBatteryLevel">Permiteți serviciului de fundal să trimită datele bateriei, locația și (dacă este acceptat) date de activitate către Homeasssistant.</string>
   <string id="SettingsBatteryLevelRefreshRate">Rata de actualizare (în câteva minute) la care serviciul de fundal ar trebui să repete date de trimitere.</string>
   <string id="SettingsUserHttpHeader">Antetul HTTP furnizat de utilizator</string>
-  <string id="SettingsUserHttpHeaderDescription">Unele instalații de asistent la domiciliu necesită specificarea unui antet HTTP personalizat pentru a funcționa.</string>
+  <string id="SettingsUserHttpHeaderDescription">Unele instalații de găzduire necesită specificarea unui antet HTTP personalizat pentru a funcționa.</string>
   <string id="SettingsUserHttpHeaderName">HTTP-HEADER furnizat de utilizator: Nume</string>
   <string id="SettingsUserHttpHeaderValue">HTTP-HEADER furnizat de utilizator: valoare</string>
-  <string id="SettingsClearWebhookId">Reconectați -vă la asistentul de acasă (Clear Webhook ID, consultați Ghidul de depanare).</string>
+  <string id="SettingsClearWebhookId">Reconectați -vă la Homeasssistant (Clear Webhook ID, consultați Ghidul de depanare).</string>
   <string id="SettingsWebhookId">(Numai citiți) ID -ul WebHook creat de dispozitiv pentru actualizări de servicii de fundal. S -ar putea să solicitați acest lucru pentru depanare.</string>
 </strings>

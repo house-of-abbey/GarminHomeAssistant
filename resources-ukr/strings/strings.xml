@@ -54,7 +54,7 @@
   <string id="WrongPin">Неправильна шпилька</string>
   <string id="WifiLteNotAvailable">Відсутність Wi-Fi або LTE</string>
   <string id="WifiLtePrompt">Виконати через Wi-Fi/LTE?</string>
-  <string id="WifiLteExecutionTitle">Відправлення домашнього помічника.</string>
+  <string id="WifiLteExecutionTitle">Відправлення до домашніх систем.</string>
   <string id="WifiLteExecutionDataError">Не отримані даних.</string>
   <!-- Для графічного інтерфейсу рядків повинні бути в порядку, в якому вони використовуються. -->
   <string id="SettingsSelect">Виберіть ...</string>
@@ -76,12 +76,12 @@
   <string id="SettingsLeftToRight">Зліва направо</string>
   <string id="SettingsRightToLeft">Праворуч зліва</string>
   <string id="SettingsWidgetStart">(Тільки віджет) автоматично запустіть програму з віджета, не чекаючи натискання.</string>
-  <string id="SettingsEnableBatteryLevel">Увімкніть фонову службу для надсилання рівня акумулятора пристрою, розташування та (за підтримки) даних активності домашньому помічнику.</string>
+  <string id="SettingsEnableBatteryLevel">Увімкніть фонову службу для надсилання рівня акумулятора пристрою, розташування та (за підтримки) даних про активність до домашніх місць.</string>
   <string id="SettingsBatteryLevelRefreshRate">Швидкість оновлення (за лічені хвилини), в якій фонова послуга повинна повторити надсилання даних.</string>
   <string id="SettingsUserHttpHeader">Користувач постачав HTTP заголовок</string>
-  <string id="SettingsUserHttpHeaderDescription">Деякі установи домашнього помічника потребують специфікації спеціального заголовка HTTP для функціонування.</string>
+  <string id="SettingsUserHttpHeaderDescription">Деякі домашні установи потребують специфікації спеціального заголовка HTTP для функціонування.</string>
   <string id="SettingsUserHttpHeaderName">Поставлений користувачем HTTP-Header: Ім'я</string>
   <string id="SettingsUserHttpHeaderValue">Користувач надає HTTP-Header: Значення</string>
-  <string id="SettingsClearWebhookId">Повторно підключіться до домашнього помічника (Clear Webhook Id, див. Посібник з усунення несправностей).</string>
+  <string id="SettingsClearWebhookId">Повторно підключіться до домашніх систем (чіткий ідентифікатор веб -кук, див. Посібник з усунення несправностей).</string>
   <string id="SettingsWebhookId">(Лише читайте) Ідентифікатор WebHook, створений пристроєм для оновлень фонових служб. Вам може знадобитися це для налагодження.</string>
 </strings>
