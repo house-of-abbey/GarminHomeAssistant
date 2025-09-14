@@ -2,7 +2,7 @@
 
 # User Specified Custom HTTP Headers
 
-Principally for those who use Home Assistant add-on [Cloudflared](https://github.com/brenner-tobias/addon-cloudflared) in order to provide additional security via Cloudflare's Web Application Firewall (WAF). But Garmin does not support certificates in requests. And the solution is generic enough for other use cases.
+Principally for those who use HomeAssistant add-on [Cloudflared](https://github.com/brenner-tobias/addon-cloudflared) in order to provide additional security via Cloudflare's Web Application Firewall (WAF). But Garmin does not support certificates in requests. And the solution is generic enough for other use cases.
 
 Please let us know if this solution is found to be useful for other situations.
 
@@ -24,7 +24,7 @@ Make the key strong enough!
 
 **None!**
 
-The authors of the Garmin Home Assistant application do not use, and hence do not know, the [Cloudflared](https://github.com/brenner-tobias/addon-cloudflared) add-on. While we have enabled the HTTP headers to support using this add-on, it does mean _you support yourself_. Please do not raise issues about this functionality unless you are supplying the answers for any required changes too!
+The authors of the Garmin HomeAssistant application do not use, and hence do not know, the [Cloudflared](https://github.com/brenner-tobias/addon-cloudflared) add-on. While we have enabled the HTTP headers to support using this add-on, it does mean _you support yourself_. Please do not raise issues about this functionality unless you are supplying the answers for any required changes too!
 
 ## Credits
 
@@ -33,5 +33,5 @@ With thanks to Lars Pöpperl ([@tispokes](https://github.com/tispokes)) for cont
 
 ## References
 
-* [Using Cloudflare ZeroTrust and mTLS to securely access Home Assistant via the internet](https://kcore.org/2024/06/28/using-cloudflare-zerotrust-and-mtls-with-home-assistant-via-the-internet/)
-* [Home Assistant Add-on: Cloudflared](https://github.com/brenner-tobias/addon-cloudflared)
+* [Using Cloudflare ZeroTrust and mTLS to securely access HomeAssistant via the internet](https://kcore.org/2024/06/28/using-cloudflare-zerotrust-and-mtls-with-home-assistant-via-the-internet/)
+* [HomeAssistant Add-on: Cloudflared](https://github.com/brenner-tobias/addon-cloudflared)
