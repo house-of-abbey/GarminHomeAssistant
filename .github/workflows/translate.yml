@@ -23,11 +23,11 @@ jobs:
         uses: actions/setup-python@v4.7.1
 
       - run: |
-          pip install beautifulsoup4
-          pip install deep-translator
-          pip install lxml
+          pip install google-genai beautifulsoup4 lxml
 
       - run: python translate.py
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
 
       # Commit all changed files back to the repository
       - uses: stefanzweifel/git-auto-commit-action@v5
