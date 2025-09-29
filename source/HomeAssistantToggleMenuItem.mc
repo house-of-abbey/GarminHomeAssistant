@@ -23,7 +23,7 @@ using Toybox.Timer;
 //
 class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
     private var mData       as Lang.Dictionary;
-    private var mTemplate   as Lang.String;
+    private var mTemplate   as Lang.String?;
     private var mExit       as Lang.Boolean;
     private var mConfirm    as Lang.Boolean;
     private var mPin        as Lang.Boolean;
