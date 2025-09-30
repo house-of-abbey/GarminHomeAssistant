@@ -769,7 +769,7 @@ class HomeAssistantApp extends Application.AppBase {
                 break;
 
             case Communications.BLE_QUEUE_FULL:
-System.println("HomeAssistantApp onReturnFetchApiStatus() Response Code: BLE_QUEUE_FULL, API calls too rapid.");
+                // System.println("HomeAssistantApp onReturnFetchApiStatus() Response Code: BLE_QUEUE_FULL, API calls too rapid.");
                 if (mIsApp) {
                     ErrorView.show(WatchUi.loadResource($.Rez.Strings.ApiFlood) as Lang.String);
                 }
@@ -797,6 +797,7 @@ System.println("HomeAssistantApp onReturnFetchApiStatus() Response Code: BLE_QUE
                 break;
 
             case 200:
+                // System.println("HomeAssistantApp onReturnFetchApiStatus() Response Code: 200.");
                 if ((data != null) && (data instanceof Lang.Dictionary) && data["message"].equals("API running.")) {
                     mApiStatus = WatchUi.loadResource($.Rez.Strings.Available) as Lang.String;
                 } else {
