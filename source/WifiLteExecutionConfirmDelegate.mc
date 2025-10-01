@@ -30,7 +30,7 @@ class WifiLteExecutionConfirmDelegate extends WatchUi.ConfirmationDelegate {
         :url     as Lang.String?,
         :id      as Lang.Number?,
         :exit    as Lang.Boolean
-    };
+    }?;
 
     private static var mTimer     as Timer.Timer?;
     private var mHasToast         as Lang.Boolean = false;

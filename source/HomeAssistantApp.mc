@@ -797,6 +797,7 @@ class HomeAssistantApp extends Application.AppBase {
                 break;
 
             case 200:
+                // System.println("HomeAssistantApp onReturnFetchApiStatus() Response Code: 200.");
                 if ((data != null) && (data instanceof Lang.Dictionary) && data["message"].equals("API running.")) {
                     mApiStatus = WatchUi.loadResource($.Rez.Strings.Available) as Lang.String;
                 } else {

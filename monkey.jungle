@@ -20,7 +20,7 @@ project.manifest = manifest.xml
 
 # Device References
 # * https://developer.garmin.com/connect-iq/compatible-devices/
-# * https://developer.garmin.com/connect-iq/reference-guides/devices-reference/
+# * https://developer.garmin.com/connect-iq/device-reference/
 #
 # Widget launcher icon, multiple resolutions
 # https://forums.garmin.com/developer/connect-iq/f/discussion/255433/widget-launcher-icon-multiple-resolutions/1563305
@@ -77,14 +77,20 @@ edge520plus.resourcePath = $(edge520plus.resourcePath);resources-launcher-35-35;
 # Screen Size 246x322 launcher icon size 35x35
 edge530.resourcePath = $(edge530.resourcePath);resources-launcher-35-35;resources-icons-28
 edge540.resourcePath = $(edge540.resourcePath);resources-launcher-35-35;resources-icons-28
+# Screen Size 420x600 launcher icon size 56x56
+edge550.resourcePath = $(edge550.resourcePath);resources-launcher-56-56;resources-icons-55
 # Screen Size 200x265 launcher icon size 35x35
 edge820.resourcePath = $(edge820.resourcePath);resources-launcher-35-35;resources-icons-24
 # Screen Size 246x322 launcher icon size 35x35
 edge830.resourcePath = $(edge830.resourcePath);resources-launcher-35-35;resources-icons-28
 edge840.resourcePath = $(edge840.resourcePath);resources-launcher-35-35;resources-icons-28
+# Screen Size 420x600 launcher icon size 56x56
+edge850.resourcePath = $(edge850.resourcePath);resources-launcher-56-56;resources-icons-55
 # Screen Size 240x400 launcher icon size 36x36
 edgeexplore.resourcePath = $(edgeexplore.resourcePath);resources-launcher-36-36;resources-icons-28
 edgeexplore2.resourcePath = $(edgeexplore2.resourcePath);resources-launcher-36-36;resources-icons-28
+# Screen Size 240x320 launcher icon size 36x36
+edgemtb.resourcePath = $(edgemtb.resourcePath);resources-launcher-36-36;resources-icons-32
 # Screen Size 280x280 launcher icon size 40x40
 enduro.resourcePath = $(enduro.resourcePath);resources-launcher-40-40;resources-icons-32
  enduro3.resourcePath = $(enduro3.resourcePath);resources-launcher-40-40;resources-icons-32
@@ -128,6 +134,7 @@ fenix7xpronowifi.resourcePath = $(fenix7xpronowifi.resourcePath);resources-launc
 fenix843mm.resourcePath = $(fenix843mm.resourcePath);resources-launcher-60-60;resources-icons-48
 # Screen Size 454x454 launcher icon size 65x65
 fenix847mm.resourcePath = $(fenix847mm.resourcePath);resources-launcher-65-65;resources-icons-53
+fenix8pro47mm.resourcePath = $(fenix8pro47mm.resourcePath);resources-launcher-65-65;resources-icons-53
 # Screen Size 260x260 launcher icon size 40x40
 fenix8solar47mm.resourcePath = $(fenix8solar47mm.resourcePath);resources-launcher-40-40;resources-icons-30
 # Screen Size 280x280 launcher icon size 40x40
@@ -173,6 +180,7 @@ fr970.resourcePath = $(fr970.resourcePath);resources-launcher-65-65;resources-ic
 # Screen Size 240x400 launcher icon size 38x33
 gpsmap66.resourcePath = $(gpsmap66.resourcePath);resources-launcher-33-33;resources-icons-28
 gpsmap67.resourcePath = $(gpsmap67.resourcePath);resources-launcher-33-33;resources-icons-28
+gpsmaph1.resourcePath = $(gpsmaph1.resourcePath);resources-launcher-33-33;resources-icons-28
 # Screen Size 176x176 launcher icon size 62x62
 instinct2.resourcePath = $(instinct2.resourcePath);resources-launcher-62-62;resources-icons-21-w
 # Screen Size 163x156 launcher icon size 54x54
@@ -187,6 +195,8 @@ instinct3amoled50mm.resourcePath = $(instinct3amoled50mm.resourcePath);resources
 instinct3solar45mm.resourcePath = $(instinct3solar45mm.resourcePath);resources-launcher-62-62;resources-icons-18-w
 # Screen Size 176x176 launcher icon size 26x26
 instinctcrossover.resourcePath = $(instinctcrossover.resourcePath);resources-launcher-26-26;resources-icons-21-w
+# Screen Size 390x390 launcher icon size 38x38
+instinctcrossoveramoled.resourcePath = $(instinctcrossoveramoled.resourcePath);resources-launcher-38-38;resources-icons-46
 # Screen Size 166x166 launcher icon size 52x52, but the icon size used here is reduced as the menu items were clipped.
 instincte40mm.resourcePath = $(instincte40mm.resourcePath);resources-launcher-52-52;resources-icons-18-w
 # Screen Size	176x176 launcher icon size 62x62, but the icon size used here is reduced as the menu items were clipped.
@@ -223,6 +233,10 @@ venu2s.resourcePath = $(venu2s.resourcePath);resources-launcher-61-61;resources-
 venu3.resourcePath = $(venu3.resourcePath);resources-launcher-70-70;resources-icons-53
 # Screen Size 390x390 launcher icon size 70x70
 venu3s.resourcePath = $(venu3s.resourcePath);resources-launcher-70-70;resources-icons-46
+# Screen Size 390x390 launcher icon size 54x54
+venu441mm.resourcePath = $(venu441mm.resourcePath);resources-launcher-54-54;resources-icons-46
+# Screen Size 454x454 launcher icon size 65x65
+venu445mm.resourcePath = $(venu445mm.resourcePath);resources-launcher-65-65;resources-icons-53
 # Screen Size 390x390 launcher icon size 60x60
 venud.resourcePath = $(venud.resourcePath);resources-launcher-60-60;resources-icons-46
 # Screen Size 240x240 launcher icon size 36x36
@@ -232,6 +246,8 @@ venusq2.resourcePath = $(venusq2.resourcePath);resources-launcher-40-40;resource
 venusq2m.resourcePath = $(venusq2m.resourcePath);resources-launcher-40-40;resources-icons-38
 # Screen Size 240x240 launcher icon size 36x36
 venusqm.resourcePath = $(venusqm.resourcePath);resources-launcher-36-36;resources-icons-28
+# Screen Size 448x486 launcher icon size 65x65
+venux1.resourcePath = $(venux1.resourcePath);resources-launcher-65-65;resources-icons-53
 # Screen Size 240x240 launcher icon size 40x33
 vivoactive3.resourcePath = $(vivoactive3.resourcePath);resources-launcher-33-33;resources-icons-28
 vivoactive3m.resourcePath = $(vivoactive3m.resourcePath);resources-launcher-33-33;resources-icons-28

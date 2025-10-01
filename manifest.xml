@@ -57,11 +57,14 @@
       <iq:product id="edge520plus"/>
       <iq:product id="edge530"/>
       <iq:product id="edge540"/>
+      <iq:product id="edge550"/>
       <iq:product id="edge820"/>
       <iq:product id="edge830"/>
       <iq:product id="edge840"/>
+      <iq:product id="edge850"/>
       <iq:product id="edgeexplore"/>
       <iq:product id="edgeexplore2"/>
+      <iq:product id="edgemtb"/>
       <iq:product id="enduro"/>
       <iq:product id="enduro3"/>
       <iq:product id="epix2"/>
@@ -89,6 +92,7 @@
       <iq:product id="fenix7xpronowifi"/>
       <iq:product id="fenix843mm"/>
       <iq:product id="fenix847mm"/>
+      <iq:product id="fenix8pro47mm"/>
       <iq:product id="fenix8solar47mm"/>
       <iq:product id="fenix8solar51mm"/>
       <iq:product id="fenixchronos"/>
@@ -117,6 +121,7 @@
       <iq:product id="fr970"/>
       <iq:product id="gpsmap66"/>
       <iq:product id="gpsmap67"/>
+      <iq:product id="gpsmaph1"/>
       <iq:product id="instinct2"/>
       <iq:product id="instinct2s"/>
       <iq:product id="instinct2x"/>
@@ -124,6 +129,7 @@
       <iq:product id="instinct3amoled50mm"/>
       <iq:product id="instinct3solar45mm"/>
       <iq:product id="instinctcrossover"/>
+      <iq:product id="instinctcrossoveramoled"/>
       <iq:product id="instincte40mm"/>
       <iq:product id="instincte45mm"/>
       <iq:product id="legacyherocaptainmarvel"/>
@@ -147,11 +153,14 @@
       <iq:product id="venu2s"/>
       <iq:product id="venu3"/>
       <iq:product id="venu3s"/>
+      <iq:product id="venu441mm"/>
+      <iq:product id="venu445mm"/>
       <iq:product id="venud"/>
       <iq:product id="venusq"/>
       <iq:product id="venusq2"/>
       <iq:product id="venusq2m"/>
       <iq:product id="venusqm"/>
+      <iq:product id="venux1"/>
       <iq:product id="vivoactive3"/>
       <iq:product id="vivoactive3m"/>
       <iq:product id="vivoactive3mlte"/>
