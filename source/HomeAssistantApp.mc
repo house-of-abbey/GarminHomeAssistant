@@ -30,14 +30,14 @@ class HomeAssistantApp extends Application.AppBase {
     private var mHasToast       as Lang.Boolean = false;
     private var mApiStatus      as Lang.String?;
     private var mMenuStatus     as Lang.String?;
-    private var mHaMenu         as HomeAssistantView?;
+    private var mHaMenu         as HomeAssistantView?;  
     private var mGlanceTemplate as Lang.String? = null;
     private var mGlanceText     as Lang.String? = null;
     private var mQuitTimer      as QuitTimer?;
     private var mGlanceTimer    as Timer.Timer?;
     private var mUpdateTimer    as Timer.Timer?;
     // Array initialised by onReturnFetchMenuConfig()
-    private var mItemsToUpdate  as Lang.Array<HomeAssistantToggleMenuItem or HomeAssistantTapMenuItem or HomeAssistantGroupMenuItem>?;
+    private var mItemsToUpdate  as Lang.Array<HomeAssistantToggleMenuItem or HomeAssistantTapMenuItem or HomeAssistantGroupMenuItem or HomeAssistantNumericMenuItem>?;
     private var mIsApp          as Lang.Boolean     = false; // Or Widget
     private var mUpdating       as Lang.Boolean     = false; // Don't start a second chain of updates
     private var mTemplates      as Lang.Dictionary? = null;  // Cache of compiled templates

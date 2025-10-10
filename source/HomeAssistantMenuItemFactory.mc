@@ -148,7 +148,48 @@ class HomeAssistantMenuItemFactory {
             );
         }
     }
-
+    //! Numeric menu item.
+    //!
+    //! @param definition Items array from the JSON that defines this sub menu.
+    //! @param template   Template for Home Assistant to render (optional)
+    //
+    function numeric(
+        label     as Lang.String or Lang.Symbol,
+        entity_id as Lang.String?,
+        template  as Lang.String?,
+        service   as Lang.String?,
+        data      as Lang.Dictionary?,
+        options   as {
+            :exit    as Lang.Boolean,
+            :confirm as Lang.Boolean,
+            :pin     as Lang.Boolean,
+            :icon    as WatchUi.Bitmap
+        }
+    ) as WatchUi.MenuItem {
+        if (entity_id != null) {
+            if (data == null) {
+                data = { "entity_id" => entity_id };
+                
+            } else {
+                data.put("entity_id", entity_id);
+            }
+        }
+        var keys = mMenuItemOptions.keys();
+        for (var i = 0; i < keys.size(); i++) {
+            options.put(keys[i], mMenuItemOptions.get(keys[i]));
+        }
+        options.put(:icon, mTapTypeIcon);    
+        
+        return new HomeAssistantNumericMenuItem(
+            label,
+            entity_id,
+            template,
+            service,
+            data,
+            options,
+            mHomeAssistantService
+        );
+    }
     //! Group menu item.
     //!
     //! @param definition Items array from the JSON that defines this sub menu.

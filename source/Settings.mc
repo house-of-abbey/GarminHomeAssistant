@@ -29,10 +29,10 @@ using Toybox.Time;
 //
 (:glance, :background)
 class Settings {
-    private static var mApiKey                as Lang.String? = "";
+    private static var mApiKey                as Lang.String? = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJlNThlZDk1MjIwMmU0MmYyOTVmODYyMGVjNDQwZDk1MCIsImlhdCI6MTc0MjkwNzc4MSwiZXhwIjoyMDU4MjY3NzgxfQ.kM8pXYPRADMrDGqmYYEloZH50avOWtCSzpoZbC0gze0";
     private static var mWebhookId             as Lang.String? = "";
-    private static var mApiUrl                as Lang.String? = "";
-    private static var mConfigUrl             as Lang.String? = "";
+    private static var mApiUrl                as Lang.String? = "https://homeassistant.michel.ruhr/api";
+    private static var mConfigUrl             as Lang.String? = "https://homeassistant.michel.ruhr/local/garmin-test.json";
     private static var mCacheConfig           as Lang.Boolean = false;
     private static var mClearCache            as Lang.Boolean = false;
     private static var mMenuCheck             as Lang.Boolean = false;
@@ -63,10 +63,10 @@ class Settings {
     //
     static function update() {
         mIsApp                 = getApp().getIsApp();
-        mApiKey                = Properties.getValue("api_key");
+        //mApiKey                = Properties.getValue("api_key");
         mWebhookId             = Properties.getValue("webhook_id");
-        mApiUrl                = Properties.getValue("api_url");
-        mConfigUrl             = Properties.getValue("config_url");
+        //mApiUrl                = Properties.getValue("api_url");
+        //mConfigUrl             = Properties.getValue("config_url");
         mCacheConfig           = Properties.getValue("cache_config");
         mClearCache            = Properties.getValue("clear_cache");
         mMenuCheck             = Properties.getValue("enable_menu_update_check");
