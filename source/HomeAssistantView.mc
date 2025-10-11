@@ -271,12 +271,18 @@ class HomeAssistantViewDelegate extends WatchUi.Menu2InputDelegate {
         } else if (item instanceof HomeAssistantNumericMenuItem) {
             var haItem = item as HomeAssistantNumericMenuItem;
             // System.println(haItem.getLabel() + " " + haItem.getId());
-            // create new view to select new valu
-            var numView = new HomeAssistantNumericView(haItem);
-            WatchUi.pushView(numView, new HomeAssistantNumericViewDelegate(false,haItem), WatchUi.SLIDE_LEFT);
+            // create new view to select new value
+           
+            var mPickerFactory = new HomeAssistantNumericFactory(haItem.getData());
+           
+            var mPicker = new HomeAssistantNumericPicker(mPickerFactory,haItem);//{:pattern => [mPickerFactory});
+            var mPickerDelegate = new HomeAssistantNumericPickerDelegate(mPicker);
+            WatchUi.pushView(mPicker,mPickerDelegate,WatchUi.SLIDE_LEFT);
+            //WatchUi.pushView(numView, new HomeAssistantNumericViewDelegate(false,haItem), WatchUi.SLIDE_LEFT);
         } else if (item instanceof HomeAssistantGroupMenuItem) {
             var haMenuItem = item as HomeAssistantGroupMenuItem;
             // System.println("IconMenu: " + haMenuItem.getLabel() + " " + haMenuItem.getId());
+
             WatchUi.pushView(haMenuItem.getMenuView(), new HomeAssistantViewDelegate(false), WatchUi.SLIDE_LEFT);
         // } else {
         //     System.println(item.getLabel() + " " + item.getId());

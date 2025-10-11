@@ -28,10 +28,7 @@ class HomeAssistantNumericMenuItem extends HomeAssistantMenuItem {
     private var mExit                 as Lang.Boolean;
     private var mPin                  as Lang.Boolean;
     private var mData                 as Lang.Dictionary?;
-    private var mStep                 as Lang.Float=1.0;
-    private var mValueChanged         as Lang.Boolean = false;
-    private var mValue                as Lang.Float?;  
-    private var mEntity               as Lang.String?;
+    private var mValue                as Lang.String?;  
     private var mFormatString         as Lang.String="%.1f";
 
 
@@ -51,7 +48,6 @@ class HomeAssistantNumericMenuItem extends HomeAssistantMenuItem {
     //
     function initialize(
         label     as Lang.String or Lang.Symbol,
-        entity    as Lang.String,
         template  as Lang.String,
         service   as Lang.String?,
         data      as Lang.Dictionary?,
@@ -71,7 +67,6 @@ class HomeAssistantNumericMenuItem extends HomeAssistantMenuItem {
         mPin                  = options[:pin];
         mLabel                = label;
         mHomeAssistantService = haService;
-        mEntity               = entity;
 
         HomeAssistantMenuItem.initialize(
             label,
@@ -81,22 +76,11 @@ class HomeAssistantNumericMenuItem extends HomeAssistantMenuItem {
                 :icon      => options[:icon]
             } 
         );
-
-
-      
-        if  (mData.get("step") != null) {
-            mStep = mData.get("step").toString().toFloat();
-        }
-
-        if (mData.get("formatString") != null) {
-            mFormatString=mData.get("formatString").toString();
-        }
-        
     }
 
 
+
     function callService() as Void {
-        if (!mValueChanged) { return; }
         var hasTouchScreen = System.getDeviceSettings().isTouchScreen;
         if (mPin && hasTouchScreen) {
             var pin = Settings.getPin();
@@ -145,87 +129,48 @@ class HomeAssistantNumericMenuItem extends HomeAssistantMenuItem {
             onConfirm(false);
         }
     }
-    
+
+   
 
     //! Callback function after the menu items selection has been (optionally) confirmed.
     //!
     //! @param b Ignored. It is included in order to match the expected function prototype of the callback method.
     //
     function onConfirm(b as Lang.Boolean) as Void {
-        if (mService != null) {
-            mHomeAssistantService.call(mService, {"entity_id"  => mEntity,mData.get("valueLabel").toString() => mValue}, mExit);
-        }
+        mHomeAssistantService.call(mService, {"entity_id"  => mData.get("entity_id").toString(),mData.get("valueLabel").toString() => mValue}, mExit);
+        
     }
 
 
-    ///! Increase value when Up button is pressed or touch screen swipe down 
-
-    function increaseValue() as Void {
-        if (mValueChanged)
-        {
-            mValue += mStep;
-        }
-        else {
-            mValue= getSubLabel().toFloat() + mStep;
-            mValueChanged=true;
-        }
-        setSubLabel(mValue.format(mFormatString));
-    }
-
-    ///! Decrease value when Down button is pressed or touch screen swipe up
-    function decreaseValue() as Void {
-        if (mValueChanged)
-        {
-            mValue -= mStep;
-        }
-        else {
-            mValue= getSubLabel().toFloat() - mStep;
-            mValueChanged=true;
-        }
-        setSubLabel(mValue.format(mFormatString));
-    }
-
+ 
     //! Update the menu item's sub label to display the template rendered by Home Assistant.
     //!
     //! @param data The rendered template (typically a string) to be placed in the sub label. This may
     //!             unusually be a number if the SDK interprets the JSON returned by Home Assistant as such.
     //
     function updateState(data as Lang.String or Lang.Dictionary or Lang.Number or Lang.Float or Null) as Void {
-        // If vlue has changed, don't use value from HomeAssitant but display target value
-        if (mValueChanged) {
-            setSubLabel(mValue.format(mFormatString));
-            WatchUi.requestUpdate();
-            return;
-        }
         if (data == null) {
             setSubLabel($.Rez.Strings.Empty);
-        } else if(data instanceof Lang.String) {
-            setSubLabel(data);
-        } else if(data instanceof Lang.Number) {
-            var d = data as Lang.Number;
-            setSubLabel(d.format("%d"));
         } else if(data instanceof Lang.Float) {
             var f = data as Lang.Float;
             setSubLabel(f.format(mFormatString));
-        } else if(data instanceof Lang.Dictionary) {
-            // System.println("HomeAssistantMenuItem updateState() data = " + data);
-            if (data.get("error") != null) {
-                setSubLabel($.Rez.Strings.TemplateError);
-            } else {
-                setSubLabel($.Rez.Strings.PotentialError);
-            }
-        } else {
-            // The template must return a Lang.String, Number or Float, or the item cannot be formatted locally without error.
+        }  else {
+            // The template must return a Float, or the item cannot be formatted locally without error.
             setSubLabel(WatchUi.loadResource($.Rez.Strings.TemplateError) as Lang.String);
         }
         WatchUi.requestUpdate();
     }
 
-    //! Set the mValuChanged value.
+    //! Set the mValue value.
     //!
-    //! Can be used to reenable update of subLabel
+    //! Needed to set new value via the Service call
     //
-    function setValueChanged(b as Lang.Boolean) as Void {
-        mValueChanged = b;
+    function setValue(value as Lang.String) as Void {
+        mValue = value;
     }
+
+    function getData() as Lang.Dictionary {
+        return mData;
+    }
+    
 }
