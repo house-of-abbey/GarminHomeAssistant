@@ -173,7 +173,7 @@ class HomeAssistantMenuItemFactory {
             } else {
                 data.put("entity_id", entity_id);
             }
-        }
+        } 
         var keys = mMenuItemOptions.keys();
         for (var i = 0; i < keys.size(); i++) {
             options.put(keys[i], mMenuItemOptions.get(keys[i]));
@@ -182,7 +182,6 @@ class HomeAssistantMenuItemFactory {
         
         return new HomeAssistantNumericMenuItem(
             label,
-            entity_id,
             template,
             service,
             data,
