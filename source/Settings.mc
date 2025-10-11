@@ -29,10 +29,10 @@ using Toybox.Time;
 //
 (:glance, :background)
 class Settings {
-    private static var mApiKey                as Lang.String? = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJlNThlZDk1MjIwMmU0MmYyOTVmODYyMGVjNDQwZDk1MCIsImlhdCI6MTc0MjkwNzc4MSwiZXhwIjoyMDU4MjY3NzgxfQ.kM8pXYPRADMrDGqmYYEloZH50avOWtCSzpoZbC0gze0";
+    private static var mApiKey                as Lang.String? = "";
     private static var mWebhookId             as Lang.String? = "";
-    private static var mApiUrl                as Lang.String? = "https://homeassistant.michel.ruhr/api";
-    private static var mConfigUrl             as Lang.String? = "https://homeassistant.michel.ruhr/local/garmin-test.json";
+    private static var mApiUrl                as Lang.String? = "";
+    private static var mConfigUrl             as Lang.String? = "";
     private static var mCacheConfig           as Lang.Boolean = false;
     private static var mClearCache            as Lang.Boolean = false;
     private static var mMenuCheck             as Lang.Boolean = false;
