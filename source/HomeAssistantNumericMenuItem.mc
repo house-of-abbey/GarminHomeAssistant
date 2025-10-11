@@ -143,7 +143,6 @@ class HomeAssistantNumericMenuItem extends HomeAssistantMenuItem {
 
 
  
-
     //! Update the menu item's sub label to display the template rendered by Home Assistant.
     //!
     //! @param data The rendered template (typically a string) to be placed in the sub label. This may
@@ -152,23 +151,11 @@ class HomeAssistantNumericMenuItem extends HomeAssistantMenuItem {
     function updateState(data as Lang.String or Lang.Dictionary or Lang.Number or Lang.Float or Null) as Void {
         if (data == null) {
             setSubLabel($.Rez.Strings.Empty);
-        } else if(data instanceof Lang.String) {
-            setSubLabel(data);
-        } else if(data instanceof Lang.Number) {
-            var d = data as Lang.Number;
-            setSubLabel(d.format("%d"));
         } else if(data instanceof Lang.Float) {
             var f = data as Lang.Float;
             setSubLabel(f.format(mFormatString));
-        } else if(data instanceof Lang.Dictionary) {
-            // System.println("HomeAssistantMenuItem updateState() data = " + data);
-            if (data.get("error") != null) {
-                setSubLabel($.Rez.Strings.TemplateError);
-            } else {
-                setSubLabel($.Rez.Strings.PotentialError);
-            }
-        } else {
-            // The template must return a Lang.String, Number or Float, or the item cannot be formatted locally without error.
+        }  else {
+            // The template must return a Float, or the item cannot be formatted locally without error.
             setSubLabel(WatchUi.loadResource($.Rez.Strings.TemplateError) as Lang.String);
         }
         WatchUi.requestUpdate();
