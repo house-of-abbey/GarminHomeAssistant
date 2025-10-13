@@ -33,6 +33,43 @@
       "Monkey C: Edit Products" - Lets you add or remove any product
     -->
         <iq:products>
+            <iq:product id="approachs50"/>
+            <iq:product id="approachs7042mm"/>
+            <iq:product id="approachs7047mm"/>
+            <iq:product id="d2air"/>
+            <iq:product id="d2airx10"/>
+            <iq:product id="d2delta"/>
+            <iq:product id="d2deltapx"/>
+            <iq:product id="d2deltas"/>
+            <iq:product id="d2mach1"/>
+            <iq:product id="descentg1"/>
+            <iq:product id="descentg2"/>
+            <iq:product id="descentmk2"/>
+            <iq:product id="descentmk2s"/>
+            <iq:product id="descentmk343mm"/>
+            <iq:product id="descentmk351mm"/>
+            <iq:product id="edge1030"/>
+            <iq:product id="edge1030bontrager"/>
+            <iq:product id="edge1030plus"/>
+            <iq:product id="edge1040"/>
+            <iq:product id="edge1050"/>
+            <iq:product id="edge520plus"/>
+            <iq:product id="edge530"/>
+            <iq:product id="edge540"/>
+            <iq:product id="edge550"/>
+            <iq:product id="edge820"/>
+            <iq:product id="edge830"/>
+            <iq:product id="edge840"/>
+            <iq:product id="edge850"/>
+            <iq:product id="edgeexplore"/>
+            <iq:product id="edgeexplore2"/>
+            <iq:product id="edgemtb"/>
+            <iq:product id="enduro"/>
+            <iq:product id="enduro3"/>
+            <iq:product id="epix2"/>
+            <iq:product id="epix2pro42mm"/>
+            <iq:product id="epix2pro47mm"/>
+            <iq:product id="epix2pro47mmsystem7preview"/>
             <iq:product id="epix2pro51mm"/>
             <iq:product id="venu3"/>
         </iq:products>
