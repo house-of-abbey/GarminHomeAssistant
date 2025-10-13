@@ -278,11 +278,9 @@ class HomeAssistantViewDelegate extends WatchUi.Menu2InputDelegate {
             var mPicker = new HomeAssistantNumericPicker(mPickerFactory,haItem);//{:pattern => [mPickerFactory});
             var mPickerDelegate = new HomeAssistantNumericPickerDelegate(mPicker);
             WatchUi.pushView(mPicker,mPickerDelegate,WatchUi.SLIDE_LEFT);
-            //WatchUi.pushView(numView, new HomeAssistantNumericViewDelegate(false,haItem), WatchUi.SLIDE_LEFT);
         } else if (item instanceof HomeAssistantGroupMenuItem) {
             var haMenuItem = item as HomeAssistantGroupMenuItem;
             // System.println("IconMenu: " + haMenuItem.getLabel() + " " + haMenuItem.getId());
-
             WatchUi.pushView(haMenuItem.getMenuView(), new HomeAssistantViewDelegate(false), WatchUi.SLIDE_LEFT);
         // } else {
         //     System.println(item.getLabel() + " " + item.getId());
