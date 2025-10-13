@@ -63,10 +63,10 @@ class Settings {
     //
     static function update() {
         mIsApp                 = getApp().getIsApp();
-        //mApiKey                = Properties.getValue("api_key");
+        mApiKey                = Properties.getValue("api_key");
         mWebhookId             = Properties.getValue("webhook_id");
-        //mApiUrl                = Properties.getValue("api_url");
-        //mConfigUrl             = Properties.getValue("config_url");
+        mApiUrl                = Properties.getValue("api_url");
+        mConfigUrl             = Properties.getValue("config_url");
         mCacheConfig           = Properties.getValue("cache_config");
         mClearCache            = Properties.getValue("clear_cache");
         mMenuCheck             = Properties.getValue("enable_menu_update_check");
