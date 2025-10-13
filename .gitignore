@@ -7,5 +7,3 @@ Thumbs.db
 source/ClientId.mc
 # Gemini API key for automated translations
 gemini_api_key.txt
-# URLs ans settings modified for testing, so don't sync
-sourc/Settings.mc
