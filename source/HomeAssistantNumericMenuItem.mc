@@ -154,7 +154,13 @@ class HomeAssistantNumericMenuItem extends HomeAssistantMenuItem {
         } else if(data instanceof Lang.Float) {
             var f = data as Lang.Float;
             setSubLabel(f.format(mFormatString));
-        }  else {
+        } else if(data instanceof Lang.Number) {
+            var f = data.toFloat() as Lang.Float;
+            setSubLabel(f.format(mFormatString));
+        } else if (data instanceof Lang.String){
+            setSubLabel(data);
+        }  
+        else {
             // The template must return a Float, or the item cannot be formatted locally without error.
             setSubLabel(WatchUi.loadResource($.Rez.Strings.TemplateError) as Lang.String);
         }

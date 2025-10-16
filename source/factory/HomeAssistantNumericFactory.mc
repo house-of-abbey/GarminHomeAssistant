@@ -65,7 +65,7 @@ class HomeAssistantNumericFactory extends WatchUi.PickerFactory {
     public function getDrawable(index as Number, selected as Boolean) as Drawable? {
         var value = getValue(index);
         var text = "No item";
-        if (value instanceof Float) {
+        if (value instanceof Lang.Float) {
             text = value.format(mFormatString);
         }
         return new WatchUi.Text({:text=>text, :color=>Graphics.COLOR_WHITE, 

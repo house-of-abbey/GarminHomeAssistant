@@ -275,7 +275,7 @@ class HomeAssistantViewDelegate extends WatchUi.Menu2InputDelegate {
            
             var mPickerFactory = new HomeAssistantNumericFactory(haItem.getData());
            
-            var mPicker = new HomeAssistantNumericPicker(mPickerFactory,haItem);//{:pattern => [mPickerFactory});
+            var mPicker = new HomeAssistantNumericPicker(mPickerFactory,haItem);
             var mPickerDelegate = new HomeAssistantNumericPickerDelegate(mPicker);
             WatchUi.pushView(mPicker,mPickerDelegate,WatchUi.SLIDE_LEFT);
         } else if (item instanceof HomeAssistantGroupMenuItem) {
