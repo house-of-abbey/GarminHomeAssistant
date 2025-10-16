@@ -143,7 +143,24 @@ Example schema:
         "service": "scene.turn_on",
         "pin": true
       }
-    }
+    },
+    {
+    "name": "Heating",
+    "content": "{{ ' %.1f' | format(state_attr('climate.myheating','temperature'))  }}",
+    "type": "numeric",
+        "entity": "climate.myheating",
+        "tap_action": {
+          "service": "climate.set_temperature",
+          "data": {
+              "step": "0.5",
+              "start": "10",
+              "stop": "30",
+              "valueLabel": "temperature",
+              "formatString": "%.1f"
+          }
+        },
+    "pin": false
+    } ,
   ]
 }
 ```
@@ -157,6 +174,7 @@ The example above illustrates how to configure:
 * Script invocation (`tap`)
 * Service invocation, e.g. Scene setting, (`tap`)
 * A sub-menu to open (`group`)
+* A numeric item (`numeric`), which allows you to set a numeric value e.g. for heating or a dimmer. ValueLabel defines the variable to return. You can optionally set the minimum (start) and maximum (stop) value as well as the step to increase/decrease and a tepmlate how to format the value.
 * You can also display the status of devices (`info`) which is essentially a `tap` with no action
 * All menu items can display the results of evaluating [templates](examples/Templates.md).
 
