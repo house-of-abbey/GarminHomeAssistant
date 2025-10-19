@@ -13,7 +13,7 @@
 
   Device Information & References:
   * https://developer.garmin.com/connect-iq/compatible-devices/
-  * https://developer.garmin.com/connect-iq/reference-guides/devices-reference/
+  * https://developer.garmin.com/connect-iq/device-reference/
 
   philipabbey's Test App    id="98c36259-498a-4458-9cef-74a273ad2bc3" type="watch-app"
   Live Application          id="40131e87-31ff-454b-a8e2-92276ee399d6" type="watch-app"
@@ -225,6 +225,6 @@
       Use "Monkey C: Configure Monkey Barrel" from the Visual Studio Code
       command palette to edit the included barrels.
     -->
-        <iq:barrels/>
-    </iq:application>
+    <iq:barrels/>
+  </iq:application>
 </iq:manifest>
