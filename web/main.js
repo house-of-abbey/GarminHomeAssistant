@@ -101,12 +101,12 @@ async function get_areas() {
 }
 
 /**
- * Get all services in HomeAssistant.
+ * Get all actions in HomeAssistant.
  * @returns {Promise<[string, { name: string; description: string; fields:
  *     Record<string, { name: string; description: string; example: string;
  *     selector: unknown; required?: boolean }> }][]>} [id, data]
  */
-async function get_services() {
+async function get_actions() {
   try {
     const res = await fetch(api_url + '/services', {
       method: 'GET',
@@ -122,15 +122,15 @@ async function get_services() {
     document.querySelector('#api_url').classList.remove('invalid');
     document.querySelector('#api_token').classList.remove('invalid');
     const data = await res.json();
-    const services = [];
+    const actions = [];
     for (const d of data) {
-      for (const service in d.services) {
-        services.push([`${d.domain}.${service}`, d.services[service]]);
+      for (const action in d.services) {
+        actions.push([`${d.domain}.${action}`, d.services[action]]);
       }
     }
-    return services;
+    return actions;
   } catch (e) {
-    console.error('Error fetching services:', e);
+    console.error('Error fetching actions:', e);
     document.querySelector('#api_url').classList.add('invalid');
     return [];
   }
@@ -154,11 +154,11 @@ async function get_schema() {
  * @param {Record<string, string>} areas
  * @param {[string, { name: string; description: string; fields:
  *     Record<string, { name: string; description: string; example: string;
- *     selector: unknown; required?: boolean }> }][]} services
+ *     selector: unknown; required?: boolean }> }][]} actions
  * @param {{}} schema
  * @returns {Promise<{}>}
  */
-async function generate_schema(entities, devices, areas, services, schema) {
+async function generate_schema(entities, devices, areas, actions, schema) {
   schema.$defs.entity = {
     enum: Object.keys(entities),
   };
@@ -170,7 +170,7 @@ async function generate_schema(entities, devices, areas, services, schema) {
   };
 
   const oneOf = [];
-  for (const [id, data] of services) {
+  for (const [id, data] of actions) {
     const i_properties = {
       service: {
         title: data.name,
@@ -428,22 +428,22 @@ let entities;
 let devices;
 /** @type {Awaited<ReturnType<typeof get_areas>>} */
 let areas;
-/** @type {Awaited<ReturnType<typeof get_services>>} */
-let services;
+/** @type {Awaited<ReturnType<typeof get_actions>>} */
+let actions;
 let schema;
 async function loadSchema() {
-  [entities, devices, areas, services, schema] = await Promise.all([
+  [entities, devices, areas, actions, schema] = await Promise.all([
     get_entities(),
     get_devices(),
     get_areas(),
-    get_services(),
+    get_actions(),
     get_schema(),
   ]);
   if (window.makeMarkers) {
     window.makeMarkers();
   }
   try {
-    schema = await generate_schema(entities, devices, areas, services, schema);
+    schema = await generate_schema(entities, devices, areas, actions, schema);
   } catch {}
   console.log(schema);
   if (window.m && window.modelUri) {
