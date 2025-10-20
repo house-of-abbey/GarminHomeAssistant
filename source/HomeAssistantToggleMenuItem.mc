@@ -72,10 +72,12 @@ class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
     //
     private function setUiToggle(state as Null or Lang.String) as Void {
         if (state != null) {
-            if (state.equals("on") && !isEnabled()) {
-                setEnabled(true);
-            } else if (state.equals("off") && isEnabled()) {
+            if (state.equals("unavailable" || "unknown")) {
+                return;
+            } else if ((state.equals("off") || state.equals("closed")) && isEnabled()) {
                 setEnabled(false);
+            } else if (!isEnabled()) {
+                setEnabled(true);
             }
         }
     }
