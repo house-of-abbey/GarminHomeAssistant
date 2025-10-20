@@ -81,7 +81,7 @@ Example schema:
       "name": "Food is Ready!",
       "type": "tap",
       "tap_action": {
-        "service": "script.turn_on",
+        "action": "script.turn_on",
         "confirm": true
       }
     },
@@ -132,7 +132,7 @@ Example schema:
       "name": "Turn off USBs",
       "type": "tap",
       "tap_action": {
-        "service": "automation.trigger"
+        "action": "automation.trigger"
       }
     },
     {
@@ -140,7 +140,7 @@ Example schema:
       "name": "TV Lights Scene",
       "type": "tap",
       "tap_action": {
-        "service": "scene.turn_on",
+        "action": "scene.turn_on",
         "pin": true
       }
     },
@@ -150,7 +150,7 @@ Example schema:
     "type": "numeric",
         "entity": "climate.myheating",
         "tap_action": {
-          "service": "climate.set_temperature",
+          "action": "climate.set_temperature",
           "data": {
               "step": "0.5",
               "start": "10",

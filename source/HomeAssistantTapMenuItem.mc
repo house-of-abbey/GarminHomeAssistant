@@ -21,7 +21,7 @@ using Toybox.Graphics;
 //
 class HomeAssistantTapMenuItem extends HomeAssistantMenuItem {
     private var mHomeAssistantService as HomeAssistantService;
-    private var mService              as Lang.String?;
+    private var mAction               as Lang.String?;
     private var mConfirm              as Lang.Boolean;
     private var mExit                 as Lang.Boolean;
     private var mPin                  as Lang.Boolean;
@@ -31,11 +31,11 @@ class HomeAssistantTapMenuItem extends HomeAssistantMenuItem {
     //!
     //! @param label     Menu item label.
     //! @param template  Menu item template.
-    //! @param service   Menu item service.
-    //! @param data      Data to supply to the service call.
-    //! @param exit      Should the service call complete and then exit?
-    //! @param confirm   Should the service call be confirmed to avoid accidental invocation?
-    //! @param pin       Should the service call be protected with a PIN for some low level of security?
+    //! @param action   Menu item action.
+    //! @param data      Data to supply to the action call.
+    //! @param exit      Should the action call complete and then exit?
+    //! @param confirm   Should the action call be confirmed to avoid accidental invocation?
+    //! @param pin       Should the action call be protected with a PIN for some low level of security?
     //! @param icon      Icon to use for the menu item.
     //! @param options   Menu item options to be passed on, including both SDK and menu options, e.g. exit, confirm & pin.
     //! @param haService Shared Home Assistant service object that will perform the required call. Only
@@ -44,7 +44,7 @@ class HomeAssistantTapMenuItem extends HomeAssistantMenuItem {
     function initialize(
         label     as Lang.String or Lang.Symbol,
         template  as Lang.String,
-        service   as Lang.String?,
+        action   as Lang.String?,
         data      as Lang.Dictionary?,
         options   as {
             :alignment as WatchUi.MenuItem.Alignment,
@@ -65,16 +65,16 @@ class HomeAssistantTapMenuItem extends HomeAssistantMenuItem {
         );
 
         mHomeAssistantService = haService;
-        mService              = service;
+        mAction               = action;
         mData                 = data;
         mExit                 = options[:exit];
         mConfirm              = options[:confirm];
         mPin                  = options[:pin];
     }
 
-    //! Call a Home Assistant service only after checks have been done for confirmation or PIN entry.
+    //! Call a Home Assistant action only after checks have been done for confirmation or PIN entry.
     //
-    function callService() as Void {
+    function callAction() as Void {
         var hasTouchScreen = System.getDeviceSettings().isTouchScreen;
         if (mPin && hasTouchScreen) {
             var pin = Settings.getPin();
@@ -100,10 +100,10 @@ class HomeAssistantTapMenuItem extends HomeAssistantMenuItem {
                 WatchUi.pushView(
                     dialog,
                     new WifiLteExecutionConfirmDelegate({
-                        :type    => "service",
-                        :service => mService,
-                        :data    => mData,
-                        :exit    => mExit,
+                        :type   => "action",
+                        :action => mAction,
+                        :data   => mData,
+                        :exit   => mExit,
                     }, dialog),
                     WatchUi.SLIDE_LEFT
                 );
@@ -129,8 +129,8 @@ class HomeAssistantTapMenuItem extends HomeAssistantMenuItem {
     //! @param b Ignored. It is included in order to match the expected function prototype of the callback method.
     //
     function onConfirm(b as Lang.Boolean) as Void {
-        if (mService != null) {
-            mHomeAssistantService.call(mService, mData, mExit);
+        if (mAction != null) {
+            mHomeAssistantService.call(mAction, mData, mExit);
         }
     }
 

@@ -11,7 +11,7 @@ A simple example using a scene as a `tap` menu item.
   "name": "Telly Scene",
   "type": "tap",
   "tap_action": {
-    "service": "scene.turn_on"
+    "action": "scene.turn_on"
   }
 },
 ```
@@ -62,7 +62,7 @@ Note that for notify events, you _must_ not supply an `entity_id` or the API cal
   "name": "Message",
   "type": "tap",
   "tap_action": {
-    "service": "notify.mobile_app_on_phone",
+    "action": "notify.mobile_app_on_phone",
     "data": {
       "title": "This is a title",
       "message": "This is the message"
@@ -73,9 +73,9 @@ Note that for notify events, you _must_ not supply an `entity_id` or the API cal
 ```
 
 > [!IMPORTANT]
-> Be careful with the value of the `service` field.
+> Be careful with the value of the `action` field.
 
-Note that the `service` field will need to be a locally custom `script.<something>` as soon as any `data` fields are populated and not something more generic like `script.turn_on`. If the `service` field is wrong, the application will fail with a [`Communications.INVALID_HTTP_BODY_IN_NETWORK_RESPONSE`](https://developer.garmin.com/connect-iq/api-docs/Toybox/Communications.html) error in the response from your HomeAssistant and show the error message as _"No JSON returned from HTTP request"_ on your device. In the [web-based editor](https://house-of-abbey.github.io/GarminHomeAssistant/web/) you can use the standard developer tools to observe an `HTTP 400` error which the application does not see. Here we are limited by the [Garmin Connect IQ](https://developer.garmin.com/connect-iq/overview/) software development kit (SDK). We do not have enough information at the point of execution in the application to determine the cause of the error. Nor is there an immediately obvious way of identifying this issue using the JSON schema checks.
+Note that the `action` field will need to be a locally custom `script.<something>` as soon as any `data` fields are populated and not something more generic like `script.turn_on`. If the `action` field is wrong, the application will fail with a [`Communications.INVALID_HTTP_BODY_IN_NETWORK_RESPONSE`](https://developer.garmin.com/connect-iq/api-docs/Toybox/Communications.html) error in the response from your HomeAssistant and show the error message as _"No JSON returned from HTTP request"_ on your device. In the [web-based editor](https://house-of-abbey.github.io/GarminHomeAssistant/web/) you can use the standard developer tools to observe an `HTTP 400` error which the application does not see. Here we are limited by the [Garmin Connect IQ](https://developer.garmin.com/connect-iq/overview/) software development kit (SDK). We do not have enough information at the point of execution in the application to determine the cause of the error. Nor is there an immediately obvious way of identifying this issue using the JSON schema checks.
 
 ## Exit on Tap
 
@@ -87,7 +87,7 @@ You can choose individual items that will quit after they have completed their a
   "name": "Turn off Stuff",
   "type": "tap",
   "tap_action": {
-    "service": "automation.trigger"
+    "action": "automation.trigger"
   },
   "exit": true
 }
@@ -103,7 +103,7 @@ If you would like to temporarily disable an item in your menu, e.g. for seasonal
   "name": "Turn off Stuff",
   "type": "tap",
   "tap_action": {
-    "service": "automation.trigger"
+    "action": "automation.trigger"
   },
   "enabled": false
 }

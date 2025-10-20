@@ -33,7 +33,7 @@ class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
     //!
     //! @param label    Menu item label.
     //! @param template Menu item template.
-    //! @param data     Data to supply to the service call.
+    //! @param data     Data to supply to the action call.
     //! @param options  Menu item options to be passed on, including both SDK and menu options, e.g. exit, confirm & pin.
     //
     function initialize(
@@ -295,7 +295,7 @@ class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
 
     //! Call a Home Assistant service only after checks have been done for confirmation or PIN entry.
     //
-    function callService(b as Lang.Boolean) as Void {
+    function callAction(b as Lang.Boolean) as Void {
         var hasTouchScreen = System.getDeviceSettings().isTouchScreen;
         if (mPin && hasTouchScreen) {
             // Undo the toggle
@@ -377,7 +377,7 @@ class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
     //! @param id The entity ID, e.g., `"switch.kitchen"`.
     //! @param s Desired state: `true` for "turn_on", `false` for "turn_off".
     //!
-    //! @return Full service URL string.
+    //! @return Full action URL string.
     //
     private static function getUrl(id as Lang.String, s as Lang.Boolean) as Lang.String {
         var url = Settings.getApiUrl() + "/services/";

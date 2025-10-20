@@ -23,7 +23,7 @@ using Toybox.Graphics;
 //
 class HomeAssistantNumericMenuItem extends HomeAssistantMenuItem {
     private var mHomeAssistantService as HomeAssistantService?;
-    private var mService              as Lang.String?;
+    private var mAction               as Lang.String?;
     private var mConfirm              as Lang.Boolean;
     private var mExit                 as Lang.Boolean;
     private var mPin                  as Lang.Boolean;
@@ -36,11 +36,11 @@ class HomeAssistantNumericMenuItem extends HomeAssistantMenuItem {
     //!
     //! @param label     Menu item label.
     //! @param template  Menu item template.
-    //! @param service   Menu item service.
-    //! @param data      Data to supply to the service call.
-    //! @param exit      Should the service call complete and then exit?
-    //! @param confirm   Should the service call be confirmed to avoid accidental invocation?
-    //! @param pin       Should the service call be protected with a PIN for some low level of security?
+    //! @param action   Menu item action.
+    //! @param data      Data to supply to the action call.
+    //! @param exit      Should the action call complete and then exit?
+    //! @param confirm   Should the action call be confirmed to avoid accidental invocation?
+    //! @param pin       Should the action call be protected with a PIN for some low level of security?
     //! @param icon      Icon to use for the menu item.
     //! @param options   Menu item options to be passed on, including both SDK and menu options, e.g. exit, confirm & pin.
     //! @param haService Shared Home Assistant service object that will perform the required call. Only
@@ -49,7 +49,7 @@ class HomeAssistantNumericMenuItem extends HomeAssistantMenuItem {
     function initialize(
         label     as Lang.String or Lang.Symbol,
         template  as Lang.String,
-        service   as Lang.String?,
+        action   as Lang.String?,
         data      as Lang.Dictionary?,
         options   as {
             :alignment as WatchUi.MenuItem.Alignment,
@@ -60,7 +60,7 @@ class HomeAssistantNumericMenuItem extends HomeAssistantMenuItem {
         }?,
         haService as HomeAssistantService
     ) {
-        mService              = service;
+        mAction               = action;
         mData                 = data;
         mExit                 = options[:exit];
         mConfirm              = options[:confirm];
@@ -80,7 +80,7 @@ class HomeAssistantNumericMenuItem extends HomeAssistantMenuItem {
 
 
 
-    function callService() as Void {
+    function callAction() as Void {
         var hasTouchScreen = System.getDeviceSettings().isTouchScreen;
         if (mPin && hasTouchScreen) {
             var pin = Settings.getPin();
@@ -106,8 +106,8 @@ class HomeAssistantNumericMenuItem extends HomeAssistantMenuItem {
                 WatchUi.pushView(
                     dialog,
                     new WifiLteExecutionConfirmDelegate({
-                        :type    => "service",
-                        :service => mService,
+                        :type    => "action",
+                        :action => mAction,
                         :data    => mData,
                         :exit    => mExit,
                     }, dialog),
@@ -137,7 +137,7 @@ class HomeAssistantNumericMenuItem extends HomeAssistantMenuItem {
     //! @param b Ignored. It is included in order to match the expected function prototype of the callback method.
     //
     function onConfirm(b as Lang.Boolean) as Void {
-        mHomeAssistantService.call(mService, {"entity_id"  => mData.get("entity_id").toString(),mData.get("valueLabel").toString() => mValue}, mExit);
+        mHomeAssistantService.call(mAction, {"entity_id"  => mData.get("entity_id").toString(),mData.get("valueLabel").toString() => mValue}, mExit);
         
     }
 

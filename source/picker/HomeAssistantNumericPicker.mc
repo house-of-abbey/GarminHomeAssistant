@@ -67,7 +67,7 @@ class HomeAssistantNumericPicker extends WatchUi.Picker {
     //! @return true if user is done, false otherwise
     public function onConfirm(value as Lang.String) as Void {
         mItem.setValue(value);
-        mItem.callService();
+        mItem.callAction();
     }
 
     

@@ -122,16 +122,29 @@
               "$ref": "#/$defs/tap_action",
               "properties": {
                 "service": {
-                  "$ref": "#/$defs/service"
+                  "$ref": "#/$defs/action",
+                  "deprecated": true
+                },
+                "action": {
+                  "$ref": "#/$defs/action"
                 },
                 "data": {
                   "type": "object",
-                  "title": "Your services's parameters",
+                  "title": "Your action's parameters",
                   "description": "The object containing the parameters and their values to be passed to the entity. No schema checking can be done here, you are on your own! On application crash, remove the parameters."
                 }
               },
-              "required": [
-                "service"
+              "anyOf": [
+                {
+                  "required": [
+                    "service"
+                  ]
+                },
+                {
+                  "required": [
+                    "action"
+                  ]
+                }
               ]
             },
             "enabled": {
@@ -182,7 +195,7 @@
           "type": "tap",
           "name": "Example",
           "tap_action": {
-            "service": "notify.notify",
+            "action": "notify.notify",
             "data": {
               "message": "Example"
             }
@@ -204,7 +217,7 @@
           "$ref": "#/$defs/content"
         },
         "service": {
-          "$ref": "#/$defs/service",
+          "$ref": "#/$defs/action",
           "deprecated": true,
           "title": "Schema change:",
           "description": "Use 'tap_action' instead to mirror Home Assistant."
@@ -213,16 +226,29 @@
           "$ref": "#/$defs/tap_action",
           "properties": {
             "service": {
-              "$ref": "#/$defs/service"
+              "$ref": "#/$defs/action",
+              "deprecated": true
+            },
+            "action": {
+              "$ref": "#/$defs/action"
             },
             "data": {
               "type": "object",
-              "title": "Your services's parameters",
+              "title": "Your actions's parameters",
               "description": "The object containing the parameters and their values to be passed to the entity. No schema checking can be done here, you are on your own! On application crash, remove the parameters."
             }
           },
-          "required": [
-            "service"
+          "anyOf": [
+            {
+              "required": [
+                "service"
+              ]
+            },
+            {
+              "required": [
+                "action"
+              ]
+            }
           ]
         },
         "enabled": {
@@ -294,8 +320,8 @@
           "name": "Example",
           "entity": "light.example",
           "attribute": "brightness",
-          "service": "light.turn_on",
-          "service_attribute": "brightness",
+          "action": "light.turn_on",
+          "action_attribute": "brightness",
           "min": 0,
           "max": 255,
           "step": 1
@@ -304,8 +330,8 @@
           "type": "numeric",
           "name": "Example",
           "entity": "input_number.example",
-          "service": "input_number.set_value",
-          "service_attribute": "value",
+          "action": "input_number.set_value",
+          "action_attribute": "value",
           "min": 0,
           "max": 100,
           "step": 1
@@ -314,8 +340,8 @@
           "type": "numeric",
           "name": "Example",
           "entity": "number.example",
-          "service": "number.set_value",
-          "service_attribute": "value",
+          "action": "number.set_value",
+          "action_attribute": "value",
           "min": 0,
           "max": 100,
           "step": 1
@@ -325,8 +351,8 @@
           "name": "Example",
           "entity": "fan.example",
           "attribute": "percentage",
-          "service": "fan.set_percentage",
-          "service_attribute": "percentage",
+          "action": "fan.set_percentage",
+          "action_attribute": "percentage",
           "min": 0,
           "max": 100,
           "step": 1
@@ -336,8 +362,8 @@
           "name": "Example",
           "entity": "valve.example",
           "attribute": "position",
-          "service": "valve.set_valve_position",
-          "service_attribute": "position",
+          "action": "valve.set_valve_position",
+          "action_attribute": "position",
           "min": 0,
           "max": 100,
           "step": 1
@@ -347,8 +373,8 @@
           "name": "Example",
           "entity": "cover.example",
           "attribute": "position",
-          "service": "cover.set_position",
-          "service_attribute": "position",
+          "action": "cover.set_position",
+          "action_attribute": "position",
           "min": 0,
           "max": 100,
           "step": 1
@@ -358,8 +384,8 @@
           "name": "Example",
           "entity": "cover.example",
           "attribute": "tilt_position",
-          "service": "cover.set_tilt_position",
-          "service_attribute": "tilt_position",
+          "action": "cover.set_tilt_position",
+          "action_attribute": "tilt_position",
           "min": 0,
           "max": 100,
           "step": 1
@@ -369,8 +395,8 @@
           "name": "Example",
           "entity": "media_player.example",
           "attribute": "volume_level",
-          "service": "media_player.volume_set",
-          "service_attribute": "volume_level",
+          "action": "media_player.volume_set",
+          "action_attribute": "volume_level",
           "min": 0,
           "max": 1,
           "step": 0.01
@@ -380,8 +406,8 @@
           "name": "Example",
           "entity": "climate.example",
           "attribute": "temperature",
-          "service": "climate.set_temperature",
-          "service_attribute": "temperature",
+          "action": "climate.set_temperature",
+          "action_attribute": "temperature",
           "min": 0,
           "max": 100,
           "step": 1
@@ -435,12 +461,12 @@
               "type": "string",
               "title": "Attribute on the entity with the current numeric value. To use the state of the entity, do not specify."
             },
-            "service": {
-              "$ref": "#/$defs/service"
+            "action": {
+              "$ref": "#/$defs/action"
             },
-            "service_attribute": {
+            "action_attribute": {
               "type": "string",
-              "title": "Attribute on the service data for the value to set."
+              "title": "Attribute on the action data for the value to set."
             }
           },
           "required": [
@@ -450,8 +476,8 @@
             "max",
             "step",
             "entity",
-            "service",
-            "service_attribute"
+            "action",
+            "action_attribute"
           ],
           "additionalProperties": false
         },
@@ -473,10 +499,10 @@
               "attribute": {
                 "const": "brightness"
               },
-              "service": {
+              "action": {
                 "const": "light.turn_on"
               },
-              "service_attribute": {
+              "action_attribute": {
                 "const": "brightness"
               },
               "min": {
@@ -501,10 +527,10 @@
                 "attribute": {
                   "const": "value"
                 },
-                "service": {
+                "action": {
                   "const": "input_number.set_value"
                 },
-                "service_attribute": {
+                "action_attribute": {
                   "const": "value"
                 }
               },
@@ -527,10 +553,10 @@
                   "attribute": {
                     "const": "value"
                   },
-                  "service": {
+                  "action": {
                     "const": "number.set_value"
                   },
-                  "service_attribute": {
+                  "action_attribute": {
                     "const": "value"
                   }
                 },
@@ -553,10 +579,10 @@
                     "attribute": {
                       "const": "percentage"
                     },
-                    "service": {
+                    "action": {
                       "const": "fan.set_percentage"
                     },
-                    "service_attribute": {
+                    "action_attribute": {
                       "const": "percentage"
                     },
                     "min": {
@@ -580,10 +606,10 @@
                       "attribute": {
                         "const": "position"
                       },
-                      "service": {
+                      "action": {
                         "const": "valve.set_valve_position"
                       },
-                      "service_attribute": {
+                      "action_attribute": {
                         "const": "position"
                       },
                       "min": {
@@ -607,10 +633,10 @@
                         "attribute": {
                           "const": "position"
                         },
-                        "service": {
+                        "action": {
                           "const": "cover.set_position"
                         },
-                        "service_attribute": {
+                        "action_attribute": {
                           "const": "position"
                         },
                         "min": {
@@ -634,10 +660,10 @@
                           "attribute": {
                             "const": "tilt_position"
                           },
-                          "service": {
+                          "action": {
                             "const": "cover.set_tilt_position"
                           },
-                          "service_attribute": {
+                          "action_attribute": {
                             "const": "tilt_position"
                           },
                           "min": {
@@ -661,10 +687,10 @@
                             "attribute": {
                               "const": "volume_level"
                             },
-                            "service": {
+                            "action": {
                               "const": "media_player.volume_set"
                             },
-                            "service_attribute": {
+                            "action_attribute": {
                               "const": "volume_level"
                             },
                             "min": {
@@ -688,10 +714,10 @@
                               "attribute": {
                                 "const": "temperature"
                               },
-                              "service": {
+                              "action": {
                                 "const": "climate.set_temperature"
                               },
-                              "service_attribute": {
+                              "action_attribute": {
                                 "const": "temperature"
                               }
                             }
@@ -745,9 +771,9 @@
       "title": "Home Assistant entity name",
       "pattern": "^[^.]+\\.[^.]+$"
     },
-    "service": {
+    "action": {
       "type": "string",
-      "title": "Home Assistant service name",
+      "title": "Home Assistant action name",
       "pattern": "^[^.]+\\.[^.]+$"
     },
     "tap_action": {
