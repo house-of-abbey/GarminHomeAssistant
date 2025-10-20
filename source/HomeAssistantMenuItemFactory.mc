@@ -97,7 +97,7 @@ class HomeAssistantMenuItemFactory {
     //! @param label     Menu item label.
     //! @param entity_id Home Assistant Entity ID (optional)
     //! @param template  Template for Home Assistant to render (optional)
-    //! @param service   Template for Home Assistant to render (optional)
+    //! @param action    Action to run on Home Assistant (optional)
     //! @param data      Sourced from the menu JSON, this is the `data` field from the `tap_action` field.
     //! @param options   Menu item options to be passed on, including both SDK and menu options, e.g. exit, confirm & pin.
     //
@@ -105,7 +105,7 @@ class HomeAssistantMenuItemFactory {
         label     as Lang.String or Lang.Symbol,
         entity_id as Lang.String?,
         template  as Lang.String?,
-        service   as Lang.String?,
+        action   as Lang.String?,
         data      as Lang.Dictionary?,
         options   as {
             :exit    as Lang.Boolean,
@@ -124,12 +124,12 @@ class HomeAssistantMenuItemFactory {
         for (var i = 0; i < keys.size(); i++) {
             options[keys[i]] = mMenuItemOptions.get(keys[i]);
         }
-        if (service != null) {
-            options[:icon] = mTapTypeIcon;
+        if (action != null) {
+            options.put(:icon, mTapTypeIcon);
             return new HomeAssistantTapMenuItem(
                 label,
                 template,
-                service,
+                action,
                 data,
                 options,
                 mHomeAssistantService
@@ -155,8 +155,8 @@ class HomeAssistantMenuItemFactory {
         label     as Lang.String or Lang.Symbol,
         entity_id as Lang.String?,
         template  as Lang.String?,
-        service   as Lang.String?,
-        picker    as Lang.Dictionary,
+        action   as Lang.String?,
+        data      as Lang.Dictionary?,
         options   as {
             :exit    as Lang.Boolean,
             :confirm as Lang.Boolean,
@@ -176,7 +176,7 @@ class HomeAssistantMenuItemFactory {
         return new HomeAssistantNumericMenuItem(
             label,
             template,
-            service,
+            action,
             data,
             picker,
             options,

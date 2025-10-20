@@ -22,7 +22,7 @@ using Toybox.Graphics;
 //
 class HomeAssistantNumericMenuItem extends HomeAssistantMenuItem {
     private var mHomeAssistantService as HomeAssistantService?;
-    private var mService              as Lang.String?;
+    private var mAction               as Lang.String?;
     private var mConfirm              as Lang.Boolean;
     private var mExit                 as Lang.Boolean;
     private var mPin                  as Lang.Boolean;
@@ -35,11 +35,11 @@ class HomeAssistantNumericMenuItem extends HomeAssistantMenuItem {
     //!
     //! @param label     Menu item label.
     //! @param template  Menu item template.
-    //! @param service   Menu item service.
-    //! @param data      Data to supply to the service call.
-    //! @param exit      Should the service call complete and then exit?
-    //! @param confirm   Should the service call be confirmed to avoid accidental invocation?
-    //! @param pin       Should the service call be protected with a PIN for some low level of security?
+    //! @param action   Menu item action.
+    //! @param data      Data to supply to the action call.
+    //! @param exit      Should the action call complete and then exit?
+    //! @param confirm   Should the action call be confirmed to avoid accidental invocation?
+    //! @param pin       Should the action call be protected with a PIN for some low level of security?
     //! @param icon      Icon to use for the menu item.
     //! @param options   Menu item options to be passed on, including both SDK and menu options, e.g. exit, confirm & pin.
     //! @param haService Shared Home Assistant service object that will perform the required call. Only
@@ -48,7 +48,7 @@ class HomeAssistantNumericMenuItem extends HomeAssistantMenuItem {
     function initialize(
         label     as Lang.String or Lang.Symbol,
         template  as Lang.String,
-        service   as Lang.String?,
+        action   as Lang.String?,
         data      as Lang.Dictionary?,
         picker    as Lang.Dictionary,
         options   as {
@@ -60,7 +60,7 @@ class HomeAssistantNumericMenuItem extends HomeAssistantMenuItem {
         }?,
         haService as HomeAssistantService
     ) {
-        mService              = service;
+        mAction               = action;
         mData                 = data;
         mPicker               = picker;
         mExit                 = options[:exit];
@@ -93,7 +93,8 @@ class HomeAssistantNumericMenuItem extends HomeAssistantMenuItem {
         }
     }
 
-    function callService() as Void {
+
+    function callAction() as Void {
         var hasTouchScreen = System.getDeviceSettings().isTouchScreen;
         if (mPin && hasTouchScreen) {
             var pin = Settings.getPin();
@@ -119,8 +120,8 @@ class HomeAssistantNumericMenuItem extends HomeAssistantMenuItem {
                 WatchUi.pushView(
                     dialog,
                     new WifiLteExecutionConfirmDelegate({
-                        :type    => "service",
-                        :service => mService,
+                        :type    => "action",
+                        :action => mAction,
                         :data    => mData,
                         :exit    => mExit,
                     }, dialog),
@@ -150,18 +151,18 @@ class HomeAssistantNumericMenuItem extends HomeAssistantMenuItem {
     function onConfirm(b as Lang.Boolean) as Void {
         var dataAttribute = mPicker["data_attribute"];
         if (dataAttribute == null) {
-            //return without call service if no data attribute is set to avoid crash
+            //return without call action if no data attribute is set to avoid crash
             WatchUi.popView(WatchUi.SLIDE_RIGHT);
             return;
         }
         var entity_id = mData["entity_id"];
         if (entity_id == null) {
-            //return without call service if no entity_id is set to avoid crash
+            //return without call action if no entity_id is set to avoid crash
             WatchUi.popView(WatchUi.SLIDE_RIGHT);
             return;
         }
         mHomeAssistantService.call(
-            mService,
+            mAction,
             {
                 "entity_id"              => entity_id.toString(),
                 dataAttribute.toString() => mValue
@@ -213,7 +214,7 @@ class HomeAssistantNumericMenuItem extends HomeAssistantMenuItem {
         WatchUi.requestUpdate();
     }
 
-    //! Set the Picker's value. Needed to set new value via the Service call
+    //! Set the Picker's value. Needed to set new value via the Action call
     //!
     //! @param value New value to set.
     //
@@ -223,7 +224,7 @@ class HomeAssistantNumericMenuItem extends HomeAssistantMenuItem {
 
     //! Get the Picker's value.
     //!
-    //! Needed to set new value via the Service call
+    //! Needed to set new value via the Action call
     //
     public function getValue() as Lang.Number or Lang.Float {
         return mValue;

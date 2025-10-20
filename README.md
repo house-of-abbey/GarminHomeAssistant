@@ -81,7 +81,7 @@ Example schema:
       "name": "Food is Ready!",
       "type": "tap",
       "tap_action": {
-        "service": "script.turn_on",
+        "action": "script.turn_on",
         "confirm": true
       }
     },
@@ -132,7 +132,7 @@ Example schema:
       "name": "Turn off USBs",
       "type": "tap",
       "tap_action": {
-        "service": "automation.trigger"
+        "action": "automation.trigger"
       }
     },
     {
@@ -140,7 +140,7 @@ Example schema:
       "name": "TV Lights Scene",
       "type": "tap",
       "tap_action": {
-        "service": "scene.turn_on",
+        "action": "scene.turn_on",
         "pin": true
       }
     },
@@ -150,13 +150,13 @@ Example schema:
       "type": "numeric",
       "entity": "climate.room",
       "tap_action": {
-        "service": "climate.set_temperature",
+        "action": "climate.set_temperature",
         "picker": {
-            "step": 0.5,
-            "start": 10,
-            "stop": 30,
-            "attribute": "temperature",
-            "data_attribute": "temperature"
+          "step": 0.5,
+          "start": 10,
+          "stop": 30,
+          "attribute": "temperature",
+          "data_attribute": "temperature"
         }
       }
     }
@@ -171,7 +171,7 @@ The example above illustrates how to configure:
 * Lights or switches (`toggle`), <img src="images/toggle_icon.png" height="20">
 * Enables for automations (`toggle`), <img src="images/toggle_icon.png" height="20">
 * Script invocation (`tap`)
-* Service invocation, e.g. Scene setting, (`tap`)
+* Action invocation, e.g. Scene setting, (`tap`)
 * A sub-menu to open (`group`)
 * A numeric item (`numeric`), which allows you to set a numeric value e.g. for heating or a dimmer. This is [explained more fully](examples/Numeric.md) in its own examples page.
 * You can also display the status of devices (`info`) which is essentially a `tap` with no action
@@ -192,9 +192,9 @@ The following table indicates how HomeAssistant entity types can map to the Garm
 | Thermostat       | ❌ |   ❌  |      ✅      |   ✅   |
 | Amplifier        | ❌ |   ❌  |      ✅      |   ✅   |
 | Any other entity | ❌ |   ❌  |      ✅      |   ❌   |
-| Any service      | ✅ |   ❌  |      ❌      |   ❌   |
+| Any action       | ✅ |   ❌  |      ❌      |   ❌   |
 
-Multiple templates are evaluated in a single HTTP request to update their status. Only the toggle items have the on/off <img src="images/toggle_icon.png" height="20"> icon. NB. All `tap` and `numeric` items must specify a `service` tag in the `tap_action` object (see example below).
+Multiple templates are evaluated in a single HTTP request to update their status. Only the toggle items have the on/off <img src="images/toggle_icon.png" height="20"> icon. NB. All `tap` and `numeric` items must specify a `action` tag in the `tap_action` object (see example below).
 
 You can now specify alternative texts to use instead of "On" and "Off", e.g. "Locked" and "Unlocked" or "Open" and "Closed" through the use of a [template menu item](examples/Templates.md). But wouldn't having locks operated from your watch be a security concern ;-) ?
 
@@ -202,7 +202,9 @@ The [schema](https://raw.githubusercontent.com/house-of-abbey/GarminHomeAssistan
 
 ### Old deprecated format
 
-Version 1.5 brought in a change to the JSON schema so the following old format remains useable but is no longer favoured. The schema now marks it as 'deprecated' to nudge people over.
+Version 1.5 brought in a change to the JSON schema so the following old format remains useable but is no longer favoured.
+
+> [!IMPORTANT] Deprecated:
 
 ```json
     {
@@ -213,7 +215,9 @@ Version 1.5 brought in a change to the JSON schema so the following old format r
     }
 ```
 
-The above should be replaced by the following:
+Version 3.6 brought another change to the JSON schema to follow HomeAssistant's renaming of `service` to `action`.
+
+> [!IMPORTANT] Deprecated:
 
 ```json
     {
@@ -226,7 +230,20 @@ The above should be replaced by the following:
     }
 ```
 
-This allows the `confirm` and `pin` fields to be accommodated in the `tap_action` along side the `service` tag, and follows the HomeAssistant YAML format more closely.
+The above should be replaced by the following:
+
+```json
+    {
+      "entity": "scene.tv_light",
+      "name": "TV Lights Scene",
+      "type": "tap",
+      "tap_action": {
+        "action": "scene.turn_on"
+      }
+    }
+```
+
+This allows the `confirm` and `pin` fields to be accommodated in the `tap_action` along side the `action` tag, and follows the HomeAssistant YAML format more closely.
 
 ### More Examples
 
@@ -237,7 +254,7 @@ This allows the `confirm` and `pin` fields to be accommodated in the `tap_action
 ## Editing the JSON file
 
 You have options. The first is what we use.
-1. **Best!**  Use the GarminHomeAssistant [Web-based Editor](https://house-of-abbey.github.io/GarminHomeAssistant/web/) which includes `entity` and `service` name completion and validation by fetching data from your own HomeAssistant instance. _Pretty  nifty eh?_ The other method listed below do not add this convenience and checking.
+1. **Best!**  Use the GarminHomeAssistant [Web-based Editor](https://house-of-abbey.github.io/GarminHomeAssistant/web/) which includes `entity` and `action` name completion and validation by fetching data from your own HomeAssistant instance. _Pretty  nifty eh?_ The other method listed below do not add this convenience and checking.
 2. Use the [Studio Code Server](https://community.home-assistant.io/t/home-assistant-community-add-on-visual-studio-code/107863) addon for HomeAssistant. You can then edit your JSON file in place.
 3. Locally installed VSCode, or if not installed, try
 4. The on-line version at https://vscode.dev/, which works really well.

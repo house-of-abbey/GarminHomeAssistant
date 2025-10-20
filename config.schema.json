@@ -112,20 +112,7 @@
               "description": "Use 'info' or 'tap' instead."
             },
             "tap_action": {
-              "$ref": "#/$defs/tap_action",
-              "properties": {
-                "service": {
-                  "$ref": "#/$defs/service"
-                },
-                "data": {
-                  "type": "object",
-                  "title": "Your services's parameters",
-                  "description": "The object containing the parameters and their values to be passed to the entity. No schema checking can be done here, you are on your own! On application crash, remove the parameters."
-                }
-              },
-              "required": [
-                "service"
-              ]
+              "$ref": "#/$defs/tap_action_tap"
             },
             "enabled": {
               "$ref": "#/$defs/enabled"
@@ -185,26 +172,13 @@
           "$ref": "#/$defs/content"
         },
         "service": {
-          "$ref": "#/$defs/service",
+          "$ref": "#/$defs/action",
           "deprecated": true,
           "title": "Schema change:",
           "description": "Use 'tap_action' instead to mirror Home Assistant."
         },
         "tap_action": {
-          "$ref": "#/$defs/tap_action",
-          "properties": {
-            "service": {
-              "$ref": "#/$defs/service"
-            },
-            "data": {
-              "type": "object",
-              "title": "Your services's parameters",
-              "description": "The object containing the parameters and their values to be passed to the entity. No schema checking can be done here, you are on your own! On application crash, remove the parameters."
-            }
-          },
-          "required": [
-            "service"
-          ]
+          "$ref": "#/$defs/tap_action_tap"
         },
         "enabled": {
           "$ref": "#/$defs/enabled"
@@ -277,8 +251,8 @@
             "tap_action": {
               "$ref": "#/$defs/tap_action",
               "properties": {
-                "service": {
-                  "$ref": "#/$defs/service"
+                "action": {
+                  "$ref": "#/$defs/action"
                 },
                 "picker": {
                   "type": "object",
@@ -304,8 +278,8 @@
                     },
                     "data_attribute": {
                       "type": "string",
-                      "title": "Attribute on the service data",
-                      "description": "Attribute on the service data for the value to set."
+                      "title": "Attribute on the action data",
+                      "description": "Attribute on the action data for the value to set."
                     }
                   },
                   "required": [
@@ -317,7 +291,7 @@
                 }
               },
               "required": [
-                "service",
+                "action",
                 "picker"
               ]
             },
@@ -356,7 +330,7 @@
             "properties": {
               "tap_action": {
                 "properties": {
-                  "service": {
+                  "action": {
                     "const": "light.turn_on"
                   },
                   "picker": {
@@ -392,7 +366,7 @@
               "properties": {
                 "tap_action": {
                   "properties": {
-                    "service": {
+                    "action": {
                       "const": "input_number.set_value"
                     },
                     "picker": {
@@ -423,7 +397,7 @@
                 "properties": {
                   "tap_action": {
                     "properties": {
-                      "service": {
+                      "action": {
                         "const": "number.set_value"
                       },
                       "picker": {
@@ -454,7 +428,7 @@
                   "properties": {
                     "tap_action": {
                       "properties": {
-                        "service": {
+                        "action": {
                           "const": "fan.set_percentage"
                         },
                         "picker": {
@@ -489,7 +463,7 @@
                     "properties": {
                       "tap_action": {
                         "properties": {
-                          "service": {
+                          "action": {
                             "const": "valve.set_valve_position"
                           },
                           "picker": {
@@ -526,7 +500,7 @@
                           "properties": {
                             "tap_action": {
                               "properties": {
-                                "service": {
+                                "action": {
                                   "enum": [
                                     "cover.set_position",
                                     "cover.set_tilt_position"
@@ -541,7 +515,7 @@
                             "properties": {
                               "tap_action": {
                                 "properties": {
-                                  "service": {
+                                  "action": {
                                     "const": "cover.set_tilt_position"
                                   }
                                 }
@@ -552,7 +526,7 @@
                             "properties": {
                               "tap_action": {
                                 "properties": {
-                                  "service": {
+                                  "action": {
                                     "const": "cover.set_tilt_position"
                                   },
                                   "picker": {
@@ -579,7 +553,7 @@
                             "properties": {
                               "tap_action": {
                                 "properties": {
-                                  "service": {
+                                  "action": {
                                     "const": "cover.set_position"
                                   },
                                   "picker": {
@@ -617,7 +591,7 @@
                         "properties": {
                           "tap_action": {
                             "properties": {
-                              "service": {
+                              "action": {
                                 "const": "media_player.volume_set"
                               },
                               "picker": {
@@ -652,7 +626,7 @@
                           "tap_action": {
                             "properties": {
                               "properties": {
-                                "service": {
+                                "action": {
                                   "const": "climate.set_temperature"
                                 },
                                 "picker": {
@@ -686,7 +660,7 @@
     },
     "type": {
       "title": "Menu item type",
-      "description": "One of 'info', 'tap', 'toggle' or 'group'."
+      "description": "One of 'info', 'tap', 'toggle', 'group' or 'numeric'."
     },
     "items": {
       "type": "array",
@@ -696,7 +670,7 @@
             "type": "tap",
             "name": "Example",
             "tap_action": {
-              "service": "notify.notify",
+              "action": "notify.notify",
               "data": {
                 "message": "Example"
               }
@@ -718,7 +692,7 @@
             "name": "Example",
             "entity": "light.example",
             "tap_action": {
-              "service": "light.turn_on",
+              "action": "light.turn_on",
               "picker": {
                 "attribute": "brightness",
                 "data_attribute": "brightness",
@@ -733,7 +707,7 @@
             "name": "Example",
             "entity": "input_number.example",
             "tap_action": {
-              "service": "input_number.set_value",
+              "action": "input_number.set_value",
               "picker": {
                 "data_attribute": "value",
                 "min": 0,
@@ -747,7 +721,7 @@
             "name": "Example",
             "entity": "number.example",
             "tap_action": {
-              "service": "number.set_value",
+              "action": "number.set_value",
               "picker": {
                 "data_attribute": "value",
                 "min": 0,
@@ -761,14 +735,13 @@
             "name": "Example",
             "entity": "fan.example",
             "tap_action": {
-              "service": "fan.set_percentage",
+              "action": "fan.set_percentage",
               "picker": {
                 "attribute": "percentage",
                 "data_attribute": "percentage",
                 "min": 0,
                 "max": 100,
-                "step": 1,
-                "display_format": "%.0f%%"
+                "step": 1
               }
             }
           },
@@ -777,7 +750,7 @@
             "name": "Example",
             "entity": "valve.example",
             "tap_action": {
-              "service": "valve.set_valve_position",
+              "action": "valve.set_valve_position",
               "picker": {
                 "attribute": "position",
                 "data_attribute": "position",
@@ -792,7 +765,7 @@
             "name": "Example",
             "entity": "cover.example",
             "tap_action": {
-              "service": "cover.set_position",
+              "action": "cover.set_position",
               "picker": {
                 "attribute": "position",
                 "data_attribute": "position",
@@ -807,7 +780,7 @@
             "name": "Example",
             "entity": "cover.example",
             "tap_action": {
-              "service": "cover.set_tilt_position",
+              "action": "cover.set_tilt_position",
               "picker": {
                 "attribute": "tilt_position",
                 "data_attribute": "tilt_position",
@@ -822,7 +795,7 @@
             "name": "Example",
             "entity": "media_player.example",
             "tap_action": {
-              "service": "media_player.volume_set",
+              "action": "media_player.volume_set",
               "picker": {
                 "attribute": "volume_level",
                 "data_attribute": "volume_level",
@@ -837,7 +810,7 @@
             "name": "Example",
             "entity": "climate.example",
             "tap_action": {
-              "service": "climate.set_temperature",
+              "action": "climate.set_temperature",
               "picker": {
                 "attribute": "temperature",
                 "data_attribute": "temperature"
@@ -944,9 +917,9 @@
       "title": "Home Assistant entity name",
       "pattern": "^[^.]+\\.[^.]+$"
     },
-    "service": {
+    "action": {
       "type": "string",
-      "title": "Home Assistant service name",
+      "title": "Home Assistant action name",
       "pattern": "^[^.]+\\.[^.]+$"
     },
     "tap_action": {
@@ -962,13 +935,49 @@
         }
       }
     },
+    "tap_action_tap": {
+      "$ref": "#/$defs/tap_action",
+      "properties": {
+        "service": {
+          "$ref": "#/$defs/action",
+          "deprecated": true
+        },
+        "action": {
+          "$ref": "#/$defs/action"
+        },
+        "data": {
+          "type": "object",
+          "title": "Your actions's parameters",
+          "description": "The object containing the parameters and their values to be passed to the entity. No schema checking can be done here, you are on your own! On application crash, remove the parameters."
+        },
+        "anyOf": [
+          {
+            "required": [
+              "service"
+            ]
+          },
+          {
+            "required": [
+              "action"
+            ]
+          }
+        ]
+      }
+    },
     "content": {
       "title": "Home Assistant Template",
       "description": "Jinja2 template defining the text to display. Must be included in an 'info'. Optional in a 'toggle', 'tap' and 'group'. Special characters may not render in the glance context.",
       "type": "string"
     },
     "confirm": {
-      "type": "boolean",
+      "oneOf": [
+        {
+          "type": "boolean"
+        },
+        {
+          "type": "string"
+        }
+      ],
       "default": false,
       "title": "Confirmation",
       "description": "Optional confirmation of the action before execution as a precaution."
