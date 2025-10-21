@@ -25,13 +25,6 @@
   "$defs": {
     "toggle": {
       "type": "object",
-      "examples": [
-        {
-          "type": "toggle",
-          "name": "Example",
-          "entity": "switch.example"
-        }
-      ],
       "properties": {
         "entity": {
           "$ref": "#/$defs/entity"
@@ -177,18 +170,6 @@
     },
     "tap": {
       "type": "object",
-      "examples": [
-        {
-          "type": "tap",
-          "name": "Example",
-          "tap_action": {
-            "service": "notify.notify",
-            "data": {
-              "message": "Example"
-            }
-          }
-        }
-      ],
       "properties": {
         "entity": {
           "$ref": "#/$defs/entity"
@@ -240,14 +221,6 @@
     },
     "group": {
       "type": "object",
-      "examples": [
-        {
-          "type": "group",
-          "name": "Example",
-          "title": "Example",
-          "items": []
-        }
-      ],
       "properties": {
         "entity": {
           "$ref": "#/$defs/entity",
@@ -288,103 +261,6 @@
     },
     "numeric": {
       "type": "object",
-      "examples": [
-        {
-          "type": "numeric",
-          "name": "Example",
-          "entity": "light.example",
-          "attribute": "brightness",
-          "service": "light.turn_on",
-          "data_attribute": "brightness",
-          "min": 0,
-          "max": 255,
-          "step": 1
-        },
-        {
-          "type": "numeric",
-          "name": "Example",
-          "entity": "input_number.example",
-          "service": "input_number.set_value",
-          "data_attribute": "value",
-          "min": 0,
-          "max": 100,
-          "step": 1
-        },
-        {
-          "type": "numeric",
-          "name": "Example",
-          "entity": "number.example",
-          "service": "number.set_value",
-          "data_attribute": "value",
-          "min": 0,
-          "max": 100,
-          "step": 1
-        },
-        {
-          "type": "numeric",
-          "name": "Example",
-          "entity": "fan.example",
-          "attribute": "percentage",
-          "service": "fan.set_percentage",
-          "data_attribute": "percentage",
-          "min": 0,
-          "max": 100,
-          "step": 1,
-          "display_format": "%.0f%%"
-        },
-        {
-          "type": "numeric",
-          "name": "Example",
-          "entity": "valve.example",
-          "attribute": "position",
-          "service": "valve.set_valve_position",
-          "data_attribute": "position",
-          "min": 0,
-          "max": 100,
-          "step": 1
-        },
-        {
-          "type": "numeric",
-          "name": "Example",
-          "entity": "cover.example",
-          "attribute": "position",
-          "service": "cover.set_position",
-          "data_attribute": "position",
-          "min": 0,
-          "max": 100,
-          "step": 1
-        },
-        {
-          "type": "numeric",
-          "name": "Example",
-          "entity": "cover.example",
-          "attribute": "tilt_position",
-          "service": "cover.set_tilt_position",
-          "data_attribute": "tilt_position",
-          "min": 0,
-          "max": 100,
-          "step": 1
-        },
-        {
-          "type": "numeric",
-          "name": "Example",
-          "entity": "media_player.example",
-          "attribute": "volume_level",
-          "service": "media_player.volume_set",
-          "data_attribute": "volume_level",
-          "min": 0,
-          "max": 1,
-          "step": 0.01
-        },
-        {
-          "type": "numeric",
-          "name": "Example",
-          "entity": "climate.example",
-          "attribute": "temperature",
-          "service": "climate.set_temperature",
-          "data_attribute": "temperature"
-        }
-      ],
       "allOf": [
         {
           "properties": {
@@ -713,6 +589,124 @@
     "items": {
       "type": "array",
       "items": {
+        "examples": [
+          {
+            "type": "tap",
+            "name": "Example",
+            "tap_action": {
+              "service": "notify.notify",
+              "data": {
+                "message": "Example"
+              }
+            }
+          },
+          {
+            "type": "toggle",
+            "name": "Example",
+            "entity": "switch.example"
+          },
+          {
+            "type": "group",
+            "name": "Example",
+            "title": "Example",
+            "items": []
+          },
+          {
+            "type": "numeric",
+            "name": "Example",
+            "entity": "light.example",
+            "attribute": "brightness",
+            "service": "light.turn_on",
+            "data_attribute": "brightness",
+            "min": 0,
+            "max": 255,
+            "step": 1
+          },
+          {
+            "type": "numeric",
+            "name": "Example",
+            "entity": "input_number.example",
+            "service": "input_number.set_value",
+            "data_attribute": "value",
+            "min": 0,
+            "max": 100,
+            "step": 1
+          },
+          {
+            "type": "numeric",
+            "name": "Example",
+            "entity": "number.example",
+            "service": "number.set_value",
+            "data_attribute": "value",
+            "min": 0,
+            "max": 100,
+            "step": 1
+          },
+          {
+            "type": "numeric",
+            "name": "Example",
+            "entity": "fan.example",
+            "attribute": "percentage",
+            "service": "fan.set_percentage",
+            "data_attribute": "percentage",
+            "min": 0,
+            "max": 100,
+            "step": 1,
+            "display_format": "%.0f%%"
+          },
+          {
+            "type": "numeric",
+            "name": "Example",
+            "entity": "valve.example",
+            "attribute": "position",
+            "service": "valve.set_valve_position",
+            "data_attribute": "position",
+            "min": 0,
+            "max": 100,
+            "step": 1
+          },
+          {
+            "type": "numeric",
+            "name": "Example",
+            "entity": "cover.example",
+            "attribute": "position",
+            "service": "cover.set_position",
+            "data_attribute": "position",
+            "min": 0,
+            "max": 100,
+            "step": 1
+          },
+          {
+            "type": "numeric",
+            "name": "Example",
+            "entity": "cover.example",
+            "attribute": "tilt_position",
+            "service": "cover.set_tilt_position",
+            "data_attribute": "tilt_position",
+            "min": 0,
+            "max": 100,
+            "step": 1
+          },
+          {
+            "type": "numeric",
+            "name": "Example",
+            "entity": "media_player.example",
+            "attribute": "volume_level",
+            "service": "media_player.volume_set",
+            "data_attribute": "volume_level",
+            "min": 0,
+            "max": 1,
+            "step": 0.01
+          },
+          {
+            "type": "numeric",
+            "name": "Example",
+            "entity": "climate.example",
+            "attribute": "temperature",
+            "service": "climate.set_temperature",
+            "data_attribute": "temperature"
+          }
+        ],
         "allOf": [
           {
             "properties": {
