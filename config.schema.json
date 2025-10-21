@@ -329,7 +329,8 @@
           "data_attribute": "percentage",
           "min": 0,
           "max": 100,
-          "step": 1
+          "step": 1,
+          "display_format": "%.0f%%"
         },
         {
           "type": "numeric",
@@ -381,10 +382,7 @@
           "entity": "climate.example",
           "attribute": "temperature",
           "service": "climate.set_temperature",
-          "data_attribute": "temperature",
-          "min": 0,
-          "max": 100,
-          "step": 1
+          "data_attribute": "temperature"
         }
       ],
       "allOf": [
@@ -411,19 +409,20 @@
             },
             "min": {
               "type": "number",
-              "title": "Minimum value"
+              "title": "Minimum Value"
             },
             "max": {
               "type": "number",
-              "title": "Maximum value"
+              "title": "Maximum Value"
             },
             "step": {
               "type": "number",
-              "title": "Step size"
+              "title": "Step Size"
             },
             "display_format": {
               "type": "string",
-              "title": "A C-Style format string for displaying the value in the UI.",
+              "title": "Display Format",
+              "description": "A C-Style format string for displaying the value in the UI. https://developer.garmin.com/connect-iq/api-docs/Toybox/Lang/Number.html#format-instance_function",
               "default": "%.1f"
             },
             "entity": {
@@ -431,14 +430,16 @@
             },
             "attribute": {
               "type": "string",
-              "title": "Attribute on the entity with the current numeric value. To use the state of the entity, do not specify."
+              "title": "Attribute on the entity",
+              "description": "Attribute on the entity with the current numeric value. To use the state of the entity, do not specify."
             },
             "service": {
               "$ref": "#/$defs/service"
             },
             "data_attribute": {
               "type": "string",
-              "title": "Attribute on the service data for the value to set."
+              "title": "Attribute on the service data",
+              "description": "Attribute on the service data for the value to set."
             }
           },
           "required": [
@@ -712,24 +713,92 @@
     "items": {
       "type": "array",
       "items": {
-        "oneOf": [
+        "allOf": [
           {
-            "$ref": "#/$defs/toggle"
+            "properties": {
+              "type": {
+                "enum": [
+                  "toggle",
+                  "template",
+                  "tap",
+                  "info",
+                  "group",
+                  "numeric"
+                ]
+              }
+            }
           },
           {
-            "$ref": "#/$defs/template"
-          },
-          {
-            "$ref": "#/$defs/tap"
-          },
-          {
-            "$ref": "#/$defs/info"
-          },
-          {
-            "$ref": "#/$defs/group"
-          },
-          {
-            "$ref": "#/$defs/numeric"
+            "if": {
+              "properties": {
+                "type": {
+                  "const": "toggle"
+                }
+              }
+            },
+            "then": {
+              "$ref": "#/$defs/toggle"
+            },
+            "else": {
+              "if": {
+                "properties": {
+                  "type": {
+                    "const": "template"
+                  }
+                }
+              },
+              "then": {
+                "$ref": "#/$defs/template"
+              },
+              "else": {
+                "if": {
+                  "properties": {
+                    "type": {
+                      "const": "tap"
+                    }
+                  }
+                },
+                "then": {
+                  "$ref": "#/$defs/tap"
+                },
+                "else": {
+                  "if": {
+                    "properties": {
+                      "type": {
+                        "const": "info"
+                      }
+                    }
+                  },
+                  "then": {
+                    "$ref": "#/$defs/info"
+                  },
+                  "else": {
+                    "if": {
+                      "properties": {
+                        "type": {
+                          "const": "group"
+                        }
+                      }
+                    },
+                    "then": {
+                      "$ref": "#/$defs/group"
+                    },
+                    "else": {
+                      "if": {
+                        "properties": {
+                          "type": {
+                            "const": "numeric"
+                          }
+                        }
+                      },
+                      "then": {
+                        "$ref": "#/$defs/numeric"
+                      }
+                    }
+                  }
+                }
+              }
+            }
           }
         ]
       }
