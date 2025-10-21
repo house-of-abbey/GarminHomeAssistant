@@ -421,12 +421,10 @@
               "type": "number",
               "title": "Step size"
             },
-            "decimals": {
-              "type": "number",
-              "title": "Number of decimals to display",
-              "minimum": 0,
-              "maximum": 10,
-              "default": 1
+            "display_format": {
+              "type": "string",
+              "title": "A C-Style format string for displaying the value in the UI.",
+              "default": "%.1f"
             },
             "entity": {
               "$ref": "#/$defs/entity"
