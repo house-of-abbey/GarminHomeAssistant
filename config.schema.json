@@ -295,7 +295,7 @@
           "entity": "light.example",
           "attribute": "brightness",
           "service": "light.turn_on",
-          "service_attribute": "brightness",
+          "data_attribute": "brightness",
           "min": 0,
           "max": 255,
           "step": 1
@@ -305,7 +305,7 @@
           "name": "Example",
           "entity": "input_number.example",
           "service": "input_number.set_value",
-          "service_attribute": "value",
+          "data_attribute": "value",
           "min": 0,
           "max": 100,
           "step": 1
@@ -315,7 +315,7 @@
           "name": "Example",
           "entity": "number.example",
           "service": "number.set_value",
-          "service_attribute": "value",
+          "data_attribute": "value",
           "min": 0,
           "max": 100,
           "step": 1
@@ -326,7 +326,7 @@
           "entity": "fan.example",
           "attribute": "percentage",
           "service": "fan.set_percentage",
-          "service_attribute": "percentage",
+          "data_attribute": "percentage",
           "min": 0,
           "max": 100,
           "step": 1
@@ -337,7 +337,7 @@
           "entity": "valve.example",
           "attribute": "position",
           "service": "valve.set_valve_position",
-          "service_attribute": "position",
+          "data_attribute": "position",
           "min": 0,
           "max": 100,
           "step": 1
@@ -348,7 +348,7 @@
           "entity": "cover.example",
           "attribute": "position",
           "service": "cover.set_position",
-          "service_attribute": "position",
+          "data_attribute": "position",
           "min": 0,
           "max": 100,
           "step": 1
@@ -359,7 +359,7 @@
           "entity": "cover.example",
           "attribute": "tilt_position",
           "service": "cover.set_tilt_position",
-          "service_attribute": "tilt_position",
+          "data_attribute": "tilt_position",
           "min": 0,
           "max": 100,
           "step": 1
@@ -370,7 +370,7 @@
           "entity": "media_player.example",
           "attribute": "volume_level",
           "service": "media_player.volume_set",
-          "service_attribute": "volume_level",
+          "data_attribute": "volume_level",
           "min": 0,
           "max": 1,
           "step": 0.01
@@ -381,7 +381,7 @@
           "entity": "climate.example",
           "attribute": "temperature",
           "service": "climate.set_temperature",
-          "service_attribute": "temperature",
+          "data_attribute": "temperature",
           "min": 0,
           "max": 100,
           "step": 1
@@ -438,7 +438,7 @@
             "service": {
               "$ref": "#/$defs/service"
             },
-            "service_attribute": {
+            "data_attribute": {
               "type": "string",
               "title": "Attribute on the service data for the value to set."
             }
@@ -451,7 +451,7 @@
             "step",
             "entity",
             "service",
-            "service_attribute"
+            "data_attribute"
           ],
           "additionalProperties": false
         },
@@ -476,7 +476,7 @@
               "service": {
                 "const": "light.turn_on"
               },
-              "service_attribute": {
+              "data_attribute": {
                 "const": "brightness"
               },
               "min": {
@@ -504,7 +504,7 @@
                 "service": {
                   "const": "input_number.set_value"
                 },
-                "service_attribute": {
+                "data_attribute": {
                   "const": "value"
                 }
               },
@@ -530,7 +530,7 @@
                   "service": {
                     "const": "number.set_value"
                   },
-                  "service_attribute": {
+                  "data_attribute": {
                     "const": "value"
                   }
                 },
@@ -556,7 +556,7 @@
                     "service": {
                       "const": "fan.set_percentage"
                     },
-                    "service_attribute": {
+                    "data_attribute": {
                       "const": "percentage"
                     },
                     "min": {
@@ -583,7 +583,7 @@
                       "service": {
                         "const": "valve.set_valve_position"
                       },
-                      "service_attribute": {
+                      "data_attribute": {
                         "const": "position"
                       },
                       "min": {
@@ -610,7 +610,7 @@
                         "service": {
                           "const": "cover.set_position"
                         },
-                        "service_attribute": {
+                        "data_attribute": {
                           "const": "position"
                         },
                         "min": {
@@ -637,7 +637,7 @@
                           "service": {
                             "const": "cover.set_tilt_position"
                           },
-                          "service_attribute": {
+                          "data_attribute": {
                             "const": "tilt_position"
                           },
                           "min": {
@@ -664,7 +664,7 @@
                             "service": {
                               "const": "media_player.volume_set"
                             },
-                            "service_attribute": {
+                            "data_attribute": {
                               "const": "volume_level"
                             },
                             "min": {
@@ -691,7 +691,7 @@
                               "service": {
                                 "const": "climate.set_temperature"
                               },
-                              "service_attribute": {
+                              "data_attribute": {
                                 "const": "temperature"
                               }
                             }
