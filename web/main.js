@@ -141,10 +141,29 @@ async function get_services() {
  * @returns {Promise<{}>}
  */
 async function get_schema() {
-  const res = await fetch(
-    'https://raw.githubusercontent.com/house-of-abbey/GarminHomeAssistant/main/config.schema.json'
-  );
-  return res.json();
+  const searchParams = new URL(window.location).searchParams;
+
+  const branch = searchParams.get('branch');
+  if (branch)
+    return (
+      await fetch(
+        `https://raw.githubusercontent.com/house-of-abbey/GarminHomeAssistant/refs/heads/${branch}/config.schema.json`
+      )
+    ).json();
+
+  const version = searchParams.get('version');
+  if (version)
+    return (
+      await fetch(
+        `https://raw.githubusercontent.com/house-of-abbey/GarminHomeAssistant/refs/tags/${version}/config.schema.json`
+      )
+    ).json();
+
+  return (
+    await fetch(
+      `https://raw.githubusercontent.com/house-of-abbey/GarminHomeAssistant/main/config.schema.json`
+    )
+  ).json();
 }
 
 /**
