@@ -143,6 +143,9 @@ async function get_services() {
 async function get_schema() {
   const searchParams = new URL(window.location).searchParams;
 
+  const url = searchParams.get('schema');
+  if (url) return (await fetch(url)).json();
+
   const branch = searchParams.get('branch');
   if (branch)
     return (
