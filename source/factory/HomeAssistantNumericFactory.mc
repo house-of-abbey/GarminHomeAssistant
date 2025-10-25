@@ -32,11 +32,11 @@ class HomeAssistantNumericFactory extends WatchUi.PickerFactory {
 
         // Get values from data
 
-        var val = data.get("start");
+        var val = data.get("min");
         if (val != null) {
             mStart = val.toString().toFloat();
         }
-        val = data.get("stop");
+        val = data.get("max");
         if (val != null) {
             mStop = val.toString().toFloat();
         } 
@@ -44,7 +44,7 @@ class HomeAssistantNumericFactory extends WatchUi.PickerFactory {
         if (val != null) {
             mStep = val.toString().toFloat();
         } 
-       val = data.get("formatString");
+       val = data.get("display_format");
         if (val != null) {
             mFormatString = val.toString();
         } 

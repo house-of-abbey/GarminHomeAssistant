@@ -68,6 +68,15 @@ class HomeAssistantNumericMenuItem extends HomeAssistantMenuItem {
         mLabel                = label;
         mHomeAssistantService = haService;
 
+        var val = data.get("display_format");
+        if (val != null) {
+            mFormatString = val.toString();
+        }   
+        else {
+            mFormatString = "%.1f";
+        }
+        
+
         HomeAssistantMenuItem.initialize(
             label,
             template,
@@ -75,7 +84,7 @@ class HomeAssistantNumericMenuItem extends HomeAssistantMenuItem {
                 :alignment => options[:alignment],
                 :icon      => options[:icon]
             } 
-        );
+        );    
     }
 
 
@@ -137,10 +146,47 @@ class HomeAssistantNumericMenuItem extends HomeAssistantMenuItem {
     //! @param b Ignored. It is included in order to match the expected function prototype of the callback method.
     //
     function onConfirm(b as Lang.Boolean) as Void {
-        mHomeAssistantService.call(mService, {"entity_id"  => mData.get("entity_id").toString(),mData.get("valueLabel").toString() => mValue}, mExit);
-        
+        //mHomeAssistantService.call(mService, {"entity_id"  => mData.get("entity_id").toString(),mData.get("valueLabel").toString() => mValue}, mExit);
+        var dataAttribute = mData.get("data_attribute");
+        if (dataAttribute == null) {
+            //return without call service if no data attribute is set to avoid crash
+            WatchUi.popView(WatchUi.SLIDE_RIGHT);
+            return;
+        }
+        var entity_id = mData.get("entity_id");
+        if (entity_id == null) {
+            //return without call service if no entity_id is set to avoid crash
+            WatchUi.popView(WatchUi.SLIDE_RIGHT);
+            return;
+        }
+        mHomeAssistantService.call(mService, {"entity_id"  => entity_id.toString(),dataAttribute.toString() => mValue}, mExit);
+        WatchUi.popView(WatchUi.SLIDE_RIGHT);
     }
 
+    //! Return a toggle menu item's state template.
+    //!
+    //! @return A string with the menu item's template definition (or null).
+    //
+    function getNumericTemplate() as Lang.String? {
+        var entity_id = mData.get("entity_id");
+        if (entity_id != null) {
+            return "{{state_attr('" + entity_id.toString() + "','" + mData.get("attribute").toString() +"')}}";
+        }
+        return null;
+    }
+
+    function updateNumericState(data as Lang.String or Lang.Dictionary or Null) as Void {
+        if (data == null) {
+            mValue="0";
+            return;
+        } else if(data instanceof Lang.String) {
+            mValue=data;
+
+        } else {
+            // Catch possible error
+            mValue="0";
+        }
+    }
 
  
     //! Update the menu item's sub label to display the template rendered by Home Assistant.
@@ -158,10 +204,11 @@ class HomeAssistantNumericMenuItem extends HomeAssistantMenuItem {
             var f = data.toFloat() as Lang.Float;
             setSubLabel(f.format(mFormatString));
         } else if (data instanceof Lang.String){
+            // This should not happen
             setSubLabel(data);
         }  
         else {
-            // The template must return a Float, or the item cannot be formatted locally without error.
+            // The template must return a Float on Numeric value, or the item cannot be formatted locally without error.
             setSubLabel(WatchUi.loadResource($.Rez.Strings.TemplateError) as Lang.String);
         }
         WatchUi.requestUpdate();
@@ -173,6 +220,10 @@ class HomeAssistantNumericMenuItem extends HomeAssistantMenuItem {
     //
     function setValue(value as Lang.String) as Void {
         mValue = value;
+    }
+
+    function getValue() as Lang.String {
+        return mValue;
     }
 
     function getData() as Lang.Dictionary {

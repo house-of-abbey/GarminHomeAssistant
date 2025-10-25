@@ -629,6 +629,10 @@ class HomeAssistantApp extends Application.AppBase {
                             if (item instanceof HomeAssistantToggleMenuItem) {
                                 (item as HomeAssistantToggleMenuItem).updateToggleState(data[i.toString() + "t"]);
                             }
+                            if (item instanceof HomeAssistantNumericMenuItem) {
+                               // (item as HomeAssistantNumericMenuItem).updateNumericState("22");
+                                (item as HomeAssistantNumericMenuItem).updateNumericState(data[i.toString() + "n"].toString());
+                            }
                         }
                         if (Settings.getMenuCheck() && Settings.getCacheConfig() && !mIsCacheChecked) {
                             // We are caching the menu configuration, so let's fetch it and check if its been updated.
@@ -721,6 +725,11 @@ class HomeAssistantApp extends Application.AppBase {
                         if (item instanceof HomeAssistantToggleMenuItem) {
                             mTemplates.put(i.toString() + "t", {
                                 "template" => (item as HomeAssistantToggleMenuItem).getToggleTemplate()
+                            });
+                        }
+                        if (item instanceof HomeAssistantNumericMenuItem) {
+                            mTemplates.put(i.toString() + "n", {
+                                "template" => (item as HomeAssistantNumericMenuItem).getNumericTemplate()
                             });
                         }
                     }

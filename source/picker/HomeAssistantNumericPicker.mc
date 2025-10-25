@@ -37,18 +37,24 @@ class HomeAssistantNumericPicker extends WatchUi.Picker {
 
         var data = mItem.getData();
 
-        var start = 0.0;
-        var val = data.get("start");
+        var min = 0.0;
+        var val = data.get("min");
         if (val != null) {
-            start = val.toString().toFloat();
+            min = val.toString().toFloat();
         } 
         var step = 1.0;
         val = data.get("step");
         if (val != null) {
             step = val.toString().toFloat();
         } 
-        val = haItem.getSubLabel().toFloat();
-        var index = ((val -start) / step).toNumber();
+        val = haItem.getValue();
+        if (val != null) {
+            val = val.toString().toFloat();
+        } else {
+            // catch missing state to avoid crash
+            val = min;
+        }
+        var index = ((val -min) / step).toNumber();
 
         pickerOptions[:defaults]  =[index];
 
@@ -96,7 +102,6 @@ class HomeAssistantNumericPickerDelegate extends WatchUi.PickerDelegate {
     public function onAccept(values as Lang.Array) as Lang.Boolean {
         var chosenValue = values[0].toString();
         mPicker.onConfirm(chosenValue);
-        WatchUi.popView(WatchUi.SLIDE_RIGHT);
         return true;
     }
 }
