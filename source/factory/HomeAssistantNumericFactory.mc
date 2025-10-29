@@ -47,7 +47,7 @@ class HomeAssistantNumericFactory extends WatchUi.PickerFactory {
         if (mStep < 0.01) {
             mFormatString="%.3f";
         } else if (mStep < 0.1) {
-            mFormatString="%2f";
+            mFormatString="%.2f";
         } else if (mStep < 1) {
             mFormatString="%.1f";
         } else {

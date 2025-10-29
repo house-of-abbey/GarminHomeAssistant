@@ -630,7 +630,10 @@ class HomeAssistantApp extends Application.AppBase {
                                 (item as HomeAssistantToggleMenuItem).updateToggleState(data[i.toString() + "t"]);
                             }
                             if (item instanceof HomeAssistantNumericMenuItem) {
-                                (item as HomeAssistantNumericMenuItem).updateNumericState(data[i.toString() + "n"].toString());
+                                if (data[i.toString() + "n"] != null)
+                                {
+                                    (item as HomeAssistantNumericMenuItem).updateNumericState(data[i.toString() + "n"].toString());
+                                }
                             }
                         }
                         if (Settings.getMenuCheck() && Settings.getCacheConfig() && !mIsCacheChecked) {
