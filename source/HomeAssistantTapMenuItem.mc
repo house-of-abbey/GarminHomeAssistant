@@ -128,7 +128,7 @@ class HomeAssistantTapMenuItem extends HomeAssistantMenuItem {
     //!
     //! @param b Ignored. It is included in order to match the expected function prototype of the callback method.
     //
-    function onConfirm(b as Lang.Boolean) as Void {
+    public function onConfirm(b as Lang.Boolean) as Void {
         if (mService != null) {
             mHomeAssistantService.call(mService, mData, mExit);
         }

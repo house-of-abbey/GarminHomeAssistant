@@ -17,7 +17,10 @@
       "$ref": "#/$defs/items"
     }
   },
-  "required": ["title", "items"],
+  "required": [
+    "title",
+    "items"
+  ],
   "additionalProperties": false,
   "$defs": {
     "toggle": {
@@ -37,15 +40,7 @@
           "$ref": "#/$defs/content"
         },
         "tap_action": {
-          "type": "object",
-          "properties": {
-            "confirm": {
-              "$ref": "#/$defs/confirm"
-            },
-            "pin": {
-              "$ref": "#/$defs/pin"
-            }
-          },
+          "$ref": "#/$defs/tap_action",
           "additionalProperties": false
         },
         "enabled": {
@@ -55,7 +50,11 @@
           "$ref": "#/$defs/exit"
         }
       },
-      "required": ["entity", "name", "type"],
+      "required": [
+        "entity",
+        "name",
+        "type"
+      ],
       "additionalProperties": false
     },
     "template": {
@@ -86,7 +85,11 @@
               "$ref": "#/$defs/enabled"
             }
           },
-          "required": ["name", "content", "type"],
+          "required": [
+            "name",
+            "content",
+            "type"
+          ],
           "additionalProperties": false
         },
         {
@@ -109,7 +112,20 @@
               "description": "Use 'info' or 'tap' instead."
             },
             "tap_action": {
-              "$ref": "#/$defs/tap_action"
+              "$ref": "#/$defs/tap_action",
+              "properties": {
+                "service": {
+                  "$ref": "#/$defs/service"
+                },
+                "data": {
+                  "type": "object",
+                  "title": "Your services's parameters",
+                  "description": "The object containing the parameters and their values to be passed to the entity. No schema checking can be done here, you are on your own! On application crash, remove the parameters."
+                }
+              },
+              "required": [
+                "service"
+              ]
             },
             "enabled": {
               "$ref": "#/$defs/enabled"
@@ -118,7 +134,12 @@
               "$ref": "#/$defs/exit"
             }
           },
-          "required": ["name", "content", "type", "tap_action"],
+          "required": [
+            "name",
+            "content",
+            "type",
+            "tap_action"
+          ],
           "additionalProperties": false
         }
       ]
@@ -140,7 +161,11 @@
           "$ref": "#/$defs/enabled"
         }
       },
-      "required": ["name", "content", "type"],
+      "required": [
+        "name",
+        "content",
+        "type"
+      ],
       "additionalProperties": false
     },
     "tap": {
@@ -160,13 +185,26 @@
           "$ref": "#/$defs/content"
         },
         "service": {
-          "$ref": "#/$defs/entity",
+          "$ref": "#/$defs/service",
           "deprecated": true,
           "title": "Schema change:",
           "description": "Use 'tap_action' instead to mirror Home Assistant."
         },
         "tap_action": {
-          "$ref": "#/$defs/tap_action"
+          "$ref": "#/$defs/tap_action",
+          "properties": {
+            "service": {
+              "$ref": "#/$defs/service"
+            },
+            "data": {
+              "type": "object",
+              "title": "Your services's parameters",
+              "description": "The object containing the parameters and their values to be passed to the entity. No schema checking can be done here, you are on your own! On application crash, remove the parameters."
+            }
+          },
+          "required": [
+            "service"
+          ]
         },
         "enabled": {
           "$ref": "#/$defs/enabled"
@@ -175,7 +213,10 @@
           "$ref": "#/$defs/exit"
         }
       },
-      "required": ["name", "type"],
+      "required": [
+        "name",
+        "type"
+      ],
       "additionalProperties": false
     },
     "group": {
@@ -210,8 +251,300 @@
           "$ref": "#/$defs/enabled"
         }
       },
-      "required": ["name", "title", "type", "items"],
+      "required": [
+        "name",
+        "title",
+        "type",
+        "items"
+      ],
       "additionalProperties": false
+    },
+    "numeric": {
+      "type": "object",
+      "allOf": [
+        {
+          "properties": {
+            "name": {
+              "$ref": "#/$defs/name"
+            },
+            "type": {
+              "$ref": "#/$defs/type",
+              "const": "numeric"
+            },
+            "content": {
+              "$ref": "#/$defs/content"
+            },
+            "tap_action": {
+              "$ref": "#/$defs/tap_action"
+            },
+            "enabled": {
+              "$ref": "#/$defs/enabled"
+            },
+            "exit": {
+              "$ref": "#/$defs/exit"
+            },
+            "entity": {
+              "$ref": "#/$defs/entity"
+            }
+          },
+          "required": [
+            "name",
+            "type",
+            "entity"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "properties": {
+            "entity": {
+              "pattern": "^(light|input_number|number|fan|valve|cover|media_player|climate)\\.[^.]+$"
+            }
+          },
+          "if": {
+            "properties": {
+              "entity": {
+                "pattern": "^light\\.[^.]+$"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "attribute": {
+                "const": "brightness"
+              },
+              "service": {
+                "const": "light.turn_on"
+              },
+              "data_attribute": {
+                "const": "brightness"
+              },
+              "min": {
+                "const": 0
+              },
+              "max": {
+                "const": 255,
+                "description": "Lights are not a percentage."
+              }
+            }
+          },
+          "else": {
+            "if": {
+              "properties": {
+                "entity": {
+                  "pattern": "^input_number\\.[^.]+$"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "attribute": {
+                  "const": "value"
+                },
+                "service": {
+                  "const": "input_number.set_value"
+                },
+                "data_attribute": {
+                  "const": "value"
+                }
+              },
+              "not": {
+                "required": [
+                  "attribute"
+                ]
+              }
+            },
+            "else": {
+              "if": {
+                "properties": {
+                  "entity": {
+                    "pattern": "^number\\.[^.]+$"
+                  }
+                }
+              },
+              "then": {
+                "properties": {
+                  "attribute": {
+                    "const": "value"
+                  },
+                  "service": {
+                    "const": "number.set_value"
+                  },
+                  "data_attribute": {
+                    "const": "value"
+                  }
+                },
+                "not": {
+                  "required": [
+                    "attribute"
+                  ]
+                }
+              },
+              "else": {
+                "if": {
+                  "properties": {
+                    "entity": {
+                      "pattern": "^fan\\.[^.]+$"
+                    }
+                  }
+                },
+                "then": {
+                  "properties": {
+                    "attribute": {
+                      "const": "percentage"
+                    },
+                    "service": {
+                      "const": "fan.set_percentage"
+                    },
+                    "data_attribute": {
+                      "const": "percentage"
+                    },
+                    "min": {
+                      "const": 0
+                    },
+                    "max": {
+                      "const": 100
+                    }
+                  }
+                },
+                "else": {
+                  "if": {
+                    "properties": {
+                      "entity": {
+                        "pattern": "^valve\\.[^.]+$"
+                      }
+                    }
+                  },
+                  "then": {
+                    "properties": {
+                      "attribute": {
+                        "const": "position"
+                      },
+                      "service": {
+                        "const": "valve.set_valve_position"
+                      },
+                      "data_attribute": {
+                        "const": "position"
+                      },
+                      "min": {
+                        "const": 0
+                      },
+                      "max": {
+                        "const": 100
+                      }
+                    }
+                  },
+                  "else": {
+                    "if": {
+                      "properties": {
+                        "entity": {
+                          "pattern": "^cover\\.[^.]+$"
+                        }
+                      }
+                    },
+                    "then": {
+                      "properties": {
+                        "attribute": {
+                          "const": "position"
+                        },
+                        "service": {
+                          "const": "cover.set_position"
+                        },
+                        "data_attribute": {
+                          "const": "position"
+                        },
+                        "min": {
+                          "const": 0
+                        },
+                        "max": {
+                          "const": 100
+                        }
+                      }
+                    },
+                    "else": {
+                      "if": {
+                        "properties": {
+                          "entity": {
+                            "pattern": "^cover\\.[^.]+$"
+                          }
+                        }
+                      },
+                      "then": {
+                        "properties": {
+                          "attribute": {
+                            "const": "tilt_position"
+                          },
+                          "service": {
+                            "const": "cover.set_tilt_position"
+                          },
+                          "data_attribute": {
+                            "const": "tilt_position"
+                          },
+                          "min": {
+                            "const": 0
+                          },
+                          "max": {
+                            "const": 100
+                          }
+                        }
+                      },
+                      "else": {
+                        "if": {
+                          "properties": {
+                            "entity": {
+                              "pattern": "^media_player\\.[^.]+$"
+                            }
+                          }
+                        },
+                        "then": {
+                          "properties": {
+                            "attribute": {
+                              "const": "volume_level"
+                            },
+                            "service": {
+                              "const": "media_player.volume_set"
+                            },
+                            "data_attribute": {
+                              "const": "volume_level"
+                            },
+                            "min": {
+                              "const": 0
+                            },
+                            "max": {
+                              "const": 1
+                            }
+                          }
+                        },
+                        "else": {
+                          "if": {
+                            "properties": {
+                              "entity": {
+                                "pattern": "^climate\\.[^.]+$"
+                              }
+                            }
+                          },
+                          "then": {
+                            "properties": {
+                              "attribute": {
+                                "const": "temperature"
+                              },
+                              "service": {
+                                "const": "climate.set_temperature"
+                              },
+                              "data_attribute": {
+                                "const": "temperature"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
     },
     "type": {
       "title": "Menu item type",
@@ -220,21 +553,210 @@
     "items": {
       "type": "array",
       "items": {
-        "oneOf": [
+        "examples": [
           {
-            "$ref": "#/$defs/toggle"
+            "type": "tap",
+            "name": "Example",
+            "tap_action": {
+              "service": "notify.notify",
+              "data": {
+                "message": "Example"
+              }
+            }
           },
           {
-            "$ref": "#/$defs/template"
+            "type": "toggle",
+            "name": "Example",
+            "entity": "switch.example"
           },
           {
-            "$ref": "#/$defs/tap"
+            "type": "group",
+            "name": "Example",
+            "title": "Example",
+            "items": []
           },
           {
-            "$ref": "#/$defs/info"
+            "type": "numeric",
+            "name": "Example",
+            "entity": "light.example",
+            "attribute": "brightness",
+            "service": "light.turn_on",
+            "data_attribute": "brightness",
+            "min": 0,
+            "max": 255,
+            "step": 1
           },
           {
-            "$ref": "#/$defs/group"
+            "type": "numeric",
+            "name": "Example",
+            "entity": "input_number.example",
+            "service": "input_number.set_value",
+            "data_attribute": "value",
+            "min": 0,
+            "max": 100,
+            "step": 1
+          },
+          {
+            "type": "numeric",
+            "name": "Example",
+            "entity": "number.example",
+            "service": "number.set_value",
+            "data_attribute": "value",
+            "min": 0,
+            "max": 100,
+            "step": 1
+          },
+          {
+            "type": "numeric",
+            "name": "Example",
+            "entity": "fan.example",
+            "attribute": "percentage",
+            "service": "fan.set_percentage",
+            "data_attribute": "percentage",
+            "min": 0,
+            "max": 100,
+            "step": 1,
+            "display_format": "%.0f%%"
+          },
+          {
+            "type": "numeric",
+            "name": "Example",
+            "entity": "valve.example",
+            "attribute": "position",
+            "service": "valve.set_valve_position",
+            "data_attribute": "position",
+            "min": 0,
+            "max": 100,
+            "step": 1
+          },
+          {
+            "type": "numeric",
+            "name": "Example",
+            "entity": "cover.example",
+            "attribute": "position",
+            "service": "cover.set_position",
+            "data_attribute": "position",
+            "min": 0,
+            "max": 100,
+            "step": 1
+          },
+          {
+            "type": "numeric",
+            "name": "Example",
+            "entity": "cover.example",
+            "attribute": "tilt_position",
+            "service": "cover.set_tilt_position",
+            "data_attribute": "tilt_position",
+            "min": 0,
+            "max": 100,
+            "step": 1
+          },
+          {
+            "type": "numeric",
+            "name": "Example",
+            "entity": "media_player.example",
+            "attribute": "volume_level",
+            "service": "media_player.volume_set",
+            "data_attribute": "volume_level",
+            "min": 0,
+            "max": 1,
+            "step": 0.01
+          },
+          {
+            "type": "numeric",
+            "name": "Example",
+            "entity": "climate.example",
+            "attribute": "temperature",
+            "service": "climate.set_temperature",
+            "data_attribute": "temperature"
+          }
+        ],
+        "allOf": [
+          {
+            "properties": {
+              "type": {
+                "enum": [
+                  "toggle",
+                  "template",
+                  "tap",
+                  "info",
+                  "group",
+                  "numeric"
+                ]
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "type": {
+                  "const": "toggle"
+                }
+              }
+            },
+            "then": {
+              "$ref": "#/$defs/toggle"
+            },
+            "else": {
+              "if": {
+                "properties": {
+                  "type": {
+                    "const": "template"
+                  }
+                }
+              },
+              "then": {
+                "$ref": "#/$defs/template"
+              },
+              "else": {
+                "if": {
+                  "properties": {
+                    "type": {
+                      "const": "tap"
+                    }
+                  }
+                },
+                "then": {
+                  "$ref": "#/$defs/tap"
+                },
+                "else": {
+                  "if": {
+                    "properties": {
+                      "type": {
+                        "const": "info"
+                      }
+                    }
+                  },
+                  "then": {
+                    "$ref": "#/$defs/info"
+                  },
+                  "else": {
+                    "if": {
+                      "properties": {
+                        "type": {
+                          "const": "group"
+                        }
+                      }
+                    },
+                    "then": {
+                      "$ref": "#/$defs/group"
+                    },
+                    "else": {
+                      "if": {
+                        "properties": {
+                          "type": {
+                            "const": "numeric"
+                          }
+                        }
+                      },
+                      "then": {
+                        "$ref": "#/$defs/numeric"
+                      }
+                    }
+                  }
+                }
+              }
+            }
           }
         ]
       }
@@ -258,22 +780,51 @@
       "title": "Action",
       "description": "'confirm' field is optional.",
       "properties": {
-        "service": {
-          "$ref": "#/$defs/service"
+        "picker": {
+          "$ref": "#/$defs/picker"
         },
         "confirm": {
           "$ref": "#/$defs/confirm"
         },
         "pin": {
           "$ref": "#/$defs/pin"
+        }
+      }
+    },
+    "picker": {
+      "type": "object",
+      "title": "Number picker configuration",
+      "description": "'attribute' field is optional.",
+      "properties": {
+        "min": {
+          "type": "number",
+          "title": "Minimum Value"
         },
-        "data": {
-          "type": "object",
-          "title": "Your services's parameters",
-          "description": "The object containing the parameters and their values to be passed to the entity. No schema checking can be done here, you are on your own! On application crash, remove the parameters."
+        "max": {
+          "type": "number",
+          "title": "Maximum Value"
+        },
+        "step": {
+          "type": "number",
+          "title": "Step Size"
+        },
+        "attribute": {
+          "type": "string",
+          "title": "Attribute on the entity",
+          "description": "Attribute on the entity with the current numeric value. To use the state of the entity, do not specify."
+        },
+        "data_attribute": {
+          "type": "string",
+          "title": "Attribute on the service data",
+          "description": "Attribute on the service data for the value to set."
         }
       },
-      "required": ["service"]
+      "required": [
+        "min",
+        "max",
+        "step",
+        "data_attribute"
+      ]
     },
     "content": {
       "title": "Home Assistant Template",
@@ -307,7 +858,10 @@
               "$ref": "#/$defs/content"
             }
           },
-          "required": ["type", "content"]
+          "required": [
+            "type",
+            "content"
+          ]
         },
         {
           "properties": {
@@ -317,7 +871,9 @@
               "const": "status"
             }
           },
-          "required": ["type"]
+          "required": [
+            "type"
+          ]
         }
       ]
     },
