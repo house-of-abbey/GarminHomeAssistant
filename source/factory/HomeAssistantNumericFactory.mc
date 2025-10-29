@@ -44,11 +44,15 @@ class HomeAssistantNumericFactory extends WatchUi.PickerFactory {
         if (val != null) {
             mStep = val.toString().toFloat();
         } 
-       val = data.get("display_format");
-        if (val != null) {
-            mFormatString = val.toString();
-        } 
-
+        if (mStep < 0.01) {
+            mFormatString="%.3f";
+        } else if (mStep < 0.1) {
+            mFormatString="%2f";
+        } else if (mStep < 1) {
+            mFormatString="%.1f";
+        } else {
+            mFormatString="%d";
+        }
     }
 
     //! Get the index of a number item

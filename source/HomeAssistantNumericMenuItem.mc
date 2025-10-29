@@ -68,15 +68,6 @@ class HomeAssistantNumericMenuItem extends HomeAssistantMenuItem {
         mLabel                = label;
         mHomeAssistantService = haService;
 
-        var val = data.get("display_format");
-        if (val != null) {
-            mFormatString = val.toString();
-        }   
-        else {
-            mFormatString = "%.1f";
-        }
-        
-
         HomeAssistantMenuItem.initialize(
             label,
             template,
@@ -170,9 +161,13 @@ class HomeAssistantNumericMenuItem extends HomeAssistantMenuItem {
     function getNumericTemplate() as Lang.String? {
         var entity_id = mData.get("entity_id");
         if (entity_id != null) {
-            return "{{state_attr('" + entity_id.toString() + "','" + mData.get("attribute").toString() +"')}}";
-        }
-        return null;
+            if (mData.get("attribute")!=null)
+            {
+                return "{{state_attr('" + entity_id.toString() + "','" + mData.get("attribute").toString() +"')}}";
+            }
+            return "";
+       }
+        return "";
     }
 
     function updateNumericState(data as Lang.String or Lang.Dictionary or Null) as Void {
@@ -181,7 +176,6 @@ class HomeAssistantNumericMenuItem extends HomeAssistantMenuItem {
             return;
         } else if(data instanceof Lang.String) {
             mValue=data;
-
         } else {
             // Catch possible error
             mValue="0";
