@@ -177,13 +177,11 @@ class HomeAssistantNumericMenuItem extends HomeAssistantMenuItem {
     //
     function getNumericTemplate() as Lang.String? {
         var entity_id = mData["entity_id"];
-        var attribute = mPicker["attribute"] as Lang.String;
+        var attribute = mPicker["attribute"] as Lang.String?;
         if (entity_id == null) {
             return null;
         } else {
             if (attribute == null) {
-                // Compiler says: "Statement is not reachable."
-                // This is wrong because a break point on the following line proves it is executed!
                 return "{{states('" + entity_id.toString() + "')}}";
             } else {
                 return "{{state_attr('" + entity_id.toString() + "','" + attribute + "')}}";
