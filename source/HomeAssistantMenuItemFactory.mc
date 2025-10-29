@@ -158,7 +158,7 @@ class HomeAssistantMenuItemFactory {
         entity_id as Lang.String?,
         template  as Lang.String?,
         service   as Lang.String?,
-        data      as Lang.Dictionary?,
+        picker    as Lang.Dictionary,
         options   as {
             :exit    as Lang.Boolean,
             :confirm as Lang.Boolean,
@@ -166,25 +166,21 @@ class HomeAssistantMenuItemFactory {
             :icon    as WatchUi.Bitmap
         }
     ) as WatchUi.MenuItem {
+        var data = null;
         if (entity_id != null) {
-            if (data == null) {
-                data = { "entity_id" => entity_id };
-                
-            } else {
-                data.put("entity_id", entity_id);
-            }
-        } 
+            data = { "entity_id" => entity_id };
+        }
         var keys = mMenuItemOptions.keys();
         for (var i = 0; i < keys.size(); i++) {
             options.put(keys[i], mMenuItemOptions.get(keys[i]));
         }
-        options.put(:icon, mTapTypeIcon);    
-        
+        options.put(:icon, mTapTypeIcon);
         return new HomeAssistantNumericMenuItem(
             label,
             template,
             service,
             data,
+            picker,
             options,
             mHomeAssistantService
         );

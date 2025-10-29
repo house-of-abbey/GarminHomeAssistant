@@ -47,7 +47,6 @@ class HomeAssistantView extends WatchUi.Menu2 {
                 var content    = items[i].get("content")    as Lang.String?;
                 var entity     = items[i].get("entity")     as Lang.String?;
                 var tap_action = items[i].get("tap_action") as Lang.Dictionary?;
-                var picker     = items[i].get("picker")     as Lang.Dictionary?; // optional for numeric items
                 var service    = items[i].get("service")    as Lang.String?; // Deprecated schema
                 var confirm    = false                      as Lang.Boolean?;
                 var pin        = false                      as Lang.Boolean?;
@@ -128,18 +127,23 @@ class HomeAssistantView extends WatchUi.Menu2 {
                             ));
                         }
                     } else if (type.equals("numeric") && service != null) {
-                        addItem(HomeAssistantMenuItemFactory.create().numeric(
-                            name,
-                            entity,
-                            content,
-                            service,
-                            picker,
-                            {
-                                :exit    => exit,
-                                :confirm => confirm,
-                                :pin     => pin
+                        if (tap_action != null) {
+                            var picker = tap_action.get("picker") as Lang.Dictionary?;
+                            if (picker != null) {
+                                addItem(HomeAssistantMenuItemFactory.create().numeric(
+                                    name,
+                                    entity,
+                                    content,
+                                    service,
+                                    picker,
+                                    {
+                                        :exit    => exit,
+                                        :confirm => confirm,
+                                        :pin     => pin
+                                    }
+                                ));
                             }
-                        ));   
+                        }
                     } else if (type.equals("info") && content != null) {
                         // Cannot exit from a non-actionable information only menu item.
                         addItem(HomeAssistantMenuItemFactory.create().tap(
@@ -168,7 +172,6 @@ class HomeAssistantView extends WatchUi.Menu2 {
     //!
     //! @return An array of menu items that need to be updated periodically to reflect the latest Home Assistant state.
     //
-
     function getItemsToUpdate() as Lang.Array<HomeAssistantToggleMenuItem or HomeAssistantTapMenuItem or HomeAssistantGroupMenuItem  or HomeAssistantNumericMenuItem or Null> {
         var fullList = [];
         var lmi = mItems as Lang.Array<WatchUi.MenuItem>;
@@ -204,8 +207,8 @@ class HomeAssistantView extends WatchUi.Menu2 {
     //! Called when this View is brought to the foreground. Restore
     //! the state of this View and prepare it to be shown. This includes
     //! loading resources into memory.
+    //
     function onShow() as Void {}
-
 }
 
 //! Delegate for the HomeAssistantView.
@@ -273,18 +276,13 @@ class HomeAssistantViewDelegate extends WatchUi.Menu2InputDelegate {
             var haItem = item as HomeAssistantNumericMenuItem;
             // System.println(haItem.getLabel() + " " + haItem.getId());
             // create new view to select new value
-           
-            var mPickerFactory = new HomeAssistantNumericFactory(haItem.getData());
-           
-            var mPicker = new HomeAssistantNumericPicker(mPickerFactory,haItem);
+            var mPickerFactory  = new HomeAssistantNumericFactory((haItem as HomeAssistantNumericMenuItem).getPicker());
+            var mPicker         = new HomeAssistantNumericPicker(mPickerFactory,haItem);
             var mPickerDelegate = new HomeAssistantNumericPickerDelegate(mPicker);
             WatchUi.pushView(mPicker,mPickerDelegate,WatchUi.SLIDE_LEFT);
         } else if (item instanceof HomeAssistantGroupMenuItem) {
             var haMenuItem = item as HomeAssistantGroupMenuItem;
-            // System.println("IconMenu: " + haMenuItem.getLabel() + " " + haMenuItem.getId());
             WatchUi.pushView(haMenuItem.getMenuView(), new HomeAssistantViewDelegate(false), WatchUi.SLIDE_LEFT);
-        // } else {
-        //     System.println(item.getLabel() + " " + item.getId());
         }
     }
 
