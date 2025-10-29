@@ -630,8 +630,10 @@ class HomeAssistantApp extends Application.AppBase {
                                 (item as HomeAssistantToggleMenuItem).updateToggleState(data[i.toString() + "t"]);
                             }
                             if (item instanceof HomeAssistantNumericMenuItem) {
-                               // (item as HomeAssistantNumericMenuItem).updateNumericState("22");
-                                (item as HomeAssistantNumericMenuItem).updateNumericState(data[i.toString() + "n"].toString());
+                               var s = data[i.toString() + "n"];
+                               if ((s instanceof Lang.Number) or (s instanceof Lang.Float)) {
+                                   (item as HomeAssistantNumericMenuItem).setValue(s);
+                               }
                             }
                         }
                         if (Settings.getMenuCheck() && Settings.getCacheConfig() && !mIsCacheChecked) {
@@ -831,7 +833,7 @@ class HomeAssistantApp extends Application.AppBase {
         var phoneConnected = System.getDeviceSettings().phoneConnected;
         var connectionAvailable = System.getDeviceSettings().connectionAvailable;
 
-        // System.println("API URL = " + Settings.getApiUrl());
+        // System.println("HomeAssistantApp fetchApiStatus(): API URL = " + Settings.getApiUrl());
         if (Settings.getApiUrl().equals("")) {
             mApiStatus = WatchUi.loadResource($.Rez.Strings.Unconfigured) as Lang.String;
             WatchUi.requestUpdate();

@@ -283,50 +283,14 @@
             "exit": {
               "$ref": "#/$defs/exit"
             },
-            "min": {
-              "type": "number",
-              "title": "Minimum Value"
-            },
-            "max": {
-              "type": "number",
-              "title": "Maximum Value"
-            },
-            "step": {
-              "type": "number",
-              "title": "Step Size"
-            },
-            "display_format": {
-              "type": "string",
-              "title": "Display Format",
-              "description": "A C-Style format string for displaying the value in the UI. https://developer.garmin.com/connect-iq/api-docs/Toybox/Lang/Number.html#format-instance_function",
-              "default": "%.1f"
-            },
             "entity": {
               "$ref": "#/$defs/entity"
-            },
-            "attribute": {
-              "type": "string",
-              "title": "Attribute on the entity",
-              "description": "Attribute on the entity with the current numeric value. To use the state of the entity, do not specify."
-            },
-            "service": {
-              "$ref": "#/$defs/service"
-            },
-            "data_attribute": {
-              "type": "string",
-              "title": "Attribute on the service data",
-              "description": "Attribute on the service data for the value to set."
             }
           },
           "required": [
             "name",
             "type",
-            "min",
-            "max",
-            "step",
-            "entity",
-            "service",
-            "data_attribute"
+            "entity"
           ],
           "additionalProperties": false
         },
@@ -816,6 +780,9 @@
       "title": "Action",
       "description": "'confirm' field is optional.",
       "properties": {
+        "picker": {
+          "$ref": "#/$defs/picker"
+        },
         "confirm": {
           "$ref": "#/$defs/confirm"
         },
@@ -823,6 +790,41 @@
           "$ref": "#/$defs/pin"
         }
       }
+    },
+    "picker": {
+      "type": "object",
+      "title": "Number picker configuration",
+      "description": "'attribute' field is optional.",
+      "properties": {
+        "min": {
+          "type": "number",
+          "title": "Minimum Value"
+        },
+        "max": {
+          "type": "number",
+          "title": "Maximum Value"
+        },
+        "step": {
+          "type": "number",
+          "title": "Step Size"
+        },
+        "attribute": {
+          "type": "string",
+          "title": "Attribute on the entity",
+          "description": "Attribute on the entity with the current numeric value. To use the state of the entity, do not specify."
+        },
+        "data_attribute": {
+          "type": "string",
+          "title": "Attribute on the service data",
+          "description": "Attribute on the service data for the value to set."
+        }
+      },
+      "required": [
+        "min",
+        "max",
+        "step",
+        "data_attribute"
+      ]
     },
     "content": {
       "title": "Home Assistant Template",
