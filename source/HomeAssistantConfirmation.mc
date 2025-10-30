@@ -24,10 +24,13 @@ class HomeAssistantConfirmation extends WatchUi.Confirmation {
 
     //! Class Constructor
     //
-    function initialize() {
-        WatchUi.Confirmation.initialize(WatchUi.loadResource($.Rez.Strings.Confirm) as Lang.String);
+    function initialize(message as Lang.String?) {
+        if (message == null) {
+            WatchUi.Confirmation.initialize(WatchUi.loadResource($.Rez.Strings.Confirm) as Lang.String);
+        } else {
+            WatchUi.Confirmation.initialize(message);
+        }
     }
-
 }
 
 //! Delegate to respond to the confirmation request.
