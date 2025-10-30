@@ -290,7 +290,8 @@
           "required": [
             "name",
             "type",
-            "entity"
+            "entity",
+            "tap_action"
           ],
           "additionalProperties": false
         },
@@ -778,7 +779,7 @@
     "tap_action": {
       "type": "object",
       "title": "Action",
-      "description": "'confirm' field is optional.",
+      "description": "'picker' field is required for 'numeric' menu type. 'confirm' and 'pin' fields are optional.",
       "properties": {
         "picker": {
           "$ref": "#/$defs/picker"
@@ -789,6 +790,18 @@
         "pin": {
           "$ref": "#/$defs/pin"
         }
+      },
+      "if": {
+        "properties": {
+          "type": {
+            "const": "numeric"
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "picker"
+        ]
       }
     },
     "picker": {
