@@ -6,8 +6,8 @@ settings:
 
 devDependencies:
   '@types/toastify-js':
-    specifier: ^1.12.4
-    version: 1.12.4
+    specifier: 1.12.0
+    version: 1.12.0
   '@vscode/webview-ui-toolkit':
     specifier: 1.4.0
     version: 1.4.0(react@18.2.0)
@@ -55,8 +55,8 @@ packages:
       exenv-es6: 1.1.1
     dev: true
 
-  /@types/toastify-js@1.12.4:
-    resolution: {integrity: sha512-zfZHU4tKffPCnZRe7pjv/eFKzTVHozKewFCKaCjZ4gFinKgJRz/t0bkZiMCXJxPhv/ZoeDGNOeRD09R0kQZ/nw==}
+  /@types/toastify-js@1.12.0:
+    resolution: {integrity: sha512-fqpDHaKhFukN9KRm24bbH0wozvHmSwjvkaLjBUrWcSfSS4zysIwTYqNLG3XbSNhRlsTNRNLGS23tp/VhPwsfHQ==}
     dev: true
 
   /@vscode/webview-ui-toolkit@1.4.0(react@18.2.0):
