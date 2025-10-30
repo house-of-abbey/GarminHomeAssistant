@@ -35,7 +35,7 @@ class HomeAssistantView extends WatchUi.Menu2 {
         if (options == null) {
             options = { :title => definition.get("title") as Lang.String };
         } else {
-            options.put(:title, definition.get("title") as Lang.String);
+            options[:title] = definition.get("title") as Lang.String;
         }
         WatchUi.Menu2.initialize(options);
 

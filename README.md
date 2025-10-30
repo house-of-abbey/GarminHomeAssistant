@@ -1,4 +1,4 @@
-[Home](README.md) | [Switches](examples/Switches.md) | [Actions](examples/Actions.md) | [Templates](examples/Templates.md) | [Glance](examples/Glance.md) | [Background Service](BackgroundService.md) | [Wi-Fi](Wi-Fi.md) | [HTTP Headers](HTTP_Headers.md) | [Trouble Shooting](TroubleShooting.md) | [Version History](HISTORY.md)
+[Home](README.md) | [Switches](examples/Switches.md) | [Actions](examples/Actions.md) | [Templates](examples/Templates.md) | [Numeric](examples/Numeric.md) | [Glance](examples/Glance.md) | [Background Service](BackgroundService.md) | [Wi-Fi](Wi-Fi.md) | [HTTP Headers](HTTP_Headers.md) | [Trouble Shooting](TroubleShooting.md) | [Version History](HISTORY.md)
 
 # GarminHomeAssistant
 
@@ -145,22 +145,21 @@ Example schema:
       }
     },
     {
-    "name": "Heating",
-    "content": "{{ ' %.1f' | format(state_attr('climate.myheating','temperature'))  }}",
-    "type": "numeric",
-        "entity": "climate.myheating",
-        "tap_action": {
-          "service": "climate.set_temperature",
-          "data": {
-              "step": "0.5",
-              "start": "10",
-              "stop": "30",
-              "valueLabel": "temperature",
-              "formatString": "%.1f"
-          }
-        },
-    "pin": false
-    } ,
+      "name": "Heating",
+      "content": "{{ ' %.1f' | format(state_attr('climate.room','temperature')) }}",
+      "type": "numeric",
+      "entity": "climate.room",
+      "tap_action": {
+        "service": "climate.set_temperature",
+        "picker": {
+            "step": 0.5,
+            "start": 10,
+            "stop": 30,
+            "attribute": "temperature",
+            "data_attribute": "temperature"
+        }
+      }
+    }
   ]
 }
 ```
@@ -174,25 +173,28 @@ The example above illustrates how to configure:
 * Script invocation (`tap`)
 * Service invocation, e.g. Scene setting, (`tap`)
 * A sub-menu to open (`group`)
-* A numeric item (`numeric`), which allows you to set a numeric value e.g. for heating or a dimmer. ValueLabel defines the variable to return. You can optionally set the minimum (start) and maximum (stop) value as well as the step to increase/decrease and a tepmlate how to format the value.
+* A numeric item (`numeric`), which allows you to set a numeric value e.g. for heating or a dimmer. This is [explained more fully](examples/Numeric.md) in its own examples page.
 * You can also display the status of devices (`info`) which is essentially a `tap` with no action
 * All menu items can display the results of evaluating [templates](examples/Templates.md).
 
 The following table indicates how HomeAssistant entity types can map to the Garmin applications menu types. Presently, an automation is the only one that can be either a `tap` or a `toggle`.
 
-| HA Entity Type   | Tap | Toggle | Info (status)|
-|------------------|:---:|:------:|:------------:|
-| Switch           | ❌ |   ✅  |      ✅      |
-| Light            | ❌ |   ✅  |      ✅      |
-| Automation       | ✅ |   ✅  |      ❌      |
-| Script           | ✅ |   ❌  |      ❌      |
-| Scene            | ✅ |   ❌  |      ❌      |
-| Sensor           | ❌ |   ❌  |      ✅      |
-| Binary Sensor    | ❌ |   ❌  |      ✅      |
-| Any other entity | ❌ |   ❌  |      ✅      |
-| Any service      | ✅ |   ❌  |      ❌      |
+| HA Entity Type   | Tap | Toggle | Info (status)| Numeric |
+|------------------|:---:|:------:|:------------:|:-------:|
+| Switch           | ❌ |   ✅  |      ✅      |   ❌   |
+| Switched Light   | ❌ |   ✅  |      ✅      |   ❌   |
+| Dimmer Light     | ❌ |   ❌  |      ✅      |   ✅   |
+| Automation       | ✅ |   ✅  |      ❌      |   ❌   |
+| Script           | ✅ |   ❌  |      ❌      |   ❌   |
+| Scene            | ✅ |   ❌  |      ❌      |   ❌   |
+| Sensor           | ❌ |   ❌  |      ✅      |   ❌   |
+| Binary Sensor    | ❌ |   ❌  |      ✅      |   ❌   |
+| Thermostat       | ❌ |   ❌  |      ✅      |   ✅   |
+| Amplifier        | ❌ |   ❌  |      ✅      |   ✅   |
+| Any other entity | ❌ |   ❌  |      ✅      |   ❌   |
+| Any service      | ✅ |   ❌  |      ❌      |   ❌   |
 
-Multiple templates are evaluated in a single HTTP request to update their status. Only the toggle items have the on/off <img src="images/toggle_icon.png" height="20"> icon. NB. All `tap` items must specify a `service` tag in the `tap_action` object (see example below).
+Multiple templates are evaluated in a single HTTP request to update their status. Only the toggle items have the on/off <img src="images/toggle_icon.png" height="20"> icon. NB. All `tap` and `numeric` items must specify a `service` tag in the `tap_action` object (see example below).
 
 You can now specify alternative texts to use instead of "On" and "Off", e.g. "Locked" and "Unlocked" or "Open" and "Closed" through the use of a [template menu item](examples/Templates.md). But wouldn't having locks operated from your watch be a security concern ;-) ?
 

@@ -31,9 +31,7 @@ class HomeAssistantMenuItemFactory {
     //! Class Constructor
     //
     private function initialize() {
-        mMenuItemOptions = {
-            :alignment => Settings.getMenuAlignment()
-        };
+        mMenuItemOptions = { :alignment => Settings.getMenuAlignment() };
 
         mTapTypeIcon = new WatchUi.Bitmap({
             :rezId => $.Rez.Drawables.TapTypeIcon,
@@ -84,7 +82,7 @@ class HomeAssistantMenuItemFactory {
     ) as WatchUi.MenuItem {
         var keys = mMenuItemOptions.keys();
         for (var i = 0; i < keys.size(); i++) {
-            options.put(keys[i], mMenuItemOptions.get(keys[i]));
+            options[keys[i]] = mMenuItemOptions.get(keys[i]);
         }
         return new HomeAssistantToggleMenuItem(
             label,
@@ -119,15 +117,15 @@ class HomeAssistantMenuItemFactory {
             if (data == null) {
                 data = { "entity_id" => entity_id };
             } else {
-                data.put("entity_id", entity_id);
+                data["entity_id"] = entity_id;
             }
         }
         var keys = mMenuItemOptions.keys();
         for (var i = 0; i < keys.size(); i++) {
-            options.put(keys[i], mMenuItemOptions.get(keys[i]));
+            options[keys[i]] = mMenuItemOptions.get(keys[i]);
         }
         if (service != null) {
-            options.put(:icon, mTapTypeIcon);
+            options[:icon] = mTapTypeIcon;
             return new HomeAssistantTapMenuItem(
                 label,
                 template,
@@ -137,7 +135,7 @@ class HomeAssistantMenuItemFactory {
                 mHomeAssistantService
             );
         } else {
-            options.put(:icon, mInfoTypeIcon);
+            options[:icon] = mInfoTypeIcon;
             return new HomeAssistantTapMenuItem(
                 label,
                 template,
@@ -172,9 +170,9 @@ class HomeAssistantMenuItemFactory {
         }
         var keys = mMenuItemOptions.keys();
         for (var i = 0; i < keys.size(); i++) {
-            options.put(keys[i], mMenuItemOptions.get(keys[i]));
+            options[keys[i]] = mMenuItemOptions.get(keys[i]);
         }
-        options.put(:icon, mTapTypeIcon);
+        options[:icon] = mTapTypeIcon;
         return new HomeAssistantNumericMenuItem(
             label,
             template,

@@ -720,19 +720,13 @@ class HomeAssistantApp extends Application.AppBase {
                         var item     = mItemsToUpdate[i];
                         var template = item.getTemplate();
                         if (template != null) {
-                            mTemplates.put(i.toString(), {
-                                "template" => template
-                            });
+                            mTemplates[i.toString()] = { "template" => template };
                         }
                         if (item instanceof HomeAssistantToggleMenuItem) {
-                            mTemplates.put(i.toString() + "t", {
-                                "template" => (item as HomeAssistantToggleMenuItem).getToggleTemplate()
-                            });
+                            mTemplates[i.toString() + "t"] = { "template" => (item as HomeAssistantToggleMenuItem).getToggleTemplate() };
                         }
                         if (item instanceof HomeAssistantNumericMenuItem) {
-                            mTemplates.put(i.toString() + "n", {
-                                "template" => (item as HomeAssistantNumericMenuItem).getNumericTemplate()
-                            });
+                            mTemplates[i.toString() + "n"] = { "template" => (item as HomeAssistantNumericMenuItem).getNumericTemplate() };
                         }
                     }
                 }
