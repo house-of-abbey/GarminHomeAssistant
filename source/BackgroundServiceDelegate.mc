@@ -133,20 +133,20 @@ class BackgroundServiceDelegate extends System.ServiceDelegate {
             var data = { "gps_accuracy" => accuracy };
             // Only add the non-null fields as all the values are optional in Home Assistant, and it avoid submitting fake values.
             if (position.position != null) {
-                data.put("gps", position.position.toDegrees());
+                data["gps"] = position.position.toDegrees();
             }
             if (position.speed != null) {
-                data.put("speed", Math.round(position.speed));
+                data["speed"] = Math.round(position.speed);
             }
             if (position.heading != null) {
                 var heading = Math.round(position.heading * 180 / Math.PI);
                 while (heading < 0) {
                     heading += 360;
                 }
-                data.put("course", heading);
+                data["course"] = heading;
             }
             if (position.altitude != null) {
-                data.put("altitude", Math.round(position.altitude));
+                data["altitude"] = Math.round(position.altitude);
             }
             // System.println("BackgroundServiceDelegate onTemporalEvent(): data = " + data.toString());
 
