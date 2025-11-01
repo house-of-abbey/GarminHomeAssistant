@@ -37,6 +37,14 @@ For example:
     "confirm": true
   }
 }
+
+```
+The `confirm` field may contain a string instead of a Boolean in order to provide a custom message to display instead of the default "Sure?" text.
+
+```json
+  "tap_action": {
+    "confirm": "Toggle the cover?"
+  }
 ```
 
 **The authors do not advise the use of this application for security sensitive devices. But we suspect users are taking that risk anyway, hence a PIN confirmation is provided that can be used for additional menu item security.**
