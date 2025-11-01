@@ -23,7 +23,7 @@ using Toybox.Graphics;
 class HomeAssistantNumericMenuItem extends HomeAssistantMenuItem {
     private var mHomeAssistantService as HomeAssistantService?;
     private var mAction               as Lang.String?;
-    private var mConfirm              as Lang.Boolean;
+    private var mConfirm              as Lang.Boolean or Lang.String or Null;
     private var mExit                 as Lang.Boolean;
     private var mPin                  as Lang.Boolean;
     private var mData                 as Lang.Dictionary?;
@@ -128,7 +128,12 @@ class HomeAssistantNumericMenuItem extends HomeAssistantMenuItem {
                     WatchUi.SLIDE_LEFT
                 );
             } else {
-                var view = new HomeAssistantConfirmation();
+                var view;
+                if (mConfirm instanceof Lang.String) {
+                    view = new HomeAssistantConfirmation(mConfirm as Lang.String?);
+                } else {
+                    view = new HomeAssistantConfirmation(null);
+                }
                 WatchUi.pushView(
                     view,
                     new HomeAssistantConfirmationDelegate({

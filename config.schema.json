@@ -970,17 +970,10 @@
       "type": "string"
     },
     "confirm": {
-      "oneOf": [
-        {
-          "type": "boolean"
-        },
-        {
-          "type": "string"
-        }
-      ],
+      "type": ["boolean", "string"],
       "default": false,
       "title": "Confirmation",
-      "description": "Optional confirmation of the action before execution as a precaution."
+      "description": "Optional confirmation of the action before execution as a precaution. Use a Boolean for the default message. Specify a string to display a specific confirmation message."
     },
     "pin": {
       "type": "boolean",

@@ -112,6 +112,30 @@ For copy and paste, the Jinja2 fields are as follows:
 {{ not is_state('media_player.amplifier','unavailable') }}
 ```
 
+As an alternative to using the GUI, the following can be pasted into Home Assistant's `configuration.yaml`:
+
+```yaml
+template:
+  - number:
+      - name: "Amplifier dB"
+        unique_id: "<Generate Unique ID>"
+        unit_of_measurement: "dB"
+        state: "{{ state_attr('media_player.amplifier','volume_level') * 100 -80 }}"
+        availability: "{{ not is_state('media_player.amplifier','unavailable') }}"
+        set_value:
+          - action: media_player.volume_set
+            target:
+              entity_id: media_player.amplifier
+            data:
+              volume_level: "{{ (value+80)/100 }}"
+        step: 0.5
+        min: -60
+        max: -15
+        icon: mdi:audio-video
+```
+
+We noticed some schema checking errors when we tried this, but the YAML above is consistent with the HA [Template](https://www.home-assistant.io/integrations/template/#number) support pages, and this code does correctly create the number template as required.
+
 The JSON menu definition can now use dB with the new template number as follows.
 
 ```json
@@ -136,4 +160,4 @@ The JSON menu definition can now use dB with the new template number as follows.
 
 Specific to this menu item:
 
-1. If the number picker does not initialise with the correct value, amend the `attribute` field. Just because your template renders does not mean the application has extracted the numeric valueas the `content` template is rendered on the Home Assistant server.
+1. If the number picker does not initialise with the correct value, amend the `attribute` field. Just because your template renders does not mean the application has extracted the numeric value as the `content` template is rendered on the Home Assistant server.

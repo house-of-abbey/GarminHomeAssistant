@@ -25,7 +25,7 @@ class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
     private var mData       as Lang.Dictionary;
     private var mTemplate   as Lang.String?;
     private var mExit       as Lang.Boolean;
-    private var mConfirm    as Lang.Boolean;
+    private var mConfirm    as Lang.Boolean or Lang.String or Null;
     private var mPin        as Lang.Boolean;
     private var mHasVibrate as Lang.Boolean = false;
 
@@ -324,7 +324,12 @@ class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
                 Settings.getWifiLteExecutionEnabled()) {
                 wifiPrompt(b);
             } else {
-                var confirmationView = new HomeAssistantConfirmation();
+                var confirmationView;
+                if (mConfirm instanceof Lang.String) {
+                    confirmationView = new HomeAssistantConfirmation(mConfirm as Lang.String?);
+                } else {
+                    confirmationView = new HomeAssistantConfirmation(null);
+                }
                 WatchUi.pushView(
                     confirmationView,
                     new HomeAssistantConfirmationDelegate({

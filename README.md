@@ -250,6 +250,7 @@ This allows the `confirm` and `pin` fields to be accommodated in the `tap_action
 * [Switches](examples/Switches.md)
 * [Actions](examples/Actions.md)
 * [Templates](examples/Templates.md)
+* [Numeric](examples/Numeric.md)
 
 ## Editing the JSON file
 
