@@ -33,7 +33,7 @@ class HomeAssistantGroupMenuItem extends HomeAssistantMenuItem {
         }?
     ) {
         if (options != null) {
-            options.put(:icon, icon);
+            options[:icon] = icon;
         } else {
             options = { :icon => icon };
         }
