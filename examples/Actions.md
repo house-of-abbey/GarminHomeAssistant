@@ -95,9 +95,9 @@ You can choose individual items that will quit after they have completed their a
   "name": "Turn off Stuff",
   "type": "tap",
   "tap_action": {
-    "action": "automation.trigger"
+    "action": "automation.trigger",
+    "exit": true
   },
-  "exit": true
 }
 ```
 

@@ -200,7 +200,14 @@ You can now specify alternative texts to use instead of "On" and "Off", e.g. "Lo
 
 The [schema](https://raw.githubusercontent.com/house-of-abbey/GarminHomeAssistant/main/config.schema.json) is checked by using a URL directly back to this GitHub source repository, so you do not need to install that file. You can just copy & paste your entity names from the YAML configuration files used to configure HomeAssistant. With a submenu, there's a difference between `title` and `name`. The `name` goes on the menu item, and the `title` at the head of the submenu. If your dashboard definition fails to meet the schema, the application will simply drop items with the wrong field names without warning to protect itself.
 
-### Old deprecated format
+### Old Deprecated Formats
+
+There are two reasons for the changes to the schema:
+
+1. HomeAssistant made changes we feel we should track for consistency.
+2. Retrospectively we decided there was a better way, just like HomeAssistant did. For these changes we apologise.
+
+#### Service Field
 
 Version 1.5 brought in a change to the JSON schema so the following old format remains useable but is no longer favoured.
 
@@ -244,6 +251,40 @@ The above should be replaced by the following:
 ```
 
 This allows the `confirm` and `pin` fields to be accommodated in the `tap_action` along side the `action` tag, and follows the HomeAssistant YAML format more closely.
+
+#### Exit Field
+
+Version 2.31 added an "exit on tap" feature. In retrospect this field should have been nested inside the `tap_action` object.
+
+> [!IMPORTANT] Deprecated:
+
+```json
+{
+  "entity": "automation.turn_off_stuff",
+  "name": "Turn off Stuff",
+  "type": "tap",
+  "tap_action": {
+    "action": "automation.trigger"
+  },
+  "exit": true
+}
+```
+
+The above should be replaced by the following:
+
+```json
+{
+  "entity": "automation.turn_off_stuff",
+  "name": "Turn off Stuff",
+  "type": "tap",
+  "tap_action": {
+    "action": "automation.trigger",
+    "exit": true
+  },
+}
+```
+
+A future move to v3.x will remove support for all deprecated JSON elements to simplify code. **Please ensure you track the schema changes in readiness.**
 
 ### More Examples
 
@@ -401,6 +442,8 @@ Check the latest unresolved [issues](https://github.com/house-of-abbey/GarminHom
    - [Incorrect language displayed for custom data fields](https://forums.garmin.com/developer/connect-iq/f/discussion/388137/incorrect-language-displayed-for-custom-data-fields)
 
 9. When using Wi-Fi or LTE to toggle a light, the `toggle` will fail when the default or current state of the application's menu does not match the state of the light. The same applies to a cover or other thing that can be toggled. This is because the application is unable to initialise the menu with the current state without Bluetooth. Hence the Wi-Fi/LTE functionality is best used with `tap` items only.
+
+10. There are memory limits, particularly for older devices. Please see the [explanation of the memory limits](Devices.md) and device support.
 
 # Authors & Contributors
 

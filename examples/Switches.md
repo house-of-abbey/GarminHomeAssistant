@@ -118,7 +118,9 @@ You can choose individual items that will quit after they have completed their a
   "entity": "light.hall_light",
   "name": "Hall Light & Quit",
   "type": "toggle",
-  "exit": true
+  "tap_action" {
+    "exit": true
+  }
 }
 ```
 
