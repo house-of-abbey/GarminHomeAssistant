@@ -986,7 +986,7 @@
     },
     "content": {
       "title": "Home Assistant Template",
-      "description": "Jinja2 template defining the text to display. Must be included in an 'info'. Optional in a 'toggle', 'tap' and 'group'. Special characters may not render in the glance context.",
+      "description": "Jinja2 template defining the text to display. Must be included in an 'info'. Optional in a 'toggle', 'tap', 'numeric' and 'group'. Special characters may not render in the glance context.",
       "type": "string"
     },
     "confirm": {
