@@ -40,7 +40,7 @@ output_dir_prefix = 'resources-launcher-'
 input_dir         = output_dir_prefix + '70-70'
 
 # Convert icons to different screen sizes by these parameters
-lookup = [26, 30, 33, 35, 36, 40, 54, 60, 61, 62, 65, 80]
+lookup = [26, 30, 33, 35, 36, 38, 40, 52, 54, 56, 60, 61, 62, 65, 68, 80]
 
 # Delete all but the original 48x48 icon directories
 for entry in os.listdir("."):
