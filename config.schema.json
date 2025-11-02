@@ -47,7 +47,8 @@
           "$ref": "#/$defs/enabled"
         },
         "exit": {
-          "$ref": "#/$defs/exit"
+          "$ref": "#/$defs/exit",
+          "deprecated": true
         }
       },
       "required": [
@@ -58,6 +59,7 @@
       "additionalProperties": false
     },
     "template": {
+      "deprecated": true,
       "oneOf": [
         {
           "type": "object",
@@ -118,7 +120,8 @@
               "$ref": "#/$defs/enabled"
             },
             "exit": {
-              "$ref": "#/$defs/exit"
+              "$ref": "#/$defs/exit",
+              "deprecated": true
             }
           },
           "required": [
@@ -184,7 +187,8 @@
           "$ref": "#/$defs/enabled"
         },
         "exit": {
-          "$ref": "#/$defs/exit"
+          "$ref": "#/$defs/exit",
+          "deprecated": true
         }
       },
       "required": [
@@ -922,9 +926,51 @@
       "title": "Home Assistant action name",
       "pattern": "^[^.]+\\.[^.]+$"
     },
+    "tap_action_tap": {
+      "allOf": [
+        {
+          "title": "Tap Action",
+          "description": "'confirm' and 'pin' fields are optional. 'action' is required.",
+          "properties": {
+            "service": {
+              "$ref": "#/$defs/action",
+              "deprecated": true
+            },
+            "action": {
+              "$ref": "#/$defs/action"
+            },
+            "data": {
+              "type": "object",
+              "title": "Your actions's parameters",
+              "description": "The object containing the parameters and their values to be passed to the entity. No schema checking can be done here, you are on your own! On application crash, remove the parameters."
+            }
+          },
+          "oneOf": [
+            {
+              "required": [
+                "action"
+              ],
+              "not": {
+                "required": [
+                  "service"
+                ]
+              }
+            },
+            {
+              "required": [
+                "service"
+              ]
+            }
+          ]
+        },
+        {
+          "$ref": "#/$defs/tap_action"
+        }
+      ]
+    },
     "tap_action": {
       "type": "object",
-      "title": "Action",
+      "title": "Tap Action",
       "description": "'confirm' and 'pin' fields are optional.",
       "properties": {
         "confirm": {
@@ -932,36 +978,10 @@
         },
         "pin": {
           "$ref": "#/$defs/pin"
+        },
+        "exit": {
+          "$ref": "#/$defs/exit"
         }
-      }
-    },
-    "tap_action_tap": {
-      "$ref": "#/$defs/tap_action",
-      "properties": {
-        "service": {
-          "$ref": "#/$defs/action",
-          "deprecated": true
-        },
-        "action": {
-          "$ref": "#/$defs/action"
-        },
-        "data": {
-          "type": "object",
-          "title": "Your actions's parameters",
-          "description": "The object containing the parameters and their values to be passed to the entity. No schema checking can be done here, you are on your own! On application crash, remove the parameters."
-        },
-        "anyOf": [
-          {
-            "required": [
-              "service"
-            ]
-          },
-          {
-            "required": [
-              "action"
-            ]
-          }
-        ]
       }
     },
     "content": {
@@ -970,7 +990,10 @@
       "type": "string"
     },
     "confirm": {
-      "type": ["boolean", "string"],
+      "type": [
+        "boolean",
+        "string"
+      ],
       "default": false,
       "title": "Confirmation",
       "description": "Optional confirmation of the action before execution as a precaution. Use a Boolean for the default message. Specify a string to display a specific confirmation message."

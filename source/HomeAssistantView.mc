@@ -57,7 +57,7 @@ class HomeAssistantView extends WatchUi.Menu2 {
                     enabled = items[i].get("enabled");       // Optional
                 }
                 if (items[i].get("exit") != null) {
-                    exit = items[i].get("exit");             // Optional
+                    exit = items[i].get("exit");             // Deprecated
                 }
                 if (tap_action != null) {
                     action = tap_action.get("service");      // Deprecated
@@ -70,6 +70,9 @@ class HomeAssistantView extends WatchUi.Menu2 {
                     }
                     if (tap_action.get("pin") != null) {
                         pin = tap_action.get("pin");         // Optional
+                    }
+                    if (tap_action.get("exit") != null) {
+                        exit = tap_action.get("exit");       // Optional
                     }
                 }
                 if (type != null && name != null && enabled) {
