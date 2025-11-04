@@ -88,6 +88,8 @@ The complication here is this amplifier uses one scale for changing the value, a
 }
 ```
 
+<img src="../images/number_picker_raw.bmp" width="200" title="HomeAssistant Helper definition for an 'input_number'." style="margin:5px"/>
+
 The above is a little awkward to change the volume as the picker's scale is unfamiliar. To make life easier you might choose to implement a "Template number" in HomeAssistant as defined in the following dialogue box.
 
 <img src="../images/template_number.png" width="500" title="HomeAssistant Helper definition for an 'input_number'." style="margin:5px"/>
@@ -111,6 +113,8 @@ For copy and paste, the Jinja2 fields are as follows:
 ```jinja
 {{ not is_state('media_player.amplifier','unavailable') }}
 ```
+
+<img src="../images/number_picker_db.bmp" width="200" title="HomeAssistant Helper definition for an 'input_number'." style="margin:5px"/>
 
 As an alternative to using the GUI, the following can be pasted into HomeAssistant's `configuration.yaml`:
 
