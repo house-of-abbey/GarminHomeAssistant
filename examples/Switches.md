@@ -48,12 +48,12 @@ switch:
         friendly_name: <name>
         value_template: <value>
         turn_on:
-          service: <service>
+          action: <action>
           data:
             entity_id: <entity>
             <attribute>: <value>
         turn_off:
-          service: <service>
+          action: <action>
           data:
             entity_id: <entity>
             <attribute>: <value>
@@ -90,11 +90,11 @@ switch:
         friendly_name: Cover
         value_template: "{{ is_state('cover.cover', 'open') }}"
         turn_on:
-          service: cover.open_cover
+          action: cover.open_cover
           data:
             entity_id: cover.cover
         turn_off:
-          service: cover.close_cover
+          action: cover.close_cover
           data:
             entity_id: cover.cover
 ```
@@ -118,7 +118,9 @@ You can choose individual items that will quit after they have completed their a
   "entity": "light.hall_light",
   "name": "Hall Light & Quit",
   "type": "toggle",
-  "exit": true
+  "tap_action" {
+    "exit": true
+  }
 }
 ```
 

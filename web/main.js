@@ -101,12 +101,12 @@ async function get_areas() {
 }
 
 /**
- * Get all services in HomeAssistant.
+ * Get all actions in HomeAssistant.
  * @returns {Promise<[string, { name: string; description: string; fields:
  *     Record<string, { name: string; description: string; example: string;
  *     selector: unknown; required?: boolean }> }][]>} [id, data]
  */
-async function get_services() {
+async function get_actions() {
   try {
     const res = await fetch(api_url + '/services', {
       method: 'GET',
@@ -122,15 +122,15 @@ async function get_services() {
     document.querySelector('#api_url').classList.remove('invalid');
     document.querySelector('#api_token').classList.remove('invalid');
     const data = await res.json();
-    const services = [];
+    const actions = [];
     for (const d of data) {
-      for (const service in d.services) {
-        services.push([`${d.domain}.${service}`, d.services[service]]);
+      for (const action in d.services) {
+        actions.push([`${d.domain}.${action}`, d.services[action]]);
       }
     }
-    return services;
+    return actions;
   } catch (e) {
-    console.error('Error fetching services:', e);
+    console.error('Error fetching actions:', e);
     document.querySelector('#api_url').classList.add('invalid');
     return [];
   }
@@ -176,11 +176,11 @@ async function get_schema() {
  * @param {Record<string, string>} areas
  * @param {[string, { name: string; description: string; fields:
  *     Record<string, { name: string; description: string; example: string;
- *     selector: unknown; required?: boolean }> }][]} services
+ *     selector: unknown; required?: boolean }> }][]} actions
  * @param {{}} schema
  * @returns {Promise<{}>}
  */
-async function generate_schema(entities, devices, areas, services, schema) {
+async function generate_schema(entities, devices, areas, actions, schema) {
   schema.$defs.entity = {
     enum: Object.keys(entities),
   };
@@ -192,12 +192,18 @@ async function generate_schema(entities, devices, areas, services, schema) {
   };
 
   const oneOf = [];
-  for (const [id, data] of services) {
+  for (const [id, data] of actions) {
     const i_properties = {
+      action: {
+        title: data.name,
+        description: data.description,
+        const: id,
+      },
       service: {
         title: data.name,
         description: data.description,
         const: id,
+        deprecated: true,
       },
       data: {
         type: 'object',
@@ -393,12 +399,16 @@ async function generate_schema(entities, devices, areas, services, schema) {
       properties: i_properties,
     });
   }
-  schema.$defs.tap_action = {
+  schema.$defs.tap_action_tap = {
     type: 'object',
     oneOf: oneOf,
     properties: {
+      action: {
+        type: 'string',
+      },
       service: {
         type: 'string',
+        deprecated: true,
       },
       confirm: {
         $ref: '#/$defs/confirm',
@@ -411,8 +421,16 @@ async function generate_schema(entities, devices, areas, services, schema) {
         properties: {},
       },
     },
+    anyOf: [
+      {
+        required: ['action'],
+      },
+      {
+        required: ['service'],
+      },
+    ],
   };
-  delete schema.$defs.tap.properties.service;
+  delete schema.$defs.tap.properties.action;
   delete schema.$schema;
 
   return schema;
@@ -450,22 +468,22 @@ let entities;
 let devices;
 /** @type {Awaited<ReturnType<typeof get_areas>>} */
 let areas;
-/** @type {Awaited<ReturnType<typeof get_services>>} */
-let services;
+/** @type {Awaited<ReturnType<typeof get_actions>>} */
+let actions;
 let schema;
 async function loadSchema() {
-  [entities, devices, areas, services, schema] = await Promise.all([
+  [entities, devices, areas, actions, schema] = await Promise.all([
     get_entities(),
     get_devices(),
     get_areas(),
-    get_services(),
+    get_actions(),
     get_schema(),
   ]);
   if (window.makeMarkers) {
     window.makeMarkers();
   }
   try {
-    schema = await generate_schema(entities, devices, areas, services, schema);
+    schema = await generate_schema(entities, devices, areas, actions, schema);
   } catch {}
   console.log(schema);
   if (window.m && window.modelUri) {
@@ -811,14 +829,16 @@ require(['vs/editor/editor.main'], async () => {
 
   const runAction = editor.addCommand(
     0,
-    async function (_, action) {
-      const service = action.tap_action.service.split('.');
-      let data = action.tap_action.data;
+    async function (_, tap) {
+      const action = (tap.tap_action.action ?? tap.tap_action.service).split(
+        '.'
+      );
+      let data = tap.tap_action.data;
       if (data) {
-        data.entity_id = action.entity;
+        data.entity_id = tap.entity;
       } else {
         data = {
-          entity_id: action.entity,
+          entity_id: tap.entity,
         };
       }
       const t = toast({
@@ -826,7 +846,7 @@ require(['vs/editor/editor.main'], async () => {
       });
       try {
         const res = await fetch(
-          api_url + '/services/' + service[0] + '/' + service[1],
+          api_url + '/services/' + action[0] + '/' + action[1],
           {
             method: 'POST',
             headers: {
@@ -1152,7 +1172,7 @@ require(['vs/editor/editor.main'], async () => {
           if (node.type === 'property') {
             if (node.key[0].value === 'tap_action') {
               const d = get(data, path);
-              if (d.tap_action.service) {
+              if (d.tap_action.action ?? d.tap_action.service) {
                 lenses.push({
                   range: {
                     startLineNumber: node.key[0].range.start.line + 1,

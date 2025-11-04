@@ -50,9 +50,9 @@ class HomeAssistantSyncDelegate extends Communications.SyncDelegate {
         var url;
 
         switch (type) {
-            case "service":
-                var service = WifiLteExecutionConfirmDelegate.mCommandData[:service];
-                url = Settings.getApiUrl() + "/services/" + service.substring(0, service.find(".")) + "/" + service.substring(service.find(".")+1, service.length());
+            case "action":
+                var action = WifiLteExecutionConfirmDelegate.mCommandData[:action];
+                url = Settings.getApiUrl() + "/services/" + action.substring(0, action.find(".")) + "/" + action.substring(action.find(".")+1, action.length());
                 var entity_id = "";
                 if (data != null) {
                     entity_id = data.get("entity_id");
@@ -78,7 +78,7 @@ class HomeAssistantSyncDelegate extends Communications.SyncDelegate {
     private function performRequest(url as Lang.String, data as Lang.Dictionary?) {
         Communications.makeWebRequest(
             url,
-            data, // May include {"entity_id": xxxx} for service calls
+            data, // May include {"entity_id": xxxx} for action calls
             {
                 :method  => Communications.HTTP_REQUEST_METHOD_POST,
                 :headers => Settings.augmentHttpHeaders({

@@ -47,7 +47,7 @@ class HomeAssistantView extends WatchUi.Menu2 {
                 var content    = items[i].get("content")    as Lang.String?;
                 var entity     = items[i].get("entity")     as Lang.String?;
                 var tap_action = items[i].get("tap_action") as Lang.Dictionary?;
-                var service    = items[i].get("service")    as Lang.String?; // Deprecated schema
+                var action    = items[i].get("service")    as Lang.String?; // Deprecated schema
                 var confirm    = false                      as Lang.Boolean or Lang.String or Null;
                 var pin        = false                      as Lang.Boolean?;
                 var data       = null                       as Lang.Dictionary?;
@@ -57,16 +57,22 @@ class HomeAssistantView extends WatchUi.Menu2 {
                     enabled = items[i].get("enabled");       // Optional
                 }
                 if (items[i].get("exit") != null) {
-                    exit = items[i].get("exit");             // Optional
+                    exit = items[i].get("exit");             // Deprecated
                 }
                 if (tap_action != null) {
-                    service = tap_action.get("service");
+                    action = tap_action.get("service");      // Deprecated
+                    if (tap_action.get("action") != null) {
+                        action = tap_action.get("action");   // Optional
+                    }
                     data    = tap_action.get("data");        // Optional
                     if (tap_action.get("confirm") != null) {
                         confirm = tap_action.get("confirm"); // Optional
                     }
                     if (tap_action.get("pin") != null) {
                         pin = tap_action.get("pin");         // Optional
+                    }
+                    if (tap_action.get("exit") != null) {
+                        exit = tap_action.get("exit");       // Optional
                     }
                 }
                 if (type != null && name != null && enabled) {
@@ -81,12 +87,12 @@ class HomeAssistantView extends WatchUi.Menu2 {
                                 :pin     => pin
                             }
                         ));
-                    } else if (type.equals("tap") && service != null) {
+                    } else if (type.equals("tap") && action != null) {
                         addItem(HomeAssistantMenuItemFactory.create().tap(
                             name,
                             entity,
                             content,
-                            service,
+                            action,
                             data,
                             {
                                 :exit    => exit,
@@ -103,7 +109,7 @@ class HomeAssistantView extends WatchUi.Menu2 {
                                 name,
                                 entity,
                                 content,
-                                service,
+                                action,
                                 data,
                                 {
                                     :exit    => false,
@@ -117,7 +123,7 @@ class HomeAssistantView extends WatchUi.Menu2 {
                                 name,
                                 entity,
                                 content,
-                                service,
+                                action,
                                 data,
                                 {
                                     :exit    => exit,
@@ -126,7 +132,7 @@ class HomeAssistantView extends WatchUi.Menu2 {
                                 }
                             ));
                         }
-                    } else if (type.equals("numeric") && service != null) {
+                    } else if (type.equals("numeric") && action != null) {
                         if (tap_action != null) {
                             var picker = tap_action.get("picker") as Lang.Dictionary?;
                             if (picker != null) {
@@ -134,7 +140,7 @@ class HomeAssistantView extends WatchUi.Menu2 {
                                     name,
                                     entity,
                                     content,
-                                    service,
+                                    action,
                                     picker,
                                     {
                                         :exit    => exit,
@@ -150,7 +156,7 @@ class HomeAssistantView extends WatchUi.Menu2 {
                             name,
                             entity,
                             content,
-                            service,
+                            action,
                             data,
                             {
                                 :exit    => false,
@@ -267,11 +273,11 @@ class HomeAssistantViewDelegate extends WatchUi.Menu2InputDelegate {
         if (item instanceof HomeAssistantToggleMenuItem) {
             var haToggleItem = item as HomeAssistantToggleMenuItem;
             // System.println(haToggleItem.getLabel() + " " + haToggleItem.getId() + " " + haToggleItem.isEnabled());
-            haToggleItem.callService(haToggleItem.isEnabled());
+            haToggleItem.callAction(haToggleItem.isEnabled());
         } else if (item instanceof HomeAssistantTapMenuItem) {
             var haItem = item as HomeAssistantTapMenuItem;
             // System.println(haItem.getLabel() + " " + haItem.getId());
-            haItem.callService();
+            haItem.callAction();
         } else if (item instanceof HomeAssistantNumericMenuItem) {
             var haItem = item as HomeAssistantNumericMenuItem;
             // System.println(haItem.getLabel() + " " + haItem.getId());

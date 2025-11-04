@@ -25,7 +25,7 @@ using Toybox.Timer;
 class WifiLteExecutionConfirmDelegate extends WatchUi.ConfirmationDelegate {
     public static var mCommandData as {
         :type    as Lang.String,
-        :service as Lang.String?,
+        :action as Lang.String?,
         :data    as Lang.Dictionary?,
         :url     as Lang.String?,
         :id      as Lang.Number?,
@@ -40,8 +40,8 @@ class WifiLteExecutionConfirmDelegate extends WatchUi.ConfirmationDelegate {
     //!
     //! @param options A dictionary describing the command to be executed:<br>
     //!   `{`<br>
-    //!   &emsp; `:type:     as Lang.String,`      // The command type, either `"service"` or `"entity"`.<br>
-    //!   &emsp; `:service:  as Lang.String?,`     // (For type `"service"`) The Home Assistant service to call (e.g., "light.turn_on").<br>
+    //!   &emsp; `:type:     as Lang.String,`      // The command type, either `"action"` or `"entity"`.<br>
+    //!   &emsp; `:action:   as Lang.String?,`     // (For type `"action"`) The Home Assistant action to call (e.g., "light.turn_on").<br>
     //!   &emsp; `:url:      as Lang.Dictionary?,` // (For type `"entity"`) The full Home Assistant entity API URL.<br>
     //!   &emsp; `:callback: as Lang.String?,`     // (For type `"entity"`) A callback method (Method<data as Dictionary>) to handle the response.<br>
     //!   &emsp; `:data:     as Lang.Method?,`     // (Optional) A dictionary of data to send with the request.<br>
@@ -52,7 +52,7 @@ class WifiLteExecutionConfirmDelegate extends WatchUi.ConfirmationDelegate {
     function initialize(
         cOptions as {
             :type     as Lang.String,
-            :service  as Lang.String?,
+            :action  as Lang.String?,
             :data     as Lang.Dictionary?,
             :url      as Lang.String?,
             :callback as Lang.Method?,
@@ -73,7 +73,7 @@ class WifiLteExecutionConfirmDelegate extends WatchUi.ConfirmationDelegate {
         mConfirmationView = view;
         mCommandData = {
             :type     => cOptions[:type],
-            :service  => cOptions[:service],
+            :action  => cOptions[:action],
             :data     => cOptions[:data],
             :url      => cOptions[:url],
             :callback => cOptions[:callback],

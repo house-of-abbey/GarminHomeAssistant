@@ -116,7 +116,7 @@ Note: Only when you use the `tap_action` field do you also need to include the `
   "type": "tap",
   "content": "{% if is_state('binary_sensor.garage_connected', 'on') %}{{state_translated('cover.garage_door')}} - {{state_attr('cover.garage_door', 'current_position')}}%{%else%}Unconnected{% endif %}",
   "tap_action": {
-    "service": "cover.toggle",
+    "action": "cover.toggle",
     "pin": true
   }
 }
@@ -173,7 +173,7 @@ An example of a dimmer light with 4 brightness settings 0..3. Here our light wor
       "type": "tap",
       "content": "{% if not (is_state('light.green_house', 'off') or is_state('light.green_house', 'unavailable')) %}{{ (((state_attr('light.green_house', 'brightness') | float) / 255 * 100) | round(0)) | int }}%{% else %}Off{% endif %}",
       "tap_action": {
-        "service": "light.turn_on",
+        "action": "light.turn_on",
         "data": {
           "brightness_pct": 12
         }
@@ -184,7 +184,7 @@ An example of a dimmer light with 4 brightness settings 0..3. Here our light wor
       "name": "LEDs 1",
       "type": "tap",
       "tap_action": {
-        "service": "light.turn_on",
+        "action": "light.turn_on",
         "data": {
           "brightness_pct": 37
         }
@@ -196,7 +196,7 @@ An example of a dimmer light with 4 brightness settings 0..3. Here our light wor
       "type": "tap",
       "content": "{% if not (is_state('light.green_house', 'off') or is_state('light.green_house', 'unavailable')) %}{{ (((state_attr('light.green_house', 'brightness') | float) / 255 * 100) | round(0)) | int }}%{% else %}Off{% endif %}",
       "tap_action": {
-        "service": "light.turn_on",
+        "action": "light.turn_on",
         "data": {
           "brightness_pct": 62
         }
@@ -208,7 +208,7 @@ An example of a dimmer light with 4 brightness settings 0..3. Here our light wor
       "type": "tap",
       "content": "{% if not (is_state('light.green_house', 'off') or is_state('light.green_house', 'unavailable')) %}{{ (((state_attr('light.green_house', 'brightness') | float) / 255 * 100) | round(0))| int }}%{% else %}Off{% endif %}",
       "tap_action": {
-        "service": "light.turn_on",
+        "action": "light.turn_on",
         "data": {
           "brightness_pct": 87
         }
