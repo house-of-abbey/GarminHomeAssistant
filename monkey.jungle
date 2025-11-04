@@ -143,7 +143,7 @@ fenix8solar51mm.resourcePath = $(fenix8solar51mm.resourcePath);resources-launche
 fenixchronos.resourcePath = $(fenixchronos.resourcePath);resources-launcher-36-36;resources-icons-26
 # Screen Size 416x416 launcher icon size 60x60
 fenixe.resourcePath = $(fenixe.resourcePath);resources-launcher-60-60;resources-icons-48
-# Screen Size 390 x 390 launcher icon size 54x54
+# Screen Size 390x390 launcher icon size 54x54
 fr165.resourcePath = $(descentmk2s.resourcePath);resources-launcher-54-54;resources-icons-46
 fr165m.resourcePath = $(descentmk2s.resourcePath);resources-launcher-54-54;resources-icons-46
 # Screen Size 240x240 launcher icon size 40x40

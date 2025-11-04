@@ -44,15 +44,22 @@ Half = 2
 # Original icons for 416x416 screen size with 48x48 icons
 original = (96, 48, 24)
 
+# The icons need to scale as a ratio of screen size 48:416 pixels
+#
+# Icon     55  53   48   46   42   37   32   30   28   26   24   21   19  18
+# Screen  480 454  416  390  360  320  280  260  240  218  208  176  166 156
+
 # Convert icons to different screen sizes by these parameters
 lookup = {
   #   Doub Sing Half
   #      0   1   2
+  480: (110, 55, 28),
   454: (106, 53, 27),
 #  416: ( 96, 48, 24),
   390: ( 90, 46, 23),
   360: ( 84, 42, 21),
   320: ( 74, 38, 19),
+  295: ( 68, 34, 17), # Especially for the instinct3amoled50mm device that clip the icons
   280: ( 64, 32, 16),
   260: ( 60, 30, 15),
   240: ( 56, 28, 14),
