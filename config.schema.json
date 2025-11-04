@@ -346,10 +346,12 @@
                         "const": "brightness"
                       },
                       "min": {
-                        "const": 0
+                        "type": "integer",
+                        "minimum": 0
                       },
                       "max": {
-                        "const": 255,
+                        "type": "integer",
+                        "max": 255,
                         "description": "Lights are not a percentage."
                       }
                     }
@@ -444,10 +446,12 @@
                               "const": "percentage"
                             },
                             "min": {
-                              "const": 0
+                              "type": "integer",
+                              "minimum": 0
                             },
                             "max": {
-                              "const": 100
+                              "type": "integer",
+                              "maximum": 100
                             }
                           }
                         }
@@ -479,10 +483,12 @@
                                 "const": "position"
                               },
                               "min": {
-                                "const": 0
+                                "type": "integer",
+                                "minimum": 0
                               },
                               "max": {
-                                "const": 100
+                                "type": "integer",
+                                "maximum": 100
                               }
                             }
                           }
@@ -542,10 +548,12 @@
                                         "const": "tilt_position"
                                       },
                                       "min": {
-                                        "const": 0
+                                        "type": "integer",
+                                        "minimum": 0
                                       },
                                       "max": {
-                                        "const": 100
+                                        "type": "integer",
+                                        "maximum": 100
                                       }
                                     }
                                   }
@@ -569,10 +577,12 @@
                                         "const": "position"
                                       },
                                       "min": {
-                                        "const": 0
+                                        "type": "integer",
+                                        "minimum": 0
                                       },
                                       "max": {
-                                        "const": 100
+                                        "type": "integer",
+                                        "maximum": 100
                                       }
                                     }
                                   }
@@ -607,10 +617,13 @@
                                     "const": "volume_level"
                                   },
                                   "min": {
-                                    "const": 0
+                                    "type": "integer",
+                                    "minimum": 0
                                   },
                                   "max": {
-                                    "const": 1
+                                    "type": "integer",
+                                    "maximum": 1,
+                                    "description": "Fraction [0,1], not percentage."
                                   }
                                 }
                               }
