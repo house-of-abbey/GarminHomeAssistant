@@ -617,11 +617,11 @@
                                     "const": "volume_level"
                                   },
                                   "min": {
-                                    "type": "integer",
+                                    "type": "number",
                                     "minimum": 0
                                   },
                                   "max": {
-                                    "type": "integer",
+                                    "type": "number",
                                     "maximum": 1,
                                     "description": "Fraction [0,1], not percentage."
                                   }
