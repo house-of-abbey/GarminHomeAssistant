@@ -96,19 +96,19 @@ For copy and paste, the Jinja2 fields are as follows:
 
 1. Template rendering with conversion to dB:
 
-```
+```jinja
 {{ state_attr('media_player.amplifier','volume_level') * 100 -80 }}
 ```
 
 2. Conversion from dB to range 0.0 to 1.0:
 
-```
+```jinja
 {{ (value+80)/100 }}
 ```
 
 3. Availability template:
 
-```
+```jinja
 {{ not is_state('media_player.amplifier','unavailable') }}
 ```
 

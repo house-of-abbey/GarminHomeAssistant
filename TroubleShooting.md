@@ -315,9 +315,15 @@ JSON for copy & paste:
 
 ![No JSON](images/NoJson.png)
 
-When the application persists in reporting "No JSON returned from HTTP request." this might be due to a mismatch between the Webhook ID and the device settings on the HomeAssistant server. We have discovered that the Webhook ID is required for HomeAssistant API calls with templates in order to work in a non-privileged account. The application options include the ability to clear the Webhook ID in the application forcing a new one to be set up. This should prevent the above error being shown on startup.
+When the application persists in reporting _"No JSON returned from HTTP request"_ this might be due to a mismatch between the Webhook ID and the device settings on the HomeAssistant server. We have discovered that the Webhook ID is required for HomeAssistant API calls with templates in order to work in a non-privileged account. The application options include the ability to clear the Webhook ID in the application forcing a new one to be set up. This should prevent the above error being shown on startup.
 
-Look for this option in the application settings:
+![HTTP 410](images/http_410_error.jpg)
+
+We now also have reports of an [HTTP 410](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status/410) error occurring after an application update. With thanks to [@Aaroneisele55](https://github.com/Aaroneisele55) for resolving this issue also by the clearing of the Webhook ID. The cause of the problem remains unknown as updates do not generally require this correction between the Home Assistant server and the watch settings.
+
+**Therefore, when the URL is known to work, any failure to return the JSON menu definition from an HTTPS request should try resetting the Webhook ID used with Home Assistant.**
+
+To reset the Webhook ID look for this option in the application settings:
 
 ![Nabu Casa Setup](images/delete_webhook_id.png)
 
