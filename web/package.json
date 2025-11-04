@@ -13,7 +13,7 @@
     "@types/toastify-js": "1.12.0",
     "@vscode/webview-ui-toolkit": "1.4.0",
     "json-ast-comments": "1.1.1",
-    "monaco-editor": "0.52.2",
+    "monaco-editor": "0.54.2",
     "prettier": "^3.6.2",
     "serve": "^14.2.1"
   }

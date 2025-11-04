@@ -75,6 +75,6 @@ The following shows the default glance when the menu file is not available at th
 
 <img src="../images/Venu2_glance_no_menu.png" width="200" title="Venu 2 Glance showing errors"/>
 
-Once the custom glance template has been retrieved and evaluated the display will change. Should the connectivity to your Home Assistant then be lost, e.g. you move out of range of your phone, the glance reflects this in the colour of the residual two rectangles. The top one remains an indicator for the API, and the bottom rectangle remains an indicator for the menu availability, reflecting the original placement in the default glance view that has now been replaced.
+Once the custom glance template has been retrieved and evaluated the display will change. Should the connectivity to your HomeAssistant then be lost, e.g. you move out of range of your phone, the glance reflects this in the colour of the residual two rectangles. The top one remains an indicator for the API, and the bottom rectangle remains an indicator for the menu availability, reflecting the original placement in the default glance view that has now been replaced.
 
 <img src="../images/Venu2_glance_no_bt.png" width="200" title="Venu 2 Glance showing lost connectivity"/>

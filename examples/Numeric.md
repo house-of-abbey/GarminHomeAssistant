@@ -41,9 +41,9 @@ It may well be the case that often `attribute` and `data_attribute` are the same
 
 ## Helper
 
-You might define a "helper" entity as follows in Home Assistant:
+You might define a "helper" entity as follows in HomeAssistant:
 
-<img src="../images/my_float.png" width="400" title="Home Assistant Helper definition for an 'input_number'." style="margin:5px"/>
+<img src="../images/my_float.png" width="400" title="HomeAssistant Helper definition for an 'input_number'." style="margin:5px"/>
 
 In this case, the state is the actual value, so the template uses `states(..)` instead of `state_attr(..)`, you must not set the optional `attribute` value in the JSON definition so that the application uses the correct template internally for querying the HA server for its present value. Your own template definition in the `content` field will need to follow suit too. The `data_attribute` must be set to `value` for the service call that sets the chosen value from the number carousel.
 
@@ -88,9 +88,9 @@ The complication here is this amplifier uses one scale for changing the value, a
 }
 ```
 
-The above is a little awkward to change the volume as the picker's scale is unfamiliar. To make life easier you might choose to implement a "Template number" in Home Assistant as defined in the following dialogue box.
+The above is a little awkward to change the volume as the picker's scale is unfamiliar. To make life easier you might choose to implement a "Template number" in HomeAssistant as defined in the following dialogue box.
 
-<img src="../images/template_number.png" width="500" title="Home Assistant Helper definition for an 'input_number'." style="margin:5px"/>
+<img src="../images/template_number.png" width="500" title="HomeAssistant Helper definition for an 'input_number'." style="margin:5px"/>
 
 For copy and paste, the Jinja2 fields are as follows:
 
@@ -112,7 +112,7 @@ For copy and paste, the Jinja2 fields are as follows:
 {{ not is_state('media_player.amplifier','unavailable') }}
 ```
 
-As an alternative to using the GUI, the following can be pasted into Home Assistant's `configuration.yaml`:
+As an alternative to using the GUI, the following can be pasted into HomeAssistant's `configuration.yaml`:
 
 ```yaml
 template:
@@ -160,4 +160,4 @@ The JSON menu definition can now use dB with the new template number as follows.
 
 Specific to this menu item:
 
-1. If the number picker does not initialise with the correct value, amend the `attribute` field. Just because your template renders does not mean the application has extracted the numeric value as the `content` template is rendered on the Home Assistant server.
+1. If the number picker does not initialise with the correct value, amend the `attribute` field. Just because your template renders does not mean the application has extracted the numeric value as the `content` template is rendered on the HomeAssistant server.

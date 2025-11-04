@@ -61,7 +61,7 @@ class HomeAssistantNumericPicker extends WatchUi.Picker {
     //
     public function onConfirm(value as Lang.Number or Lang.Float) as Void {
         mItem.setValue(value);
-        mItem.callService();
+        mItem.callAction();
     }
 }
 

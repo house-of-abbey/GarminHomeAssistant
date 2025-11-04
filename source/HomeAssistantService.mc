@@ -34,7 +34,7 @@ class HomeAssistantService {
         }
     }
 
-    //! Callback function after completing the POST request to call a service.
+    //! Callback function after completing the POST request to call an action.
     //!
     //! @param responseCode Response code.
     //! @param data         Response data.
@@ -87,7 +87,7 @@ class HomeAssistantService {
                 break;
 
             case 200:
-                // System.println("HomeAssistantService onReturnCall(): Service executed.");
+                // System.println("HomeAssistantService onReturnCall(): Action executed.");
                 getApp().forceStatusUpdates();
                 var d     = data as Lang.Array;
                 var toast = WatchUi.loadResource($.Rez.Strings.Executed) as Lang.String;
@@ -118,13 +118,13 @@ class HomeAssistantService {
         }
     }
 
-    //! Invoke a service call for a menu item.
+    //! Invoke a action call for a menu item.
     //!
-    //! @param service The Home Assistant service to be run, e.g. from the JSON `service` field.
-    //! @param data    Data to be supplied to the service call.
+    //! @param action The Home Assistant action to be run, e.g. from the JSON `action` field.
+    //! @param data    Data to be supplied to the action call.
     //
     function call(
-        service as Lang.String,
+        action as Lang.String,
         data    as Lang.Dictionary?,
         exit    as Lang.Boolean
     ) as Void {
@@ -136,8 +136,8 @@ class HomeAssistantService {
             WatchUi.pushView(
                 dialog,
                 new WifiLteExecutionConfirmDelegate({
-                    :type    => "service",
-                    :service => service,
+                    :type    => "action",
+                    :action => action,
                     :data    => data,
                     :exit    => exit,
                 }, dialog),
@@ -151,9 +151,9 @@ class HomeAssistantService {
             ErrorView.show(WatchUi.loadResource($.Rez.Strings.NoInternet) as Lang.String);
         } else {
             // Can't use null for substring() parameters due to API version level.
-            var url = Settings.getApiUrl() + "/services/" + service.substring(0, service.find(".")) + "/" + service.substring(service.find(".")+1, service.length());
+            var url = Settings.getApiUrl() + "/services/" + action.substring(0, action.find(".")) + "/" + action.substring(action.find(".")+1, action.length());
             // System.println("HomeAssistantService call() URL=" + url);
-            // System.println("HomeAssistantService call() service=" + service);
+            // System.println("HomeAssistantService call() action=" + action);
 
             var entity_id = "";
             if (data != null) {
