@@ -24,12 +24,12 @@ using Toybox.Timer;
 //
 class WifiLteExecutionConfirmDelegate extends WatchUi.ConfirmationDelegate {
     public static var mCommandData as {
-        :type    as Lang.String,
+        :type   as Lang.String,
         :action as Lang.String?,
-        :data    as Lang.Dictionary?,
-        :url     as Lang.String?,
-        :id      as Lang.Number?,
-        :exit    as Lang.Boolean
+        :data   as Lang.Dictionary?,
+        :url    as Lang.String?,
+        :id     as Lang.Number?,
+        :exit   as Lang.Boolean
     }?;
 
     private static var mTimer     as Timer.Timer?;
@@ -52,7 +52,7 @@ class WifiLteExecutionConfirmDelegate extends WatchUi.ConfirmationDelegate {
     function initialize(
         cOptions as {
             :type     as Lang.String,
-            :action  as Lang.String?,
+            :action   as Lang.String?,
             :data     as Lang.Dictionary?,
             :url      as Lang.String?,
             :callback as Lang.Method?,
@@ -73,7 +73,7 @@ class WifiLteExecutionConfirmDelegate extends WatchUi.ConfirmationDelegate {
         mConfirmationView = view;
         mCommandData = {
             :type     => cOptions[:type],
-            :action  => cOptions[:action],
+            :action   => cOptions[:action],
             :data     => cOptions[:data],
             :url      => cOptions[:url],
             :callback => cOptions[:callback],

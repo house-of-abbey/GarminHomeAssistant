@@ -31,7 +31,7 @@ class HomeAssistantTapMenuItem extends HomeAssistantMenuItem {
     //!
     //! @param label     Menu item label.
     //! @param template  Menu item template.
-    //! @param action   Menu item action.
+    //! @param action    Menu item action.
     //! @param data      Data to supply to the action call.
     //! @param exit      Should the action call complete and then exit?
     //! @param confirm   Should the action call be confirmed to avoid accidental invocation?
@@ -44,7 +44,7 @@ class HomeAssistantTapMenuItem extends HomeAssistantMenuItem {
     function initialize(
         label     as Lang.String or Lang.Symbol,
         template  as Lang.String,
-        action   as Lang.String?,
+        action    as Lang.String?,
         data      as Lang.Dictionary?,
         options   as {
             :alignment as WatchUi.MenuItem.Alignment,

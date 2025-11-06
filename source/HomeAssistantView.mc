@@ -47,7 +47,7 @@ class HomeAssistantView extends WatchUi.Menu2 {
                 var content    = items[i].get("content")    as Lang.String?;
                 var entity     = items[i].get("entity")     as Lang.String?;
                 var tap_action = items[i].get("tap_action") as Lang.Dictionary?;
-                var action    = items[i].get("service")    as Lang.String?; // Deprecated schema
+                var action     = items[i].get("service")    as Lang.String?; // Deprecated schema
                 var confirm    = false                      as Lang.Boolean or Lang.String or Null;
                 var pin        = false                      as Lang.Boolean?;
                 var data       = null                       as Lang.Dictionary?;

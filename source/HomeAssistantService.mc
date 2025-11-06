@@ -121,7 +121,7 @@ class HomeAssistantService {
     //! Invoke a action call for a menu item.
     //!
     //! @param action The Home Assistant action to be run, e.g. from the JSON `action` field.
-    //! @param data    Data to be supplied to the action call.
+    //! @param data   Data to be supplied to the action call.
     //
     function call(
         action as Lang.String,
@@ -136,10 +136,10 @@ class HomeAssistantService {
             WatchUi.pushView(
                 dialog,
                 new WifiLteExecutionConfirmDelegate({
-                    :type    => "action",
+                    :type   => "action",
                     :action => action,
-                    :data    => data,
-                    :exit    => exit,
+                    :data   => data,
+                    :exit   => exit,
                 }, dialog),
                 WatchUi.SLIDE_LEFT
             );

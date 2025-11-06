@@ -35,7 +35,7 @@ class HomeAssistantNumericMenuItem extends HomeAssistantMenuItem {
     //!
     //! @param label     Menu item label.
     //! @param template  Menu item template.
-    //! @param action   Menu item action.
+    //! @param action    Menu item action.
     //! @param data      Data to supply to the action call.
     //! @param exit      Should the action call complete and then exit?
     //! @param confirm   Should the action call be confirmed to avoid accidental invocation?
@@ -120,10 +120,10 @@ class HomeAssistantNumericMenuItem extends HomeAssistantMenuItem {
                 WatchUi.pushView(
                     dialog,
                     new WifiLteExecutionConfirmDelegate({
-                        :type    => "action",
+                        :type   => "action",
                         :action => mAction,
-                        :data    => mData,
-                        :exit    => mExit,
+                        :data   => mData,
+                        :exit   => mExit,
                     }, dialog),
                     WatchUi.SLIDE_LEFT
                 );
