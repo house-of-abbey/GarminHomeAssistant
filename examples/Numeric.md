@@ -15,7 +15,7 @@ An example using a thermostat as a `numeric` menu item.
   "type": "numeric",
   "entity": "climate.room",
   "tap_action": {
-    "service": "climate.set_temperature",
+    "action": "climate.set_temperature",
     "picker": {
         "step": 0.5,
         "min": 10,
@@ -35,7 +35,7 @@ Field            | Purpose                                                      
 `min`            | The minimum value the numeric entity can take.                 | Yes       |
 `max`            | The maximum value the numeric entity can take.                 | Yes       |
 `attribute`      | The attribute on the `entity` that holds the state to be read. | No        |
-`data_attribute` | The attribute on the `service` call that sets the state.       | Yes       |
+`data_attribute` | The attribute on the `action` call that sets the state.        | Yes       |
 
 It may well be the case that often `attribute` and `data_attribute` are the same attribute, as with this example.
 
@@ -45,7 +45,7 @@ You might define a "helper" entity as follows in HomeAssistant:
 
 <img src="../images/my_float.png" width="400" title="HomeAssistant Helper definition for an 'input_number'." style="margin:5px"/>
 
-In this case, the state is the actual value, so the template uses `states(..)` instead of `state_attr(..)`, you must not set the optional `attribute` value in the JSON definition so that the application uses the correct template internally for querying the HA server for its present value. Your own template definition in the `content` field will need to follow suit too. The `data_attribute` must be set to `value` for the service call that sets the chosen value from the number carousel.
+In this case, the state is the actual value, so the template uses `states(..)` instead of `state_attr(..)`, you must not set the optional `attribute` value in the JSON definition so that the application uses the correct template internally for querying the HA server for its present value. Your own template definition in the `content` field will need to follow suit too. The `data_attribute` must be set to `value` for the `action` call that sets the chosen value from the number carousel.
 
 ```json
 {
@@ -54,7 +54,7 @@ In this case, the state is the actual value, so the template uses `states(..)` i
   "type": "numeric",
   "entity": "input_number.my_float",
   "tap_action": {
-    "service": "input_number.set_value",
+    "action": "input_number.set_value",
     "picker": {
       "step": 0.5,
       "min": -10.0,
@@ -76,7 +76,7 @@ The complication here is this amplifier uses one scale for changing the value, a
   "type": "numeric",
   "entity": "media_player.amplifier",
   "tap_action": {
-    "service": "media_player.volume_set",
+    "action": "media_player.volume_set",
     "picker": {
         "step": 0.005,
         "min": 0.2,
@@ -149,7 +149,7 @@ The JSON menu definition can now use dB with the new template number as follows.
   "type": "numeric",
   "entity": "number.amplifier_db",
   "tap_action": {
-    "service": "number.set_value",
+    "action": "number.set_value",
     "picker": {
         "step": 0.5,
         "min": -60.0,
