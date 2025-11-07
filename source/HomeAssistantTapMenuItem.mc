@@ -83,10 +83,10 @@ class HomeAssistantTapMenuItem extends HomeAssistantMenuItem {
                 WatchUi.pushView(
                     pinConfirmationView,
                     new HomeAssistantPinConfirmationDelegate({
-                        :callback    => method(:onConfirm),
-                        :pin         => pin, 
-                        :state       => false,
-                        :view        => pinConfirmationView,
+                        :callback => method(:onConfirm),
+                        :pin      => pin, 
+                        :state    => false,
+                        :view     => pinConfirmationView,
                     }),
                     WatchUi.SLIDE_IMMEDIATE
                 );
