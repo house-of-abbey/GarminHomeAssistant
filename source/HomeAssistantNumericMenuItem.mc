@@ -48,7 +48,7 @@ class HomeAssistantNumericMenuItem extends HomeAssistantMenuItem {
     function initialize(
         label     as Lang.String or Lang.Symbol,
         template  as Lang.String,
-        action   as Lang.String?,
+        action    as Lang.String?,
         data      as Lang.Dictionary?,
         picker    as Lang.Dictionary,
         options   as {
@@ -154,27 +154,25 @@ class HomeAssistantNumericMenuItem extends HomeAssistantMenuItem {
     //! @param b Ignored. It is included in order to match the expected function prototype of the callback method.
     //
     function onConfirm(b as Lang.Boolean) as Void {
-        var dataAttribute = mPicker["data_attribute"];
-        if (dataAttribute == null) {
-            //return without call action if no data attribute is set to avoid crash
-            WatchUi.popView(WatchUi.SLIDE_RIGHT);
-            return;
-        }
-        var entity_id = mData["entity_id"];
-        if (entity_id == null) {
-            //return without call action if no entity_id is set to avoid crash
-            WatchUi.popView(WatchUi.SLIDE_RIGHT);
-            return;
-        }
-        mHomeAssistantService.call(
-            mAction,
-            {
-                "entity_id"              => entity_id.toString(),
-                dataAttribute.toString() => mValue
-            },
-            mExit
-        );
+        var dataAttribute = mPicker["data_attribute"] as Lang.String?;
+        var entity_id     = mData["entity_id"]        as Lang.String?;
+
         WatchUi.popView(WatchUi.SLIDE_RIGHT);
+        WatchUi.requestUpdate();
+        if (dataAttribute == null or entity_id == null) {
+            // Return without service call if no data attribute or entity ID is set to avoid crash.
+            return;
+        }
+        if (mAction != null) {
+            mHomeAssistantService.call(
+                mAction,
+                {
+                    "entity_id"              => entity_id.toString(),
+                    dataAttribute.toString() => mValue
+                },
+                mExit
+            );
+        }
     }
 
     //! Return a numeric menu item's fetch state template.
@@ -182,8 +180,9 @@ class HomeAssistantNumericMenuItem extends HomeAssistantMenuItem {
     //! @return A string with the menu item's template definition (or null).
     //
     function getNumericTemplate() as Lang.String? {
-        var entity_id = mData["entity_id"];
+        var entity_id = mData["entity_id"]   as Lang.String?;
         var attribute = mPicker["attribute"] as Lang.String?;
+
         if (entity_id == null) {
             return null;
         } else {
