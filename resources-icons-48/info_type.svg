@@ -4,6 +4,8 @@
     .colour2 { fill: #00ccff; }
   </style>
   <circle class="colour1" cx="480" cy="480" r="400" stroke-width="60" fill-opacity="0.0" />
-  <rect class="colour2" x="420" y="410" width="120" height="360" />
-  <circle class="colour2" cx="480" cy="280" r="60" />
+  <g class="colour2">
+    <circle cx="480" cy="280" r="60" />
+    <rect x="420" y="410" width="120" height="360" rx="40" ry="40" />
+  </g>
 </svg>
