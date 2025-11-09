@@ -1,0 +1,13 @@
+<svg height="53" viewBox="0 0 960 960" width="53" xmlns="http://www.w3.org/2000/svg">
+<style>
+    text.small { font: bold 400px sans-serif; }
+    text.large { font: bold 500px sans-serif; }
+    .colour1 { fill: #4444ff; }
+    .colour2 { fill: #00ccff; } 
+    rect.colour2 { stroke: #00ccff; }
+  </style>
+<rect class="colour2" fill-opacity="0.0" height="700" rx="100" ry="100" stroke-width="60" width="900" x="30" y="130"/>
+<text class="small colour1" x="110" y="610">1</text>
+<text class="large colour2" x="350" y="640">2</text>
+<text class="small colour1" x="650" y="610">3</text>
+</svg>

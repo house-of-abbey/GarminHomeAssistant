@@ -20,4 +20,5 @@
     <bitmap id="GroupTypeIcon" filename="group_type.svg"/>
     <bitmap id="TapTypeIcon" filename="tap_type.svg"/>
     <bitmap id="InfoTypeIcon" filename="info_type.svg"/>
+    <bitmap id="NumericTypeIcon" filename="numeric_type.svg"/>
 </drawables>

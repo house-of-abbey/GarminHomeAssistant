@@ -1,7 +1,12 @@
-<svg height="21" viewBox="0 0 200 500" width="21" xmlns="http://www.w3.org/2000/svg">
-<g transform="matrix(1, 0, 0, 1, 0, 0)">
-<rect fill="white" height="100" rx="40" ry="40" width="200" x="0" y="0"/>
-<rect fill="white" height="100" rx="40" ry="40" width="200" x="0" y="200"/>
-<rect fill="white" height="100" rx="40" ry="40" width="200" x="0" y="400"/>
-</g>
+<svg height="21" viewBox="0 0 960 960" width="21" xmlns="http://www.w3.org/2000/svg">
+<style>
+    .colour1 { fill: #ffffff; }
+    .colour2 { fill: #ffffff; }
+  </style>
+<rect class="colour1" height="160" rx="20" ry="20" width="560" x="300" y="160"/>
+<rect class="colour1" height="160" rx="20" ry="20" width="560" x="300" y="400"/>
+<rect class="colour1" height="160" rx="20" ry="20" width="560" x="300" y="640"/>
+<circle class="colour2" cx="120" cy="240" r="80"/>
+<circle class="colour2" cx="120" cy="480" r="80"/>
+<circle class="colour2" cx="120" cy="720" r="80"/>
 </svg>
