@@ -2,7 +2,7 @@
   <style>
     text.small { font: bold 400px sans-serif; }
     text.large { font: bold 500px sans-serif; }
-    .colour1 { fill: #4444ff; }
+    .colour1 { fill: #0091ff; }
     .colour2 { fill: #00ccff; } 
     rect.colour2 { stroke: #00ccff; }
   </style>

@@ -1,6 +1,6 @@
 <svg height="21" viewBox="0 0 960 960" width="21" xmlns="http://www.w3.org/2000/svg">
 <style>
-    .colour1 { stroke: #4444ff; }
+    .colour1 { stroke: #0091ff; }
     .colour2 { fill: #00ccff; }
   </style>
 <circle class="colour1" cx="480" cy="480" fill-opacity="0.0" r="400" stroke-width="60"/>
