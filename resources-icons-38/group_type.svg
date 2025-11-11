@@ -1,7 +1,10 @@
 <svg height="38" viewBox="0 0 960 960" width="38" xmlns="http://www.w3.org/2000/svg">
+<style id="colours">
+    .colour1 { color: #0091ff; }
+    .colour2 { color: #00ccff; }
+  </style>
 <style>
-    .colour1 { fill: #0091ff; }
-    .colour2 { fill: #00ccff; }
+    .colour1, .colour2 { fill: currentColor; }
   </style>
 <rect class="colour1" height="160" rx="20" ry="20" width="560" x="300" y="160"/>
 <rect class="colour1" height="160" rx="20" ry="20" width="560" x="300" y="400"/>

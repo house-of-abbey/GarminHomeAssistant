@@ -1,10 +1,13 @@
 <svg height="21" viewBox="0 0 960 960" width="21" xmlns="http://www.w3.org/2000/svg">
+<style id="colours">
+    .colour1 { color: #dddddd; }
+    .colour2 { color: #ffffff; }
+</style>
 <style>
     text.small { font: bold 400px sans-serif; }
     text.large { font: bold 500px sans-serif; }
-    .colour1 { fill: #ffffff; }
-    .colour2 { fill: #ffffff; } 
-    rect.colour2 { stroke: #ffffff; }
+    .colour1, .colour2 { fill: currentColor; } 
+    rect.colour2 { stroke: currentColor; }
   </style>
 <rect class="colour2" fill-opacity="0.0" height="700" rx="100" ry="100" stroke-width="60" width="900" x="30" y="130"/>
 <text class="small colour1" x="110" y="610">1</text>

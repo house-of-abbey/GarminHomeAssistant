@@ -1,7 +1,11 @@
 <svg height="38" viewBox="0 0 960 960" width="38" xmlns="http://www.w3.org/2000/svg">
+<style id="colours">
+    .colour1 { color: #aa0000; }
+    .colour2 { color: #ff1111; }
+  </style>
 <style>
-    .colour1 { stroke: #aa0000; }
-    .colour2 { fill: #ff1111; }
+    .colour1 { stroke: currentColor; }
+    .colour2 { fill: currentColor; }
     text.large { font: bold 600px sans-serif; }
   </style>
 <circle class="colour1" cx="480" cy="480" fill-opacity="0.0" r="400" stroke-width="60"/>
