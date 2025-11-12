@@ -24,6 +24,7 @@ class HomeAssistantMenuItemFactory {
     private var mTapTypeIcon          as WatchUi.Bitmap;
     private var mGroupTypeIcon        as WatchUi.Bitmap;
     private var mInfoTypeIcon         as WatchUi.Bitmap;
+    private var mNumericTypeIcon      as WatchUi.Bitmap;
     private var mHomeAssistantService as HomeAssistantService;
 
     private static var instance;
@@ -47,6 +48,12 @@ class HomeAssistantMenuItemFactory {
 
         mInfoTypeIcon = new WatchUi.Bitmap({
             :rezId => $.Rez.Drawables.InfoTypeIcon,
+            :locX  => WatchUi.LAYOUT_HALIGN_CENTER,
+            :locY  => WatchUi.LAYOUT_VALIGN_CENTER
+        });
+
+        mNumericTypeIcon = new WatchUi.Bitmap({
+            :rezId => $.Rez.Drawables.NumericTypeIcon,
             :locX  => WatchUi.LAYOUT_HALIGN_CENTER,
             :locY  => WatchUi.LAYOUT_VALIGN_CENTER
         });
@@ -172,7 +179,7 @@ class HomeAssistantMenuItemFactory {
         for (var i = 0; i < keys.size(); i++) {
             options[keys[i]] = mMenuItemOptions.get(keys[i]);
         }
-        options[:icon] = mTapTypeIcon;
+        options[:icon] = mNumericTypeIcon;
         return new HomeAssistantNumericMenuItem(
             label,
             template,

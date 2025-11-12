@@ -14,10 +14,6 @@ rem  J D Abbey & P A Abbey, 28 December 2022
 rem
 rem  Run the automatic translation script.
 rem
-rem  Reference:
-rem   * Using Monkey C from the Command Line
-rem     https://developer.garmin.com/connect-iq/reference-guides/monkey-c-command-line-setup/
-rem
 rem -----------------------------------------------------------------------------------
 
 rem 'pip' instructs us to add this to the PATH for 'websockets.exe' and 'httpx.exe'
