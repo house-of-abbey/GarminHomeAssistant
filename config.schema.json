@@ -18,7 +18,6 @@
     }
   },
   "required": [
-    "title",
     "items"
   ],
   "additionalProperties": false,
@@ -231,7 +230,6 @@
       },
       "required": [
         "name",
-        "title",
         "type",
         "items"
       ],
