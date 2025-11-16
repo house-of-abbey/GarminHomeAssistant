@@ -170,3 +170,7 @@ You should remove your old template sensors before migrating to the new integrat
 While all of the entries have the same name, you can identify which to delete by clicking through to its device which should have a changed name from when it was set up.
 
 ![Battery Device Deletion](images/Battery_Device_Deletion.png)
+
+## Credits
+
+With thanks to Klaas Whiver, [@KPWhiver](https://github.com/KPWhiver) for contributing additional activity reporting features: steps, heart rate, floors climbed and descended, and respiration rate.
