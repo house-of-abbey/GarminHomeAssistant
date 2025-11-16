@@ -177,3 +177,7 @@ Here is an example of how to make a light effect selector:
 ```
 
 The same pattern works for any selector (`input_select.*`, `select.*`, `climate.*` mode).
+
+## Credits
+
+With thanks to Matthias Oesterheld, [moesterheld](https://github.com/moesterheld) for contributing the PIN feature.
