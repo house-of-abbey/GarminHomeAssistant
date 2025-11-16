@@ -165,3 +165,7 @@ The JSON menu definition can now use dB with the new template number as follows.
 Specific to this menu item:
 
 1. If the number picker does not initialise with the correct value, amend the `attribute` field. Just because your template renders does not mean the application has extracted the numeric value as the `content` template is rendered on the HomeAssistant server.
+
+## Credits
+
+With thanks to Tom Michel, [@thmichel](https://github.com/thmichel) for contributing this solution.
