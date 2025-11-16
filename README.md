@@ -166,15 +166,22 @@ Example schema:
 
 NB. Entity names are not real in case anyone's a hacker ;-).
 
+<style>
+img.icon {
+  width: 20px;
+  vertical-align: middle;
+}
+</style>
+
 The example above illustrates how to configure:
 
-* Lights or switches (`toggle`), <img src="images/toggle_icon.png" height="20">
-* Enables for automations (`toggle`), <img src="images/toggle_icon.png" height="20">
-* Script invocation (`tap`)
-* Action invocation, e.g. Scene setting, (`tap`)
-* A sub-menu to open (`group`)
-* A numeric item (`numeric`), which allows you to set a numeric value e.g. for heating or a dimmer. This is [explained more fully](examples/Numeric.md) in its own examples page.
-* You can also display the status of devices (`info`) which is essentially a `tap` with no action
+* <img class="icon" src="images/toggle_icon.png"> Lights or switches, `toggle` menu item.
+* <img class="icon" src="images/toggle_icon.png"> Enables for automations, `toggle` menu item.
+* <img class="icon" src="images/tap_icon.png"> Script invocation, `tap` menu item.
+* <img class="icon" src="images/tap_icon.png"> Action invocation, e.g. Scene setting, `tap` menu item.
+* <img class="icon" src="images/group_icon.png"> A sub-menu to open, `group` menu item.
+* <img class="icon" src="images/numeric_icon.png"> A `numeric` menu item, which allows you to set a value e.g. for heating or a dimmer. This is [explained more fully](examples/Numeric.md) in its own examples page.
+* <img class="icon" src="images/info_icon.png"> You can also display the status of devices with an `info` menu item.
 * All menu items can display the results of evaluating [templates](examples/Templates.md).
 
 The following table indicates how HomeAssistant entity types can map to the Garmin applications menu types. Presently, an automation is the only one that can be either a `tap` or a `toggle`.
