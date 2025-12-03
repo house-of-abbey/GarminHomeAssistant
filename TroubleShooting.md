@@ -116,7 +116,9 @@ pause
 
 #### API: On-line
 
-There's an online way of testing the API URL too, thanks to [REQBIN](https://reqbin.com/post-online). This has less setup and it can be saved if you log into the web site.
+There's an online way of testing the API URL too, thanks to [REQBIN](https://reqbin.com/post-online). This has less setup and it can be saved if you log into the web site. Please note two things:
+1. The URL entere below must include a trailing '/' unlike the URL entered into the watch settings.
+2. The service imposes a limit on the number requests you can submit without a subscription, so click with purpose! NB. Changing browser buys you a few more clicks.
 
 ![API Test REQBIN](images/api_test_online.png)
 
