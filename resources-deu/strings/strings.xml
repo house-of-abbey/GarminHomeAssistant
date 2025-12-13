@@ -38,6 +38,7 @@
   <string id="NoConfigUrl" scope="glance">Keine Menükonfigurations-URL (JSON) in den App-Einstellungen hinterlegt.</string>
   <string id="NoInternet">Keine Internetverbindung.</string>
   <string id="NoJson">Keine JSON-Datei aus der HTTP-Anfrage zurückbekommen.</string>
+  <string id="NoMenu">Fehler in der Menüdefinition, Anweisungen prüfen.</string>
   <string id="NoPhone" scope="glance">Keine Telefonverbindung.</string>
   <string id="NoPhoneNoCache" scope="glance">Keine Telefonverbindung und kein gecachtes Menü.</string>
   <string id="NoResponse">Keine Antwort, bitte Internetverbindung prüfen.</string>

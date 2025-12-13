@@ -38,6 +38,7 @@
   <string id="NoConfigUrl" scope="glance">應用程式設定中沒有配置 URL。</string>
   <string id="NoInternet">沒有互聯網連接。</string>
   <string id="NoJson">HTTP 請求未返回 JSON。</string>
+  <string id="NoMenu">選單定義錯誤，請檢查說明。</string>
   <string id="NoPhone" scope="glance">沒有電話連接。</string>
   <string id="NoPhoneNoCache" scope="glance">沒有電話連接，沒有已快取的選單。</string>
   <string id="NoResponse">沒有回應，請檢查互聯網連接。</string>

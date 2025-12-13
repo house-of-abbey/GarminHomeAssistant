@@ -41,6 +41,7 @@
     aplicación.</string>
   <string id="NoInternet">Sin conexión a Internet.</string>
   <string id="NoJson">No se recibió JSON de la solicitud HTTP.</string>
+  <string id="NoMenu">Error en la definición del menú, verifique las instrucciones.</string>
   <string id="NoPhone" scope="glance">Sin conexión telefónica.</string>
   <string id="NoPhoneNoCache" scope="glance">Sin conexión telefónica, sin menú en caché.</string>
   <string id="NoResponse">Sin respuesta, verifique la conexión a Internet</string>

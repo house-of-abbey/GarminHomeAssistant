@@ -38,6 +38,7 @@
   <string id="NoConfigUrl" scope="glance">אין כתובת URL לתצורה בהגדרות היישום.</string>
   <string id="NoInternet">אין חיבור לאינטרנט.</string>
   <string id="NoJson">לא התקבל JSON מבקשת HTTP.</string>
+  <string id="NoMenu">שגיאת הגדרת תפריט, בדוק את ההוראות.</string>
   <string id="NoPhone" scope="glance">אין חיבור לטלפון.</string>
   <string id="NoPhoneNoCache" scope="glance">אין חיבור לטלפון, אין תפריט במטמון.</string>
   <string id="NoResponse">אין תגובה, בדוק את חיבור האינטרנט.</string>

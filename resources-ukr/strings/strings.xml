@@ -40,6 +40,7 @@
   <string id="NoConfigUrl" scope="glance">Немає URL-адреси конфігурації в налаштуваннях програми.</string>
   <string id="NoInternet">Немає підключення до Інтернету.</string>
   <string id="NoJson">HTTP-запит не повернув JSON.</string>
+  <string id="NoMenu">Помилка визначення меню, перевірте інструкції.</string>
   <string id="NoPhone" scope="glance">Немає підключення до телефону.</string>
   <string id="NoPhoneNoCache" scope="glance">Немає підключення до телефону, немає кешованого меню.</string>
   <string id="NoResponse">Немає відповіді, перевірте підключення до Інтернету.</string>

@@ -40,6 +40,7 @@
     dell'applicazione.</string>
   <string id="NoInternet">Nessuna connessione Internet.</string>
   <string id="NoJson">Nessun JSON ricevuto dalla richiesta HTTP.</string>
+  <string id="NoMenu">Errore di definizione del menu, controlla le istruzioni.</string>
   <string id="NoPhone" scope="glance">Nessuna connessione telefonica.</string>
   <string id="NoPhoneNoCache" scope="glance">Nessuna connessione telefonica, nessun menu memorizzato
     nella cache.</string>

@@ -38,6 +38,7 @@
   <string id="NoConfigUrl" scope="glance">ไม่มี URL การกำหนดค่าในการตั้งค่าแอปพลิเคชัน</string>
   <string id="NoInternet">ไม่มีการเชื่อมต่ออินเทอร์เน็ต</string>
   <string id="NoJson">ไม่มี JSON ส่งคืนจากคำขอ HTTP</string>
+  <string id="NoMenu">ข้อผิดพลาดในการกำหนดเมนู โปรดตรวจสอบคำแนะนำ</string>
   <string id="NoPhone" scope="glance">ไม่มีการเชื่อมต่อโทรศัพท์</string>
   <string id="NoPhoneNoCache" scope="glance">ไม่มีการเชื่อมต่อโทรศัพท์ ไม่มีเมนูแคช</string>
   <string id="NoResponse">ไม่มีการตอบกลับ ตรวจสอบการเชื่อมต่ออินเทอร์เน็ต</string>

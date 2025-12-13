@@ -39,6 +39,7 @@
   <string id="NoConfigUrl" scope="glance">Ingen konfigurasjons-URL i applikasjonsinnstillingene.</string>
   <string id="NoInternet">Ingen internettforbindelse.</string>
   <string id="NoJson">Ingen JSON returnert fra HTTP-forespørsel.</string>
+  <string id="NoMenu">Menydefinisjonsfeil, sjekk instruksjonene.</string>
   <string id="NoPhone" scope="glance">Ingen telefonforbindelse.</string>
   <string id="NoPhoneNoCache" scope="glance">Ingen telefonforbindelse, ingen hurtigbufret meny.</string>
   <string id="NoResponse">Ingen svar, sjekk internettforbindelsen.</string>
