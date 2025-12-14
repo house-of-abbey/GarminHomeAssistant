@@ -218,6 +218,8 @@ class HomeAssistantApp extends Application.AppBase {
                 } else {
                     if (data == null) {
                         ErrorView.show(WatchUi.loadResource($.Rez.Strings.NoJson) as Lang.String);
+                    } else if (data.size() == 0) {
+                        ErrorView.show(WatchUi.loadResource($.Rez.Strings.NoMenu) as Lang.String);
                     } else {
                         buildMenu(data);
                         WatchUi.switchToView(mHaMenu, new HomeAssistantViewDelegate(false), WatchUi.SLIDE_IMMEDIATE);

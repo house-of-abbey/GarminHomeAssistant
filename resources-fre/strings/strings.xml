@@ -41,6 +41,7 @@
     l'application.</string>
   <string id="NoInternet">Pas de connexion Internet.</string>
   <string id="NoJson">Aucun JSON n'est retourné par la requête HTTP.</string>
+  <string id="NoMenu">Erreur de définition du menu, vérifiez les instructions.</string>
   <string id="NoPhone" scope="glance">Aucune connexion téléphonique.</string>
   <string id="NoPhoneNoCache" scope="glance">Pas de connexion téléphonique, pas de menu en cache.</string>
   <string id="NoResponse">Aucune réponse, vérifiez la connexion Internet</string>

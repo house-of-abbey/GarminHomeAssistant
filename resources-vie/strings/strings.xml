@@ -38,6 +38,7 @@
   <string id="NoConfigUrl" scope="glance">Không có URL cấu hình trong cài đặt ứng dụng.</string>
   <string id="NoInternet">Không có kết nối internet.</string>
   <string id="NoJson">Không có JSON được trả về từ yêu cầu HTTP.</string>
+  <string id="NoMenu">Lỗi định nghĩa menu, kiểm tra hướng dẫn.</string>
   <string id="NoPhone" scope="glance">Không có kết nối điện thoại.</string>
   <string id="NoPhoneNoCache" scope="glance">Không kết nối điện thoại, không có menu được lưu trong
     bộ nhớ cache.</string>

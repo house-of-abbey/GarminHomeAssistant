@@ -38,6 +38,7 @@
   <string id="NoConfigUrl" scope="glance">Ei määritys-URL-osoitetta sovellusasetuksissa.</string>
   <string id="NoInternet">Ei Internet-yhteyttä.</string>
   <string id="NoJson">HTTP-pyynnöstä ei palautettu JSONia.</string>
+  <string id="NoMenu">Valikon määritysvirhe, tarkista ohjeet.</string>
   <string id="NoPhone" scope="glance">Ei puhelinyhteyttä.</string>
   <string id="NoPhoneNoCache" scope="glance">Ei puhelinyhteyttä, ei välimuistissa olevaa valikkoa.</string>
   <string id="NoResponse">Ei vastausta, tarkista Internet-yhteys</string>

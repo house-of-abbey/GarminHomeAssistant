@@ -39,6 +39,7 @@
   <string id="NoConfigUrl" scope="glance">Niciun URL de configurare în setările aplicației.</string>
   <string id="NoInternet">Nicio conexiune la internet.</string>
   <string id="NoJson">Niciun JSON nu a fost returnat de la cererea HTTP.</string>
+  <string id="NoMenu">Eroare de definire a meniului, verificați instrucțiunile.</string>
   <string id="NoPhone" scope="glance">Nicio conexiune telefonică.</string>
   <string id="NoPhoneNoCache" scope="glance">Nicio conexiune la telefon, niciun meniu în cache.</string>
   <string id="NoResponse">Niciun răspuns, verificați conexiunea la internet.</string>

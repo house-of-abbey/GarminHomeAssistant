@@ -38,6 +38,7 @@
   <string id="NoConfigUrl" scope="glance">Няма URL адрес за конфигурация в настройките на приложението.</string>
   <string id="NoInternet">Няма интернет връзка.</string>
   <string id="NoJson">Не е върнат JSON от HTTP заявка.</string>
+  <string id="NoMenu">Грешка в дефиницията на менюто, проверете инструкциите.</string>
   <string id="NoPhone" scope="glance">Няма телефонна връзка.</string>
   <string id="NoPhoneNoCache" scope="glance">Няма телефонна връзка, няма кеширано меню.</string>
   <string id="NoResponse">Няма отговор, проверете интернет връзката.</string>

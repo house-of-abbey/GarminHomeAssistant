@@ -38,6 +38,7 @@
   <string id="NoConfigUrl" scope="glance">Žádná konfigurační URL v nastavení aplikace.</string>
   <string id="NoInternet">Žádné připojení k internetu.</string>
   <string id="NoJson">Žádný JSON se nevrátil z požadavku HTTP.</string>
+  <string id="NoMenu">Chyba definice menu, zkontrolujte pokyny.</string>
   <string id="NoPhone" scope="glance">Žádné telefonní připojení.</string>
   <string id="NoPhoneNoCache" scope="glance">Žádné připojení telefonu, žádné menu v mezipaměti.</string>
   <string id="NoResponse">Žádná odpověď, zkontrolujte připojení k internetu.</string>

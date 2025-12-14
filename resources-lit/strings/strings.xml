@@ -38,6 +38,7 @@
   <string id="NoConfigUrl" scope="glance">Nėra konfigūracijos URL programos nustatymuose.</string>
   <string id="NoInternet">Nėra interneto ryšio.</string>
   <string id="NoJson">HTTP užklausa negrąžino JSON.</string>
+  <string id="NoMenu">Meniu apibrėžimo klaida, patikrinkite instrukcijas.</string>
   <string id="NoPhone" scope="glance">Nėra telefono ryšio.</string>
   <string id="NoPhoneNoCache" scope="glance">Nėra telefono ryšio, nėra meniu talpykloje.</string>
   <string id="NoResponse">Jokio atsakymo, patikrinkite interneto ryšį</string>

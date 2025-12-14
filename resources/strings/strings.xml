@@ -32,6 +32,7 @@
   <string id="NoConfigUrl" scope="glance">No configuration URL in the application settings.</string>
   <string id="NoInternet">No Internet connection.</string>
   <string id="NoJson">No JSON returned from HTTP request.</string>
+  <string id="NoMenu">Menu definition error, check the instructions.</string>
   <string id="NoPhone" scope="glance">No Phone connection.</string>
   <string id="NoPhoneNoCache" scope="glance">No phone connection, no cached menu.</string>
   <string id="NoResponse">No Response, check Internet connection</string>
