@@ -54,3 +54,4 @@
 |   3.6   | Added `numeric` menu item type thanks to [@thmichel](https://github.com/thmichel). This allows you to select a numeric value to set for an entity. Confirmations can now display a user supplied message. [Schema update](README.md#old-deprecated-formats) to keep pace with HomeAssistant and correct a previous decision. Schema changes for consistency. |
 |   3.7   | Bug fix for `numeric` menu items not working over Wi-Fi & LTE. |
 |   3.8   | Added icon for `numeric` menu items and revised icons in general. |
+|   3.9   | Small update to warn users with empty menu definitions to read the instructions! |
