@@ -303,7 +303,7 @@ A future move to v3.x will remove support for all deprecated JSON elements to si
 ## Editing the JSON file
 
 You have options. The first is what we use.
-1. **Best!**  Use the GarminHomeAssistant [Web-based Editor](https://house-of-abbey.github.io/GarminHomeAssistant/web/) which includes `entity` and `action` name completion and validation by fetching data from your own HomeAssistant instance. _Pretty  nifty eh?_ The other method listed below do not add this convenience and checking.
+1. **Best!**  Use the GarminHomeAssistant [Web-based Editor](https://house-of-abbey.github.io/GarminHomeAssistant/web/) which includes `entity` and `action` name completion and validation by fetching data from your own HomeAssistant instance. _Pretty  nifty eh?_ The other method listed below do not add this convenience and checking. NB. This has been tested in Microsoft Edge and Chrome. We have a report that the editor does not work in Firefox.
 2. Use the [Studio Code Server](https://community.home-assistant.io/t/home-assistant-community-add-on-visual-studio-code/107863) addon for HomeAssistant. You can then edit your JSON file in place.
 3. Locally installed VSCode, or if not installed, try
 4. The on-line version at https://vscode.dev/, which works really well.
