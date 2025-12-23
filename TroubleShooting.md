@@ -6,12 +6,12 @@
 
 Before [raising an issue](https://github.com/house-of-abbey/GarminHomeAssistant/issues) about a possible bug, _please, please_ check your JSON is compliant with both the JSON format and our schema. To do this you have options. The first is what we use.
 
-1. **Best!**  Use the GarminHomeAssistant [Web-based Editor](https://house-of-abbey.github.io/GarminHomeAssistant/web/) which includes `entity` and `service` name completion and validation by fetching data from your own HomeAssistant instance. _Pretty  nifty eh?_ The other methods listed below do not add this convenience and checking.
+1. **Best!**  Use the GarminHomeAssistant [Web-based Editor](https://house-of-abbey.github.io/GarminHomeAssistant/web/) which includes `entity` and `service` name completion and validation by fetching data from your own HomeAssistant instance. _Pretty  nifty eh?_ The other methods listed below do not add this convenience and checking. NB. This has been tested in Microsoft Edge and Chrome. We have a report that the editor does not work in Firefox.
 2. Use the [Studio Code Server](https://community.home-assistant.io/t/home-assistant-community-add-on-visual-studio-code/107863) addon for HomeAssistant. You can then edit your JSON file in place.
-3. Locally installed VSCode, or if not installed, try
+3. Locally installed VSCode, or if not installed, try...
 4. The on-line version at https://vscode.dev/, which works really well. Paste in your JSON (and change the file type to JSON if not saving), it will then verify your file format and schema for you, highlighting any errors for you to fix.
 
-A failure to get the file format right tends to mean that the response to the application errors with `INVALID_HTTP_BODY_IN_NETWORK_RESPONSE` (code of -400). This means the response did not contain JSON, it was probably an error message in plain text that could not be parsed by the Connect IQ API call. See [Toybox.Communications](https://developer.garmin.com/connect-iq/api-docs/Toybox/Communications.html) for the list of error code you might be presented with on your device.
+A failure to get the file format right tends to mean that the application displays _"No JSON returned from HTTP request"_ and internally the network response errors with `INVALID_HTTP_BODY_IN_NETWORK_RESPONSE` (code of -400). See [Toybox.Communications](https://developer.garmin.com/connect-iq/api-docs/Toybox/Communications.html) if you are presented with an error code on your device screen. Alternatively this might instead mean the response did not contain JSON, as it was probably an error message in plain text that could not be parsed as JSON by the Connect IQ API call.
 
 There are some cases where the file format may be valid JSON, but invalid against the schema, and the failure to catch this error could cause the application to crash. Whilst we have taken care to manage many issues, there may still be cases that are uncaught.
 
@@ -317,7 +317,11 @@ JSON for copy & paste:
 
 ![No JSON](images/NoJson.png)
 
-When the application persists in reporting _"No JSON returned from HTTP request"_ this might be due to a mismatch between the Webhook ID and the device settings on the HomeAssistant server. We have discovered that the Webhook ID is required for HomeAssistant API calls with templates in order to work in a non-privileged account. The application options include the ability to clear the Webhook ID in the application forcing a new one to be set up. This should prevent the above error being shown on startup.
+When the application persists in reporting _"No JSON returned from HTTP request"_ this might be:
+
+1. Because there's a syntax or scheme conformance error in the JSON menu. Please [verify your JSON menu](#check-your-json-schema) file using the web-based Editor.
+
+2. Due to a mismatch between the Webhook ID and the device settings on the HomeAssistant server. We have discovered that the Webhook ID is required for HomeAssistant API calls with templates in order to work in a non-privileged account. The application options include the ability to clear the Webhook ID in the application forcing a new one to be set up. This should prevent the above error being shown on startup.
 
 ![HTTP 410](images/http_410_error.jpg)
 

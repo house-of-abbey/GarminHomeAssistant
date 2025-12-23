@@ -395,7 +395,7 @@ Its obvious that a toggle menu item has been triggered as the visible switch cha
 
 <img src="images/SimTapResponse.png" width="400" title="Tap Triggered"/>
 
-The application will display a 'toast' showing HomeAssistant's friendly name of the triggered item. The toast will disappear after a short while if not dismissed by the user. N.B. There are reports that on the Forerunner 55 device, the toasts do not dissapear without manual intervention. On other devices like the Venu 2 the toast can take 15 seconds to dissappear if not dismissed. Unfortunately, there is no API call to change this behaviour.
+The application will display a 'toast' showing HomeAssistant's friendly name of the triggered item. The toast will disappear after a short while if not dismissed by the user. N.B. There are reports that on the Forerunner 55 device, the toasts do not disappear without manual intervention. On other devices like the Venu 2 the toast can take 15 seconds to disappear if not dismissed. Unfortunately, there is no API call to change this behaviour.
 
 ## External Device Changes
 
