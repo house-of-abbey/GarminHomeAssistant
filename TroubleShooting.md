@@ -6,7 +6,7 @@
 
 Before [raising an issue](https://github.com/house-of-abbey/GarminHomeAssistant/issues) about a possible bug, _please, please_ check your JSON is compliant with both the JSON format and our schema. To do this you have options. The first is what we use.
 
-1. **Best!**  Use the GarminHomeAssistant [Web-based Editor](https://house-of-abbey.github.io/GarminHomeAssistant/web/) which includes `entity` and `service` name completion and validation by fetching data from your own HomeAssistant instance. _Pretty  nifty eh?_ The other methods listed below do not add this convenience and checking. NB. This has been tested in Microsoft Edge and Chrome. We have a report that the editor does not work in Firefox.
+1. **Best!**  Use the GarminHomeAssistant [Web-based Editor](https://house-of-abbey.github.io/GarminHomeAssistant/web/) which includes `entity` and `service` name completion and validation by fetching data from your own HomeAssistant instance. _Pretty  nifty eh?_ The other methods listed below do not add this convenience and checking. NB. This has been tested in Microsoft Edge, Chrome and Firefox.
 2. Use the [Studio Code Server](https://community.home-assistant.io/t/home-assistant-community-add-on-visual-studio-code/107863) addon for HomeAssistant. You can then edit your JSON file in place.
 3. Locally installed VSCode, or if not installed, try...
 4. The on-line version at https://vscode.dev/, which works really well. Paste in your JSON (and change the file type to JSON if not saving), it will then verify your file format and schema for you, highlighting any errors for you to fix.
