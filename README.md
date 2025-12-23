@@ -56,6 +56,15 @@ The following table lists the differences in functionality between the two. The 
 
 ## Dashboard Definition
 
+> [!IMPORTANT]
+> Remember, you are expecting to define a customised menu making use of several options using your Home Assistant's custom entities on a small (portable) device. **There is no "_simple_" way to configure the menu with the ever increasing options demanded by the user community.** Was your Home Assistant trivial to setup? No!
+>
+> Therefore as a developer we have two options:
+> 1. Assistance via menu driven configuration with nested menus on a small screen whose implementation would expand the code beyond the capacity of smaller devices, or
+> 2. As we have opted here, for assistance via some external configuration that is driven by code and can be authored using a more fully functional desktop or laptop PC.
+>
+> Review comments like "_The setup is not trivial_" and "_Configuration is indeed not easy, unforgiving, and requires careful reading of the documentation_" fail to respect the enormity of the task you as a user are expecting to achieve for your own menu. Such comments are more a reflection of the user's disproportionately high expectation of a small watch (portable device) application with no mouse, no keyboard and a limited user interface, hence I hope you will agree they are poorly considered given the functionality that has been achieved. For the purposes of menu customisation, please reign your expectations in and _be realistic_. And yes, please do read the documentation please before contacting for support as its volunteer time robbed out of family time.
+
 Setup for this menu is more complicated than the Connect IQ settings menu really allows you to specify. In order to make the dashboard easily configurable and easy to change, we have provided an external mechanism for specifying the menu layout, a JSON file you write, retrieved from a URL you specify. JSON was chosen over YAML because Garmin can parse JSON HTTP GET responses into its own internal dictionary, it cannot parse YAML, hence a choice of one really. Note that JSON and YAML are essentially a 1:1 format mapping except JSON does not have comments. We recommend you take advantage of [HomeAssistant's own web server](https://www.home-assistant.io/integrations/http/#hosting-files) to provide the JSON definition. The advantages of this are:
 
 1. the file is as public as you make your HomeAssistant,
