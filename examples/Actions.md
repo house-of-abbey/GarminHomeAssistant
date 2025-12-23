@@ -119,7 +119,26 @@ If you would like to temporarily disable an item in your menu, e.g. for seasonal
 
 # Selects
 
-Here is an example of how to make a light effect selector:
+An example of using a `select` service. In this example, the `tap` item allows you to pick the mode of your EV charger. The code snippet asks Home Assistant to cycle to the next mode every time the menu item is pressed.
+
+```json
+{
+  "name": "SmartEVSE Mode",
+  "content": "{{ states('select.smartevse_mqtt_mode') }}",
+  "type": "tap",
+  "tap_action": {
+    "service": "select.select_next",
+    "data": {
+      "entity_id": "select.smartevse_mqtt_mode",
+      "cycle": true
+    }
+  }
+}
+```
+
+Try the same pattern for any selector `input_select.*`, `select.*`, `climate.*` mode? With thanks to @[arobaZ](https://community.home-assistant.io/u/arobaZ) for the above example.
+
+Here's another example of how to make a light effect selector using a `group` menu item with explicitly defined menu items below it:
 
 ```json
 {
@@ -175,8 +194,6 @@ Here is an example of how to make a light effect selector:
   ]
 }
 ```
-
-The same pattern works for any selector (`input_select.*`, `select.*`, `climate.*` mode).
 
 ## Credits
 
