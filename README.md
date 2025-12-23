@@ -59,7 +59,7 @@ The following table lists the differences in functionality between the two. The 
 > [!IMPORTANT]
 > Remember, you are expecting to define a customised menu making use of several options using your Home Assistant's custom entities on a small (portable) device. **There is no "_simple_" way to configure the menu with the ever increasing options demanded by the user community.** Was your Home Assistant trivial to setup? No!
 >
-> Therefore as a developer we have two options:
+> Therefore as developers we have two options:
 > 1. Assistance via menu driven configuration with nested menus on a small screen whose implementation would expand the code beyond the capacity of smaller devices, or
 > 2. As we have opted here, for assistance via some external configuration that is driven by code and can be authored using a more fully functional desktop or laptop PC.
 >
