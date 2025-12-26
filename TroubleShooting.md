@@ -6,7 +6,7 @@
 
 Before [raising an issue](https://github.com/house-of-abbey/GarminHomeAssistant/issues) about a possible bug, _please, please_ check your JSON is compliant with both the JSON format and our schema. To do this you have options. The first is what we use.
 
-1. **Best!**  Use the GarminHomeAssistant [Web-based Editor](https://house-of-abbey.github.io/GarminHomeAssistant/web/) which includes `entity` and `service` name completion and validation by fetching data from your own HomeAssistant instance. _Pretty  nifty eh?_ The other methods listed below do not add this convenience and checking. NB. This has been tested in Microsoft Edge, Chrome and Firefox.
+1. **Best!**  Use the GarminHomeAssistant [Web-based Editor](https://house-of-abbey.github.io/GarminHomeAssistant/web/) which includes `entity` and `service` name completion and validation by fetching data from your own HomeAssistant instance. _Pretty  nifty eh?_ [See below for an illustration of the features](#online-web-based-editor). The other methods listed below do not add this convenience and checking. NB. This has been tested in Microsoft Edge, Chrome and Firefox.
 2. Use the [Studio Code Server](https://community.home-assistant.io/t/home-assistant-community-add-on-visual-studio-code/107863) addon for HomeAssistant. You can then edit your JSON file in place.
 3. Locally installed VSCode, or if not installed, try...
 4. The on-line version at https://vscode.dev/, which works really well. Paste in your JSON (and change the file type to JSON if not saving), it will then verify your file format and schema for you, highlighting any errors for you to fix.
@@ -152,6 +152,64 @@ To verify if you have this issue you can use a tool like [SSL Shoppers's SSL Che
 
 1. Failure to copy & paste keys and URLs leading to minor and hard to see errors in strings, even with protestations they are the same! (No they weren't...)
 2. Accessibility of URLs, hence the above help guide.
+
+## Online Web-based Editor
+
+The [editor](https://house-of-abbey.github.io/GarminHomeAssistant/web/) provides the following functions:
+
+1. Syntax highlighting
+
+2. Schema checking
+
+![Schema checking](images/editor/schema_check.png)
+
+3. Entity name completion
+
+![Entity name completion](images/editor/entity_name_completion.png)
+
+4. Rendering previews, to aid HA 'template' creation
+
+![Syntax highlightingL](images/editor/template_preview1.png)
+![Syntax highlightingL](images/editor/template_preview2.png)
+
+If the editor page appears to be dimmed, read only, and does not scroll, then that's because you have not set up your details correctly. Check the following:
+
+1. Enable CORS.
+2. Make sure you are using HTTPS-based URLs.
+3. Make sure you have entered the three fields for Home Assistant URL, Menu URL and API Key.
+
+On (1) you will initially be presented with the following message. Please do not ignore this or the editor will not work. If you do not see this banner, you may have a browser extension installed that dismisses it before you've seen it (i.e. don't complain you never saw this banner, that's not our fault!).
+
+---
+
+<div style="margin:30px;padding:20px;background-color:lightgrey;border:1px solid black;border-radius: 10px;">
+
+# GarminHomeAssistant Web Editor
+This is the web editor for the GarminHomeAssistant watch app, it offers enhanced schema checking and validation over the original JSON schema by using the HomeAssistant API to create a schema based on your HomeAssistant configuration.
+
+This editor makes use of the same credentials as the watch app (these can be pasted in the top bar of this page). However in order for this editor to work, you will need to amend the CORS settings of your HomeAssistant instance. Add this to your configuration.yaml file:
+
+<div style="margin: 0 60px">
+
+```yaml
+http:
+  cors_allowed_origins:
+    - https://house-of-abbey.github.io
+```
+
+</div>
+
+Once you have added this to your configuration.yaml file, you will need to restart HomeAssistant. After HomeAssistant is restarted, reload this page.
+
+Now you should have validation and autocompletion, anywhere in the editor, press Ctrl + Space to see the available options. You will also see red lines under syntax errors and yellow lines under validation errors. Hover over these lines to see the message. You can also click on the `Run Action` and `Toggle` buttons to test your actions.
+
+In the top bar there are 4 buttons, the first button will download the online version of your menu.json file and put it in the editor. The second button will copy the content of the editor to the clipboard. The third button will open the troubleshooting dialog, this will allow you to test your HomeAssistant API connection. The fourth button will open this dialog.
+
+For directions on how to write your menu.json file, please see the README in the GitHub repo.
+
+</div>
+
+---
 
 ## Watch Battery Level Reporting
 
