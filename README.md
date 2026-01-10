@@ -10,7 +10,9 @@ The application is designed around a simple scrollable menu where menu items hav
 
 **The intended audience for this application are those comfortable with configuring a HomeAssistant** (e.g. editing the YAML configuration files) and debugging why URLs don't work. It does not require programming skills, but the menu is configured via JSON which feels like "coding" (more like "describing"). If you are not comfortable with this relatively low level of configuration, you may like to try other Garmin applications instead.
 
-**If you are struggling with getting the application to work, please consult the [troubleshooting guide](TroubleShooting.md#menu-configuration-url) first.**
+**If you are struggling with getting the application to work, please consult the [troubleshooting guide](TroubleShooting.md) first.** Please also be aware of the [etiquette](Etiquette.md) the developers expect before:
+1. Reaching out for help, in short read the instructions.
+2. Reviewing the application publicly, in short be sure of your claims.
 
 ## No HTTPS?
 
