@@ -388,6 +388,10 @@ Don't get an embarrassing retort, I call out those who "click & complain" withou
 
 <img src="images/etiquette/2025-06-15_GHA_Bad_Review.png" width="100%" title="Instinct 3 Solar">
 
+Perhaps too lazy to consider why others gave rave reviews and ponder what he was doing wrong? Perhaps did not consider there might be some documentation to assist or support routes (subject to [getting a polite reply](getting-help-with-a-polite-reply))?
+
+<img src="images/etiquette/2026-01-21 GHA_Bad_Review.png" width="15%" title="Two words">
+
 Blaming the wrong application. Just rude. Please get your facts straight. And it was such a simple workaround for the Garmin Connect IQ app bug.
 
 <img src="images/etiquette/2025-11-19%20GHA_Bad_Review.png" width="85%" title="Misplaced blame">
