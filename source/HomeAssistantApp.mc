@@ -27,6 +27,8 @@ using Toybox.Timer;
 //
 (:glance, :background)
 class HomeAssistantApp extends Application.AppBase {
+    static const scStorageKeyMenu as Lang.String = "menu";
+
     private var mHasToast       as Lang.Boolean = false;
     private var mApiStatus      as Lang.String?;
     private var mMenuStatus     as Lang.String?;
@@ -207,7 +209,15 @@ class HomeAssistantApp extends Application.AppBase {
                     mMenuStatus = WatchUi.loadResource($.Rez.Strings.Unavailable) as Lang.String;
                 } else {
                     if (Settings.getCacheConfig()) {
-                        Storage.setValue("menu", data as Lang.Dictionary);
+                        // var stats = System.getSystemStats(); // stats.* values in bytes
+                        // System.println("HomeAssistantApp onReturnFetchMenuConfig() Memory: total=" + stats.totalMemory + ", used=" + stats.usedMemory + ", free=" + stats.freeMemory);
+                        if (mIsApp) {
+                            // This call can crash a glance with "Error: Out Of Memory Error"
+                            // https://forums.garmin.com/developer/connect-iq/i/bug-reports/storage-setvalue-should-handle-memory-limits-gracefully
+                            // "Keys and values are limited to 8 KB each, and a total of 128 KB of storage is available."
+                            // "Storage.setValue() fails with an uncatchable out-of-memory error."
+                            Storage.setValue(scStorageKeyMenu, data as Lang.Dictionary);
+                        }
                         mMenuStatus = WatchUi.loadResource($.Rez.Strings.Cached) as Lang.String;
                     } else {
                         mMenuStatus = WatchUi.loadResource($.Rez.Strings.Available) as Lang.String;
@@ -246,7 +256,7 @@ class HomeAssistantApp extends Application.AppBase {
         if (Settings.getClearCache() || !Settings.getCacheConfig()) {
             return false;
         }
-        return (Storage.getValue("menu") as Lang.Dictionary) != null;
+        return (Storage.getValue(scStorageKeyMenu) as Lang.Dictionary) != null;
     }
 
     //! Fetch the menu configuration over HTTPS, which might be locally cached.
@@ -260,10 +270,10 @@ class HomeAssistantApp extends Application.AppBase {
             mMenuStatus = WatchUi.loadResource($.Rez.Strings.Unconfigured) as Lang.String;
             WatchUi.requestUpdate();
         } else {
-            var menu = Storage.getValue("menu") as Lang.Dictionary;
+            var menu = Storage.getValue(scStorageKeyMenu) as Lang.Dictionary;
             if (menu != null and (Settings.getClearCache() || !Settings.getCacheConfig())) {
                 // System.println("HomeAssistantApp fetchMenuConfig(): Clearing cached menu on user request.");
-                Storage.deleteValue("menu");
+                Storage.deleteValue(scStorageKeyMenu);
                 menu = null;
                 Settings.unsetClearCache();
             }
@@ -524,10 +534,10 @@ class HomeAssistantApp extends Application.AppBase {
             case 200:
                 if (data != null) {
                     // 'menu' will be null if caching has just been enabled, but not yet cached locally.
-                    var menu = Storage.getValue("menu") as Lang.Dictionary;
+                    var menu = Storage.getValue(scStorageKeyMenu) as Lang.Dictionary;
                     if (menu == null || !structuralEquals(data, menu)) {
                         // System.println("HomeAssistantApp onReturnCheckMenuConfig() New menu found.");
-                        Storage.setValue("menu", data as Lang.Dictionary);
+                        Storage.setValue(scStorageKeyMenu, data as Lang.Dictionary);
                         if (menu != null) {
                             // Notify the the user we have just got a newer menu file
                             var toast = WatchUi.loadResource($.Rez.Strings.MenuUpdated) as Lang.String;

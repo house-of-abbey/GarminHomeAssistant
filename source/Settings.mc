@@ -29,6 +29,8 @@ using Toybox.Time;
 //
 (:glance, :background)
 class Settings {
+    static const scStorageKeySensorsEn as Lang.String = "sensors_enabled";
+
     private static var mApiKey                as Lang.String? = "";
     private static var mWebhookId             as Lang.String? = "";
     private static var mApiUrl                as Lang.String? = "";
@@ -115,9 +117,9 @@ class Settings {
                     } else {
                         // System.println("Settings update(): Doing just sensor creation.");
                         // We already have a Webhook ID, so just enable or disable the sensor in Home Assistant.
-                        // Storage.getValue("sensors_enabled") returns true, false, or null
-                        if (mIsSensorsEnabled != Storage.getValue("sensors_enabled")) {
-                            Storage.setValue("sensors_enabled", mIsSensorsEnabled);
+                        // Storage.getValue(scStorageKeySensorsEn) returns true, false, or null
+                        if (mIsSensorsEnabled != Storage.getValue(scStorageKeySensorsEn)) {
+                            Storage.setValue(scStorageKeySensorsEn, mIsSensorsEnabled);
                             mWebhookManager.registerWebhookSensors();
                         }
                     }
