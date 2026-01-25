@@ -55,3 +55,4 @@
 |   3.7   | Bug fix for `numeric` menu items not working over Wi-Fi & LTE. |
 |   3.8   | Added icon for `numeric` menu items and revised icons in general. |
 |   3.9   | Small update to warn users with empty menu definitions to read the instructions! |
+|   3.10  | Bug fix for out of memory error in the glance when caching the menu to [`Storage`](https://developer.garmin.com/connect-iq/api-docs/Toybox/Application/Storage.html). This is now delayed until the main application is opened. |
