@@ -208,16 +208,17 @@ class HomeAssistantApp extends Application.AppBase {
                 if (data == null) {
                     mMenuStatus = WatchUi.loadResource($.Rez.Strings.Unavailable) as Lang.String;
                 } else {
-                    if (Settings.getCacheConfig()) {
+                    if (hasCachedMenu()) {
+                        mMenuStatus = WatchUi.loadResource($.Rez.Strings.Cached) as Lang.String;
+                    } else if (mIsApp) {
                         // var stats = System.getSystemStats(); // stats.* values in bytes
                         // System.println("HomeAssistantApp onReturnFetchMenuConfig() Memory: total=" + stats.totalMemory + ", used=" + stats.usedMemory + ", free=" + stats.freeMemory);
-                        if (mIsApp) {
-                            // This call can crash a glance with "Error: Out Of Memory Error"
-                            // https://forums.garmin.com/developer/connect-iq/i/bug-reports/storage-setvalue-should-handle-memory-limits-gracefully
-                            // "Keys and values are limited to 8 KB each, and a total of 128 KB of storage is available."
-                            // "Storage.setValue() fails with an uncatchable out-of-memory error."
-                            Storage.setValue(scStorageKeyMenu, data as Lang.Dictionary);
-                        }
+
+                        // This call can crash a glance with "Error: Out Of Memory Error"
+                        // https://forums.garmin.com/developer/connect-iq/i/bug-reports/storage-setvalue-should-handle-memory-limits-gracefully
+                        // "Keys and values are limited to 8 KB each, and a total of 128 KB of storage is available."
+                        // "Storage.setValue() fails with an uncatchable out-of-memory error."
+                        Storage.setValue(scStorageKeyMenu, data as Lang.Dictionary);
                         mMenuStatus = WatchUi.loadResource($.Rez.Strings.Cached) as Lang.String;
                     } else {
                         mMenuStatus = WatchUi.loadResource($.Rez.Strings.Available) as Lang.String;
