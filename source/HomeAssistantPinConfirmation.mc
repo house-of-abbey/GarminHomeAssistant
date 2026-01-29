@@ -1,13 +1,13 @@
 //-----------------------------------------------------------------------------------
 //
 // Distributed under MIT Licence
-//   See https://github.com/house-of-abbey/GarminHomeAssistant/blob/main/LICENSE.
+//   See https://github.com/house-of-abbey/GarminHomeAssistant/blob/main/LICENSE
 //
 //-----------------------------------------------------------------------------------
 //
 // GarminHomeAssistant is a Garmin IQ application written in Monkey C and routinely
 // tested on a Venu 2 device. The source code is provided at:
-//            https://github.com/house-of-abbey/GarminHomeAssistant.
+//            https://github.com/house-of-abbey/GarminHomeAssistant
 //
 // P A Abbey & J D Abbey & Someone0nEarth & moesterheld & vincentezw, 31 October 2023
 //
@@ -34,7 +34,7 @@ class PinDigit extends WatchUi.Selectable {
     //
     function initialize(digit as Lang.Number, stepX as Lang.Number, stepY as Lang.Number) {
         var marginX = stepX * 0.05; // 5% margin on all sides
-        var marginY = stepY * 0.05; 
+        var marginY = stepY * 0.05;
         var x = (digit == 0) ? stepX : stepX * ((digit+2) % 3); // layout '0' in 2nd col, others ltr in 3 columns
         x += marginX + HomeAssistantPinConfirmationView.MARGIN_X;
         var y = (digit == 0) ? stepY * 4 : (digit <= 3) ? stepY : (digit <=6) ? stepY * 2 : stepY * 3; // layout '0' in bottom row (5), others top to bottom in 3 rows (2-4) (row 1 is reserved for masked pin)
@@ -216,7 +216,7 @@ class HomeAssistantPinConfirmationDelegate extends WatchUi.BehaviorDelegate {
         mFailures      = new PinFailures();
         if (mFailures.isLocked()) {
             var msg = WatchUi.loadResource($.Rez.Strings.PinInputLocked) + " " +
-                      mFailures.getLockedUntilSeconds() + " " + 
+                      mFailures.getLockedUntilSeconds() + " " +
                       WatchUi.loadResource($.Rez.Strings.Seconds);
             WatchUi.showToast(msg, {});
         }
@@ -298,7 +298,7 @@ class HomeAssistantPinConfirmationDelegate extends WatchUi.BehaviorDelegate {
         if (mTimer != null) {
             mTimer.stop();
         }
-        
+
         WatchUi.popView(WatchUi.SLIDE_RIGHT);
     }
 
@@ -310,7 +310,7 @@ class HomeAssistantPinConfirmationDelegate extends WatchUi.BehaviorDelegate {
         if (Attention has :vibrate && Settings.getVibrate()) {
             Attention.vibrate([
                 new Attention.VibeProfile(100, 100),
-                new Attention.VibeProfile(  0, 200),                
+                new Attention.VibeProfile(  0, 200),
                 new Attention.VibeProfile( 75, 100),
                 new Attention.VibeProfile(  0, 200),
                 new Attention.VibeProfile( 50, 100),
@@ -337,10 +337,10 @@ class HomeAssistantPinConfirmationDelegate extends WatchUi.BehaviorDelegate {
 //! Manage PIN entry failures to try and prevent brute force exhaustion by inserting delays in retries.
 //
 class PinFailures {
-   
-    const STORAGE_KEY_FAILURES as Lang.String = "pin_failures";
-    const STORAGE_KEY_LOCKED   as Lang.String = "pin_locked";
-    
+
+    static const scStorageKeyFailures as Lang.String = "pin_failures";
+    static const scStorageKeyLocked   as Lang.String = "pin_locked";
+
     private var mFailures    as Lang.Array<Lang.Number>;
     private var mLockedUntil as Lang.Number?;
 
@@ -348,9 +348,9 @@ class PinFailures {
     //
     function initialize() {
         // System.println("PinFailures initialize() Initializing PIN failures from storage");
-        var failures = Application.Storage.getValue(PinFailures.STORAGE_KEY_FAILURES);
+        var failures = Application.Storage.getValue(scStorageKeyFailures);
         mFailures = (failures == null) ? [] : failures;
-        mLockedUntil = Application.Storage.getValue(PinFailures.STORAGE_KEY_LOCKED);
+        mLockedUntil = Application.Storage.getValue(scStorageKeyLocked);
     }
 
     //! Record a PIN entry failure. If too many have occurred lock the application.
@@ -368,11 +368,11 @@ class PinFailures {
             } else {
                 mFailures = [];
                 mLockedUntil = Time.now().add(new Time.Duration(Globals.scPinLockTimeMinutes * Time.Gregorian.SECONDS_PER_MINUTE)).value();
-                Application.Storage.setValue(STORAGE_KEY_LOCKED, mLockedUntil);
+                Application.Storage.setValue(scStorageKeyLocked, mLockedUntil);
                 // System.println("PinFailures addFailure() Locked until " + mLockedUntil);
             }
         }
-        Application.Storage.setValue(STORAGE_KEY_FAILURES, mFailures);
+        Application.Storage.setValue(scStorageKeyFailures, mFailures);
     }
 
     //! Clear the record of previous PIN entry failures, e.g. because the correct PIN has now been entered
@@ -382,8 +382,8 @@ class PinFailures {
         // System.println("PinFailures reset() Resetting failures");
         mFailures = [];
         mLockedUntil = null;
-        Application.Storage.deleteValue(STORAGE_KEY_FAILURES);
-        Application.Storage.deleteValue(STORAGE_KEY_LOCKED);
+        Application.Storage.deleteValue(scStorageKeyFailures);
+        Application.Storage.deleteValue(scStorageKeyLocked);
     }
 
     //! Retrieve the remaining time the application must be locked out for.
@@ -399,12 +399,12 @@ class PinFailures {
     //
     function isLocked() as Lang.Boolean {
         if (mLockedUntil == null) {
-            return false;            
+            return false;
         }
         var isLocked = new Time.Moment(Time.now().value()).lessThan(new Time.Moment(mLockedUntil));
         if (!isLocked) {
             mLockedUntil = null;
-            Application.Storage.deleteValue(STORAGE_KEY_LOCKED);
+            Application.Storage.deleteValue(scStorageKeyLocked);
         }
         return isLocked;
     }

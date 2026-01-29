@@ -1,13 +1,13 @@
 //-----------------------------------------------------------------------------------
 //
 // Distributed under MIT Licence
-//   See https://github.com/house-of-abbey/GarminHomeAssistant/blob/main/LICENSE.
+//   See https://github.com/house-of-abbey/GarminHomeAssistant/blob/main/LICENSE
 //
 //-----------------------------------------------------------------------------------
 //
 // GarminHomeAssistant is a Garmin IQ application written in Monkey C and routinely
 // tested on a Venu 2 device. The source code is provided at:
-//            https://github.com/house-of-abbey/GarminHomeAssistant.
+//            https://github.com/house-of-abbey/GarminHomeAssistant
 //
 // P A Abbey & J D Abbey, SomeoneOnEarth & moesterheld & vincentezw, 23 November 2023
 //
@@ -29,6 +29,8 @@ using Toybox.Time;
 //
 (:glance, :background)
 class Settings {
+    static const scStorageKeySensorsEn as Lang.String = "sensors_enabled";
+
     private static var mApiKey                as Lang.String? = "";
     private static var mWebhookId             as Lang.String? = "";
     private static var mApiUrl                as Lang.String? = "";
@@ -115,9 +117,9 @@ class Settings {
                     } else {
                         // System.println("Settings update(): Doing just sensor creation.");
                         // We already have a Webhook ID, so just enable or disable the sensor in Home Assistant.
-                        // Storage.getValue("sensors_enabled") returns true, false, or null
-                        if (mIsSensorsEnabled != Storage.getValue("sensors_enabled")) {
-                            Storage.setValue("sensors_enabled", mIsSensorsEnabled);
+                        // Storage.getValue(scStorageKeySensorsEn) returns true, false, or null
+                        if (mIsSensorsEnabled != Storage.getValue(scStorageKeySensorsEn)) {
+                            Storage.setValue(scStorageKeySensorsEn, mIsSensorsEnabled);
                             mWebhookManager.registerWebhookSensors();
                         }
                     }
