@@ -50,6 +50,8 @@ d2deltapx.resourcePath = $(d2deltapx.resourcePath);resources-launcher-40-40;reso
 d2deltas.resourcePath = $(d2deltas.resourcePath);resources-launcher-40-40;resources-icons-28
 # Screen Size 416x416 launcher icon size 60x60
 d2mach1.resourcePath = $(d2mach1.resourcePath);resources-launcher-60-60;resources-icons-48
+# Screen Size 454x454 launcher icon size 65x65
+d2mach2.resourcePath = $(d2mach2.resourcePath);resources-launcher-65-65;resources-icons-53
 # Screen Size 176x176 launcher icon size 62x62
 descentg1.resourcePath = $(descentg1.resourcePath);resources-launcher-62-62;resources-icons-21
 # Screen Size 390x390 launcher icon size 60x60
@@ -101,6 +103,8 @@ epix2pro42mm.resourcePath = $(epix2pro42mm.resourcePath);resources-launcher-60-6
 epix2pro47mm.resourcePath = $(epix2pro47mm.resourcePath);resources-launcher-60-60;resources-icons-46
 # Screen Size 454x454 launcher icon size 60x60
 epix2pro51mm.resourcePath = $(epix2pro51mm.resourcePath);resources-launcher-60-60;resources-icons-53
+# Screen Size 240x400 launcher icon size 38x33
+etrextouch.resourcePath = $(etrextouch.resourcePath);resources-launcher-33-33;resources-icons-28
 # Screen Size 240x240 launcher icon size 40x40
 fenix5.resourcePath = $(fenix5.resourcePath);resources-launcher-40-40;resources-icons-28
 fenix5plus.resourcePath = $(fenix5plus.resourcePath);resources-launcher-40-40;resources-icons-28
