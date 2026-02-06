@@ -3,7 +3,7 @@
 
 # Actions
 
-A simple example using a scene as a `tap` menu item.
+Two simple examples using a scene and a cover as `tap` menu items.
 
 ```json
 {
@@ -14,6 +14,16 @@ A simple example using a scene as a `tap` menu item.
     "action": "scene.turn_on"
   }
 },
+{
+    "entity":"cover.patio_shutter",
+    "name":"Patio Door Shutter",
+    "type":"tap",
+    "content":"{{state_translated('cover.patio_shutter')}} - {{state_attr('cover.patio_shutter', 'current_position')}}",
+    "tap_action":{
+        "action":"cover.toggle",
+        "confirm":true
+    }
+}
 ```
 
 Any menu item with an action (`tap`, `template`, or `toggle`), may have a confirmation view added. For consistency this is always done via the `tap_action` JSON object, even though for a `toggle` menu item there will only ever be a single field inside. For the `toggle` menu item, the confirmation is presented on both `on` and `off` directions. There is no option for asymmetry, i.e. only in one direction.
@@ -30,8 +40,8 @@ For example:
 
 ```json
 {
-  "entity": "switch.garage_door",
-  "name": "Garage Door",
+  "entity": "switch.flood_lights",
+  "name": "Flood Lights",
   "type": "toggle",
   "tap_action": {
     "confirm": true
