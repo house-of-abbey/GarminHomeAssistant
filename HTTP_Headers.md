@@ -22,7 +22,9 @@ Make the key strong enough!
 
 ### Cloudflare Access
 
-[Cloudflare Access](https://www.cloudflare.com/en-gb/sase/products/access/) is an authentication mechanism Cloudflare presents to HTTP requests before allowing access to the resources behind the requested URL. As an example, in order to safely allow API access, both a `cf-access-client-id` and `cf-access-client-secret` HTTP headers must be present. Essentially a username and password pair. Please note that the settings do not attempt to hide your password value with '*' characters, it should be private enough on your personal phone Connect IQ app.
+[Cloudflare Access](https://www.cloudflare.com/en-gb/sase/products/access/) is an authentication mechanism Cloudflare presents to HTTP requests before allowing access to the resources behind the requested URL. As a brief and incomplete guide, if you protect your HomeAssistant instance with their Zero Trust Suite then under _Access Controls_ you can create a _service token_. Note down the `Client-Id` and a `Client-Secret` which can be used as HTTP headers (e.g. `cf-access-client-id` and `cf-access-client-secret` respectively). Both of these HTTP headers must be presented by the GarminHomeAssistant application for API calls to reach your HomeAssistant instance hosted by Cloudflare, hence the pair of settings for HTTP Headers shown above. To secure a specific domain in Cloudflare you will need to add a _Self-hosted application_ and create a new _Access policy_ with the _Selector_ set to _Service Token_ (the newly create token name), and the _Action_ set to _Service Auth_ (not _Allow_).
+
+Please note that the GarminHomeAssistant settings do not attempt to hide your password value with '*' characters, it should be private enough on your personal phone Connect IQ app.
 
 ## Support
 
