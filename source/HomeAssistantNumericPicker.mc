@@ -30,11 +30,11 @@ class HomeAssistantNumericPicker extends WatchUi.Picker {
         factory as HomeAssistantNumericFactory,
         haItem  as HomeAssistantNumericMenuItem
     ) {
-        mItem      = haItem;
-        var picker = mItem.getPicker();
-        var minStr = picker.get("min");
+        mItem       = haItem;
+        var picker  = mItem.getPicker();
+        var minStr  = picker.get("min");
         var stepStr = picker.get("step");
-        var val    = haItem.getValue();
+        var val     = haItem.getValue();
         
         var min = 0.0;
         var step = 1.0;
@@ -47,12 +47,12 @@ class HomeAssistantNumericPicker extends WatchUi.Picker {
         }
 
         WatchUi.Picker.initialize({
-            :title => new WatchUi.Text({
+            :title    => new WatchUi.Text({
                 :text => haItem.getLabel(),
                 :locX => WatchUi.LAYOUT_HALIGN_CENTER,
                 :locY => WatchUi.LAYOUT_VALIGN_BOTTOM
             }),
-            :pattern => [factory],
+            :pattern  => [factory],
             :defaults => [((val - min) / step).toNumber()]
         });
     }
