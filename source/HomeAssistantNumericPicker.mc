@@ -30,17 +30,20 @@ class HomeAssistantNumericPicker extends WatchUi.Picker {
         factory as HomeAssistantNumericFactory,
         haItem  as HomeAssistantNumericMenuItem
     ) {
-        mItem      = haItem;
-        var picker = mItem.getPicker();
-        var min    = (picker.get("min") as Lang.String).toFloat();
-        var step   = (picker.get("step") as Lang.String).toFloat();
-        var val    = haItem.getValue();
-
-        if (min == null) {
-            min = 0.0;
+        mItem       = haItem;
+        var picker  = mItem.getPicker();
+        var minStr  = picker.get("min");
+        var stepStr = picker.get("step");
+        var val     = haItem.getValue();
+        
+        var min = 0.0;
+        var step = 1.0;
+        
+        if (minStr != null) {
+            min = (minStr as Lang.String).toFloat();
         }
-        if (step == null) {
-            step = 1.0;
+        if (stepStr != null) {
+            step = (stepStr as Lang.String).toFloat();
         }
 
         WatchUi.Picker.initialize({
