@@ -117,6 +117,7 @@ pause
 #### API: On-line
 
 There's an online way of testing the API URL too, thanks to [REQBIN](https://reqbin.com/post-online). This has less setup and it can be saved if you log into the web site. Please note two things:
+
 1. The URL entere below must include a trailing '/' unlike the URL entered into the watch settings.
 2. The service imposes a limit on the number requests you can submit without a subscription, so click with purpose! NB. Changing browser buys you a few more clicks.
 
@@ -125,13 +126,10 @@ There's an online way of testing the API URL too, thanks to [REQBIN](https://req
 #### SSL Certificate Chain
 
 With thanks to [@ziceva](https://github.com/ziceva) for solving this problem. The symptoms are:
+
 1. Using an API URL with SSL (HTTPS), the [web-based editor](https://house-of-abbey.github.io/GarminHomeAssistant/web/) running in a browser on the same phone running Garmin Connect works well.
 2. The exact same configuration is set in the Garmin HomeAssistant application.
-3. The Garmin HomeAssistant application reports:
-```
-API: not available
-Menu: not available
-```
+3. The Garmin HomeAssistant application reports neither the API nor the menu are available.
 
 **Solution: Make sure you use a _full chain_ certificate in your HTTPS proxy as some watches might be unable to validate the site certificate alone.**
 
@@ -147,7 +145,6 @@ To verify if you have this issue you can use a tool like [SSL Shoppers's SSL Che
 
 ![Full Chain Certificate](images/HTTPS_full_chain.png)
 
-
 ### Top Problems
 
 1. Failure to copy & paste keys and URLs leading to minor and hard to see errors in strings, even with protestations they are the same! (No they weren't...)
@@ -158,17 +155,11 @@ To verify if you have this issue you can use a tool like [SSL Shoppers's SSL Che
 The [editor](https://house-of-abbey.github.io/GarminHomeAssistant/web/) provides the following functions:
 
 1. Syntax highlighting
-
 2. Schema checking
-
 ![Schema checking](images/editor/schema_check.png)
-
 3. Entity name completion
-
 ![Entity name completion](images/editor/entity_name_completion.png)
-
 4. Rendering previews, to aid HA 'template' creation
-
 ![Syntax highlightingL](images/editor/template_preview1.png)
 ![Syntax highlightingL](images/editor/template_preview2.png)
 
@@ -185,6 +176,7 @@ On (1) you will initially be presented with the following message. Please do not
 <div style="margin:30px;padding:20px;background-color:lightgrey;border:1px solid black;border-radius: 10px;">
 
 # GarminHomeAssistant Web Editor
+
 This is the web editor for the GarminHomeAssistant watch app, it offers enhanced schema checking and validation over the original JSON schema by using the HomeAssistant API to create a schema based on your HomeAssistant configuration.
 
 This editor makes use of the same credentials as the watch app (these can be pasted in the top bar of this page). However in order for this editor to work, you will need to amend the CORS settings of your HomeAssistant instance. Add this to your configuration.yaml file:
@@ -215,7 +207,7 @@ For directions on how to write your menu.json file, please see the README in the
 
 For this you will need to have already got the main application or widget working with a menu in order to prove that the API calls are successful. We have proven this works with both our home brew infrastructure as well as Nabu Casa. Now with a script similar to one of the following two, you should be able to fake the watch API call and verify receipt by HomeAssistant.
 
-#### Battery: Linux, MacOS, UNIX, Cygwin etc
+### Battery: Linux, MacOS, UNIX, Cygwin etc
 
 Assume a file called: `send_battery.bash`
 
@@ -248,13 +240,13 @@ curl -s -X POST \
 
 Execute:
 
-```
+```text
 $ ./send_battery.bash 45 1
 ```
 
 The output looks like this:
 
-```
+```text
 Battery Level = 45
 Battery Charging? = true
 
@@ -315,13 +307,13 @@ pause
 
 Execute:
 
-```
+```text
 > home_assistant_battery_level.cmd 41 1
 ```
 
 The output looks like this:
 
-```
+```text
 "Battery Level = 41"
 "Battery Charging? = true"
 
@@ -345,7 +337,7 @@ There's an online way of testing the API URL too, thanks to [REQBIN](https://req
 
 URL for copy & paste:
 
-```
+```text
 https://<Your Domain>/api/webhook/<Your Webhook ID>
 ```
 
@@ -399,7 +391,7 @@ As a desperate measure to assist with debugging the HomeAssistant Application, y
 
 The figure above shows how to find the file on Windows by attaching your watch by USB cable. Inside the `CIQ_LOG.YML` file there are often multiple entries, each looking like this:
 
-```
+```text
 Error: Unexpected Type Error
 Details: 'Failed invoking <symbol>'
 Time: 2024-08-30T12:00:25Z

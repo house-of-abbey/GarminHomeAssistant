@@ -27,11 +27,11 @@ using Toybox.Timer;
 //
 (:glance, :background)
 class HomeAssistantApp extends Application.AppBase {
-    static const scStorageKeyMenu as Lang.String = "menu";
+    static const scStorageKeyMenu   as Lang.String = "menu";
+    static const scStorageKeyGlance as Lang.String = "glance";
 
     private var mHasToast       as Lang.Boolean = false;
     private var mApiStatus      as Lang.String?;
-    private var mMenuStatus     as Lang.String?;
     private var mHaMenu         as HomeAssistantView?;  
     private var mGlanceTemplate as Lang.String? = null;
     private var mGlanceText     as Lang.String? = null;
@@ -111,7 +111,6 @@ class HomeAssistantApp extends Application.AppBase {
         mQuitTimer   = new QuitTimer();
         mUpdateTimer = new Timer.Timer();
         mApiStatus   = WatchUi.loadResource($.Rez.Strings.Checking) as Lang.String;
-        mMenuStatus  = WatchUi.loadResource($.Rez.Strings.Checking) as Lang.String;
         mHasToast    = WatchUi has :showToast;
         Settings.update();
 
@@ -166,7 +165,6 @@ class HomeAssistantApp extends Application.AppBase {
         // System.println("HomeAssistantApp onReturnFetchMenuConfig() Response Code: " + responseCode);
         // System.println("HomeAssistantApp onReturnFetchMenuConfig() Response Data: " + data);
 
-        mMenuStatus = WatchUi.loadResource($.Rez.Strings.Unavailable) as Lang.String;
         switch (responseCode) {
             case Communications.BLE_HOST_TIMEOUT:
             case Communications.BLE_CONNECTION_UNAVAILABLE:
@@ -205,12 +203,8 @@ class HomeAssistantApp extends Application.AppBase {
                 break;
 
             case 200:
-                if (data == null) {
-                    mMenuStatus = WatchUi.loadResource($.Rez.Strings.Unavailable) as Lang.String;
-                } else {
-                    if (hasCachedMenu()) {
-                        mMenuStatus = WatchUi.loadResource($.Rez.Strings.Cached) as Lang.String;
-                    } else if (mIsApp) {
+                if (data != null) {
+                    if (mIsApp) {
                         // var stats = System.getSystemStats(); // stats.* values in bytes
                         // System.println("HomeAssistantApp onReturnFetchMenuConfig() Memory: total=" + stats.totalMemory + ", used=" + stats.usedMemory + ", free=" + stats.freeMemory);
 
@@ -219,14 +213,14 @@ class HomeAssistantApp extends Application.AppBase {
                         // "Keys and values are limited to 8 KB each, and a total of 128 KB of storage is available."
                         // "Storage.setValue() fails with an uncatchable out-of-memory error."
                         Storage.setValue(scStorageKeyMenu, data as Lang.Dictionary);
-                        mMenuStatus = WatchUi.loadResource($.Rez.Strings.Cached) as Lang.String;
-                    } else {
-                        mMenuStatus = WatchUi.loadResource($.Rez.Strings.Available) as Lang.String;
+                        // Store the smaller glance section of the menu separately so the Glance view can retrieve it within memory limits.
+                        var glance = (data as Lang.Dictionary)["glance"];
+                        if (glance != null) {
+                            Storage.setValue(scStorageKeyGlance, glance as Lang.Dictionary);
+                        }
                     }
                 }
-                if (!mIsApp) {
-                    glanceTemplate(data);
-                } else {
+                if (mIsApp) {
                     if (data == null) {
                         ErrorView.show(WatchUi.loadResource($.Rez.Strings.NoJson) as Lang.String);
                     } else if (data.size() == 0) {
@@ -268,13 +262,13 @@ class HomeAssistantApp extends Application.AppBase {
     function fetchMenuConfig() as Lang.Boolean {
         // System.println("Menu URL = " + Settings.getConfigUrl());
         if (Settings.getConfigUrl().equals("")) {
-            mMenuStatus = WatchUi.loadResource($.Rez.Strings.Unconfigured) as Lang.String;
             WatchUi.requestUpdate();
         } else {
             var menu = Storage.getValue(scStorageKeyMenu) as Lang.Dictionary;
             if (menu != null and (Settings.getClearCache() || !Settings.getCacheConfig())) {
                 // System.println("HomeAssistantApp fetchMenuConfig(): Clearing cached menu on user request.");
                 Storage.deleteValue(scStorageKeyMenu);
+                Storage.deleteValue(scStorageKeyGlance);
                 menu = null;
                 Settings.unsetClearCache();
             }
@@ -282,13 +276,8 @@ class HomeAssistantApp extends Application.AppBase {
                 // System.println("HomeAssistantApp fetchMenuConfig(): Menu not cached, fetching.");
                 fetchMenuConfigBasic(method(:onReturnFetchMenuConfig));
             } else {
-                mMenuStatus = WatchUi.loadResource($.Rez.Strings.Cached) as Lang.String;
                 WatchUi.requestUpdate();
-                if (!mIsApp) {
-                    glanceTemplate(menu);
-                } else {
-                    buildMenu(menu);
-                }
+                buildMenu(menu);
                 return true;
             }
         }
@@ -329,7 +318,6 @@ class HomeAssistantApp extends Application.AppBase {
             } else {
                 ErrorView.show(WatchUi.loadResource(errorRez) as Lang.String);
             }
-            mMenuStatus = WatchUi.loadResource(errorRez) as Lang.String;
         } else {
             Communications.makeWebRequest(
                 Settings.getConfigUrl(),
@@ -368,19 +356,17 @@ class HomeAssistantApp extends Application.AppBase {
 
     //! Extract the optional template to override the default glance view.
     //
-    function glanceTemplate(menu as Lang.Dictionary) {
-        if (menu != null) {
-            if (menu["glance"] != null) {
-                var glance = menu["glance"] as Lang.Dictionary;
-                if (glance["type"].equals("info")) {
-                    mGlanceTemplate = glance["content"] as Lang.String;
-                    // System.println("HomeAssistantApp glanceTemplate() " + mGlanceTemplate);
-                } else { // if glance["type"].equals("status")
-                    mGlanceTemplate = null;
-                }
+   function glanceTemplate() {
+        var glance = Storage.getValue(scStorageKeyGlance) as Lang.Dictionary;
+        if ((glance != null) && (glance["type"] != null)) {
+            if (glance["type"].equals("info")) {
+                mGlanceTemplate = glance["content"] as Lang.String;
+                // System.println("HomeAssistantApp glanceTemplate() " + mGlanceTemplate);
+            } else { // if glance["type"].equals("status")
+                mGlanceTemplate = null;
             }
         }
-    }
+   }
 
     //! Test if two dictionaries are structurally equal. Used to see if the JSON menu has been
     //! amended but yet to be updated in the application cache.
@@ -539,6 +525,11 @@ class HomeAssistantApp extends Application.AppBase {
                     if (menu == null || !structuralEquals(data, menu)) {
                         // System.println("HomeAssistantApp onReturnCheckMenuConfig() New menu found.");
                         Storage.setValue(scStorageKeyMenu, data as Lang.Dictionary);
+                        // Store the smaller glance section of the menu separately so the Glance view can retrieve it within memory limits.
+                        var glance = (data as Lang.Dictionary)["glance"];
+                        if (glance != null) {
+                            Storage.setValue(scStorageKeyGlance, glance as Lang.Dictionary);
+                        }
                         if (menu != null) {
                             // Notify the the user we have just got a newer menu file
                             var toast = WatchUi.loadResource($.Rez.Strings.MenuUpdated) as Lang.String;
@@ -897,51 +888,18 @@ class HomeAssistantApp extends Application.AppBase {
         switch (responseCode) {
             case Communications.BLE_HOST_TIMEOUT:
             case Communications.BLE_CONNECTION_UNAVAILABLE:
-                // System.println("HomeAssistantApp onReturnFetchGlanceContent() Response Code: BLE_HOST_TIMEOUT or BLE_CONNECTION_UNAVAILABLE, Bluetooth connection severed.");
-                if (mIsApp) {
-                    ErrorView.show(WatchUi.loadResource($.Rez.Strings.NoPhone) as Lang.String);
-                }
-                break;
-
             case Communications.BLE_QUEUE_FULL:
-                // System.println("HomeAssistantApp onReturnFetchGlanceContent() Response Code: BLE_QUEUE_FULL, API calls too rapid.");
-                if (mIsApp) {
-                    ErrorView.show(WatchUi.loadResource($.Rez.Strings.ApiFlood) as Lang.String);
-                }
-                break;
-
             case Communications.NETWORK_REQUEST_TIMED_OUT:
-                // System.println("HomeAssistantApp onReturnFetchGlanceContent() Response Code: NETWORK_REQUEST_TIMED_OUT, check Internet connection.");
-                if (mIsApp) {
-                    ErrorView.show(WatchUi.loadResource($.Rez.Strings.NoResponse) as Lang.String);
-                }
-                break;
-
             case Communications.INVALID_HTTP_BODY_IN_NETWORK_RESPONSE:
-                // System.println("HomeAssistantApp onReturnFetchGlanceContent() Response Code: INVALID_HTTP_BODY_IN_NETWORK_RESPONSE, check JSON is returned.");
-                if (mIsApp) {
-                    ErrorView.show(WatchUi.loadResource($.Rez.Strings.NoJson) as Lang.String);
-                }
-                break;
-
             case 404:
-                // System.println("HomeAssistantApp onReturnFetchGlanceContent() Response Code: 404, page not found. Check Configuration URL setting.");
-                if (mIsApp) {
-                    ErrorView.show(WatchUi.loadResource($.Rez.Strings.ConfigUrlNotFound) as Lang.String);
-                }
                 break;
 
             case 200:
                 if ((data != null) && (data instanceof Lang.Dictionary)) {
                     mGlanceText = data["glanceTemplate"];
                 }
+                WatchUi.requestUpdate();
                 break;
-
-            default:
-                // System.println("HomeAssistantApp onReturnFetchGlanceContent(): Unhandled HTTP response code = " + responseCode);
-                if (mIsApp) {
-                    ErrorView.show(WatchUi.loadResource($.Rez.Strings.UnhandledHttpErr) as Lang.String + responseCode);
-                }
         }
         WatchUi.requestUpdate();
     }
@@ -987,14 +945,6 @@ class HomeAssistantApp extends Application.AppBase {
     //
     function getApiStatus() as Lang.String {
         return mApiStatus;
-    }
-
-    //! Return the Menu status result.
-    //!
-    //! @return A string describing the Menu status
-    //
-    function getMenuStatus() as Lang.String {
-        return mMenuStatus;
     }
 
     //! Return the optional glance text that overrides the default glance content. This
@@ -1047,11 +997,12 @@ class HomeAssistantApp extends Application.AppBase {
     function getGlanceView() as [ WatchUi.GlanceView ] or [ WatchUi.GlanceView, WatchUi.GlanceViewDelegate ] or Null {
         mIsApp      = false; // A bit unnecessary given the default
         mApiStatus  = WatchUi.loadResource($.Rez.Strings.Checking) as Lang.String;
-        mMenuStatus = WatchUi.loadResource($.Rez.Strings.Checking) as Lang.String;
         Settings.update();
+        glanceTemplate();
         updateStatus();
         mGlanceTimer = new Timer.Timer();
         mGlanceTimer.start(method(:updateStatus), Globals.scApiBackoffMs, true);
+        // Although this is now known immediately, wait before displaying so the status can be seen first.
         return [new HomeAssistantGlanceView(self)];
     }
 
@@ -1066,8 +1017,6 @@ class HomeAssistantApp extends Application.AppBase {
     //! Update the menu and API statuses. Required for the Glance update timer.
     //
     function updateStatus() as Void {
-        mGlanceTimer = null;
-        fetchMenuConfig();
         fetchApiStatus();
         if (!Settings.getWebhookId().equals("") && !Settings.getClearWebhookId()) {
             fetchGlanceContent();

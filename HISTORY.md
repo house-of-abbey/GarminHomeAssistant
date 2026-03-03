@@ -42,7 +42,7 @@
 |   2.27  | Trivial bug fix for the glance view to prevent the "Unconfigured" result being erroneously displayed because the settings were not yet pulled from persistent storage. |
 |   2.28  | Added support for Vivoactive 6 device which also required an SDK update to 8.1.0. |
 |   2.29  | Added support for three new devices, Forerunners 570 42mm & 47mm and 970. |
-|   2.30  | <img src="images/Venu2_glance_default.png" width="200" title="Default Glance"/><br/>Extensive re-work of the [Glance](examples/Glance.md) view, including the ability to customise it with a user supplied template. |
+|   2.30  | <img src="images/Venu2_glance2.png" width="200" title="Default Glance"/><br/>Extensive re-work of the [Glance](examples/Glance.md) view, including the ability to customise it with a user supplied template. |
 |   2.31  | Adding [two new options](./examples/Actions.md#exit-on-tap) to the menu items: 1) The ability to disable a menu item, e.g. temporarily for seasonal changes, 2) The option to exit after a menu item has been select. |
 |   2.32  | Bug fix for a breaking change extracting options caused by the need to rearrange function parameters for an [annoying compiler error](https://github.com/house-of-abbey/GarminHomeAssistant/issues/253). |
 |   3.0   | First version with the ability to use [Wi-Fi or LTE](Wi-Fi.md) instead of Bluetooth but with limited functionality, thanks to [@vincentezw](https://github.com/vincentezw). |
