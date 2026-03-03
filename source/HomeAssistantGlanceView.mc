@@ -47,8 +47,6 @@ class HomeAssistantGlanceView extends WatchUi.GlanceView {
     private var mTitle         as WatchUi.Text?;
     private var mApiText       as WatchUi.Text?;
     private var mApiStatus     as WatchUi.Text?;
-    private var mMenuText      as WatchUi.Text?;
-    private var mMenuStatus    as WatchUi.Text?;
     private var mGlanceContent as WatchUi.TextArea?;
     private var mAntiAlias     as Lang.Boolean = false;
 
@@ -69,7 +67,7 @@ class HomeAssistantGlanceView extends WatchUi.GlanceView {
     function onLayout(dc as Graphics.Dc) as Void {
         var h = dc.getHeight();
 
-        mTextWidth = dc.getTextWidthInPixels(WatchUi.loadResource($.Rez.Strings.GlanceMenu) as Lang.String + ":", Graphics.FONT_XTINY);
+        mTextWidth = dc.getTextWidthInPixels("API:", Graphics.FONT_XTINY);
 
         mTitle = new WatchUi.Text({
             :text          => WatchUi.loadResource($.Rez.Strings.AppName) as Lang.String,
@@ -86,7 +84,7 @@ class HomeAssistantGlanceView extends WatchUi.GlanceView {
             :font          => Graphics.FONT_XTINY,
             :justification => Graphics.TEXT_JUSTIFY_LEFT | Graphics.TEXT_JUSTIFY_VCENTER,
             :locX          => scLeftRectMargin + scRectWidth + scRightRectMargin,
-            :locY          => 3 * h / 6
+            :locY          => 4 * h / 6
         });
         mApiStatus = new WatchUi.Text({
             :text          => WatchUi.loadResource($.Rez.Strings.Checking) as Lang.String,
@@ -94,28 +92,11 @@ class HomeAssistantGlanceView extends WatchUi.GlanceView {
             :font          => Graphics.FONT_XTINY,
             :justification => Graphics.TEXT_JUSTIFY_LEFT | Graphics.TEXT_JUSTIFY_VCENTER,
             :locX          => scLeftRectMargin + scRectWidth + scRightRectMargin + scMidSep + mTextWidth,
-            :locY          => 3 * h / 6
-        });
-
-        mMenuText = new WatchUi.Text({
-            :text          => WatchUi.loadResource($.Rez.Strings.GlanceMenu) as Lang.String + ":",
-            :color         => Graphics.COLOR_WHITE,
-            :font          => Graphics.FONT_XTINY,
-            :justification => Graphics.TEXT_JUSTIFY_LEFT | Graphics.TEXT_JUSTIFY_VCENTER,
-            :locX          => scLeftRectMargin + scRectWidth + scRightRectMargin,
-            :locY          => 5 * h / 6
-        });
-        mMenuStatus = new WatchUi.Text({
-            :text          => WatchUi.loadResource($.Rez.Strings.Checking) as Lang.String,
-            :color         => Graphics.COLOR_WHITE,
-            :font          => Graphics.FONT_XTINY,
-            :justification => Graphics.TEXT_JUSTIFY_LEFT | Graphics.TEXT_JUSTIFY_VCENTER,
-            :locX          => scLeftRectMargin + scRectWidth + scRightRectMargin + scMidSep + mTextWidth,
-            :locY          => 5 * h / 6
+            :locY          => 4 * h / 6
         });
 
         mGlanceContent = new WatchUi.TextArea({
-            :text          => "A longer piece of text to wrap.",
+            :text          => "",
             :color         => Graphics.COLOR_WHITE,
             :font          => Graphics.FONT_XTINY,
             :justification => Graphics.TEXT_JUSTIFY_LEFT | Graphics.TEXT_JUSTIFY_VCENTER,
@@ -134,10 +115,8 @@ class HomeAssistantGlanceView extends WatchUi.GlanceView {
         var h          = dc.getHeight();
         var w          = dc.getWidth() - scLeftRectMargin - scRightGlanceMargin;
         var apiStatus  = mApp.getApiStatus();
-        var menuStatus = mApp.getMenuStatus();
         var glanceText = mApp.getGlanceText();
         var apiCol;
-        var menuCol;
         // System.println("HomeAssistantGlanceView onUpdate() glanceText=" + glanceText);
 
         GlanceView.onUpdate(dc);
@@ -160,33 +139,15 @@ class HomeAssistantGlanceView extends WatchUi.GlanceView {
             apiCol = Graphics.COLOR_RED;
         }
 
-        if (menuStatus.equals(WatchUi.loadResource($.Rez.Strings.Checking))) {
-            menuCol = Graphics.COLOR_YELLOW;
-        } else if (menuStatus.equals(WatchUi.loadResource($.Rez.Strings.Available))) {
-            menuCol = Graphics.COLOR_GREEN;
-        } else if (menuStatus.equals(WatchUi.loadResource($.Rez.Strings.Cached))) {
-            menuCol = Graphics.COLOR_GREEN;
-        } else {
-            menuCol = Graphics.COLOR_RED;
-        }
-
         if (glanceText == null) {
-            // Default Glance View
+            // Status Glance View
             mApiText.draw(dc);
             mApiStatus.setText(apiStatus);
             mApiStatus.setColor(apiCol);
             dc.setColor(apiCol, apiCol);
-            dc.drawRoundedRectangle(scLeftRectMargin, 2 * h / 6 + scVertMargin, w,           2 * h / 6 - (2 * scVertMargin), scRectRadius);
-            dc.fillRoundedRectangle(scLeftRectMargin, 2 * h / 6 + scVertMargin, scRectWidth, 2 * h / 6 - (2 * scVertMargin), scRectRadius);
+            dc.drawRoundedRectangle(scLeftRectMargin, 2 * h / 6 + scVertMargin, w,           4 * h / 6 - (2 * scVertMargin), scRectRadius);
+            dc.fillRoundedRectangle(scLeftRectMargin, 2 * h / 6 + scVertMargin, scRectWidth, 4 * h / 6 - (2 * scVertMargin), scRectRadius);
             mApiStatus.draw(dc);
-
-            mMenuText.draw(dc);
-            mMenuStatus.setText(menuStatus);
-            mMenuStatus.setColor(menuCol);
-            dc.setColor(menuCol, menuCol);
-            dc.drawRoundedRectangle(scLeftRectMargin, 4 * h / 6 + scVertMargin, w,           2 * h / 6 - (2 * scVertMargin), scRectRadius);
-            dc.fillRoundedRectangle(scLeftRectMargin, 4 * h / 6 + scVertMargin, scRectWidth, 2 * h / 6 - (2 * scVertMargin), scRectRadius);
-            mMenuStatus.draw(dc);
         } else {
             // Customised Glance View
             dc.setColor(Graphics.COLOR_BLUE, Graphics.COLOR_BLUE);
@@ -198,9 +159,7 @@ class HomeAssistantGlanceView extends WatchUi.GlanceView {
                 scRectRadius
             );
             dc.setColor(apiCol, apiCol);
-            dc.fillRoundedRectangle(scLeftRectMargin, 2 * h / 6 + scVertMargin, scRectWidth, 2 * h / 6 - (2 * scVertMargin), scRectRadius);
-            dc.setColor(menuCol, menuCol);
-            dc.fillRoundedRectangle(scLeftRectMargin, 4 * h / 6 + scVertMargin, scRectWidth, 2 * h / 6 - (2 * scVertMargin), scRectRadius);
+            dc.fillRoundedRectangle(scLeftRectMargin, 2 * h / 6 + scVertMargin, scRectWidth, 4 * h / 6 - (2 * scVertMargin), scRectRadius);
             mGlanceContent.setText(glanceText);
             mGlanceContent.draw(dc);
         }

@@ -2,15 +2,15 @@
 
 # Glance
 
-Since [version 2.30](../History.md), it is possible to ovverride the text displayed on the Glance view. This page explains how to customise the text.
+Since [version 2.30](../History.md), it is possible to override the text displayed on the Glance view. This page explains how to customise the text.
 
-## Default View
+## Status View
 
-The default view has always been to display the status of the menu and API availability to indicate if there's a problem. This view has now been updated to be more colourful.
+The status view displays the accessibility of HomeAssistant API to indicate if there's a problem.
 
 <img src="../images/Venu2_glance_default.png" width="200" title="Venu 2 Default Glance"/>
 
-When either the API or the menu file is inaccessible, the fields will turn red.
+When API is inaccessible the field will turn red.
 
 ## Customised View
 
@@ -43,9 +43,9 @@ For example:
 }
 ```
 
-You may make this as complicated as you like! But you have limited space and only ASCII text characters. **It is best to turn on menu caching in order to speed up the display of the template**. The display is then nearly instantaneous.
+The 'status' view will persist showing until the API becomes available as without the API the custom template cannot be evaluated.
 
-The default view will persist showing until the errors are resolved. In order to extract the custom glance template both the menu and the API are required. So it is logical that the two tests must pass first. The exception here is if the menu is cached, in which case only the API needs to pass.
+You may make this as complicated as you like! But you have limited space and only ASCII text characters. **It is essential to turn on menu caching in order to display of the template**. This is a change in v3.11 where multiple users are now making larger JSON menus than was originally envisaged for this watch application. As a result the Glance view would fail with an untrapable (fatal) _"Error: Out Of Memory Error"_. A work around is to pull out the glance subsection of the menu and cache that separately during execution of the full application, but that means any changes to the customised Glance view do not show until after the full application has been run.
 
 > [!IMPORTANT]
 > Sadly what you cannot do is use special characters like: 🌞🔋⛅🪫. Whilst these do display in menu items, they do not seem to work on the Glance view. We really like them, so have tried but failed. Only ASCII text appears to be supported by the Garmin Connect IQ SDK's Glance View. This is not something we have any control over, please do not request this to be "fixed".
@@ -68,10 +68,10 @@ So the glance view object has a `type` field with two possible values: `info` an
 
 ## Displayed Errors
 
-The following shows the default glance when the menu file is not available at the specified URL.
+The following shows the status Glance view when the API not available at the specified URL.
 
-<img src="../images/Venu2_glance_no_menu.png" width="200" title="Venu 2 Glance showing errors"/>
+<img src="../images/Venu2_glance_no_api.png" width="200" title="Venu 2 Glance showing errors"/>
 
-Once the custom glance template has been retrieved and evaluated the display will change. Should the connectivity to your HomeAssistant then be lost, e.g. you move out of range of your phone, the glance reflects this in the colour of the residual two rectangles. The top one remains an indicator for the API, and the bottom rectangle remains an indicator for the menu availability, reflecting the original placement in the default glance view that has now been replaced.
+It is possible to loose connectivity with your HomeAssistant API after connecting and evaluating the Glance template. When the API connection is re-established, the Glance view will update.
 
 <img src="../images/Venu2_glance_no_bt.png" width="200" title="Venu 2 Glance showing lost connectivity"/>
