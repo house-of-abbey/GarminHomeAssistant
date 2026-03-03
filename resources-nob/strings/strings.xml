@@ -84,8 +84,6 @@
   <string id="SettingsTextAlign">Venstre (av) eller høyre (på) menyjustering.</string>
   <string id="SettingsLeftToRight">Fra venstre til høyre</string>
   <string id="SettingsRightToLeft">Høyre til venstre</string>
-  <string id="SettingsWidgetStart">(Bare widget) Start automatisk applikasjonen fra widgeten uten å
-    vente på et trykk.</string>
   <string id="SettingsEnableBatteryLevel">Aktiver bakgrunnstjenesten til å sende enhetens
     batterinivå, posisjon og (hvis støttet) aktivitetsdata til Home Assistant.</string>
   <string id="SettingsBatteryLevelRefreshRate">Oppdateringsfrekvensen (i minutter) som
@@ -93,8 +91,10 @@
   <string id="SettingsUserHttpHeader">Brukerdefinert HTTP-header</string>
   <string id="SettingsUserHttpHeaderDescription">Noen Home Assistant-installasjoner krever
     spesifikasjon av en tilpasset HTTP-header for å fungere.</string>
-  <string id="SettingsUserHttpHeaderName">Brukerdefinert HTTP-header: Navn</string>
-  <string id="SettingsUserHttpHeaderValue">Brukerdefinert HTTP-header: Verdi</string>
+  <string id="SettingsUserHttpHeader1Name">Brukerdefinert HTTP-header 1: Navn</string>
+  <string id="SettingsUserHttpHeader1Value">Brukerdefinert HTTP-header 1: Verdi</string>
+  <string id="SettingsUserHttpHeader2Name">Brukerdefinert HTTP-header 2: Navn</string>
+  <string id="SettingsUserHttpHeader2Value">Brukerdefinert HTTP-header 2: Verdi</string>
   <string id="SettingsClearWebhookId">Koble til Home Assistant på nytt (tøm Webhook-ID, se
     feilsøkingsveiledningen).</string>
   <string id="SettingsWebhookId">(Bare les) Webhook-ID-en som er opprettet av enheten for

@@ -83,8 +83,6 @@
   <string id="SettingsTextAlign">Căn chỉnh menu: Trái (tắt) hoặc Phải (bật).</string>
   <string id="SettingsLeftToRight">Trái sang phải</string>
   <string id="SettingsRightToLeft">Phải sang trái</string>
-  <string id="SettingsWidgetStart">(Chỉ Widget) Tự động khởi động ứng dụng từ tiện ích mà không cần
-    chờ chạm.</string>
   <string id="SettingsEnableBatteryLevel">Cho phép dịch vụ nền gửi mức pin của thiết bị, vị trí và
     dữ liệu hoạt động (nếu được hỗ trợ) đến Home Assistant.</string>
   <string id="SettingsBatteryLevelRefreshRate">Tốc độ làm mới (tính bằng phút) mà dịch vụ nền sẽ
@@ -92,8 +90,10 @@
   <string id="SettingsUserHttpHeader">Tiêu đề HTTP do người dùng cung cấp</string>
   <string id="SettingsUserHttpHeaderDescription">Một số cài đặt Home Assistant yêu cầu chỉ định tiêu
     đề HTTP tùy chỉnh để hoạt động.</string>
-  <string id="SettingsUserHttpHeaderName">Tiêu đề HTTP do người dùng cung cấp: Tên</string>
-  <string id="SettingsUserHttpHeaderValue">Tiêu đề HTTP do người dùng cung cấp: Giá trị</string>
+  <string id="SettingsUserHttpHeader1Name">Tiêu đề HTTP do người dùng cung cấp 1: Tên</string>
+  <string id="SettingsUserHttpHeader1Value">Tiêu đề HTTP do người dùng cung cấp 1: Giá trị</string>
+  <string id="SettingsUserHttpHeader2Name">Tiêu đề HTTP do người dùng cung cấp 2: Tên</string>
+  <string id="SettingsUserHttpHeader2Value">Tiêu đề HTTP do người dùng cung cấp 2: Giá trị</string>
   <string id="SettingsClearWebhookId">Kết nối lại với Home Assistant (Xóa ID Webhook, xem Hướng dẫn
     khắc phục sự cố).</string>
   <string id="SettingsWebhookId">(Chỉ đọc) ID webhook được tạo bởi thiết bị để cập nhật dịch vụ nền.

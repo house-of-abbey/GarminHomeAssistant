@@ -88,8 +88,6 @@
   <string id="SettingsTextAlign">Alignement du menu : Gauche (désactivé) ou Droit (activé).</string>
   <string id="SettingsLeftToRight">De gauche à droite</string>
   <string id="SettingsRightToLeft">De droite à gauche</string>
-  <string id="SettingsWidgetStart">(Widget uniquement) Démarre automatiquement l'application depuis
-    le widget sans attendre une pression.</string>
   <string id="SettingsEnableBatteryLevel">Activer le service d'arrière-plan pour envoyer le niveau
     de la batterie de l'appareil, l'emplacement et (le cas échéant) les données d'activité à Home
     Assistant.</string>
@@ -98,8 +96,10 @@
   <string id="SettingsUserHttpHeader">En-tête HTTP fourni par l'utilisateur</string>
   <string id="SettingsUserHttpHeaderDescription">Certaines installations Home Assistant nécessitent
     la spécification d'un en-tête HTTP personnalisé pour fonctionner.</string>
-  <string id="SettingsUserHttpHeaderName">En-tête HTTP fourni par l'utilisateur : Nom</string>
-  <string id="SettingsUserHttpHeaderValue">En-tête HTTP fourni par l'utilisateur : Valeur</string>
+  <string id="SettingsUserHttpHeader1Name">En-tête HTTP fourni par l'utilisateur 1 : Nom</string>
+  <string id="SettingsUserHttpHeader1Value">En-tête HTTP fourni par l'utilisateur 1 : Valeur</string>
+  <string id="SettingsUserHttpHeader2Name">En-tête HTTP fourni par l'utilisateur 2 : Nom</string>
+  <string id="SettingsUserHttpHeader2Value">En-tête HTTP fourni par l'utilisateur 2 : Valeur</string>
   <string id="SettingsClearWebhookId">Se reconnecter à Home Assistant (effacer l'ID du Webhook, voir
     le guide de dépannage).</string>
   <string id="SettingsWebhookId">(Lecture seule) L'ID Webhook créé par l'appareil pour les mises à

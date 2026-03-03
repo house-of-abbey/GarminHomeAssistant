@@ -87,8 +87,6 @@
   <string id="SettingsTextAlign">Wyrównanie menu: lewe (wył.) lub prawe (wł.).</string>
   <string id="SettingsLeftToRight">Od lewej do prawej</string>
   <string id="SettingsRightToLeft">Od prawej do lewej</string>
-  <string id="SettingsWidgetStart">(Tylko widżet) Automatyczne uruchamianie aplikacji z widżetu bez
-    oczekiwania na dotknięcie.</string>
   <string id="SettingsEnableBatteryLevel">Włącz usługę w tle, aby wysyłać poziom baterii urządzenia,
     lokalizację i (jeśli obsługiwane) dane o aktywności do Home Assistant.</string>
   <string id="SettingsBatteryLevelRefreshRate">Częstotliwość odświeżania (w minutach), z jaką usługa
@@ -96,8 +94,10 @@
   <string id="SettingsUserHttpHeader">Dostarczony przez użytkownika nagłówek HTTP</string>
   <string id="SettingsUserHttpHeaderDescription">Niektóre instalacje Home Assistant wymagają
     określenia niestandardowego nagłówka HTTP w celu prawidłowego działania.</string>
-  <string id="SettingsUserHttpHeaderName">Dostarczony przez użytkownika nagłówek HTTP: Nazwa</string>
-  <string id="SettingsUserHttpHeaderValue">Dostarczony przez użytkownika nagłówek HTTP: Wartość</string>
+  <string id="SettingsUserHttpHeader1Name">Dostarczony przez użytkownika nagłówek HTTP 1: Nazwa</string>
+  <string id="SettingsUserHttpHeader1Value">Dostarczony przez użytkownika nagłówek HTTP 1: Wartość</string>
+  <string id="SettingsUserHttpHeader2Name">Dostarczony przez użytkownika nagłówek HTTP 2: Nazwa</string>
+  <string id="SettingsUserHttpHeader2Value">Dostarczony przez użytkownika nagłówek HTTP 2: Wartość</string>
   <string id="SettingsClearWebhookId">Połącz ponownie z Home Assistant (wyczyść ID webhooka, patrz
     przewodnik rozwiązywania problemów).</string>
   <string id="SettingsWebhookId">(Tylko do odczytu) Identyfikator webhooka utworzony przez

@@ -90,8 +90,6 @@
   <string id="SettingsTextAlign">Allineamento del menu a sinistra (OFF) o a destra (ON).</string>
   <string id="SettingsLeftToRight">Da sinistra a destra</string>
   <string id="SettingsRightToLeft">Da destra a sinistra</string>
-  <string id="SettingsWidgetStart">(Solo widget) Avvia automaticamente l'applicazione dal widget
-    senza attendere un tocco.</string>
   <string id="SettingsEnableBatteryLevel">Abilita il servizio in background per inviare il livello
     della batteria del dispositivo, la posizione e (se supportati) i dati di attività a Home
     Assistant.</string>
@@ -100,8 +98,10 @@
   <string id="SettingsUserHttpHeader">Intestazione HTTP fornita dall'utente</string>
   <string id="SettingsUserHttpHeaderDescription">Alcune installazioni di Home Assistant richiedono
     la specifica di un'intestazione HTTP personalizzata per funzionare.</string>
-  <string id="SettingsUserHttpHeaderName">Intestazione HTTP fornita dall'utente: Nome</string>
-  <string id="SettingsUserHttpHeaderValue">Intestazione HTTP fornita dall'utente: Valore</string>
+  <string id="SettingsUserHttpHeader1Name">Intestazione HTTP 1 fornita dall'utente: Nome</string>
+  <string id="SettingsUserHttpHeader1Value">Intestazione HTTP 1 fornita dall'utente: Valore</string>
+  <string id="SettingsUserHttpHeader2Name">Intestazione HTTP 2 fornita dall'utente: Nome</string>
+  <string id="SettingsUserHttpHeader2Value">Intestazione HTTP 2 fornita dall'utente: Valore</string>
   <string id="SettingsClearWebhookId">Riconnettiti a Home Assistant (cancella ID Webhook, vedi Guida
     alla risoluzione dei problemi).</string>
   <string id="SettingsWebhookId">(Solo lettura) L'ID WebHook creato dal dispositivo per gli

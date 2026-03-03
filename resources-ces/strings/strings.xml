@@ -76,13 +76,14 @@
   <string id="SettingsTextAlign">Vlevo (vypnuto) nebo vpravo (zapnuto) zarovnání nabídky.</string>
   <string id="SettingsLeftToRight">Zleva doprava</string>
   <string id="SettingsRightToLeft">Vpravo doleva</string>
-  <string id="SettingsWidgetStart">(Pouze widget) Automatické spuštění aplikace z widgetu bez čekání na klepnutí.</string>
   <string id="SettingsEnableBatteryLevel">Povolit službě na pozadí odesílat úroveň baterie zařízení, jeho polohu a (pokud je podporováno) údaje o aktivitě do Home Assistant.</string>
   <string id="SettingsBatteryLevelRefreshRate">Frekvence aktualizace (v minutách), s jakou má služba na pozadí opakovaně odesílat data.</string>
   <string id="SettingsUserHttpHeader">Uživatelská hlavička HTTP</string>
   <string id="SettingsUserHttpHeaderDescription">Některé instalace Home Assistant vyžadují specifikaci vlastní hlavičky HTTP pro správnou funkci.</string>
-  <string id="SettingsUserHttpHeaderName">Uživatelská hlavička HTTP: Název</string>
-  <string id="SettingsUserHttpHeaderValue">Uživatelská hlavička HTTP: Hodnota</string>
+  <string id="SettingsUserHttpHeader1Name">Uživatelská hlavička HTTP 1: Název</string>
+  <string id="SettingsUserHttpHeader1Value">Uživatelská hlavička HTTP 1: Hodnota</string>
+  <string id="SettingsUserHttpHeader2Name">Uživatelská hlavička HTTP 2: Název</string>
+  <string id="SettingsUserHttpHeader2Value">Uživatelská hlavička HTTP 2: Hodnota</string>
   <string id="SettingsClearWebhookId">Znovu se připojte k Home Assistant (vymazat ID Webhooku, viz příručka pro odstraňování problémů).</string>
   <string id="SettingsWebhookId">(Pouze pro čtení) ID Webhooku vytvořené zařízením pro aktualizace služby na pozadí. Možná to budete potřebovat pro ladění.</string>
 </strings>

@@ -85,8 +85,6 @@
   <string id="SettingsTextAlign">Penjajaran Menu Kiri (mati) atau Kanan (hidup).</string>
   <string id="SettingsLeftToRight">Kiri ke kanan</string>
   <string id="SettingsRightToLeft">Kanan ke kiri</string>
-  <string id="SettingsWidgetStart">(Hanya widget) Secara otomatis memulai aplikasi dari widget tanpa
-    menunggu ketukan.</string>
   <string id="SettingsEnableBatteryLevel">Aktifkan layanan latar belakang untuk mengirim tingkat
     baterai perangkat, lokasi, dan (jika didukung) data aktivitas ke Home Assistant.</string>
   <string id="SettingsBatteryLevelRefreshRate">Tingkat refresh (dalam menit) di mana layanan latar
@@ -94,8 +92,10 @@
   <string id="SettingsUserHttpHeader">Header HTTP yang disediakan pengguna</string>
   <string id="SettingsUserHttpHeaderDescription">Beberapa instalasi Home Assistant memerlukan
     spesifikasi header HTTP kustom agar berfungsi.</string>
-  <string id="SettingsUserHttpHeaderName">Header HTTP yang disediakan pengguna: Nama</string>
-  <string id="SettingsUserHttpHeaderValue">Header HTTP yang disediakan pengguna: Nilai</string>
+  <string id="SettingsUserHttpHeader1Name">Header HTTP yang disediakan pengguna 1: Nama</string>
+  <string id="SettingsUserHttpHeader1Value">Header HTTP yang disediakan pengguna 1: Nilai</string>
+  <string id="SettingsUserHttpHeader2Name">Header HTTP yang disediakan pengguna 2: Nama</string>
+  <string id="SettingsUserHttpHeader2Value">Header HTTP yang disediakan pengguna 2: Nilai</string>
   <string id="SettingsClearWebhookId">Sambungkan kembali ke Home Assistant (hapus ID Webhook, lihat
     Panduan Pemecahan Masalah).</string>
   <string id="SettingsWebhookId">(Baca saja) ID Webhook yang dibuat oleh perangkat untuk pembaruan

@@ -111,18 +111,36 @@
   <property id="battery_level_refresh_rate" type="number">15</property>
 
   <!--
+    Header 1:
     A user specified HTTP header name to be used in all HTTP requests.
     This is useful for some Home Assistant installations that require a
     custom HTTP header.
   -->
-  <property id="user_http_header_name" type="string"></property>
+  <property id="user_http_header1_name" type="string"></property>
 
   <!--
+    Header 1:
     A user specified HTTP header value to be used in all HTTP requests.
     This is useful for some Home Assistant installations that require a
     custom HTTP header.
   -->
-  <property id="user_http_header_value" type="string"></property>
+  <property id="user_http_header1_value" type="string"></property>
+
+  <!--
+    Header 2:
+    A user specified HTTP header name to be used in all HTTP requests.
+    This is useful for some Home Assistant installations that require a
+    custom HTTP header.
+  -->
+  <property id="user_http_header2_name" type="string"></property>
+
+  <!--
+    Header 2:
+    A user specified HTTP header value to be used in all HTTP requests.
+    This is useful for some Home Assistant installations that require a
+    custom HTTP header.
+  -->
+  <property id="user_http_header2_value" type="string"></property>
 
   <!--
     Clear the Webhook ID on next application start, and reauthenticate,

@@ -69,12 +69,13 @@
   <string id="SettingsTextAlign">Menüausrichtung: Links (aus) oder Rechts (ein).</string>
   
   <string id="SettingsRightToLeft">Von rechts nach links</string>
-  <string id="SettingsWidgetStart">(Nur Widget) App automatisch aus dem Widget starten, ohne auf Tippen zu warten.</string>
   <string id="SettingsEnableBatteryLevel">Hintergrunddienst aktivieren, um Akkustand, Standort und (falls unterstützt) Aktivitätsdaten an Home Assistant zu senden.</string>
   <string id="SettingsBatteryLevelRefreshRate">Intervall (in Minuten), in dem der Hintergrunddienst die Daten erneut senden soll.</string>
   <string id="SettingsUserHttpHeader">Zusätzlicher HTTP-Header</string>
   <string id="SettingsUserHttpHeaderDescription">Einige Home Assistant-Installationen erfordern die Angabe eines benutzerdefinierten HTTP-Headers, um zu funktionieren.</string>
-  <string id="SettingsUserHttpHeaderName">Zusätzlicher HTTP-Header: Name</string>
-  <string id="SettingsUserHttpHeaderValue">Zusätzlicher HTTP-Header: Value</string>
+  <string id="SettingsUserHttpHeader1Name">Zusätzlicher HTTP-Header 1: Name</string>
+  <string id="SettingsUserHttpHeader1Value">Zusätzlicher HTTP-Header 1: Value</string>
+  <string id="SettingsUserHttpHeader2Name">Zusätzlicher HTTP-Header 2: Name</string>
+  <string id="SettingsUserHttpHeader2Value">Zusätzlicher HTTP-Header 2: Value</string>
   <string id="SettingsWebhookId">(Nur lesen) Die vom Gerät erstellte Webhook-ID für Hintergrund-Updates. Kann zum Debuggen benötigt werden.</string>
 </strings>

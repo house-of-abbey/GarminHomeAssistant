@@ -124,18 +124,37 @@
     <settingConfig type="numeric" min="5" />
   </setting>
 
-  <setting
-    propertyKey="@Properties.user_http_header_name"
-    title="@Strings.SettingsUserHttpHeaderName"
+  <group
+    id="HttpHeader"
+    title="@Strings.SettingsUserHttpHeader"
+    description="@Strings.SettingsUserHttpHeaderDescription"
   >
-    <settingConfig type="alphaNumeric" />
-  </setting>
-  <setting
-    propertyKey="@Properties.user_http_header_value"
-    title="@Strings.SettingsUserHttpHeaderValue"
-  >
-    <settingConfig type="alphaNumeric" />
-  </setting>
+    <setting
+      propertyKey="@Properties.user_http_header1_name"
+      title="@Strings.SettingsUserHttpHeader1Name"
+    >
+      <settingConfig type="alphaNumeric" />
+    </setting>
+    <setting
+      propertyKey="@Properties.user_http_header1_value"
+      title="@Strings.SettingsUserHttpHeader1Value"
+    >
+      <settingConfig type="alphaNumeric" />
+    </setting>
+
+    <setting
+      propertyKey="@Properties.user_http_header2_name"
+      title="@Strings.SettingsUserHttpHeader2Name"
+    >
+      <settingConfig type="alphaNumeric" />
+    </setting>
+    <setting
+      propertyKey="@Properties.user_http_header2_value"
+      title="@Strings.SettingsUserHttpHeader2Value"
+    >
+      <settingConfig type="alphaNumeric" />
+    </setting>
+  </group>
 
   <setting
     propertyKey="@Properties.clear_webhook_id"

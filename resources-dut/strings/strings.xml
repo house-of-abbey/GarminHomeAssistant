@@ -84,8 +84,6 @@
   <string id="SettingsTextAlign">Links (uit) of rechts (aan) menu-uitlijning.</string>
   <string id="SettingsLeftToRight">Van links naar rechts</string>
   <string id="SettingsRightToLeft">Van rechts naar links</string>
-  <string id="SettingsWidgetStart">(Alleen widget) Start de toepassing automatisch vanuit de widget
-    zonder te wachten op een tik.</string>
   <string id="SettingsEnableBatteryLevel">Schakel de achtergrondservice in om het batterijniveau van
     het apparaat, de locatie en (indien ondersteund) activiteitsgegevens naar Home Assistant te
     verzenden.</string>
@@ -94,8 +92,10 @@
   <string id="SettingsUserHttpHeader">Door gebruiker opgegeven HTTP-header</string>
   <string id="SettingsUserHttpHeaderDescription">Sommige Home Assistant-installaties vereisen de
     specificatie van een aangepaste HTTP-header om te functioneren.</string>
-  <string id="SettingsUserHttpHeaderName">Door gebruiker opgegeven HTTP-header: Naam</string>
-  <string id="SettingsUserHttpHeaderValue">Door gebruiker opgegeven HTTP-header: Waarde</string>
+  <string id="SettingsUserHttpHeader1Name">Door gebruiker opgegeven HTTP-header 1: Naam</string>
+  <string id="SettingsUserHttpHeader1Value">Door gebruiker opgegeven HTTP-header 1: Waarde</string>
+  <string id="SettingsUserHttpHeader2Name">Door gebruiker opgegeven HTTP-header 2: Naam</string>
+  <string id="SettingsUserHttpHeader2Value">Door gebruiker opgegeven HTTP-header 2: Waarde</string>
   <string id="SettingsClearWebhookId">Opnieuw verbinden met Home Assistant (Webhook-ID wissen, zie
     Gids voor probleemoplossing).</string>
   <string id="SettingsWebhookId">(Alleen lezen) De Webhook-ID die door het apparaat is gemaakt voor

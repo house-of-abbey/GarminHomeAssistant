@@ -82,16 +82,16 @@
   <string id="SettingsTextAlign">Zarovnanie menu vľavo (vypnuté) alebo vpravo (zapnuté).</string>
   <string id="SettingsLeftToRight">Zľava doprava</string>
   <string id="SettingsRightToLeft">Sprava doľava</string>
-  <string id="SettingsWidgetStart">(Iba widget) Automaticky spustí aplikáciu z miniaplikácie bez
-    čakania na ťuknutie.</string>
   <string id="SettingsEnableBatteryLevel">Povoľte službu na pozadí, ktorá bude do Home Assistenta odosielať údaje o stave batérie zariadenia, polohe a (ak je podporované) o aktivite.</string>
   <string id="SettingsBatteryLevelRefreshRate">Frekvencia obnovenia (v minútach), pri ktorej by
     služba na pozadí mala opakovať odosielanie údajov.</string>
   <string id="SettingsUserHttpHeader">Hlavička HTTP dodaná používateľom</string>
   <string id="SettingsUserHttpHeaderDescription">Niektoré inštalácie Home Assistant vyžadujú
     špecifikáciu vlastnej hlavičky HTTP pre správne fungovanie.</string>
-  <string id="SettingsUserHttpHeaderName">Používateľom dodaná HTTP hlavička: Názov</string>
-  <string id="SettingsUserHttpHeaderValue">Používateľom dodaná HTTP hlavička: Hodnota</string>
+  <string id="SettingsUserHttpHeader1Name">Používateľom dodaná HTTP hlavička 1: Názov</string>
+  <string id="SettingsUserHttpHeader1Value">Používateľom dodaná HTTP hlavička 1: Hodnota</string>
+  <string id="SettingsUserHttpHeader2Name">Používateľom dodaná HTTP hlavička 2: Názov</string>
+  <string id="SettingsUserHttpHeader2Value">Používateľom dodaná HTTP hlavička 2: Hodnota</string>
   <string id="SettingsClearWebhookId">Znova sa pripojiť k Home Assistant (vymazať ID Webhooku, pozri
     Sprievodcu riešením problémov).</string>
   <string id="SettingsWebhookId">(Iba na čítanie) ID Webhooku vytvorené zariadením pre aktualizácie

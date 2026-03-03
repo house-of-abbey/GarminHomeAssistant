@@ -84,8 +84,6 @@
   <string id="SettingsTextAlign">Alinierea meniului: Stânga (dezactivat) sau Dreapta (activat).</string>
   <string id="SettingsLeftToRight">De la stânga la dreapta</string>
   <string id="SettingsRightToLeft">De la dreapta la stânga</string>
-  <string id="SettingsWidgetStart">(Doar widget) Porniți automat aplicația din widget fără a aștepta
-    o atingere.</string>
   <string id="SettingsEnableBatteryLevel">Activați serviciul de fundal pentru a trimite nivelul
     bateriei dispozitivului, locația și (dacă este acceptat) datele de activitate către Home
     Assistant.</string>
@@ -94,8 +92,10 @@
   <string id="SettingsUserHttpHeader">Antetul HTTP furnizat de utilizator</string>
   <string id="SettingsUserHttpHeaderDescription">Unele instalații Home Assistant necesită
     specificarea unui antet HTTP personalizat pentru a funcționa.</string>
-  <string id="SettingsUserHttpHeaderName">Antet HTTP furnizat de utilizator: Nume</string>
-  <string id="SettingsUserHttpHeaderValue">Antet HTTP furnizat de utilizator: Valoare</string>
+  <string id="SettingsUserHttpHeader1Name">Antet HTTP furnizat de utilizator 1: Nume</string>
+  <string id="SettingsUserHttpHeader1Value">Antet HTTP furnizat de utilizator 1: Valoare</string>
+  <string id="SettingsUserHttpHeader2Name">Antet HTTP furnizat de utilizator 2: Nume</string>
+  <string id="SettingsUserHttpHeader2Value">Antet HTTP furnizat de utilizator 2: Valoare</string>
   <string id="SettingsClearWebhookId">Reconectați-vă la Home Assistant (ștergeți ID-ul Webhook,
     consultați ghidul de depanare).</string>
   <string id="SettingsWebhookId">(Doar citire) ID-ul Webhook creat de dispozitiv pentru actualizări

@@ -84,8 +84,6 @@
   <string id="SettingsTextAlign">Kreisā (izslēgta) vai labā (ieslēgta) izvēlnes izlīdzināšana.</string>
   <string id="SettingsLeftToRight">No kreisās uz labo pusi</string>
   <string id="SettingsRightToLeft">No labās uz kreiso pusi</string>
-  <string id="SettingsWidgetStart">(Tikai logrīks) Automātiski startēt lietojumprogrammu no logrīka,
-    negaidot pieskārienu.</string>
   <string id="SettingsEnableBatteryLevel">Iespējojiet fona pakalpojumu, lai nosūtītu ierīces
     akumulatora līmeni, atrašanās vietu un (ja tiek atbalstīti) aktivitātes datus uz Home Assistant.</string>
   <string id="SettingsBatteryLevelRefreshRate">Atsvaidzināšanas ātrums (minūtēs), kurā fona
@@ -93,8 +91,10 @@
   <string id="SettingsUserHttpHeader">Lietotāja norādītā HTTP galvene</string>
   <string id="SettingsUserHttpHeaderDescription">Dažām Home Assistant instalācijām ir nepieciešama
     pielāgotas HTTP galvenes norādīšana, lai tās darbotos.</string>
-  <string id="SettingsUserHttpHeaderName">Lietotāja norādītā HTTP galvene: Nosaukums</string>
-  <string id="SettingsUserHttpHeaderValue">Lietotāja norādītā HTTP galvene: Vērtība</string>
+  <string id="SettingsUserHttpHeader1Name">Lietotāja norādītā HTTP galvene 1: Nosaukums</string>
+  <string id="SettingsUserHttpHeader1Value">Lietotāja norādītā HTTP galvene 1: Vērtība</string>
+  <string id="SettingsUserHttpHeader2Name">Lietotāja norādītā HTTP galvene 2: Nosaukums</string>
+  <string id="SettingsUserHttpHeader2Value">Lietotāja norādītā HTTP galvene 2: Vērtība</string>
   <string id="SettingsClearWebhookId">Atkārtoti savienoties ar Home Assistant (notīrīt Webhook ID,
     skatīt problēmu novēršanas ceļvedi).</string>
   <string id="SettingsWebhookId">(Tikai lasīšanai) Webhook ID, ko ierīce izveidoja fona pakalpojumu

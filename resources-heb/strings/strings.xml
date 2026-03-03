@@ -79,8 +79,6 @@
   <string id="SettingsTextAlign">יישור תפריט: שמאל (כבוי) או ימין (מופעל).</string>
   <string id="SettingsLeftToRight">משמאל לימין</string>
   <string id="SettingsRightToLeft">מימין לשמאל</string>
-  <string id="SettingsWidgetStart">(ווידג'ט בלבד) הפעל אוטומטית את היישום מהווידג'ט מבלי לחכות
-    להקשה.</string>
   <string id="SettingsEnableBatteryLevel">אפשר לשירות הרקע לשלוח את רמת סוללת המכשיר, מיקום ו(אם
     נתמך) נתוני פעילות אל Home Assistant.</string>
   <string id="SettingsBatteryLevelRefreshRate">קצב הרענון (בדקות) שבו שירות הרקע ישלח נתונים באופן
@@ -88,8 +86,10 @@
   <string id="SettingsUserHttpHeader">כותרת HTTP שסופקה על ידי המשתמש</string>
   <string id="SettingsUserHttpHeaderDescription">חלק מהתקנות Home Assistant דורשות הגדרה של כותרת
     HTTP מותאמת אישית כדי לתפקד.</string>
-  <string id="SettingsUserHttpHeaderName">כותרת HTTP שסופקה על ידי המשתמש: שם</string>
-  <string id="SettingsUserHttpHeaderValue">כותרת HTTP שסופקה על ידי המשתמש: ערך</string>
+  <string id="SettingsUserHttpHeader1Name">כותרת HTTP שסופקה על ידי המשתמש 1: שם</string>
+  <string id="SettingsUserHttpHeader1Value">כותרת HTTP שסופקה על ידי המשתמש 1: ערך</string>
+  <string id="SettingsUserHttpHeader2Name">כותרת HTTP שסופקה על ידי המשתמש 2: שם</string>
+  <string id="SettingsUserHttpHeader2Value">כותרת HTTP שסופקה על ידי המשתמש 2: ערך</string>
   <string id="SettingsClearWebhookId">התחבר מחדש אל Home Assistant (נקה מזהה Webhook, ראה מדריך
     לפתרון בעיות).</string>
   <string id="SettingsWebhookId">(קריאה בלבד) מזהה Webhook שנוצר על ידי המכשיר לעדכוני שירות רקע.

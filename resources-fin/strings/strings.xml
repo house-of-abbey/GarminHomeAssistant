@@ -85,8 +85,6 @@
   <string id="SettingsTextAlign">Vasen (pois päältä) tai oikea (on) valikon kohdistus.</string>
   <string id="SettingsLeftToRight">Vasemmalta oikealle</string>
   <string id="SettingsRightToLeft">Oikealta vasemmalle</string>
-  <string id="SettingsWidgetStart">(Vain widget) Käynnistä sovellus automaattisesti widgetistä
-    odottamatta napautusta.</string>
   <string id="SettingsEnableBatteryLevel">Ota taustapalvelu käyttöön laitteen akkutason, sijainnin
     ja (jos tuettu) aktiivisuustietojen lähettämiseksi Home Assistantille.</string>
   <string id="SettingsBatteryLevelRefreshRate">Päivitysnopeus (minuuteissa), jolla taustapalvelun
@@ -94,8 +92,10 @@
   <string id="SettingsUserHttpHeader">Käyttäjän määrittämä HTTP-otsake</string>
   <string id="SettingsUserHttpHeaderDescription">Jotkut Home Assistant -asennukset vaativat
     mukautetun HTTP-otsakkeen määrittelyn toimiakseen.</string>
-  <string id="SettingsUserHttpHeaderName">Käyttäjän määrittämä HTTP-otsake: Nimi</string>
-  <string id="SettingsUserHttpHeaderValue">Käyttäjän määrittämä HTTP-otsake: Arvo</string>
+  <string id="SettingsUserHttpHeader1Name">Käyttäjän määrittämä HTTP-otsake 1: Nimi</string>
+  <string id="SettingsUserHttpHeader1Value">Käyttäjän määrittämä HTTP-otsake 1: Arvo</string>
+  <string id="SettingsUserHttpHeader2Name">Käyttäjän määrittämä HTTP-otsake 2: Nimi</string>
+  <string id="SettingsUserHttpHeader2Value">Käyttäjän määrittämä HTTP-otsake 2: Arvo</string>
   <string id="SettingsClearWebhookId">Yhdistä uudelleen Home Assistantiin (tyhjennä Webhook ID,
     katso vianetsintäopas).</string>
   <string id="SettingsWebhookId">(Vain luku) Laitteen luoma Webhook ID taustapalvelun päivityksiä

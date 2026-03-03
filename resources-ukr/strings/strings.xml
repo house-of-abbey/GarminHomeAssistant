@@ -85,8 +85,6 @@
   <string id="SettingsTextAlign">Зліва (вимкнено) або праворуч (увімкнено) вирівнювання меню.</string>
   <string id="SettingsLeftToRight">Зліва направо</string>
   <string id="SettingsRightToLeft">Справа наліво</string>
-  <string id="SettingsWidgetStart">(Тільки віджет) Автоматично запускати програму з віджета, не
-    чекаючи натискання.</string>
   <string id="SettingsEnableBatteryLevel">Увімкнути фонову службу для надсилання рівня заряду
     батареї пристрою, місцезнаходження та (якщо підтримується) даних активності до Home Assistant.</string>
   <string id="SettingsBatteryLevelRefreshRate">Частота оновлення (у хвилинах), з якою фонова служба
@@ -94,8 +92,10 @@
   <string id="SettingsUserHttpHeader">Наданий користувачем HTTP-заголовок</string>
   <string id="SettingsUserHttpHeaderDescription">Деякі інсталяції Home Assistant вимагають
     зазначення спеціального HTTP-заголовка для функціонування.</string>
-  <string id="SettingsUserHttpHeaderName">Наданий користувачем HTTP-заголовок: Ім'я</string>
-  <string id="SettingsUserHttpHeaderValue">Наданий користувачем HTTP-заголовок: Значення</string>
+  <string id="SettingsUserHttpHeader1Name">Наданий користувачем HTTP-заголовок 1: Ім'я</string>
+  <string id="SettingsUserHttpHeader1Value">Наданий користувачем HTTP-заголовок 1: Значення</string>
+  <string id="SettingsUserHttpHeader2Name">Наданий користувачем HTTP-заголовок 2: Ім'я</string>
+  <string id="SettingsUserHttpHeader2Value">Наданий користувачем HTTP-заголовок 2: Значення</string>
   <string id="SettingsClearWebhookId">Повторне підключення до Home Assistant (очистити ID вебхука,
     див. Посібник з усунення несправностей).</string>
   <string id="SettingsWebhookId">(Тільки для читання) ID вебхука, створений пристроєм для оновлень

@@ -84,8 +84,6 @@
   <string id="SettingsTextAlign">Poravnanje izbornika: lijevo (isključeno) ili desno (uključeno).</string>
   <string id="SettingsLeftToRight">Slijeva na desno</string>
   <string id="SettingsRightToLeft">Zdesna nalijevo</string>
-  <string id="SettingsWidgetStart">(Samo widget) Automatski pokrenite aplikaciju iz widgeta bez
-    čekanja na dodir.</string>
   <string id="SettingsEnableBatteryLevel">Omogućite pozadinsku uslugu za slanje razine baterije
     uređaja, lokacije i (ako je podržano) podataka o aktivnosti u Home Assistant.</string>
   <string id="SettingsBatteryLevelRefreshRate">Brzina osvježavanja (u minutama) u kojoj bi
@@ -93,8 +91,10 @@
   <string id="SettingsUserHttpHeader">Korisnički HTTP zaglavlje</string>
   <string id="SettingsUserHttpHeaderDescription">Neke instalacije Home Assistanta zahtijevaju
     specifikaciju prilagođenog HTTP zaglavlja za funkcioniranje.</string>
-  <string id="SettingsUserHttpHeaderName">Korisnički HTTP zaglavlje: Naziv</string>
-  <string id="SettingsUserHttpHeaderValue">Korisnički HTTP zaglavlje: Vrijednost</string>
+  <string id="SettingsUserHttpHeader1Name">Korisnički HTTP zaglavlje 1: Naziv</string>
+  <string id="SettingsUserHttpHeader1Value">Korisnički HTTP zaglavlje 1: Vrijednost</string>
+  <string id="SettingsUserHttpHeader2Name">Korisnički HTTP zaglavlje 2: Naziv</string>
+  <string id="SettingsUserHttpHeader2Value">Korisnički HTTP zaglavlje 2: Vrijednost</string>
   <string id="SettingsClearWebhookId">Ponovno se povežite s Home Assistantom (očisti ID Webhooka,
     pogledajte vodič za rješavanje problema).</string>
   <string id="SettingsWebhookId">(Samo za čitanje) ID Webhooka koji je uređaj stvorio za ažuriranja

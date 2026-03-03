@@ -51,10 +51,14 @@ class Settings {
     private static var mIsSensorsEnabled      as Lang.Boolean = false;
     //! minutes
     private static var mBatteryRefreshRate    as Lang.Number  = 15;
-    //! Additional user configurable HTTP header key
-    private static var mUserHeaderName        as Lang.String? = null;
-    //! Additional user configurable HTTP header value
-    private static var mUserHeaderValue       as Lang.String? = null;
+    //! Additional user configurable HTTP header 1 key
+    private static var mUserHeader1Name       as Lang.String? = null;
+    //! Additional user configurable HTTP header 1 value
+    private static var mUserHeader1Value      as Lang.String? = null;
+    //! Additional user configurable HTTP header 2 key
+    private static var mUserHeader2Name       as Lang.String? = null;
+    //! Additional user configurable HTTP header 2 value
+    private static var mUserHeader2Value      as Lang.String? = null;
     private static var mClearWebhookId        as Lang.Boolean = false;
     private static var mIsApp                 as Lang.Boolean = false;
     private static var mHasService            as Lang.Boolean = false;
@@ -81,8 +85,10 @@ class Settings {
         mMenuAlignment         = Properties.getValue("menu_alignment");
         mIsSensorsEnabled      = Properties.getValue("enable_battery_level");
         mBatteryRefreshRate    = Properties.getValue("battery_level_refresh_rate");
-        mUserHeaderName        = Properties.getValue("user_http_header_name");
-        mUserHeaderValue       = Properties.getValue("user_http_header_value");
+        mUserHeader1Name       = Properties.getValue("user_http_header1_name");
+        mUserHeader1Value      = Properties.getValue("user_http_header1_value");
+        mUserHeader2Name       = Properties.getValue("user_http_header2_name");
+        mUserHeader2Value      = Properties.getValue("user_http_header2_value");
         mClearWebhookId        = Properties.getValue("clear_webhook_id");
 
         if (mIsApp && mMenuCheck && !mCacheConfig) {
@@ -356,8 +362,11 @@ class Settings {
     //
     static function augmentHttpHeaders(options as Lang.Dictionary) {
         // Use 'm.length() > 0' here in preference to 'm != ""' or '.equals("")'. They make the App crash on device but not in simulation.
-        if (mUserHeaderName != null && mUserHeaderName.length() > 0 && mUserHeaderValue != null && mUserHeaderValue.length() > 0) {
-            options[mUserHeaderName] = mUserHeaderValue;
+        if (mUserHeader1Name != null && mUserHeader1Name.length() > 0 && mUserHeader1Value != null && mUserHeader1Value.length() > 0) {
+            options[mUserHeader1Name] = mUserHeader1Value;
+        }
+        if (mUserHeader2Name != null && mUserHeader2Name.length() > 0 && mUserHeader2Value != null && mUserHeader2Value.length() > 0) {
+            options[mUserHeader2Name] = mUserHeader2Value;
         }
         return options;
     }

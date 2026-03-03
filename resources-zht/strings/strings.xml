@@ -76,13 +76,14 @@
   <string id="SettingsTextAlign">選單對齊：靠左 (關閉) 或 靠右 (開啟)。</string>
   <string id="SettingsLeftToRight">從左到右</string>
   <string id="SettingsRightToLeft">從右到左</string>
-  <string id="SettingsWidgetStart">（僅限小工具）自動從小工具啟動應用程式，無需等待輕觸。</string>
   <string id="SettingsEnableBatteryLevel">啟用背景服務以傳送裝置電池電量、位置以及 (如果支援) 活動資料至 Home Assistant。</string>
   <string id="SettingsBatteryLevelRefreshRate">背景服務應重複傳送資料的更新頻率（分鐘）。</string>
   <string id="SettingsUserHttpHeader">使用者提供的 HTTP 標頭</string>
   <string id="SettingsUserHttpHeaderDescription">部分 Home Assistant 安裝需要指定自訂 HTTP 標頭才能運作。</string>
-  <string id="SettingsUserHttpHeaderName">使用者提供的 HTTP 標頭：名稱</string>
-  <string id="SettingsUserHttpHeaderValue">使用者提供的 HTTP 標頭：值</string>
+  <string id="SettingsUserHttpHeader1Name">使用者提供的 HTTP 標頭 1：名稱</string>
+  <string id="SettingsUserHttpHeader1Value">使用者提供的 HTTP 標頭 1：值</string>
+  <string id="SettingsUserHttpHeader2Name">使用者提供的 HTTP 標頭 2：名稱</string>
+  <string id="SettingsUserHttpHeader2Value">使用者提供的 HTTP 標頭 2：值</string>
   <string id="SettingsClearWebhookId">重新連線至 Home Assistant (清除 Webhook ID，請參閱疑難排解指南)。</string>
   <string id="SettingsWebhookId">（唯讀）裝置為背景服務更新建立的 Webhook ID。您可能需要此 ID 進行偵錯。</string>
 </strings>
