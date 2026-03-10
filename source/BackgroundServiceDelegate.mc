@@ -115,15 +115,17 @@ class BackgroundServiceDelegate extends System.ServiceDelegate {
         // System.println("BackgroundServiceDelegate onTemporalEvent(): Activity : " + Activity.getProfileInfo().name);
 
         // Don't use Settings.* here as the object lasts < 30 secs and is recreated each time the background service is run
-
-        if (position.accuracy != Position.QUALITY_NOT_AVAILABLE && position.accuracy != Position.QUALITY_LAST_KNOWN) {
+        if (position.accuracy != Position.QUALITY_NOT_AVAILABLE) {
             var accuracy = 0;
             switch (position.accuracy) {
+                case Position.QUALITY_LAST_KNOWN:
+                    accuracy = 100;
+                    break;
                 case Position.QUALITY_POOR:
-                    accuracy = 500;
+                    accuracy = 100;
                     break;
                 case Position.QUALITY_USABLE:
-                    accuracy = 100;
+                    accuracy = 50;
                     break;
                 case Position.QUALITY_GOOD:
                     accuracy = 10;
