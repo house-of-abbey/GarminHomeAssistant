@@ -119,6 +119,7 @@ class BackgroundServiceDelegate extends System.ServiceDelegate {
             var accuracy = 0;
             switch (position.accuracy) {
                 case Position.QUALITY_LAST_KNOWN:
+                    // Location is no longer tied to the timestamp, hence the larger inaccuracy.
                     accuracy = 200;
                     break;
                 case Position.QUALITY_POOR:
