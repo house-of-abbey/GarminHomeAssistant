@@ -119,7 +119,7 @@ class BackgroundServiceDelegate extends System.ServiceDelegate {
             var accuracy = 0;
             switch (position.accuracy) {
                 case Position.QUALITY_LAST_KNOWN:
-                    accuracy = 100;
+                    accuracy = 200;
                     break;
                 case Position.QUALITY_POOR:
                     accuracy = 100;
