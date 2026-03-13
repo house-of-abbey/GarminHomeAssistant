@@ -467,7 +467,7 @@ Check the latest unresolved [issues](https://github.com/house-of-abbey/GarminHom
 
 10. There are memory limits, particularly for older devices. Please see the [explanation of the memory limits](Devices.md) and device support.
 
-11. There is a 32 kB memory limit for any Glance views that mean too large a menu definition can cause the Glance view to crash. The symptom is that a previously 'Available' menu (green text) now appears as 'Unavailable' (red text) because the HTTP request to both retrieve the menu and convert it to `Dictionary` objects (from which the glance view can extract the `glance` field) ran out of memory. Out of memory exceptions are fatal and cannot be caught in order to code around them. Therefore the Glance status does not get updated to 'Available' as you would expect. The solution is to limit the size of your JSON menu definition by experimentation. For the same reason, the Glance view can no longer cache the menu to `Storage` ahead of the main application as the keys in that storage are limited to 8 kB. Remember its an app running on your watch not a desktop!
+11. There is a 32 kB memory limit for Glance views on some devices that mean the code and data for the Glance view is too large to load and the Glance view crashes before any code can intervene to prevent the fatal "Out Of Memory Error". Nor is it possible to disable the Glance view in the [application manifest](./manifest.xml) on a per device basis. The simple advice is, for older watches affected, do not try to use the Glance view. To see if your device is affected, please trawl the [devices page](./Devices.md).
 
 # Authors & Contributors
 
