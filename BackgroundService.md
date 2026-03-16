@@ -33,10 +33,12 @@ From version 2.6 the application includes reporting your location. The location 
 You get whatever your device provides at the moment, i.e. at the accuracy the device currently provides. If your watch is not calibrated you get poor data. It might mean that you get more accurate location data when you are in a location tracking activity (i.e. not swimming pool lengths). The device [indicates an accuracy](https://developer.garmin.com/connect-iq/api-docs/Toybox/Position.html#Quality-module) in units of:
 
 - `Position.QUALITY_NOT_AVAILABLE` - No update provided
-- `Position.QUALITY_LAST_KNOWN` - No update provided
-- `Position.QUALITY_POOR` - We translate that to 500 m arbitrarily
-- `Position.QUALITY_USABLE` - We translate that to 100 m arbitrarily
+- `Position.QUALITY_LAST_KNOWN` - We translate that to 200 m arbitrarily
+- `Position.QUALITY_POOR` - We translate that to 100 m arbitrarily
+- `Position.QUALITY_USABLE` - We translate that to 50 m arbitrarily
 - `Position.QUALITY_GOOD` - We translate that to 10 m arbitrarily
+
+NB. These values have been revised as of Ver 3.12.
 
 **You cannot rely on the radius of the circle of accuracy in any resulting maps as any meaningful indication of error.**
 
