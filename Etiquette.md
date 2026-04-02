@@ -142,6 +142,8 @@ On Mon, 6 May 2024 at 09:01, <noreply@garmin.com> wrote:
 
 ![Please help me set this up](images/etiquette/2024-05-06_GHA_Bad_Review.png)
 
+<img src="images/etiquette/2026-04-02_GHA_Bad_Review.png" width="70%" title="Not working">
+
 Answer: Make sure you meet the [minimum requirements for being a user](#etiquette) please! Provide more information on what the problem actually is. Clearly the support reply pointing to the documentation was either not read or not considered helpful, hence the point about meeting the minimum user requirements.
 
 On Fri, 31 Oct 2025 at 11:45, <noreply@garmin.com> wrote:
@@ -390,10 +392,10 @@ Don't get an embarrassing retort, I call out those who "click & complain" withou
 
 Two words. Perhaps too lazy to consider why others gave rave reviews and ponder what he was doing wrong? Perhaps did not consider there might be some documentation to assist or support routes (subject to [getting a polite reply](getting-help-with-a-polite-reply))?
 
-<img src="images/etiquette/2026-01-21 GHA_Bad_Review.png" width="70%" title="Two words">
+<img src="images/etiquette/2026-01-21_GHA_Bad_Review.png" width="70%" title="Two words">
 
 ---
 
 Blaming the wrong application. Just rude. Please get your facts straight. And it was such a simple workaround for the Garmin Connect IQ app bug.
 
-<img src="images/etiquette/2025-11-19%20GHA_Bad_Review.png" width="85%" title="Misplaced blame">
+<img src="images/etiquette/2025-11-19_GHA_Bad_Review.png" width="85%" title="Misplaced blame">
