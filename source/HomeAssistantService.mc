@@ -122,6 +122,7 @@ class HomeAssistantService {
     //!
     //! @param action The Home Assistant action to be run, e.g. from the JSON `action` field.
     //! @param data   Data to be supplied to the action call.
+    //! @param exit   Whether to exit the app after making the call.
     //
     function call(
         action as Lang.String,

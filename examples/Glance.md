@@ -48,7 +48,7 @@ The 'status' view will persist showing until the API becomes available as withou
 You may make this as complicated as you like! But you have limited space and only ASCII text characters. **It is essential to turn on menu caching in order to display of the template**. This is a change in v3.11 where multiple users are now making larger JSON menus than was originally envisaged for this watch application. As a result the Glance view would fail with an untrapable (fatal) _"Error: Out Of Memory Error"_. A work around is to pull out the glance subsection of the menu and cache that separately during execution of the full application, but that means any changes to the customised Glance view do not show until after the full application has been run.
 
 > [!IMPORTANT]
-> Sadly what you cannot do is use special characters like: 🌞🔋⛅🪫. Whilst these do display in menu items, they do not seem to work on the Glance view. We really like them, so have tried but failed. Only ASCII text appears to be supported by the Garmin Connect IQ SDK's Glance View. This is not something we have any control over, please do not request this to be "fixed".
+> Sadly support for special characters like 🌞🔋⛅🪫 in the glance view is device dependent. For example they are not available on a Venu2 device but are available on a Venu X1 device. The application documentation shows them displaying in menu items. Only ASCII text appears to be universally supported by the Garmin Connect IQ (as you might hope). This is not something we have any control over, please do not request this to be "fixed".
 
 It is possible to revert to the default glance content without deleting the template by changing the `type` to `status`.
 

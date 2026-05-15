@@ -228,9 +228,7 @@ class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
         // If there's no response body, let's assume that what we did actually happened and flip the toggle.
         if (data.size() == 0) {
             setEnabled(!isEnabled());
-        }
-
-        else {
+        } else {
             for(var i = 0; i < data.size(); i++) {
                 if ((data[i].get("entity_id") as Lang.String).equals(mData.get("entity_id"))) {
                     var state = data[i].get("state") as Lang.String;
