@@ -52,12 +52,13 @@ d2deltas.resourcePath = $(d2deltas.resourcePath);resources-launcher-40-40;resour
 d2mach1.resourcePath = $(d2mach1.resourcePath);resources-launcher-60-60;resources-icons-48
 # Screen Size 454x454 launcher icon size 65x65
 d2mach2.resourcePath = $(d2mach2.resourcePath);resources-launcher-65-65;resources-icons-53
+d2mach2pro.resourcePath = $(d2mach2pro.resourcePath);resources-launcher-65-65;resources-icons-53
 # Screen Size 176x176 launcher icon size 62x62
 descentg1.resourcePath = $(descentg1.resourcePath);resources-launcher-62-62;resources-icons-21
 # Screen Size 390x390 launcher icon size 60x60
 descentg2.resourcePath = $(descentg2.resourcePath);resources-launcher-60-60;resources-icons-46
-# Screen Size 240x240 launcher icon size 40x40
-descentmk1.resourcePath = $(descentmk1.resourcePath);resources-launcher-40-40;resources-icons-28
+# Screen Size 240x240 launcher icon size 40x40 - Does not work in simulation
+#descentmk1.resourcePath = $(descentmk1.resourcePath);resources-launcher-40-40;resources-icons-28
 # Screen Size 280x280 launcher icon size 40x40
 descentmk2.resourcePath = $(descentmk2.resourcePath);resources-launcher-40-40;resources-icons-32
 # Screen Size 240x240 launcher icon size 40x40
@@ -150,6 +151,8 @@ fenixe.resourcePath = $(fenixe.resourcePath);resources-launcher-60-60;resources-
 # Screen Size 390x390 launcher icon size 54x54
 fr165.resourcePath = $(descentmk2s.resourcePath);resources-launcher-54-54;resources-icons-46
 fr165m.resourcePath = $(descentmk2s.resourcePath);resources-launcher-54-54;resources-icons-46
+fr170.resourcePath = $(fr170.resourcePath);resources-launcher-54-54;resources-icons-46
+fr170m.resourcePath = $(fr170m.resourcePath);resources-launcher-54-54;resources-icons-46
 # Screen Size 240x240 launcher icon size 40x40
 fr245.resourcePath = $(fr245.resourcePath);resources-launcher-40-40;resources-icons-28
 fr245m.resourcePath = $(fr245m.resourcePath);resources-launcher-40-40;resources-icons-28
@@ -171,6 +174,8 @@ fr57047mm.resourcePath = $(fr57047mm.resourcePath);resources-launcher-65-65;reso
 # Screen Size 240x240 launcher icon size 40x40
 fr645.resourcePath = $(fr645.resourcePath);resources-launcher-40-40;resources-icons-28
 fr645m.resourcePath = $(fr645m.resourcePath);resources-launcher-40-40;resources-icons-28
+# Screen Size 390x390 launcher icon size 54x54
+fr70.resourcePath = $(fr70.resourcePath);resources-launcher-54-54;resources-icons-46
 # Screen Size 240x240 launcher icon size 40x40
 fr745.resourcePath = $(fr745.resourcePath);resources-launcher-40-40;resources-icons-28
 fr935.resourcePath = $(fr935.resourcePath);resources-launcher-40-40;resources-icons-28
