@@ -25,6 +25,8 @@ Two simple examples using a scene and a cover as `tap` menu items.
 }
 ```
 
+## Confirmation
+
 Any menu item with an action (`tap`, `template`, or `toggle`), may have a confirmation view added. For consistency this is always done via the `tap_action` JSON object, even though for a `toggle` menu item there will only ever be a single field inside. For the `toggle` menu item, the confirmation is presented on both `on` and `off` directions. There is no option for asymmetry, i.e. only in one direction.
 
 ```json
@@ -56,6 +58,8 @@ The `confirm` field may contain a string instead of a Boolean in order to provid
   }
 ```
 
+## Personal Identification Number (PIN)
+
 **The authors do not advise the use of this application for security sensitive devices. But we suspect users are taking that risk anyway, hence a PIN confirmation is provided that can be used for additional menu item security.**
 
 This can be enabled by setting the `pin` field in the `tap_action`. The `pin` field overrides `confirm`. Explicitly setting `confirm` is not necessary.
@@ -70,9 +74,14 @@ The 4-digit PIN is set globally for all actions in the app settings in Connect I
 
 When entering an invalid PIN for the fifth time within 2 minutes, the PIN dialog will be locked for all actions for the next 10 minutes. Entering a valid PIN will always reset the failure counter.
 
-<img src="../images/pin_view.png" width="200" title="Confirmation View"/>
+<img src="../images/pin_view.png" width="200" title="PIN View"/>
 
-Note that for notify events, you _must_ not supply an `entity_id` or the API call will fail. There are other examples too.
+> [!IMPORTANT]
+> The PIN entry requires a touch screen enabled device.
+
+## Additional Data
+
+Some `action`s require additional `data` to be supplied. The following example shows how we handle this scenario. Note that for notify events, you _must not_ supply an `entity_id` or the API call will fail. There are other examples too.
 
 ```json
 {
