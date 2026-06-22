@@ -155,7 +155,10 @@ class HomeAssistantNumericMenuItem extends HomeAssistantMenuItem {
     //
     function onConfirm(b as Lang.Boolean) as Void {
         var dataAttribute = mPicker["data_attribute"] as Lang.String?;
-        var entity_id     = mData["entity_id"]        as Lang.String?;
+        var entity_id     = null                      as Lang.String?;
+        if (mData != null) {
+            entity_id = mData["entity_id"] as Lang.String?;
+        }
 
         WatchUi.popView(WatchUi.SLIDE_RIGHT);
         WatchUi.requestUpdate();
@@ -164,12 +167,18 @@ class HomeAssistantNumericMenuItem extends HomeAssistantMenuItem {
             return;
         }
         if (mAction != null) {
+            var data = {} as Lang.Dictionary;
+            if (mData != null) {
+                var keys = mData.keys();
+                for (var i = 0; i < keys.size(); i++) {
+                    data[keys[i]] = mData[keys[i]];
+                }
+            }
+            data["entity_id"] = entity_id.toString();
+            data[dataAttribute.toString()] = mValue;
             mHomeAssistantService.call(
                 mAction,
-                {
-                    "entity_id"              => entity_id.toString(),
-                    dataAttribute.toString() => mValue
-                },
+                data,
                 mExit
             );
         }
