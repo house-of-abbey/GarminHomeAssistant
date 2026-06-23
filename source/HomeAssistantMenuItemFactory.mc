@@ -163,6 +163,7 @@ class HomeAssistantMenuItemFactory {
         entity_id as Lang.String?,
         template  as Lang.String?,
         action    as Lang.String?,
+        data      as Lang.Dictionary?,
         picker    as Lang.Dictionary,
         options   as {
             :exit    as Lang.Boolean,
@@ -171,9 +172,12 @@ class HomeAssistantMenuItemFactory {
             :icon    as WatchUi.Bitmap
         }
     ) as WatchUi.MenuItem {
-        var data = null;
         if (entity_id != null) {
-            data = { "entity_id" => entity_id };
+            if (data == null) {
+                data = { "entity_id" => entity_id };
+            } else {
+                data["entity_id"] = entity_id;
+            }
         }
         var keys = mMenuItemOptions.keys();
         for (var i = 0; i < keys.size(); i++) {

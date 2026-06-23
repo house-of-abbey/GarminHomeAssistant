@@ -141,6 +141,7 @@ class HomeAssistantView extends WatchUi.Menu2 {
                                     entity,
                                     content,
                                     action,
+                                    data,
                                     picker,
                                     {
                                         :exit    => exit,

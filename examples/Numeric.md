@@ -39,6 +39,36 @@ Field            | Purpose                                                      
 
 It may well be the case that often `attribute` and `data_attribute` are the same attribute, as with this example.
 
+## Additional Action Data
+
+The `tap_action` object may also include a `data` object for fixed service call parameters. When the picker value is selected, the application merges the picker value into this `data` object using `data_attribute`.
+
+For example, a light brightness picker can request a HomeAssistant transition while still using the picker value for `brightness`.
+
+```json
+{
+  "name": "Lounge Brightness",
+  "content": "{{ ((state_attr('light.lounge','brightness') | int(0) / 255) * 100) | round(0) }}%",
+  "type": "numeric",
+  "entity": "light.lounge",
+  "tap_action": {
+    "action": "light.turn_on",
+    "data": {
+      "transition": 2
+    },
+    "picker": {
+      "step": 5,
+      "min": 0,
+      "max": 255,
+      "attribute": "brightness",
+      "data_attribute": "brightness"
+    }
+  }
+}
+```
+
+The resulting action data sent to HomeAssistant contains both the fixed `transition` value and the selected `brightness` value.
+
 ## Helper
 
 You might define a "helper" entity as follows in HomeAssistant:
