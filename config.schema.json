@@ -256,6 +256,11 @@
                 "action": {
                   "$ref": "#/$defs/action"
                 },
+                "data": {
+                  "type": "object",
+                  "title": "Additional action data",
+                  "description": "Fixed Home Assistant service data. The selected picker value is merged into this object using the picker's data_attribute. Service-specific fields cannot be schema checked here."
+                },
                 "picker": {
                   "type": "object",
                   "title": "Number picker configuration",
