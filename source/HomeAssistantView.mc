@@ -133,23 +133,39 @@ class HomeAssistantView extends WatchUi.Menu2 {
                             ));
                         }
                     } else if (type.equals("numeric") && action != null) {
-                        if (tap_action != null) {
-                            var picker = tap_action.get("picker") as Lang.Dictionary?;
-                            if (picker != null) {
-                                addItem(HomeAssistantMenuItemFactory.create().numeric(
-                                    name,
-                                    entity,
-                                    content,
-                                    action,
-                                    data,
-                                    picker,
-                                    {
-                                        :exit    => exit,
-                                        :confirm => confirm,
-                                        :pin     => pin
-                                    }
-                                ));
+                        if (System.getDeviceSettings().isTouchScreen) {
+                            // Numeric items are only actionable on touch screen devices.
+                            if (tap_action != null) {
+                                var picker = tap_action.get("picker") as Lang.Dictionary?;
+                                if (picker != null) {
+                                    addItem(HomeAssistantMenuItemFactory.create().numeric(
+                                        name,
+                                        entity,
+                                        content,
+                                        action,
+                                        data,
+                                        picker,
+                                        {
+                                            :exit    => exit,
+                                            :confirm => confirm,
+                                            :pin     => pin
+                                        }
+                                    ));
+                                }
                             }
+                        } else {
+                            addItem(HomeAssistantMenuItemFactory.create().tap(
+                                "PIN requires Touchscreen",
+                                null,
+                                null,
+                                null,
+                                data,
+                                {
+                                    :exit    => false,
+                                    :confirm => false,
+                                    :pin     => false
+                                }
+                            ));
                         }
                     } else if (type.equals("info") && content != null) {
                         // Cannot exit from a non-actionable information only menu item.
