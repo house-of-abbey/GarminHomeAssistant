@@ -112,7 +112,7 @@ class HomeAssistantMenuItemFactory {
         label     as Lang.String or Lang.Symbol,
         entity_id as Lang.String?,
         template  as Lang.String?,
-        action   as Lang.String?,
+        action    as Lang.String?,
         data      as Lang.Dictionary?,
         options   as {
             :exit    as Lang.Boolean,

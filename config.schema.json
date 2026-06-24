@@ -251,7 +251,8 @@
               "$ref": "#/$defs/content"
             },
             "tap_action": {
-              "$ref": "#/$defs/tap_action",
+              "title": "Tap Action",
+              "description": "Numeric tap action definition to include the number picker. 'confirm', 'pin' and 'exit' fields are optional.",
               "properties": {
                 "action": {
                   "$ref": "#/$defs/action"
@@ -294,13 +295,24 @@
                     "max",
                     "step",
                     "data_attribute"
-                  ]
+                  ],
+                  "additionalProperties": false
+                },
+                "confirm": {
+                  "$ref": "#/$defs/confirm"
+                },
+                "pin": {
+                  "$ref": "#/$defs/pin"
+                },
+                "exit": {
+                  "$ref": "#/$defs/exit"
                 }
               },
               "required": [
                 "action",
                 "picker"
-              ]
+              ],
+              "additionalProperties": false
             },
             "enabled": {
               "$ref": "#/$defs/enabled"
@@ -987,7 +999,7 @@
     "tap_action": {
       "type": "object",
       "title": "Tap Action",
-      "description": "'confirm' and 'pin' fields are optional.",
+      "description": "'confirm', 'pin' and 'exit' fields are optional.",
       "properties": {
         "confirm": {
           "$ref": "#/$defs/confirm"
