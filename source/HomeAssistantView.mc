@@ -209,11 +209,9 @@ class HomeAssistantView extends WatchUi.Menu2 {
                 }
                 fullList.addAll(item.getMenuView().getItemsToUpdate());
             } else if (item instanceof HomeAssistantNumericMenuItem) {
-                // Numeric items can have an optional template to evaluate
-                var nmi = item as HomeAssistantNumericMenuItem;
-                if (nmi.hasTemplate()) {
-                    fullList.add(item);
-                }
+                // Numeric items can have an optional template to evaluate, but they must always be included in order
+                // to initialise the numeric picker's value.
+                fullList.add(item);
             } else if (item instanceof HomeAssistantToggleMenuItem) {
                 fullList.add(item);
             } else if (item instanceof HomeAssistantTapMenuItem) {
