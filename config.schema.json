@@ -251,7 +251,8 @@
               "$ref": "#/$defs/content"
             },
             "tap_action": {
-              "$ref": "#/$defs/tap_action",
+              "title": "Tap Action",
+              "description": "Numeric tap action definition to include the number picker.",
               "properties": {
                 "action": {
                   "$ref": "#/$defs/action"
@@ -294,13 +295,15 @@
                     "max",
                     "step",
                     "data_attribute"
-                  ]
+                  ],
+                  "additionalProperties": false
                 }
               },
               "required": [
                 "action",
                 "picker"
-              ]
+              ],
+              "additionalProperties": false
             },
             "enabled": {
               "$ref": "#/$defs/enabled"
