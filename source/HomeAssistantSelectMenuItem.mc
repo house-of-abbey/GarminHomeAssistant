@@ -213,6 +213,10 @@ class HomeAssistantSelectMenuItem extends HomeAssistantMenuItem {
 
     public function setSelectedValue(value as Lang.String?) as Void {
         mSelectedValue = value;
+        if (getTemplate() == null && value != null) {
+            setSubLabel(value);
+            WatchUi.requestUpdate();
+        }
     }
 
     public function getSelectedValue() as Lang.String? {
