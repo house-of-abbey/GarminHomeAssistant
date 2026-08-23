@@ -21,4 +21,5 @@
     <bitmap id="TapTypeIcon" filename="tap_type.svg"/>
     <bitmap id="InfoTypeIcon" filename="info_type.svg"/>
     <bitmap id="NumericTypeIcon" filename="numeric_type.svg"/>
+    <bitmap id="SelectTypeIcon" filename="select_type.svg"/>
 </drawables>
