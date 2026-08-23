@@ -177,7 +177,7 @@
           "$ref": "#/$defs/action",
           "deprecated": true,
           "title": "Schema change:",
-          "description": "Use 'tap_action' instead to mirror Home Assistant."
+          "description": "Use 'action' instead to mirror Home Assistant."
         },
         "tap_action": {
           "$ref": "#/$defs/tap_action_tap"
@@ -1080,7 +1080,9 @@
           "properties": {
             "service": {
               "$ref": "#/$defs/action",
-              "deprecated": true
+              "deprecated": true,
+              "title": "Schema change:",
+              "description": "Use 'action' instead to mirror Home Assistant."
             },
             "action": {
               "$ref": "#/$defs/action"
