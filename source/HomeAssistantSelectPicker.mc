@@ -57,7 +57,7 @@ class HomeAssistantSelectPicker extends WatchUi.Picker {
     //
     public function onConfirm(value as Lang.String) as Void {
         mItem.setSelectedValue(value);
-        mItem.callAction();
+        mItem.callAction(value);
     }
 }
 

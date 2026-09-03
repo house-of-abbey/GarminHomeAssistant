@@ -102,7 +102,8 @@ class HomeAssistantMenuItemFactory {
             label,
             template,
             { "entity_id" => entity_id },
-            options
+            options,
+            mHomeAssistantService
         );
     }
 
@@ -243,7 +244,6 @@ class HomeAssistantMenuItemFactory {
         var dataAttribute    = "option";
         var labels           = [] as Lang.Array<Lang.String>;
         var values           = [] as Lang.Array<Lang.String>;
-        var hasManualOptions = false;
         if (tap_action != null) {
             var a = tap_action.get("action") as Lang.String?;
             if (a != null) {
@@ -255,7 +255,6 @@ class HomeAssistantMenuItemFactory {
             }
             var opts = tap_action.get("options") as Lang.Array?;
             if (opts != null) {
-                hasManualOptions = true;
                 for (var j = 0; j < opts.size(); j++) {
                     var opt = opts[j];
                     if (opt instanceof Lang.Dictionary) {
@@ -288,7 +287,6 @@ class HomeAssistantMenuItemFactory {
             dataAttribute,
             labels,
             values,
-            hasManualOptions,
             options,
             mHomeAssistantService
         );

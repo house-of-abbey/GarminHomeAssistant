@@ -4,6 +4,8 @@
 
 Provides an option picker in order to select from a list of options. Supports both Home Assistant `select` and `input_select` entities, or manually configured options.
 
+For a simpler alternative that cycles through values instead of opening a picker, see [Tap Action Selects](Actions.md#selects).
+
 ## Select Entity
 
 The simplest form uses a `select` entity. The available options are automatically fetched from the entity's `options` attribute, and the current selection is displayed as a sub-label.

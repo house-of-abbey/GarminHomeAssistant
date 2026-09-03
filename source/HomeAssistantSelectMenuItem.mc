@@ -27,6 +27,7 @@ class HomeAssistantSelectMenuItem extends HomeAssistantMenuItem {
     private var mData                 as Lang.Dictionary?;
     private var mDataAttribute        as Lang.String;
     private var mSelectedValue        as Lang.String?;
+    private var mPendingValue         as Lang.String?;
     private var mLabels               as Lang.Array<Lang.String>;
     private var mValues               as Lang.Array<Lang.String>;
     private var mHasManualOptions     as Lang.Boolean;
@@ -39,7 +40,6 @@ class HomeAssistantSelectMenuItem extends HomeAssistantMenuItem {
         dataAttribute    as Lang.String,
         labels           as Lang.Array<Lang.String>,
         values           as Lang.Array<Lang.String>,
-        hasManualOptions as Lang.Boolean,
         options          as {
             :alignment as WatchUi.MenuItem.Alignment,
             :icon      as Graphics.BitmapType or WatchUi.Drawable or Lang.Symbol,
@@ -54,7 +54,7 @@ class HomeAssistantSelectMenuItem extends HomeAssistantMenuItem {
         mDataAttribute        = dataAttribute;
         mLabels               = labels;
         mValues               = values;
-        mHasManualOptions     = hasManualOptions;
+        mHasManualOptions     = labels.size() > 0;
         mExit                 = options[:exit];
         mConfirm              = options[:confirm];
         mPin                  = options[:pin];
@@ -71,7 +71,8 @@ class HomeAssistantSelectMenuItem extends HomeAssistantMenuItem {
         );
     }
 
-    function callAction() as Void {
+    function callAction(value as Lang.String) as Void {
+        mPendingValue = value;
         var hasTouchScreen = System.getDeviceSettings().isTouchScreen;
         if (mPin && hasTouchScreen) {
             var pin = Settings.getPin();
@@ -99,7 +100,7 @@ class HomeAssistantSelectMenuItem extends HomeAssistantMenuItem {
                     new WifiLteExecutionConfirmDelegate({
                         :type   => "action",
                         :action => mAction,
-                        :data   => mData,
+                        :data   => getActionData(value),
                         :exit   => mExit,
                     }, dialog),
                     WatchUi.SLIDE_LEFT
@@ -127,32 +128,43 @@ class HomeAssistantSelectMenuItem extends HomeAssistantMenuItem {
     }
 
     function onConfirm(b as Lang.Boolean) as Void {
+        var value = mPendingValue;
+        mPendingValue = null;
+
+        WatchUi.popView(WatchUi.SLIDE_RIGHT);
+        WatchUi.requestUpdate();
+        if (mAction != null && value != null) {
+            var data = getActionData(value);
+            if (data != null) {
+                mHomeAssistantService.call(
+                    mAction,
+                    data,
+                    mExit
+                );
+            }
+        }
+    }
+
+    private function getActionData(value as Lang.String) as Lang.Dictionary? {
         var entity_id = null as Lang.String?;
         if (mData != null) {
             entity_id = mData["entity_id"] as Lang.String?;
         }
 
-        WatchUi.popView(WatchUi.SLIDE_RIGHT);
-        WatchUi.requestUpdate();
         if (entity_id == null) {
-            return;
+            return null;
         }
-        if (mAction != null && mSelectedValue != null) {
-            var data = {} as Lang.Dictionary;
-            if (mData != null) {
-                var keys = mData.keys();
-                for (var i = 0; i < keys.size(); i++) {
-                    data[keys[i]] = mData[keys[i]];
-                }
+
+        var data = {} as Lang.Dictionary;
+        if (mData != null) {
+            var keys = mData.keys();
+            for (var i = 0; i < keys.size(); i++) {
+                data[keys[i]] = mData[keys[i]];
             }
-            data["entity_id"] = entity_id.toString();
-            data[mDataAttribute] = mSelectedValue;
-            mHomeAssistantService.call(
-                mAction,
-                data,
-                mExit
-            );
         }
+        data["entity_id"] = entity_id.toString();
+        data[mDataAttribute] = value;
+        return data;
     }
 
     //! Template to fetch the current selected value from HA.
