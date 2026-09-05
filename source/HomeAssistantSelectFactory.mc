@@ -16,6 +16,7 @@ using Toybox.Lang;
 using Toybox.WatchUi;
 
 //! Factory that controls which string options can be picked.
+(:selectView)
 class HomeAssistantSelectFactory extends WatchUi.PickerFactory {
     private var mLabels as Lang.Array<Lang.String>;
     private var mValues as Lang.Array<Lang.String>;

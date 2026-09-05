@@ -221,6 +221,7 @@ class HomeAssistantMenuItemFactory {
 
     //! Select menu item.
     //
+    (:selectView)
     function select(
         definition as Lang.Dictionary,
         entity_id  as Lang.String?,

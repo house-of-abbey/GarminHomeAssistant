@@ -18,6 +18,7 @@ using Toybox.Graphics;
 //! Menu button with an icon that opens a select picker and optionally renders
 //! a Home Assistant Template.
 //
+(:selectView)
 class HomeAssistantSelectMenuItem extends HomeAssistantMenuItem {
     private var mHomeAssistantService as HomeAssistantService?;
     private var mAction               as Lang.String?;

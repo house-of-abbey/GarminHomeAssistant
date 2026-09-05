@@ -30,6 +30,10 @@ set DEST=bin
 
 rem Device for simulation
 set DEVICE=venu2
+rem Reset the settings, or set some basic ones if the simulator keeps clobbering them
+set INITIALSETTINGS=1
+rem Path to the settings file
+set SETTINGS=%USERPROFILE%\AppData\Local\Temp\com.garmin.connectiq\GARMIN\APPS\SETTINGS\HOMEASSISTANT.SET
 set JUNGLE=monkey.jungle
 
 rem C:\>java -jar %SDK_PATH%\monkeybrains.jar -h
@@ -77,6 +81,14 @@ rem                                   (deprecated)
 rem -y,--private-key <arg>            Private key to sign builds with
 rem -z,--rez <arg>                    Resource files (deprecated)
 
+rem %SDK_PATH%\monkeydo.bat
+rem Usage: monkeydo executable device_id [/n] [/a additional_file] [/t | /t test_name]
+rem     executable - A Connect IQ executable to run.
+rem     device_id  - The device to simulate.
+rem     n          - When provided, the app will be run in Native Pairing mode
+rem     additional_file - ehen providing the additionalFile flag you must specify one or more additional files to send to the simulator in the form of "<source>;<dest>".
+rem     test_name  - When providing the test flag you may specify a one or more test names.
+
 title Compiling for %DEVICE%
 
 rem Batch file's directory where the source code is
@@ -109,12 +121,48 @@ rem Compile PRG for a single device for side loading
   --jungles %SRC%\%JUNGLE% ^
   --private-key %SRC%\..\developer_key ^
   --device %DEVICE%_sim ^
-  --warn
-
-rem  --release
+  --warn ^
+  --release
 
 if %ERRORLEVEL% equ 0 (
-  %SDK_PATH%\monkeydo.bat %SRC%\bin\HomeAssistant.prg %DEVICE%
+  if defined SETTINGS (
+    if %INITIALSETTINGS% equ 1 (
+      echo Copying basic settings.
+      copy %SRC%\HOMEASSISTANT.SET %SETTINGS%
+      attrib +r %SETTINGS%
+      rem NB. "Unable to serialize app data" must be caused by the readonly settings which can't be overwritten
+      rem by the simulator now. Presently ignoring this error as its the only way to substitute basic settings
+      rem without modifying the source code.
+      rem
+      rem Simulator outputs:
+      rem
+      rem Warning: Unable to serialize app data
+      rem Time: 2026-09-04T10:49:31Z
+      rem Part-Number: 006-B2700-00
+      rem Firmware-Version: '7.20'
+      rem Language-Code: eng
+      rem ConnectIQ-API-Version: 3.1.6
+      rem ConnectIQ-Version: 6.0.2
+      rem Filename: HOMEASSISTANT
+      rem Appname: HomeAssistant
+    )
+
+    echo Deploying application.
+    call %SDK_PATH%\monkeydo.bat %SRC%\bin\HomeAssistant.prg %DEVICE%
+    if %ERRORLEVEL% neq 0 (
+      rem Wait to see errors
+      pause
+    )
+    echo Application deployed.
+    if exist %SETTINGS% (
+      rem Make it writable so it can be overwritten. If %SETTINGS% is "", this command dangerously makes all
+      rem files in the directory read-only.
+      attrib -r %SETTINGS%
+    )
+  ) else (
+    echo SETTINGS file name not defined.
+    pause
+  )
 ) else (
   rem Wait to see errors
   pause

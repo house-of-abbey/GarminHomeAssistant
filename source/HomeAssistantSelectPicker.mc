@@ -19,6 +19,7 @@ using Toybox.WatchUi;
 
 //! Picker that allows the user to choose a string option.
 //
+(:selectView)
 class HomeAssistantSelectPicker extends WatchUi.Picker {
     private var mItem as HomeAssistantSelectMenuItem;
 
@@ -63,6 +64,7 @@ class HomeAssistantSelectPicker extends WatchUi.Picker {
 
 //! Responds to a select picker selection or cancellation.
 //
+(:selectView)
 class HomeAssistantSelectPickerDelegate extends WatchUi.PickerDelegate {
     private var mPicker as HomeAssistantSelectPicker;
 
