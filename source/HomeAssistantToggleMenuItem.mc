@@ -22,12 +22,12 @@ using Toybox.Timer;
 //! Light or switch toggle menu button that calls the API to maintain the up to date state.
 //
 class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
-    private var mData       as Lang.Dictionary;
-    private var mTemplate   as Lang.String?;
-    private var mExit       as Lang.Boolean;
-    private var mConfirm    as Lang.Boolean or Lang.String or Null;
-    private var mPin        as Lang.Boolean;
-    private var mHasVibrate as Lang.Boolean = false;
+    private var mData                 as Lang.Dictionary;
+    private var mTemplate             as Lang.String?;
+    private var mExit                 as Lang.Boolean;
+    private var mConfirm              as Lang.Boolean or Lang.String or Null;
+    private var mPin                  as Lang.Boolean;
+    private var mHomeAssistantService as HomeAssistantService;
 
     //! Class Constructor
     //!
@@ -46,7 +46,8 @@ class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
             :exit      as Lang.Boolean,
             :confirm   as Lang.Boolean,
             :pin       as Lang.Boolean
-        }?
+        }?,
+        haService as HomeAssistantService
     ) {
         WatchUi.ToggleMenuItem.initialize(
             label,
@@ -58,14 +59,12 @@ class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
                 :icon      => options[:icon]
             }
         );
-        if (Attention has :vibrate) {
-            mHasVibrate = true;
-        }
-        mData     = data;
-        mTemplate = template;
-        mExit     = options[:exit];
-        mConfirm  = options[:confirm];
-        mPin      = options[:pin];
+        mData                 = data;
+        mTemplate             = template;
+        mExit                 = options[:exit];
+        mConfirm              = options[:confirm];
+        mPin                  = options[:pin];
+        mHomeAssistantService = haService;
     }
 
     //! Set the state of a toggle menu item.
@@ -268,26 +267,11 @@ class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
 
             // System.println("HomeAssistantToggleMenuItem setState() URL       = " + url);
             // System.println("HomeAssistantToggleMenuItem setState() entity_id = " + id);
-            Communications.makeWebRequest(
+            mHomeAssistantService.callEntity(
                 url,
                 mData,
-                {
-                    :method       => Communications.HTTP_REQUEST_METHOD_POST,
-                    :headers      => Settings.augmentHttpHeaders({
-                        "Content-Type"  => Communications.REQUEST_CONTENT_TYPE_JSON,
-                        "Authorization" => "Bearer " + Settings.getApiKey()
-                    }),
-                    :responseType => Communications.HTTP_RESPONSE_CONTENT_TYPE_JSON
-                },
                 method(:onReturnSetState)
             );
-            if (mHasVibrate and Settings.getVibrate()) {
-                Attention.vibrate([
-                    new Attention.VibeProfile(50, 100), // On  for 100ms
-                    new Attention.VibeProfile( 0, 100), // Off for 100ms
-                    new Attention.VibeProfile(50, 100)  // On  for 100ms
-                ]);
-            }
         }
     }
 

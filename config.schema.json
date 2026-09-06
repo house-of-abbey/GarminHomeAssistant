@@ -177,7 +177,7 @@
           "$ref": "#/$defs/action",
           "deprecated": true,
           "title": "Schema change:",
-          "description": "Use 'tap_action' instead to mirror Home Assistant."
+          "description": "Use 'action' instead to mirror Home Assistant."
         },
         "tap_action": {
           "$ref": "#/$defs/tap_action_tap"
@@ -690,9 +690,98 @@
         }
       ]
     },
+    "select": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "$ref": "#/$defs/name"
+        },
+        "type": {
+          "$ref": "#/$defs/type",
+          "const": "select"
+        },
+        "content": {
+          "$ref": "#/$defs/content"
+        },
+        "entity": {
+          "$ref": "#/$defs/entity"
+        },
+        "tap_action": {
+          "title": "Tap Action",
+          "description": "Select tap action definition. 'action' defaults based on entity domain. 'data_attribute' defaults to 'option'. 'options' is required when entity attributes do not provide them.",
+          "properties": {
+            "action": {
+              "$ref": "#/$defs/action"
+            },
+            "data": {
+              "type": "object",
+              "title": "Additional action data",
+              "description": "Fixed Home Assistant service data. The selected option value is merged into this object using data_attribute."
+            },
+            "data_attribute": {
+              "type": "string",
+              "title": "Attribute on the action data",
+              "description": "Key name in the service call data for the selected option value. Defaults to 'option'.",
+              "default": "option"
+            },
+            "options": {
+              "type": "array",
+              "title": "Manual options",
+              "description": "Manually specified options. Each entry is either an object with 'value' and 'label', or a plain string (used as both value and label). If omitted, options are fetched from the entity's 'options' attribute.",
+              "items": {
+                "oneOf": [
+                  {
+                    "type": "object",
+                    "properties": {
+                      "value": {
+                        "type": "string",
+                        "title": "Option value",
+                        "description": "The value sent to the Home Assistant service."
+                      },
+                      "label": {
+                        "type": "string",
+                        "title": "Option label",
+                        "description": "The label displayed on the watch."
+                      }
+                    },
+                    "required": [
+                      "value",
+                      "label"
+                    ],
+                    "additionalProperties": false
+                  },
+                  {
+                    "type": "string"
+                  }
+                ]
+              }
+            },
+            "confirm": {
+              "$ref": "#/$defs/confirm"
+            },
+            "pin": {
+              "$ref": "#/$defs/pin"
+            },
+            "exit": {
+              "$ref": "#/$defs/exit"
+            }
+          },
+          "additionalProperties": false
+        },
+        "enabled": {
+          "$ref": "#/$defs/enabled"
+        }
+      },
+      "required": [
+        "name",
+        "type",
+        "entity"
+      ],
+      "additionalProperties": false
+    },
     "type": {
       "title": "Menu item type",
-      "description": "One of 'info', 'tap', 'toggle', 'group' or 'numeric'."
+      "description": "One of 'info', 'tap', 'toggle', 'group', 'numeric' or 'select'."
     },
     "items": {
       "type": "array",
@@ -848,6 +937,22 @@
                 "data_attribute": "temperature"
               }
             }
+          },
+          {
+            "type": "select",
+            "name": "Example",
+            "entity": "select.example"
+          },
+          {
+            "type": "select",
+            "name": "Example",
+            "entity": "input_select.example",
+            "tap_action": {
+              "options": [
+                { "value": "option_a", "label": "Option A" },
+                { "value": "option_b", "label": "Option B" }
+              ]
+            }
           }
         ],
         "allOf": [
@@ -860,7 +965,8 @@
                   "tap",
                   "info",
                   "group",
-                  "numeric"
+                  "numeric",
+                  "select"
                 ]
               }
             }
@@ -930,6 +1036,18 @@
                       },
                       "then": {
                         "$ref": "#/$defs/numeric"
+                      },
+                      "else": {
+                        "if": {
+                          "properties": {
+                            "type": {
+                              "const": "select"
+                            }
+                          }
+                        },
+                        "then": {
+                          "$ref": "#/$defs/select"
+                        }
                       }
                     }
                   }
@@ -962,7 +1080,9 @@
           "properties": {
             "service": {
               "$ref": "#/$defs/action",
-              "deprecated": true
+              "deprecated": true,
+              "title": "Schema change:",
+              "description": "Use 'action' instead to mirror Home Assistant."
             },
             "action": {
               "$ref": "#/$defs/action"

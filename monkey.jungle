@@ -55,6 +55,7 @@ d2mach2.resourcePath = $(d2mach2.resourcePath);resources-launcher-65-65;resource
 d2mach2pro.resourcePath = $(d2mach2pro.resourcePath);resources-launcher-65-65;resources-icons-53
 # Screen Size 176x176 launcher icon size 62x62
 descentg1.resourcePath = $(descentg1.resourcePath);resources-launcher-62-62;resources-icons-21
+descentg1.excludeAnnotations=selectView
 # Screen Size 390x390 launcher icon size 60x60
 descentg2.resourcePath = $(descentg2.resourcePath);resources-launcher-60-60;resources-icons-46
 # Screen Size 240x240 launcher icon size 40x40 - Does not work in simulation
@@ -192,10 +193,13 @@ gpsmap67.resourcePath = $(gpsmap67.resourcePath);resources-launcher-33-33;resour
 gpsmaph1.resourcePath = $(gpsmaph1.resourcePath);resources-launcher-33-33;resources-icons-28
 # Screen Size 176x176 launcher icon size 62x62
 instinct2.resourcePath = $(instinct2.resourcePath);resources-launcher-62-62;resources-icons-21-w
+instinct2.excludeAnnotations=selectView
 # Screen Size 163x156 launcher icon size 54x54
 instinct2s.resourcePath = $(instinct2s.resourcePath);resources-launcher-54-54;resources-icons-18-w
+instinct2s.excludeAnnotations=selectView
 # Screen Size 176x176 launcher icon size 62x62
 instinct2x.resourcePath = $(instinct2x.resourcePath);resources-launcher-62-62;resources-icons-21-w
+instinct2x.excludeAnnotations=selectView
 # Screen Size 390x390 launcher icon size 60x60, but the icon size used here is reduced as the menu items were clipped.
 instinct3amoled45mm.resourcePath = $(instinct3amoled45mm.resourcePath);resources-launcher-60-60;resources-icons-32
 # Screen Size 416x416 launcher icon size 60x60, but the icon size used here is reduced as the menu items were clipped.
@@ -204,6 +208,7 @@ instinct3amoled50mm.resourcePath = $(instinct3amoled50mm.resourcePath);resources
 instinct3solar45mm.resourcePath = $(instinct3solar45mm.resourcePath);resources-launcher-62-62;resources-icons-18-w
 # Screen Size 176x176 launcher icon size 26x26
 instinctcrossover.resourcePath = $(instinctcrossover.resourcePath);resources-launcher-26-26;resources-icons-21-w
+instinctcrossover.excludeAnnotations=selectView
 # Screen Size 390x390 launcher icon size 38x38
 instinctcrossoveramoled.resourcePath = $(instinctcrossoveramoled.resourcePath);resources-launcher-38-38;resources-icons-46
 # Screen Size 166x166 launcher icon size 52x52, but the icon size used here is reduced as the menu items were clipped.

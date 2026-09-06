@@ -39,7 +39,7 @@ class HomeAssistantApp extends Application.AppBase {
     private var mGlanceTimer    as Timer.Timer?;
     private var mUpdateTimer    as Timer.Timer?;
     // Array initialised by onReturnFetchMenuConfig()
-    private var mItemsToUpdate  as Lang.Array<HomeAssistantToggleMenuItem or HomeAssistantTapMenuItem or HomeAssistantGroupMenuItem or HomeAssistantNumericMenuItem>?;
+    private var mItemsToUpdate  as Lang.Array<HomeAssistantToggleMenuItem or HomeAssistantTapMenuItem or HomeAssistantGroupMenuItem or HomeAssistantNumericMenuItem or HomeAssistantSelectMenuItem>?;
     private var mIsApp          as Lang.Boolean     = false; // Or Widget
     private var mUpdating       as Lang.Boolean     = false; // Don't start a second chain of updates
     private var mTemplates      as Lang.Dictionary? = null;  // Cache of compiled templates
@@ -212,18 +212,19 @@ class HomeAssistantApp extends Application.AppBase {
             case 200:
                 if (data != null) {
                     if (mIsApp) {
-                        // var stats = System.getSystemStats(); // stats.* values in bytes
-                        // System.println("HomeAssistantApp onReturnFetchMenuConfig() Memory: total=" + stats.totalMemory + ", used=" + stats.usedMemory + ", free=" + stats.freeMemory);
-
-                        // This call can crash a glance with "Error: Out Of Memory Error"
-                        // https://forums.garmin.com/developer/connect-iq/i/bug-reports/storage-setvalue-should-handle-memory-limits-gracefully
-                        // "Keys and values are limited to 8 KB each, and a total of 128 KB of storage is available."
-                        // "Storage.setValue() fails with an uncatchable out-of-memory error."
-                        Storage.setValue(scStorageKeyMenu, data as Lang.Dictionary);
-                        // Store the smaller glance section of the menu separately so the Glance view can retrieve it within memory limits.
-                        var glance = (data as Lang.Dictionary)["glance"];
-                        if (glance != null) {
-                            Storage.setValue(scStorageKeyGlance, glance as Lang.Dictionary);
+                        var stats = System.getSystemStats(); // stats.* values in bytes
+                        System.println("HomeAssistantApp onReturnFetchMenuConfig() Memory: total=" + stats.totalMemory + ", used=" + stats.usedMemory + ", free=" + stats.freeMemory);
+                        if (Settings.getCacheConfig()) {
+                            // This call can crash a glance with "Error: Out Of Memory Error"
+                            // https://forums.garmin.com/developer/connect-iq/i/bug-reports/storage-setvalue-should-handle-memory-limits-gracefully
+                            // "Keys and values are limited to 8 KB each, and a total of 128 KB of storage is available."
+                            // "Storage.setValue() fails with an uncatchable out-of-memory error."
+                            Storage.setValue(scStorageKeyMenu, data as Lang.Dictionary);
+                            // Store the smaller glance section of the menu separately so the Glance view can retrieve it within memory limits.
+                            var glance = (data as Lang.Dictionary)["glance"];
+                            if (glance != null) {
+                                Storage.setValue(scStorageKeyGlance, glance as Lang.Dictionary);
+                            }
                         }
                     }
                 }
@@ -653,6 +654,21 @@ class HomeAssistantApp extends Application.AppBase {
                                    (item as HomeAssistantNumericMenuItem).setValue(s);
                                }
                             }
+                            if (($ has :HomeAssistantSelectMenuItem) && (item instanceof HomeAssistantSelectMenuItem)) {
+                                var si = item as HomeAssistantSelectMenuItem;
+                                if ((si has :setSelectedValue) && (si has :updateOptions) && (si has :hasManualOptions)) {
+                                    var sv = data[i.toString() + "s"];
+                                    if (sv instanceof Lang.String) {
+                                        si.setSelectedValue(sv);
+                                    }
+                                    if (!si.hasManualOptions()) {
+                                        var so = data[i.toString() + "o"];
+                                        if (so instanceof Lang.String) {
+                                            si.updateOptions(so as Lang.String);
+                                        }
+                                    }
+                                }
+                            }
                         }
                         if (Settings.getMenuCheck() && Settings.getCacheConfig() && !mIsCacheChecked) {
                             // We are caching the menu configuration, so let's fetch it and check if its been updated.
@@ -745,6 +761,19 @@ class HomeAssistantApp extends Application.AppBase {
                         }
                         if (item instanceof HomeAssistantNumericMenuItem) {
                             mTemplates[i.toString() + "n"] = { "template" => (item as HomeAssistantNumericMenuItem).getNumericTemplate() };
+                        }
+                        if (($ has :HomeAssistantSelectMenuItem) && (item instanceof HomeAssistantSelectMenuItem)) {
+                            var si = item as HomeAssistantSelectMenuItem;
+                            if ((si has :getSelectTemplate) && (si has :getOptionsTemplate)) {
+                                var selTpl = si.getSelectTemplate();
+                                if (selTpl != null) {
+                                    mTemplates[i.toString() + "s"] = { "template" => selTpl };
+                                }
+                                var optTpl = si.getOptionsTemplate();
+                                if (optTpl != null) {
+                                    mTemplates[i.toString() + "o"] = { "template" => optTpl };
+                                }
+                            }
                         }
                     }
                 }

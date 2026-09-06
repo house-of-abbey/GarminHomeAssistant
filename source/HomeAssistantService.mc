@@ -34,6 +34,35 @@ class HomeAssistantService {
         }
     }
 
+    //! Invoke an entity state action with a caller-provided response handler.
+    //
+    function callEntity(
+        url      as Lang.String,
+        data     as Lang.Dictionary?,
+        callback as Lang.Method
+    ) as Void {
+        Communications.makeWebRequest(
+            url,
+            data,
+            {
+                :method       => Communications.HTTP_REQUEST_METHOD_POST,
+                :headers      => Settings.augmentHttpHeaders({
+                    "Content-Type"  => Communications.REQUEST_CONTENT_TYPE_JSON,
+                    "Authorization" => "Bearer " + Settings.getApiKey()
+                }),
+                :responseType => Communications.HTTP_RESPONSE_CONTENT_TYPE_JSON
+            },
+            callback
+        );
+        if (mHasVibrate and Settings.getVibrate()) {
+            Attention.vibrate([
+                new Attention.VibeProfile(50, 100),
+                new Attention.VibeProfile( 0, 100),
+                new Attention.VibeProfile(50, 100)
+            ]);
+        }
+    }
+
     //! Callback function after completing the POST request to call an action.
     //!
     //! @param responseCode Response code.

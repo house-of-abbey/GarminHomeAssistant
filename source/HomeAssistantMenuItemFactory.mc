@@ -25,6 +25,7 @@ class HomeAssistantMenuItemFactory {
     private var mGroupTypeIcon        as WatchUi.Bitmap;
     private var mInfoTypeIcon         as WatchUi.Bitmap;
     private var mNumericTypeIcon      as WatchUi.Bitmap;
+    private var mSelectTypeIcon       as WatchUi.Bitmap;
     private var mHomeAssistantService as HomeAssistantService;
 
     private static var instance;
@@ -54,6 +55,12 @@ class HomeAssistantMenuItemFactory {
 
         mNumericTypeIcon = new WatchUi.Bitmap({
             :rezId => $.Rez.Drawables.NumericTypeIcon,
+            :locX  => WatchUi.LAYOUT_HALIGN_CENTER,
+            :locY  => WatchUi.LAYOUT_VALIGN_CENTER
+        });
+
+        mSelectTypeIcon = new WatchUi.Bitmap({
+            :rezId => $.Rez.Drawables.SelectTypeIcon,
             :locX  => WatchUi.LAYOUT_HALIGN_CENTER,
             :locY  => WatchUi.LAYOUT_VALIGN_CENTER
         });
@@ -95,7 +102,8 @@ class HomeAssistantMenuItemFactory {
             label,
             template,
             { "entity_id" => entity_id },
-            options
+            options,
+            mHomeAssistantService
         );
     }
 
@@ -208,6 +216,80 @@ class HomeAssistantMenuItemFactory {
             template,
             mGroupTypeIcon,
             mMenuItemOptions
+        );
+    }
+
+    //! Select menu item.
+    //
+    (:selectView)
+    function select(
+        definition as Lang.Dictionary,
+        entity_id  as Lang.String?,
+        template   as Lang.String?,
+        data       as Lang.Dictionary?,
+        tap_action as Lang.Dictionary?,
+        options    as {
+            :exit    as Lang.Boolean,
+            :confirm as Lang.Boolean,
+            :pin     as Lang.Boolean
+        }
+    ) as WatchUi.MenuItem {
+        if (entity_id != null) {
+            if (data == null) {
+                data = { "entity_id" => entity_id };
+            } else {
+                data["entity_id"] = entity_id;
+            }
+        }
+        var selectAction     = null as Lang.String?;
+        var dataAttribute    = "option";
+        var labels           = [] as Lang.Array<Lang.String>;
+        var values           = [] as Lang.Array<Lang.String>;
+        if (tap_action != null) {
+            var a = tap_action.get("action") as Lang.String?;
+            if (a != null) {
+                selectAction = a;
+            }
+            var dattr = tap_action.get("data_attribute") as Lang.String?;
+            if (dattr != null) {
+                dataAttribute = dattr;
+            }
+            var opts = tap_action.get("options") as Lang.Array?;
+            if (opts != null) {
+                for (var j = 0; j < opts.size(); j++) {
+                    var opt = opts[j];
+                    if (opt instanceof Lang.Dictionary) {
+                        labels.add((opt as Lang.Dictionary).get("label") as Lang.String);
+                        values.add((opt as Lang.Dictionary).get("value") as Lang.String);
+                    } else if (opt instanceof Lang.String) {
+                        labels.add(opt as Lang.String);
+                        values.add(opt as Lang.String);
+                    }
+                }
+            }
+        }
+        if (selectAction == null && entity_id != null) {
+            if (entity_id.substring(0, entity_id.find(".")).equals("input_select")) {
+                selectAction = "input_select.select_option";
+            } else {
+                selectAction = "select.select_option";
+            }
+        }
+        var keys = mMenuItemOptions.keys();
+        for (var i = 0; i < keys.size(); i++) {
+            options[keys[i]] = mMenuItemOptions.get(keys[i]);
+        }
+        options[:icon] = mSelectTypeIcon;
+        return new HomeAssistantSelectMenuItem(
+            definition.get("name") as Lang.String,
+            template,
+            selectAction,
+            data,
+            dataAttribute,
+            labels,
+            values,
+            options,
+            mHomeAssistantService
         );
     }
 }

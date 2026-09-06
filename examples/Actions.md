@@ -1,4 +1,4 @@
-[Home](../README.md) | [Switches](Switches.md) | [Actions](Actions.md) | [Templates](Templates.md) | [Numeric](Numeric.md) | [Glance](Glance.md) | [Background Service](../BackgroundService.md) | [Wi-Fi](../Wi-Fi.md) | [HTTP Headers](../HTTP_Headers.md) | [Trouble Shooting](../TroubleShooting.md) | [Version History](../HISTORY.md)
+[Home](../README.md) | [Switches](Switches.md) | [Actions](Actions.md) | [Templates](Templates.md) | [Numeric](Numeric.md) | [Select](Select.md) | [Glance](Glance.md) | [Background Service](../BackgroundService.md) | [Wi-Fi](../Wi-Fi.md) | [HTTP Headers](../HTTP_Headers.md) | [Trouble Shooting](../TroubleShooting.md) | [Version History](../HISTORY.md)
 
 # Actions
 
@@ -145,7 +145,7 @@ An example of using a `select` service. In this example, the `tap` item allows y
   "content": "{{ states('select.smartevse_mqtt_mode') }}",
   "type": "tap",
   "tap_action": {
-    "service": "select.select_next",
+    "action": "select.select_next",
     "data": {
       "entity_id": "select.smartevse_mqtt_mode",
       "cycle": true
@@ -153,6 +153,25 @@ An example of using a `select` service. In this example, the `tap` item allows y
   }
 }
 ```
+
+Note, for `input_select` items, change the `action` field to match as follows:
+
+```json
+{
+  "name": "My Select",
+  "content": "{{ states('input_select.my_select') }}",
+  "type": "tap",
+  "tap_action": {
+    "action": "input_select.select_next",
+    "data": {
+      "entity_id": "input_select.my_select",
+      "cycle": true
+    }
+  }
+},
+```
+
+Note that the old `service` field inside `tap_action` has been depricated and should be replaced by the `action` field instead, with the same value. This better matches Home Assistant
 
 Try the same pattern for any selector `input_select.*`, `select.*`, `climate.*` mode? With thanks to @[arobaZ](https://community.home-assistant.io/u/arobaZ) for the above example.
 
