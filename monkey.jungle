@@ -31,8 +31,8 @@ project.manifest = manifest.xml
 #
 # The icons need to scale as a ratio of screen size 48:416 pixels
 #
-# Icon     55  53   48   46   42   37   32   30   28   26   24   21   19  18
-# Screen  480 454  416  390  360  320  280  260  240  218  208  176  166 156
+# Icon     55  54  53   48   46   42   37   32   30   28   26   24   21   19  18
+# Screen  480 466 454  416  390  360  320  280  260  240  218  208  176  166 156
 
 # Screen Size 390x390 launcher icon size 56x56
 approachs50.resourcePath = $(approachs50.resourcePath);resources-launcher-56-56;resources-icons-46
@@ -59,7 +59,7 @@ descentg1.excludeAnnotations=selectView
 # Screen Size 390x390 launcher icon size 60x60
 descentg2.resourcePath = $(descentg2.resourcePath);resources-launcher-60-60;resources-icons-46
 # Screen Size 240x240 launcher icon size 40x40 - Does not work in simulation
-#descentmk1.resourcePath = $(descentmk1.resourcePath);resources-launcher-40-40;resources-icons-28
+descentmk1.resourcePath = $(descentmk1.resourcePath);resources-launcher-40-40;resources-icons-28
 # Screen Size 280x280 launcher icon size 40x40
 descentmk2.resourcePath = $(descentmk2.resourcePath);resources-launcher-40-40;resources-icons-32
 # Screen Size 240x240 launcher icon size 40x40
@@ -97,7 +97,7 @@ edgeexplore2.resourcePath = $(edgeexplore2.resourcePath);resources-launcher-36-3
 edgemtb.resourcePath = $(edgemtb.resourcePath);resources-launcher-36-36;resources-icons-32
 # Screen Size 280x280 launcher icon size 40x40
 enduro.resourcePath = $(enduro.resourcePath);resources-launcher-40-40;resources-icons-32
- enduro3.resourcePath = $(enduro3.resourcePath);resources-launcher-40-40;resources-icons-32
+enduro3.resourcePath = $(enduro3.resourcePath);resources-launcher-40-40;resources-icons-32
 # Screen Size 416x416 launcher icon size 60x60
 epix2.resourcePath = $(epix2.resourcePath);resources-launcher-60-60;resources-icons-48
 # Screen Size 390x390 launcher icon size 60x60
@@ -145,6 +145,20 @@ fenix8pro47mm.resourcePath = $(fenix8pro47mm.resourcePath);resources-launcher-65
 fenix8solar47mm.resourcePath = $(fenix8solar47mm.resourcePath);resources-launcher-40-40;resources-icons-30
 # Screen Size 280x280 launcher icon size 40x40
 fenix8solar51mm.resourcePath = $(fenix8solar51mm.resourcePath);resources-launcher-40-40;resources-icons-32
+# Screen Size 416x416 launcher icon size 60x60
+fenix943mm.resourcePath = $(fenix943mm.resourcePath);resources-launcher-60-60;resources-icons-48
+# Screen Size 454x454 launcher icon size 65x65
+fenix947mm.resourcePath = $(fenix947mm.resourcePath);resources-launcher-65-65;resources-icons-53
+# Screen Size 416x416 launcher icon size 60x60
+fenix9pro43mm.resourcePath = $(fenix9pro43mm.resourcePath);resources-launcher-60-60;resources-icons-48
+# Screen Size 454x454 launcher icon size 65x65
+fenix9pro47mm.resourcePath = $(fenix9pro47mm.resourcePath);resources-launcher-65-65;resources-icons-53
+# Screen Size 466x466 launcher icon size 65x65
+fenix9pro51mm.resourcePath = $(fenix9pro51mm.resourcePath);resources-launcher-65-65;resources-icons-54
+# Screen Size 260x260 launcher icon size 40x40
+fenix9prosolar47mm.resourcePath = $(fenix9prosolar47mm.resourcePath);resources-launcher-40-40;resources-icons-30
+# Screen Size 280x280 launcher icon size 40x40
+fenix9prosolar51mm.resourcePath = $(fenix9prosolar51mm.resourcePath);resources-launcher-40-40;resources-icons-32
 # Screen Size 218x218 launcher icon size 36x36
 fenixchronos.resourcePath = $(fenixchronos.resourcePath);resources-launcher-36-36;resources-icons-26
 # Screen Size 416x416 launcher icon size 60x60

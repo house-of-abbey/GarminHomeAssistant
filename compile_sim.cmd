@@ -31,7 +31,7 @@ set DEST=bin
 rem Device for simulation
 set DEVICE=venu2
 rem Reset the settings, or set some basic ones if the simulator keeps clobbering them
-set INITIALSETTINGS=1
+set INITIALSETTINGS=0
 rem Path to the settings file
 set SETTINGS=%USERPROFILE%\AppData\Local\Temp\com.garmin.connectiq\GARMIN\APPS\SETTINGS\HOMEASSISTANT.SET
 set JUNGLE=monkey.jungle

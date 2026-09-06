@@ -4,7 +4,10 @@
 
 Provides an option picker in order to select from a list of options. Supports both Home Assistant `select` and `input_select` entities, or manually configured options.
 
-For a simpler alternative that cycles through values instead of opening a picker, see [Tap Action Selects](Actions.md#selects).
+For an alternative that cycles through values instead of opening a picker, see [Tap Action Selects](Actions.md#selects).
+
+> [!IMPORTANT]
+> This functionality is excluded from the following older devices with limited (~98kB) memory: Descent G1 (`descentg1`), Instinct 2 (`instinct2`), Instinct 2S (`instinct2s`), Instinct 2X (`instinct2x`), and Instinct Crossover (`instinctcrossover`). Please upgrade your device for the select menu functionality.
 
 ## Select Entity
 
