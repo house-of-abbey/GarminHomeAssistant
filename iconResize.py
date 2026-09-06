@@ -40,6 +40,7 @@ input_dir         = output_dir_prefix + '48'
 # Convert icons to different screen sizes by these parameters
 lookup = [
   55,
+  54,
   53,
 #  48,
   46,
