@@ -9,6 +9,8 @@
 // tested on a Venu 2 device. The source code is provided at:
 //            https://github.com/house-of-abbey/GarminHomeAssistant
 //
+// @abstractionnl & P A Abbey & J D Abbey, 7 September 2026
+//
 //-----------------------------------------------------------------------------------
 
 using Toybox.Lang;
@@ -33,6 +35,8 @@ class HomeAssistantSelectMenuItem extends HomeAssistantMenuItem {
     private var mValues               as Lang.Array<Lang.String>;
     private var mHasManualOptions     as Lang.Boolean;
 
+    //! Class Constructor
+    //
     function initialize(
         label            as Lang.String or Lang.Symbol,
         template         as Lang.String,
@@ -72,6 +76,10 @@ class HomeAssistantSelectMenuItem extends HomeAssistantMenuItem {
         );
     }
 
+    //! Call a Home Assistant action only after checks have been done for confirmation or PIN entry.
+    //!
+    //! @param value The value to include in the action's data Dictionary in the mDataAttribute field.
+    //
     function callAction(value as Lang.String) as Void {
         mPendingValue = value;
         var hasTouchScreen = System.getDeviceSettings().isTouchScreen;
@@ -128,6 +136,10 @@ class HomeAssistantSelectMenuItem extends HomeAssistantMenuItem {
         }
     }
 
+    //! Callback function after the menu items selection has been (optionally) confirmed.
+    //!
+    //! @param b Ignored. It is included in order to match the expected function prototype of the callback method.
+    //
     function onConfirm(b as Lang.Boolean) as Void {
         var value = mPendingValue;
         mPendingValue = null;
@@ -146,6 +158,12 @@ class HomeAssistantSelectMenuItem extends HomeAssistantMenuItem {
         }
     }
 
+    //! Get the action's data Dictionary to send to Home Assistant with an API call.
+    //!
+    //! @param value The value to include in the action's data Dictionary in the mDataAttribute field.
+    //!
+    //! @return A Dictionary containing the action's data to send to Home Assistant with an API call.
+    //
     private function getActionData(value as Lang.String) as Lang.Dictionary? {
         var entity_id = null as Lang.String?;
         if (mData != null) {
@@ -163,12 +181,15 @@ class HomeAssistantSelectMenuItem extends HomeAssistantMenuItem {
                 data[keys[i]] = mData[keys[i]];
             }
         }
-        data["entity_id"] = entity_id.toString();
+        data["entity_id"]    = entity_id.toString();
         data[mDataAttribute] = value;
         return data;
     }
 
-    //! Template to fetch the current selected value from HA.
+    //! Create a Home Assistant template to fetch the current selected value from Home Assistant.
+    //!
+    //! @return A String containing a template to fetch the currently selected value.
+    //
     function getSelectTemplate() as Lang.String? {
         if (mData == null) {
             return null;
@@ -180,7 +201,11 @@ class HomeAssistantSelectMenuItem extends HomeAssistantMenuItem {
         return "{{states('" + entity_id.toString() + "')}}";
     }
 
-    //! Template to fetch available options from entity attributes (entity-based mode only).
+    //! Create a Home Assistant Home Assistant template to fetch the available options from entity
+    //! attributes (entity-based mode only).
+    //!
+    //! @return A String containing a template to fetch the the available options.
+    //
     function getOptionsTemplate() as Lang.String? {
         if (mHasManualOptions || mData == null) {
             return null;
@@ -203,7 +228,10 @@ class HomeAssistantSelectMenuItem extends HomeAssistantMenuItem {
         WatchUi.requestUpdate();
     }
 
-    //! Parse newline-joined options string from HA into label and value arrays.
+    //! Parse newline-joined options string from Home Assistant into label and value arrays.
+    //!
+    //! @param data A string containing newline-joined options.
+    //
     public function updateOptions(data as Lang.String) as Void {
         var labels = [] as Lang.Array<Lang.String>;
         var values = [] as Lang.Array<Lang.String>;
@@ -224,6 +252,8 @@ class HomeAssistantSelectMenuItem extends HomeAssistantMenuItem {
         mValues = values;
     }
 
+    //! Set the selected value to display on the menu item.
+    //
     public function setSelectedValue(value as Lang.String?) as Void {
         mSelectedValue = value;
         if (getTemplate() == null && value != null) {
@@ -232,22 +262,43 @@ class HomeAssistantSelectMenuItem extends HomeAssistantMenuItem {
         }
     }
 
+    //! Get the selected value displayed on the menu item.
+    //!
+    //! @return The displayed String or Null.
+    //
     public function getSelectedValue() as Lang.String? {
         return mSelectedValue;
     }
 
+    //! Get the array of labels used by the selector.
+    //!
+    //! @return The array of labels used by the selector.
+    //
     public function getLabels() as Lang.Array<Lang.String> {
         return mLabels;
     }
 
+    //! Get the array of values used by the selector.
+    //!
+    //! @return The array of values used by the selector.
+    //
     public function getValues() as Lang.Array<Lang.String> {
         return mValues;
     }
 
+    //! Does the menu item have manually specified options?
+    //! See https://github.com/house-of-abbey/GarminHomeAssistant/blob/main/examples/Select.md#manual-options.
+    //!
+    //! @return `true` if the menu item has manually specified options, otherwise `false`.
+    //
     public function hasManualOptions() as Lang.Boolean {
         return mHasManualOptions;
     }
 
+    //! Determine if the selector has any options based on the number of labels in the internal array.
+    //!
+    //! @return `true` if the array of labels is greater than 0 in length, otherwise `false`.
+    //
     public function hasOptions() as Lang.Boolean {
         return mLabels.size() > 0;
     }

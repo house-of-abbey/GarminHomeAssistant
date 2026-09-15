@@ -131,3 +131,7 @@ Like other actionable items, you can require confirmation or a PIN before the ac
   }
 }
 ```
+
+## Credits
+
+With thanks to [@abstractionnl](https://github.com/abstractionnl) for contributing this solution via pull request [375](https://github.com/house-of-abbey/GarminHomeAssistant/pull/375).

@@ -35,6 +35,9 @@ class HomeAssistantService {
     }
 
     //! Invoke an entity state action with a caller-provided response handler.
+    //! @param url      Home Assistant API URL for the function to be run.
+    //! @param data     Data to be supplied to the action call.
+    //! @param callback Callback function to be called after the request is completed.
     //
     function callEntity(
         url      as Lang.String,

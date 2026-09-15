@@ -9,7 +9,7 @@
 // tested on a Venu 2 device. The source code is provided at:
 //            https://github.com/house-of-abbey/GarminHomeAssistant
 //
-// P A Abbey & J D Abbey & @thmichel, 13 October 2025
+// @thmichel & P A Abbey & J D Abbey, 13 October 2025
 //
 //-----------------------------------------------------------------------------------
 
@@ -94,6 +94,8 @@ class HomeAssistantNumericMenuItem extends HomeAssistantMenuItem {
     }
 
 
+    //! Call a Home Assistant action only after checks have been done for confirmation or PIN entry.
+    //
     function callAction() as Void {
         var hasTouchScreen = System.getDeviceSettings().isTouchScreen;
         if (mPin && hasTouchScreen) {
@@ -151,7 +153,8 @@ class HomeAssistantNumericMenuItem extends HomeAssistantMenuItem {
 
     //! Callback function after the menu items selection has been (optionally) confirmed.
     //!
-    //! @param b Ignored. It is included in order to match the expected function prototype of the callback method.
+    //! @param b Ignored. It is included in order to match the expected function prototype of the
+    //!          callback method.
     //
     function onConfirm(b as Lang.Boolean) as Void {
         var dataAttribute = mPicker["data_attribute"] as Lang.String?;

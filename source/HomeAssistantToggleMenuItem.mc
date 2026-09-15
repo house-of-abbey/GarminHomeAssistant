@@ -68,6 +68,9 @@ class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
     }
 
     //! Set the state of a toggle menu item.
+    //!
+    //! @param state A string with the desired state, either "on" or "off", i.e. from the JSON returned by
+    //!              the API call.
     //
     private function setUiToggle(state as Null or Lang.String) as Void {
         if (state != null) {
@@ -276,6 +279,8 @@ class HomeAssistantToggleMenuItem extends WatchUi.ToggleMenuItem {
     }
 
     //! Call a Home Assistant action only after checks have been done for confirmation or PIN entry.
+    //!
+    //! @param b Boolean Desired state: true to turn on, false to turn off.
     //
     function callAction(b as Lang.Boolean) as Void {
         var hasTouchScreen = System.getDeviceSettings().isTouchScreen;

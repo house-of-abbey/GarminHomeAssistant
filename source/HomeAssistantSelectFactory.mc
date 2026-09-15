@@ -9,6 +9,8 @@
 // tested on a Venu 2 device. The source code is provided at:
 //            https://github.com/house-of-abbey/GarminHomeAssistant
 //
+// @abstractionnl & P A Abbey & J D Abbey, 7 September 2026
+//
 //-----------------------------------------------------------------------------------
 
 using Toybox.Graphics;
@@ -16,6 +18,7 @@ using Toybox.Lang;
 using Toybox.WatchUi;
 
 //! Factory that controls which string options can be picked.
+//
 (:selectView)
 class HomeAssistantSelectFactory extends WatchUi.PickerFactory {
     private var mLabels as Lang.Array<Lang.String>;
@@ -33,6 +36,9 @@ class HomeAssistantSelectFactory extends WatchUi.PickerFactory {
     }
 
     //! Generate a Drawable instance for an item.
+    //!
+    //! @param index    The label index to generate a Drawable for.
+    //! @param selected Unused, but usually `true` if the current item is the selected item, otherwise `false`
     //
     public function getDrawable(
         index    as Lang.Number,
@@ -51,6 +57,8 @@ class HomeAssistantSelectFactory extends WatchUi.PickerFactory {
     }
 
     //! Get the value of the item at the given index.
+    //!
+    //! @param index The index of the label item to get the value for.
     //
     public function getValue(index as Lang.Number) as Lang.Object? {
         if (index >= 0 && index < mValues.size()) {
@@ -59,7 +67,9 @@ class HomeAssistantSelectFactory extends WatchUi.PickerFactory {
         return null;
     }
 
-    //! Get the number of picker items.
+    //! Get the number of items used by the Picker.
+    //!
+    //! @return The number of items in the Picker.
     //
     public function getSize() as Lang.Number {
         return mLabels.size();

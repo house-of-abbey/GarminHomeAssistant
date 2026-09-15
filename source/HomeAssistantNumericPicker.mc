@@ -9,9 +9,9 @@
 // tested on a Venu 2 device. The source code is provided at:
 //            https://github.com/house-of-abbey/GarminHomeAssistant
 //
-// P A Abbey & J D Abbey & @thmichel, 13 October 2025
+// @thmichel & P A Abbey & J D Abbey, 13 October 2025
 //
-//------------------------------------------------------------
+//-----------------------------------------------------------------------------------
 
 using Toybox.Application;
 using Toybox.Lang;
