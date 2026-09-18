@@ -21,7 +21,7 @@ async function get_entities() {
         Authorization: `Bearer ${api_token}`,
       },
       mode: 'cors',
-      body: `{"template":"[{% for entity in states %}[\\"{{ entity.entity_id }}\\",\\"{{ entity.name }}\\",\\"{{ entity.attributes.icon }}\\"]{% if not loop.last %},{% endif %}{% endfor %}]"}`,
+      body: `{"template":"[{% for entity in states %}[\\"{{ entity.entity_id }}\\",\\"{{ entity.name }}\\",\\"{{ entity.attributes.get('icon', 'mdi:bookmark-outline') }}\\"]{% if not loop.last %},{% endif %}{% endfor %}]"}`,
     });
     if (res.status == 401 || res.status == 403) {
       document.querySelector('#api_token').classList.add('invalid');
