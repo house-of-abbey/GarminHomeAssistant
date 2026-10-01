@@ -33,10 +33,10 @@ class HomeAssistantMenuItemFactory {
     //! Class Constructor
     //
     private function initialize() {
-        mMenuItemOptions = {
-            :alignment => Settings.getMenuAlignment(),
-            :hideIcon  => !Settings.getShowTypeIcons()
-        };
+        mMenuItemOptions = { :alignment => Settings.getMenuAlignment() };
+        if (!Settings.getShowTypeIcons()) {
+            HomeAssistantMenuItem.hideTypeIcons(Settings.getMenuAlignment() as WatchUi.MenuItem.Alignment);
+        }
 
         mTapTypeIcon = new WatchUi.Bitmap({
             :rezId => $.Rez.Drawables.TapTypeIcon,
@@ -144,24 +144,24 @@ class HomeAssistantMenuItemFactory {
         }
         if (action != null) {
             options.put(:icon, mTapTypeIcon);
-            return (new HomeAssistantTapMenuItem(
+            return new HomeAssistantTapMenuItem(
                 label,
                 template,
                 action,
                 data,
                 options,
                 mHomeAssistantService
-            )).getMenuItem();
+            );
         } else {
             options[:icon] = mInfoTypeIcon;
-            return (new HomeAssistantTapMenuItem(
+            return new HomeAssistantTapMenuItem(
                 label,
                 template,
                 null,
                 data,
                 options,
                 mHomeAssistantService
-            )).getMenuItem();
+            );
         }
     }
     //! Numeric menu item.
@@ -195,7 +195,7 @@ class HomeAssistantMenuItemFactory {
             options[keys[i]] = mMenuItemOptions.get(keys[i]);
         }
         options[:icon] = mNumericTypeIcon;
-        return (new HomeAssistantNumericMenuItem(
+        return new HomeAssistantNumericMenuItem(
             label,
             template,
             action,
@@ -203,7 +203,7 @@ class HomeAssistantMenuItemFactory {
             picker,
             options,
             mHomeAssistantService
-        )).getMenuItem();
+        );
     }
     //! Group menu item.
     //!
@@ -214,12 +214,12 @@ class HomeAssistantMenuItemFactory {
         definition as Lang.Dictionary,
         template   as Lang.String?
     ) as WatchUi.MenuItem {
-        return (new HomeAssistantGroupMenuItem(
+        return new HomeAssistantGroupMenuItem(
             definition,
             template,
             mGroupTypeIcon,
             mMenuItemOptions
-        )).getMenuItem();
+        );
     }
 
     //! Select menu item.
@@ -283,7 +283,7 @@ class HomeAssistantMenuItemFactory {
             options[keys[i]] = mMenuItemOptions.get(keys[i]);
         }
         options[:icon] = mSelectTypeIcon;
-        return (new HomeAssistantSelectMenuItem(
+        return new HomeAssistantSelectMenuItem(
             definition.get("name") as Lang.String,
             template,
             selectAction,
@@ -293,6 +293,6 @@ class HomeAssistantMenuItemFactory {
             values,
             options,
             mHomeAssistantService
-        )).getMenuItem();
+        );
     }
 }

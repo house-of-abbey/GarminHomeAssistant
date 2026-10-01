@@ -20,63 +20,64 @@ using Toybox.Graphics;
 //! Generic menu button with an icon that optionally renders a Home Assistant Template.
 //
 class HomeAssistantMenuItem extends WatchUi.IconMenuItem {
-    //! Plain menu items displaying menu items without their type icon, keyed by the menu item they
-    //! display. Only created when the type icons are hidden, so otherwise there is no cost per menu item.
-    private static var mPlainItems   as Lang.Dictionary? = null;
-    //! Options shared by all the plain menu items.
+    //! Options for the plain menu items displaying menu items without their type icon, or null while
+    //! the type icons are shown.
     private static var mPlainOptions as { :alignment as WatchUi.MenuItem.Alignment }? = null;
     private var mTemplate as Lang.String?;
+
+    //! Hide the type icons of the menu items created from now on.
+    //!
+    //! @param alignment Menu item alignment.
+    //
+    static function hideTypeIcons(alignment as WatchUi.MenuItem.Alignment) as Void {
+        mPlainOptions = { :alignment => alignment };
+    }
 
     //! Class Constructor
     //!
     //! A `WatchUi.IconMenuItem` always reserves space for its icon, even an empty one, and it cannot
-    //! be created without an icon. So when the type icon is to be hidden, a plain `WatchUi.MenuItem`
-    //! identifying this menu item is created to be displayed in its place, see `getMenuItem()`. This
-    //! menu item still provides all the behaviour and state.
+    //! be created without an icon. So to hide the type icon, a plain `WatchUi.MenuItem` is displayed
+    //! in place of this menu item, and each is the other's identifier: the plain menu item leads to
+    //! this one for the behaviour and state, and this one updates the plain menu item's sub label.
+    //! Menus are built once and kept until the application exits, so this reference cycle is harmless.
     //!
     //! @param label    Menu item label
     //! @param template Menu item template
-    //! @param options  Menu item options to be passed on, and `:hideIcon` to hide the type icon.
+    //! @param options  Menu item options to be passed on.
     //
     function initialize(
         label    as Lang.String or Lang.Symbol,
         template as Lang.String,
         options  as {
             :alignment as WatchUi.MenuItem.Alignment,
-            :icon      as Graphics.BitmapType or WatchUi.Drawable or Lang.Symbol,
-            :hideIcon  as Lang.Boolean
+            :icon      as Graphics.BitmapType or WatchUi.Drawable or Lang.Symbol
         }?
     ) {
+        var plain = null;
+        if (mPlainOptions != null) {
+            plain = new WatchUi.MenuItem(label, null, self, mPlainOptions);
+        }
         WatchUi.IconMenuItem.initialize(
             label,
             null,
-            null,
+            plain,
             options[:icon],
             options
         );
         mTemplate = template;
-        if (options[:hideIcon]) {
-            if (mPlainItems == null) {
-                mPlainItems   = {};
-                mPlainOptions = { :alignment => options[:alignment] };
-            }
-            mPlainItems[self] = new WatchUi.MenuItem(label, null, self, mPlainOptions);
-        }
     }
 
-    //! Return the menu item to add to a menu, i.e. the plain menu item displaying this one without
-    //! its type icon, or this menu item when the type icons are shown.
+    //! Return the menu item to add to a menu, i.e. the plain menu item displaying this one when the
+    //! type icons are hidden, otherwise this menu item.
     //!
     //! @return The menu item to display.
     //
     function getMenuItem() as WatchUi.MenuItem {
-        if (mPlainItems != null) {
-            var plain = mPlainItems[self] as WatchUi.MenuItem?;
-            if (plain != null) {
-                return plain;
-            }
+        var plain = getId() as WatchUi.MenuItem?;
+        if (plain == null) {
+            return self;
         }
-        return self;
+        return plain;
     }
 
     //! Return the menu item providing the behaviour for a menu item taken from a menu, i.e. the menu
@@ -116,11 +117,11 @@ class HomeAssistantMenuItem extends WatchUi.IconMenuItem {
     //! @param subLabel The new sub label.
     //
     function setSubLabel(subLabel as Lang.String or Lang.ResourceId or Null) as Void {
-        var item = getMenuItem();
-        if (item == self) {
+        var plain = getId() as WatchUi.MenuItem?;
+        if (plain == null) {
             WatchUi.IconMenuItem.setSubLabel(subLabel);
         } else {
-            item.setSubLabel(subLabel);
+            plain.setSubLabel(subLabel);
         }
     }
 

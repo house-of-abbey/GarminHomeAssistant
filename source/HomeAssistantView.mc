@@ -204,6 +204,17 @@ class HomeAssistantView extends WatchUi.Menu2 {
         }
     }
 
+    //! Add a menu item, displaying it without its type icon when the user has chosen to hide them.
+    //!
+    //! @param item The menu item to add.
+    //
+    function addItem(item as WatchUi.MenuItem) as Void {
+        if (item instanceof HomeAssistantMenuItem) {
+            item = (item as HomeAssistantMenuItem).getMenuItem();
+        }
+        WatchUi.Menu2.addItem(item);
+    }
+
     //! Return a list of items that need to be updated within this menu structure.
     //!
     //! MN. Lang.Array.addAll() fails structural type checking without including "Null" in the return type
