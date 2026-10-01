@@ -216,6 +216,11 @@ class HomeAssistantView extends WatchUi.Menu2 {
 
         for(var i = 0; i < mItems.size(); i++) {
             var item = lmi[i];
+            var id   = item.getId();
+            if (id instanceof HomeAssistantMenuItem) {
+                // Displayed without its type icon by a plain menu item, so update the original menu item
+                item = id;
+            }
             if (item instanceof HomeAssistantGroupMenuItem) {
                 // Group menu items can now have an optional template to evaluate
                 var gmi = item as HomeAssistantGroupMenuItem;
@@ -302,6 +307,11 @@ class HomeAssistantViewDelegate extends WatchUi.Menu2InputDelegate {
     //
     function onSelect(item as WatchUi.MenuItem) as Void {
         mTimer.reset();
+        var id = item.getId();
+        if (id instanceof HomeAssistantMenuItem) {
+            // Displayed without its type icon by a plain menu item, so action the original menu item
+            item = id;
+        }
         if (item instanceof HomeAssistantToggleMenuItem) {
             var haToggleItem = item as HomeAssistantToggleMenuItem;
             // System.println(haToggleItem.getLabel() + " " + haToggleItem.getId() + " " + haToggleItem.isEnabled());

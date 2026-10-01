@@ -48,6 +48,7 @@ class Settings {
     private static var mConfirmTimeout        as Lang.Number  = 3;
     private static var mPin                   as Lang.String? = "0000";
     private static var mMenuAlignment         as Lang.Number  = WatchUi.MenuItem.MENU_ITEM_LABEL_ALIGN_LEFT;
+    private static var mShowTypeIcons         as Lang.Boolean = true;
     private static var mIsSensorsEnabled      as Lang.Boolean = false;
     //! minutes
     private static var mBatteryRefreshRate    as Lang.Number  = 15;
@@ -83,6 +84,7 @@ class Settings {
         mConfirmTimeout        = Properties.getValue("confirm_timeout");
         mPin                   = validatePin();
         mMenuAlignment         = Properties.getValue("menu_alignment");
+        mShowTypeIcons         = Properties.getValue("show_type_icons");
         mIsSensorsEnabled      = Properties.getValue("enable_battery_level");
         mBatteryRefreshRate    = Properties.getValue("battery_level_refresh_rate");
         mUserHeader1Name       = Properties.getValue("user_http_header1_name");
@@ -333,6 +335,14 @@ class Settings {
     //
     static function getMenuAlignment() as Lang.Number {
         return mMenuAlignment; // Either WatchUi.MenuItem.MENU_ITEM_LABEL_ALIGN_RIGHT or WatchUi.MenuItem.MENU_ITEM_LABEL_ALIGN_LEFT
+    }
+
+    //! Should menu items show their type icon? Hiding them gives the menu item text more room.
+    //!
+    //! @return Boolean for whether the tap, info, group, numeric and select menu items show their type icon.
+    //
+    static function getShowTypeIcons() as Lang.Boolean {
+        return mShowTypeIcons;
     }
 
     //! Is logging of the watch sensors enabled? E.g. battery, activity etc.

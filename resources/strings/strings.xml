@@ -72,6 +72,7 @@
   <string id="SettingsTextAlign">Left (off) or Right (on) Menu Alignment.</string>
   <string id="SettingsLeftToRight">Left to right</string>
   <string id="SettingsRightToLeft">Right to Left</string>
+  <string id="SettingsShowTypeIcons">Show the type icons in front of menu items? Turn off to give the menu text more room. Toggle switches are always shown.</string>
   <string id="SettingsEnableBatteryLevel">Enable the background service to send the device battery level, location and (if supported) activity data to HomeAssistant.</string>
   <string id="SettingsBatteryLevelRefreshRate">The refresh rate (in minutes) at which the background service should repeat sending data.</string>
   <string id="SettingsUserHttpHeader">User supplied HTTP headers</string>

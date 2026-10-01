@@ -402,6 +402,10 @@ The confirmation timeout is also used for the maximum time between clicks in the
 
 There is a toggle setting for "text alignment" that provides finer adjustment for right-to-left languages. Perhaps this could be made automatic based on device language?
 
+### Type Icons
+
+The `tap`, `info`, `group`, `numeric` and `select` menu items show an icon in front of their text to indicate their type. On some devices, particularly those with round screens, the icon and the space reserved for it take up a significant part of each row, so long names and [template](examples/Templates.md) results get cut off. Turning off the "Show the type icons" setting shows these menu items without the icon so that their text can use the whole row. `toggle` menu items always show their switch, as it displays the toggle's state. The change takes effect the next time the application starts.
+
 ### Background Service
 
 The application and widget both include a background service to report your watch's battery level and charging status. You may enable a background service to report the battery level to your HomeAssistant. This is not available over your Bluetooth connection like with other Bluetooth devices as Garmin did not implement it. This no longer requires any setup, and we offer this [trouble shooting](TroubleShooting.md#watch-battery-level-reporting) guide. The last field here is readonly and allows the user to copy & paste the Webhook ID setup by the application when required for this trouble shooting guide.

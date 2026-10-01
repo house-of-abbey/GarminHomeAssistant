@@ -141,24 +141,24 @@ class HomeAssistantMenuItemFactory {
         }
         if (action != null) {
             options.put(:icon, mTapTypeIcon);
-            return new HomeAssistantTapMenuItem(
+            return display(new HomeAssistantTapMenuItem(
                 label,
                 template,
                 action,
                 data,
                 options,
                 mHomeAssistantService
-            );
+            ));
         } else {
             options[:icon] = mInfoTypeIcon;
-            return new HomeAssistantTapMenuItem(
+            return display(new HomeAssistantTapMenuItem(
                 label,
                 template,
                 null,
                 data,
                 options,
                 mHomeAssistantService
-            );
+            ));
         }
     }
     //! Numeric menu item.
@@ -192,7 +192,7 @@ class HomeAssistantMenuItemFactory {
             options[keys[i]] = mMenuItemOptions.get(keys[i]);
         }
         options[:icon] = mNumericTypeIcon;
-        return new HomeAssistantNumericMenuItem(
+        return display(new HomeAssistantNumericMenuItem(
             label,
             template,
             action,
@@ -200,7 +200,7 @@ class HomeAssistantMenuItemFactory {
             picker,
             options,
             mHomeAssistantService
-        );
+        ));
     }
     //! Group menu item.
     //!
@@ -211,12 +211,12 @@ class HomeAssistantMenuItemFactory {
         definition as Lang.Dictionary,
         template   as Lang.String?
     ) as WatchUi.MenuItem {
-        return new HomeAssistantGroupMenuItem(
+        return display(new HomeAssistantGroupMenuItem(
             definition,
             template,
             mGroupTypeIcon,
             mMenuItemOptions
-        );
+        ));
     }
 
     //! Select menu item.
@@ -280,7 +280,7 @@ class HomeAssistantMenuItemFactory {
             options[keys[i]] = mMenuItemOptions.get(keys[i]);
         }
         options[:icon] = mSelectTypeIcon;
-        return new HomeAssistantSelectMenuItem(
+        return display(new HomeAssistantSelectMenuItem(
             definition.get("name") as Lang.String,
             template,
             selectAction,
@@ -290,6 +290,31 @@ class HomeAssistantMenuItemFactory {
             values,
             options,
             mHomeAssistantService
+        ));
+    }
+
+    //! Display a menu item without its type icon when the user has chosen to hide the type icons.
+    //!
+    //! A `WatchUi.IconMenuItem` always reserves space for its icon, even an empty one, and it cannot
+    //! be created without an icon. So a plain `WatchUi.MenuItem` is displayed in its place, with the
+    //! original menu item as its identifier. The original menu item still provides all the behaviour
+    //! and state, and keeps the plain menu item's sub label up to date.
+    //!
+    //! @param item The menu item to display.
+    //!
+    //! @return The menu item to add to the menu.
+    //
+    private function display(item as HomeAssistantMenuItem) as WatchUi.MenuItem {
+        if (Settings.getShowTypeIcons()) {
+            return item;
+        }
+        var plain = new WatchUi.MenuItem(
+            item.getLabel(),
+            null,
+            item,
+            { :alignment => Settings.getMenuAlignment() as WatchUi.MenuItem.Alignment }
         );
+        HomeAssistantMenuItem.setPlainMenuItem(item, plain);
+        return plain;
     }
 }

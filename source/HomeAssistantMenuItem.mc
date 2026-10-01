@@ -20,6 +20,9 @@ using Toybox.Graphics;
 //! Generic menu button with an icon that optionally renders a Home Assistant Template.
 //
 class HomeAssistantMenuItem extends WatchUi.IconMenuItem {
+    //! Plain menu items displaying menu items without their type icon, keyed by the menu item they
+    //! display. Only created when the type icons are hidden, so otherwise there is no cost per menu item.
+    private static var mPlainItems as Lang.Dictionary? = null;
     private var mTemplate as Lang.String?;
 
     //! Class Constructor
@@ -60,6 +63,33 @@ class HomeAssistantMenuItem extends WatchUi.IconMenuItem {
     //
     function getTemplate() as Lang.String? {
         return mTemplate;
+    }
+
+    //! Record the plain menu item that displays a menu item without its type icon, so that the plain
+    //! menu item's sub label can be kept in step.
+    //!
+    //! @param item  The menu item being displayed.
+    //! @param plain The plain menu item displaying it.
+    //
+    static function setPlainMenuItem(item as HomeAssistantMenuItem, plain as WatchUi.MenuItem) as Void {
+        if (mPlainItems == null) {
+            mPlainItems = {};
+        }
+        mPlainItems[item] = plain;
+    }
+
+    //! Set the menu item's sub label, and that of the plain menu item displaying it (if any).
+    //!
+    //! @param subLabel The new sub label.
+    //
+    function setSubLabel(subLabel as Lang.String or Lang.ResourceId or Null) as Void {
+        WatchUi.IconMenuItem.setSubLabel(subLabel);
+        if (mPlainItems != null) {
+            var plain = mPlainItems[self] as WatchUi.MenuItem?;
+            if (plain != null) {
+                plain.setSubLabel(subLabel);
+            }
+        }
     }
 
     //! Update the menu item's sub label to display the template rendered by Home Assistant.
