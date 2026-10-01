@@ -50,7 +50,8 @@ class HomeAssistantSelectMenuItem extends HomeAssistantMenuItem {
             :icon      as Graphics.BitmapType or WatchUi.Drawable or Lang.Symbol,
             :exit      as Lang.Boolean,
             :confirm   as Lang.Boolean,
-            :pin       as Lang.Boolean
+            :pin       as Lang.Boolean,
+            :hideIcon  as Lang.Boolean
         }?,
         haService        as HomeAssistantService
     ) {
@@ -71,7 +72,8 @@ class HomeAssistantSelectMenuItem extends HomeAssistantMenuItem {
             template,
             {
                 :alignment => options[:alignment],
-                :icon      => options[:icon]
+                :icon      => options[:icon],
+                :hideIcon  => options[:hideIcon]
             }
         );
     }
