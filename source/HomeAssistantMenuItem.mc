@@ -78,18 +78,20 @@ class HomeAssistantMenuItem extends WatchUi.IconMenuItem {
         mPlainItems[item] = plain;
     }
 
-    //! Set the menu item's sub label, and that of the plain menu item displaying it (if any).
+    //! Set the sub label of the menu item being displayed, i.e. this one or the plain menu item
+    //! displaying it without its type icon.
     //!
     //! @param subLabel The new sub label.
     //
     function setSubLabel(subLabel as Lang.String or Lang.ResourceId or Null) as Void {
-        WatchUi.IconMenuItem.setSubLabel(subLabel);
         if (mPlainItems != null) {
             var plain = mPlainItems[self] as WatchUi.MenuItem?;
             if (plain != null) {
                 plain.setSubLabel(subLabel);
+                return;
             }
         }
+        WatchUi.IconMenuItem.setSubLabel(subLabel);
     }
 
     //! Update the menu item's sub label to display the template rendered by Home Assistant.

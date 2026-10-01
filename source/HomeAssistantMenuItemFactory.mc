@@ -21,6 +21,9 @@ using Toybox.WatchUi;
 //
 class HomeAssistantMenuItemFactory {
     private var mMenuItemOptions      as Lang.Dictionary;
+    //! Options shared by the plain menu items that display menu items without their type icon, or
+    //! null when the type icons are shown.
+    private var mPlainItemOptions     as { :alignment as WatchUi.MenuItem.Alignment }?;
     private var mTapTypeIcon          as WatchUi.Bitmap;
     private var mGroupTypeIcon        as WatchUi.Bitmap;
     private var mInfoTypeIcon         as WatchUi.Bitmap;
@@ -34,6 +37,9 @@ class HomeAssistantMenuItemFactory {
     //
     private function initialize() {
         mMenuItemOptions = { :alignment => Settings.getMenuAlignment() };
+        if (!Settings.getShowTypeIcons()) {
+            mPlainItemOptions = { :alignment => Settings.getMenuAlignment() as WatchUi.MenuItem.Alignment };
+        }
 
         mTapTypeIcon = new WatchUi.Bitmap({
             :rezId => $.Rez.Drawables.TapTypeIcon,
@@ -305,15 +311,10 @@ class HomeAssistantMenuItemFactory {
     //! @return The menu item to add to the menu.
     //
     private function display(item as HomeAssistantMenuItem) as WatchUi.MenuItem {
-        if (Settings.getShowTypeIcons()) {
+        if (mPlainItemOptions == null) {
             return item;
         }
-        var plain = new WatchUi.MenuItem(
-            item.getLabel(),
-            null,
-            item,
-            { :alignment => Settings.getMenuAlignment() as WatchUi.MenuItem.Alignment }
-        );
+        var plain = new WatchUi.MenuItem(item.getLabel(), null, item, mPlainItemOptions);
         HomeAssistantMenuItem.setPlainMenuItem(item, plain);
         return plain;
     }
