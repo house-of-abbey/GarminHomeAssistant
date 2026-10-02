@@ -29,7 +29,8 @@ class HomeAssistantMenuItem extends WatchUi.IconMenuItem {
     //!
     //! A `WatchUi.IconMenuItem` always reserves space for its icon, even an empty one, and cannot be
     //! created without one. So when the type icons are hidden, a plain `WatchUi.MenuItem` is
-    //! displayed in place of this menu item. Each is the other's identifier, see `counterpart()`.
+    //! displayed in place of this menu item. Each is the other's identifier, see
+    //! `HomeAssistantView.addItem()` and `fromDisplayedItem()`.
     //!
     //! @param label    Menu item label
     //! @param template Menu item template
@@ -53,17 +54,16 @@ class HomeAssistantMenuItem extends WatchUi.IconMenuItem {
         mTemplate = template;
     }
 
-    //! Return a menu item's counterpart while the type icons are hidden: the plain menu item
-    //! displaying a `HomeAssistantMenuItem`, or the `HomeAssistantMenuItem` a plain menu item
-    //! displays. Otherwise a menu item is its own counterpart.
+    //! Return the menu item behind a menu item taken from a menu: the `HomeAssistantMenuItem` a
+    //! plain menu item displays while the type icons are hidden, otherwise the menu item itself.
     //!
-    //! @param item A menu item.
+    //! @param item A menu item taken from a menu.
     //!
-    //! @return The menu item's counterpart.
+    //! @return The menu item providing the behaviour and state.
     //
-    static function counterpart(item as WatchUi.MenuItem) as WatchUi.MenuItem {
-        var other = item.getId();
-        return (other instanceof WatchUi.MenuItem) ? other : item;
+    static function fromDisplayedItem(item as WatchUi.MenuItem) as WatchUi.MenuItem {
+        var behind = item.getId();
+        return (behind instanceof HomeAssistantMenuItem) ? behind : item;
     }
 
     //! Does this menu item use a template?
