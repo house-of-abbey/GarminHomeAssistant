@@ -204,13 +204,14 @@ class HomeAssistantView extends WatchUi.Menu2 {
         }
     }
 
-    //! Add a menu item, displaying it without its type icon when the user has chosen to hide them.
+    //! Overrides `WatchUi.Menu2.addItem()` so that a menu item is added as the menu item to display
+    //! for it, i.e. a plain menu item in its place when the type icons are hidden.
     //!
     //! @param item The menu item to add.
     //
     function addItem(item as WatchUi.MenuItem) as Void {
         if (item instanceof HomeAssistantMenuItem) {
-            item = (item as HomeAssistantMenuItem).getMenuItem();
+            item = (item as HomeAssistantMenuItem).getDisplayedItem();
         }
         WatchUi.Menu2.addItem(item);
     }
@@ -226,8 +227,7 @@ class HomeAssistantView extends WatchUi.Menu2 {
         var lmi = mItems as Lang.Array<WatchUi.MenuItem>;
 
         for(var i = 0; i < mItems.size(); i++) {
-            // A plain menu item displaying a menu item without its type icon is updated via the original
-            var item = HomeAssistantMenuItem.fromMenuItem(lmi[i]);
+            var item = HomeAssistantMenuItem.fromDisplayedItem(lmi[i]);
             if (item instanceof HomeAssistantGroupMenuItem) {
                 // Group menu items can now have an optional template to evaluate
                 var gmi = item as HomeAssistantGroupMenuItem;
@@ -314,8 +314,7 @@ class HomeAssistantViewDelegate extends WatchUi.Menu2InputDelegate {
     //
     function onSelect(item as WatchUi.MenuItem) as Void {
         mTimer.reset();
-        // A plain menu item displaying a menu item without its type icon is actioned via the original
-        item = HomeAssistantMenuItem.fromMenuItem(item);
+        item = HomeAssistantMenuItem.fromDisplayedItem(item);
         if (item instanceof HomeAssistantToggleMenuItem) {
             var haToggleItem = item as HomeAssistantToggleMenuItem;
             // System.println(haToggleItem.getLabel() + " " + haToggleItem.getId() + " " + haToggleItem.isEnabled());

@@ -34,7 +34,9 @@ class HomeAssistantMenuItemFactory {
     //
     private function initialize() {
         mMenuItemOptions = { :alignment => Settings.getMenuAlignment() };
-        if (!Settings.getShowTypeIcons()) {
+        // Read here rather than in Settings, which is also part of the glance and background service
+        // where the setting is not needed.
+        if (!(Application.Properties.getValue("show_type_icons") as Lang.Boolean)) {
             HomeAssistantMenuItem.hideTypeIcons(Settings.getMenuAlignment() as WatchUi.MenuItem.Alignment);
         }
 
