@@ -404,7 +404,7 @@ There is a toggle setting for "text alignment" that provides finer adjustment fo
 
 ### Type Icons
 
-The `tap`, `info`, `group`, `numeric` and `select` menu items show an icon in front of their text to indicate their type. On some devices, particularly those with round screens, the icon and the space reserved for it take up a significant part of each row, so long names and [template](examples/Templates.md) results get cut off. Turning off the "Show the type icons" setting shows these menu items without the icon so that their text can use the whole row. `toggle` menu items always show their switch, as it displays the toggle's state. The change takes effect the next time the application starts.
+The `tap`, `info`, `group`, `numeric` and `select` menu items show an icon in front of their text to indicate their type. On some devices, particularly those with round screens, the icon and the space reserved for it take up a significant part of each row, so long names and [template](examples/Templates.md) results get cut off. Turning off the "Show the type icons" setting shows these menu items without the icon so that their text can use the whole row. `toggle` menu items always show their switch, as it displays the toggle's state. The change takes effect the next time the application starts. Hiding the icons needs about 150 bytes more memory per menu item, which only matters on the devices with the least memory, see [Device Support & Characterisation](Devices.md).
 
 ### Background Service
 

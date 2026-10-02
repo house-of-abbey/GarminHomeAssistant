@@ -22,15 +22,6 @@ using Toybox.WatchUi;
 //! Home Assistant menu construction.
 //
 class HomeAssistantView extends WatchUi.Menu2 {
-    //! ID of the setting to show the type icons, as in `resources/settings/properties.xml`.
-    private static const scPropertyShowTypeIcons as Lang.String = "show_type_icons";
-
-    //! Options shared by the plain menu items displayed in place of menu items when the type icons
-    //! are hidden, otherwise null.
-    private static var mPlainOptions as { :alignment as WatchUi.MenuItem.Alignment }? = null;
-    //! Those plain menu items, keyed by the menu item each one displays. Only created when the type
-    //! icons are hidden, so there is no cost per menu item otherwise.
-    private static var mPlainItems   as Lang.Dictionary? = null;
 
     //! Class Constructor
     //
@@ -47,9 +38,6 @@ class HomeAssistantView extends WatchUi.Menu2 {
             options[:title] = definition.get("title") as Lang.String;
         }
         WatchUi.Menu2.initialize(options);
-        if (mPlainOptions == null && !(Application.Properties.getValue(scPropertyShowTypeIcons) as Lang.Boolean)) {
-            mPlainOptions = { :alignment => Settings.getMenuAlignment() as WatchUi.MenuItem.Alignment };
-        }
 
         var items = definition.get("items") as Lang.Array<Lang.Dictionary>;
         for (var i = 0; i < items.size(); i++) {
@@ -216,46 +204,13 @@ class HomeAssistantView extends WatchUi.Menu2 {
         }
     }
 
-    //! Overrides `WatchUi.Menu2.addItem()` so that, when the type icons are hidden, a plain menu item
-    //! is added in place of a `HomeAssistantMenuItem`. A `WatchUi.IconMenuItem` always reserves space
-    //! for its icon, even an empty one, and cannot be created without one. The plain menu item's
-    //! identifier is the menu item it displays, which keeps all the behaviour and state.
+    //! Overrides `WatchUi.Menu2.addItem()` to add a menu item's counterpart, i.e. the plain menu
+    //! item displaying it while the type icons are hidden.
     //!
     //! @param item The menu item to add.
     //
     function addItem(item as WatchUi.MenuItem) as Void {
-        var plainOptions = mPlainOptions;
-        if (plainOptions != null && item instanceof HomeAssistantMenuItem) {
-            var plain = new WatchUi.MenuItem(item.getLabel(), null, item, plainOptions);
-            if (mPlainItems == null) {
-                mPlainItems = {};
-            }
-            mPlainItems[item] = plain;
-            item = plain;
-        }
-        WatchUi.Menu2.addItem(item);
-    }
-
-    //! Return the plain menu item displaying a menu item when the type icons are hidden.
-    //!
-    //! @param item A menu item.
-    //!
-    //! @return The plain menu item displaying `item`, or null.
-    //
-    static function getPlainItem(item as HomeAssistantMenuItem) as WatchUi.MenuItem? {
-        return (mPlainItems == null) ? null : mPlainItems[item] as WatchUi.MenuItem?;
-    }
-
-    //! Return the menu item behind a menu item taken from a menu, i.e. the menu item a plain menu
-    //! item displays, otherwise the menu item itself.
-    //!
-    //! @param item A menu item taken from a menu.
-    //!
-    //! @return The menu item providing the behaviour and state.
-    //
-    static function unwrap(item as WatchUi.MenuItem) as WatchUi.MenuItem {
-        var displayed = item.getId();
-        return (displayed instanceof HomeAssistantMenuItem) ? displayed : item;
+        WatchUi.Menu2.addItem(HomeAssistantMenuItem.counterpart(item));
     }
 
     //! Return a list of items that need to be updated within this menu structure.
@@ -269,7 +224,7 @@ class HomeAssistantView extends WatchUi.Menu2 {
         var lmi = mItems as Lang.Array<WatchUi.MenuItem>;
 
         for(var i = 0; i < mItems.size(); i++) {
-            var item = unwrap(lmi[i]);
+            var item = HomeAssistantMenuItem.counterpart(lmi[i]);
             if (item instanceof HomeAssistantGroupMenuItem) {
                 // Group menu items can now have an optional template to evaluate
                 var gmi = item as HomeAssistantGroupMenuItem;
@@ -356,7 +311,7 @@ class HomeAssistantViewDelegate extends WatchUi.Menu2InputDelegate {
     //
     function onSelect(item as WatchUi.MenuItem) as Void {
         mTimer.reset();
-        item = HomeAssistantView.unwrap(item);
+        item = HomeAssistantMenuItem.counterpart(item);
         if (item instanceof HomeAssistantToggleMenuItem) {
             var haToggleItem = item as HomeAssistantToggleMenuItem;
             // System.println(haToggleItem.getLabel() + " " + haToggleItem.getId() + " " + haToggleItem.isEnabled());

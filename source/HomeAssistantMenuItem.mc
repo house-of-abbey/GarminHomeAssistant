@@ -20,9 +20,16 @@ using Toybox.Graphics;
 //! Generic menu button with an icon that optionally renders a Home Assistant Template.
 //
 class HomeAssistantMenuItem extends WatchUi.IconMenuItem {
+    //! Options for the plain menu items displayed in place of menu items when the type icons are
+    //! hidden, otherwise null. Set by `HomeAssistantMenuItemFactory`.
+    static var mPlainOptions as { :alignment as WatchUi.MenuItem.Alignment }? = null;
     private var mTemplate as Lang.String?;
 
     //! Class Constructor
+    //!
+    //! A `WatchUi.IconMenuItem` always reserves space for its icon, even an empty one, and cannot be
+    //! created without one. So when the type icons are hidden, a plain `WatchUi.MenuItem` is
+    //! displayed in place of this menu item. Each is the other's identifier, see `counterpart()`.
     //!
     //! @param label    Menu item label
     //! @param template Menu item template
@@ -39,11 +46,24 @@ class HomeAssistantMenuItem extends WatchUi.IconMenuItem {
         WatchUi.IconMenuItem.initialize(
             label,
             null,
-            null,
+            mPlainOptions == null ? null : new WatchUi.MenuItem(label, null, self, mPlainOptions),
             options[:icon],
             options
         );
         mTemplate = template;
+    }
+
+    //! Return a menu item's counterpart while the type icons are hidden: the plain menu item
+    //! displaying a `HomeAssistantMenuItem`, or the `HomeAssistantMenuItem` a plain menu item
+    //! displays. Otherwise a menu item is its own counterpart.
+    //!
+    //! @param item A menu item.
+    //!
+    //! @return The menu item's counterpart.
+    //
+    static function counterpart(item as WatchUi.MenuItem) as WatchUi.MenuItem {
+        var other = item.getId();
+        return (other instanceof WatchUi.MenuItem) ? other : item;
     }
 
     //! Does this menu item use a template?
@@ -69,7 +89,7 @@ class HomeAssistantMenuItem extends WatchUi.IconMenuItem {
     //! @param subLabel The new sub label.
     //
     function setSubLabel(subLabel as Lang.String or Lang.ResourceId or Null) as Void {
-        var plain = HomeAssistantView.getPlainItem(self);
+        var plain = getId() as WatchUi.MenuItem?;
         if (plain == null) {
             WatchUi.IconMenuItem.setSubLabel(subLabel);
         } else {
