@@ -406,6 +406,18 @@ There is a toggle setting for "text alignment" that provides finer adjustment fo
 
 The `tap`, `info`, `group`, `numeric` and `select` menu items show an icon in front of their text to indicate their type. On some devices, particularly those with round screens, the icon and the space reserved for it take up a significant part of each row, so long names and [template](examples/Templates.md) results get cut off. Turning off the "Show the type icons" setting shows these menu items without the icon so that their text can use the whole row. `toggle` menu items always show their switch, as it displays the toggle's state. The change takes effect the next time the application starts. Hiding the icons needs about 150 bytes more memory per menu item, which only matters on the devices with the least memory, see [Device Support & Characterisation](Devices.md).
 
+Some watches, such as the Venu 2, centre a menu item without an icon, whatever the "text alignment" setting. If you would rather have these menu items on the left, add spaces to the end of their `name` and `content` in your menu configuration, followed by a zero-width space, `\u200b`. Home Assistant removes spaces from the end of a template's result, but not when the zero-width space follows them, and the watch doesn't show it. The number of spaces depends on the watch and the length of the text, so adjust it until the text lines up. For example, on a Venu 2:
+
+```json
+{
+  "name": "Hallway                       \u200b",
+  "type": "info",
+  "content": "{{ states('sensor.hallway_temperature') }}°C{{ ' ' * 43 }}\u200b"
+}
+```
+
+Here the name has 23 spaces, and `{{ ' ' * 43 }}` adds 43 spaces after the temperature. Only pad the menu items on watches that centre them, as watches that already show them on the left may shorten the padded text with an ellipsis.
+
 ### Background Service
 
 The application and widget both include a background service to report your watch's battery level and charging status. You may enable a background service to report the battery level to your HomeAssistant. This is not available over your Bluetooth connection like with other Bluetooth devices as Garmin did not implement it. This no longer requires any setup, and we offer this [trouble shooting](TroubleShooting.md#watch-battery-level-reporting) guide. The last field here is readonly and allows the user to copy & paste the Webhook ID setup by the application when required for this trouble shooting guide.
