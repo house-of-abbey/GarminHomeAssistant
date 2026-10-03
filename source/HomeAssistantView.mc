@@ -217,7 +217,7 @@ class HomeAssistantView extends WatchUi.Menu2 {
 
     //! Return a list of items that need to be updated within this menu structure.
     //!
-    //! MN. Lang.Array.addAll() fails structural type checking without including "Null" in the return type
+    //! NB. Lang.Array.addAll() fails structural type checking without including "Null" in the return type
     //!
     //! @return An array of menu items that need to be updated periodically to reflect the latest Home Assistant state.
     //
@@ -226,7 +226,7 @@ class HomeAssistantView extends WatchUi.Menu2 {
         var lmi = mItems as Lang.Array<WatchUi.MenuItem>;
 
         for(var i = 0; i < mItems.size(); i++) {
-            var item = HomeAssistantMenuItem.fromDisplayedItem(lmi[i]);
+            var item = HomeAssistantMenuItem.getDisplayedItem(lmi[i]);
             if (item instanceof HomeAssistantGroupMenuItem) {
                 // Group menu items can now have an optional template to evaluate
                 var gmi = item as HomeAssistantGroupMenuItem;
@@ -313,7 +313,7 @@ class HomeAssistantViewDelegate extends WatchUi.Menu2InputDelegate {
     //
     function onSelect(item as WatchUi.MenuItem) as Void {
         mTimer.reset();
-        item = HomeAssistantMenuItem.fromDisplayedItem(item);
+        item = HomeAssistantMenuItem.getDisplayedItem(item);
         if (item instanceof HomeAssistantToggleMenuItem) {
             var haToggleItem = item as HomeAssistantToggleMenuItem;
             // System.println(haToggleItem.getLabel() + " " + haToggleItem.getId() + " " + haToggleItem.isEnabled());

@@ -17,12 +17,16 @@ using Toybox.Lang;
 using Toybox.WatchUi;
 using Toybox.Graphics;
 
-//! Generic menu button with an icon that optionally renders a Home Assistant Template.
+//! Generic menu item with an icon that optionally renders a Home Assistant Template.
+//! With version 3.17, KostaMadorsky provided an efficient means to render menu items
+//! without icons, and avoiding the awkwardnesses of dual inheritance. The feature
+//! adds a non-icon menu item to an instance of this object, which does increase memory
+//! usage when the option is selected, but crucially avoids consuming too much more
+//! memory for older 98k devices by keeping the option de-selected. The effect of this
+//! change is to allow the space for the type icon to be reclaimed for text via an
+//! global application toggle option in the settings.
 //
 class HomeAssistantMenuItem extends WatchUi.IconMenuItem {
-    //! Options for the plain menu items displayed in place of menu items when the type icons are
-    //! hidden, otherwise null. Set by `HomeAssistantMenuItemFactory`.
-    static var mPlainOptions as { :alignment as WatchUi.MenuItem.Alignment }? = null;
     private var mTemplate as Lang.String?;
 
     //! Class Constructor
@@ -30,7 +34,7 @@ class HomeAssistantMenuItem extends WatchUi.IconMenuItem {
     //! A `WatchUi.IconMenuItem` always reserves space for its icon, even an empty one, and cannot be
     //! created without one. So when the type icons are hidden, a plain `WatchUi.MenuItem` is
     //! displayed in place of this menu item. Each is the other's identifier, see
-    //! `HomeAssistantView.addItem()` and `fromDisplayedItem()`.
+    //! `HomeAssistantView.addItem()` and `getDisplayedItem()`.
     //!
     //! @param label    Menu item label
     //! @param template Menu item template
@@ -47,21 +51,23 @@ class HomeAssistantMenuItem extends WatchUi.IconMenuItem {
         WatchUi.IconMenuItem.initialize(
             label,
             null,
-            mPlainOptions == null ? null : new WatchUi.MenuItem(label, null, self, mPlainOptions),
+            // options[:icon] will just be ignored, no need to create a new Lang.Dictionary.
+            /* identifier: */ Settings.isShowTypeIcons() ? null : new WatchUi.MenuItem(label, null, self, options),
             options[:icon],
             options
         );
         mTemplate = template;
     }
 
-    //! Return the menu item behind a menu item taken from a menu: the `HomeAssistantMenuItem` a
-    //! plain menu item displays while the type icons are hidden, otherwise the menu item itself.
+    //! Returns the menu item to be displayed. Either the item passed in, if icons are shown, or the non-icon item.
+    //! The non-icon item is the *identifier* of the icon menu item passed when it is initialised, see `initialize()`.
     //!
-    //! @param item A menu item taken from a menu.
+    //! @param item A HomeAssistantMenuItem
     //!
     //! @return The menu item providing the behaviour and state.
     //
-    static function fromDisplayedItem(item as WatchUi.MenuItem) as WatchUi.MenuItem {
+    static function getDisplayedItem(item as WatchUi.MenuItem) as WatchUi.MenuItem {
+        // `getId()` returns the non-icon menu item passed as *identifier* when initialised
         var behind = item.getId();
         return (behind instanceof HomeAssistantMenuItem) ? behind : item;
     }
@@ -83,8 +89,9 @@ class HomeAssistantMenuItem extends WatchUi.IconMenuItem {
     }
 
     //! Overrides `WatchUi.MenuItem.setSubLabel()` so that the sub label updates made by
-    //! `updateState()`, here and in the subclasses, reach the plain menu item displaying this one
-    //! when the type icons are hidden.
+    //! `updateState()`, here and in the subclasses, reach the plain menu item being displayed
+    //! when the type icons are hidden. This override effectively proxies the sub label update
+    //! call and redirects to which ever menu item object is currently being displayed.
     //!
     //! @param subLabel The new sub label.
     //
