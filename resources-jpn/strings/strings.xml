@@ -78,6 +78,7 @@
   <string id="SettingsTextAlign">メニューの配置：左（オフ）または右（オン）。</string>
   <string id="SettingsLeftToRight">左から右</string>
   <string id="SettingsRightToLeft">右から左</string>
+  <string id="SettingsShowTypeIcons">メニュー項目の前にタイプアイコンを表示しますか？オフにすると、メニューテキストのスペースが広がります。トグルスイッチは常に表示されます。</string>
   <string id="SettingsEnableBatteryLevel">バックグラウンドサービスによるデバイスのバッテリーレベル、位置情報、および（サポートされている場合）アクティビティデータのHome
     Assistantへの送信を有効にする。</string>
   <string id="SettingsBatteryLevelRefreshRate">バックグラウンドサービスがデータを送信するリフレッシュレート（分）。</string>

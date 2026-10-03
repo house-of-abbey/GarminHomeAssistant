@@ -89,6 +89,7 @@
   <string id="SettingsTextAlign">Alignement du menu : Gauche (désactivé) ou Droit (activé).</string>
   <string id="SettingsLeftToRight">De gauche à droite</string>
   <string id="SettingsRightToLeft">De droite à gauche</string>
+  <string id="SettingsShowTypeIcons">Afficher les icônes de type devant les éléments de menu ? Désactivez cette option pour donner plus d'espace au texte du menu. Les interrupteurs à bascule sont toujours affichés.</string>
   <string id="SettingsEnableBatteryLevel">Activer le service d'arrière-plan pour envoyer le niveau
     de la batterie de l'appareil, l'emplacement et (le cas échéant) les données d'activité à Home
     Assistant.</string>

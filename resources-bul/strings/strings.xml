@@ -77,6 +77,7 @@
   <string id="SettingsTextAlign">Наляво (изключено) или вдясно (включено) изравняване на менюто.</string>
   <string id="SettingsLeftToRight">Отляво надясно</string>
   <string id="SettingsRightToLeft">Отдясно наляво</string>
+  <string id="SettingsShowTypeIcons">Показване на иконите за тип пред елементите от менюто? Изключете, за да дадете повече място на текста в менюто. Превключвателите винаги се показват.</string>
   <string id="SettingsEnableBatteryLevel">Активиране на фоновата услуга за изпращане на нивото на батерията на устройството, местоположението и (ако се поддържа) данни за активност към Home Assistant.</string>
   <string id="SettingsBatteryLevelRefreshRate">Скоростта на опресняване (в минути), при която фоновата услуга трябва да повтаря изпращането на данни.</string>
   <string id="SettingsUserHttpHeader">Потребителска HTTP заглавка</string>

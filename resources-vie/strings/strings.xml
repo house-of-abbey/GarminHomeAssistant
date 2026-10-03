@@ -84,6 +84,7 @@
   <string id="SettingsTextAlign">Căn chỉnh menu: Trái (tắt) hoặc Phải (bật).</string>
   <string id="SettingsLeftToRight">Trái sang phải</string>
   <string id="SettingsRightToLeft">Phải sang trái</string>
+  <string id="SettingsShowTypeIcons">Hiển thị biểu tượng loại trước các mục menu? Tắt để văn bản menu có nhiều không gian hơn. Các công tắc bật/tắt luôn được hiển thị.</string>
   <string id="SettingsEnableBatteryLevel">Cho phép dịch vụ nền gửi mức pin của thiết bị, vị trí và
     dữ liệu hoạt động (nếu được hỗ trợ) đến Home Assistant.</string>
   <string id="SettingsBatteryLevelRefreshRate">Tốc độ làm mới (tính bằng phút) mà dịch vụ nền sẽ

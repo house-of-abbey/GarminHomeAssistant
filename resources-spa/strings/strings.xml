@@ -90,6 +90,7 @@
   <string id="SettingsTextAlign">Alineación del menú: izquierda (desactivado) o derecha (activado).</string>
   <string id="SettingsLeftToRight">De izquierda a derecha</string>
   <string id="SettingsRightToLeft">De derecha a izquierda</string>
+  <string id="SettingsShowTypeIcons">¿Mostrar los iconos de tipo delante de los elementos del menú? Desactivar para dar más espacio al texto del menú. Los interruptores de palanca siempre se muestran.</string>
   <string id="SettingsEnableBatteryLevel">Habilitar el servicio en segundo plano para enviar el
     nivel de batería del dispositivo, la ubicación y (si es compatible) los datos de actividad a
     Home Assistant.</string>

@@ -87,6 +87,7 @@
   <string id="SettingsTextAlign">Alinhamento do menu: Esquerda (desativado) ou Direita (ativado).</string>
   <string id="SettingsLeftToRight">Da esquerda para a direita</string>
   <string id="SettingsRightToLeft">Direita para a esquerda</string>
+  <string id="SettingsShowTypeIcons">Mostrar os ícones de tipo na frente dos itens do menu? Desative para dar mais espaço ao texto do menu. Os interruptores de alternância são sempre mostrados.</string>
   <string id="SettingsEnableBatteryLevel">Ativar o serviço em segundo plano para enviar o nível da
     bateria do dispositivo, localização e (se suportado) dados de atividade para Home Assistant.</string>
   <string id="SettingsBatteryLevelRefreshRate">A taxa de atualização (em minutos) na qual o serviço

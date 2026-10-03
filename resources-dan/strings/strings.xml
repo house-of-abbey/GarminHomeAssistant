@@ -77,6 +77,7 @@
   <string id="SettingsTextAlign">Venstre (fra) eller højre (til) menujustering.</string>
   <string id="SettingsLeftToRight">Venstre til højre</string>
   <string id="SettingsRightToLeft">Højre til venstre</string>
+  <string id="SettingsShowTypeIcons">Vis typeikoner foran menupunkter? Slå fra for at give menuteksten mere plads. Skiftekontakter vises altid.</string>
   <string id="SettingsEnableBatteryLevel">Aktivér baggrundstjenesten til at sende enhedens batteriniveau, lokation og (hvis understøttet) aktivitetsdata til Home Assistant.</string>
   <string id="SettingsBatteryLevelRefreshRate">Opdateringshastigheden (i minutter), hvormed baggrundstjenesten skal gentage afsendelse af data.</string>
   <string id="SettingsUserHttpHeader">Brugerdefineret HTTP-header</string>

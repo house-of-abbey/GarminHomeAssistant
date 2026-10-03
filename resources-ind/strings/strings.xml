@@ -86,6 +86,7 @@
   <string id="SettingsTextAlign">Penjajaran Menu Kiri (mati) atau Kanan (hidup).</string>
   <string id="SettingsLeftToRight">Kiri ke kanan</string>
   <string id="SettingsRightToLeft">Kanan ke kiri</string>
+  <string id="SettingsShowTypeIcons">Tampilkan ikon jenis di depan item menu? Matikan untuk memberi lebih banyak ruang pada teks menu. Tombol sakelar selalu ditampilkan.</string>
   <string id="SettingsEnableBatteryLevel">Aktifkan layanan latar belakang untuk mengirim tingkat
     baterai perangkat, lokasi, dan (jika didukung) data aktivitas ke Home Assistant.</string>
   <string id="SettingsBatteryLevelRefreshRate">Tingkat refresh (dalam menit) di mana layanan latar

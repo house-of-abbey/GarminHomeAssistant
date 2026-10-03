@@ -84,6 +84,7 @@
   <string id="SettingsTextAlign">Vänster (av) eller höger (på) menyinriktning.</string>
   <string id="SettingsLeftToRight">Vänster till höger</string>
   <string id="SettingsRightToLeft">Höger till vänster</string>
+  <string id="SettingsShowTypeIcons">Visa typikoner framför menyalternativ? Stäng av för att ge menytexten mer utrymme. Växlingsknappar visas alltid.</string>
   <string id="SettingsEnableBatteryLevel">Aktivera bakgrundstjänsten att skicka enhetens
     batterinivå, plats och (om det stöds) aktivitetsdata till Home Assistant.</string>
   <string id="SettingsBatteryLevelRefreshRate">Uppdateringsfrekvensen (i minuter) med vilken

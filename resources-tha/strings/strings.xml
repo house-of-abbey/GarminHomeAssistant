@@ -82,6 +82,7 @@
   <string id="SettingsTextAlign">การจัดตำแหน่งเมนูซ้าย (ปิด) หรือขวา (เปิด)</string>
   <string id="SettingsLeftToRight">จากซ้ายไปขวา</string>
   <string id="SettingsRightToLeft">ขวาไปซ้าย</string>
+  <string id="SettingsShowTypeIcons">แสดงไอคอนประเภทหน้าเมนูหรือไม่? ปิดเพื่อเพิ่มพื้นที่ข้อความเมนู สวิตช์สลับจะแสดงเสมอ</string>
   <string id="SettingsEnableBatteryLevel">เปิดใช้งานบริการพื้นหลังเพื่อส่งระดับแบตเตอรี่ของอุปกรณ์
     ตำแหน่ง และข้อมูลกิจกรรม (ถ้ารองรับ) ไปยัง Home Assistant</string>
   <string id="SettingsBatteryLevelRefreshRate">อัตราการรีเฟรช (นาที)

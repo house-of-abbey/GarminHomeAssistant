@@ -77,6 +77,7 @@
   <string id="SettingsTextAlign">Vlevo (vypnuto) nebo vpravo (zapnuto) zarovnání nabídky.</string>
   <string id="SettingsLeftToRight">Zleva doprava</string>
   <string id="SettingsRightToLeft">Vpravo doleva</string>
+  <string id="SettingsShowTypeIcons">Zobrazit ikony typu před položkami menu? Vypněte pro více místa pro text menu. Přepínače jsou vždy zobrazeny.</string>
   <string id="SettingsEnableBatteryLevel">Povolit službě na pozadí odesílat úroveň baterie zařízení, jeho polohu a (pokud je podporováno) údaje o aktivitě do Home Assistant.</string>
   <string id="SettingsBatteryLevelRefreshRate">Frekvence aktualizace (v minutách), s jakou má služba na pozadí opakovaně odesílat data.</string>
   <string id="SettingsUserHttpHeader">Uživatelská hlavička HTTP</string>

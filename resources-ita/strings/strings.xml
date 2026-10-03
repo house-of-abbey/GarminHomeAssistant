@@ -91,6 +91,7 @@
   <string id="SettingsTextAlign">Allineamento del menu a sinistra (OFF) o a destra (ON).</string>
   <string id="SettingsLeftToRight">Da sinistra a destra</string>
   <string id="SettingsRightToLeft">Da destra a sinistra</string>
+  <string id="SettingsShowTypeIcons">Mostra le icone del tipo davanti alle voci di menu? Disattiva per dare più spazio al testo del menu. Gli interruttori a levetta sono sempre mostrati.</string>
   <string id="SettingsEnableBatteryLevel">Abilita il servizio in background per inviare il livello
     della batteria del dispositivo, la posizione e (se supportati) i dati di attività a Home
     Assistant.</string>

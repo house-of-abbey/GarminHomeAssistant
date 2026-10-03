@@ -85,6 +85,7 @@
   <string id="SettingsTextAlign">Alinierea meniului: Stânga (dezactivat) sau Dreapta (activat).</string>
   <string id="SettingsLeftToRight">De la stânga la dreapta</string>
   <string id="SettingsRightToLeft">De la dreapta la stânga</string>
+  <string id="SettingsShowTypeIcons">Afișați pictogramele de tip în fața elementelor de meniu? Dezactivați pentru a oferi mai mult spațiu textului meniului. Comutatoarele sunt întotdeauna afișate.</string>
   <string id="SettingsEnableBatteryLevel">Activați serviciul de fundal pentru a trimite nivelul
     bateriei dispozitivului, locația și (dacă este acceptat) datele de activitate către Home
     Assistant.</string>
