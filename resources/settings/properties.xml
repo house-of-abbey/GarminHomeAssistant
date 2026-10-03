@@ -99,6 +99,13 @@
   <property id="menu_alignment" type="number">1</property>
 
   <!--
+    Show the type icons in front of the tap, info, group, numeric and select
+    menu items. Turning them off gives the menu item text more room. Toggle
+    switches are always shown as they display the toggle's state.
+  -->
+  <property id="show_type_icons" type="boolean">true</property>
+
+  <!--
     Enable the background service to send the clock battery level to Home
     Assistant.
   -->

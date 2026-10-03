@@ -204,6 +204,17 @@ class HomeAssistantView extends WatchUi.Menu2 {
         }
     }
 
+    //! Overrides `WatchUi.Menu2.addItem()` so that, while the type icons are hidden, a
+    //! `HomeAssistantMenuItem` is added as the plain menu item displaying it, which is its
+    //! identifier.
+    //!
+    //! @param item The menu item to add.
+    //
+    function addItem(item as WatchUi.MenuItem) as Void {
+        var plain = item.getId();
+        WatchUi.Menu2.addItem((plain instanceof WatchUi.MenuItem) ? plain : item);
+    }
+
     //! Return a list of items that need to be updated within this menu structure.
     //!
     //! MN. Lang.Array.addAll() fails structural type checking without including "Null" in the return type
@@ -215,7 +226,7 @@ class HomeAssistantView extends WatchUi.Menu2 {
         var lmi = mItems as Lang.Array<WatchUi.MenuItem>;
 
         for(var i = 0; i < mItems.size(); i++) {
-            var item = lmi[i];
+            var item = HomeAssistantMenuItem.fromDisplayedItem(lmi[i]);
             if (item instanceof HomeAssistantGroupMenuItem) {
                 // Group menu items can now have an optional template to evaluate
                 var gmi = item as HomeAssistantGroupMenuItem;
@@ -302,6 +313,7 @@ class HomeAssistantViewDelegate extends WatchUi.Menu2InputDelegate {
     //
     function onSelect(item as WatchUi.MenuItem) as Void {
         mTimer.reset();
+        item = HomeAssistantMenuItem.fromDisplayedItem(item);
         if (item instanceof HomeAssistantToggleMenuItem) {
             var haToggleItem = item as HomeAssistantToggleMenuItem;
             // System.println(haToggleItem.getLabel() + " " + haToggleItem.getId() + " " + haToggleItem.isEnabled());

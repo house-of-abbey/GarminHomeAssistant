@@ -20,9 +20,17 @@ using Toybox.Graphics;
 //! Generic menu button with an icon that optionally renders a Home Assistant Template.
 //
 class HomeAssistantMenuItem extends WatchUi.IconMenuItem {
+    //! Options for the plain menu items displayed in place of menu items when the type icons are
+    //! hidden, otherwise null. Set by `HomeAssistantMenuItemFactory`.
+    static var mPlainOptions as { :alignment as WatchUi.MenuItem.Alignment }? = null;
     private var mTemplate as Lang.String?;
 
     //! Class Constructor
+    //!
+    //! A `WatchUi.IconMenuItem` always reserves space for its icon, even an empty one, and cannot be
+    //! created without one. So when the type icons are hidden, a plain `WatchUi.MenuItem` is
+    //! displayed in place of this menu item. Each is the other's identifier, see
+    //! `HomeAssistantView.addItem()` and `fromDisplayedItem()`.
     //!
     //! @param label    Menu item label
     //! @param template Menu item template
@@ -39,11 +47,23 @@ class HomeAssistantMenuItem extends WatchUi.IconMenuItem {
         WatchUi.IconMenuItem.initialize(
             label,
             null,
-            null,
+            mPlainOptions == null ? null : new WatchUi.MenuItem(label, null, self, mPlainOptions),
             options[:icon],
             options
         );
         mTemplate = template;
+    }
+
+    //! Return the menu item behind a menu item taken from a menu: the `HomeAssistantMenuItem` a
+    //! plain menu item displays while the type icons are hidden, otherwise the menu item itself.
+    //!
+    //! @param item A menu item taken from a menu.
+    //!
+    //! @return The menu item providing the behaviour and state.
+    //
+    static function fromDisplayedItem(item as WatchUi.MenuItem) as WatchUi.MenuItem {
+        var behind = item.getId();
+        return (behind instanceof HomeAssistantMenuItem) ? behind : item;
     }
 
     //! Does this menu item use a template?
@@ -60,6 +80,21 @@ class HomeAssistantMenuItem extends WatchUi.IconMenuItem {
     //
     function getTemplate() as Lang.String? {
         return mTemplate;
+    }
+
+    //! Overrides `WatchUi.MenuItem.setSubLabel()` so that the sub label updates made by
+    //! `updateState()`, here and in the subclasses, reach the plain menu item displaying this one
+    //! when the type icons are hidden.
+    //!
+    //! @param subLabel The new sub label.
+    //
+    function setSubLabel(subLabel as Lang.String or Lang.ResourceId or Null) as Void {
+        var plain = getId() as WatchUi.MenuItem?;
+        if (plain == null) {
+            WatchUi.IconMenuItem.setSubLabel(subLabel);
+        } else {
+            plain.setSubLabel(subLabel);
+        }
     }
 
     //! Update the menu item's sub label to display the template rendered by Home Assistant.

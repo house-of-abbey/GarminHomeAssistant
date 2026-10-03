@@ -20,6 +20,9 @@ using Toybox.WatchUi;
 //! MenuItems Factory class.
 //
 class HomeAssistantMenuItemFactory {
+    //! ID of the setting to show the type icons, as in `resources/settings/properties.xml`.
+    private static const scPropertyShowTypeIcons as Lang.String = "show_type_icons";
+
     private var mMenuItemOptions      as Lang.Dictionary;
     private var mTapTypeIcon          as WatchUi.Bitmap;
     private var mGroupTypeIcon        as WatchUi.Bitmap;
@@ -34,6 +37,12 @@ class HomeAssistantMenuItemFactory {
     //
     private function initialize() {
         mMenuItemOptions = { :alignment => Settings.getMenuAlignment() };
+        // Read here rather than in Settings, which is also part of the glance and background service.
+        if (!(Application.Properties.getValue(scPropertyShowTypeIcons) as Lang.Boolean)) {
+            HomeAssistantMenuItem.mPlainOptions = {
+                :alignment => mMenuItemOptions[:alignment] as WatchUi.MenuItem.Alignment
+            };
+        }
 
         mTapTypeIcon = new WatchUi.Bitmap({
             :rezId => $.Rez.Drawables.TapTypeIcon,
