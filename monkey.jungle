@@ -40,6 +40,10 @@ approachs50.resourcePath = $(approachs50.resourcePath);resources-launcher-56-56;
 approachs7042mm.resourcePath = $(approachs7042mm.resourcePath);resources-launcher-70-70;resources-icons-46
 # Screen Size 454x454 launcher icon size 80x80
 approachs7047mm.resourcePath = $(approachs7047mm.resourcePath);resources-launcher-80-80;resources-icons-53
+# Screen Size 416x416 launcher icon size 60x60
+approachs7243mm.resourcePath = $(approachs7243mm.resourcePath);resources-launcher-60-60;resources-icons-48
+# Screen Size 454x454 launcher icon size 65x65
+approachs7247mm.resourcePath = $(approachs7247mm.resourcePath);resources-launcher-65-65;resources-icons-53
 # Screen Size 390x390 launcher icon size 60x60
 d2air.resourcePath = $(d2air.resourcePath);resources-launcher-60-60;resources-icons-46
 # Screen Size 416x416 launcher icon size 70x70
@@ -98,6 +102,7 @@ edgemtb.resourcePath = $(edgemtb.resourcePath);resources-launcher-36-36;resource
 # Screen Size 280x280 launcher icon size 40x40
 enduro.resourcePath = $(enduro.resourcePath);resources-launcher-40-40;resources-icons-32
 enduro3.resourcePath = $(enduro3.resourcePath);resources-launcher-40-40;resources-icons-32
+enduro4.resourcePath = $(enduro4.resourcePath);resources-launcher-40-40;resources-icons-32
 # Screen Size 416x416 launcher icon size 60x60
 epix2.resourcePath = $(epix2.resourcePath);resources-launcher-60-60;resources-icons-48
 # Screen Size 390x390 launcher icon size 60x60
@@ -239,6 +244,8 @@ legacysagarey.resourcePath = $(legacysagarey.resourcePath);resources-launcher-30
 # Screen Size 390x390 launcher icon size 60x60
 marq2.resourcePath = $(marq2.resourcePath);resources-launcher-60-60;resources-icons-46
 marq2aviator.resourcePath = $(marq2aviator.resourcePath);resources-launcher-60-60;resources-icons-46
+# NOT LISTED AT THE TIME OF ADDING
+marq3.resourcePath = $(marq3.resourcePath);resources-launcher-60-60;resources-icons-46
 # Screen Size 240x240 launcher icon size 40x40
 marqadventurer.resourcePath = $(marqadventurer.resourcePath);resources-launcher-40-40;resources-icons-28
 marqathlete.resourcePath = $(marqathlete.resourcePath);resources-launcher-40-40;resources-icons-28
