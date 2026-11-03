@@ -39,6 +39,48 @@ As of version 2.0, there are now two installable versions. For older devices bef
 | Application (original) | For newer devices that allow glance views in their applications, e.g. Venu 2, the GarminHomeAssistant application can be started either from a glance or from the list of applications and activities. Head over to the [GarminHomeAssistant](https://apps.garmin.com/en-US/apps/61c91d28-ec5e-438d-9f83-39e9f45b199d) application page on the [Connect IQ application store](https://apps.garmin.com/en-US/) to download the application. The application can be started two different ways, either from the glance in the carousel, or as an application from the list of applications & activities. With the latter, it is worth marking the application as a favourite.<br/><img src="images/Venu2_app_start.png" width="200" title="Venu 2" style="margin:5px"/><img src="images/Vivoactive3_app_start.jpg" width="200" title="Vivoactive 3" style="margin:5px"/><br/>If you place the application on your list of favourites, and rearrange it to appear near the top, then the item is just one button press away from the watch face. This second picture here shows the application menu on a Vivoactive 3 watch.<br/><img src="./images/Venu2_glance_custom.png" width="200" title="Venu 2" style="margin:5px"/><br/>On newer watches, you can also start the application from the glance carousel. The glance view here typically displays some trackable status, so ours provides some early indication of API availability or something custom as shown here. Older watches will still allow you to start this application from the list of applications and activities. |
 | Widget                 | **"Maintenance only mode"** so no new features will be added to this version.<br>For older devices that use widgets, e.g. Venu (1) as opposed to applications with "glances", the GarminHomeAssistant application can instead be started from the widget carousel. This is a separate item in the Connect IQ AppStore and with this installation, the application will no longer appear in the list of applications and activities. Head over to the [GarminHomeAssistant](https://apps.garmin.com/en-US/apps/) widget page on the [Connect IQ application store](https://apps.garmin.com/en-US/) to download the widget.<br/><img src="images/Venu_Widget_sim.png" width="200" title="Venu 2" style="margin:5px"/><br/>Typically the widget view implements something similar to the glance view, e.g. status, and exists in a widget carousel to allow you to select an application to launch.<br>**Please note that memory in widgets is more limited than applications. This means a large menu definition can crash the widget without the code catching the error.**<br> This version was born out of the application version and from Ver 2.0 shared the same source code repository until Ver 2.8 when they were [separated](https://github.com/house-of-abbey/GarminHomeAssistantWidget) to allow the application version to take advantage of its increase memory availability. |
 
+### Launching from a Watch Face
+
+On compatible watches, GarminHomeAssistant publishes a public complication named **HomeAssistant**. A Connect IQ watch face that supports third-party complications can use it as a shortcut to open the existing application, typically by touching and holding the chosen area of the watch face. The watch face must implement this interaction; installing GarminHomeAssistant alone does not add a shortcut to every watch face.
+
+The complication is a static launcher, not a sensor or a Home Assistant entity. It does not publish entity states, make additional Home Assistant requests, or register additional background events. Configure the application normally through Connect IQ; authentication, menus, glances, and existing connections are unchanged.
+
+#### For Watch Face Developers
+
+The watch face needs the `ComplicationSubscriber` permission and a device supporting the [Complications API](https://developer.garmin.com/connect-iq/api-docs/Toybox/Complications.html) (introduced in Connect IQ API 4.2). Enumerate the complications available to your watch face using `Complications.getComplications()` and let the user select the HomeAssistant entry. Connect IQ complications have type `COMPLICATION_TYPE_INVALID`, unlike the built-in system complication types.
+
+For example, the following function finds a matching entry when there is only one HomeAssistant installation:
+
+```monkeyc
+import Toybox.Complications;
+
+function findHomeAssistantComplication() as Complications.Id? {
+    var iterator = Complications.getComplications();
+    var complication = iterator.next();
+    while (complication != null) {
+        var label = complication.longLabel;
+        if (complication.getType() == Complications.COMPLICATION_TYPE_INVALID &&
+            label != null && label.equals("HomeAssistant")) {
+            return complication.complicationId;
+        }
+        complication = iterator.next();
+    }
+    return null;
+}
+```
+
+In the watch face's [`WatchFaceDelegate.onPress()`](https://developer.garmin.com/connect-iq/api-docs/Toybox/WatchUi/WatchFaceDelegate.html#onPress-instance_function) handler, call [`Complications.exitTo()`](https://developer.garmin.com/connect-iq/api-docs/Toybox/Complications.html#exitTo-instance_function) with the selected non-null `Complications.Id`. This opens the ordinary application entry point; no special launch parameters or publisher callbacks are required.
+
+Use the actual returned Id, not a list position or a label alone, for a saved selection. [`Application.Storage`](https://developer.garmin.com/connect-iq/api-docs/Toybox/Application/Storage.html#setValue-instance_function) supports storing `Complications.Id` since API 4.2. Labels are not unique when, for example, a test build is installed alongside the store application. The resource index is `0` and must remain stable in future releases, but is not a built-in `Complications.Type` that can be passed to `new Complications.Id()`.
+
+Handle a missing or uninstalled application without launching an unrelated target. A launch can fail with `Lang.InvalidValueException` if the Id does not belong to a valid application; account for this when implementing the interaction. Subscribing to value updates is not needed for this static shortcut. Firmware controls confirmation dialogs, wake-up handling, and return navigation, so these should be checked on the target watch. `System.exitTo()` is not an alternative for watch faces; that API is restricted to watch-apps and widgets.
+
+#### Compatibility and Testing
+
+The complication resources are included only in the device-specific `resourcePath` entries marked with `resources-complication` in `monkey.jungle`. The application's minimum API level remains 3.1; older watches and devices without complication support keep their existing launch methods. When adding a device, check Garmin's supported-device list and its SDK device metadata before adding the complication resource directory.
+
+For a release, build both complication-capable and legacy targets and export a mixed-device IQ package. On real hardware, verify discovery in a consuming watch face, touch-and-hold launch, the existing menu and settings, return to the watch face, and removal/reinstallation of the application. Also check that an initial touch on an always-on display does not unexpectedly trigger the shortcut. Simulator builds do not verify these firmware interactions.
+
 ### Features
 
 The following table lists the differences in functionality between the two. The Widget version is more limited due to memory constraints. As such new features are only being added to the Application.

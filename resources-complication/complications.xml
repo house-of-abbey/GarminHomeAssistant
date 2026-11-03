@@ -1,0 +1,29 @@
+<!--
+
+   Distributed under MIT Licence
+     See https://github.com/house-of-abbey/GarminHomeAssistant/blob/main/LICENSE
+
+
+   GarminHomeAssistant is a Garmin IQ application written in Monkey C and routinely
+   tested on a Venu 2 device. The source code is provided at:
+              https://github.com/house-of-abbey/GarminHomeAssistant
+
+   P A Abbey & J D Abbey & Someone0nEarth, 31 October 2023
+
+-->
+
+<!--
+   A single static complication so that Connect IQ watch faces can launch the
+   application via Complications.exitTo() (press and hold). It carries no value
+   and is never updated, i.e. no extra API calls or background work.
+   The id must remain 0 in all future versions as watch faces may persist it.
+-->
+<resources>
+    <complications>
+        <complication id="0" access="public"
+                      longLabel="@Strings.AppName"
+                      icon="@Drawables.ComplicationIcon">
+            <faceIt defaultText="@Strings.AppName" />
+        </complication>
+    </complications>
+</resources>
