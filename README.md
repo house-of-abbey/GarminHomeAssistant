@@ -444,9 +444,9 @@ To prevent excessive battery usage, set the application timeout in the settings.
 
 On compatible watches, GarminHomeAssistant publishes a public complication named **HomeAssistant**. A Connect IQ watch face that supports third-party complications can use it as a shortcut to open the existing application, typically by touching and holding the chosen area of the watch face. The watch face must implement this interaction; installing GarminHomeAssistant alone does not add a shortcut to every watch face.
 
-The complication is a static launcher, not a sensor or a Home Assistant entity. It does not publish entity states, make additional Home Assistant requests, or register additional background events. Configure the application normally through Connect IQ; authentication, menus, glances, and existing connections are unchanged.
+The complication provides a launcher, an icon, the short label **HA**, and a compact last-observed API connection status: `OK` (successful), `ERR` (connection, API, or configuration failure), or `?` (not checked). The value contains no timestamp or detailed error text; detailed status messages within the application are unchanged. The value is updated by existing application/glance checks and status updates, not by additional requests or background events. It is not a live availability monitor: after the application or glance closes, its last value can become stale. Configure the application normally through Connect IQ; authentication, menus, glances, and existing connections are unchanged.
 
-Watch face developers can find integration details and compatibility guidance in [Complications](complications.md).
+For a status-display and launch test using frinkr's Fallout watch face, see [Testing Status Display and Launch with Fallout](complications.md#testing-status-display-and-launch-with-fallout). Watch face developers can also find integration details and compatibility guidance in [Complications](complications.md).
 
 ## Submitting Corrections for Translations
 

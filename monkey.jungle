@@ -19,7 +19,7 @@
 project.manifest = manifest.xml
 
 # Devices that support publishing complications (Connect IQ API >= 4.2 watches) also get
-# "resources-complication", which declares a static complication so watch faces can launch
+# "resources-complication", which declares a status complication so watch faces can launch
 # this application with press and hold. Append it for new devices with complication support.
 
 # Device References

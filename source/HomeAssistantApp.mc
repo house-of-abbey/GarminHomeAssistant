@@ -115,12 +115,15 @@ class HomeAssistantApp extends Application.AppBase {
         Settings.update();
 
         if (Settings.getApiKey().length() == 0) {
+            setApiStatus(WatchUi.loadResource($.Rez.Strings.Unconfigured) as Lang.String);
             // System.println("HomeAssistantApp getInitialView(): No API key in the application Settings.");
             return ErrorView.create(WatchUi.loadResource($.Rez.Strings.NoAPIKey) as Lang.String);
         } else if (Settings.getApiUrl().length() == 0) {
+            setApiStatus(WatchUi.loadResource($.Rez.Strings.Unconfigured) as Lang.String);
             // System.println("HomeAssistantApp getInitialView(): No API URL in the application Settings.");
             return ErrorView.create(WatchUi.loadResource($.Rez.Strings.NoApiUrl) as Lang.String);
         } else if (Settings.getApiUrl().substring(-1, Settings.getApiUrl().length()).equals("/")) {
+            setApiStatus(WatchUi.loadResource($.Rez.Strings.Unconfigured) as Lang.String);
             // System.println("HomeAssistantApp getInitialView(): API URL must not have a trailing slash '/'.");
             return ErrorView.create(WatchUi.loadResource($.Rez.Strings.TrailingSlashErr) as Lang.String);
         } else if (Settings.getConfigUrl().length() == 0) {
@@ -130,12 +133,15 @@ class HomeAssistantApp extends Application.AppBase {
             // System.println("HomeAssistantApp getInitialView(): Invalid PIN in application settings.");
             return ErrorView.create(WatchUi.loadResource($.Rez.Strings.SettingsPinError) as Lang.String);
         } else if (! System.getDeviceSettings().phoneConnected and Settings.getWifiLteExecutionEnabled() and ! hasCachedMenu()) {
+            setApiStatus(WatchUi.loadResource($.Rez.Strings.Unavailable) as Lang.String);
             // System.println("HomeAssistantApp getInitialView(): No Phone connection, no cached menu, skipping API call.");
             return ErrorView.create(WatchUi.loadResource($.Rez.Strings.NoPhoneNoCache) as Lang.String);
         } else if (! System.getDeviceSettings().phoneConnected and ! Settings.getWifiLteExecutionEnabled()) {
+            setApiStatus(WatchUi.loadResource($.Rez.Strings.Unavailable) as Lang.String);
             // System.println("HomeAssistantApp getInitialView(): No Phone connection and Wi-Fi disabled, skipping API call.");
             return ErrorView.create(WatchUi.loadResource($.Rez.Strings.NoPhone) as Lang.String);
         } else if (! System.getDeviceSettings().connectionAvailable and ! Settings.getWifiLteExecutionEnabled()) {
+            setApiStatus(WatchUi.loadResource($.Rez.Strings.Unavailable) as Lang.String);
             // System.println("HomeAssistantApp getInitialView(): No Internet connection and Wi-Fi disabled, skipping API call.");
             return ErrorView.create(WatchUi.loadResource($.Rez.Strings.NoInternet) as Lang.String);
         } else {
@@ -617,9 +623,8 @@ class HomeAssistantApp extends Application.AppBase {
                 // System.println("HomeAssistantApp onReturnUpdateMenuItems() Response Code: NETWORK_RESPONSE_OUT_OF_MEMORY, are we going too fast?");
                 var myTimer = new Timer.Timer();
                 myTimer.start(method(:updateMenuItems), Globals.scApiBackoffMs, false);
-                // Revert status
-                status = getApiStatus();
-                break;
+                // A local memory failure provides no new API-status observation.
+                return;
 
             case 404:
                 // System.println("HomeAssistantApp onReturnUpdateMenuItems() Response Code: 404, page not found. Check API URL setting.");
@@ -810,7 +815,7 @@ class HomeAssistantApp extends Application.AppBase {
         // System.println("HomeAssistantApp onReturnFetchApiStatus() Response Code: " + responseCode);
         // System.println("HomeAssistantApp onReturnFetchApiStatus() Response Data: " + data);
 
-        mApiStatus = WatchUi.loadResource($.Rez.Strings.Unavailable) as Lang.String;
+        var status = WatchUi.loadResource($.Rez.Strings.Unavailable) as Lang.String;
         switch (responseCode) {
             case Communications.BLE_HOST_TIMEOUT:
             case Communications.BLE_CONNECTION_UNAVAILABLE:
@@ -857,11 +862,11 @@ class HomeAssistantApp extends Application.AppBase {
 
             case 200:
                 // System.println("HomeAssistantApp onReturnFetchApiStatus() Response Code: 200.");
-                if ((data != null) && (data instanceof Lang.Dictionary) && data["message"].equals("API running.")) {
-                    mApiStatus = WatchUi.loadResource($.Rez.Strings.Available) as Lang.String;
+                if ((data instanceof Lang.Dictionary) && "API running.".equals(data.get("message"))) {
+                    status = WatchUi.loadResource($.Rez.Strings.Available) as Lang.String;
                 } else {
                     if (mIsApp) {
-                        ErrorView.show("API " + mApiStatus + ".");
+                        ErrorView.show("API " + status + ".");
                     }
                 }
                 break;
@@ -872,6 +877,7 @@ class HomeAssistantApp extends Application.AppBase {
                     ErrorView.show(WatchUi.loadResource($.Rez.Strings.UnhandledHttpErr) as Lang.String + responseCode);
                 }
         }
+        setApiStatus(status);
         WatchUi.requestUpdate();
     }
 
@@ -883,7 +889,7 @@ class HomeAssistantApp extends Application.AppBase {
 
         // System.println("HomeAssistantApp fetchApiStatus(): API URL = " + Settings.getApiUrl());
         if (Settings.getApiUrl().equals("")) {
-            mApiStatus = WatchUi.loadResource($.Rez.Strings.Unconfigured) as Lang.String;
+            setApiStatus(WatchUi.loadResource($.Rez.Strings.Unconfigured) as Lang.String);
             WatchUi.requestUpdate();
         } else {
             if (mIsApp && Settings.getWifiLteExecutionEnabled() && (! phoneConnected || ! connectionAvailable)) {
@@ -891,7 +897,7 @@ class HomeAssistantApp extends Application.AppBase {
                 return;
             } else if (! phoneConnected) {
                 // System.println("HomeAssistantApp fetchApiStatus(): No Phone connection, skipping API call.");
-                mApiStatus = WatchUi.loadResource($.Rez.Strings.Unavailable) as Lang.String;
+                setApiStatus(WatchUi.loadResource($.Rez.Strings.Unavailable) as Lang.String);
                 if (!mIsApp) {
                     WatchUi.requestUpdate();
                 } else {
@@ -899,7 +905,7 @@ class HomeAssistantApp extends Application.AppBase {
                 }
             } else if (! connectionAvailable) {
                 // System.println("HomeAssistantApp fetchApiStatus(): No Internet connection, skipping API call.");
-                mApiStatus = WatchUi.loadResource($.Rez.Strings.Unavailable) as Lang.String;
+                setApiStatus(WatchUi.loadResource($.Rez.Strings.Unavailable) as Lang.String);
                 if (!mIsApp) {
                     WatchUi.requestUpdate();
                 } else {
@@ -987,6 +993,27 @@ class HomeAssistantApp extends Application.AppBase {
     //
     function setApiStatus(s as Lang.String) {
         mApiStatus = s;
+        publishApiStatus(formatApiStatus(s));
+    }
+
+    function publishApiStatus(s as Lang.String) as Void {
+        // The resource guard excludes devices without a declared publisher.
+        if ((Toybox has :Complications) && ($.Rez.Strings has :ComplicationUnchecked)) {
+            Toybox.Complications.updateComplication(0, {
+                :value => s
+            });
+        }
+    }
+
+    function formatApiStatus(s as Lang.String) as Lang.String {
+        if (s.equals(WatchUi.loadResource($.Rez.Strings.Available))) {
+            return "OK";
+        }
+        if (s.equals(WatchUi.loadResource($.Rez.Strings.Unavailable)) ||
+            s.equals(WatchUi.loadResource($.Rez.Strings.Unconfigured))) {
+            return "ERR";
+        }
+        return "?";
     }
 
     //! Return the API status result.
@@ -1078,6 +1105,7 @@ class HomeAssistantApp extends Application.AppBase {
     function onSettingsChanged() as Void {
         // System.println("HomeAssistantApp onSettingsChanged()");
         Settings.update();
+        publishApiStatus("?");
     }
 
     //! Called each time the Registered Temporal Event is to be invoked. So the object is created each time

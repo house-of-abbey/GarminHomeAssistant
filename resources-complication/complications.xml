@@ -13,15 +13,21 @@
 -->
 
 <!--
-   A single static complication so that Connect IQ watch faces can launch the
-   application via Complications.exitTo() (press and hold). It carries no value
-   and is never updated, i.e. no extra API calls or background work.
+   A single public complication so that Connect IQ watch faces can launch the
+   application via Complications.exitTo() (press and hold). Its value reports
+   the last observed API status without extra API calls or background work.
    The id must remain 0 in all future versions as watch faces may persist it.
 -->
 <resources>
+    <strings>
+        <string id="ComplicationShortLabel" translatable="false">HA</string>
+        <string id="ComplicationUnchecked" scope="glance" translatable="false">?</string>
+    </strings>
     <complications>
         <complication id="0" access="public"
+                      shortLabel="@Strings.ComplicationShortLabel"
                       longLabel="@Strings.AppName"
+                      value="@Strings.ComplicationUnchecked"
                       icon="@Drawables.ComplicationIcon">
             <faceIt defaultText="@Strings.AppName" />
         </complication>
