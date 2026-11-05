@@ -1,0 +1,2 @@
+# Use together with monkey.jungle and monkeyc --unit-test.
+base.sourcePath = source;source-test

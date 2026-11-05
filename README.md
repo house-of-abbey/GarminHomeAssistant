@@ -440,6 +440,17 @@ The thinking here is that the watch application will only ever be open briefly n
 
 To prevent excessive battery usage, set the application timeout in the settings. This will prevent you from leaving the application open and forgotten when not being used, and the polling mechanism will then cease, saving battery life. Again, the thinking here is that the watch application will only ever be open briefly not persistently, and hence not be a constant source of battery usage unless the [background service](BackgroundService.md) for sending any watch status is used aggressively fast.
 
+## Launching from a Watch Face
+
+> [!IMPORTANT]
+> This feature works only with a watch face that explicitly supports third-party Connect IQ complications. Garmin's stock watch faces generally do not support third-party app complications at this point. Check the watch-face description before relying on this feature.
+
+On compatible watches, GarminHomeAssistant publishes a public complication named **HomeAssistant**. A Connect IQ watch face that supports third-party complications can use it as a shortcut to open the existing application, typically by touching and holding the chosen area of the watch face. The watch face must implement this interaction; installing GarminHomeAssistant alone does not add a shortcut to every watch face.
+
+The complication provides a launcher, an icon, the short label **HA**, and a compact last-observed API connection status: `OK` (successful), `ERR` (connection, API, or configuration failure), or `?` (not checked). The value contains no timestamp or detailed error text; detailed status messages within the application are unchanged. The value is updated by existing application/glance checks and status updates, not by additional requests or background events. It is not a live availability monitor: after the application or glance closes, its last value can become stale. Configure the application normally through Connect IQ; authentication, menus, glances, and existing connections are unchanged.
+
+For a status-display and launch test using frinkr's Fallout watch face, see [Testing Status Display and Launch with Fallout](complications.md#testing-status-display-and-launch-with-fallout). Watch face developers can also find integration details and compatibility guidance in [Complications](complications.md).
+
 ## Submitting Corrections for Translations
 
 Initially all text has been created in English, and a [Python script](https://github.com/house-of-abbey/GarminHomeAssistant/blob/main/translate.py) (Google Translate under the hood) has been used to create the first version of all translations. We have been pleased to accept better translations from native language speakers, *thank you*. If you would like to submit improved translations, our preference is you do so via a [Git pull request](https://github.com/house-of-abbey/GarminHomeAssistant/pulls). If you are not comfortable doing this, then just raise an issue and someone will eventually pick the request up.
