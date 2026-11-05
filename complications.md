@@ -58,3 +58,7 @@ The complication resources are included only in the device-specific `resourcePat
 For a release, build both complication-capable and legacy targets and export a mixed-device IQ package. On real hardware, verify discovery in a consuming watch face, touch-and-hold launch, the existing menu and settings, return to the watch face, and removal/reinstallation of the application. Check the initial `?`, exact `OK`/`ERR` values for successful/failed API responses, `ERR` for missing configuration or connectivity, settings-change reset, and retention of the last status after closing the app. No value should contain a timestamp or localized error text. A local out-of-memory retry must preserve the previous status. Also check that an initial touch on an always-on display does not unexpectedly trigger the shortcut. Simulator builds do not verify these firmware interactions.
 
 The status-formatting and callback tests use an unconfigured simulator instance (no Home Assistant requests). Build with `monkeyc -d fenix847mm -f "monkey.jungle;monkey-test.jungle" -y /path/to/developer_key.der --unit-test -o bin/complication-tests.prg`, then run `monkeydo bin/complication-tests.prg fenix847mm -t` with the simulator open. The test sources are not included in normal builds.
+
+## Credits
+
+With thanks to [@therau5ch](https://github.com/therau5ch) for contributing this solution.
