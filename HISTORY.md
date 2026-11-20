@@ -65,3 +65,4 @@
 |   3.17  | Added an option to hide the menu type icons and provide more space for any text to be displayed. With thanks to [@KostaMadorsky](https://github.com/KostaMadorsky) for this contribution. |
 |   3.18  | Added support for new devices, `approachs7243mm`, `approachs7247mm`, `enduro4`, and `marq3`. |
 |   3.19  | Publish a HomeAssistant complication with an icon, HA short label, and compact last-observed API status (OK, ERR, or ?) on compatible watches so supporting watch faces can open the application by touch and hold. With thanks to [@therau5ch](https://github.com/therau5ch) for this contribution. |
+|   3.20  | Added two new devices, `edgeexplore3` & `edgeexplore3plus`. |
