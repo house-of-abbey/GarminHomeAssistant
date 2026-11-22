@@ -25,6 +25,12 @@ using Toybox.Activity;
 (:background)
 class BackgroundServiceDelegate extends System.ServiceDelegate {
 
+    //! Number of web requests still awaiting a response. doUpdate() can make two
+    //! requests (location and sensors) that share one callback, and Background.exit()
+    //! ends the background process, cancelling any request still in flight. So only
+    //! exit once every request has returned.
+    private var mPendingRequests as Lang.Number = 0;
+
     //! Class Constructor
     //
     function initialize() {
@@ -39,7 +45,10 @@ class BackgroundServiceDelegate extends System.ServiceDelegate {
     function onReturnDoUpdate(responseCode as Lang.Number, data as Null or Lang.Dictionary or Lang.String) as Void {
         // System.println("BackgroundServiceDelegate onReturnDoUpdate() Response Code: " + responseCode);
         // System.println("BackgroundServiceDelegate onReturnDoUpdate() Response Data: " + data);
-        Background.exit(null);
+        mPendingRequests--;
+        if (mPendingRequests <= 0) {
+            Background.exit(null);
+        }
     }
 
     //! Called on completion of an activity.
@@ -153,6 +162,7 @@ class BackgroundServiceDelegate extends System.ServiceDelegate {
             }
             // System.println("BackgroundServiceDelegate onTemporalEvent(): data = " + data.toString());
 
+            mPendingRequests++;
             Communications.makeWebRequest(
                 (Properties.getValue("api_url") as Lang.String) + "/webhook/" + (Properties.getValue("webhook_id") as Lang.String),
                 {
@@ -239,6 +249,7 @@ class BackgroundServiceDelegate extends System.ServiceDelegate {
                 "unique_id" => "sub_activity"
             });
         }
+        mPendingRequests++;
         Communications.makeWebRequest(
             (Properties.getValue("api_url") as Lang.String) + "/webhook/" + (Properties.getValue("webhook_id") as Lang.String),
             {
