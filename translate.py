@@ -42,7 +42,13 @@ from bs4 import BeautifulSoup, Comment
 # ---------------- Configuration ----------------
 
 # Gemini model name
-MODEL_NAME = "gemini-2.5-flash"
+# Gemini 2.5 Flash (gemini-2.5-flash) is being deprecated. Effective December 1, 2026,
+# it will no longer be available as a standalone model in the Gemini API or Google AI
+# Studio, and all requests to gemini-2.5-flash will automatically redirect to
+# gemini-3.5-flash-lite.
+#MODEL_NAME = "gemini-2.5-flash"
+# https://aistudio.google.com/docs/whats-new-gemini-3.6#migrate-to-gemini-3-5-flash-lite
+MODEL_NAME = "gemini-3.5-flash-lite"
 
 # Language definitions:
 #  * Garmin IQ language three-letter mnemonic (used in resources-XXX folder),
