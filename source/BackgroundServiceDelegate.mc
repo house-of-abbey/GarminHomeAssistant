@@ -25,21 +25,87 @@ using Toybox.Activity;
 (:background)
 class BackgroundServiceDelegate extends System.ServiceDelegate {
 
+    //! Requests still to send in this background run, each [type, data]. They go out one after
+    //! another: Background.exit() ends the run, so no request may still be pending then.
+    private var mQueue as Lang.Array<Lang.Array> = [] as Lang.Array<Lang.Array>;
+    //! The request in flight, sent again after a Bluetooth error.
+    private var mCurrent as Lang.Array or Null = null;
+    private var mRetries as Lang.Number = 0;
+    //! A background run's first request can be refused at once with a Bluetooth error (Edge 850,
+    //! firmware 33.22: -102 BLE_REQUEST_TOO_LARGE for ~200 bytes, every run); sent again right
+    //! away it goes through.
+    private const MAX_RETRIES = 2;
+
     //! Class Constructor
     //
     function initialize() {
         ServiceDelegate.initialize();
     }
 
-    //! Callback function for doUpdate().
+    //! Callback for every queued request: after a Bluetooth error (-1 to -104) the same request
+    //! again, otherwise the next one, and after the last the run ends.
     //!
     //! @param responseCode Response code
     //! @param data         Return data
     //
-    function onReturnDoUpdate(responseCode as Lang.Number, data as Null or Lang.Dictionary or Lang.String) as Void {
-        // System.println("BackgroundServiceDelegate onReturnDoUpdate() Response Code: " + responseCode);
-        // System.println("BackgroundServiceDelegate onReturnDoUpdate() Response Data: " + data);
-        Background.exit(null);
+    function onReturnQueued(responseCode as Lang.Number, data as Null or Lang.Dictionary or Lang.String) as Void {
+        // System.println("BackgroundServiceDelegate onReturnQueued() Response Code: " + responseCode);
+        if (responseCode <= -1 and responseCode >= -104 and mCurrent != null and mRetries < MAX_RETRIES) {
+            mRetries++;
+            send(mCurrent);
+        } else {
+            sendNext();
+        }
+    }
+
+    //! Send the next queued request, or end the background run when none is left.
+    //
+    private function sendNext() as Void {
+        if (mQueue.size() == 0) {
+            mCurrent = null;
+            Background.exit(null);
+            return;
+        }
+        mCurrent = mQueue[0];
+        mQueue   = mQueue.slice(1, null);
+        mRetries = 0;
+        send(mCurrent);
+    }
+
+    //! Send one queued request.
+    //!
+    //! @param request [type, data]
+    //
+    private function send(request as Lang.Array) as Void {
+        post(request[0] as Lang.String, request[1] as Lang.Dictionary or Lang.Array, method(:onReturnQueued));
+    }
+
+    //! POST one webhook request.
+    //!
+    //! @param type     Webhook request type, e.g. "update_sensor_states"
+    //! @param data     The request's "data"
+    //! @param callback Called with the answer
+    //
+    private function post(
+        type     as Lang.String,
+        data     as Lang.Dictionary or Lang.Array,
+        callback as Lang.Method
+    ) as Void {
+        Communications.makeWebRequest(
+            (Properties.getValue("api_url") as Lang.String) + "/webhook/" + (Properties.getValue("webhook_id") as Lang.String),
+            {
+                "type" => type,
+                "data" => data
+            },
+            {
+                :method       => Communications.HTTP_REQUEST_METHOD_POST,
+                :headers      => Settings.augmentHttpHeaders({
+                    "Content-Type" => Communications.REQUEST_CONTENT_TYPE_JSON
+                }),
+                :responseType => Communications.HTTP_RESPONSE_CONTENT_TYPE_JSON
+            },
+            callback
+        );
     }
 
     //! Called on completion of an activity.
@@ -115,6 +181,7 @@ class BackgroundServiceDelegate extends System.ServiceDelegate {
         // System.println("BackgroundServiceDelegate onTemporalEvent(): Activity : " + Activity.getProfileInfo().name);
 
         // Don't use Settings.* here as the object lasts < 30 secs and is recreated each time the background service is run
+        var location = null;
         if (position.accuracy != Position.QUALITY_NOT_AVAILABLE) {
             var accuracy = 0;
             switch (position.accuracy) {
@@ -152,25 +219,12 @@ class BackgroundServiceDelegate extends System.ServiceDelegate {
                 data["altitude"] = Math.round(position.altitude);
             }
             // System.println("BackgroundServiceDelegate onTemporalEvent(): data = " + data.toString());
-
-            Communications.makeWebRequest(
-                (Properties.getValue("api_url") as Lang.String) + "/webhook/" + (Properties.getValue("webhook_id") as Lang.String),
-                {
-                    "type" => "update_location",
-                    "data" => data
-                },
-                {
-                    :method       => Communications.HTTP_REQUEST_METHOD_POST,
-                    :headers      => Settings.augmentHttpHeaders({
-                        "Content-Type" => Communications.REQUEST_CONTENT_TYPE_JSON
-                    }),
-                    :responseType => Communications.HTTP_RESPONSE_CONTENT_TYPE_JSON
-                },
-                method(:onReturnDoUpdate)
-            );
+            location = data;
         }
-        var activityInfo = ActivityMonitor.getInfo();
-        var heartRate = Activity.getActivityInfo().currentHeartRate;
+        // Devices without all-day tracking (e.g. Edge bike computers) have no ActivityMonitor, and
+        // getActivityInfo() can be null; as in WebhookManager.registerWebhookSensors().
+        var info      = Activity.getActivityInfo();
+        var heartRate = (info != null) ? info.currentHeartRate : null;
         var data = [
             {
                 "state"     => System.getSystemStats().battery,
@@ -185,12 +239,6 @@ class BackgroundServiceDelegate extends System.ServiceDelegate {
                 "icon"      => System.getSystemStats().charging ? "mdi:battery-plus" : "mdi:battery-minus"
             },
             {
-                "state"     => activityInfo.steps == null ? "unknown" : activityInfo.steps,
-                "type"      => "sensor",
-                "unique_id" => "steps_today",
-                "icon"      => "mdi:walk"
-            },
-            {
                 "state"     => heartRate == null ? "unknown" : heartRate,
                 "type"      => "sensor",
                 "unique_id" => "heart_rate",
@@ -198,31 +246,41 @@ class BackgroundServiceDelegate extends System.ServiceDelegate {
             }
         ];
 
-        if (ActivityMonitor.Info has :floorsClimbed) {
+        if (Toybox has :ActivityMonitor) {
+            var activityInfo = ActivityMonitor.getInfo();
             data.add({
-                "state"     => activityInfo.floorsClimbed == null ? "unknown" : activityInfo.floorsClimbed,
+                "state"     => activityInfo.steps == null ? "unknown" : activityInfo.steps,
                 "type"      => "sensor",
-                "unique_id" => "floors_climbed_today",
-                "icon"      => "mdi:stairs-up"
+                "unique_id" => "steps_today",
+                "icon"      => "mdi:walk"
             });
-        }
 
-        if (ActivityMonitor.Info has :floorsDescended) {
-            data.add({
-                "state"     => activityInfo.floorsDescended == null ? "unknown" : activityInfo.floorsDescended,
-                "type"      => "sensor",
-                "unique_id" => "floors_descended_today",
-                "icon"      => "mdi:stairs-down"
-            });
-        }
+            if (ActivityMonitor.Info has :floorsClimbed) {
+                data.add({
+                    "state"     => activityInfo.floorsClimbed == null ? "unknown" : activityInfo.floorsClimbed,
+                    "type"      => "sensor",
+                    "unique_id" => "floors_climbed_today",
+                    "icon"      => "mdi:stairs-up"
+                });
+            }
 
-        if (ActivityMonitor.Info has :respirationRate) {
-            data.add({
-                "state"     => activityInfo.respirationRate == null ? "unknown" : activityInfo.respirationRate,
-                "type"      => "sensor",
-                "unique_id" => "respiration_rate",
-                "icon"      => "mdi:lungs"
-            });
+            if (ActivityMonitor.Info has :floorsDescended) {
+                data.add({
+                    "state"     => activityInfo.floorsDescended == null ? "unknown" : activityInfo.floorsDescended,
+                    "type"      => "sensor",
+                    "unique_id" => "floors_descended_today",
+                    "icon"      => "mdi:stairs-down"
+                });
+            }
+
+            if (ActivityMonitor.Info has :respirationRate) {
+                data.add({
+                    "state"     => activityInfo.respirationRate == null ? "unknown" : activityInfo.respirationRate,
+                    "type"      => "sensor",
+                    "unique_id" => "respiration_rate",
+                    "icon"      => "mdi:lungs"
+                });
+            }
         }
 
         if (activity != null) {
@@ -239,21 +297,12 @@ class BackgroundServiceDelegate extends System.ServiceDelegate {
                 "unique_id" => "sub_activity"
             });
         }
-        Communications.makeWebRequest(
-            (Properties.getValue("api_url") as Lang.String) + "/webhook/" + (Properties.getValue("webhook_id") as Lang.String),
-            {
-                "type" => "update_sensor_states",
-                "data" => data
-            },
-            {
-                :method       => Communications.HTTP_REQUEST_METHOD_POST,
-                :headers      => Settings.augmentHttpHeaders({
-                    "Content-Type" => Communications.REQUEST_CONTENT_TYPE_JSON
-                }),
-                :responseType => Communications.HTTP_RESPONSE_CONTENT_TYPE_JSON
-            },
-            method(:onReturnDoUpdate)
-        );
+        // The sensor states (with the battery) first, then the location.
+        mQueue = [["update_sensor_states", data]] as Lang.Array<Lang.Array>;
+        if (location != null) {
+            mQueue.add(["update_location", location]);
+        }
+        sendNext();
     }
 
 }
