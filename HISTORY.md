@@ -65,4 +65,4 @@
 |   3.17  | Added an option to hide the menu type icons and provide more space for any text to be displayed. With thanks to [@KostaMadorsky](https://github.com/KostaMadorsky) for this contribution. |
 |   3.18  | Added support for new devices, `approachs7243mm`, `approachs7247mm`, `enduro4`, and `marq3`. |
 |   3.19  | Publish a HomeAssistant complication with an icon, HA short label, and compact last-observed API status (OK, ERR, or ?) on compatible watches so supporting watch faces can open the application by touch and hold. With thanks to [@therau5ch](https://github.com/therau5ch) for this contribution. |
-|   3.20  | Added two new devices, `edgeexplore3` & `edgeexplore3plus`. |
+|   3.20  | Fix for background service which misbehaved on some devices, notably Edge ones, with thanks to [@harunari0928](https://github.com/harunari0928) and [@posixpoet](https://github.com/posixpoet) for code contributions. Added three new devices, `edge1060`, `edgeexplore3` & `edgeexplore3plus`. The `edge1060` simulation was worrying, but assumed to be a simulation issue only, so releasing for public testing! |
